@@ -1,7 +1,6 @@
 'use strict';
 
 var List = require("../../lib/js/list.js");
-var Block = require("../../lib/js/block.js");
 var Curry = require("../../lib/js/curry.js");
 var Printf = require("../../lib/js/printf.js");
 var $$String = require("../../lib/js/string.js");
@@ -27,23 +26,28 @@ function split(delim, s) {
         }
         catch (exn){
           if (exn === Caml_builtin_exceptions.not_found) {
-            return /* :: */[
-                    $$String.sub(s, 0, i),
-                    l
-                  ];
+            return /* constructor */{
+                    tag: 0,
+                    name: "::",
+                    "0": $$String.sub(s, 0, i),
+                    "1": l
+                  };
           } else {
             throw exn;
           }
         }
-        var l_000 = $$String.sub(s, i$prime + 1 | 0, (i - i$prime | 0) - 1 | 0);
-        var l$1 = /* :: */[
-          l_000,
-          l
-        ];
-        var l$2 = i$prime === 0 ? /* :: */[
-            "",
-            l$1
-          ] : l$1;
+        var l$1 = /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": $$String.sub(s, i$prime + 1 | 0, (i - i$prime | 0) - 1 | 0),
+          "1": l
+        };
+        var l$2 = i$prime === 0 ? /* constructor */({
+              tag: 0,
+              name: "::",
+              "0": "",
+              "1": l$1
+            }) : l$1;
         _i = i$prime;
         _l = l$2;
         continue ;
@@ -77,21 +81,29 @@ function string_of_rank(param) {
       return "Uninitialized";
     }
   } else {
-    return Curry._1(Printf.sprintf(/* Format */[
-                    /* String_literal */Block.__(11, [
-                        "Ranked(",
-                        /* Int */Block.__(4, [
-                            /* Int_i */3,
-                            /* No_padding */0,
-                            /* No_precision */0,
-                            /* Char_literal */Block.__(12, [
-                                /* ")" */41,
-                                /* End_of_format */0
-                              ])
-                          ])
-                      ]),
-                    "Ranked(%i)"
-                  ]), param[0]);
+    return Curry._1(Printf.sprintf(/* constructor */{
+                    tag: 0,
+                    name: "Format",
+                    "0": /* constructor */{
+                      tag: 11,
+                      name: "String_literal",
+                      "0": "Ranked(",
+                      "1": /* constructor */{
+                        tag: 4,
+                        name: "Int",
+                        "0": /* Int_i */3,
+                        "1": /* No_padding */0,
+                        "2": /* No_precision */0,
+                        "3": /* constructor */{
+                          tag: 12,
+                          name: "Char_literal",
+                          "0": /* ")" */41,
+                          "1": /* End_of_format */0
+                        }
+                      }
+                    },
+                    "1": "Ranked(%i)"
+                  }), param[0]);
   }
 }
 
@@ -123,23 +135,27 @@ function height(param) {
 function create(l, x, d, r) {
   var hl = height(l);
   var hr = height(r);
-  return /* Node */[
-          l,
-          x,
-          d,
-          r,
-          hl >= hr ? hl + 1 | 0 : hr + 1 | 0
-        ];
+  return /* constructor */{
+          tag: 0,
+          name: "Node",
+          "0": l,
+          "1": x,
+          "2": d,
+          "3": r,
+          "4": hl >= hr ? hl + 1 | 0 : hr + 1 | 0
+        };
 }
 
 function singleton(x, d) {
-  return /* Node */[
-          /* Empty */0,
-          x,
-          d,
-          /* Empty */0,
-          1
-        ];
+  return /* constructor */{
+          tag: 0,
+          name: "Node",
+          "0": /* Empty */0,
+          "1": x,
+          "2": d,
+          "3": /* Empty */0,
+          "4": 1
+        };
 }
 
 function bal(l, x, d, r) {
@@ -190,13 +206,15 @@ function bal(l, x, d, r) {
           ];
     }
   } else {
-    return /* Node */[
-            l,
-            x,
-            d,
-            r,
-            hl >= hr ? hl + 1 | 0 : hr + 1 | 0
-          ];
+    return /* constructor */{
+            tag: 0,
+            name: "Node",
+            "0": l,
+            "1": x,
+            "2": d,
+            "3": r,
+            "4": hl >= hr ? hl + 1 | 0 : hr + 1 | 0
+          };
   }
 }
 
@@ -216,26 +234,30 @@ function add(x, data, param) {
     var l = param[0];
     var c = Caml_obj.caml_compare(x, v);
     if (c === 0) {
-      return /* Node */[
-              l,
-              x,
-              data,
-              r,
-              param[4]
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "Node",
+              "0": l,
+              "1": x,
+              "2": data,
+              "3": r,
+              "4": param[4]
+            };
     } else if (c < 0) {
       return bal(add(x, data, l), v, d, r);
     } else {
       return bal(l, v, d, add(x, data, r));
     }
   } else {
-    return /* Node */[
-            /* Empty */0,
-            x,
-            data,
-            /* Empty */0,
-            1
-          ];
+    return /* constructor */{
+            tag: 0,
+            name: "Node",
+            "0": /* Empty */0,
+            "1": x,
+            "2": data,
+            "3": /* Empty */0,
+            "4": 1
+          };
   }
 }
 
@@ -378,13 +400,15 @@ function map(f, param) {
     var l$prime = map(f, param[0]);
     var d$prime = Curry._1(f, param[2]);
     var r$prime = map(f, param[3]);
-    return /* Node */[
-            l$prime,
-            param[1],
-            d$prime,
-            r$prime,
-            param[4]
-          ];
+    return /* constructor */{
+            tag: 0,
+            name: "Node",
+            "0": l$prime,
+            "1": param[1],
+            "2": d$prime,
+            "3": r$prime,
+            "4": param[4]
+          };
   } else {
     return /* Empty */0;
   }
@@ -396,13 +420,15 @@ function mapi(f, param) {
     var l$prime = mapi(f, param[0]);
     var d$prime = Curry._2(f, v, param[2]);
     var r$prime = mapi(f, param[3]);
-    return /* Node */[
-            l$prime,
-            v,
-            d$prime,
-            r$prime,
-            param[4]
-          ];
+    return /* constructor */{
+            tag: 0,
+            name: "Node",
+            "0": l$prime,
+            "1": v,
+            "2": d$prime,
+            "3": r$prime,
+            "4": param[4]
+          };
   } else {
     return /* Empty */0;
   }
@@ -627,12 +653,14 @@ function cons_enum(_m, _e) {
     var e = _e;
     var m = _m;
     if (m) {
-      _e = /* More */[
-        m[1],
-        m[2],
-        m[3],
-        e
-      ];
+      _e = /* constructor */{
+        tag: 0,
+        name: "More",
+        "0": m[1],
+        "1": m[2],
+        "2": m[3],
+        "3": e
+      };
       _m = m[0];
       continue ;
     } else {
@@ -709,13 +737,15 @@ function bindings_aux(_accu, _param) {
     var accu = _accu;
     if (param) {
       _param = param[0];
-      _accu = /* :: */[
-        /* tuple */[
+      _accu = /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": /* tuple */[
           param[1],
           param[2]
         ],
-        bindings_aux(accu, param[3])
-      ];
+        "1": bindings_aux(accu, param[3])
+      };
       continue ;
     } else {
       return accu;
@@ -766,11 +796,19 @@ function compute_update_sequences(all_tickers) {
                 var counter$1 = loop(counter, match$1[/* lhs */2]);
                 var counter$2 = loop(counter$1, match$1[/* rhs */1]);
                 var counter$3 = counter$2 + 1 | 0;
-                ticker[/* rank */1] = /* Ranked */[counter$3];
+                ticker[/* rank */1] = /* constructor */{
+                  tag: 0,
+                  name: "Ranked",
+                  "0": counter$3
+                };
                 return counter$3;
               } else {
                 var counter$4 = counter + 1 | 0;
-                ticker[/* rank */1] = /* Ranked */[counter$4];
+                ticker[/* rank */1] = /* constructor */{
+                  tag: 0,
+                  name: "Ranked",
+                  "0": counter$4
+                };
                 return counter$4;
               }
             } else {
@@ -790,16 +828,20 @@ function compute_update_sequences(all_tickers) {
                 var ticker_name = ticker[/* ticker_name */2];
                 if (type_) {
                   var match = type_[0];
-                  var map$1 = loop(/* :: */[
-                        ticker,
-                        up
-                      ], map, match[/* lhs */2]);
+                  var map$1 = loop(/* constructor */{
+                        tag: 0,
+                        name: "::",
+                        "0": ticker,
+                        "1": up
+                      }, map, match[/* lhs */2]);
                   _ticker = match[/* rhs */1];
                   _map = map$1;
-                  _up = /* :: */[
-                    ticker,
-                    up
-                  ];
+                  _up = /* constructor */{
+                    tag: 0,
+                    name: "::",
+                    "0": ticker,
+                    "1": up
+                  };
                   continue ;
                 } else {
                   var l = find(ticker_name, map);
@@ -809,10 +851,12 @@ function compute_update_sequences(all_tickers) {
             };
             return loop(/* [] */0, map, ticker);
           } else {
-            return add(ticker[/* ticker_name */2], /* :: */[
-                        ticker,
-                        /* [] */0
-                      ], map);
+            return add(ticker[/* ticker_name */2], /* constructor */{
+                        tag: 0,
+                        name: "::",
+                        "0": ticker,
+                        "1": /* [] */0
+                      }, map);
           }
         }), /* Empty */0, List.rev(all_tickers));
   return fold((function (k, l, map) {
@@ -875,11 +919,15 @@ function process_input_line(ticker_map, all_tickers, line) {
             /* value */undefined,
             /* rank : Uninitialized */0,
             /* ticker_name */ticker_name,
-            /* type_ : Binary_op */[/* record */[
+            /* type_ : constructor */{
+              tag: 0,
+              name: "Binary_op",
+              "0": /* record */[
                 /* op */op,
                 /* rhs */rhs$1,
                 /* lhs */lhs$1
-              ]]
+              ]
+            }
           ];
   };
   var tokens = split(/* "|" */124, line);
@@ -934,10 +982,12 @@ function process_input_line(ticker_map, all_tickers, line) {
                               ];
                         }
                         return /* tuple */[
-                                /* :: */[
-                                  make_binary_op(ticker_name, match$4[0], match$5[0], /* PLUS */0),
-                                  all_tickers
-                                ],
+                                /* constructor */{
+                                  tag: 0,
+                                  name: "::",
+                                  "0": make_binary_op(ticker_name, match$4[0], match$5[0], /* PLUS */0),
+                                  "1": all_tickers
+                                },
                                 ticker_map
                               ];
                       } else {
@@ -964,10 +1014,12 @@ function process_input_line(ticker_map, all_tickers, line) {
                               ];
                         }
                         return /* tuple */[
-                                /* :: */[
-                                  make_binary_op(ticker_name, match$6[0], match$7[0], /* MINUS */1),
-                                  all_tickers
-                                ],
+                                /* constructor */{
+                                  tag: 0,
+                                  name: "::",
+                                  "0": make_binary_op(ticker_name, match$6[0], match$7[0], /* MINUS */1),
+                                  "1": all_tickers
+                                },
                                 ticker_map
                               ];
                       } else {
@@ -990,15 +1042,17 @@ function process_input_line(ticker_map, all_tickers, line) {
                           ];
                     }
                     return /* tuple */[
-                            /* :: */[
-                              /* record */[
+                            /* constructor */{
+                              tag: 0,
+                              name: "::",
+                              "0": /* record */[
                                 /* value */undefined,
                                 /* rank : Uninitialized */0,
                                 /* ticker_name */ticker_name,
                                 /* type_ : Market */0
                               ],
-                              all_tickers
-                            ],
+                              "1": all_tickers
+                            },
                             ticker_map
                           ];
                 default:
@@ -1048,34 +1102,52 @@ function loop(_lines, _param) {
   };
 }
 
-var lines = /* :: */[
-  "R|MSFT|S",
-  /* :: */[
-    "R|IBM|S",
-    /* :: */[
-      "R|FB|S",
-      /* :: */[
-        "R|CP1|+|MSFT|IBM",
-        /* :: */[
-          "R|CP2|-|FB|IBM",
-          /* :: */[
-            "R|CP12|+|CP1|CP2",
-            /* :: */[
-              "Q|MSFT|120.",
-              /* :: */[
-                "Q|IBM|130.",
-                /* :: */[
-                  "Q|FB|80.",
-                  /* [] */0
-                ]
-              ]
-            ]
-          ]
-        ]
-      ]
-    ]
-  ]
-];
+var lines = /* constructor */{
+  tag: 0,
+  name: "::",
+  "0": "R|MSFT|S",
+  "1": /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": "R|IBM|S",
+    "1": /* constructor */{
+      tag: 0,
+      name: "::",
+      "0": "R|FB|S",
+      "1": /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": "R|CP1|+|MSFT|IBM",
+        "1": /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": "R|CP2|-|FB|IBM",
+          "1": /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": "R|CP12|+|CP1|CP2",
+            "1": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": "Q|MSFT|120.",
+              "1": /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": "Q|IBM|130.",
+                "1": /* constructor */{
+                  tag: 0,
+                  name: "::",
+                  "0": "Q|FB|80.",
+                  "1": /* [] */0
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+};
 
 exports.Util = Util;
 exports.string_of_rank = string_of_rank;

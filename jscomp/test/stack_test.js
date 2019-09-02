@@ -2,16 +2,17 @@
 
 var Mt = require("./mt.js");
 var List = require("../../lib/js/list.js");
-var Block = require("../../lib/js/block.js");
 var Stack = require("../../lib/js/stack.js");
 
 function to_list(v) {
   var acc = /* [] */0;
   while(v[/* c */0] !== /* [] */0) {
-    acc = /* :: */[
-      Stack.pop(v),
-      acc
-    ];
+    acc = /* constructor */{
+      tag: 0,
+      name: "::",
+      "0": Stack.pop(v),
+      "1": acc
+    };
   };
   return List.rev(acc);
 }
@@ -24,29 +25,37 @@ function v(param) {
   return to_list(v$1);
 }
 
-var suites_000 = /* tuple */[
-  "push_test",
-  (function (param) {
-      return /* Eq */Block.__(0, [
-                /* :: */[
-                  1,
-                  /* :: */[
-                    4,
-                    /* :: */[
-                      3,
-                      /* [] */0
-                    ]
-                  ]
-                ],
-                v(/* () */0)
-              ]);
-    })
-];
-
-var suites = /* :: */[
-  suites_000,
-  /* [] */0
-];
+var suites = /* constructor */{
+  tag: 0,
+  name: "::",
+  "0": /* tuple */[
+    "push_test",
+    (function (param) {
+        return /* constructor */{
+                tag: 0,
+                name: "Eq",
+                "0": /* constructor */{
+                  tag: 0,
+                  name: "::",
+                  "0": 1,
+                  "1": /* constructor */{
+                    tag: 0,
+                    name: "::",
+                    "0": 4,
+                    "1": /* constructor */{
+                      tag: 0,
+                      name: "::",
+                      "0": 3,
+                      "1": /* [] */0
+                    }
+                  }
+                },
+                "1": v(/* () */0)
+              };
+      })
+  ],
+  "1": /* [] */0
+};
 
 Mt.from_pair_suites("Stack_test", suites);
 

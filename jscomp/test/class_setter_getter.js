@@ -7,13 +7,17 @@ function fff(x) {
 }
 
 function ff(x, z) {
-  return /* :: */[
-          x.height,
-          /* :: */[
-            z.height,
-            /* [] */0
-          ]
-        ];
+  return /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": x.height,
+          "1": /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": z.height,
+            "1": /* [] */0
+          }
+        };
 }
 
 exports.fff = fff;

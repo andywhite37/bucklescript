@@ -1,7 +1,6 @@
 'use strict';
 
 var Mt = require("./mt.js");
-var Block = require("../../lib/js/block.js");
 var Curry = require("../../lib/js/curry.js");
 var Format = require("../../lib/js/format.js");
 var Printexc = require("../../lib/js/printexc.js");
@@ -14,18 +13,22 @@ var test_id = /* record */[/* contents */0];
 
 function eq(loc, x, y) {
   test_id[0] = test_id[0] + 1 | 0;
-  suites[0] = /* :: */[
-    /* tuple */[
+  suites[0] = /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
-          return /* Eq */Block.__(0, [
-                    x,
-                    y
-                  ]);
+          return /* constructor */{
+                  tag: 0,
+                  name: "Eq",
+                  "0": x,
+                  "1": y
+                };
         })
     ],
-    suites[0]
-  ];
+    "1": suites[0]
+  };
   return /* () */0;
 }
 
@@ -39,21 +42,29 @@ Printexc.register_printer((function (param) {
         if (param === Hi) {
           return "hey";
         } else if (param[0] === A) {
-          return Curry._1(Format.asprintf(/* Format */[
-                          /* String_literal */Block.__(11, [
-                              "A(",
-                              /* Int */Block.__(4, [
-                                  /* Int_d */0,
-                                  /* No_padding */0,
-                                  /* No_precision */0,
-                                  /* Char_literal */Block.__(12, [
-                                      /* ")" */41,
-                                      /* End_of_format */0
-                                    ])
-                                ])
-                            ]),
-                          "A(%d)"
-                        ]), param[1]);
+          return Curry._1(Format.asprintf(/* constructor */{
+                          tag: 0,
+                          name: "Format",
+                          "0": /* constructor */{
+                            tag: 11,
+                            name: "String_literal",
+                            "0": "A(",
+                            "1": /* constructor */{
+                              tag: 4,
+                              name: "Int",
+                              "0": /* Int_d */0,
+                              "1": /* No_padding */0,
+                              "2": /* No_precision */0,
+                              "3": /* constructor */{
+                                tag: 12,
+                                name: "Char_literal",
+                                "0": /* ")" */41,
+                                "1": /* End_of_format */0
+                              }
+                            }
+                          },
+                          "1": "A(%d)"
+                        }), param[1]);
         } else {
           return ;
         }

@@ -93,30 +93,38 @@ var param$5 = Hashtbl.hash(/* `A */[
 
 Mt_global.collect_eq(test_id, suites, "File \"hash_test.ml\", line 34, characters 5-12", param$5, 294279345);
 
-var param$6 = Hashtbl.hash(/* :: */[
-      /* `A */[
+var param$6 = Hashtbl.hash(/* constructor */{
+      tag: 0,
+      name: "::",
+      "0": /* `A */[
         65,
         3
       ],
-      /* :: */[
-        /* `B */[
+      "1": /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": /* `B */[
           66,
           2
         ],
-        /* :: */[
-          /* `C */[
+        "1": /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": /* `C */[
             67,
             3
           ],
-          /* [] */0
-        ]
-      ]
-    ]) & 1073741823;
+          "1": /* [] */0
+        }
+      }
+    }) & 1073741823;
 
 Mt_global.collect_eq(test_id, suites, "File \"hash_test.ml\", line 35, characters 5-12", param$6, 1017654909);
 
-var param$7 = Hashtbl.hash(/* :: */[
-      /* tuple */[
+var param$7 = Hashtbl.hash(/* constructor */{
+      tag: 0,
+      name: "::",
+      "0": /* tuple */[
         /* `A */[
           65,
           "3"
@@ -126,8 +134,10 @@ var param$7 = Hashtbl.hash(/* :: */[
           "2"
         ]
       ],
-      /* :: */[
-        /* tuple */[
+      "1": /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": /* tuple */[
           /* `C */[
             67,
             "3"
@@ -137,14 +147,16 @@ var param$7 = Hashtbl.hash(/* :: */[
             "4"
           ]
         ],
-        /* [] */0
-      ]
-    ]) & 1073741823;
+        "1": /* [] */0
+      }
+    }) & 1073741823;
 
 Mt_global.collect_eq(test_id, suites, "File \"hash_test.ml\", line 36, characters 5-12", param$7, 81986873);
 
-var param$8 = Hashtbl.hash(/* :: */[
-      /* tuple */[
+var param$8 = Hashtbl.hash(/* constructor */{
+      tag: 0,
+      name: "::",
+      "0": /* tuple */[
         /* `A */[
           65,
           /* tuple */[
@@ -161,8 +173,8 @@ var param$8 = Hashtbl.hash(/* :: */[
             ]]
         ]
       ],
-      /* [] */0
-    ]) & 1073741823;
+      "1": /* [] */0
+    }) & 1073741823;
 
 Mt_global.collect_eq(test_id, suites, "File \"hash_test.ml\", line 39, characters 5-12", param$8, 100650590);
 

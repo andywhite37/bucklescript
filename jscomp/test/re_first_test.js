@@ -12,16 +12,22 @@ function eq(loc, x, y) {
   return Mt.eq_suites(test_id, suites, loc, x, y);
 }
 
-var x = List.length(/* :: */[
-      1,
-      /* :: */[
-        2,
-        /* :: */[
-          3,
-          /* [] */0
-        ]
-      ]
-    ]);
+var x = List.length(/* constructor */{
+      tag: 0,
+      name: "::",
+      "0": 1,
+      "1": /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": 2,
+        "1": /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": 3,
+          "1": /* [] */0
+        }
+      }
+    });
 
 var jsMapperConstantArray = /* array */[
   /* tuple */[

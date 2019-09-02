@@ -1,7 +1,6 @@
 'use strict';
 
 var List = require("../../lib/js/list.js");
-var Block = require("../../lib/js/block.js");
 var Bytes = require("../../lib/js/bytes.js");
 var Curry = require("../../lib/js/curry.js");
 var Scanf = require("../../lib/js/scanf.js");
@@ -18,31 +17,41 @@ var Caml_builtin_exceptions = require("../../lib/js/caml_builtin_exceptions.js")
 
 var tscanf_data_file = "tscanf_data";
 
-var tscanf_data_file_lines = /* :: */[
-  /* tuple */[
+var tscanf_data_file_lines = /* constructor */{
+  tag: 0,
+  name: "::",
+  "0": /* tuple */[
     "Objective",
     "Caml"
   ],
-  /* [] */0
-];
+  "1": /* [] */0
+};
 
 function create_tscanf_data(ob, lines) {
   var add_line = function (param) {
-    $$Buffer.add_string(ob, Curry._1(Printf.sprintf(/* Format */[
-                  /* Caml_string */Block.__(3, [
-                      /* No_padding */0,
-                      /* End_of_format */0
-                    ]),
-                  "%S"
-                ]), param[0]));
+    $$Buffer.add_string(ob, Curry._1(Printf.sprintf(/* constructor */{
+                  tag: 0,
+                  name: "Format",
+                  "0": /* constructor */{
+                    tag: 3,
+                    name: "Caml_string",
+                    "0": /* No_padding */0,
+                    "1": /* End_of_format */0
+                  },
+                  "1": "%S"
+                }), param[0]));
     $$Buffer.add_string(ob, " -> ");
-    $$Buffer.add_string(ob, Curry._1(Printf.sprintf(/* Format */[
-                  /* Caml_string */Block.__(3, [
-                      /* No_padding */0,
-                      /* End_of_format */0
-                    ]),
-                  "%S"
-                ]), param[1]));
+    $$Buffer.add_string(ob, Curry._1(Printf.sprintf(/* constructor */{
+                  tag: 0,
+                  name: "Format",
+                  "0": /* constructor */{
+                    tag: 3,
+                    name: "Caml_string",
+                    "0": /* No_padding */0,
+                    "1": /* End_of_format */0
+                  },
+                  "1": "%S"
+                }), param[1]));
     return $$Buffer.add_string(ob, ";\n");
   };
   return List.iter(add_line, lines);
@@ -62,32 +71,46 @@ function get_lines(fname) {
   var l = /* record */[/* contents : [] */0];
   try {
     while(!Scanf.Scanning.end_of_input(ib)) {
-      Curry._1(Scanf.bscanf(ib, /* Format */[
-                /* Char_literal */Block.__(12, [
-                    /* " " */32,
-                    /* Caml_string */Block.__(3, [
-                        /* No_padding */0,
-                        /* String_literal */Block.__(11, [
-                            " -> ",
-                            /* Caml_string */Block.__(3, [
-                                /* No_padding */0,
-                                /* String_literal */Block.__(11, [
-                                    "; ",
-                                    /* End_of_format */0
-                                  ])
-                              ])
-                          ])
-                      ])
-                  ]),
-                " %S -> %S; "
-              ]), (function (x, y) {
-              l[0] = /* :: */[
-                /* tuple */[
+      Curry._1(Scanf.bscanf(ib, /* constructor */{
+                tag: 0,
+                name: "Format",
+                "0": /* constructor */{
+                  tag: 12,
+                  name: "Char_literal",
+                  "0": /* " " */32,
+                  "1": /* constructor */{
+                    tag: 3,
+                    name: "Caml_string",
+                    "0": /* No_padding */0,
+                    "1": /* constructor */{
+                      tag: 11,
+                      name: "String_literal",
+                      "0": " -> ",
+                      "1": /* constructor */{
+                        tag: 3,
+                        name: "Caml_string",
+                        "0": /* No_padding */0,
+                        "1": /* constructor */{
+                          tag: 11,
+                          name: "String_literal",
+                          "0": "; ",
+                          "1": /* End_of_format */0
+                        }
+                      }
+                    }
+                  }
+                },
+                "1": " %S -> %S; "
+              }), (function (x, y) {
+              l[0] = /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": /* tuple */[
                   x,
                   y
                 ],
-                l[0]
-              ];
+                "1": l[0]
+              };
               return /* () */0;
             }));
     };
@@ -96,40 +119,58 @@ function get_lines(fname) {
   catch (raw_exn){
     var exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
     if (exn[0] === Scanf.Scan_failure) {
-      var s = Curry._2(Printf.sprintf(/* Format */[
-                /* String_literal */Block.__(11, [
-                    "in file ",
-                    /* String */Block.__(2, [
-                        /* No_padding */0,
-                        /* String_literal */Block.__(11, [
-                            ", ",
-                            /* String */Block.__(2, [
-                                /* No_padding */0,
-                                /* End_of_format */0
-                              ])
-                          ])
-                      ])
-                  ]),
-                "in file %s, %s"
-              ]), fname, exn[1]);
+      var s = Curry._2(Printf.sprintf(/* constructor */{
+                tag: 0,
+                name: "Format",
+                "0": /* constructor */{
+                  tag: 11,
+                  name: "String_literal",
+                  "0": "in file ",
+                  "1": /* constructor */{
+                    tag: 2,
+                    name: "String",
+                    "0": /* No_padding */0,
+                    "1": /* constructor */{
+                      tag: 11,
+                      name: "String_literal",
+                      "0": ", ",
+                      "1": /* constructor */{
+                        tag: 2,
+                        name: "String",
+                        "0": /* No_padding */0,
+                        "1": /* End_of_format */0
+                      }
+                    }
+                  }
+                },
+                "1": "in file %s, %s"
+              }), fname, exn[1]);
       throw [
             Caml_builtin_exceptions.failure,
             s
           ];
     } else if (exn === Caml_builtin_exceptions.end_of_file) {
-      var s$1 = Curry._1(Printf.sprintf(/* Format */[
-                /* String_literal */Block.__(11, [
-                    "in file ",
-                    /* String */Block.__(2, [
-                        /* No_padding */0,
-                        /* String_literal */Block.__(11, [
-                            ", unexpected end of file",
-                            /* End_of_format */0
-                          ])
-                      ])
-                  ]),
-                "in file %s, unexpected end of file"
-              ]), fname);
+      var s$1 = Curry._1(Printf.sprintf(/* constructor */{
+                tag: 0,
+                name: "Format",
+                "0": /* constructor */{
+                  tag: 11,
+                  name: "String_literal",
+                  "0": "in file ",
+                  "1": /* constructor */{
+                    tag: 2,
+                    name: "String",
+                    "0": /* No_padding */0,
+                    "1": /* constructor */{
+                      tag: 11,
+                      name: "String_literal",
+                      "0": ", unexpected end of file",
+                      "1": /* End_of_format */0
+                    }
+                  }
+                },
+                "1": "in file %s, unexpected end of file"
+              }), fname);
       throw [
             Caml_builtin_exceptions.failure,
             s$1
@@ -142,17 +183,23 @@ function get_lines(fname) {
 
 function add_digest_ib(ob, ib) {
   var scan_line = function (ib, f) {
-    return Curry._1(Scanf.bscanf(ib, /* Format */[
-                    /* Scan_char_set */Block.__(20, [
-                        undefined,
-                        "\xff\xdb\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff",
-                        /* Char_literal */Block.__(12, [
-                            /* "\n" */10,
-                            /* End_of_format */0
-                          ])
-                      ]),
-                    "%[^\n\r]\n"
-                  ]), f);
+    return Curry._1(Scanf.bscanf(ib, /* constructor */{
+                    tag: 0,
+                    name: "Format",
+                    "0": /* constructor */{
+                      tag: 20,
+                      name: "Scan_char_set",
+                      "0": undefined,
+                      "1": "\xff\xdb\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff",
+                      "2": /* constructor */{
+                        tag: 12,
+                        name: "Char_literal",
+                        "0": /* "\n" */10,
+                        "1": /* End_of_format */0
+                      }
+                    },
+                    "1": "%[^\n\r]\n"
+                  }), f);
   };
   var output_line_digest = function (s) {
     $$Buffer.add_string(ob, s);

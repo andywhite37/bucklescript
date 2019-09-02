@@ -1,7 +1,6 @@
 'use strict';
 
 var Mt = require("./mt.js");
-var Block = require("../../lib/js/block.js");
 var Curry = require("../../lib/js/curry.js");
 var Js_exn = require("../../lib/js/js_exn.js");
 var Caml_exceptions = require("../../lib/js/caml_exceptions.js");
@@ -15,34 +14,46 @@ var counter = /* record */[/* contents */0];
 function add_test(loc, test) {
   counter[0] = counter[0] + 1 | 0;
   var id = loc + (" id " + String(counter[0]));
-  suites[0] = /* :: */[
-    /* tuple */[
+  suites[0] = /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": /* tuple */[
       id,
       test
     ],
-    suites[0]
-  ];
+    "1": suites[0]
+  };
   return /* () */0;
 }
 
 function eq(loc, x, y) {
   return add_test(loc, (function (param) {
-                return /* Eq */Block.__(0, [
-                          x,
-                          y
-                        ]);
+                return /* constructor */{
+                        tag: 0,
+                        name: "Eq",
+                        "0": x,
+                        "1": y
+                      };
               }));
 }
 
 function false_(loc) {
   return add_test(loc, (function (param) {
-                return /* Ok */Block.__(4, [false]);
+                return /* constructor */{
+                        tag: 4,
+                        name: "Ok",
+                        "0": false
+                      };
               }));
 }
 
 function true_(loc) {
   return add_test(loc, (function (param) {
-                return /* Ok */Block.__(4, [true]);
+                return /* constructor */{
+                        tag: 4,
+                        name: "Ok",
+                        "0": true
+                      };
               }));
 }
 
@@ -58,7 +69,11 @@ catch (raw_exn){
   var exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
   if (exn[0] === Js_exn.$$Error) {
     add_test("File \"js_exception_catch_test.ml\", line 21, characters 10-17", (function (param) {
-            return /* Ok */Block.__(4, [true]);
+            return /* constructor */{
+                    tag: 4,
+                    name: "Ok",
+                    "0": true
+                  };
           }));
   } else {
     throw exn;
@@ -67,7 +82,11 @@ catch (raw_exn){
 
 if (exit === 1) {
   add_test("File \"js_exception_catch_test.ml\", line 22, characters 16-23", (function (param) {
-          return /* Ok */Block.__(4, [false]);
+          return /* constructor */{
+                  tag: 4,
+                  name: "Ok",
+                  "0": false
+                };
         }));
 }
 

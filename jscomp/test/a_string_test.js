@@ -2,79 +2,114 @@
 
 var Mt = require("./mt.js");
 var List = require("../../lib/js/list.js");
-var Block = require("../../lib/js/block.js");
 var Ext_string_test = require("./ext_string_test.js");
 
-var suites_000 = /* tuple */[
-  "split",
-  (function (param) {
-      return /* Eq */Block.__(0, [
-                Ext_string_test.split(true, "hihi", /* "i" */105),
-                /* :: */[
-                  "h",
-                  /* :: */[
-                    "h",
-                    /* :: */[
-                      "",
-                      /* [] */0
-                    ]
-                  ]
-                ]
-              ]);
-    })
-];
-
-var suites_001 = /* :: */[
-  /* tuple */[
-    "split_non_empty",
+var suites = /* constructor */{
+  tag: 0,
+  name: "::",
+  "0": /* tuple */[
+    "split",
     (function (param) {
-        return /* Eq */Block.__(0, [
-                  Ext_string_test.split(undefined, "hihi", /* "i" */105),
-                  /* :: */[
-                    "h",
-                    /* :: */[
-                      "h",
-                      /* [] */0
-                    ]
-                  ]
-                ]);
+        return /* constructor */{
+                tag: 0,
+                name: "Eq",
+                "0": Ext_string_test.split(true, "hihi", /* "i" */105),
+                "1": /* constructor */{
+                  tag: 0,
+                  name: "::",
+                  "0": "h",
+                  "1": /* constructor */{
+                    tag: 0,
+                    name: "::",
+                    "0": "h",
+                    "1": /* constructor */{
+                      tag: 0,
+                      name: "::",
+                      "0": "",
+                      "1": /* [] */0
+                    }
+                  }
+                }
+              };
       })
   ],
-  /* :: */[
-    /* tuple */[
-      "split_empty",
+  "1": /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": /* tuple */[
+      "split_non_empty",
       (function (param) {
-          return /* Eq */Block.__(0, [
-                    Ext_string_test.split(true, "", /* "i" */105),
-                    /* [] */0
-                  ]);
+          return /* constructor */{
+                  tag: 0,
+                  name: "Eq",
+                  "0": Ext_string_test.split(undefined, "hihi", /* "i" */105),
+                  "1": /* constructor */{
+                    tag: 0,
+                    name: "::",
+                    "0": "h",
+                    "1": /* constructor */{
+                      tag: 0,
+                      name: "::",
+                      "0": "h",
+                      "1": /* [] */0
+                    }
+                  }
+                };
         })
     ],
-    /* :: */[
-      /* tuple */[
-        "split_normal",
+    "1": /* constructor */{
+      tag: 0,
+      name: "::",
+      "0": /* tuple */[
+        "split_empty",
         (function (param) {
-            return /* Eq */Block.__(0, [
-                      Ext_string_test.split(true, "h i i", /* " " */32),
-                      /* :: */[
-                        "h",
-                        /* :: */[
-                          "i",
-                          /* :: */[
-                            "i",
-                            /* [] */0
-                          ]
-                        ]
-                      ]
-                    ]);
+            return /* constructor */{
+                    tag: 0,
+                    name: "Eq",
+                    "0": Ext_string_test.split(true, "", /* "i" */105),
+                    "1": /* [] */0
+                  };
           })
       ],
-      /* :: */[
-        /* tuple */[
-          "split_by",
+      "1": /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": /* tuple */[
+          "split_normal",
           (function (param) {
-              return /* Eq */Block.__(0, [
-                        List.filter((function (s) {
+              return /* constructor */{
+                      tag: 0,
+                      name: "Eq",
+                      "0": Ext_string_test.split(true, "h i i", /* " " */32),
+                      "1": /* constructor */{
+                        tag: 0,
+                        name: "::",
+                        "0": "h",
+                        "1": /* constructor */{
+                          tag: 0,
+                          name: "::",
+                          "0": "i",
+                          "1": /* constructor */{
+                            tag: 0,
+                            name: "::",
+                            "0": "i",
+                            "1": /* [] */0
+                          }
+                        }
+                      }
+                    };
+            })
+        ],
+        "1": /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": /* tuple */[
+            "split_by",
+            (function (param) {
+                return /* constructor */{
+                        tag: 0,
+                        name: "Eq",
+                        "0": List.filter((function (s) {
                                   return s !== "";
                                 }))(Ext_string_test.split_by(undefined, (function (x) {
                                     if (x === /* " " */32) {
@@ -83,32 +118,36 @@ var suites_001 = /* :: */[
                                       return x === /* "\t" */9;
                                     }
                                   }), "h hgso hgso \t hi")),
-                        /* :: */[
-                          "h",
-                          /* :: */[
-                            "hgso",
-                            /* :: */[
-                              "hgso",
-                              /* :: */[
-                                "hi",
-                                /* [] */0
-                              ]
-                            ]
-                          ]
-                        ]
-                      ]);
-            })
-        ],
-        /* [] */0
-      ]
-    ]
-  ]
-];
-
-var suites = /* :: */[
-  suites_000,
-  suites_001
-];
+                        "1": /* constructor */{
+                          tag: 0,
+                          name: "::",
+                          "0": "h",
+                          "1": /* constructor */{
+                            tag: 0,
+                            name: "::",
+                            "0": "hgso",
+                            "1": /* constructor */{
+                              tag: 0,
+                              name: "::",
+                              "0": "hgso",
+                              "1": /* constructor */{
+                                tag: 0,
+                                name: "::",
+                                "0": "hi",
+                                "1": /* [] */0
+                              }
+                            }
+                          }
+                        }
+                      };
+              })
+          ],
+          "1": /* [] */0
+        }
+      }
+    }
+  }
+};
 
 Mt.from_pair_suites("A_string_test", suites);
 

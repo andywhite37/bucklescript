@@ -2,7 +2,6 @@
 
 var Mt = require("./mt.js");
 var Sys = require("../../lib/js/sys.js");
-var Block = require("../../lib/js/block.js");
 var Caml_sys = require("../../lib/js/caml_sys.js");
 var Node_process = require("../../lib/js/node_process.js");
 var Caml_builtin_exceptions = require("../../lib/js/caml_builtin_exceptions.js");
@@ -13,18 +12,22 @@ var test_id = /* record */[/* contents */0];
 
 function eq(loc, x, y) {
   test_id[0] = test_id[0] + 1 | 0;
-  suites[0] = /* :: */[
-    /* tuple */[
+  suites[0] = /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
-          return /* Eq */Block.__(0, [
-                    x,
-                    y
-                  ]);
+          return /* constructor */{
+                  tag: 0,
+                  name: "Eq",
+                  "0": x,
+                  "1": y
+                };
         })
     ],
-    suites[0]
-  ];
+    "1": suites[0]
+  };
   return /* () */0;
 }
 

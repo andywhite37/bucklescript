@@ -73,10 +73,12 @@ function filter(f, a) {
       var v = a[i];
       if (Curry._1(f, v)) {
         _i = i + 1 | 0;
-        _acc = /* :: */[
-          v,
-          acc
-        ];
+        _acc = /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": v,
+          "1": acc
+        };
         continue ;
       } else {
         _i = i + 1 | 0;
@@ -100,10 +102,12 @@ function filter_map(f, a) {
       var match = Curry._1(f, v);
       _i = i + 1 | 0;
       if (match !== undefined) {
-        _acc = /* :: */[
-          Caml_option.valFromOption(match),
-          acc
-        ];
+        _acc = /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": Caml_option.valFromOption(match),
+          "1": acc
+        };
         continue ;
       } else {
         continue ;
@@ -146,10 +150,12 @@ function tolist_aux(a, f, _i, _res) {
     } else {
       var v = a[i];
       var match = Curry._1(f, v);
-      _res = match !== undefined ? /* :: */[
-          Caml_option.valFromOption(match),
-          res
-        ] : res;
+      _res = match !== undefined ? /* constructor */({
+            tag: 0,
+            name: "::",
+            "0": Caml_option.valFromOption(match),
+            "1": res
+          }) : res;
       _i = i - 1 | 0;
       continue ;
     }

@@ -1,150 +1,189 @@
 'use strict';
 
 var Mt = require("./mt.js");
-var Block = require("../../lib/js/block.js");
 var Js_null = require("../../lib/js/js_null.js");
 var Caml_option = require("../../lib/js/caml_option.js");
 
-var suites_000 = /* tuple */[
-  "toOption - empty",
-  (function (param) {
-      return /* Eq */Block.__(0, [
-                undefined,
-                undefined
-              ]);
-    })
-];
-
-var suites_001 = /* :: */[
-  /* tuple */[
-    "toOption - 'a",
+var suites = /* constructor */{
+  tag: 0,
+  name: "::",
+  "0": /* tuple */[
+    "toOption - empty",
     (function (param) {
-        return /* Eq */Block.__(0, [
-                  /* () */0,
-                  Caml_option.null_to_opt(/* () */0)
-                ]);
+        return /* constructor */{
+                tag: 0,
+                name: "Eq",
+                "0": undefined,
+                "1": undefined
+              };
       })
   ],
-  /* :: */[
-    /* tuple */[
-      "return",
+  "1": /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": /* tuple */[
+      "toOption - 'a",
       (function (param) {
-          return /* Eq */Block.__(0, [
-                    "something",
-                    Caml_option.null_to_opt("something")
-                  ]);
+          return /* constructor */{
+                  tag: 0,
+                  name: "Eq",
+                  "0": /* () */0,
+                  "1": Caml_option.null_to_opt(/* () */0)
+                };
         })
     ],
-    /* :: */[
-      /* tuple */[
-        "test - empty",
+    "1": /* constructor */{
+      tag: 0,
+      name: "::",
+      "0": /* tuple */[
+        "return",
         (function (param) {
-            return /* Eq */Block.__(0, [
-                      true,
-                      true
-                    ]);
+            return /* constructor */{
+                    tag: 0,
+                    name: "Eq",
+                    "0": "something",
+                    "1": Caml_option.null_to_opt("something")
+                  };
           })
       ],
-      /* :: */[
-        /* tuple */[
-          "test - 'a",
+      "1": /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": /* tuple */[
+          "test - empty",
           (function (param) {
-              return /* Eq */Block.__(0, [
-                        false,
-                        false
-                      ]);
+              return /* constructor */{
+                      tag: 0,
+                      name: "Eq",
+                      "0": true,
+                      "1": true
+                    };
             })
         ],
-        /* :: */[
-          /* tuple */[
-            "bind - empty",
+        "1": /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": /* tuple */[
+            "test - 'a",
             (function (param) {
-                return /* StrictEq */Block.__(2, [
-                          null,
-                          Js_null.bind(null, (function (v) {
-                                  return v;
-                                }))
-                        ]);
+                return /* constructor */{
+                        tag: 0,
+                        name: "Eq",
+                        "0": false,
+                        "1": false
+                      };
               })
           ],
-          /* :: */[
-            /* tuple */[
-              "bind - 'a",
+          "1": /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": /* tuple */[
+              "bind - empty",
               (function (param) {
-                  return /* StrictEq */Block.__(2, [
-                            4,
-                            Js_null.bind(2, (function (n) {
-                                    return (n << 1);
-                                  }))
-                          ]);
+                  return /* constructor */{
+                          tag: 2,
+                          name: "StrictEq",
+                          "0": null,
+                          "1": Js_null.bind(null, (function (v) {
+                                  return v;
+                                }))
+                        };
                 })
             ],
-            /* :: */[
-              /* tuple */[
-                "iter - empty",
+            "1": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": /* tuple */[
+                "bind - 'a",
                 (function (param) {
-                    var hit = /* record */[/* contents */false];
-                    Js_null.iter(null, (function (param) {
-                            hit[0] = true;
-                            return /* () */0;
-                          }));
-                    return /* Eq */Block.__(0, [
-                              false,
-                              hit[0]
-                            ]);
+                    return /* constructor */{
+                            tag: 2,
+                            name: "StrictEq",
+                            "0": 4,
+                            "1": Js_null.bind(2, (function (n) {
+                                    return (n << 1);
+                                  }))
+                          };
                   })
               ],
-              /* :: */[
-                /* tuple */[
-                  "iter - 'a",
+              "1": /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": /* tuple */[
+                  "iter - empty",
                   (function (param) {
-                      var hit = /* record */[/* contents */0];
-                      Js_null.iter(2, (function (v) {
-                              hit[0] = v;
+                      var hit = /* record */[/* contents */false];
+                      Js_null.iter(null, (function (param) {
+                              hit[0] = true;
                               return /* () */0;
                             }));
-                      return /* Eq */Block.__(0, [
-                                2,
-                                hit[0]
-                              ]);
+                      return /* constructor */{
+                              tag: 0,
+                              name: "Eq",
+                              "0": false,
+                              "1": hit[0]
+                            };
                     })
                 ],
-                /* :: */[
-                  /* tuple */[
-                    "fromOption - None",
+                "1": /* constructor */{
+                  tag: 0,
+                  name: "::",
+                  "0": /* tuple */[
+                    "iter - 'a",
                     (function (param) {
-                        return /* Eq */Block.__(0, [
-                                  null,
-                                  Js_null.fromOption(undefined)
-                                ]);
+                        var hit = /* record */[/* contents */0];
+                        Js_null.iter(2, (function (v) {
+                                hit[0] = v;
+                                return /* () */0;
+                              }));
+                        return /* constructor */{
+                                tag: 0,
+                                name: "Eq",
+                                "0": 2,
+                                "1": hit[0]
+                              };
                       })
                   ],
-                  /* :: */[
-                    /* tuple */[
-                      "fromOption - Some",
+                  "1": /* constructor */{
+                    tag: 0,
+                    name: "::",
+                    "0": /* tuple */[
+                      "fromOption - None",
                       (function (param) {
-                          return /* Eq */Block.__(0, [
-                                    2,
-                                    Js_null.fromOption(2)
-                                  ]);
+                          return /* constructor */{
+                                  tag: 0,
+                                  name: "Eq",
+                                  "0": null,
+                                  "1": Js_null.fromOption(undefined)
+                                };
                         })
                     ],
-                    /* [] */0
-                  ]
-                ]
-              ]
-            ]
-          ]
-        ]
-      ]
-    ]
-  ]
-];
-
-var suites = /* :: */[
-  suites_000,
-  suites_001
-];
+                    "1": /* constructor */{
+                      tag: 0,
+                      name: "::",
+                      "0": /* tuple */[
+                        "fromOption - Some",
+                        (function (param) {
+                            return /* constructor */{
+                                    tag: 0,
+                                    name: "Eq",
+                                    "0": 2,
+                                    "1": Js_null.fromOption(2)
+                                  };
+                          })
+                      ],
+                      "1": /* [] */0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+};
 
 Mt.from_pair_suites("Js_null_test", suites);
 

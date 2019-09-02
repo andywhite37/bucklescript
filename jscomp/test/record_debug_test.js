@@ -73,19 +73,27 @@ var c = /* array */[
 
 console.log(" " + (String(Format.std_formatter) + (" " + (String(a) + (" " + (String(c) + " "))))));
 
-var h = /* :: */[
-  1,
-  /* :: */[
-    2,
-    /* :: */[
-      3,
-      /* :: */[
-        4,
-        /* [] */0
-      ]
-    ]
-  ]
-];
+var h = /* constructor */{
+  tag: 0,
+  name: "::",
+  "0": 1,
+  "1": /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": 2,
+    "1": /* constructor */{
+      tag: 0,
+      name: "::",
+      "0": 3,
+      "1": /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": 4,
+        "1": /* [] */0
+      }
+    }
+  }
+};
 
 var v2 = /* `C */[
   67,

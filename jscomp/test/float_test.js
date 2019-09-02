@@ -2,7 +2,6 @@
 
 var Mt = require("./mt.js");
 var $$Array = require("../../lib/js/array.js");
-var Block = require("../../lib/js/block.js");
 var Curry = require("../../lib/js/curry.js");
 var Printf = require("../../lib/js/printf.js");
 var Mt_global = require("./mt_global.js");
@@ -123,23 +122,31 @@ function from_pairs(ps) {
                     var b = param[1];
                     var a = param[0];
                     return /* tuple */[
-                            Curry._1(Printf.sprintf(/* Format */[
-                                      /* String_literal */Block.__(11, [
-                                          "pair ",
-                                          /* Int */Block.__(4, [
-                                              /* Int_d */0,
-                                              /* No_padding */0,
-                                              /* No_precision */0,
-                                              /* End_of_format */0
-                                            ])
-                                        ]),
-                                      "pair %d"
-                                    ]), i),
+                            Curry._1(Printf.sprintf(/* constructor */{
+                                      tag: 0,
+                                      name: "Format",
+                                      "0": /* constructor */{
+                                        tag: 11,
+                                        name: "String_literal",
+                                        "0": "pair ",
+                                        "1": /* constructor */{
+                                          tag: 4,
+                                          name: "Int",
+                                          "0": /* Int_d */0,
+                                          "1": /* No_padding */0,
+                                          "2": /* No_precision */0,
+                                          "3": /* End_of_format */0
+                                        }
+                                      },
+                                      "1": "pair %d"
+                                    }), i),
                             (function (param) {
-                                return /* Approx */Block.__(5, [
-                                          a,
-                                          b
-                                        ]);
+                                return /* constructor */{
+                                        tag: 5,
+                                        name: "Approx",
+                                        "0": a,
+                                        "1": b
+                                      };
                               })
                           ];
                   }), ps));
@@ -237,51 +244,67 @@ var b = match$4[1];
 
 var a = match$4[0];
 
-Mt.from_pair_suites("Float_test", Pervasives.$at(/* :: */[
-          /* tuple */[
+Mt.from_pair_suites("Float_test", Pervasives.$at(/* constructor */{
+          tag: 0,
+          name: "::",
+          "0": /* tuple */[
             "mod_float",
             (function (param) {
-                return /* Approx */Block.__(5, [
-                          3.2 % 0.5,
-                          0.200000000000000178
-                        ]);
+                return /* constructor */{
+                        tag: 5,
+                        name: "Approx",
+                        "0": 3.2 % 0.5,
+                        "1": 0.200000000000000178
+                      };
               })
           ],
-          /* :: */[
-            /* tuple */[
+          "1": /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": /* tuple */[
               "modf_float1",
               (function (param) {
-                  return /* Approx */Block.__(5, [
-                            a,
-                            0.299999999999997158
-                          ]);
+                  return /* constructor */{
+                          tag: 5,
+                          name: "Approx",
+                          "0": a,
+                          "1": 0.299999999999997158
+                        };
                 })
             ],
-            /* :: */[
-              /* tuple */[
+            "1": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": /* tuple */[
                 "modf_float2",
                 (function (param) {
-                    return /* Approx */Block.__(5, [
-                              b,
-                              32
-                            ]);
+                    return /* constructor */{
+                            tag: 5,
+                            name: "Approx",
+                            "0": b,
+                            "1": 32
+                          };
                   })
               ],
-              /* :: */[
-                /* tuple */[
+              "1": /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": /* tuple */[
                   "int_of_float",
                   (function (param) {
-                      return /* Eq */Block.__(0, [
-                                3,
-                                3
-                              ]);
+                      return /* constructor */{
+                              tag: 0,
+                              name: "Eq",
+                              "0": 3,
+                              "1": 3
+                            };
                     })
                 ],
-                /* [] */0
-              ]
-            ]
-          ]
-        ], Pervasives.$at(from_pairs(results), suites[0])));
+                "1": /* [] */0
+              }
+            }
+          }
+        }, Pervasives.$at(from_pairs(results), suites[0])));
 
 exports.test_id = test_id;
 exports.suites = suites;

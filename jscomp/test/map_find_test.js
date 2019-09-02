@@ -2,7 +2,6 @@
 
 var Mt = require("./mt.js");
 var List = require("../../lib/js/list.js");
-var Block = require("../../lib/js/block.js");
 var Caml_primitive = require("../../lib/js/caml_primitive.js");
 var Caml_builtin_exceptions = require("../../lib/js/caml_builtin_exceptions.js");
 
@@ -17,13 +16,15 @@ function height(param) {
 function create(l, x, d, r) {
   var hl = height(l);
   var hr = height(r);
-  return /* Node */[
-          l,
-          x,
-          d,
-          r,
-          hl >= hr ? hl + 1 | 0 : hr + 1 | 0
-        ];
+  return /* constructor */{
+          tag: 0,
+          name: "Node",
+          "0": l,
+          "1": x,
+          "2": d,
+          "3": r,
+          "4": hl >= hr ? hl + 1 | 0 : hr + 1 | 0
+        };
 }
 
 function bal(l, x, d, r) {
@@ -74,13 +75,15 @@ function bal(l, x, d, r) {
           ];
     }
   } else {
-    return /* Node */[
-            l,
-            x,
-            d,
-            r,
-            hl >= hr ? hl + 1 | 0 : hr + 1 | 0
-          ];
+    return /* constructor */{
+            tag: 0,
+            name: "Node",
+            "0": l,
+            "1": x,
+            "2": d,
+            "3": r,
+            "4": hl >= hr ? hl + 1 | 0 : hr + 1 | 0
+          };
   }
 }
 
@@ -92,26 +95,30 @@ function add(x, data, param) {
     var l = param[0];
     var c = Caml_primitive.caml_int_compare(x, v);
     if (c === 0) {
-      return /* Node */[
-              l,
-              x,
-              data,
-              r,
-              param[4]
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "Node",
+              "0": l,
+              "1": x,
+              "2": data,
+              "3": r,
+              "4": param[4]
+            };
     } else if (c < 0) {
       return bal(add(x, data, l), v, d, r);
     } else {
       return bal(l, v, d, add(x, data, r));
     }
   } else {
-    return /* Node */[
-            /* Empty */0,
-            x,
-            data,
-            /* Empty */0,
-            1
-          ];
+    return /* constructor */{
+            tag: 0,
+            name: "Node",
+            "0": /* Empty */0,
+            "1": x,
+            "2": data,
+            "3": /* Empty */0,
+            "4": 1
+          };
   }
 }
 
@@ -134,31 +141,39 @@ function find(x, _param) {
 
 var m = List.fold_left((function (acc, param) {
         return add(param[0], param[1], acc);
-      }), /* Empty */0, /* :: */[
-      /* tuple */[
+      }), /* Empty */0, /* constructor */{
+      tag: 0,
+      name: "::",
+      "0": /* tuple */[
         10,
         /* "a" */97
       ],
-      /* :: */[
-        /* tuple */[
+      "1": /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": /* tuple */[
           3,
           /* "b" */98
         ],
-        /* :: */[
-          /* tuple */[
+        "1": /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": /* tuple */[
             7,
             /* "c" */99
           ],
-          /* :: */[
-            /* tuple */[
+          "1": /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": /* tuple */[
               20,
               /* "d" */100
             ],
-            /* [] */0
-          ]
-        ]
-      ]
-    ]);
+            "1": /* [] */0
+          }
+        }
+      }
+    });
 
 function height$1(param) {
   if (param) {
@@ -171,13 +186,15 @@ function height$1(param) {
 function create$1(l, x, d, r) {
   var hl = height$1(l);
   var hr = height$1(r);
-  return /* Node */[
-          l,
-          x,
-          d,
-          r,
-          hl >= hr ? hl + 1 | 0 : hr + 1 | 0
-        ];
+  return /* constructor */{
+          tag: 0,
+          name: "Node",
+          "0": l,
+          "1": x,
+          "2": d,
+          "3": r,
+          "4": hl >= hr ? hl + 1 | 0 : hr + 1 | 0
+        };
 }
 
 function bal$1(l, x, d, r) {
@@ -228,13 +245,15 @@ function bal$1(l, x, d, r) {
           ];
     }
   } else {
-    return /* Node */[
-            l,
-            x,
-            d,
-            r,
-            hl >= hr ? hl + 1 | 0 : hr + 1 | 0
-          ];
+    return /* constructor */{
+            tag: 0,
+            name: "Node",
+            "0": l,
+            "1": x,
+            "2": d,
+            "3": r,
+            "4": hl >= hr ? hl + 1 | 0 : hr + 1 | 0
+          };
   }
 }
 
@@ -246,26 +265,30 @@ function add$1(x, data, param) {
     var l = param[0];
     var c = Caml_primitive.caml_string_compare(x, v);
     if (c === 0) {
-      return /* Node */[
-              l,
-              x,
-              data,
-              r,
-              param[4]
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "Node",
+              "0": l,
+              "1": x,
+              "2": data,
+              "3": r,
+              "4": param[4]
+            };
     } else if (c < 0) {
       return bal$1(add$1(x, data, l), v, d, r);
     } else {
       return bal$1(l, v, d, add$1(x, data, r));
     }
   } else {
-    return /* Node */[
-            /* Empty */0,
-            x,
-            data,
-            /* Empty */0,
-            1
-          ];
+    return /* constructor */{
+            tag: 0,
+            name: "Node",
+            "0": /* Empty */0,
+            "1": x,
+            "2": data,
+            "3": /* Empty */0,
+            "4": 1
+          };
   }
 }
 
@@ -288,54 +311,70 @@ function find$1(x, _param) {
 
 var s = List.fold_left((function (acc, param) {
         return add$1(param[0], param[1], acc);
-      }), /* Empty */0, /* :: */[
-      /* tuple */[
+      }), /* Empty */0, /* constructor */{
+      tag: 0,
+      name: "::",
+      "0": /* tuple */[
         "10",
         /* "a" */97
       ],
-      /* :: */[
-        /* tuple */[
+      "1": /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": /* tuple */[
           "3",
           /* "b" */98
         ],
-        /* :: */[
-          /* tuple */[
+        "1": /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": /* tuple */[
             "7",
             /* "c" */99
           ],
-          /* :: */[
-            /* tuple */[
+          "1": /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": /* tuple */[
               "20",
               /* "d" */100
             ],
-            /* [] */0
-          ]
-        ]
-      ]
-    ]);
+            "1": /* [] */0
+          }
+        }
+      }
+    });
 
-Mt.from_pair_suites("Map_find_test", /* :: */[
-      /* tuple */[
+Mt.from_pair_suites("Map_find_test", /* constructor */{
+      tag: 0,
+      name: "::",
+      "0": /* tuple */[
         "int",
         (function (param) {
-            return /* Eq */Block.__(0, [
-                      find(10, m),
-                      /* "a" */97
-                    ]);
+            return /* constructor */{
+                    tag: 0,
+                    name: "Eq",
+                    "0": find(10, m),
+                    "1": /* "a" */97
+                  };
           })
       ],
-      /* :: */[
-        /* tuple */[
+      "1": /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": /* tuple */[
           "string",
           (function (param) {
-              return /* Eq */Block.__(0, [
-                        find$1("10", s),
-                        /* "a" */97
-                      ]);
+              return /* constructor */{
+                      tag: 0,
+                      name: "Eq",
+                      "0": find$1("10", s),
+                      "1": /* "a" */97
+                    };
             })
         ],
-        /* [] */0
-      ]
-    ]);
+        "1": /* [] */0
+      }
+    });
 
 /* m Not a pure module */

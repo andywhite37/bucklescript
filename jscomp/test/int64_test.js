@@ -2,7 +2,6 @@
 
 var Mt = require("./mt.js");
 var $$Array = require("../../lib/js/array.js");
-var Block = require("../../lib/js/block.js");
 var Curry = require("../../lib/js/curry.js");
 var Int32 = require("../../lib/js/int32.js");
 var Int64 = require("../../lib/js/int64.js");
@@ -26,16 +25,18 @@ var a = /* int64 */[
 ];
 
 function commutative_add(result, a, b) {
-  return /* Eq */Block.__(0, [
-            /* tuple */[
-              result,
-              result
-            ],
-            /* tuple */[
-              Caml_int64.add(a, b),
-              Caml_int64.add(b, a)
-            ]
-          ]);
+  return /* constructor */{
+          tag: 0,
+          name: "Eq",
+          "0": /* tuple */[
+            result,
+            result
+          ],
+          "1": /* tuple */[
+            Caml_int64.add(a, b),
+            Caml_int64.add(b, a)
+          ]
+        };
 }
 
 var generic_compare = Caml_obj.caml_compare;
@@ -883,50 +884,64 @@ function fac(_n, _acc) {
   };
 }
 
-var suites = Pervasives.$at(/* :: */[
-      /* tuple */[
+var suites = Pervasives.$at(/* constructor */{
+      tag: 0,
+      name: "::",
+      "0": /* tuple */[
         "add_one",
         (function (param) {
-            return /* Eq */Block.__(0, [
-                      v,
-                      /* int64 */[
-                        /* hi */0,
-                        /* lo */2147483648
-                      ]
-                    ]);
+            return /* constructor */{
+                    tag: 0,
+                    name: "Eq",
+                    "0": v,
+                    "1": /* int64 */[
+                      /* hi */0,
+                      /* lo */2147483648
+                    ]
+                  };
           })
       ],
-      /* :: */[
-        /* tuple */[
+      "1": /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": /* tuple */[
           "add_2",
           (function (param) {
-              return /* Eq */Block.__(0, [
-                        /* int64 */[
-                          /* hi */0,
-                          /* lo */4294967294
-                        ],
-                        Caml_int64.add(a, a)
-                      ]);
+              return /* constructor */{
+                      tag: 0,
+                      name: "Eq",
+                      "0": /* int64 */[
+                        /* hi */0,
+                        /* lo */4294967294
+                      ],
+                      "1": Caml_int64.add(a, a)
+                    };
             })
         ],
-        /* :: */[
-          /* tuple */[
+        "1": /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": /* tuple */[
             "add_3",
             (function (param) {
-                return /* Eq */Block.__(0, [
-                          /* int64 */[
-                            /* hi */0,
-                            /* lo */0
-                          ],
-                          /* int64 */[
-                            /* hi */0,
-                            /* lo */0
-                          ]
-                        ]);
+                return /* constructor */{
+                        tag: 0,
+                        name: "Eq",
+                        "0": /* int64 */[
+                          /* hi */0,
+                          /* lo */0
+                        ],
+                        "1": /* int64 */[
+                          /* hi */0,
+                          /* lo */0
+                        ]
+                      };
               })
           ],
-          /* :: */[
-            /* tuple */[
+          "1": /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": /* tuple */[
               "add_4",
               (function (param) {
                   return commutative_add(/* int64 */[
@@ -941,8 +956,10 @@ var suites = Pervasives.$at(/* :: */[
                             ]);
                 })
             ],
-            /* :: */[
-              /* tuple */[
+            "1": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": /* tuple */[
                 "add_5",
                 (function (param) {
                     return commutative_add(/* int64 */[
@@ -957,8 +974,10 @@ var suites = Pervasives.$at(/* :: */[
                               ]);
                   })
               ],
-              /* :: */[
-                /* tuple */[
+              "1": /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": /* tuple */[
                   "add_6",
                   (function (param) {
                       return commutative_add(/* int64 */[
@@ -973,8 +992,10 @@ var suites = Pervasives.$at(/* :: */[
                                 ]);
                     })
                 ],
-                /* :: */[
-                  /* tuple */[
+                "1": /* constructor */{
+                  tag: 0,
+                  name: "::",
+                  "0": /* tuple */[
                     "add_7",
                     (function (param) {
                         return commutative_add(/* int64 */[
@@ -989,8 +1010,10 @@ var suites = Pervasives.$at(/* :: */[
                                   ]);
                       })
                   ],
-                  /* :: */[
-                    /* tuple */[
+                  "1": /* constructor */{
+                    tag: 0,
+                    name: "::",
+                    "0": /* tuple */[
                       "add_8",
                       (function (param) {
                           return commutative_add(/* int64 */[
@@ -1005,8 +1028,10 @@ var suites = Pervasives.$at(/* :: */[
                                     ]);
                         })
                     ],
-                    /* :: */[
-                      /* tuple */[
+                    "1": /* constructor */{
+                      tag: 0,
+                      name: "::",
+                      "0": /* tuple */[
                         "add_9",
                         (function (param) {
                             return commutative_add(/* int64 */[
@@ -1021,8 +1046,10 @@ var suites = Pervasives.$at(/* :: */[
                                       ]);
                           })
                       ],
-                      /* :: */[
-                        /* tuple */[
+                      "1": /* constructor */{
+                        tag: 0,
+                        name: "::",
+                        "0": /* tuple */[
                           "add_10",
                           (function (param) {
                               return commutative_add(/* int64 */[
@@ -1037,8 +1064,10 @@ var suites = Pervasives.$at(/* :: */[
                                         ]);
                             })
                         ],
-                        /* :: */[
-                          /* tuple */[
+                        "1": /* constructor */{
+                          tag: 0,
+                          name: "::",
+                          "0": /* tuple */[
                             "add_11",
                             (function (param) {
                                 return commutative_add(/* int64 */[
@@ -1053,1294 +1082,1418 @@ var suites = Pervasives.$at(/* :: */[
                                           ]);
                               })
                           ],
-                          /* :: */[
-                            /* tuple */[
+                          "1": /* constructor */{
+                            tag: 0,
+                            name: "::",
+                            "0": /* tuple */[
                               "to_int32",
                               (function (param) {
-                                  return /* Eq */Block.__(0, [
-                                            3,
-                                            3
-                                          ]);
+                                  return /* constructor */{
+                                          tag: 0,
+                                          name: "Eq",
+                                          "0": 3,
+                                          "1": 3
+                                        };
                                 })
                             ],
-                            /* :: */[
-                              /* tuple */[
+                            "1": /* constructor */{
+                              tag: 0,
+                              name: "::",
+                              "0": /* tuple */[
                                 "to_int",
                                 (function (param) {
-                                    return /* Eq */Block.__(0, [
-                                              3,
-                                              3
-                                            ]);
+                                    return /* constructor */{
+                                            tag: 0,
+                                            name: "Eq",
+                                            "0": 3,
+                                            "1": 3
+                                          };
                                   })
                               ],
-                              /* :: */[
-                                /* tuple */[
+                              "1": /* constructor */{
+                                tag: 0,
+                                name: "::",
+                                "0": /* tuple */[
                                   "of_int",
                                   (function (param) {
-                                      return /* Eq */Block.__(0, [
-                                                /* int64 */[
-                                                  /* hi */0,
-                                                  /* lo */3
-                                                ],
-                                                /* int64 */[
-                                                  /* hi */0,
-                                                  /* lo */3
-                                                ]
-                                              ]);
+                                      return /* constructor */{
+                                              tag: 0,
+                                              name: "Eq",
+                                              "0": /* int64 */[
+                                                /* hi */0,
+                                                /* lo */3
+                                              ],
+                                              "1": /* int64 */[
+                                                /* hi */0,
+                                                /* lo */3
+                                              ]
+                                            };
                                     })
                                 ],
-                                /* :: */[
-                                  /* tuple */[
+                                "1": /* constructor */{
+                                  tag: 0,
+                                  name: "::",
+                                  "0": /* tuple */[
                                     "lognot",
                                     (function (param) {
-                                        return /* Eq */Block.__(0, [
-                                                  /* int64 */[
-                                                    /* hi */-1,
-                                                    /* lo */4294967293
-                                                  ],
-                                                  /* int64 */[
-                                                    /* hi */-1,
-                                                    /* lo */4294967293
-                                                  ]
-                                                ]);
+                                        return /* constructor */{
+                                                tag: 0,
+                                                name: "Eq",
+                                                "0": /* int64 */[
+                                                  /* hi */-1,
+                                                  /* lo */4294967293
+                                                ],
+                                                "1": /* int64 */[
+                                                  /* hi */-1,
+                                                  /* lo */4294967293
+                                                ]
+                                              };
                                       })
                                   ],
-                                  /* :: */[
-                                    /* tuple */[
+                                  "1": /* constructor */{
+                                    tag: 0,
+                                    name: "::",
+                                    "0": /* tuple */[
                                       "neg",
                                       (function (param) {
-                                          return /* Eq */Block.__(0, [
-                                                    /* int64 */[
-                                                      /* hi */-1,
-                                                      /* lo */4294967294
-                                                    ],
-                                                    /* int64 */[
-                                                      /* hi */-1,
-                                                      /* lo */4294967294
-                                                    ]
-                                                  ]);
+                                          return /* constructor */{
+                                                  tag: 0,
+                                                  name: "Eq",
+                                                  "0": /* int64 */[
+                                                    /* hi */-1,
+                                                    /* lo */4294967294
+                                                  ],
+                                                  "1": /* int64 */[
+                                                    /* hi */-1,
+                                                    /* lo */4294967294
+                                                  ]
+                                                };
                                         })
                                     ],
-                                    /* :: */[
-                                      /* tuple */[
+                                    "1": /* constructor */{
+                                      tag: 0,
+                                      name: "::",
+                                      "0": /* tuple */[
                                         "sub1",
                                         (function (param) {
-                                            return /* Eq */Block.__(0, [
-                                                      /* int64 */[
-                                                        /* hi */0,
-                                                        /* lo */2
-                                                      ],
-                                                      /* int64 */[
-                                                        /* hi */0,
-                                                        /* lo */2
-                                                      ]
-                                                    ]);
+                                            return /* constructor */{
+                                                    tag: 0,
+                                                    name: "Eq",
+                                                    "0": /* int64 */[
+                                                      /* hi */0,
+                                                      /* lo */2
+                                                    ],
+                                                    "1": /* int64 */[
+                                                      /* hi */0,
+                                                      /* lo */2
+                                                    ]
+                                                  };
                                           })
                                       ],
-                                      /* :: */[
-                                        /* tuple */[
+                                      "1": /* constructor */{
+                                        tag: 0,
+                                        name: "::",
+                                        "0": /* tuple */[
                                           "xor1",
                                           (function (param) {
-                                              return /* Eq */Block.__(0, [
-                                                        /* tuple */[
-                                                          /* int64 */[
-                                                            /* hi */0,
-                                                            /* lo */286331153
-                                                          ],
-                                                          Caml_int64.xor(a, /* int64 */[
-                                                                /* hi */0,
-                                                                /* lo */4009750271
-                                                              ])
+                                              return /* constructor */{
+                                                      tag: 0,
+                                                      name: "Eq",
+                                                      "0": /* tuple */[
+                                                        /* int64 */[
+                                                          /* hi */0,
+                                                          /* lo */286331153
                                                         ],
-                                                        /* tuple */[
-                                                          /* int64 */[
-                                                            /* hi */0,
-                                                            /* lo */286331153
-                                                          ],
-                                                          /* int64 */[
-                                                            /* hi */0,
-                                                            /* lo */2432700672
-                                                          ]
+                                                        Caml_int64.xor(a, /* int64 */[
+                                                              /* hi */0,
+                                                              /* lo */4009750271
+                                                            ])
+                                                      ],
+                                                      "1": /* tuple */[
+                                                        /* int64 */[
+                                                          /* hi */0,
+                                                          /* lo */286331153
+                                                        ],
+                                                        /* int64 */[
+                                                          /* hi */0,
+                                                          /* lo */2432700672
                                                         ]
-                                                      ]);
+                                                      ]
+                                                    };
                                             })
                                         ],
-                                        /* :: */[
-                                          /* tuple */[
+                                        "1": /* constructor */{
+                                          tag: 0,
+                                          name: "::",
+                                          "0": /* tuple */[
                                             "or",
                                             (function (param) {
-                                                return /* Eq */Block.__(0, [
-                                                          /* int64 */[
-                                                            /* hi */0,
-                                                            /* lo */4294967295
-                                                          ],
-                                                          /* int64 */[
-                                                            /* hi */0,
-                                                            /* lo */4294967295
-                                                          ]
-                                                        ]);
+                                                return /* constructor */{
+                                                        tag: 0,
+                                                        name: "Eq",
+                                                        "0": /* int64 */[
+                                                          /* hi */0,
+                                                          /* lo */4294967295
+                                                        ],
+                                                        "1": /* int64 */[
+                                                          /* hi */0,
+                                                          /* lo */4294967295
+                                                        ]
+                                                      };
                                               })
                                           ],
-                                          /* :: */[
-                                            /* tuple */[
+                                          "1": /* constructor */{
+                                            tag: 0,
+                                            name: "::",
+                                            "0": /* tuple */[
                                               "and",
                                               (function (param) {
-                                                  return /* Eq */Block.__(0, [
-                                                            /* int64 */[
-                                                              /* hi */0,
-                                                              /* lo */4008636142
-                                                            ],
-                                                            /* int64 */[
-                                                              /* hi */0,
-                                                              /* lo */4008636142
-                                                            ]
-                                                          ]);
+                                                  return /* constructor */{
+                                                          tag: 0,
+                                                          name: "Eq",
+                                                          "0": /* int64 */[
+                                                            /* hi */0,
+                                                            /* lo */4008636142
+                                                          ],
+                                                          "1": /* int64 */[
+                                                            /* hi */0,
+                                                            /* lo */4008636142
+                                                          ]
+                                                        };
                                                 })
                                             ],
-                                            /* :: */[
-                                              /* tuple */[
+                                            "1": /* constructor */{
+                                              tag: 0,
+                                              name: "::",
+                                              "0": /* tuple */[
                                                 "lsl",
                                                 (function (param) {
-                                                    return /* Eq */Block.__(0, [
-                                                              $$Array.map((function (x) {
-                                                                      return Caml_int64.lsl_(/* int64 */[
-                                                                                  /* hi */0,
-                                                                                  /* lo */1
+                                                    return /* constructor */{
+                                                            tag: 0,
+                                                            name: "Eq",
+                                                            "0": $$Array.map((function (x) {
+                                                                    return Caml_int64.lsl_(/* int64 */[
+                                                                                /* hi */0,
+                                                                                /* lo */1
+                                                                              ], x);
+                                                                  }), $$Array.init(64, (function (i) {
+                                                                        return i;
+                                                                      }))),
+                                                            "1": /* array */[
+                                                              /* int64 */[
+                                                                /* hi */0,
+                                                                /* lo */1
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */0,
+                                                                /* lo */2
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */0,
+                                                                /* lo */4
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */0,
+                                                                /* lo */8
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */0,
+                                                                /* lo */16
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */0,
+                                                                /* lo */32
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */0,
+                                                                /* lo */64
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */0,
+                                                                /* lo */128
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */0,
+                                                                /* lo */256
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */0,
+                                                                /* lo */512
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */0,
+                                                                /* lo */1024
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */0,
+                                                                /* lo */2048
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */0,
+                                                                /* lo */4096
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */0,
+                                                                /* lo */8192
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */0,
+                                                                /* lo */16384
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */0,
+                                                                /* lo */32768
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */0,
+                                                                /* lo */65536
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */0,
+                                                                /* lo */131072
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */0,
+                                                                /* lo */262144
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */0,
+                                                                /* lo */524288
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */0,
+                                                                /* lo */1048576
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */0,
+                                                                /* lo */2097152
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */0,
+                                                                /* lo */4194304
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */0,
+                                                                /* lo */8388608
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */0,
+                                                                /* lo */16777216
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */0,
+                                                                /* lo */33554432
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */0,
+                                                                /* lo */67108864
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */0,
+                                                                /* lo */134217728
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */0,
+                                                                /* lo */268435456
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */0,
+                                                                /* lo */536870912
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */0,
+                                                                /* lo */1073741824
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */0,
+                                                                /* lo */2147483648
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */1,
+                                                                /* lo */0
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */2,
+                                                                /* lo */0
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */4,
+                                                                /* lo */0
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */8,
+                                                                /* lo */0
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */16,
+                                                                /* lo */0
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */32,
+                                                                /* lo */0
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */64,
+                                                                /* lo */0
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */128,
+                                                                /* lo */0
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */256,
+                                                                /* lo */0
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */512,
+                                                                /* lo */0
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */1024,
+                                                                /* lo */0
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */2048,
+                                                                /* lo */0
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */4096,
+                                                                /* lo */0
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */8192,
+                                                                /* lo */0
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */16384,
+                                                                /* lo */0
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */32768,
+                                                                /* lo */0
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */65536,
+                                                                /* lo */0
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */131072,
+                                                                /* lo */0
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */262144,
+                                                                /* lo */0
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */524288,
+                                                                /* lo */0
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */1048576,
+                                                                /* lo */0
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */2097152,
+                                                                /* lo */0
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */4194304,
+                                                                /* lo */0
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */8388608,
+                                                                /* lo */0
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */16777216,
+                                                                /* lo */0
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */33554432,
+                                                                /* lo */0
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */67108864,
+                                                                /* lo */0
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */134217728,
+                                                                /* lo */0
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */268435456,
+                                                                /* lo */0
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */536870912,
+                                                                /* lo */0
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */1073741824,
+                                                                /* lo */0
+                                                              ],
+                                                              /* int64 */[
+                                                                /* hi */-2147483648,
+                                                                /* lo */0
+                                                              ]
+                                                            ]
+                                                          };
+                                                  })
+                                              ],
+                                              "1": /* constructor */{
+                                                tag: 0,
+                                                name: "::",
+                                                "0": /* tuple */[
+                                                  "lsr",
+                                                  (function (param) {
+                                                      return /* constructor */{
+                                                              tag: 0,
+                                                              name: "Eq",
+                                                              "0": $$Array.map((function (x) {
+                                                                      return Caml_int64.lsr_(/* int64 */[
+                                                                                  /* hi */-1,
+                                                                                  /* lo */4294967295
                                                                                 ], x);
                                                                     }), $$Array.init(64, (function (i) {
                                                                           return i;
                                                                         }))),
-                                                              /* array */[
+                                                              "1": /* array */[
                                                                 /* int64 */[
-                                                                  /* hi */0,
-                                                                  /* lo */1
+                                                                  /* hi */-1,
+                                                                  /* lo */4294967295
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */0,
-                                                                  /* lo */2
+                                                                  /* hi */2147483647,
+                                                                  /* lo */4294967295
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */0,
-                                                                  /* lo */4
+                                                                  /* hi */1073741823,
+                                                                  /* lo */4294967295
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */0,
-                                                                  /* lo */8
+                                                                  /* hi */536870911,
+                                                                  /* lo */4294967295
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */0,
-                                                                  /* lo */16
+                                                                  /* hi */268435455,
+                                                                  /* lo */4294967295
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */0,
-                                                                  /* lo */32
+                                                                  /* hi */134217727,
+                                                                  /* lo */4294967295
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */0,
-                                                                  /* lo */64
+                                                                  /* hi */67108863,
+                                                                  /* lo */4294967295
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */0,
-                                                                  /* lo */128
+                                                                  /* hi */33554431,
+                                                                  /* lo */4294967295
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */0,
-                                                                  /* lo */256
+                                                                  /* hi */16777215,
+                                                                  /* lo */4294967295
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */0,
-                                                                  /* lo */512
+                                                                  /* hi */8388607,
+                                                                  /* lo */4294967295
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */0,
-                                                                  /* lo */1024
+                                                                  /* hi */4194303,
+                                                                  /* lo */4294967295
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */0,
-                                                                  /* lo */2048
+                                                                  /* hi */2097151,
+                                                                  /* lo */4294967295
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */0,
-                                                                  /* lo */4096
+                                                                  /* hi */1048575,
+                                                                  /* lo */4294967295
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */0,
-                                                                  /* lo */8192
+                                                                  /* hi */524287,
+                                                                  /* lo */4294967295
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */0,
-                                                                  /* lo */16384
+                                                                  /* hi */262143,
+                                                                  /* lo */4294967295
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */0,
-                                                                  /* lo */32768
+                                                                  /* hi */131071,
+                                                                  /* lo */4294967295
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */0,
-                                                                  /* lo */65536
+                                                                  /* hi */65535,
+                                                                  /* lo */4294967295
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */0,
-                                                                  /* lo */131072
+                                                                  /* hi */32767,
+                                                                  /* lo */4294967295
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */0,
-                                                                  /* lo */262144
+                                                                  /* hi */16383,
+                                                                  /* lo */4294967295
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */0,
-                                                                  /* lo */524288
+                                                                  /* hi */8191,
+                                                                  /* lo */4294967295
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */0,
-                                                                  /* lo */1048576
+                                                                  /* hi */4095,
+                                                                  /* lo */4294967295
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */0,
-                                                                  /* lo */2097152
+                                                                  /* hi */2047,
+                                                                  /* lo */4294967295
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */0,
-                                                                  /* lo */4194304
+                                                                  /* hi */1023,
+                                                                  /* lo */4294967295
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */0,
-                                                                  /* lo */8388608
+                                                                  /* hi */511,
+                                                                  /* lo */4294967295
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */0,
-                                                                  /* lo */16777216
+                                                                  /* hi */255,
+                                                                  /* lo */4294967295
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */0,
-                                                                  /* lo */33554432
+                                                                  /* hi */127,
+                                                                  /* lo */4294967295
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */0,
-                                                                  /* lo */67108864
+                                                                  /* hi */63,
+                                                                  /* lo */4294967295
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */0,
-                                                                  /* lo */134217728
+                                                                  /* hi */31,
+                                                                  /* lo */4294967295
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */0,
-                                                                  /* lo */268435456
+                                                                  /* hi */15,
+                                                                  /* lo */4294967295
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */0,
-                                                                  /* lo */536870912
+                                                                  /* hi */7,
+                                                                  /* lo */4294967295
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */0,
-                                                                  /* lo */1073741824
-                                                                ],
-                                                                /* int64 */[
-                                                                  /* hi */0,
-                                                                  /* lo */2147483648
+                                                                  /* hi */3,
+                                                                  /* lo */4294967295
                                                                 ],
                                                                 /* int64 */[
                                                                   /* hi */1,
-                                                                  /* lo */0
+                                                                  /* lo */4294967295
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */2,
-                                                                  /* lo */0
+                                                                  /* hi */0,
+                                                                  /* lo */4294967295
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */4,
-                                                                  /* lo */0
+                                                                  /* hi */0,
+                                                                  /* lo */2147483647
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */8,
-                                                                  /* lo */0
+                                                                  /* hi */0,
+                                                                  /* lo */1073741823
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */16,
-                                                                  /* lo */0
+                                                                  /* hi */0,
+                                                                  /* lo */536870911
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */32,
-                                                                  /* lo */0
+                                                                  /* hi */0,
+                                                                  /* lo */268435455
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */64,
-                                                                  /* lo */0
+                                                                  /* hi */0,
+                                                                  /* lo */134217727
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */128,
-                                                                  /* lo */0
+                                                                  /* hi */0,
+                                                                  /* lo */67108863
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */256,
-                                                                  /* lo */0
+                                                                  /* hi */0,
+                                                                  /* lo */33554431
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */512,
-                                                                  /* lo */0
+                                                                  /* hi */0,
+                                                                  /* lo */16777215
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */1024,
-                                                                  /* lo */0
+                                                                  /* hi */0,
+                                                                  /* lo */8388607
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */2048,
-                                                                  /* lo */0
+                                                                  /* hi */0,
+                                                                  /* lo */4194303
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */4096,
-                                                                  /* lo */0
+                                                                  /* hi */0,
+                                                                  /* lo */2097151
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */8192,
-                                                                  /* lo */0
+                                                                  /* hi */0,
+                                                                  /* lo */1048575
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */16384,
-                                                                  /* lo */0
+                                                                  /* hi */0,
+                                                                  /* lo */524287
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */32768,
-                                                                  /* lo */0
+                                                                  /* hi */0,
+                                                                  /* lo */262143
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */65536,
-                                                                  /* lo */0
+                                                                  /* hi */0,
+                                                                  /* lo */131071
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */131072,
-                                                                  /* lo */0
+                                                                  /* hi */0,
+                                                                  /* lo */65535
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */262144,
-                                                                  /* lo */0
+                                                                  /* hi */0,
+                                                                  /* lo */32767
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */524288,
-                                                                  /* lo */0
+                                                                  /* hi */0,
+                                                                  /* lo */16383
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */1048576,
-                                                                  /* lo */0
+                                                                  /* hi */0,
+                                                                  /* lo */8191
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */2097152,
-                                                                  /* lo */0
+                                                                  /* hi */0,
+                                                                  /* lo */4095
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */4194304,
-                                                                  /* lo */0
+                                                                  /* hi */0,
+                                                                  /* lo */2047
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */8388608,
-                                                                  /* lo */0
+                                                                  /* hi */0,
+                                                                  /* lo */1023
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */16777216,
-                                                                  /* lo */0
+                                                                  /* hi */0,
+                                                                  /* lo */511
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */33554432,
-                                                                  /* lo */0
+                                                                  /* hi */0,
+                                                                  /* lo */255
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */67108864,
-                                                                  /* lo */0
+                                                                  /* hi */0,
+                                                                  /* lo */127
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */134217728,
-                                                                  /* lo */0
+                                                                  /* hi */0,
+                                                                  /* lo */63
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */268435456,
-                                                                  /* lo */0
+                                                                  /* hi */0,
+                                                                  /* lo */31
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */536870912,
-                                                                  /* lo */0
+                                                                  /* hi */0,
+                                                                  /* lo */15
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */1073741824,
-                                                                  /* lo */0
+                                                                  /* hi */0,
+                                                                  /* lo */7
                                                                 ],
                                                                 /* int64 */[
-                                                                  /* hi */-2147483648,
-                                                                  /* lo */0
+                                                                  /* hi */0,
+                                                                  /* lo */3
+                                                                ],
+                                                                /* int64 */[
+                                                                  /* hi */0,
+                                                                  /* lo */1
                                                                 ]
                                                               ]
-                                                            ]);
-                                                  })
-                                              ],
-                                              /* :: */[
-                                                /* tuple */[
-                                                  "lsr",
-                                                  (function (param) {
-                                                      return /* Eq */Block.__(0, [
-                                                                $$Array.map((function (x) {
-                                                                        return Caml_int64.lsr_(/* int64 */[
+                                                            };
+                                                    })
+                                                ],
+                                                "1": /* constructor */{
+                                                  tag: 0,
+                                                  name: "::",
+                                                  "0": /* tuple */[
+                                                    "asr",
+                                                    (function (param) {
+                                                        return /* constructor */{
+                                                                tag: 0,
+                                                                name: "Eq",
+                                                                "0": $$Array.map((function (x) {
+                                                                        return Caml_int64.asr_(/* int64 */[
                                                                                     /* hi */-1,
                                                                                     /* lo */4294967295
                                                                                   ], x);
                                                                       }), $$Array.init(64, (function (i) {
                                                                             return i;
                                                                           }))),
-                                                                /* array */[
+                                                                "1": /* array */[
                                                                   /* int64 */[
                                                                     /* hi */-1,
                                                                     /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */2147483647,
+                                                                    /* hi */-1,
                                                                     /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */1073741823,
+                                                                    /* hi */-1,
                                                                     /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */536870911,
+                                                                    /* hi */-1,
                                                                     /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */268435455,
+                                                                    /* hi */-1,
                                                                     /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */134217727,
+                                                                    /* hi */-1,
                                                                     /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */67108863,
+                                                                    /* hi */-1,
                                                                     /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */33554431,
+                                                                    /* hi */-1,
                                                                     /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */16777215,
+                                                                    /* hi */-1,
                                                                     /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */8388607,
+                                                                    /* hi */-1,
                                                                     /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */4194303,
+                                                                    /* hi */-1,
                                                                     /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */2097151,
+                                                                    /* hi */-1,
                                                                     /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */1048575,
+                                                                    /* hi */-1,
                                                                     /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */524287,
+                                                                    /* hi */-1,
                                                                     /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */262143,
+                                                                    /* hi */-1,
                                                                     /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */131071,
+                                                                    /* hi */-1,
                                                                     /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */65535,
+                                                                    /* hi */-1,
                                                                     /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */32767,
+                                                                    /* hi */-1,
                                                                     /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */16383,
+                                                                    /* hi */-1,
                                                                     /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */8191,
+                                                                    /* hi */-1,
                                                                     /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */4095,
+                                                                    /* hi */-1,
                                                                     /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */2047,
+                                                                    /* hi */-1,
                                                                     /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */1023,
+                                                                    /* hi */-1,
                                                                     /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */511,
+                                                                    /* hi */-1,
                                                                     /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */255,
+                                                                    /* hi */-1,
                                                                     /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */127,
+                                                                    /* hi */-1,
                                                                     /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */63,
+                                                                    /* hi */-1,
                                                                     /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */31,
+                                                                    /* hi */-1,
                                                                     /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */15,
+                                                                    /* hi */-1,
                                                                     /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */7,
+                                                                    /* hi */-1,
                                                                     /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */3,
+                                                                    /* hi */-1,
                                                                     /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */1,
+                                                                    /* hi */-1,
                                                                     /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */0,
+                                                                    /* hi */-1,
                                                                     /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */0,
-                                                                    /* lo */2147483647
+                                                                    /* hi */-1,
+                                                                    /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */0,
-                                                                    /* lo */1073741823
+                                                                    /* hi */-1,
+                                                                    /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */0,
-                                                                    /* lo */536870911
+                                                                    /* hi */-1,
+                                                                    /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */0,
-                                                                    /* lo */268435455
+                                                                    /* hi */-1,
+                                                                    /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */0,
-                                                                    /* lo */134217727
+                                                                    /* hi */-1,
+                                                                    /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */0,
-                                                                    /* lo */67108863
+                                                                    /* hi */-1,
+                                                                    /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */0,
-                                                                    /* lo */33554431
+                                                                    /* hi */-1,
+                                                                    /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */0,
-                                                                    /* lo */16777215
+                                                                    /* hi */-1,
+                                                                    /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */0,
-                                                                    /* lo */8388607
+                                                                    /* hi */-1,
+                                                                    /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */0,
-                                                                    /* lo */4194303
+                                                                    /* hi */-1,
+                                                                    /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */0,
-                                                                    /* lo */2097151
+                                                                    /* hi */-1,
+                                                                    /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */0,
-                                                                    /* lo */1048575
+                                                                    /* hi */-1,
+                                                                    /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */0,
-                                                                    /* lo */524287
+                                                                    /* hi */-1,
+                                                                    /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */0,
-                                                                    /* lo */262143
+                                                                    /* hi */-1,
+                                                                    /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */0,
-                                                                    /* lo */131071
+                                                                    /* hi */-1,
+                                                                    /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */0,
-                                                                    /* lo */65535
+                                                                    /* hi */-1,
+                                                                    /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */0,
-                                                                    /* lo */32767
+                                                                    /* hi */-1,
+                                                                    /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */0,
-                                                                    /* lo */16383
+                                                                    /* hi */-1,
+                                                                    /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */0,
-                                                                    /* lo */8191
+                                                                    /* hi */-1,
+                                                                    /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */0,
-                                                                    /* lo */4095
+                                                                    /* hi */-1,
+                                                                    /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */0,
-                                                                    /* lo */2047
+                                                                    /* hi */-1,
+                                                                    /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */0,
-                                                                    /* lo */1023
+                                                                    /* hi */-1,
+                                                                    /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */0,
-                                                                    /* lo */511
+                                                                    /* hi */-1,
+                                                                    /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */0,
-                                                                    /* lo */255
+                                                                    /* hi */-1,
+                                                                    /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */0,
-                                                                    /* lo */127
+                                                                    /* hi */-1,
+                                                                    /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */0,
-                                                                    /* lo */63
+                                                                    /* hi */-1,
+                                                                    /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */0,
-                                                                    /* lo */31
+                                                                    /* hi */-1,
+                                                                    /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */0,
-                                                                    /* lo */15
+                                                                    /* hi */-1,
+                                                                    /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */0,
-                                                                    /* lo */7
+                                                                    /* hi */-1,
+                                                                    /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */0,
-                                                                    /* lo */3
+                                                                    /* hi */-1,
+                                                                    /* lo */4294967295
                                                                   ],
                                                                   /* int64 */[
-                                                                    /* hi */0,
-                                                                    /* lo */1
+                                                                    /* hi */-1,
+                                                                    /* lo */4294967295
                                                                   ]
                                                                 ]
-                                                              ]);
-                                                    })
-                                                ],
-                                                /* :: */[
-                                                  /* tuple */[
-                                                    "asr",
-                                                    (function (param) {
-                                                        return /* Eq */Block.__(0, [
-                                                                  $$Array.map((function (x) {
-                                                                          return Caml_int64.asr_(/* int64 */[
-                                                                                      /* hi */-1,
-                                                                                      /* lo */4294967295
-                                                                                    ], x);
-                                                                        }), $$Array.init(64, (function (i) {
-                                                                              return i;
-                                                                            }))),
-                                                                  /* array */[
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */-1,
-                                                                      /* lo */4294967295
-                                                                    ]
-                                                                  ]
-                                                                ]);
+                                                              };
                                                       })
                                                   ],
-                                                  /* :: */[
-                                                    /* tuple */[
+                                                  "1": /* constructor */{
+                                                    tag: 0,
+                                                    name: "::",
+                                                    "0": /* tuple */[
                                                       "mul simple",
                                                       (function (param) {
-                                                          return /* Eq */Block.__(0, [
-                                                                    /* int64 */[
-                                                                      /* hi */0,
-                                                                      /* lo */6
-                                                                    ],
-                                                                    /* int64 */[
-                                                                      /* hi */0,
-                                                                      /* lo */6
-                                                                    ]
-                                                                  ]);
+                                                          return /* constructor */{
+                                                                  tag: 0,
+                                                                  name: "Eq",
+                                                                  "0": /* int64 */[
+                                                                    /* hi */0,
+                                                                    /* lo */6
+                                                                  ],
+                                                                  "1": /* int64 */[
+                                                                    /* hi */0,
+                                                                    /* lo */6
+                                                                  ]
+                                                                };
                                                         })
                                                     ],
-                                                    /* :: */[
-                                                      /* tuple */[
+                                                    "1": /* constructor */{
+                                                      tag: 0,
+                                                      name: "::",
+                                                      "0": /* tuple */[
                                                         "of_int32",
                                                         (function (param) {
-                                                            return /* Eq */Block.__(0, [
-                                                                      $$Array.map(Caml_int64.of_int32, /* array */[
-                                                                            0,
-                                                                            -2147483648
-                                                                          ]),
-                                                                      /* array */[
-                                                                        /* int64 */[
-                                                                          /* hi */0,
-                                                                          /* lo */0
-                                                                        ],
-                                                                        /* int64 */[
-                                                                          /* hi */-1,
-                                                                          /* lo */2147483648
-                                                                        ]
-                                                                      ]
-                                                                    ]);
-                                                          })
-                                                      ],
-                                                      /* :: */[
-                                                        /* tuple */[
-                                                          "to_int32",
-                                                          (function (param) {
-                                                              return /* Eq */Block.__(0, [
-                                                                        $$Array.map((function (prim) {
-                                                                                return prim[1] | 0;
-                                                                              }), /* array */[
-                                                                              /* int64 */[
-                                                                                /* hi */0,
-                                                                                /* lo */0
-                                                                              ],
-                                                                              /* int64 */[
-                                                                                /* hi */0,
-                                                                                /* lo */2147483648
-                                                                              ]
-                                                                            ]),
-                                                                        /* array */[
+                                                            return /* constructor */{
+                                                                    tag: 0,
+                                                                    name: "Eq",
+                                                                    "0": $$Array.map(Caml_int64.of_int32, /* array */[
                                                                           0,
                                                                           -2147483648
-                                                                        ]
-                                                                      ]);
-                                                            })
-                                                        ],
-                                                        /* :: */[
-                                                          /* tuple */[
-                                                            "discard_sign",
-                                                            (function (param) {
-                                                                return /* Eq */Block.__(0, [
-                                                                          Caml_int64.discard_sign(/* int64 */[
-                                                                                /* hi */-1,
-                                                                                /* lo */4294967295
-                                                                              ]),
-                                                                          /* int64 */[
-                                                                            /* hi */2147483647,
-                                                                            /* lo */4294967295
-                                                                          ]
-                                                                        ]);
-                                                              })
-                                                          ],
-                                                          /* :: */[
-                                                            /* tuple */[
-                                                              "div_mod",
-                                                              (function (param) {
-                                                                  return /* Eq */Block.__(0, [
-                                                                            Caml_int64.div_mod(/* int64 */[
-                                                                                  /* hi */0,
-                                                                                  /* lo */7
-                                                                                ], /* int64 */[
-                                                                                  /* hi */0,
-                                                                                  /* lo */3
-                                                                                ]),
-                                                                            /* tuple */[
-                                                                              /* int64 */[
-                                                                                /* hi */0,
-                                                                                /* lo */2
-                                                                              ],
-                                                                              /* int64 */[
-                                                                                /* hi */0,
-                                                                                /* lo */1
-                                                                              ]
-                                                                            ]
-                                                                          ]);
-                                                                })
-                                                            ],
-                                                            /* :: */[
-                                                              /* tuple */[
-                                                                "to_hex",
-                                                                (function (param) {
-                                                                    return /* Eq */Block.__(0, [
-                                                                              Caml_int64.to_hex(/* int64 */[
-                                                                                    /* hi */-1,
-                                                                                    /* lo */4294967295
-                                                                                  ]),
-                                                                              "ffffffffffffffff"
-                                                                            ]);
-                                                                  })
-                                                              ],
-                                                              /* :: */[
-                                                                /* tuple */[
-                                                                  "generic_compare",
-                                                                  (function (param) {
-                                                                      return /* Eq */Block.__(0, [
-                                                                                Caml_obj.caml_compare(/* int64 */[
-                                                                                      /* hi */1,
-                                                                                      /* lo */0
-                                                                                    ], /* int64 */[
-                                                                                      /* hi */0,
-                                                                                      /* lo */1
-                                                                                    ]) > 0,
-                                                                                true
-                                                                              ]);
-                                                                    })
-                                                                ],
-                                                                /* :: */[
-                                                                  /* tuple */[
-                                                                    "test_compier_literal",
-                                                                    (function (param) {
-                                                                        return /* Eq */Block.__(0, [
-                                                                                  /* int64 */[
-                                                                                    /* hi */0,
-                                                                                    /* lo */4294967295
-                                                                                  ],
-                                                                                  /* int64 */[
-                                                                                    /* hi */0,
-                                                                                    /* lo */4294967295
-                                                                                  ]
-                                                                                ]);
-                                                                      })
-                                                                  ],
-                                                                  /* :: */[
-                                                                    /* tuple */[
-                                                                      "generic_compare2",
-                                                                      (function (param) {
-                                                                          return /* Eq */Block.__(0, [
-                                                                                    Caml_obj.caml_compare(/* int64 */[
-                                                                                          /* hi */0,
-                                                                                          /* lo */2147483648
-                                                                                        ], /* int64 */[
-                                                                                          /* hi */0,
-                                                                                          /* lo */1
-                                                                                        ]) > 0,
-                                                                                    true
-                                                                                  ]);
-                                                                        })
-                                                                    ],
-                                                                    /* :: */[
-                                                                      /* tuple */[
-                                                                        "shift_left",
-                                                                        (function (param) {
-                                                                            return /* Eq */Block.__(0, [
-                                                                                      /* int64 */[
-                                                                                        /* hi */0,
-                                                                                        /* lo */4294967040
-                                                                                      ],
-                                                                                      /* int64 */[
-                                                                                        /* hi */0,
-                                                                                        /* lo */4294967040
-                                                                                      ]
-                                                                                    ]);
-                                                                          })
+                                                                        ]),
+                                                                    "1": /* array */[
+                                                                      /* int64 */[
+                                                                        /* hi */0,
+                                                                        /* lo */0
                                                                       ],
-                                                                      /* :: */[
-                                                                        /* tuple */[
-                                                                          "shift_right",
-                                                                          (function (param) {
-                                                                              return /* Eq */Block.__(0, [
-                                                                                        4294967295,
-                                                                                        4294967295
-                                                                                      ]);
-                                                                            })
-                                                                        ],
-                                                                        /* :: */[
-                                                                          /* tuple */[
-                                                                            "fib_int64",
-                                                                            (function (param) {
-                                                                                return /* Eq */Block.__(0, [
-                                                                                          fib(1000, /* int64 */[
-                                                                                                /* hi */0,
-                                                                                                /* lo */1
-                                                                                              ], /* int64 */[
-                                                                                                /* hi */0,
-                                                                                                /* lo */2
-                                                                                              ]),
-                                                                                          /* int64 */[
-                                                                                            /* hi */-1990564327,
-                                                                                            /* lo */2874523960
-                                                                                          ]
-                                                                                        ]);
-                                                                              })
-                                                                          ],
-                                                                          /* :: */[
-                                                                            /* tuple */[
-                                                                              "fac_int64",
-                                                                              (function (param) {
-                                                                                  return /* Eq */Block.__(0, [
-                                                                                            fac(30, /* int64 */[
-                                                                                                  /* hi */0,
-                                                                                                  /* lo */1
-                                                                                                ]),
-                                                                                            /* int64 */[
-                                                                                              /* hi */-2040662563,
-                                                                                              /* lo */1409286144
-                                                                                            ]
-                                                                                          ]);
-                                                                                })
-                                                                            ],
-                                                                            /* [] */0
-                                                                          ]
-                                                                        ]
+                                                                      /* int64 */[
+                                                                        /* hi */-1,
+                                                                        /* lo */2147483648
                                                                       ]
                                                                     ]
-                                                                  ]
-                                                                ]
-                                                              ]
-                                                            ]
-                                                          ]
-                                                        ]
-                                                      ]
-                                                    ]
-                                                  ]
-                                                ]
-                                              ]
-                                            ]
-                                          ]
-                                        ]
-                                      ]
-                                    ]
-                                  ]
-                                ]
-                              ]
-                            ]
-                          ]
-                        ]
-                      ]
-                    ]
-                  ]
-                ]
-              ]
-            ]
-          ]
-        ]
-      ]
-    ], Pervasives.$at($$Array.to_list(Ext_array_test.map2i((function (i, a, b) {
+                                                                  };
+                                                          })
+                                                      ],
+                                                      "1": /* constructor */{
+                                                        tag: 0,
+                                                        name: "::",
+                                                        "0": /* tuple */[
+                                                          "to_int32",
+                                                          (function (param) {
+                                                              return /* constructor */{
+                                                                      tag: 0,
+                                                                      name: "Eq",
+                                                                      "0": $$Array.map((function (prim) {
+                                                                              return prim[1] | 0;
+                                                                            }), /* array */[
+                                                                            /* int64 */[
+                                                                              /* hi */0,
+                                                                              /* lo */0
+                                                                            ],
+                                                                            /* int64 */[
+                                                                              /* hi */0,
+                                                                              /* lo */2147483648
+                                                                            ]
+                                                                          ]),
+                                                                      "1": /* array */[
+                                                                        0,
+                                                                        -2147483648
+                                                                      ]
+                                                                    };
+                                                            })
+                                                        ],
+                                                        "1": /* constructor */{
+                                                          tag: 0,
+                                                          name: "::",
+                                                          "0": /* tuple */[
+                                                            "discard_sign",
+                                                            (function (param) {
+                                                                return /* constructor */{
+                                                                        tag: 0,
+                                                                        name: "Eq",
+                                                                        "0": Caml_int64.discard_sign(/* int64 */[
+                                                                              /* hi */-1,
+                                                                              /* lo */4294967295
+                                                                            ]),
+                                                                        "1": /* int64 */[
+                                                                          /* hi */2147483647,
+                                                                          /* lo */4294967295
+                                                                        ]
+                                                                      };
+                                                              })
+                                                          ],
+                                                          "1": /* constructor */{
+                                                            tag: 0,
+                                                            name: "::",
+                                                            "0": /* tuple */[
+                                                              "div_mod",
+                                                              (function (param) {
+                                                                  return /* constructor */{
+                                                                          tag: 0,
+                                                                          name: "Eq",
+                                                                          "0": Caml_int64.div_mod(/* int64 */[
+                                                                                /* hi */0,
+                                                                                /* lo */7
+                                                                              ], /* int64 */[
+                                                                                /* hi */0,
+                                                                                /* lo */3
+                                                                              ]),
+                                                                          "1": /* tuple */[
+                                                                            /* int64 */[
+                                                                              /* hi */0,
+                                                                              /* lo */2
+                                                                            ],
+                                                                            /* int64 */[
+                                                                              /* hi */0,
+                                                                              /* lo */1
+                                                                            ]
+                                                                          ]
+                                                                        };
+                                                                })
+                                                            ],
+                                                            "1": /* constructor */{
+                                                              tag: 0,
+                                                              name: "::",
+                                                              "0": /* tuple */[
+                                                                "to_hex",
+                                                                (function (param) {
+                                                                    return /* constructor */{
+                                                                            tag: 0,
+                                                                            name: "Eq",
+                                                                            "0": Caml_int64.to_hex(/* int64 */[
+                                                                                  /* hi */-1,
+                                                                                  /* lo */4294967295
+                                                                                ]),
+                                                                            "1": "ffffffffffffffff"
+                                                                          };
+                                                                  })
+                                                              ],
+                                                              "1": /* constructor */{
+                                                                tag: 0,
+                                                                name: "::",
+                                                                "0": /* tuple */[
+                                                                  "generic_compare",
+                                                                  (function (param) {
+                                                                      return /* constructor */{
+                                                                              tag: 0,
+                                                                              name: "Eq",
+                                                                              "0": Caml_obj.caml_compare(/* int64 */[
+                                                                                    /* hi */1,
+                                                                                    /* lo */0
+                                                                                  ], /* int64 */[
+                                                                                    /* hi */0,
+                                                                                    /* lo */1
+                                                                                  ]) > 0,
+                                                                              "1": true
+                                                                            };
+                                                                    })
+                                                                ],
+                                                                "1": /* constructor */{
+                                                                  tag: 0,
+                                                                  name: "::",
+                                                                  "0": /* tuple */[
+                                                                    "test_compier_literal",
+                                                                    (function (param) {
+                                                                        return /* constructor */{
+                                                                                tag: 0,
+                                                                                name: "Eq",
+                                                                                "0": /* int64 */[
+                                                                                  /* hi */0,
+                                                                                  /* lo */4294967295
+                                                                                ],
+                                                                                "1": /* int64 */[
+                                                                                  /* hi */0,
+                                                                                  /* lo */4294967295
+                                                                                ]
+                                                                              };
+                                                                      })
+                                                                  ],
+                                                                  "1": /* constructor */{
+                                                                    tag: 0,
+                                                                    name: "::",
+                                                                    "0": /* tuple */[
+                                                                      "generic_compare2",
+                                                                      (function (param) {
+                                                                          return /* constructor */{
+                                                                                  tag: 0,
+                                                                                  name: "Eq",
+                                                                                  "0": Caml_obj.caml_compare(/* int64 */[
+                                                                                        /* hi */0,
+                                                                                        /* lo */2147483648
+                                                                                      ], /* int64 */[
+                                                                                        /* hi */0,
+                                                                                        /* lo */1
+                                                                                      ]) > 0,
+                                                                                  "1": true
+                                                                                };
+                                                                        })
+                                                                    ],
+                                                                    "1": /* constructor */{
+                                                                      tag: 0,
+                                                                      name: "::",
+                                                                      "0": /* tuple */[
+                                                                        "shift_left",
+                                                                        (function (param) {
+                                                                            return /* constructor */{
+                                                                                    tag: 0,
+                                                                                    name: "Eq",
+                                                                                    "0": /* int64 */[
+                                                                                      /* hi */0,
+                                                                                      /* lo */4294967040
+                                                                                    ],
+                                                                                    "1": /* int64 */[
+                                                                                      /* hi */0,
+                                                                                      /* lo */4294967040
+                                                                                    ]
+                                                                                  };
+                                                                          })
+                                                                      ],
+                                                                      "1": /* constructor */{
+                                                                        tag: 0,
+                                                                        name: "::",
+                                                                        "0": /* tuple */[
+                                                                          "shift_right",
+                                                                          (function (param) {
+                                                                              return /* constructor */{
+                                                                                      tag: 0,
+                                                                                      name: "Eq",
+                                                                                      "0": 4294967295,
+                                                                                      "1": 4294967295
+                                                                                    };
+                                                                            })
+                                                                        ],
+                                                                        "1": /* constructor */{
+                                                                          tag: 0,
+                                                                          name: "::",
+                                                                          "0": /* tuple */[
+                                                                            "fib_int64",
+                                                                            (function (param) {
+                                                                                return /* constructor */{
+                                                                                        tag: 0,
+                                                                                        name: "Eq",
+                                                                                        "0": fib(1000, /* int64 */[
+                                                                                              /* hi */0,
+                                                                                              /* lo */1
+                                                                                            ], /* int64 */[
+                                                                                              /* hi */0,
+                                                                                              /* lo */2
+                                                                                            ]),
+                                                                                        "1": /* int64 */[
+                                                                                          /* hi */-1990564327,
+                                                                                          /* lo */2874523960
+                                                                                        ]
+                                                                                      };
+                                                                              })
+                                                                          ],
+                                                                          "1": /* constructor */{
+                                                                            tag: 0,
+                                                                            name: "::",
+                                                                            "0": /* tuple */[
+                                                                              "fac_int64",
+                                                                              (function (param) {
+                                                                                  return /* constructor */{
+                                                                                          tag: 0,
+                                                                                          name: "Eq",
+                                                                                          "0": fac(30, /* int64 */[
+                                                                                                /* hi */0,
+                                                                                                /* lo */1
+                                                                                              ]),
+                                                                                          "1": /* int64 */[
+                                                                                            /* hi */-2040662563,
+                                                                                            /* lo */1409286144
+                                                                                          ]
+                                                                                        };
+                                                                                })
+                                                                            ],
+                                                                            "1": /* [] */0
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }, Pervasives.$at($$Array.to_list(Ext_array_test.map2i((function (i, a, b) {
                     return /* tuple */[
-                            Curry._1(Format.asprintf(/* Format */[
-                                      /* String_literal */Block.__(11, [
-                                          "shift_left_cases ",
-                                          /* Int */Block.__(4, [
-                                              /* Int_d */0,
-                                              /* No_padding */0,
-                                              /* No_precision */0,
-                                              /* End_of_format */0
-                                            ])
-                                        ]),
-                                      "shift_left_cases %d"
-                                    ]), i),
+                            Curry._1(Format.asprintf(/* constructor */{
+                                      tag: 0,
+                                      name: "Format",
+                                      "0": /* constructor */{
+                                        tag: 11,
+                                        name: "String_literal",
+                                        "0": "shift_left_cases ",
+                                        "1": /* constructor */{
+                                          tag: 4,
+                                          name: "Int",
+                                          "0": /* Int_d */0,
+                                          "1": /* No_padding */0,
+                                          "2": /* No_precision */0,
+                                          "3": /* End_of_format */0
+                                        }
+                                      },
+                                      "1": "shift_left_cases %d"
+                                    }), i),
                             (function (param) {
-                                return /* Eq */Block.__(0, [
-                                          a,
-                                          b
-                                        ]);
+                                return /* constructor */{
+                                        tag: 0,
+                                        name: "Eq",
+                                        "0": a,
+                                        "1": b
+                                      };
                               })
                           ];
                   }), shift_left_tests_000, shift_left_tests_001)), Pervasives.$at($$Array.to_list(Ext_array_test.map2i((function (i, a, b) {
                         return /* tuple */[
-                                Curry._1(Format.asprintf(/* Format */[
-                                          /* String_literal */Block.__(11, [
-                                              "shift_right_cases ",
-                                              /* Int */Block.__(4, [
-                                                  /* Int_d */0,
-                                                  /* No_padding */0,
-                                                  /* No_precision */0,
-                                                  /* End_of_format */0
-                                                ])
-                                            ]),
-                                          "shift_right_cases %d"
-                                        ]), i),
+                                Curry._1(Format.asprintf(/* constructor */{
+                                          tag: 0,
+                                          name: "Format",
+                                          "0": /* constructor */{
+                                            tag: 11,
+                                            name: "String_literal",
+                                            "0": "shift_right_cases ",
+                                            "1": /* constructor */{
+                                              tag: 4,
+                                              name: "Int",
+                                              "0": /* Int_d */0,
+                                              "1": /* No_padding */0,
+                                              "2": /* No_precision */0,
+                                              "3": /* End_of_format */0
+                                            }
+                                          },
+                                          "1": "shift_right_cases %d"
+                                        }), i),
                                 (function (param) {
-                                    return /* Eq */Block.__(0, [
-                                              a,
-                                              b
-                                            ]);
+                                    return /* constructor */{
+                                            tag: 0,
+                                            name: "Eq",
+                                            "0": a,
+                                            "1": b
+                                          };
                                   })
                               ];
                       }), shift_right_tests_000, shift_right_tests_001)), $$Array.to_list(Ext_array_test.map2i((function (i, a, b) {
                         return /* tuple */[
-                                Curry._1(Format.asprintf(/* Format */[
-                                          /* String_literal */Block.__(11, [
-                                              "shift_right_logical_cases ",
-                                              /* Int */Block.__(4, [
-                                                  /* Int_d */0,
-                                                  /* No_padding */0,
-                                                  /* No_precision */0,
-                                                  /* End_of_format */0
-                                                ])
-                                            ]),
-                                          "shift_right_logical_cases %d"
-                                        ]), i),
+                                Curry._1(Format.asprintf(/* constructor */{
+                                          tag: 0,
+                                          name: "Format",
+                                          "0": /* constructor */{
+                                            tag: 11,
+                                            name: "String_literal",
+                                            "0": "shift_right_logical_cases ",
+                                            "1": /* constructor */{
+                                              tag: 4,
+                                              name: "Int",
+                                              "0": /* Int_d */0,
+                                              "1": /* No_padding */0,
+                                              "2": /* No_precision */0,
+                                              "3": /* End_of_format */0
+                                            }
+                                          },
+                                          "1": "shift_right_logical_cases %d"
+                                        }), i),
                                 (function (param) {
-                                    return /* Eq */Block.__(0, [
-                                              a,
-                                              b
-                                            ]);
+                                    return /* constructor */{
+                                            tag: 0,
+                                            name: "Eq",
+                                            "0": a,
+                                            "1": b
+                                          };
                                   })
                               ];
                       }), shift_right_logical_suites_000, shift_right_logical_suites_001)))));

@@ -1,7 +1,6 @@
 'use strict';
 
 var Arg = require("../../lib/js/arg.js");
-var Block = require("../../lib/js/block.js");
 
 function anno_fun(arg) {
   return /* () */0;
@@ -13,25 +12,33 @@ var compile = /* record */[/* contents */false];
 
 var test = /* record */[/* contents */true];
 
-var arg_spec_000 = /* tuple */[
-  "-c",
-  /* Set */Block.__(2, [compile]),
-  " Compile"
-];
-
-var arg_spec_001 = /* :: */[
-  /* tuple */[
-    "-d",
-    /* Clear */Block.__(3, [test]),
-    " Test"
+var arg_spec = /* constructor */{
+  tag: 0,
+  name: "::",
+  "0": /* tuple */[
+    "-c",
+    /* constructor */{
+      tag: 2,
+      name: "Set",
+      "0": compile
+    },
+    " Compile"
   ],
-  /* [] */0
-];
-
-var arg_spec = /* :: */[
-  arg_spec_000,
-  arg_spec_001
-];
+  "1": /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": /* tuple */[
+      "-d",
+      /* constructor */{
+        tag: 3,
+        name: "Clear",
+        "0": test
+      },
+      " Test"
+    ],
+    "1": /* [] */0
+  }
+};
 
 Arg.parse(arg_spec, anno_fun, usage_msg);
 

@@ -30,13 +30,15 @@ function height(param) {
 function create(l, x, d, r) {
   var hl = height(l);
   var hr = height(r);
-  return /* Node */[
-          l,
-          x,
-          d,
-          r,
-          hl >= hr ? hl + 1 | 0 : hr + 1 | 0
-        ];
+  return /* constructor */{
+          tag: 0,
+          name: "Node",
+          "0": l,
+          "1": x,
+          "2": d,
+          "3": r,
+          "4": hl >= hr ? hl + 1 | 0 : hr + 1 | 0
+        };
 }
 
 function bal(l, x, d, r) {
@@ -87,13 +89,15 @@ function bal(l, x, d, r) {
           ];
     }
   } else {
-    return /* Node */[
-            l,
-            x,
-            d,
-            r,
-            hl >= hr ? hl + 1 | 0 : hr + 1 | 0
-          ];
+    return /* constructor */{
+            tag: 0,
+            name: "Node",
+            "0": l,
+            "1": x,
+            "2": d,
+            "3": r,
+            "4": hl >= hr ? hl + 1 | 0 : hr + 1 | 0
+          };
   }
 }
 
@@ -105,26 +109,30 @@ function add(x, data, compare, param) {
     var l = param[0];
     var c = compare(x, v);
     if (c === 0) {
-      return /* Node */[
-              l,
-              x,
-              data,
-              r,
-              param[4]
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "Node",
+              "0": l,
+              "1": x,
+              "2": data,
+              "3": r,
+              "4": param[4]
+            };
     } else if (c < 0) {
       return bal(add(x, data, compare, l), v, d, r);
     } else {
       return bal(l, v, d, add(x, data, compare, r));
     }
   } else {
-    return /* Node */[
-            /* Empty */0,
-            x,
-            data,
-            /* Empty */0,
-            1
-          ];
+    return /* constructor */{
+            tag: 0,
+            name: "Node",
+            "0": /* Empty */0,
+            "1": x,
+            "2": data,
+            "3": /* Empty */0,
+            "4": 1
+          };
   }
 }
 

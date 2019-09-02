@@ -213,10 +213,12 @@ b("File \"bs_poly_set_test.ml\", line 92, characters 4-11", Belt_SetDict.maxUnde
 function testIterToList(xs) {
   var v = /* record */[/* contents : [] */0];
   Belt_Set.forEach(xs, (function (x) {
-          v[0] = /* :: */[
-            x,
-            v[0]
-          ];
+          v[0] = /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": x,
+            "1": v[0]
+          };
           return /* () */0;
         }));
   return Belt_List.reverse(v[0]);
@@ -225,10 +227,12 @@ function testIterToList(xs) {
 function testIterToList2(xs) {
   var v = /* record */[/* contents : [] */0];
   Belt_SetDict.forEach(xs.data, (function (x) {
-          v[0] = /* :: */[
-            x,
-            v[0]
-          ];
+          v[0] = /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": x,
+            "1": v[0]
+          };
           return /* () */0;
         }));
   return Belt_List.reverse(v[0]);
@@ -366,22 +370,32 @@ eq("File \"bs_poly_set_test.ml\", line 146, characters 5-12", Belt_SetDict.minim
 
 eq("File \"bs_poly_set_test.ml\", line 147, characters 5-12", Belt_SetDict.minimum(a9.data), 201);
 
-Belt_List.forEach(/* :: */[
-      a0,
-      /* :: */[
-        a1,
-        /* :: */[
-          a2,
-          /* :: */[
-            a3,
-            /* :: */[
-              a4,
-              /* [] */0
-            ]
-          ]
-        ]
-      ]
-    ], (function (x) {
+Belt_List.forEach(/* constructor */{
+      tag: 0,
+      name: "::",
+      "0": a0,
+      "1": /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": a1,
+        "1": /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": a2,
+          "1": /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": a3,
+            "1": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": a4,
+              "1": /* [] */0
+            }
+          }
+        }
+      }
+    }, (function (x) {
         return Belt_SetDict.checkInvariantInternal(x.data);
       }));
 

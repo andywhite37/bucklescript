@@ -1,7 +1,6 @@
 'use strict';
 
 var Mt = require("./mt.js");
-var Block = require("../../lib/js/block.js");
 var Caml_exceptions = require("../../lib/js/caml_exceptions.js");
 var Caml_builtin_exceptions = require("../../lib/js/caml_builtin_exceptions.js");
 
@@ -34,55 +33,63 @@ function to_int(x) {
   }
 }
 
-var suites_000 = /* tuple */[
-  "test_int",
-  (function (param) {
-      return /* Eq */Block.__(0, [
-                3,
-                to_int([
+var suites = /* constructor */{
+  tag: 0,
+  name: "::",
+  "0": /* tuple */[
+    "test_int",
+    (function (param) {
+        return /* constructor */{
+                tag: 0,
+                name: "Eq",
+                "0": 3,
+                "1": to_int([
                       Int,
                       3,
                       0
                     ])
-              ]);
-    })
-];
-
-var suites_001 = /* :: */[
-  /* tuple */[
-    "test_int2",
-    (function (param) {
-        return /* Eq */Block.__(0, [
-                  0,
-                  to_int([
+              };
+      })
+  ],
+  "1": /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": /* tuple */[
+      "test_int2",
+      (function (param) {
+          return /* constructor */{
+                  tag: 0,
+                  name: "Eq",
+                  "0": 0,
+                  "1": to_int([
                         Int$1,
                         3,
                         0
                       ])
-                ]);
-      })
-  ],
-  /* :: */[
-    /* tuple */[
-      "test_string",
-      (function (param) {
-          return /* Eq */Block.__(0, [
-                    -1,
-                    to_int([
+                };
+        })
+    ],
+    "1": /* constructor */{
+      tag: 0,
+      name: "::",
+      "0": /* tuple */[
+        "test_string",
+        (function (param) {
+            return /* constructor */{
+                    tag: 0,
+                    name: "Eq",
+                    "0": -1,
+                    "1": to_int([
                           Str,
                           "x"
                         ])
-                  ]);
-        })
-    ],
-    /* [] */0
-  ]
-];
-
-var suites = /* :: */[
-  suites_000,
-  suites_001
-];
+                  };
+          })
+      ],
+      "1": /* [] */0
+    }
+  }
+};
 
 Mt.from_pair_suites("Extensible_variant_test", suites);
 

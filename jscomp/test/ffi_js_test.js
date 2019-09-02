@@ -1,7 +1,6 @@
 'use strict';
 
 var Mt = require("./mt.js");
-var Block = require("../../lib/js/block.js");
 
 var keys = ( function (x){return Object.keys(x)});
 
@@ -22,18 +21,22 @@ function eq(loc, param) {
   var y = param[1];
   var x = param[0];
   test_id[0] = test_id[0] + 1 | 0;
-  suites[0] = /* :: */[
-    /* tuple */[
+  suites[0] = /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
-          return /* Eq */Block.__(0, [
-                    x,
-                    y
-                  ]);
+          return /* constructor */{
+                  tag: 0,
+                  name: "Eq",
+                  "0": x,
+                  "1": y
+                };
         })
     ],
-    suites[0]
-  ];
+    "1": suites[0]
+  };
   return /* () */0;
 }
 
@@ -52,27 +55,35 @@ eq("File \"ffi_js_test.ml\", line 32, characters 5-12", /* tuple */[
       $$higher_order(1)(2, 3)
     ]);
 
-var same_type_000 = /* :: */[
-  int_config,
-  /* :: */[
-    {
+var same_type_000 = /* constructor */{
+  tag: 0,
+  name: "::",
+  "0": int_config,
+  "1": /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": {
       hi: 3,
       low: 32
     },
-    /* [] */0
-  ]
-];
+    "1": /* [] */0
+  }
+};
 
-var same_type_001 = /* :: */[
-  string_config,
-  /* :: */[
-    {
+var same_type_001 = /* constructor */{
+  tag: 0,
+  name: "::",
+  "0": string_config,
+  "1": /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": {
       hi: 3,
       low: "32"
     },
-    /* [] */0
-  ]
-];
+    "1": /* [] */0
+  }
+};
 
 var same_type = /* tuple */[
   same_type_000,

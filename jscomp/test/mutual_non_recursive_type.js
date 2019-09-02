@@ -9,7 +9,11 @@ var U = {
   f: f
 };
 
-var v = /* H */[/* OT */0];
+var v = /* constructor */{
+  tag: 0,
+  name: "H",
+  "0": /* OT */0
+};
 
 exports.U = U;
 exports.v = v;

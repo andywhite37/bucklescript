@@ -1,7 +1,6 @@
 'use strict';
 
 var Mt = require("./mt.js");
-var Block = require("../../lib/js/block.js");
 var Curry = require("../../lib/js/curry.js");
 var Caml_array = require("../../lib/js/caml_array.js");
 var Pervasives = require("../../lib/js/pervasives.js");
@@ -75,18 +74,22 @@ var test_id = /* record */[/* contents */0];
 
 function eq(loc, x, y) {
   test_id[0] = test_id[0] + 1 | 0;
-  suites[0] = /* :: */[
-    /* tuple */[
+  suites[0] = /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
-          return /* Eq */Block.__(0, [
-                    x,
-                    y
-                  ]);
+          return /* constructor */{
+                  tag: 0,
+                  name: "Eq",
+                  "0": x,
+                  "1": y
+                };
         })
     ],
-    suites[0]
-  ];
+    "1": suites[0]
+  };
   return /* () */0;
 }
 
@@ -102,10 +105,12 @@ function add5(a0, a1, a2, a3, a4) {
         a3,
         a4
       ]);
-  all_v[0] = /* :: */[
-    v[0],
-    all_v[0]
-  ];
+  all_v[0] = /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": v[0],
+    "1": all_v[0]
+  };
   return (((a0 + a1 | 0) + a2 | 0) + a3 | 0) + a4 | 0;
 }
 
@@ -127,10 +132,12 @@ function g(x) {
   var u = function (param, param$1) {
     return add5(x, partial_arg$1, partial_arg, param, param$1);
   };
-  all_v[0] = /* :: */[
-    v[0],
-    all_v[0]
-  ];
+  all_v[0] = /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": v[0],
+    "1": all_v[0]
+  };
   return u;
 }
 
@@ -150,25 +157,37 @@ eq("File \"earger_curry_test.ml\", line 120, characters 7-14", c, 10);
 
 eq("File \"earger_curry_test.ml\", line 121, characters 7-14", d, 11);
 
-eq("File \"earger_curry_test.ml\", line 122, characters 7-14", all_v[0], /* :: */[
-      8,
-      /* :: */[
-        8,
-        /* :: */[
-          6,
-          /* :: */[
-            6,
-            /* :: */[
-              4,
-              /* :: */[
-                2,
-                /* [] */0
-              ]
-            ]
-          ]
-        ]
-      ]
-    ]);
+eq("File \"earger_curry_test.ml\", line 122, characters 7-14", all_v[0], /* constructor */{
+      tag: 0,
+      name: "::",
+      "0": 8,
+      "1": /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": 8,
+        "1": /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": 6,
+          "1": /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": 6,
+            "1": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": 4,
+              "1": /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": 2,
+                "1": /* [] */0
+              }
+            }
+          }
+        }
+      }
+    });
 
 Mt.from_pair_suites("Earger_curry_test", suites[0]);
 

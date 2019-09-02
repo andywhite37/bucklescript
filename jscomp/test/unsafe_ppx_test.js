@@ -1,7 +1,6 @@
 'use strict';
 
 var Mt = require("./mt.js");
-var Block = require("../../lib/js/block.js");
 var Curry = require("../../lib/js/curry.js");
 var Pervasives = require("../../lib/js/pervasives.js");
 var Ffi_js_test = require("./ffi_js_test.js");
@@ -56,51 +55,67 @@ var empty = ( Object.keys)(3);
 
 var v = $$test(1, 2);
 
-Mt.from_pair_suites("Unsafe_ppx_test", /* :: */[
-      /* tuple */[
+Mt.from_pair_suites("Unsafe_ppx_test", /* constructor */{
+      tag: 0,
+      name: "::",
+      "0": /* tuple */[
         "unsafe_max",
         (function (param) {
-            return /* Eq */Block.__(0, [
-                      2,
-                      max(1, 2)
-                    ]);
+            return /* constructor */{
+                    tag: 0,
+                    name: "Eq",
+                    "0": 2,
+                    "1": max(1, 2)
+                  };
           })
       ],
-      /* :: */[
-        /* tuple */[
+      "1": /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": /* tuple */[
           "unsafe_test",
           (function (param) {
-              return /* Eq */Block.__(0, [
-                        3,
-                        v
-                      ]);
+              return /* constructor */{
+                      tag: 0,
+                      name: "Eq",
+                      "0": 3,
+                      "1": v
+                    };
             })
         ],
-        /* :: */[
-          /* tuple */[
+        "1": /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": /* tuple */[
             "unsafe_max2",
             (function (param) {
-                return /* Eq */Block.__(0, [
-                          2,
-                          (Math.max)(1, 2)
-                        ]);
+                return /* constructor */{
+                        tag: 0,
+                        name: "Eq",
+                        "0": 2,
+                        "1": (Math.max)(1, 2)
+                      };
               })
           ],
-          /* :: */[
-            /* tuple */[
+          "1": /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": /* tuple */[
               "ffi_keys",
               (function (param) {
-                  return /* Eq */Block.__(0, [
-                            /* array */["a"],
-                            Ffi_js_test.keys(( {a : 3}))
-                          ]);
+                  return /* constructor */{
+                          tag: 0,
+                          name: "Eq",
+                          "0": /* array */["a"],
+                          "1": Ffi_js_test.keys(( {a : 3}))
+                        };
                 })
             ],
-            /* [] */0
-          ]
-        ]
-      ]
-    ]);
+            "1": /* [] */0
+          }
+        }
+      }
+    });
 
 exports.x = x;
 exports.max = max;

@@ -1,35 +1,42 @@
 'use strict';
 
 var Mt = require("./mt.js");
-var Block = require("../../lib/js/block.js");
 
-console.log(JSON.stringify(/* :: */[
-          1,
-          /* :: */[
-            2,
-            /* :: */[
-              3,
-              /* [] */0
-            ]
-          ]
-        ]));
+console.log(JSON.stringify(/* constructor */{
+          tag: 0,
+          name: "::",
+          "0": 1,
+          "1": /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": 2,
+            "1": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": 3,
+              "1": /* [] */0
+            }
+          }
+        }));
 
 console.log("hey");
 
-var suites_000 = /* tuple */[
-  "anything_to_string",
-  (function (param) {
-      return /* Eq */Block.__(0, [
-                "3",
-                String(3)
-              ]);
-    })
-];
-
-var suites = /* :: */[
-  suites_000,
-  /* [] */0
-];
+var suites = /* constructor */{
+  tag: 0,
+  name: "::",
+  "0": /* tuple */[
+    "anything_to_string",
+    (function (param) {
+        return /* constructor */{
+                tag: 0,
+                name: "Eq",
+                "0": "3",
+                "1": String(3)
+              };
+      })
+  ],
+  "1": /* [] */0
+};
 
 Mt.from_pair_suites("Lib_js_test", suites);
 

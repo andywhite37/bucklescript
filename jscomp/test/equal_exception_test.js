@@ -91,35 +91,39 @@ function is_arbitrary_exception(param) {
   }
 }
 
-var suites_000 = /* tuple */[
-  "is_equal",
-  is_equal
-];
-
-var suites_001 = /* :: */[
-  /* tuple */[
-    "is_exception",
-    is_exception
+var suites = /* constructor */{
+  tag: 0,
+  name: "::",
+  "0": /* tuple */[
+    "is_equal",
+    is_equal
   ],
-  /* :: */[
-    /* tuple */[
-      "is_normal_exception",
-      is_normal_exception
+  "1": /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": /* tuple */[
+      "is_exception",
+      is_exception
     ],
-    /* :: */[
-      /* tuple */[
-        "is_arbitrary_exception",
-        is_arbitrary_exception
+    "1": /* constructor */{
+      tag: 0,
+      name: "::",
+      "0": /* tuple */[
+        "is_normal_exception",
+        is_normal_exception
       ],
-      /* [] */0
-    ]
-  ]
-];
-
-var suites = /* :: */[
-  suites_000,
-  suites_001
-];
+      "1": /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": /* tuple */[
+          "is_arbitrary_exception",
+          is_arbitrary_exception
+        ],
+        "1": /* [] */0
+      }
+    }
+  }
+};
 
 Mt.from_suites("exception", suites);
 

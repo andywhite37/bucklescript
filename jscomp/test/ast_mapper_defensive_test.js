@@ -1,7 +1,6 @@
 'use strict';
 
 var Mt = require("./mt.js");
-var Block = require("../../lib/js/block.js");
 var Js_mapperRt = require("../../lib/js/js_mapperRt.js");
 
 var suites = /* record */[/* contents : [] */0];
@@ -10,15 +9,21 @@ var test_id = /* record */[/* contents */0];
 
 function $$throw(loc, x) {
   test_id[0] = test_id[0] + 1 | 0;
-  suites[0] = /* :: */[
-    /* tuple */[
+  suites[0] = /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
-          return /* ThrowAny */Block.__(7, [x]);
+          return /* constructor */{
+                  tag: 7,
+                  name: "ThrowAny",
+                  "0": x
+                };
         })
     ],
-    suites[0]
-  ];
+    "1": suites[0]
+  };
   return /* () */0;
 }
 

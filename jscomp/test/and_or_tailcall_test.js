@@ -1,7 +1,6 @@
 'use strict';
 
 var Mt = require("./mt.js");
-var Block = require("../../lib/js/block.js");
 
 function f(b, x, _n) {
   while(true) {
@@ -29,33 +28,37 @@ function or_f(b, x, _n) {
   };
 }
 
-var suites_000 = /* tuple */[
-  "and_tail",
-  (function (param) {
-      return /* Eq */Block.__(0, [
-                false,
-                f(true, 1, 0)
-              ]);
-    })
-];
-
-var suites_001 = /* :: */[
-  /* tuple */[
-    "or_tail",
+var suites = /* constructor */{
+  tag: 0,
+  name: "::",
+  "0": /* tuple */[
+    "and_tail",
     (function (param) {
-        return /* Eq */Block.__(0, [
-                  false,
-                  or_f(false, 1, 0)
-                ]);
+        return /* constructor */{
+                tag: 0,
+                name: "Eq",
+                "0": false,
+                "1": f(true, 1, 0)
+              };
       })
   ],
-  /* [] */0
-];
-
-var suites = /* :: */[
-  suites_000,
-  suites_001
-];
+  "1": /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": /* tuple */[
+      "or_tail",
+      (function (param) {
+          return /* constructor */{
+                  tag: 0,
+                  name: "Eq",
+                  "0": false,
+                  "1": or_f(false, 1, 0)
+                };
+        })
+    ],
+    "1": /* [] */0
+  }
+};
 
 Mt.from_pair_suites("And_or_tailcall_test", suites);
 

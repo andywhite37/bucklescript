@@ -30,7 +30,11 @@ Mt.from_pair_suites("Gpr_3536_test", suites[0]);
 
 var v = 5;
 
-var u = /* Some */[3];
+var u = /* constructor */{
+  tag: 0,
+  name: "Some",
+  "0": 3
+};
 
 exports.suites = suites;
 exports.test_id = test_id;

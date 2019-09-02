@@ -3,7 +3,6 @@
 var Mt = require("./mt.js");
 var Fs = require("fs");
 var Path = require("path");
-var Block = require("../../lib/js/block.js");
 var Child_process = require("child_process");
 var App_root_finder = require("./app_root_finder.js");
 var Caml_builtin_exceptions = require("../../lib/js/caml_builtin_exceptions.js");
@@ -14,18 +13,22 @@ var test_id = /* record */[/* contents */0];
 
 function eq(loc, x, y) {
   test_id[0] = test_id[0] + 1 | 0;
-  suites[0] = /* :: */[
-    /* tuple */[
+  suites[0] = /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
-          return /* Eq */Block.__(0, [
-                    x,
-                    y
-                  ]);
+          return /* constructor */{
+                  tag: 0,
+                  name: "Eq",
+                  "0": x,
+                  "1": y
+                };
         })
     ],
-    suites[0]
-  ];
+    "1": suites[0]
+  };
   return /* () */0;
 }
 

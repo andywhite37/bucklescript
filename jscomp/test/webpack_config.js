@@ -59,13 +59,17 @@ function f(param) {
 
 List$1.xx();
 
-List.length(/* :: */[
-      1,
-      /* :: */[
-        2,
-        /* [] */0
-      ]
-    ]);
+List.length(/* constructor */{
+      tag: 0,
+      name: "::",
+      "0": 1,
+      "1": /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": 2,
+        "1": /* [] */0
+      }
+    });
 
 List.length(/* [] */0);
 

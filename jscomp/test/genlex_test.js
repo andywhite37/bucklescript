@@ -2,35 +2,50 @@
 
 var Mt = require("./mt.js");
 var List = require("../../lib/js/list.js");
-var Block = require("../../lib/js/block.js");
 var Genlex = require("../../lib/js/genlex.js");
 var Stream = require("../../lib/js/stream.js");
 
-var lexer = Genlex.make_lexer(/* :: */[
-      "+",
-      /* :: */[
-        "-",
-        /* :: */[
-          "*",
-          /* :: */[
-            "/",
-            /* :: */[
-              "let",
-              /* :: */[
-                "=",
-                /* :: */[
-                  "(",
-                  /* :: */[
-                    ")",
-                    /* [] */0
-                  ]
-                ]
-              ]
-            ]
-          ]
-        ]
-      ]
-    ]);
+var lexer = Genlex.make_lexer(/* constructor */{
+      tag: 0,
+      name: "::",
+      "0": "+",
+      "1": /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": "-",
+        "1": /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": "*",
+          "1": /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": "/",
+            "1": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": "let",
+              "1": /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": "=",
+                "1": /* constructor */{
+                  tag: 0,
+                  name: "::",
+                  "0": "(",
+                  "1": /* constructor */{
+                    tag: 0,
+                    name: "::",
+                    "0": ")",
+                    "1": /* [] */0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    });
 
 function to_list(s) {
   var _acc = /* [] */0;
@@ -47,49 +62,95 @@ function to_list(s) {
         throw exn;
       }
     }
-    _acc = /* :: */[
-      v,
-      acc
-    ];
+    _acc = /* constructor */{
+      tag: 0,
+      name: "::",
+      "0": v,
+      "1": acc
+    };
     continue ;
   };
 }
 
-var suites_000 = /* tuple */[
-  "lexer_stream_genlex",
-  (function (param) {
-      return /* Eq */Block.__(0, [
-                /* :: */[
-                  /* Int */Block.__(2, [3]),
-                  /* :: */[
-                    /* Kwd */Block.__(0, ["("]),
-                    /* :: */[
-                      /* Int */Block.__(2, [3]),
-                      /* :: */[
-                        /* Kwd */Block.__(0, ["+"]),
-                        /* :: */[
-                          /* Int */Block.__(2, [2]),
-                          /* :: */[
-                            /* Int */Block.__(2, [-1]),
-                            /* :: */[
-                              /* Kwd */Block.__(0, [")"]),
-                              /* [] */0
-                            ]
-                          ]
-                        ]
-                      ]
-                    ]
-                  ]
-                ],
-                to_list(lexer(Stream.of_string("3(3 + 2 -1)")))
-              ]);
-    })
-];
-
-var suites = /* :: */[
-  suites_000,
-  /* [] */0
-];
+var suites = /* constructor */{
+  tag: 0,
+  name: "::",
+  "0": /* tuple */[
+    "lexer_stream_genlex",
+    (function (param) {
+        return /* constructor */{
+                tag: 0,
+                name: "Eq",
+                "0": /* constructor */{
+                  tag: 0,
+                  name: "::",
+                  "0": /* constructor */{
+                    tag: 2,
+                    name: "Int",
+                    "0": 3
+                  },
+                  "1": /* constructor */{
+                    tag: 0,
+                    name: "::",
+                    "0": /* constructor */{
+                      tag: 0,
+                      name: "Kwd",
+                      "0": "("
+                    },
+                    "1": /* constructor */{
+                      tag: 0,
+                      name: "::",
+                      "0": /* constructor */{
+                        tag: 2,
+                        name: "Int",
+                        "0": 3
+                      },
+                      "1": /* constructor */{
+                        tag: 0,
+                        name: "::",
+                        "0": /* constructor */{
+                          tag: 0,
+                          name: "Kwd",
+                          "0": "+"
+                        },
+                        "1": /* constructor */{
+                          tag: 0,
+                          name: "::",
+                          "0": /* constructor */{
+                            tag: 2,
+                            name: "Int",
+                            "0": 2
+                          },
+                          "1": /* constructor */{
+                            tag: 0,
+                            name: "::",
+                            "0": /* constructor */{
+                              tag: 2,
+                              name: "Int",
+                              "0": -1
+                            },
+                            "1": /* constructor */{
+                              tag: 0,
+                              name: "::",
+                              "0": /* constructor */{
+                                tag: 0,
+                                name: "Kwd",
+                                "0": ")"
+                              },
+                              "1": /* [] */0
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "1": to_list(lexer(Stream.of_string("3(3 + 2 -1)")))
+              };
+      })
+  ],
+  "1": /* [] */0
+};
 
 Mt.from_pair_suites("Genlex_test", suites);
 

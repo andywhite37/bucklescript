@@ -5,47 +5,49 @@ var u = {
   y: 3
 };
 
-var v_ice_cream3_000 = {
-  flavor: "vanilla",
-  num: 3
-};
-
-var v_ice_cream3_001 = /* :: */[
-  {
-    flavor: "x",
+var v_ice_cream3 = /* constructor */{
+  tag: 0,
+  name: "::",
+  "0": {
+    flavor: "vanilla",
     num: 3
   },
-  /* :: */[
-    {
-      flavor: "vanilla",
+  "1": /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": {
+      flavor: "x",
       num: 3
     },
-    /* [] */0
-  ]
-];
-
-var v_ice_cream3 = /* :: */[
-  v_ice_cream3_000,
-  v_ice_cream3_001
-];
-
-var v_ice_cream4_000 = {
-  flavor: "vanilla",
-  num: 3
+    "1": /* constructor */{
+      tag: 0,
+      name: "::",
+      "0": {
+        flavor: "vanilla",
+        num: 3
+      },
+      "1": /* [] */0
+    }
+  }
 };
 
-var v_ice_cream4_001 = /* :: */[
-  {
-    flavor: "x",
+var v_ice_cream4 = /* constructor */{
+  tag: 0,
+  name: "::",
+  "0": {
+    flavor: "vanilla",
     num: 3
   },
-  /* [] */0
-];
-
-var v_ice_cream4 = /* :: */[
-  v_ice_cream4_000,
-  v_ice_cream4_001
-];
+  "1": /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": {
+      flavor: "x",
+      num: 3
+    },
+    "1": /* [] */0
+  }
+};
 
 var vv = {
   x: 3
@@ -59,24 +61,26 @@ var int_expect2 = {
   x: 0
 };
 
-var int_expects_000 = { };
-
-var int_expects_001 = /* :: */[
-  {
-    x: 2
-  },
-  /* :: */[
-    {
-      x: 3
+var int_expects = /* constructor */{
+  tag: 0,
+  name: "::",
+  "0": { },
+  "1": /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": {
+      x: 2
     },
-    /* [] */0
-  ]
-];
-
-var int_expects = /* :: */[
-  int_expects_000,
-  int_expects_001
-];
+    "1": /* constructor */{
+      tag: 0,
+      name: "::",
+      "0": {
+        x: 3
+      },
+      "1": /* [] */0
+    }
+  }
+};
 
 var mk_ice = {
   flavour: "vanilla",
@@ -114,26 +118,28 @@ var mk_u = {
   x: 0
 };
 
-var v_mk7_000 = {
-  y: 3
-};
-
-var v_mk7_001 = /* :: */[
-  {
-    y: 2
+var v_mk7 = /* constructor */{
+  tag: 0,
+  name: "::",
+  "0": {
+    y: 3
   },
-  /* :: */[
-    {
+  "1": /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": {
       y: 2
     },
-    /* [] */0
-  ]
-];
-
-var v_mk7 = /* :: */[
-  v_mk7_000,
-  v_mk7_001
-];
+    "1": /* constructor */{
+      tag: 0,
+      name: "::",
+      "0": {
+        y: 2
+      },
+      "1": /* [] */0
+    }
+  }
+};
 
 again("a", 3);
 

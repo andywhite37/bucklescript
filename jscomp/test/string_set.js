@@ -57,12 +57,14 @@ function add(x, tree) {
       return Set_gen.internal_bal(l, v, add(x, r));
     }
   } else {
-    return /* Node */[
-            /* Empty */0,
-            x,
-            /* Empty */0,
-            1
-          ];
+    return /* constructor */{
+            tag: 0,
+            name: "Node",
+            "0": /* Empty */0,
+            "1": x,
+            "2": /* Empty */0,
+            "3": 1
+          };
   }
 }
 
@@ -196,23 +198,27 @@ function subset(_s1, _s2) {
             return false;
           }
         } else if (c < 0) {
-          if (subset(/* Node */[
-                  l1,
-                  v1,
-                  /* Empty */0,
-                  0
-                ], l2)) {
+          if (subset(/* constructor */{
+                  tag: 0,
+                  name: "Node",
+                  "0": l1,
+                  "1": v1,
+                  "2": /* Empty */0,
+                  "3": 0
+                }, l2)) {
             _s1 = r1;
             continue ;
           } else {
             return false;
           }
-        } else if (subset(/* Node */[
-                /* Empty */0,
-                v1,
-                r1,
-                0
-              ], r2)) {
+        } else if (subset(/* constructor */{
+                tag: 0,
+                name: "Node",
+                "0": /* Empty */0,
+                "1": v1,
+                "2": r1,
+                "3": 0
+              }, r2)) {
           _s1 = l1;
           continue ;
         } else {

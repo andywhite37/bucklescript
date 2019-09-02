@@ -106,16 +106,22 @@ var length_10_id = Belt_List.makeBy(10, (function (x) {
       }));
 
 function f13$1(param) {
-  return Caml_obj.caml_equal(Belt_List.take(length_10_id, 8), /* :: */[
-              1,
-              /* :: */[
-                2,
-                /* :: */[
-                  3,
-                  /* [] */0
-                ]
-              ]
-            ]);
+  return Caml_obj.caml_equal(Belt_List.take(length_10_id, 8), /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": 1,
+              "1": /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": 2,
+                "1": /* constructor */{
+                  tag: 0,
+                  name: "::",
+                  "0": 3,
+                  "1": /* [] */0
+                }
+              }
+            });
 }
 
 b("File \"option_repr_test.ml\", line 94, characters 4-11", Caml_obj.caml_lessthan(undefined, null));
@@ -168,82 +174,106 @@ function all_true(xs) {
               }));
 }
 
-var xs_000 = gtx(Caml_option.some(null), Caml_option.some(undefined));
-
-var xs = /* :: */[
-  xs_000,
-  /* [] */0
-];
+var xs = /* constructor */{
+  tag: 0,
+  name: "::",
+  "0": gtx(Caml_option.some(null), Caml_option.some(undefined)),
+  "1": /* [] */0
+};
 
 b("File \"option_repr_test.ml\", line 121, characters 5-12", Belt_List.every(xs, (function (x) {
             return x;
           })));
 
-var xs_000$1 = ltx(Caml_option.some(undefined), 3);
-
-var xs_001 = /* :: */[
-  ltx(Caml_option.some(undefined), Caml_option.some(Caml_option.some(undefined))),
-  /* :: */[
-    ltx(Caml_option.some(undefined), "3"),
-    /* :: */[
-      ltx(Caml_option.some(undefined), true),
-      /* :: */[
-        ltx(Caml_option.some(undefined), false),
-        /* :: */[
-          ltx(false, true),
-          /* :: */[
-            ltx(false, true),
-            /* :: */[
-              ltx(undefined, Caml_option.some(undefined)),
-              /* :: */[
-                ltx(undefined, null),
-                /* :: */[
-                  ltx(undefined, (function (x) {
-                          return x;
-                        })),
-                  /* :: */[
-                    ltx(null, 3),
-                    /* [] */0
-                  ]
-                ]
-              ]
-            ]
-          ]
-        ]
-      ]
-    ]
-  ]
-];
-
-var xs$1 = /* :: */[
-  xs_000$1,
-  xs_001
-];
+var xs$1 = /* constructor */{
+  tag: 0,
+  name: "::",
+  "0": ltx(Caml_option.some(undefined), 3),
+  "1": /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": ltx(Caml_option.some(undefined), Caml_option.some(Caml_option.some(undefined))),
+    "1": /* constructor */{
+      tag: 0,
+      name: "::",
+      "0": ltx(Caml_option.some(undefined), "3"),
+      "1": /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": ltx(Caml_option.some(undefined), true),
+        "1": /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": ltx(Caml_option.some(undefined), false),
+          "1": /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": ltx(false, true),
+            "1": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": ltx(false, true),
+              "1": /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": ltx(undefined, Caml_option.some(undefined)),
+                "1": /* constructor */{
+                  tag: 0,
+                  name: "::",
+                  "0": ltx(undefined, null),
+                  "1": /* constructor */{
+                    tag: 0,
+                    name: "::",
+                    "0": ltx(undefined, (function (x) {
+                            return x;
+                          })),
+                    "1": /* constructor */{
+                      tag: 0,
+                      name: "::",
+                      "0": ltx(null, 3),
+                      "1": /* [] */0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+};
 
 b("File \"option_repr_test.ml\", line 127, characters 5-12", Belt_List.every(xs$1, (function (x) {
             return x;
           })));
 
-var xs_000$2 = eqx(undefined, undefined);
-
-var xs_001$1 = /* :: */[
-  neqx(undefined, null),
-  /* :: */[
-    eqx(Caml_option.some(undefined), Caml_option.some(undefined)),
-    /* :: */[
-      eqx(Caml_option.some(Caml_option.some(undefined)), Caml_option.some(Caml_option.some(undefined))),
-      /* :: */[
-        neqx(Caml_option.some(Caml_option.some(Caml_option.some(undefined))), Caml_option.some(Caml_option.some(undefined))),
-        /* [] */0
-      ]
-    ]
-  ]
-];
-
-var xs$2 = /* :: */[
-  xs_000$2,
-  xs_001$1
-];
+var xs$2 = /* constructor */{
+  tag: 0,
+  name: "::",
+  "0": eqx(undefined, undefined),
+  "1": /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": neqx(undefined, null),
+    "1": /* constructor */{
+      tag: 0,
+      name: "::",
+      "0": eqx(Caml_option.some(undefined), Caml_option.some(undefined)),
+      "1": /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": eqx(Caml_option.some(Caml_option.some(undefined)), Caml_option.some(Caml_option.some(undefined))),
+        "1": /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": neqx(Caml_option.some(Caml_option.some(Caml_option.some(undefined))), Caml_option.some(Caml_option.some(undefined))),
+          "1": /* [] */0
+        }
+      }
+    }
+  }
+};
 
 b("File \"option_repr_test.ml\", line 143, characters 5-12", Belt_List.every(xs$2, (function (x) {
             return x;

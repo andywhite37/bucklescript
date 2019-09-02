@@ -2,7 +2,6 @@
 
 var Mt = require("./mt.js");
 var $$Array = require("../../lib/js/array.js");
-var Block = require("../../lib/js/block.js");
 var Caml_array = require("../../lib/js/caml_array.js");
 
 function f(param) {
@@ -26,12 +25,17 @@ function f(param) {
   return v;
 }
 
-var suites_000 = /* tuple */[
-  "acc",
-  (function (param) {
-      return /* Eq */Block.__(0, [
-                f(/* () */0),
-                /* array */[
+var suites = /* constructor */{
+  tag: 0,
+  name: "::",
+  "0": /* tuple */[
+    "acc",
+    (function (param) {
+        return /* constructor */{
+                tag: 0,
+                name: "Eq",
+                "0": f(/* () */0),
+                "1": /* array */[
                   0,
                   1,
                   3,
@@ -43,40 +47,45 @@ var suites_000 = /* tuple */[
                   36,
                   45
                 ]
-              ]);
-    })
-];
-
-var suites_001 = /* :: */[
-  /* tuple */[
-    "array_to_list",
-    (function (param) {
-        return /* Eq */Block.__(0, [
-                  /* :: */[
-                    1,
-                    /* :: */[
-                      2,
-                      /* :: */[
-                        3,
-                        /* [] */0
-                      ]
-                    ]
-                  ],
-                  $$Array.to_list(/* array */[
+              };
+      })
+  ],
+  "1": /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": /* tuple */[
+      "array_to_list",
+      (function (param) {
+          return /* constructor */{
+                  tag: 0,
+                  name: "Eq",
+                  "0": /* constructor */{
+                    tag: 0,
+                    name: "::",
+                    "0": 1,
+                    "1": /* constructor */{
+                      tag: 0,
+                      name: "::",
+                      "0": 2,
+                      "1": /* constructor */{
+                        tag: 0,
+                        name: "::",
+                        "0": 3,
+                        "1": /* [] */0
+                      }
+                    }
+                  },
+                  "1": $$Array.to_list(/* array */[
                         1,
                         2,
                         3
                       ])
-                ]);
-      })
-  ],
-  /* [] */0
-];
-
-var suites = /* :: */[
-  suites_000,
-  suites_001
-];
+                };
+        })
+    ],
+    "1": /* [] */0
+  }
+};
 
 Mt.from_pair_suites("Tailcall_inline_test", suites);
 

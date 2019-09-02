@@ -2,7 +2,6 @@
 
 var Mt = require("./mt.js");
 var List = require("../../lib/js/list.js");
-var Block = require("../../lib/js/block.js");
 var Bytes = require("../../lib/js/bytes.js");
 var $$String = require("../../lib/js/string.js");
 var Caml_bytes = require("../../lib/js/caml_bytes.js");
@@ -65,17 +64,21 @@ function rev_split_by_char(c, s) {
     try {
       var i$prime = $$String.index_from(s, i, c);
       var s$prime = $$String.sub(s, i, i$prime - i | 0);
-      return loop(i$prime + 1 | 0, s$prime === "" ? l : /* :: */[
-                    s$prime,
-                    l
-                  ]);
+      return loop(i$prime + 1 | 0, s$prime === "" ? l : /* constructor */({
+                      tag: 0,
+                      name: "::",
+                      "0": s$prime,
+                      "1": l
+                    }));
     }
     catch (exn){
       if (exn === Caml_builtin_exceptions.not_found) {
-        return /* :: */[
-                $$String.sub(s, i, s.length - i | 0),
-                l
-              ];
+        return /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": $$String.sub(s, i, s.length - i | 0),
+                "1": l
+              };
       } else {
         throw exn;
       }
@@ -99,23 +102,28 @@ function xsplit(delim, s) {
         }
         catch (exn){
           if (exn === Caml_builtin_exceptions.not_found) {
-            return /* :: */[
-                    $$String.sub(s, 0, i),
-                    l
-                  ];
+            return /* constructor */{
+                    tag: 0,
+                    name: "::",
+                    "0": $$String.sub(s, 0, i),
+                    "1": l
+                  };
           } else {
             throw exn;
           }
         }
-        var l_000 = $$String.sub(s, i$prime + 1 | 0, (i - i$prime | 0) - 1 | 0);
-        var l$1 = /* :: */[
-          l_000,
-          l
-        ];
-        var l$2 = i$prime === 0 ? /* :: */[
-            "",
-            l$1
-          ] : l$1;
+        var l$1 = /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": $$String.sub(s, i$prime + 1 | 0, (i - i$prime | 0) - 1 | 0),
+          "1": l
+        };
+        var l$2 = i$prime === 0 ? /* constructor */({
+              tag: 0,
+              name: "::",
+              "0": "",
+              "1": l$1
+            }) : l$1;
         _i = i$prime;
         _l = l$2;
         continue ;
@@ -134,238 +142,332 @@ function string_of_chars(x) {
                   }), x));
 }
 
-Mt.from_pair_suites("String_test", /* :: */[
-      /* tuple */[
+Mt.from_pair_suites("String_test", /* constructor */{
+      tag: 0,
+      name: "::",
+      "0": /* tuple */[
         "mutliple switch",
         (function (param) {
-            return /* Eq */Block.__(0, [
-                      9,
-                      ff("4")
-                    ]);
+            return /* constructor */{
+                    tag: 0,
+                    name: "Eq",
+                    "0": 9,
+                    "1": ff("4")
+                  };
           })
       ],
-      /* :: */[
-        /* tuple */[
+      "1": /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": /* tuple */[
           "int switch",
           (function (param) {
-              return /* Eq */Block.__(0, [
-                        9,
-                        gg(4)
-                      ]);
+              return /* constructor */{
+                      tag: 0,
+                      name: "Eq",
+                      "0": 9,
+                      "1": gg(4)
+                    };
             })
         ],
-        /* :: */[
-          /* tuple */[
+        "1": /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": /* tuple */[
             "escape_normal",
             (function (param) {
-                return /* Eq */Block.__(0, [
-                          "haha",
-                          $$String.escaped("haha")
-                        ]);
+                return /* constructor */{
+                        tag: 0,
+                        name: "Eq",
+                        "0": "haha",
+                        "1": $$String.escaped("haha")
+                      };
               })
           ],
-          /* :: */[
-            /* tuple */[
+          "1": /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": /* tuple */[
               "escape_bytes",
               (function (param) {
-                  return /* Eq */Block.__(0, [
-                            Bytes.of_string("haha"),
-                            Bytes.escaped(Bytes.of_string("haha"))
-                          ]);
+                  return /* constructor */{
+                          tag: 0,
+                          name: "Eq",
+                          "0": Bytes.of_string("haha"),
+                          "1": Bytes.escaped(Bytes.of_string("haha"))
+                        };
                 })
             ],
-            /* :: */[
-              /* tuple */[
+            "1": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": /* tuple */[
                 "escape_quote",
                 (function (param) {
-                    return /* Eq */Block.__(0, [
-                              "\\\"\\\"",
-                              $$String.escaped("\"\"")
-                            ]);
+                    return /* constructor */{
+                            tag: 0,
+                            name: "Eq",
+                            "0": "\\\"\\\"",
+                            "1": $$String.escaped("\"\"")
+                          };
                   })
               ],
-              /* :: */[
-                /* tuple */[
+              "1": /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": /* tuple */[
                   "rev_split_by_char",
                   (function (param) {
-                      return /* Eq */Block.__(0, [
-                                /* :: */[
-                                  "",
-                                  /* :: */[
-                                    "bbbb",
-                                    /* :: */[
-                                      "bbbb",
-                                      /* [] */0
-                                    ]
-                                  ]
-                                ],
-                                rev_split_by_char(/* "a" */97, "bbbbabbbba")
-                              ]);
+                      return /* constructor */{
+                              tag: 0,
+                              name: "Eq",
+                              "0": /* constructor */{
+                                tag: 0,
+                                name: "::",
+                                "0": "",
+                                "1": /* constructor */{
+                                  tag: 0,
+                                  name: "::",
+                                  "0": "bbbb",
+                                  "1": /* constructor */{
+                                    tag: 0,
+                                    name: "::",
+                                    "0": "bbbb",
+                                    "1": /* [] */0
+                                  }
+                                }
+                              },
+                              "1": rev_split_by_char(/* "a" */97, "bbbbabbbba")
+                            };
                     })
                 ],
-                /* :: */[
-                  /* tuple */[
+                "1": /* constructor */{
+                  tag: 0,
+                  name: "::",
+                  "0": /* tuple */[
                     "File \"string_test.ml\", line 74, characters 2-9",
                     (function (param) {
-                        return /* Eq */Block.__(0, [
-                                  /* :: */[
-                                    "aaaa",
-                                    /* [] */0
-                                  ],
-                                  rev_split_by_char(/* "," */44, "aaaa")
-                                ]);
+                        return /* constructor */{
+                                tag: 0,
+                                name: "Eq",
+                                "0": /* constructor */{
+                                  tag: 0,
+                                  name: "::",
+                                  "0": "aaaa",
+                                  "1": /* [] */0
+                                },
+                                "1": rev_split_by_char(/* "," */44, "aaaa")
+                              };
                       })
                   ],
-                  /* :: */[
-                    /* tuple */[
+                  "1": /* constructor */{
+                    tag: 0,
+                    name: "::",
+                    "0": /* tuple */[
                       "xsplit",
                       (function (param) {
-                          return /* Eq */Block.__(0, [
-                                    /* :: */[
-                                      "a",
-                                      /* :: */[
-                                        "b",
-                                        /* :: */[
-                                          "c",
-                                          /* [] */0
-                                        ]
-                                      ]
-                                    ],
-                                    xsplit(/* "." */46, "a.b.c")
-                                  ]);
+                          return /* constructor */{
+                                  tag: 0,
+                                  name: "Eq",
+                                  "0": /* constructor */{
+                                    tag: 0,
+                                    name: "::",
+                                    "0": "a",
+                                    "1": /* constructor */{
+                                      tag: 0,
+                                      name: "::",
+                                      "0": "b",
+                                      "1": /* constructor */{
+                                        tag: 0,
+                                        name: "::",
+                                        "0": "c",
+                                        "1": /* [] */0
+                                      }
+                                    }
+                                  },
+                                  "1": xsplit(/* "." */46, "a.b.c")
+                                };
                         })
                     ],
-                    /* :: */[
-                      /* tuple */[
+                    "1": /* constructor */{
+                      tag: 0,
+                      name: "::",
+                      "0": /* tuple */[
                         "split_empty",
                         (function (param) {
-                            return /* Eq */Block.__(0, [
-                                      /* [] */0,
-                                      Ext_string_test.split(undefined, "", /* "_" */95)
-                                    ]);
+                            return /* constructor */{
+                                    tag: 0,
+                                    name: "Eq",
+                                    "0": /* [] */0,
+                                    "1": Ext_string_test.split(undefined, "", /* "_" */95)
+                                  };
                           })
                       ],
-                      /* :: */[
-                        /* tuple */[
+                      "1": /* constructor */{
+                        tag: 0,
+                        name: "::",
+                        "0": /* tuple */[
                           "split_empty2",
                           (function (param) {
-                              return /* Eq */Block.__(0, [
-                                        /* :: */[
-                                          "test_unsafe_obj_ffi_ppx.cmi",
-                                          /* [] */0
-                                        ],
-                                        Ext_string_test.split(false, " test_unsafe_obj_ffi_ppx.cmi", /* " " */32)
-                                      ]);
+                              return /* constructor */{
+                                      tag: 0,
+                                      name: "Eq",
+                                      "0": /* constructor */{
+                                        tag: 0,
+                                        name: "::",
+                                        "0": "test_unsafe_obj_ffi_ppx.cmi",
+                                        "1": /* [] */0
+                                      },
+                                      "1": Ext_string_test.split(false, " test_unsafe_obj_ffi_ppx.cmi", /* " " */32)
+                                    };
                             })
                         ],
-                        /* :: */[
-                          /* tuple */[
+                        "1": /* constructor */{
+                          tag: 0,
+                          name: "::",
+                          "0": /* tuple */[
                             "rfind",
                             (function (param) {
-                                return /* Eq */Block.__(0, [
-                                          7,
-                                          Ext_string_test.rfind("__", "__index__js")
-                                        ]);
+                                return /* constructor */{
+                                        tag: 0,
+                                        name: "Eq",
+                                        "0": 7,
+                                        "1": Ext_string_test.rfind("__", "__index__js")
+                                      };
                               })
                           ],
-                          /* :: */[
-                            /* tuple */[
+                          "1": /* constructor */{
+                            tag: 0,
+                            name: "::",
+                            "0": /* tuple */[
                               "rfind_2",
                               (function (param) {
-                                  return /* Eq */Block.__(0, [
-                                            0,
-                                            Ext_string_test.rfind("__", "__index_js")
-                                          ]);
+                                  return /* constructor */{
+                                          tag: 0,
+                                          name: "Eq",
+                                          "0": 0,
+                                          "1": Ext_string_test.rfind("__", "__index_js")
+                                        };
                                 })
                             ],
-                            /* :: */[
-                              /* tuple */[
+                            "1": /* constructor */{
+                              tag: 0,
+                              name: "::",
+                              "0": /* tuple */[
                                 "rfind_3",
                                 (function (param) {
-                                    return /* Eq */Block.__(0, [
-                                              -1,
-                                              Ext_string_test.rfind("__", "_index_js")
-                                            ]);
+                                    return /* constructor */{
+                                            tag: 0,
+                                            name: "Eq",
+                                            "0": -1,
+                                            "1": Ext_string_test.rfind("__", "_index_js")
+                                          };
                                   })
                               ],
-                              /* :: */[
-                                /* tuple */[
+                              "1": /* constructor */{
+                                tag: 0,
+                                name: "::",
+                                "0": /* tuple */[
                                   "find",
                                   (function (param) {
-                                      return /* Eq */Block.__(0, [
-                                                0,
-                                                Ext_string_test.find(undefined, "__", "__index__js")
-                                              ]);
+                                      return /* constructor */{
+                                              tag: 0,
+                                              name: "Eq",
+                                              "0": 0,
+                                              "1": Ext_string_test.find(undefined, "__", "__index__js")
+                                            };
                                     })
                                 ],
-                                /* :: */[
-                                  /* tuple */[
+                                "1": /* constructor */{
+                                  tag: 0,
+                                  name: "::",
+                                  "0": /* tuple */[
                                     "find_2",
                                     (function (param) {
-                                        return /* Eq */Block.__(0, [
-                                                  6,
-                                                  Ext_string_test.find(undefined, "__", "_index__js")
-                                                ]);
+                                        return /* constructor */{
+                                                tag: 0,
+                                                name: "Eq",
+                                                "0": 6,
+                                                "1": Ext_string_test.find(undefined, "__", "_index__js")
+                                              };
                                       })
                                   ],
-                                  /* :: */[
-                                    /* tuple */[
+                                  "1": /* constructor */{
+                                    tag: 0,
+                                    name: "::",
+                                    "0": /* tuple */[
                                       "find_3",
                                       (function (param) {
-                                          return /* Eq */Block.__(0, [
-                                                    -1,
-                                                    Ext_string_test.find(undefined, "__", "_index_js")
-                                                  ]);
+                                          return /* constructor */{
+                                                  tag: 0,
+                                                  name: "Eq",
+                                                  "0": -1,
+                                                  "1": Ext_string_test.find(undefined, "__", "_index_js")
+                                                };
                                         })
                                     ],
-                                    /* :: */[
-                                      /* tuple */[
+                                    "1": /* constructor */{
+                                      tag: 0,
+                                      name: "::",
+                                      "0": /* tuple */[
                                         "of_char",
                                         (function (param) {
-                                            return /* Eq */Block.__(0, [
-                                                      String.fromCharCode(/* "0" */48),
-                                                      Caml_bytes.bytes_to_string(Bytes.make(1, /* "0" */48))
-                                                    ]);
+                                            return /* constructor */{
+                                                    tag: 0,
+                                                    name: "Eq",
+                                                    "0": String.fromCharCode(/* "0" */48),
+                                                    "1": Caml_bytes.bytes_to_string(Bytes.make(1, /* "0" */48))
+                                                  };
                                           })
                                       ],
-                                      /* :: */[
-                                        /* tuple */[
+                                      "1": /* constructor */{
+                                        tag: 0,
+                                        name: "::",
+                                        "0": /* tuple */[
                                           "of_chars",
                                           (function (param) {
-                                              return /* Eq */Block.__(0, [
-                                                        string_of_chars(/* :: */[
-                                                              /* "0" */48,
-                                                              /* :: */[
-                                                                /* "1" */49,
-                                                                /* :: */[
-                                                                  /* "2" */50,
-                                                                  /* [] */0
-                                                                ]
-                                                              ]
-                                                            ]),
-                                                        "012"
-                                                      ]);
+                                              return /* constructor */{
+                                                      tag: 0,
+                                                      name: "Eq",
+                                                      "0": string_of_chars(/* constructor */{
+                                                            tag: 0,
+                                                            name: "::",
+                                                            "0": /* "0" */48,
+                                                            "1": /* constructor */{
+                                                              tag: 0,
+                                                              name: "::",
+                                                              "0": /* "1" */49,
+                                                              "1": /* constructor */{
+                                                                tag: 0,
+                                                                name: "::",
+                                                                "0": /* "2" */50,
+                                                                "1": /* [] */0
+                                                              }
+                                                            }
+                                                          }),
+                                                      "1": "012"
+                                                    };
                                             })
                                         ],
-                                        /* [] */0
-                                      ]
-                                    ]
-                                  ]
-                                ]
-                              ]
-                            ]
-                          ]
-                        ]
-                      ]
-                    ]
-                  ]
-                ]
-              ]
-            ]
-          ]
-        ]
-      ]
-    ]);
+                                        "1": /* [] */0
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    });
 
 exports.ff = ff;
 exports.gg = gg;

@@ -2,7 +2,6 @@
 
 var Mt = require("./mt.js");
 var $$Array = require("../../lib/js/array.js");
-var Block = require("../../lib/js/block.js");
 var Curry = require("../../lib/js/curry.js");
 var Int32 = require("../../lib/js/int32.js");
 var Format = require("../../lib/js/format.js");
@@ -153,89 +152,121 @@ var shift_left_tests = /* tuple */[
 
 var $star$tilde = Caml_int32.imul;
 
-var suites = /* record */[/* contents */Pervasives.$at(/* :: */[
-        /* tuple */[
+var suites = /* record */[/* contents */Pervasives.$at(/* constructor */{
+        tag: 0,
+        name: "::",
+        "0": /* tuple */[
           "File \"int32_test.ml\", line 31, characters 2-9",
           (function (param) {
-              return /* Eq */Block.__(0, [
-                        1,
-                        1
-                      ]);
+              return /* constructor */{
+                      tag: 0,
+                      name: "Eq",
+                      "0": 1,
+                      "1": 1
+                    };
             })
         ],
-        /* :: */[
-          /* tuple */[
+        "1": /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": /* tuple */[
             "File \"int32_test.ml\", line 32, characters 2-9",
             (function (param) {
-                return /* Eq */Block.__(0, [
-                          -2147483647,
-                          -2147483647
-                        ]);
+                return /* constructor */{
+                        tag: 0,
+                        name: "Eq",
+                        "0": -2147483647,
+                        "1": -2147483647
+                      };
               })
           ],
-          /* [] */0
-        ]
-      ], Pervasives.$at($$Array.to_list(Ext_array_test.map2i((function (i, a, b) {
+          "1": /* [] */0
+        }
+      }, Pervasives.$at($$Array.to_list(Ext_array_test.map2i((function (i, a, b) {
                       return /* tuple */[
-                              Curry._1(Format.asprintf(/* Format */[
-                                        /* String_literal */Block.__(11, [
-                                            "shift_right_logical_cases ",
-                                            /* Int */Block.__(4, [
-                                                /* Int_d */0,
-                                                /* No_padding */0,
-                                                /* No_precision */0,
-                                                /* End_of_format */0
-                                              ])
-                                          ]),
-                                        "shift_right_logical_cases %d"
-                                      ]), i),
+                              Curry._1(Format.asprintf(/* constructor */{
+                                        tag: 0,
+                                        name: "Format",
+                                        "0": /* constructor */{
+                                          tag: 11,
+                                          name: "String_literal",
+                                          "0": "shift_right_logical_cases ",
+                                          "1": /* constructor */{
+                                            tag: 4,
+                                            name: "Int",
+                                            "0": /* Int_d */0,
+                                            "1": /* No_padding */0,
+                                            "2": /* No_precision */0,
+                                            "3": /* End_of_format */0
+                                          }
+                                        },
+                                        "1": "shift_right_logical_cases %d"
+                                      }), i),
                               (function (param) {
-                                  return /* Eq */Block.__(0, [
-                                            a,
-                                            b
-                                          ]);
+                                  return /* constructor */{
+                                          tag: 0,
+                                          name: "Eq",
+                                          "0": a,
+                                          "1": b
+                                        };
                                 })
                             ];
                     }), shift_right_logical_tests_000, shift_right_logical_tests_001)), Pervasives.$at($$Array.to_list(Ext_array_test.map2i((function (i, a, b) {
                           return /* tuple */[
-                                  Curry._1(Format.asprintf(/* Format */[
-                                            /* String_literal */Block.__(11, [
-                                                "shift_right_cases ",
-                                                /* Int */Block.__(4, [
-                                                    /* Int_d */0,
-                                                    /* No_padding */0,
-                                                    /* No_precision */0,
-                                                    /* End_of_format */0
-                                                  ])
-                                              ]),
-                                            "shift_right_cases %d"
-                                          ]), i),
+                                  Curry._1(Format.asprintf(/* constructor */{
+                                            tag: 0,
+                                            name: "Format",
+                                            "0": /* constructor */{
+                                              tag: 11,
+                                              name: "String_literal",
+                                              "0": "shift_right_cases ",
+                                              "1": /* constructor */{
+                                                tag: 4,
+                                                name: "Int",
+                                                "0": /* Int_d */0,
+                                                "1": /* No_padding */0,
+                                                "2": /* No_precision */0,
+                                                "3": /* End_of_format */0
+                                              }
+                                            },
+                                            "1": "shift_right_cases %d"
+                                          }), i),
                                   (function (param) {
-                                      return /* Eq */Block.__(0, [
-                                                a,
-                                                b
-                                              ]);
+                                      return /* constructor */{
+                                              tag: 0,
+                                              name: "Eq",
+                                              "0": a,
+                                              "1": b
+                                            };
                                     })
                                 ];
                         }), shift_right_tests_000, shift_right_tests_001)), $$Array.to_list(Ext_array_test.map2i((function (i, a, b) {
                           return /* tuple */[
-                                  Curry._1(Format.asprintf(/* Format */[
-                                            /* String_literal */Block.__(11, [
-                                                "shift_left_cases ",
-                                                /* Int */Block.__(4, [
-                                                    /* Int_d */0,
-                                                    /* No_padding */0,
-                                                    /* No_precision */0,
-                                                    /* End_of_format */0
-                                                  ])
-                                              ]),
-                                            "shift_left_cases %d"
-                                          ]), i),
+                                  Curry._1(Format.asprintf(/* constructor */{
+                                            tag: 0,
+                                            name: "Format",
+                                            "0": /* constructor */{
+                                              tag: 11,
+                                              name: "String_literal",
+                                              "0": "shift_left_cases ",
+                                              "1": /* constructor */{
+                                                tag: 4,
+                                                name: "Int",
+                                                "0": /* Int_d */0,
+                                                "1": /* No_padding */0,
+                                                "2": /* No_precision */0,
+                                                "3": /* End_of_format */0
+                                              }
+                                            },
+                                            "1": "shift_left_cases %d"
+                                          }), i),
                                   (function (param) {
-                                      return /* Eq */Block.__(0, [
-                                                a,
-                                                b
-                                              ]);
+                                      return /* constructor */{
+                                              tag: 0,
+                                              name: "Eq",
+                                              "0": a,
+                                              "1": b
+                                            };
                                     })
                                 ];
                         }), shift_left_tests_000, shift_left_tests_001)))))];

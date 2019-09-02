@@ -182,6 +182,13 @@ let make_block ?comment
   match tag_info with 
   | Blk_module _ -> 
     {expression_desc = Caml_block(es,mutable_flag, tag,tag_info); comment}
+  | Blk_constructor _ ->
+    let name = match Lam_compile_util.comment_of_tag_info tag_info with
+    | Some s -> s
+    | None -> assert false in
+    let comment = Some "constructor" in
+    let property_map = [("tag", tag); ("name", str name)] @ List.mapi (fun n e -> (string_of_int n, e)) es in
+    {expression_desc = Object property_map; comment}
   | _ -> 
   let comment = 
     match comment with 
@@ -783,6 +790,7 @@ let is_type_number ?comment (e : t) : t =
 
 
 let tag ?comment e : t = 
+  (* let comment = Some "XXX" in *)
   {expression_desc = 
      Bin (Bor, {expression_desc = Caml_block_tag e; comment }, zero_int_literal );
    comment = None }    

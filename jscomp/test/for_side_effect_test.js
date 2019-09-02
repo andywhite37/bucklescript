@@ -1,7 +1,6 @@
 'use strict';
 
 var Mt = require("./mt.js");
-var Block = require("../../lib/js/block.js");
 
 function tst(param) {
   for(var i = (console.log("hi"), 0) ,i_finish = (console.log("hello"), 3); i <= i_finish; ++i){
@@ -20,20 +19,22 @@ function test2(param) {
   return v;
 }
 
-var suites_000 = /* tuple */[
-  "for_order",
-  (function (param) {
-      return /* Eq */Block.__(0, [
-                10,
-                test2(/* () */0)
-              ]);
-    })
-];
-
-var suites = /* :: */[
-  suites_000,
-  /* [] */0
-];
+var suites = /* constructor */{
+  tag: 0,
+  name: "::",
+  "0": /* tuple */[
+    "for_order",
+    (function (param) {
+        return /* constructor */{
+                tag: 0,
+                name: "Eq",
+                "0": 10,
+                "1": test2(/* () */0)
+              };
+      })
+  ],
+  "1": /* [] */0
+};
 
 Mt.from_pair_suites("For_side_effect_test", suites);
 

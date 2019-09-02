@@ -2,7 +2,6 @@
 
 var Sys = require("../../lib/js/sys.js");
 var List = require("../../lib/js/list.js");
-var Block = require("../../lib/js/block.js");
 var Bytes = require("../../lib/js/bytes.js");
 var Curry = require("../../lib/js/curry.js");
 var Format = require("../../lib/js/format.js");
@@ -69,25 +68,37 @@ function chop_extension($staropt$star, name) {
   catch (raw_exn){
     var exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
     if (exn[0] === Caml_builtin_exceptions.invalid_argument) {
-      return Curry._2(Format.ksprintf(Pervasives.invalid_arg, /* Format */[
-                      /* String_literal */Block.__(11, [
-                          "Filename.chop_extension ( ",
-                          /* String */Block.__(2, [
-                              /* No_padding */0,
-                              /* String_literal */Block.__(11, [
-                                  " : ",
-                                  /* String */Block.__(2, [
-                                      /* No_padding */0,
-                                      /* String_literal */Block.__(11, [
-                                          " )",
-                                          /* End_of_format */0
-                                        ])
-                                    ])
-                                ])
-                            ])
-                        ]),
-                      "Filename.chop_extension ( %s : %s )"
-                    ]), loc, name);
+      return Curry._2(Format.ksprintf(Pervasives.invalid_arg, /* constructor */{
+                      tag: 0,
+                      name: "Format",
+                      "0": /* constructor */{
+                        tag: 11,
+                        name: "String_literal",
+                        "0": "Filename.chop_extension ( ",
+                        "1": /* constructor */{
+                          tag: 2,
+                          name: "String",
+                          "0": /* No_padding */0,
+                          "1": /* constructor */{
+                            tag: 11,
+                            name: "String_literal",
+                            "0": " : ",
+                            "1": /* constructor */{
+                              tag: 2,
+                              name: "String",
+                              "0": /* No_padding */0,
+                              "1": /* constructor */{
+                                tag: 11,
+                                name: "String_literal",
+                                "0": " )",
+                                "1": /* End_of_format */0
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "1": "Filename.chop_extension ( %s : %s )"
+                    }), loc, name);
     } else {
       throw exn;
     }
@@ -130,13 +141,24 @@ function relative_path(file_or_dir_1, file_or_dir_2) {
     };
   };
   var ys = go(dir1, dir2);
-  if (ys && ys[0] === node_parent) {
-    return $$String.concat(node_sep, ys);
+  if (ys) {
+    if (ys[0] === node_parent) {
+      return $$String.concat(node_sep, ys);
+    } else {
+      return $$String.concat(node_sep, /* constructor */{
+                  tag: 0,
+                  name: "::",
+                  "0": node_current,
+                  "1": ys
+                });
+    }
   } else {
-    return $$String.concat(node_sep, /* :: */[
-                node_current,
-                ys
-              ]);
+    return $$String.concat(node_sep, /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": node_current,
+                "1": ys
+              });
   }
 }
 
@@ -149,16 +171,22 @@ function node_relative_path(node_modules_shorten, file1, dep_file) {
       while(true) {
         var i = _i;
         if (i >= len) {
-          return Curry._1(Ext_pervasives_test.failwithf("File \"ext_filename_test.ml\", line 162, characters 43-50", /* Format */[
-                          /* String_literal */Block.__(11, [
-                              "invalid path: ",
-                              /* String */Block.__(2, [
-                                  /* No_padding */0,
-                                  /* End_of_format */0
-                                ])
-                            ]),
-                          "invalid path: %s"
-                        ]), file2);
+          return Curry._1(Ext_pervasives_test.failwithf("File \"ext_filename_test.ml\", line 162, characters 43-50", /* constructor */{
+                          tag: 0,
+                          name: "Format",
+                          "0": /* constructor */{
+                            tag: 11,
+                            name: "String_literal",
+                            "0": "invalid path: ",
+                            "1": /* constructor */{
+                              tag: 2,
+                              name: "String",
+                              "0": /* No_padding */0,
+                              "1": /* End_of_format */0
+                            }
+                          },
+                          "1": "invalid path: %s"
+                        }), file2);
         } else {
           var curr_char = file2.charCodeAt(i);
           if (curr_char === os_path_separator_char || curr_char === /* "." */46) {
@@ -199,19 +227,27 @@ function find_root_filename(_cwd, filename) {
         _cwd = cwd$prime;
         continue ;
       } else {
-        return Curry._2(Ext_pervasives_test.failwithf("File \"ext_filename_test.ml\", line 205, characters 13-20", /* Format */[
-                        /* String */Block.__(2, [
-                            /* No_padding */0,
-                            /* String_literal */Block.__(11, [
-                                " not found from ",
-                                /* String */Block.__(2, [
-                                    /* No_padding */0,
-                                    /* End_of_format */0
-                                  ])
-                              ])
-                          ]),
-                        "%s not found from %s"
-                      ]), filename, cwd);
+        return Curry._2(Ext_pervasives_test.failwithf("File \"ext_filename_test.ml\", line 205, characters 13-20", /* constructor */{
+                        tag: 0,
+                        name: "Format",
+                        "0": /* constructor */{
+                          tag: 2,
+                          name: "String",
+                          "0": /* No_padding */0,
+                          "1": /* constructor */{
+                            tag: 11,
+                            name: "String_literal",
+                            "0": " not found from ",
+                            "1": /* constructor */{
+                              tag: 2,
+                              name: "String",
+                              "0": /* No_padding */0,
+                              "1": /* End_of_format */0
+                            }
+                          }
+                        },
+                        "1": "%s not found from %s"
+                      }), filename, cwd);
       }
     }
   };
@@ -266,10 +302,12 @@ function split_aux(p) {
         _p = dir;
         continue ;
       } else {
-        _acc = /* :: */[
-          new_path,
-          acc
-        ];
+        _acc = /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": new_path,
+          "1": acc
+        };
         _p = dir;
         continue ;
       }
@@ -338,10 +376,12 @@ function normalize_absolute_path(x) {
           _acc = drop_if_exist(acc);
           continue ;
         } else {
-          _acc = /* :: */[
-            x,
-            acc
-          ];
+          _acc = /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": x,
+            "1": acc
+          };
           continue ;
         }
       } else {

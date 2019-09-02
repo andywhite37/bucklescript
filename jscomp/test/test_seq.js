@@ -1,6 +1,5 @@
 'use strict';
 
-var Block = require("../../lib/js/block.js");
 var Curry = require("../../lib/js/curry.js");
 var Caml_obj = require("../../lib/js/caml_obj.js");
 var Pervasives = require("../../lib/js/pervasives.js");
@@ -33,7 +32,11 @@ function assoc3(x, _l) {
 function help_action(param) {
   throw [
         Stop,
-        /* Unknown */Block.__(0, ["-help"])
+        /* constructor */{
+          tag: 0,
+          name: "Unknown",
+          "0": "-help"
+        }
       ];
 }
 
@@ -54,14 +57,20 @@ function add_help(speclist) {
   }
   catch (exn){
     if (exn === Caml_builtin_exceptions.not_found) {
-      add1 = /* :: */[
-        /* tuple */[
+      add1 = /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": /* tuple */[
           "-help",
-          /* Unit */Block.__(0, [help_action]),
+          /* constructor */{
+            tag: 0,
+            name: "Unit",
+            "0": help_action
+          },
           " Display this list of options"
         ],
-        /* [] */0
-      ];
+        "1": /* [] */0
+      };
     } else {
       throw exn;
     }
@@ -73,14 +82,20 @@ function add_help(speclist) {
   }
   catch (exn$1){
     if (exn$1 === Caml_builtin_exceptions.not_found) {
-      add2 = /* :: */[
-        /* tuple */[
+      add2 = /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": /* tuple */[
           "--help",
-          /* Unit */Block.__(0, [help_action]),
+          /* constructor */{
+            tag: 0,
+            name: "Unit",
+            "0": help_action
+          },
           " Display this list of options"
         ],
-        /* [] */0
-      ];
+        "1": /* [] */0
+      };
     } else {
       throw exn$1;
     }

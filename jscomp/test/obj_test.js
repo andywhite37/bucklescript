@@ -1,7 +1,6 @@
 'use strict';
 
 var Mt = require("./mt.js");
-var Block = require("../../lib/js/block.js");
 var Curry = require("../../lib/js/curry.js");
 var Caml_oo_curry = require("../../lib/js/caml_oo_curry.js");
 var CamlinternalOO = require("../../lib/js/camlinternalOO.js");
@@ -160,166 +159,214 @@ CamlinternalOO.init_class($$class$5);
 
 var vvvv = CamlinternalOO.create_object_opt(0, $$class$5);
 
-var suites_000 = /* tuple */[
-  "single_obj",
-  (function (param) {
-      return /* Eq */Block.__(0, [
-                /* array */[
+var suites = /* constructor */{
+  tag: 0,
+  name: "::",
+  "0": /* tuple */[
+    "single_obj",
+    (function (param) {
+        return /* constructor */{
+                tag: 0,
+                name: "Eq",
+                "0": /* array */[
                   3,
                   32
                 ],
-                /* array */[
+                "1": /* array */[
                   Caml_oo_curry.js1(120, 1, v),
                   Caml_oo_curry.js1(121, 2, v)
                 ]
-              ]);
-    })
-];
-
-var suites_001 = /* :: */[
-  /* tuple */[
-    "single_obj_cache",
-    (function (param) {
-        return /* Eq */Block.__(0, [
-                  /* array */[
+              };
+      })
+  ],
+  "1": /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": /* tuple */[
+      "single_obj_cache",
+      (function (param) {
+          return /* constructor */{
+                  tag: 0,
+                  name: "Eq",
+                  "0": /* array */[
                     3,
                     32
                   ],
-                  /* array */[
+                  "1": /* array */[
                     Caml_oo_curry.js1(120, 3, v),
                     Caml_oo_curry.js1(121, 4, v)
                   ]
-                ]);
-      })
-  ],
-  /* :: */[
-    /* tuple */[
-      "self_obj",
-      (function (param) {
-          return /* Eq */Block.__(0, [
-                    13,
-                    Caml_oo_curry.js2(616641298, 5, vv, 3)
-                  ]);
+                };
         })
     ],
-    /* :: */[
-      /* tuple */[
-        "uu_id",
+    "1": /* constructor */{
+      tag: 0,
+      name: "::",
+      "0": /* tuple */[
+        "self_obj",
         (function (param) {
-            return /* Eq */Block.__(0, [
-                      "uu",
-                      Caml_oo_curry.js1(23515, 6, uu)
-                    ]);
+            return /* constructor */{
+                    tag: 0,
+                    name: "Eq",
+                    "0": 13,
+                    "1": Caml_oo_curry.js2(616641298, 5, vv, 3)
+                  };
           })
       ],
-      /* :: */[
-        /* tuple */[
-          "uu_add",
+      "1": /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": /* tuple */[
+          "uu_id",
           (function (param) {
-              return /* Eq */Block.__(0, [
-                        Caml_oo_curry.js3(4846113, 7, uuu, 1, 20),
-                        21
-                      ]);
+              return /* constructor */{
+                      tag: 0,
+                      name: "Eq",
+                      "0": "uu",
+                      "1": Caml_oo_curry.js1(23515, 6, uu)
+                    };
             })
         ],
-        /* :: */[
-          /* tuple */[
-            "v_add",
+        "1": /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": /* tuple */[
+            "uu_add",
             (function (param) {
-                return /* Eq */Block.__(0, [
-                          Caml_oo_curry.js3(4846113, 8, vvvv, 3, 7),
-                          10
-                        ]);
+                return /* constructor */{
+                        tag: 0,
+                        name: "Eq",
+                        "0": Caml_oo_curry.js3(4846113, 7, uuu, 1, 20),
+                        "1": 21
+                      };
               })
           ],
-          /* :: */[
-            /* tuple */[
-              "u_id1",
+          "1": /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": /* tuple */[
+              "v_add",
               (function (param) {
-                  return /* Eq */Block.__(0, [
-                            Caml_oo_curry.js1(5243894, 9, u),
-                            3
-                          ]);
+                  return /* constructor */{
+                          tag: 0,
+                          name: "Eq",
+                          "0": Caml_oo_curry.js3(4846113, 8, vvvv, 3, 7),
+                          "1": 10
+                        };
                 })
             ],
-            /* :: */[
-              /* tuple */[
-                "u_id2",
+            "1": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": /* tuple */[
+                "u_id1",
                 (function (param) {
-                    return /* Eq */Block.__(0, [
-                              Caml_oo_curry.js1(5243895, 10, u),
-                              4
-                            ]);
+                    return /* constructor */{
+                            tag: 0,
+                            name: "Eq",
+                            "0": Caml_oo_curry.js1(5243894, 9, u),
+                            "1": 3
+                          };
                   })
               ],
-              /* :: */[
-                /* tuple */[
-                  "u hi",
+              "1": /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": /* tuple */[
+                  "u_id2",
                   (function (param) {
-                      return /* Eq */Block.__(0, [
-                                Caml_oo_curry.js3(23297, 11, u, 1, 2),
-                                3
-                              ]);
+                      return /* constructor */{
+                              tag: 0,
+                              name: "Eq",
+                              "0": Caml_oo_curry.js1(5243895, 10, u),
+                              "1": 4
+                            };
                     })
                 ],
-                /* :: */[
-                  /* tuple */[
-                    "u hello",
+                "1": /* constructor */{
+                  tag: 0,
+                  name: "::",
+                  "0": /* tuple */[
+                    "u hi",
                     (function (param) {
-                        return /* Eq */Block.__(0, [
-                                  Caml_oo_curry.js2(616641298, 12, u, 32),
-                                  32
-                                ]);
+                        return /* constructor */{
+                                tag: 0,
+                                name: "Eq",
+                                "0": Caml_oo_curry.js3(23297, 11, u, 1, 2),
+                                "1": 3
+                              };
                       })
                   ],
-                  /* :: */[
-                    /* tuple */[
-                      "v hi",
+                  "1": /* constructor */{
+                    tag: 0,
+                    name: "::",
+                    "0": /* tuple */[
+                      "u hello",
                       (function (param) {
-                          return /* Eq */Block.__(0, [
-                                    Caml_oo_curry.js2(23297, 13, vvvv, 31),
-                                    63
-                                  ]);
+                          return /* constructor */{
+                                  tag: 0,
+                                  name: "Eq",
+                                  "0": Caml_oo_curry.js2(616641298, 12, u, 32),
+                                  "1": 32
+                                };
                         })
                     ],
-                    /* :: */[
-                      /* tuple */[
-                        "uuu add",
+                    "1": /* constructor */{
+                      tag: 0,
+                      name: "::",
+                      "0": /* tuple */[
+                        "v hi",
                         (function (param) {
-                            return /* Eq */Block.__(0, [
-                                      Caml_oo_curry.js3(4846113, 14, uuu, 3, 4),
-                                      7
-                                    ]);
+                            return /* constructor */{
+                                    tag: 0,
+                                    name: "Eq",
+                                    "0": Caml_oo_curry.js2(23297, 13, vvvv, 31),
+                                    "1": 63
+                                  };
                           })
                       ],
-                      /* :: */[
-                        /* tuple */[
-                          "v x",
+                      "1": /* constructor */{
+                        tag: 0,
+                        name: "::",
+                        "0": /* tuple */[
+                          "uuu add",
                           (function (param) {
-                              return /* Eq */Block.__(0, [
-                                        Caml_oo_curry.js1(120, 15, v),
-                                        3
-                                      ]);
+                              return /* constructor */{
+                                      tag: 0,
+                                      name: "Eq",
+                                      "0": Caml_oo_curry.js3(4846113, 14, uuu, 3, 4),
+                                      "1": 7
+                                    };
                             })
                         ],
-                        /* [] */0
-                      ]
-                    ]
-                  ]
-                ]
-              ]
-            ]
-          ]
-        ]
-      ]
-    ]
-  ]
-];
-
-var suites = /* :: */[
-  suites_000,
-  suites_001
-];
+                        "1": /* constructor */{
+                          tag: 0,
+                          name: "::",
+                          "0": /* tuple */[
+                            "v x",
+                            (function (param) {
+                                return /* constructor */{
+                                        tag: 0,
+                                        name: "Eq",
+                                        "0": Caml_oo_curry.js1(120, 15, v),
+                                        "1": 3
+                                      };
+                              })
+                          ],
+                          "1": /* [] */0
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+};
 
 Mt.from_pair_suites("Obj_test", suites);
 

@@ -3,7 +3,6 @@
 var Mt = require("./mt.js");
 var List = require("../../lib/js/list.js");
 var $$Array = require("../../lib/js/array.js");
-var Block = require("../../lib/js/block.js");
 var Curry = require("../../lib/js/curry.js");
 var Format = require("../../lib/js/format.js");
 var Printf = require("../../lib/js/printf.js");
@@ -856,23 +855,31 @@ var suites_16 = List.map((function (param) {
         var b = param[1];
         var a = param[0];
         return /* tuple */[
-                Curry._1(Printf.sprintf(/* Format */[
-                          /* String_literal */Block.__(11, [
-                              "swap16 ",
-                              /* Int */Block.__(4, [
-                                  /* Int_d */0,
-                                  /* No_padding */0,
-                                  /* No_precision */0,
-                                  /* End_of_format */0
-                                ])
-                            ]),
-                          "swap16 %d"
-                        ]), a),
+                Curry._1(Printf.sprintf(/* constructor */{
+                          tag: 0,
+                          name: "Format",
+                          "0": /* constructor */{
+                            tag: 11,
+                            name: "String_literal",
+                            "0": "swap16 ",
+                            "1": /* constructor */{
+                              tag: 4,
+                              name: "Int",
+                              "0": /* Int_d */0,
+                              "1": /* No_padding */0,
+                              "2": /* No_precision */0,
+                              "3": /* End_of_format */0
+                            }
+                          },
+                          "1": "swap16 %d"
+                        }), a),
                 (function (param) {
-                    return /* Eq */Block.__(0, [
-                              Caml_int32.caml_bswap16(a),
-                              b
-                            ]);
+                    return /* constructor */{
+                            tag: 0,
+                            name: "Eq",
+                            "0": Caml_int32.caml_bswap16(a),
+                            "1": b
+                          };
                   })
               ];
       }), $$Array.to_list(tests_16));
@@ -881,23 +888,31 @@ var suites_32 = List.map((function (param) {
         var b = param[1];
         var a = param[0];
         return /* tuple */[
-                Curry._1(Printf.sprintf(/* Format */[
-                          /* String_literal */Block.__(11, [
-                              "swap32 ",
-                              /* Int */Block.__(4, [
-                                  /* Int_d */0,
-                                  /* No_padding */0,
-                                  /* No_precision */0,
-                                  /* End_of_format */0
-                                ])
-                            ]),
-                          "swap32 %d"
-                        ]), a),
+                Curry._1(Printf.sprintf(/* constructor */{
+                          tag: 0,
+                          name: "Format",
+                          "0": /* constructor */{
+                            tag: 11,
+                            name: "String_literal",
+                            "0": "swap32 ",
+                            "1": /* constructor */{
+                              tag: 4,
+                              name: "Int",
+                              "0": /* Int_d */0,
+                              "1": /* No_padding */0,
+                              "2": /* No_precision */0,
+                              "3": /* End_of_format */0
+                            }
+                          },
+                          "1": "swap32 %d"
+                        }), a),
                 (function (param) {
-                    return /* Eq */Block.__(0, [
-                              Caml_int32.caml_int32_bswap(a),
-                              b
-                            ]);
+                    return /* constructor */{
+                            tag: 0,
+                            name: "Eq",
+                            "0": Caml_int32.caml_int32_bswap(a),
+                            "1": b
+                          };
                   })
               ];
       }), $$Array.to_list(tests_32));
@@ -906,36 +921,48 @@ var suites_64 = List.map((function (param) {
         var b = param[1];
         var a = param[0];
         return /* tuple */[
-                Curry._1(Printf.sprintf(/* Format */[
-                          /* String_literal */Block.__(11, [
-                              "swap64 ",
-                              /* Int */Block.__(4, [
-                                  /* Int_d */0,
-                                  /* No_padding */0,
-                                  /* No_precision */0,
-                                  /* End_of_format */0
-                                ])
-                            ]),
-                          "swap64 %d"
-                        ]), a[1] | 0),
+                Curry._1(Printf.sprintf(/* constructor */{
+                          tag: 0,
+                          name: "Format",
+                          "0": /* constructor */{
+                            tag: 11,
+                            name: "String_literal",
+                            "0": "swap64 ",
+                            "1": /* constructor */{
+                              tag: 4,
+                              name: "Int",
+                              "0": /* Int_d */0,
+                              "1": /* No_padding */0,
+                              "2": /* No_precision */0,
+                              "3": /* End_of_format */0
+                            }
+                          },
+                          "1": "swap64 %d"
+                        }), a[1] | 0),
                 (function (param) {
-                    return /* Eq */Block.__(0, [
-                              Caml_int64.swap(a),
-                              b
-                            ]);
+                    return /* constructor */{
+                            tag: 0,
+                            name: "Eq",
+                            "0": Caml_int64.swap(a),
+                            "1": b
+                          };
                   })
               ];
       }), $$Array.to_list(tests_64));
 
-var d16_000 = /* Format */[
-  /* Int */Block.__(4, [
-      /* Int_x */6,
-      /* No_padding */0,
-      /* No_precision */0,
-      /* End_of_format */0
-    ]),
-  "%x"
-];
+var d16_000 = /* constructor */{
+  tag: 0,
+  name: "Format",
+  "0": /* constructor */{
+    tag: 4,
+    name: "Int",
+    "0": /* Int_x */6,
+    "1": /* No_padding */0,
+    "2": /* No_precision */0,
+    "3": /* End_of_format */0
+  },
+  "1": "%x"
+};
 
 var d16_001 = Caml_int32.caml_bswap16;
 
@@ -956,15 +983,19 @@ var d16 = /* tuple */[
   d16_002
 ];
 
-var d32_000 = /* Format */[
-  /* Int32 */Block.__(5, [
-      /* Int_x */6,
-      /* No_padding */0,
-      /* No_precision */0,
-      /* End_of_format */0
-    ]),
-  "%lx"
-];
+var d32_000 = /* constructor */{
+  tag: 0,
+  name: "Format",
+  "0": /* constructor */{
+    tag: 5,
+    name: "Int32",
+    "0": /* Int_x */6,
+    "1": /* No_padding */0,
+    "2": /* No_precision */0,
+    "3": /* End_of_format */0
+  },
+  "1": "%lx"
+};
 
 var d32_001 = Caml_int32.caml_int32_bswap;
 
@@ -992,26 +1023,36 @@ function f(s, param) {
                     var b = param[1];
                     var a = param[0];
                     return /* tuple */[
-                            Curry._2(Format.asprintf(/* Format */[
-                                      /* String */Block.__(2, [
-                                          /* No_padding */0,
-                                          /* Char_literal */Block.__(12, [
-                                              /* " " */32,
-                                              /* Int */Block.__(4, [
-                                                  /* Int_i */3,
-                                                  /* No_padding */0,
-                                                  /* No_precision */0,
-                                                  /* End_of_format */0
-                                                ])
-                                            ])
-                                        ]),
-                                      "%s %i"
-                                    ]), s, i),
+                            Curry._2(Format.asprintf(/* constructor */{
+                                      tag: 0,
+                                      name: "Format",
+                                      "0": /* constructor */{
+                                        tag: 2,
+                                        name: "String",
+                                        "0": /* No_padding */0,
+                                        "1": /* constructor */{
+                                          tag: 12,
+                                          name: "Char_literal",
+                                          "0": /* " " */32,
+                                          "1": /* constructor */{
+                                            tag: 4,
+                                            name: "Int",
+                                            "0": /* Int_i */3,
+                                            "1": /* No_padding */0,
+                                            "2": /* No_precision */0,
+                                            "3": /* End_of_format */0
+                                          }
+                                        }
+                                      },
+                                      "1": "%s %i"
+                                    }), s, i),
                             (function (param) {
-                                return /* Eq */Block.__(0, [
-                                          Curry._1(Format.asprintf(x), Curry._1(swap, a)),
-                                          b
-                                        ]);
+                                return /* constructor */{
+                                        tag: 0,
+                                        name: "Eq",
+                                        "0": Curry._1(Format.asprintf(x), Curry._1(swap, a)),
+                                        "1": b
+                                      };
                               })
                           ];
                   }), param[2]));

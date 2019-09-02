@@ -4,7 +4,6 @@ var Arg = require("../../lib/js/arg.js");
 var Obj = require("../../lib/js/obj.js");
 var List = require("../../lib/js/list.js");
 var $$Array = require("../../lib/js/array.js");
-var Block = require("../../lib/js/block.js");
 var Curry = require("../../lib/js/curry.js");
 var Format = require("../../lib/js/format.js");
 var Printf = require("../../lib/js/printf.js");
@@ -106,10 +105,12 @@ function dump(r) {
         if (n !== 0) {
           var n$1 = n - 1 | 0;
           _n = n$1;
-          _acc = /* :: */[
-            r[n$1],
-            acc
-          ];
+          _acc = /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": r[n$1],
+            "1": acc
+          };
           continue ;
         } else {
           return acc;
@@ -139,10 +140,12 @@ function dump(r) {
       } else {
         var h = r[0];
         var t = get_list(r[1]);
-        return /* :: */[
-                h,
-                t
-              ];
+        return /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": h,
+                "1": t
+              };
       }
     };
     var s = r.length;
@@ -207,26 +210,36 @@ function dump(r) {
       } else if (t === Obj.double_array_tag) {
         return "[|" + ($$String.concat(";", $$Array.to_list($$Array.map(Pervasives.string_of_float, r))) + "|]");
       } else {
-        var name = Curry._2(Printf.sprintf(/* Format */[
-                  /* String_literal */Block.__(11, [
-                      "unknown: tag ",
-                      /* Int */Block.__(4, [
-                          /* Int_d */0,
-                          /* No_padding */0,
-                          /* No_precision */0,
-                          /* String_literal */Block.__(11, [
-                              " size ",
-                              /* Int */Block.__(4, [
-                                  /* Int_d */0,
-                                  /* No_padding */0,
-                                  /* No_precision */0,
-                                  /* End_of_format */0
-                                ])
-                            ])
-                        ])
-                    ]),
-                  "unknown: tag %d size %d"
-                ]), t, s);
+        var name = Curry._2(Printf.sprintf(/* constructor */{
+                  tag: 0,
+                  name: "Format",
+                  "0": /* constructor */{
+                    tag: 11,
+                    name: "String_literal",
+                    "0": "unknown: tag ",
+                    "1": /* constructor */{
+                      tag: 4,
+                      name: "Int",
+                      "0": /* Int_d */0,
+                      "1": /* No_padding */0,
+                      "2": /* No_precision */0,
+                      "3": /* constructor */{
+                        tag: 11,
+                        name: "String_literal",
+                        "0": " size ",
+                        "1": /* constructor */{
+                          tag: 4,
+                          name: "Int",
+                          "0": /* Int_d */0,
+                          "1": /* No_padding */0,
+                          "2": /* No_precision */0,
+                          "3": /* End_of_format */0
+                        }
+                      }
+                    }
+                  },
+                  "1": "unknown: tag %d size %d"
+                }), t, s);
         return "<" + (name + ">");
       }
     } else {
@@ -239,22 +252,36 @@ function dump(r) {
 var dump$1 = dump;
 
 function pp_any(fmt, v) {
-  return Curry._1(Format.fprintf(fmt, /* Format */[
-                  /* Formatting_gen */Block.__(18, [
-                      /* Open_box */Block.__(1, [/* Format */[
-                            /* End_of_format */0,
-                            ""
-                          ]]),
-                      /* String */Block.__(2, [
-                          /* No_padding */0,
-                          /* Formatting_lit */Block.__(17, [
-                              /* Close_box */0,
-                              /* End_of_format */0
-                            ])
-                        ])
-                    ]),
-                  "@[%s@]"
-                ]), dump$1(v));
+  return Curry._1(Format.fprintf(fmt, /* constructor */{
+                  tag: 0,
+                  name: "Format",
+                  "0": /* constructor */{
+                    tag: 18,
+                    name: "Formatting_gen",
+                    "0": /* constructor */{
+                      tag: 1,
+                      name: "Open_box",
+                      "0": /* constructor */{
+                        tag: 0,
+                        name: "Format",
+                        "0": /* End_of_format */0,
+                        "1": ""
+                      }
+                    },
+                    "1": /* constructor */{
+                      tag: 2,
+                      name: "String",
+                      "0": /* No_padding */0,
+                      "1": /* constructor */{
+                        tag: 17,
+                        name: "Formatting_lit",
+                        "0": /* Close_box */0,
+                        "1": /* End_of_format */0
+                      }
+                    }
+                  },
+                  "1": "@[%s@]"
+                }), dump$1(v));
 }
 
 function hash_variant(s) {

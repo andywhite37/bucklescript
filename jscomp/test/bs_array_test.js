@@ -1,7 +1,6 @@
 'use strict';
 
 var Mt = require("./mt.js");
-var Block = require("../../lib/js/block.js");
 var Curry = require("../../lib/js/curry.js");
 var Js_list = require("../../lib/js/js_list.js");
 var Caml_obj = require("../../lib/js/caml_obj.js");
@@ -30,18 +29,22 @@ function $$throw(loc, x) {
 
 function neq(loc, x, y) {
   test_id[0] = test_id[0] + 1 | 0;
-  suites[0] = /* :: */[
-    /* tuple */[
+  suites[0] = /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
-          return /* Neq */Block.__(1, [
-                    x,
-                    y
-                  ]);
+          return /* constructor */{
+                  tag: 1,
+                  name: "Neq",
+                  "0": x,
+                  "1": y
+                };
         })
     ],
-    suites[0]
-  ];
+    "1": suites[0]
+  };
   return /* () */0;
 }
 
@@ -183,16 +186,22 @@ function id(x) {
   return eq("File \"bs_array_test.ml\", line 40, characters 5-12", Js_vector.toList(Js_list.toVector(x)), x);
 }
 
-eq("File \"bs_array_test.ml\", line 44, characters 5-12", Js_list.toVector(/* :: */[
-          1,
-          /* :: */[
-            2,
-            /* :: */[
-              3,
-              /* [] */0
-            ]
-          ]
-        ]), /* array */[
+eq("File \"bs_array_test.ml\", line 44, characters 5-12", Js_list.toVector(/* constructor */{
+          tag: 0,
+          name: "::",
+          "0": 1,
+          "1": /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": 2,
+            "1": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": 3,
+              "1": /* [] */0
+            }
+          }
+        }), /* array */[
       1,
       2,
       3
@@ -241,49 +250,69 @@ eq("File \"bs_array_test.ml\", line 57, characters 5-12", (Js_vector.filterInPla
       5
     ]);
 
-eq("File \"bs_array_test.ml\", line 64, characters 5-12", Js_list.toVector(/* :: */[
-          1,
-          /* :: */[
-            2,
-            /* :: */[
-              3,
-              /* [] */0
-            ]
-          ]
-        ]), /* array */[
+eq("File \"bs_array_test.ml\", line 64, characters 5-12", Js_list.toVector(/* constructor */{
+          tag: 0,
+          name: "::",
+          "0": 1,
+          "1": /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": 2,
+            "1": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": 3,
+              "1": /* [] */0
+            }
+          }
+        }), /* array */[
       1,
       2,
       3
     ]);
 
-eq("File \"bs_array_test.ml\", line 66, characters 5-12", Js_list.toVector(/* :: */[
-          1,
-          /* [] */0
-        ]), /* array */[1]);
+eq("File \"bs_array_test.ml\", line 66, characters 5-12", Js_list.toVector(/* constructor */{
+          tag: 0,
+          name: "::",
+          "0": 1,
+          "1": /* [] */0
+        }), /* array */[1]);
 
 id(/* [] */0);
 
-id(/* :: */[
-      1,
-      /* [] */0
-    ]);
+id(/* constructor */{
+      tag: 0,
+      name: "::",
+      "0": 1,
+      "1": /* [] */0
+    });
 
-id(/* :: */[
-      1,
-      /* :: */[
-        2,
-        /* :: */[
-          3,
-          /* :: */[
-            4,
-            /* :: */[
-              5,
-              /* [] */0
-            ]
-          ]
-        ]
-      ]
-    ]);
+id(/* constructor */{
+      tag: 0,
+      name: "::",
+      "0": 1,
+      "1": /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": 2,
+        "1": /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": 3,
+          "1": /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": 4,
+            "1": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": 5,
+              "1": /* [] */0
+            }
+          }
+        }
+      }
+    });
 
 id(Js_vector.toList(Js_vector.init(100, (function (i) {
                 return i;
@@ -461,25 +490,33 @@ eq("File \"bs_array_test.ml\", line 132, characters 5-12", Belt_Array.mapWithInd
 
 eq("File \"bs_array_test.ml\", line 133, characters 5-12", Belt_List.fromArray(/* array */[]), /* [] */0);
 
-eq("File \"bs_array_test.ml\", line 134, characters 5-12", Belt_List.fromArray(/* array */[1]), /* :: */[
-      1,
-      /* [] */0
-    ]);
+eq("File \"bs_array_test.ml\", line 134, characters 5-12", Belt_List.fromArray(/* array */[1]), /* constructor */{
+      tag: 0,
+      name: "::",
+      "0": 1,
+      "1": /* [] */0
+    });
 
 eq("File \"bs_array_test.ml\", line 135, characters 5-12", Belt_List.fromArray(/* array */[
           1,
           2,
           3
-        ]), /* :: */[
-      1,
-      /* :: */[
-        2,
-        /* :: */[
-          3,
-          /* [] */0
-        ]
-      ]
-    ]);
+        ]), /* constructor */{
+      tag: 0,
+      name: "::",
+      "0": 1,
+      "1": /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": 2,
+        "1": /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": 3,
+          "1": /* [] */0
+        }
+      }
+    });
 
 eq("File \"bs_array_test.ml\", line 136, characters 5-12", Belt_Array.map(/* array */[
           1,
@@ -495,32 +532,44 @@ eq("File \"bs_array_test.ml\", line 136, characters 5-12", Belt_Array.map(/* arr
 
 eq("File \"bs_array_test.ml\", line 137, characters 5-12", Belt_List.toArray(/* [] */0), /* array */[]);
 
-eq("File \"bs_array_test.ml\", line 138, characters 5-12", Belt_List.toArray(/* :: */[
-          1,
-          /* [] */0
-        ]), /* array */[1]);
+eq("File \"bs_array_test.ml\", line 138, characters 5-12", Belt_List.toArray(/* constructor */{
+          tag: 0,
+          name: "::",
+          "0": 1,
+          "1": /* [] */0
+        }), /* array */[1]);
 
-eq("File \"bs_array_test.ml\", line 139, characters 5-12", Belt_List.toArray(/* :: */[
-          1,
-          /* :: */[
-            2,
-            /* [] */0
-          ]
-        ]), /* array */[
+eq("File \"bs_array_test.ml\", line 139, characters 5-12", Belt_List.toArray(/* constructor */{
+          tag: 0,
+          name: "::",
+          "0": 1,
+          "1": /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": 2,
+            "1": /* [] */0
+          }
+        }), /* array */[
       1,
       2
     ]);
 
-eq("File \"bs_array_test.ml\", line 140, characters 5-12", Belt_List.toArray(/* :: */[
-          1,
-          /* :: */[
-            2,
-            /* :: */[
-              3,
-              /* [] */0
-            ]
-          ]
-        ]), /* array */[
+eq("File \"bs_array_test.ml\", line 140, characters 5-12", Belt_List.toArray(/* constructor */{
+          tag: 0,
+          name: "::",
+          "0": 1,
+          "1": /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": 2,
+            "1": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": 3,
+              "1": /* [] */0
+            }
+          }
+        }), /* array */[
       1,
       2,
       3
@@ -1267,133 +1316,193 @@ function some2(xs, ys) {
     });
 }
 
-eq("File \"bs_array_test.ml\", line 304, characters 5-12", every2(/* [] */0, /* :: */[
-            1,
-            /* [] */0
-          ])((function (x, y) {
+eq("File \"bs_array_test.ml\", line 304, characters 5-12", every2(/* [] */0, /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": 1,
+            "1": /* [] */0
+          })((function (x, y) {
             return x > y;
           })), true);
 
-eq("File \"bs_array_test.ml\", line 305, characters 5-12", every2(/* :: */[
-            2,
-            /* :: */[
-              3,
-              /* [] */0
-            ]
-          ], /* :: */[
-            1,
-            /* [] */0
-          ])((function (x, y) {
+eq("File \"bs_array_test.ml\", line 305, characters 5-12", every2(/* constructor */{
+            tag: 0,
+            name: "::",
+            "0": 2,
+            "1": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": 3,
+              "1": /* [] */0
+            }
+          }, /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": 1,
+            "1": /* [] */0
+          })((function (x, y) {
             return x > y;
           })), true);
 
-eq("File \"bs_array_test.ml\", line 306, characters 5-12", every2(/* :: */[
-            2,
-            /* [] */0
-          ], /* :: */[
-            1,
-            /* [] */0
-          ])((function (x, y) {
+eq("File \"bs_array_test.ml\", line 306, characters 5-12", every2(/* constructor */{
+            tag: 0,
+            name: "::",
+            "0": 2,
+            "1": /* [] */0
+          }, /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": 1,
+            "1": /* [] */0
+          })((function (x, y) {
             return x > y;
           })), true);
 
-eq("File \"bs_array_test.ml\", line 307, characters 5-12", every2(/* :: */[
-            2,
-            /* :: */[
-              3,
-              /* [] */0
-            ]
-          ], /* :: */[
-            1,
-            /* :: */[
-              4,
-              /* [] */0
-            ]
-          ])((function (x, y) {
+eq("File \"bs_array_test.ml\", line 307, characters 5-12", every2(/* constructor */{
+            tag: 0,
+            name: "::",
+            "0": 2,
+            "1": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": 3,
+              "1": /* [] */0
+            }
+          }, /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": 1,
+            "1": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": 4,
+              "1": /* [] */0
+            }
+          })((function (x, y) {
             return x > y;
           })), false);
 
-eq("File \"bs_array_test.ml\", line 308, characters 5-12", every2(/* :: */[
-            2,
-            /* :: */[
-              3,
-              /* [] */0
-            ]
-          ], /* :: */[
-            1,
-            /* :: */[
-              0,
-              /* [] */0
-            ]
-          ])((function (x, y) {
+eq("File \"bs_array_test.ml\", line 308, characters 5-12", every2(/* constructor */{
+            tag: 0,
+            name: "::",
+            "0": 2,
+            "1": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": 3,
+              "1": /* [] */0
+            }
+          }, /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": 1,
+            "1": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": 0,
+              "1": /* [] */0
+            }
+          })((function (x, y) {
             return x > y;
           })), true);
 
-eq("File \"bs_array_test.ml\", line 309, characters 5-12", some2(/* [] */0, /* :: */[
-            1,
-            /* [] */0
-          ])((function (x, y) {
+eq("File \"bs_array_test.ml\", line 309, characters 5-12", some2(/* [] */0, /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": 1,
+            "1": /* [] */0
+          })((function (x, y) {
             return x > y;
           })), false);
 
-eq("File \"bs_array_test.ml\", line 310, characters 5-12", some2(/* :: */[
-            2,
-            /* :: */[
-              3,
-              /* [] */0
-            ]
-          ], /* :: */[
-            1,
-            /* [] */0
-          ])((function (x, y) {
+eq("File \"bs_array_test.ml\", line 310, characters 5-12", some2(/* constructor */{
+            tag: 0,
+            name: "::",
+            "0": 2,
+            "1": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": 3,
+              "1": /* [] */0
+            }
+          }, /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": 1,
+            "1": /* [] */0
+          })((function (x, y) {
             return x > y;
           })), true);
 
-eq("File \"bs_array_test.ml\", line 311, characters 5-12", some2(/* :: */[
-            2,
-            /* :: */[
-              3,
-              /* [] */0
-            ]
-          ], /* :: */[
-            1,
-            /* :: */[
-              4,
-              /* [] */0
-            ]
-          ])((function (x, y) {
+eq("File \"bs_array_test.ml\", line 311, characters 5-12", some2(/* constructor */{
+            tag: 0,
+            name: "::",
+            "0": 2,
+            "1": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": 3,
+              "1": /* [] */0
+            }
+          }, /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": 1,
+            "1": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": 4,
+              "1": /* [] */0
+            }
+          })((function (x, y) {
             return x > y;
           })), true);
 
-eq("File \"bs_array_test.ml\", line 312, characters 5-12", some2(/* :: */[
-            0,
-            /* :: */[
-              3,
-              /* [] */0
-            ]
-          ], /* :: */[
-            1,
-            /* :: */[
-              4,
-              /* [] */0
-            ]
-          ])((function (x, y) {
+eq("File \"bs_array_test.ml\", line 312, characters 5-12", some2(/* constructor */{
+            tag: 0,
+            name: "::",
+            "0": 0,
+            "1": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": 3,
+              "1": /* [] */0
+            }
+          }, /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": 1,
+            "1": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": 4,
+              "1": /* [] */0
+            }
+          })((function (x, y) {
             return x > y;
           })), false);
 
-eq("File \"bs_array_test.ml\", line 313, characters 5-12", some2(/* :: */[
-            0,
-            /* :: */[
-              3,
-              /* [] */0
-            ]
-          ], /* :: */[
-            3,
-            /* :: */[
-              2,
-              /* [] */0
-            ]
-          ])((function (x, y) {
+eq("File \"bs_array_test.ml\", line 313, characters 5-12", some2(/* constructor */{
+            tag: 0,
+            name: "::",
+            "0": 0,
+            "1": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": 3,
+              "1": /* [] */0
+            }
+          }, /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": 3,
+            "1": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": 2,
+              "1": /* [] */0
+            }
+          })((function (x, y) {
             return x > y;
           })), true);
 

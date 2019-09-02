@@ -4,9 +4,13 @@ var Caml_obj = require("../../lib/js/caml_obj.js");
 var CamlinternalLazy = require("../../lib/js/camlinternalLazy.js");
 
 function fix(param) {
-  return /* Fix */[Caml_obj.caml_lazy_make((function (param) {
+  return /* constructor */{
+          tag: 0,
+          name: "Fix",
+          "0": Caml_obj.caml_lazy_make((function (param) {
                   return fix(/* () */0);
-                }))];
+                }))
+        };
 }
 
 function unfixLeak(_param) {

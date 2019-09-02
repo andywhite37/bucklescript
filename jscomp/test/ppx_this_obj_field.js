@@ -1,7 +1,6 @@
 'use strict';
 
 var Mt = require("./mt.js");
-var Block = require("../../lib/js/block.js");
 
 var suites = /* record */[/* contents : [] */0];
 
@@ -11,18 +10,22 @@ function eq(loc, param) {
   var y = param[1];
   var x = param[0];
   test_id[0] = test_id[0] + 1 | 0;
-  suites[0] = /* :: */[
-    /* tuple */[
+  suites[0] = /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
-          return /* Eq */Block.__(0, [
-                    x,
-                    y
-                  ]);
+          return /* constructor */{
+                  tag: 0,
+                  name: "Eq",
+                  "0": x,
+                  "1": y
+                };
         })
     ],
-    suites[0]
-  ];
+    "1": suites[0]
+  };
   return /* () */0;
 }
 
@@ -90,15 +93,17 @@ var u = {
     })
 };
 
-var test_type_001 = /* :: */[
-  v,
-  /* [] */0
-];
-
-var test_type = /* :: */[
-  u,
-  test_type_001
-];
+var test_type = /* constructor */{
+  tag: 0,
+  name: "::",
+  "0": u,
+  "1": /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": v,
+    "1": /* [] */0
+  }
+};
 
 var z = {
   x: /* record */[/* contents */3],
@@ -150,15 +155,17 @@ var zz = {
     })
 };
 
-var test_type2_001 = /* :: */[
-  zz,
-  /* [] */0
-];
-
-var test_type2 = /* :: */[
-  z,
-  test_type2_001
-];
+var test_type2 = /* constructor */{
+  tag: 0,
+  name: "::",
+  "0": z,
+  "1": /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": zz,
+    "1": /* [] */0
+  }
+};
 
 eq("File \"ppx_this_obj_field.ml\", line 92, characters 5-12", /* tuple */[
       6,

@@ -9,27 +9,33 @@ function insert(queue, prio, elt) {
     var e = queue[1];
     var p = queue[0];
     if (prio <= p) {
-      return /* Node */[
-              prio,
-              elt,
-              insert(right, p, e),
-              left
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "Node",
+              "0": prio,
+              "1": elt,
+              "2": insert(right, p, e),
+              "3": left
+            };
     } else {
-      return /* Node */[
-              p,
-              e,
-              insert(right, prio, elt),
-              left
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "Node",
+              "0": p,
+              "1": e,
+              "2": insert(right, prio, elt),
+              "3": left
+            };
     }
   } else {
-    return /* Node */[
-            prio,
-            elt,
-            /* Empty */0,
-            /* Empty */0
-          ];
+    return /* constructor */{
+            tag: 0,
+            name: "Node",
+            "0": prio,
+            "1": elt,
+            "2": /* Empty */0,
+            "3": /* Empty */0
+          };
   }
 }
 
@@ -44,19 +50,23 @@ function remove_top(param) {
         var rprio = right[0];
         var lprio = left[0];
         if (lprio <= rprio) {
-          return /* Node */[
-                  lprio,
-                  left[1],
-                  remove_top(left),
-                  right
-                ];
+          return /* constructor */{
+                  tag: 0,
+                  name: "Node",
+                  "0": lprio,
+                  "1": left[1],
+                  "2": remove_top(left),
+                  "3": right
+                };
         } else {
-          return /* Node */[
-                  rprio,
-                  right[1],
-                  left,
-                  remove_top(right)
-                ];
+          return /* constructor */{
+                  tag: 0,
+                  name: "Node",
+                  "0": rprio,
+                  "1": right[1],
+                  "2": left,
+                  "3": remove_top(right)
+                };
         }
       } else {
         return param[3];

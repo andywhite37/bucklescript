@@ -1,7 +1,6 @@
 'use strict';
 
 var Mt = require("./mt.js");
-var Block = require("../../lib/js/block.js");
 var Curry = require("../../lib/js/curry.js");
 var $$String = require("../../lib/js/string.js");
 var Filename = require("../../lib/js/filename.js");
@@ -44,20 +43,22 @@ function basename(param) {
               }), Filename.current_dir_name, param);
 }
 
-var suites_000 = /* tuple */[
-  "basename",
-  (function (param) {
-      return /* Eq */Block.__(0, [
-                basename("b/c/a.b"),
-                "a.b"
-              ]);
-    })
-];
-
-var suites = /* :: */[
-  suites_000,
-  /* [] */0
-];
+var suites = /* constructor */{
+  tag: 0,
+  name: "::",
+  "0": /* tuple */[
+    "basename",
+    (function (param) {
+        return /* constructor */{
+                tag: 0,
+                name: "Eq",
+                "0": basename("b/c/a.b"),
+                "1": "a.b"
+              };
+      })
+  ],
+  "1": /* [] */0
+};
 
 Mt.from_pair_suites("Inline_regression_test", suites);
 

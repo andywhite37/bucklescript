@@ -2,7 +2,6 @@
 
 var Mt = require("./mt.js");
 var List = require("../../lib/js/list.js");
-var Block = require("../../lib/js/block.js");
 var Curry = require("../../lib/js/curry.js");
 var Caml_array = require("../../lib/js/caml_array.js");
 var Caml_int32 = require("../../lib/js/caml_int32.js");
@@ -67,18 +66,22 @@ var test_id = /* record */[/* contents */0];
 
 function eq(loc, x, y) {
   test_id[0] = test_id[0] + 1 | 0;
-  suites[0] = /* :: */[
-    /* tuple */[
+  suites[0] = /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
-          return /* Eq */Block.__(0, [
-                    x,
-                    y
-                  ]);
+          return /* constructor */{
+                  tag: 0,
+                  name: "Eq",
+                  "0": x,
+                  "1": y
+                };
         })
     ],
-    suites[0]
-  ];
+    "1": suites[0]
+  };
   return /* () */0;
 }
 
@@ -242,10 +245,12 @@ CamlinternalOO.set_methods($$class, /* array */[
         }),
       register,
       (function (self$5) {
-          ints[0] = /* :: */[
-            self$5,
-            ints[0]
-          ];
+          ints[0] = /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": self$5,
+            "1": ints[0]
+          };
           return /* () */0;
         }),
       len,

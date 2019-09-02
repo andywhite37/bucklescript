@@ -2,7 +2,6 @@
 
 var Mt = require("./mt.js");
 var $$Array = require("../../lib/js/array.js");
-var Block = require("../../lib/js/block.js");
 var Curry = require("../../lib/js/curry.js");
 var $$Buffer = require("../../lib/js/buffer.js");
 var Format = require("../../lib/js/format.js");
@@ -15,23 +14,31 @@ var buf = $$Buffer.create(50);
 var fmt = Format.formatter_of_buffer(buf);
 
 function print_float(f) {
-  return Curry._1(Format.fprintf(fmt, /* Format */[
-                  /* String */Block.__(2, [
-                      /* No_padding */0,
-                      /* End_of_format */0
-                    ]),
-                  "%s"
-                ]), Pervasives.string_of_float(f));
+  return Curry._1(Format.fprintf(fmt, /* constructor */{
+                  tag: 0,
+                  name: "Format",
+                  "0": /* constructor */{
+                    tag: 2,
+                    name: "String",
+                    "0": /* No_padding */0,
+                    "1": /* End_of_format */0
+                  },
+                  "1": "%s"
+                }), Pervasives.string_of_float(f));
 }
 
 function print_newline(param) {
-  return Format.fprintf(fmt, /* Format */[
-              /* Char_literal */Block.__(12, [
-                  /* "\n" */10,
-                  /* End_of_format */0
-                ]),
-              "\n"
-            ]);
+  return Format.fprintf(fmt, /* constructor */{
+              tag: 0,
+              name: "Format",
+              "0": /* constructor */{
+                tag: 12,
+                name: "Char_literal",
+                "0": /* "\n" */10,
+                "1": /* End_of_format */0
+              },
+              "1": "\n"
+            });
 }
 
 var s = /* record */[/* f */1.0];

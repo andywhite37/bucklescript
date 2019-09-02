@@ -25,10 +25,12 @@ function split_by($staropt$star, is_delim, str) {
       if (last_pos === 0 && !keep_empty) {
         return acc;
       } else {
-        return /* :: */[
-                $$String.sub(str, 0, last_pos),
-                acc
-              ];
+        return /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": $$String.sub(str, 0, last_pos),
+                "1": acc
+              };
       }
     } else if (Curry._1(is_delim, Caml_string.get(str, pos))) {
       var new_len = (last_pos - pos | 0) - 1 | 0;
@@ -36,10 +38,12 @@ function split_by($staropt$star, is_delim, str) {
         var v = $$String.sub(str, pos + 1 | 0, new_len);
         _pos = pos - 1 | 0;
         _last_pos = pos;
-        _acc = /* :: */[
-          v,
-          acc
-        ];
+        _acc = /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": v,
+          "1": acc
+        };
         continue ;
       } else {
         _pos = pos - 1 | 0;
@@ -517,19 +521,27 @@ function is_valid_npm_package_name(s) {
 }
 
 function is_valid_source_name(name) {
-  var match = check_any_suffix_case_then_chop(name, /* :: */[
-        ".ml",
-        /* :: */[
-          ".re",
-          /* :: */[
-            ".mli",
-            /* :: */[
-              ".rei",
-              /* [] */0
-            ]
-          ]
-        ]
-      ]);
+  var match = check_any_suffix_case_then_chop(name, /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": ".ml",
+        "1": /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": ".re",
+          "1": /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": ".mli",
+            "1": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": ".rei",
+              "1": /* [] */0
+            }
+          }
+        }
+      });
   if (match !== undefined) {
     if (is_valid_module_file(match)) {
       return /* Good */0;

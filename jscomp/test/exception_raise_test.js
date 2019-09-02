@@ -2,7 +2,6 @@
 
 var Mt = require("./mt.js");
 var List = require("../../lib/js/list.js");
-var Block = require("../../lib/js/block.js");
 var Curry = require("../../lib/js/curry.js");
 var Js_exn = require("../../lib/js/js_exn.js");
 var Pervasives = require("../../lib/js/pervasives.js");
@@ -127,35 +126,43 @@ catch (raw_e$1){
   a2 = Caml_js_exceptions.internalToOCamlException(raw_e$1);
 }
 
-var suites = /* record */[/* contents : :: */[
-    /* tuple */[
+var suites = /* record */[/* contents : constructor */{
+    tag: 0,
+    name: "::",
+    "0": /* tuple */[
       "File \"exception_raise_test.ml\", line 114, characters 4-11",
       (function (param) {
-          return /* Eq */Block.__(0, [
-                    /* tuple */[
-                      f,
-                      ff,
-                      fff,
-                      a0
-                    ],
-                    /* tuple */[
-                      2,
-                      2,
-                      2,
-                      2
-                    ]
-                  ]);
+          return /* constructor */{
+                  tag: 0,
+                  name: "Eq",
+                  "0": /* tuple */[
+                    f,
+                    ff,
+                    fff,
+                    a0
+                  ],
+                  "1": /* tuple */[
+                    2,
+                    2,
+                    2,
+                    2
+                  ]
+                };
         })
     ],
-    /* :: */[
-      /* tuple */[
+    "1": /* constructor */{
+      tag: 0,
+      name: "::",
+      "0": /* tuple */[
         "File \"exception_raise_test.ml\", line 116, characters 4-11",
         (function (param) {
             if (a1[0] === Js_exn.$$Error) {
-              return /* Eq */Block.__(0, [
-                        a1[1],
-                        2
-                      ]);
+              return /* constructor */{
+                      tag: 0,
+                      name: "Eq",
+                      "0": a1[1],
+                      "1": 2
+                    };
             } else {
               throw [
                     Caml_builtin_exceptions.assert_failure,
@@ -168,9 +175,9 @@ var suites = /* record */[/* contents : :: */[
             }
           })
       ],
-      /* [] */0
-    ]
-  ]];
+      "1": /* [] */0
+    }
+  }];
 
 var test_id = /* record */[/* contents */0];
 
@@ -215,10 +222,12 @@ function input_lines(ic, _acc) {
     catch (exn){
       return List.rev(acc);
     }
-    _acc = /* :: */[
-      line,
-      acc
-    ];
+    _acc = /* constructor */{
+      tag: 0,
+      name: "::",
+      "0": line,
+      "1": acc
+    };
     continue ;
   };
 }

@@ -35,10 +35,12 @@ for(var i$1 = 10; i$1 >= 0; --i$1){
 var sumdown = v$1;
 
 function cons(x, y) {
-  return /* Cons */[
-          x,
-          y
-        ];
+  return /* constructor */{
+          tag: 0,
+          name: "Cons",
+          "0": x,
+          "1": y
+        };
 }
 
 function length(x) {
@@ -51,10 +53,12 @@ function length(x) {
 
 function map(f, x) {
   if (x) {
-    return /* Cons */[
-            Curry._1(f, x[0]),
-            map(f, x[1])
-          ];
+    return /* constructor */{
+            tag: 0,
+            name: "Cons",
+            "0": Curry._1(f, x[0]),
+            "1": map(f, x[1])
+          };
   } else {
     return /* Nil */0;
   }

@@ -71,20 +71,24 @@ function Make(funarg) {
             _successors = successors[1];
             continue ;
           } else {
-            return step2(successor, /* :: */[
-                        /* tuple */[
+            return step2(successor, /* constructor */{
+                        tag: 0,
+                        name: "::",
+                        "0": /* tuple */[
                           top$1,
                           successors
                         ],
-                        rest_of_stack$1
-                      ]);
+                        "1": rest_of_stack$1
+                      });
           }
         } else {
           if (Curry._2(H.find, l_labels, top$1) === Curry._2(H.find, n_labels, top$1)) {
-            cut_set[0] = /* :: */[
-              top$1,
-              cut_set[0]
-            ];
+            cut_set[0] = /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": top$1,
+              "1": cut_set[0]
+            };
             Curry._3(H.add, l_labels, top$1, 0);
           }
           if (Curry._2(H.find, l_labels, top$1) > Curry._2(H.find, n_labels, top$1)) {

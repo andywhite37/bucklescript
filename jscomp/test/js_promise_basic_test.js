@@ -2,7 +2,6 @@
 
 var Mt = require("./mt.js");
 var List = require("../../lib/js/list.js");
-var Block = require("../../lib/js/block.js");
 var Curry = require("../../lib/js/curry.js");
 var Caml_array = require("../../lib/js/caml_array.js");
 var Caml_exceptions = require("../../lib/js/caml_exceptions.js");
@@ -14,18 +13,22 @@ var test_id = /* record */[/* contents */0];
 
 function eq(loc, x, y) {
   test_id[0] = test_id[0] + 1 | 0;
-  suites[0] = /* :: */[
-    /* tuple */[
+  suites[0] = /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
-          return /* Eq */Block.__(0, [
-                    x,
-                    y
-                  ]);
+          return /* constructor */{
+                  tag: 0,
+                  name: "Eq",
+                  "0": x,
+                  "1": y
+                };
         })
     ],
-    suites[0]
-  ];
+    "1": suites[0]
+  };
   return /* () */0;
 }
 
@@ -295,29 +298,37 @@ function re(prim) {
   return Promise.resolve(prim);
 }
 
-Mt.from_promise_suites("Js_promise_basic_test", /* :: */[
-      /* tuple */[
+Mt.from_promise_suites("Js_promise_basic_test", /* constructor */{
+      tag: 0,
+      name: "::",
+      "0": /* tuple */[
         "File \"js_promise_basic_test.ml\", line 187, characters 4-11",
         twop.then((function (x) {
-                return Promise.resolve(/* Eq */Block.__(0, [
-                              x,
-                              2
-                            ]));
+                return Promise.resolve(/* constructor */{
+                            tag: 0,
+                            name: "Eq",
+                            "0": x,
+                            "1": 2
+                          });
               }))
       ],
-      /* :: */[
-        /* tuple */[
+      "1": /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": /* tuple */[
           "File \"js_promise_basic_test.ml\", line 190, characters 4-11",
           twop.then((function (x) {
-                  return Promise.resolve(/* Neq */Block.__(1, [
-                                x,
-                                3
-                              ]));
+                  return Promise.resolve(/* constructor */{
+                              tag: 1,
+                              name: "Neq",
+                              "0": x,
+                              "1": 3
+                            });
                 }))
         ],
-        /* [] */0
-      ]
-    ]);
+        "1": /* [] */0
+      }
+    });
 
 exports.suites = suites;
 exports.test_id = test_id;

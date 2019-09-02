@@ -6,9 +6,17 @@ function g(x) {
   return Curry._1(x[0], x);
 }
 
-var loop = g(/* A */[g]);
+var loop = g(/* constructor */{
+      tag: 0,
+      name: "A",
+      "0": g
+    });
 
-var x = /* A */[g];
+var x = /* constructor */{
+  tag: 0,
+  name: "A",
+  "0": g
+};
 
 var non_terminate = g(x);
 

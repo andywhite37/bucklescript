@@ -1,7 +1,6 @@
 'use strict';
 
 var Mt = require("./mt.js");
-var Block = require("../../lib/js/block.js");
 var Js_types = require("../../lib/js/js_types.js");
 
 function string_or_number(x) {
@@ -31,149 +30,193 @@ function string_or_number(x) {
   }
 }
 
-var suites_000 = /* tuple */[
-  "int_type",
-  (function (param) {
-      return /* Eq */Block.__(0, [
-                "number",
-                "number"
-              ]);
-    })
-];
-
-var suites_001 = /* :: */[
-  /* tuple */[
-    "string_type",
+var suites = /* constructor */{
+  tag: 0,
+  name: "::",
+  "0": /* tuple */[
+    "int_type",
     (function (param) {
-        return /* Eq */Block.__(0, [
-                  "string",
-                  "string"
-                ]);
+        return /* constructor */{
+                tag: 0,
+                name: "Eq",
+                "0": "number",
+                "1": "number"
+              };
       })
   ],
-  /* :: */[
-    /* tuple */[
-      "number_gadt_test",
+  "1": /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": /* tuple */[
+      "string_type",
       (function (param) {
-          return /* Eq */Block.__(0, [
-                    Js_types.test(3, /* Number */3),
-                    true
-                  ]);
+          return /* constructor */{
+                  tag: 0,
+                  name: "Eq",
+                  "0": "string",
+                  "1": "string"
+                };
         })
     ],
-    /* :: */[
-      /* tuple */[
-        "boolean_gadt_test",
+    "1": /* constructor */{
+      tag: 0,
+      name: "::",
+      "0": /* tuple */[
+        "number_gadt_test",
         (function (param) {
-            return /* Eq */Block.__(0, [
-                      Js_types.test(true, /* Boolean */2),
-                      true
-                    ]);
+            return /* constructor */{
+                    tag: 0,
+                    name: "Eq",
+                    "0": Js_types.test(3, /* Number */3),
+                    "1": true
+                  };
           })
       ],
-      /* :: */[
-        /* tuple */[
-          "undefined_gadt_test",
+      "1": /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": /* tuple */[
+          "boolean_gadt_test",
           (function (param) {
-              return /* Eq */Block.__(0, [
-                        Js_types.test(undefined, /* Undefined */0),
-                        true
-                      ]);
+              return /* constructor */{
+                      tag: 0,
+                      name: "Eq",
+                      "0": Js_types.test(true, /* Boolean */2),
+                      "1": true
+                    };
             })
         ],
-        /* :: */[
-          /* tuple */[
-            "string_on_number1",
+        "1": /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": /* tuple */[
+            "undefined_gadt_test",
             (function (param) {
-                return /* Eq */Block.__(0, [
-                          string_or_number("xx"),
-                          true
-                        ]);
+                return /* constructor */{
+                        tag: 0,
+                        name: "Eq",
+                        "0": Js_types.test(undefined, /* Undefined */0),
+                        "1": true
+                      };
               })
           ],
-          /* :: */[
-            /* tuple */[
-              "string_on_number2",
+          "1": /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": /* tuple */[
+              "string_on_number1",
               (function (param) {
-                  return /* Eq */Block.__(0, [
-                            string_or_number(3.02),
-                            true
-                          ]);
+                  return /* constructor */{
+                          tag: 0,
+                          name: "Eq",
+                          "0": string_or_number("xx"),
+                          "1": true
+                        };
                 })
             ],
-            /* :: */[
-              /* tuple */[
-                "string_on_number3",
+            "1": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": /* tuple */[
+                "string_on_number2",
                 (function (param) {
-                    return /* Eq */Block.__(0, [
-                              string_or_number((function (x) {
-                                      return x;
-                                    })),
-                              false
-                            ]);
+                    return /* constructor */{
+                            tag: 0,
+                            name: "Eq",
+                            "0": string_or_number(3.02),
+                            "1": true
+                          };
                   })
               ],
-              /* :: */[
-                /* tuple */[
-                  "string_gadt_test",
+              "1": /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": /* tuple */[
+                  "string_on_number3",
                   (function (param) {
-                      return /* Eq */Block.__(0, [
-                                Js_types.test("3", /* String */4),
-                                true
-                              ]);
+                      return /* constructor */{
+                              tag: 0,
+                              name: "Eq",
+                              "0": string_or_number((function (x) {
+                                      return x;
+                                    })),
+                              "1": false
+                            };
                     })
                 ],
-                /* :: */[
-                  /* tuple */[
-                    "string_gadt_test_neg",
+                "1": /* constructor */{
+                  tag: 0,
+                  name: "::",
+                  "0": /* tuple */[
+                    "string_gadt_test",
                     (function (param) {
-                        return /* Eq */Block.__(0, [
-                                  Js_types.test(3, /* String */4),
-                                  false
-                                ]);
+                        return /* constructor */{
+                                tag: 0,
+                                name: "Eq",
+                                "0": Js_types.test("3", /* String */4),
+                                "1": true
+                              };
                       })
                   ],
-                  /* :: */[
-                    /* tuple */[
-                      "function_gadt_test",
+                  "1": /* constructor */{
+                    tag: 0,
+                    name: "::",
+                    "0": /* tuple */[
+                      "string_gadt_test_neg",
                       (function (param) {
-                          return /* Eq */Block.__(0, [
-                                    Js_types.test((function (x) {
-                                            return x;
-                                          }), /* Function */5),
-                                    true
-                                  ]);
+                          return /* constructor */{
+                                  tag: 0,
+                                  name: "Eq",
+                                  "0": Js_types.test(3, /* String */4),
+                                  "1": false
+                                };
                         })
                     ],
-                    /* :: */[
-                      /* tuple */[
-                        "object_gadt_test",
+                    "1": /* constructor */{
+                      tag: 0,
+                      name: "::",
+                      "0": /* tuple */[
+                        "function_gadt_test",
                         (function (param) {
-                            return /* Eq */Block.__(0, [
-                                      Js_types.test({
-                                            x: 3
-                                          }, /* Object */6),
-                                      true
-                                    ]);
+                            return /* constructor */{
+                                    tag: 0,
+                                    name: "Eq",
+                                    "0": Js_types.test((function (x) {
+                                            return x;
+                                          }), /* Function */5),
+                                    "1": true
+                                  };
                           })
                       ],
-                      /* [] */0
-                    ]
-                  ]
-                ]
-              ]
-            ]
-          ]
-        ]
-      ]
-    ]
-  ]
-];
-
-var suites = /* :: */[
-  suites_000,
-  suites_001
-];
+                      "1": /* constructor */{
+                        tag: 0,
+                        name: "::",
+                        "0": /* tuple */[
+                          "object_gadt_test",
+                          (function (param) {
+                              return /* constructor */{
+                                      tag: 0,
+                                      name: "Eq",
+                                      "0": Js_types.test({
+                                            x: 3
+                                          }, /* Object */6),
+                                      "1": true
+                                    };
+                            })
+                        ],
+                        "1": /* [] */0
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+};
 
 Mt.from_pair_suites("Typeof_test", suites);
 

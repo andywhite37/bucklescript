@@ -1,7 +1,6 @@
 'use strict';
 
 var Mt = require("./mt.js");
-var Block = require("../../lib/js/block.js");
 var Curry = require("../../lib/js/curry.js");
 var Int64 = require("../../lib/js/int64.js");
 var Printf = require("../../lib/js/printf.js");
@@ -77,50 +76,72 @@ var xx = Random.$$float(3.0);
 
 var xxx = Random.int32(103);
 
-Curry._5(Printf.printf(/* Format */[
-          /* Int64 */Block.__(7, [
-              /* Int_d */0,
-              /* No_padding */0,
-              /* No_precision */0,
-              /* Char_literal */Block.__(12, [
-                  /* " " */32,
-                  /* Int64 */Block.__(7, [
-                      /* Int_d */0,
-                      /* No_padding */0,
-                      /* No_precision */0,
-                      /* Char_literal */Block.__(12, [
-                          /* " " */32,
-                          /* Int */Block.__(4, [
-                              /* Int_d */0,
-                              /* No_padding */0,
-                              /* No_precision */0,
-                              /* Char_literal */Block.__(12, [
-                                  /* " " */32,
-                                  /* Float */Block.__(8, [
-                                      /* Float_f */0,
-                                      /* No_padding */0,
-                                      /* No_precision */0,
-                                      /* Char_literal */Block.__(12, [
-                                          /* " " */32,
-                                          /* Int32 */Block.__(5, [
-                                              /* Int_d */0,
-                                              /* No_padding */0,
-                                              /* No_precision */0,
-                                              /* String_literal */Block.__(11, [
-                                                  " \n",
-                                                  /* End_of_format */0
-                                                ])
-                                            ])
-                                        ])
-                                    ])
-                                ])
-                            ])
-                        ])
-                    ])
-                ])
-            ]),
-          "%Ld %Ld %d %f %ld \n"
-        ]), f, h, vv, xx, xxx);
+Curry._5(Printf.printf(/* constructor */{
+          tag: 0,
+          name: "Format",
+          "0": /* constructor */{
+            tag: 7,
+            name: "Int64",
+            "0": /* Int_d */0,
+            "1": /* No_padding */0,
+            "2": /* No_precision */0,
+            "3": /* constructor */{
+              tag: 12,
+              name: "Char_literal",
+              "0": /* " " */32,
+              "1": /* constructor */{
+                tag: 7,
+                name: "Int64",
+                "0": /* Int_d */0,
+                "1": /* No_padding */0,
+                "2": /* No_precision */0,
+                "3": /* constructor */{
+                  tag: 12,
+                  name: "Char_literal",
+                  "0": /* " " */32,
+                  "1": /* constructor */{
+                    tag: 4,
+                    name: "Int",
+                    "0": /* Int_d */0,
+                    "1": /* No_padding */0,
+                    "2": /* No_precision */0,
+                    "3": /* constructor */{
+                      tag: 12,
+                      name: "Char_literal",
+                      "0": /* " " */32,
+                      "1": /* constructor */{
+                        tag: 8,
+                        name: "Float",
+                        "0": /* Float_f */0,
+                        "1": /* No_padding */0,
+                        "2": /* No_precision */0,
+                        "3": /* constructor */{
+                          tag: 12,
+                          name: "Char_literal",
+                          "0": /* " " */32,
+                          "1": /* constructor */{
+                            tag: 5,
+                            name: "Int32",
+                            "0": /* Int_d */0,
+                            "1": /* No_padding */0,
+                            "2": /* No_precision */0,
+                            "3": /* constructor */{
+                              tag: 11,
+                              name: "String_literal",
+                              "0": " \n",
+                              "1": /* End_of_format */0
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "1": "%Ld %Ld %d %f %ld \n"
+        }), f, h, vv, xx, xxx);
 
 Mt.from_pair_suites("Random_test", suites[0]);
 

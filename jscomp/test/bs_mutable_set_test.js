@@ -388,22 +388,32 @@ b("File \"bs_mutable_set_test.ml\", line 164, characters 4-11", Belt_MutableSetI
 
 b("File \"bs_mutable_set_test.ml\", line 165, characters 4-11", Belt_MutableSetInt.eq(a2, a4));
 
-Belt_List.forEach(/* :: */[
-      a0,
-      /* :: */[
-        a1,
-        /* :: */[
-          a2,
-          /* :: */[
-            a3,
-            /* :: */[
-              a4,
-              /* [] */0
-            ]
-          ]
-        ]
-      ]
-    ], (function (x) {
+Belt_List.forEach(/* constructor */{
+      tag: 0,
+      name: "::",
+      "0": a0,
+      "1": /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": a1,
+        "1": /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": a2,
+          "1": /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": a3,
+            "1": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": a4,
+              "1": /* [] */0
+            }
+          }
+        }
+      }
+    }, (function (x) {
         return Belt_internalAVLset.checkInvariantInternal(x.data);
       }));
 

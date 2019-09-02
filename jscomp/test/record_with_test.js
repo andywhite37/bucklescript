@@ -1,7 +1,6 @@
 'use strict';
 
 var Mt = require("./mt.js");
-var Block = require("../../lib/js/block.js");
 var Curry = require("../../lib/js/curry.js");
 
 var v = /* record */[
@@ -37,20 +36,22 @@ function f(g, h) {
         ];
 }
 
-var suites_000 = /* tuple */[
-  "eq_with",
-  (function (param) {
-      return /* Eq */Block.__(0, [
-                v,
-                u_v
-              ]);
-    })
-];
-
-var suites = /* :: */[
-  suites_000,
-  /* [] */0
-];
+var suites = /* constructor */{
+  tag: 0,
+  name: "::",
+  "0": /* tuple */[
+    "eq_with",
+    (function (param) {
+        return /* constructor */{
+                tag: 0,
+                name: "Eq",
+                "0": v,
+                "1": u_v
+              };
+      })
+  ],
+  "1": /* [] */0
+};
 
 Mt.from_pair_suites("Record_with_test", suites);
 

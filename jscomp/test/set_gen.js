@@ -11,11 +11,13 @@ function cons_enum(_s, _e) {
     var e = _e;
     var s = _s;
     if (s) {
-      _e = /* More */[
-        s[1],
-        s[2],
-        e
-      ];
+      _e = /* constructor */{
+        tag: 0,
+        name: "More",
+        "0": s[1],
+        "1": s[2],
+        "2": e
+      };
       _s = s[0];
       continue ;
     } else {
@@ -98,10 +100,12 @@ function elements_aux(_accu, _param) {
     var accu = _accu;
     if (param) {
       _param = param[0];
-      _accu = /* :: */[
-        param[1],
-        elements_aux(accu, param[2])
-      ];
+      _accu = /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": param[1],
+        "1": elements_aux(accu, param[2])
+      };
       continue ;
     } else {
       return accu;
@@ -225,12 +229,14 @@ function check(tree) {
 function create(l, v, r) {
   var hl = l ? l[3] : 0;
   var hr = r ? r[3] : 0;
-  return /* Node */[
-          l,
-          v,
-          r,
-          hl >= hr ? hl + 1 | 0 : hr + 1 | 0
-        ];
+  return /* constructor */{
+          tag: 0,
+          name: "Node",
+          "0": l,
+          "1": v,
+          "2": r,
+          "3": hl >= hr ? hl + 1 | 0 : hr + 1 | 0
+        };
 }
 
 function internal_bal(l, v, r) {
@@ -295,12 +301,14 @@ function internal_bal(l, v, r) {
           ];
     }
   } else {
-    return /* Node */[
-            l,
-            v,
-            r,
-            hl >= hr ? hl + 1 | 0 : hr + 1 | 0
-          ];
+    return /* constructor */{
+            tag: 0,
+            name: "Node",
+            "0": l,
+            "1": v,
+            "2": r,
+            "3": hl >= hr ? hl + 1 | 0 : hr + 1 | 0
+          };
   }
 }
 
@@ -321,12 +329,14 @@ function remove_min_elt(param) {
 }
 
 function singleton(x) {
-  return /* Node */[
-          /* Empty */0,
-          x,
-          /* Empty */0,
-          1
-        ];
+  return /* constructor */{
+          tag: 0,
+          name: "Node",
+          "0": /* Empty */0,
+          "1": x,
+          "2": /* Empty */0,
+          "3": 1
+        };
 }
 
 function internal_merge(l, r) {
@@ -445,12 +455,14 @@ function of_sorted_list(l) {
       case 1 :
           if (l) {
             return /* tuple */[
-                    /* Node */[
-                      /* Empty */0,
-                      l[0],
-                      /* Empty */0,
-                      1
-                    ],
+                    /* constructor */{
+                      tag: 0,
+                      name: "Node",
+                      "0": /* Empty */0,
+                      "1": l[0],
+                      "2": /* Empty */0,
+                      "3": 1
+                    },
                     l[1]
                   ];
           }
@@ -460,17 +472,21 @@ function of_sorted_list(l) {
             var match = l[1];
             if (match) {
               return /* tuple */[
-                      /* Node */[
-                        /* Node */[
-                          /* Empty */0,
-                          l[0],
-                          /* Empty */0,
-                          1
-                        ],
-                        match[0],
-                        /* Empty */0,
-                        2
-                      ],
+                      /* constructor */{
+                        tag: 0,
+                        name: "Node",
+                        "0": /* constructor */{
+                          tag: 0,
+                          name: "Node",
+                          "0": /* Empty */0,
+                          "1": l[0],
+                          "2": /* Empty */0,
+                          "3": 1
+                        },
+                        "1": match[0],
+                        "2": /* Empty */0,
+                        "3": 2
+                      },
                       match[1]
                     ];
             }
@@ -484,22 +500,28 @@ function of_sorted_list(l) {
               var match$2 = match$1[1];
               if (match$2) {
                 return /* tuple */[
-                        /* Node */[
-                          /* Node */[
-                            /* Empty */0,
-                            l[0],
-                            /* Empty */0,
-                            1
-                          ],
-                          match$1[0],
-                          /* Node */[
-                            /* Empty */0,
-                            match$2[0],
-                            /* Empty */0,
-                            1
-                          ],
-                          2
-                        ],
+                        /* constructor */{
+                          tag: 0,
+                          name: "Node",
+                          "0": /* constructor */{
+                            tag: 0,
+                            name: "Node",
+                            "0": /* Empty */0,
+                            "1": l[0],
+                            "2": /* Empty */0,
+                            "3": 1
+                          },
+                          "1": match$1[0],
+                          "2": /* constructor */{
+                            tag: 0,
+                            name: "Node",
+                            "0": /* Empty */0,
+                            "1": match$2[0],
+                            "2": /* Empty */0,
+                            "3": 1
+                          },
+                          "3": 2
+                        },
                         match$2[1]
                       ];
               }
@@ -540,46 +562,58 @@ function of_sorted_array(l) {
       return /* Empty */0;
     } else if (n === 1) {
       var x0 = l[start];
-      return /* Node */[
-              /* Empty */0,
-              x0,
-              /* Empty */0,
-              1
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "Node",
+              "0": /* Empty */0,
+              "1": x0,
+              "2": /* Empty */0,
+              "3": 1
+            };
     } else if (n === 2) {
       var x0$1 = l[start];
       var x1 = l[start + 1 | 0];
-      return /* Node */[
-              /* Node */[
-                /* Empty */0,
-                x0$1,
-                /* Empty */0,
-                1
-              ],
-              x1,
-              /* Empty */0,
-              2
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "Node",
+              "0": /* constructor */{
+                tag: 0,
+                name: "Node",
+                "0": /* Empty */0,
+                "1": x0$1,
+                "2": /* Empty */0,
+                "3": 1
+              },
+              "1": x1,
+              "2": /* Empty */0,
+              "3": 2
+            };
     } else if (n === 3) {
       var x0$2 = l[start];
       var x1$1 = l[start + 1 | 0];
       var x2 = l[start + 2 | 0];
-      return /* Node */[
-              /* Node */[
-                /* Empty */0,
-                x0$2,
-                /* Empty */0,
-                1
-              ],
-              x1$1,
-              /* Node */[
-                /* Empty */0,
-                x2,
-                /* Empty */0,
-                1
-              ],
-              2
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "Node",
+              "0": /* constructor */{
+                tag: 0,
+                name: "Node",
+                "0": /* Empty */0,
+                "1": x0$2,
+                "2": /* Empty */0,
+                "3": 1
+              },
+              "1": x1$1,
+              "2": /* constructor */{
+                tag: 0,
+                name: "Node",
+                "0": /* Empty */0,
+                "1": x2,
+                "2": /* Empty */0,
+                "3": 1
+              },
+              "3": 2
+            };
     } else {
       var nl = n / 2 | 0;
       var left = sub(start, nl, l);

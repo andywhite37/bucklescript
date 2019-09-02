@@ -2,14 +2,22 @@
 
 
 function make(x) {
-  return /* A */[x];
+  return /* constructor */{
+          tag: 0,
+          name: "A",
+          "0": x
+        };
 }
 
 function get(param) {
   return param[0];
 }
 
-var v0 = /* A */[3];
+var v0 = /* constructor */{
+  tag: 0,
+  name: "A",
+  "0": 3
+};
 
 exports.v0 = v0;
 exports.make = make;

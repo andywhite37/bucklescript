@@ -5,10 +5,12 @@ var Caml_obj = require("../../lib/js/caml_obj.js");
 
 var ys = [];
 
-Caml_obj.caml_update_dummy(ys, /* :: */[
-      1,
-      ys
-    ]);
+Caml_obj.caml_update_dummy(ys, /* constructor */{
+      tag: 0,
+      name: "::",
+      "0": 1,
+      "1": ys
+    });
 
 function _zs(param) {
   return /* tuple */[
@@ -17,13 +19,17 @@ function _zs(param) {
         ];
 }
 
-var xs_000 = /* :: */[
-  2,
-  /* :: */[
-    List.hd(ys),
-    /* [] */0
-  ]
-];
+var xs_000 = /* constructor */{
+  tag: 0,
+  name: "::",
+  "0": 2,
+  "1": /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": List.hd(ys),
+    "1": /* [] */0
+  }
+};
 
 var xs = /* tuple */[
   xs_000,

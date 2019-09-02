@@ -21,25 +21,31 @@ var hhh = $$Array.append(/* array */[
       5
     ]);
 
-var u = Caml_array.caml_array_concat(/* :: */[
-      /* array */[
+var u = Caml_array.caml_array_concat(/* constructor */{
+      tag: 0,
+      name: "::",
+      "0": /* array */[
         1,
         2
       ],
-      /* :: */[
-        /* array */[
+      "1": /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": /* array */[
           2,
           3
         ],
-        /* :: */[
-          /* array */[
+        "1": /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": /* array */[
             3,
             4
           ],
-          /* [] */0
-        ]
-      ]
-    ]);
+          "1": /* [] */0
+        }
+      }
+    });
 
 var hh = $$Array.blit;
 

@@ -1,255 +1,340 @@
 'use strict';
 
 var Mt = require("./mt.js");
-var Block = require("../../lib/js/block.js");
 var Caml_array = require("../../lib/js/caml_array.js");
 var Caml_option = require("../../lib/js/caml_option.js");
 
-var suites_000 = /* tuple */[
-  "captures",
-  (function (param) {
-      var re = (/(\d+)-(?:(\d+))?/g);
-      var match = re.exec("3-");
-      if (match !== null) {
-        var defined = Caml_array.caml_array_get(match, 1);
-        var $$undefined = Caml_array.caml_array_get(match, 2);
-        return /* Eq */Block.__(0, [
-                  /* tuple */[
+var suites = /* constructor */{
+  tag: 0,
+  name: "::",
+  "0": /* tuple */[
+    "captures",
+    (function (param) {
+        var re = (/(\d+)-(?:(\d+))?/g);
+        var match = re.exec("3-");
+        if (match !== null) {
+          var defined = Caml_array.caml_array_get(match, 1);
+          var $$undefined = Caml_array.caml_array_get(match, 2);
+          return /* constructor */{
+                  tag: 0,
+                  name: "Eq",
+                  "0": /* tuple */[
                     "3",
                     null
                   ],
-                  /* tuple */[
+                  "1": /* tuple */[
                     defined,
                     $$undefined
                   ]
-                ]);
-      } else {
-        return /* Fail */Block.__(8, [/* () */0]);
-      }
-    })
-];
-
-var suites_001 = /* :: */[
-  /* tuple */[
-    "fromString",
-    (function (param) {
-        var contentOf = function (tag, xmlString) {
-          var param = new RegExp("<" + (tag + (">(.*?)<\\/" + (tag + ">")))).exec(xmlString);
-          if (param !== null) {
-            return Caml_option.nullable_to_opt(Caml_array.caml_array_get(param, 1));
-          }
-          
-        };
-        return /* Eq */Block.__(0, [
-                  contentOf("div", "<div>Hi</div>"),
-                  "Hi"
-                ]);
+                };
+        } else {
+          return /* constructor */{
+                  tag: 8,
+                  name: "Fail",
+                  "0": /* () */0
+                };
+        }
       })
   ],
-  /* :: */[
-    /* tuple */[
-      "exec_literal",
+  "1": /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": /* tuple */[
+      "fromString",
       (function (param) {
-          var match = (/[^.]+/).exec("http://xxx.domain.com");
-          if (match !== null) {
-            return /* Eq */Block.__(0, [
-                      "http://xxx",
-                      Caml_array.caml_array_get(match, 0)
-                    ]);
-          } else {
-            return /* FailWith */Block.__(9, ["regex should match"]);
-          }
+          var contentOf = function (tag, xmlString) {
+            var param = new RegExp("<" + (tag + (">(.*?)<\\/" + (tag + ">")))).exec(xmlString);
+            if (param !== null) {
+              return Caml_option.nullable_to_opt(Caml_array.caml_array_get(param, 1));
+            }
+            
+          };
+          return /* constructor */{
+                  tag: 0,
+                  name: "Eq",
+                  "0": contentOf("div", "<div>Hi</div>"),
+                  "1": "Hi"
+                };
         })
     ],
-    /* :: */[
-      /* tuple */[
-        "exec_no_match",
+    "1": /* constructor */{
+      tag: 0,
+      name: "::",
+      "0": /* tuple */[
+        "exec_literal",
         (function (param) {
-            var match = (/https:\/\/(.*)/).exec("http://xxx.domain.com");
+            var match = (/[^.]+/).exec("http://xxx.domain.com");
             if (match !== null) {
-              return /* FailWith */Block.__(9, ["regex should not match"]);
+              return /* constructor */{
+                      tag: 0,
+                      name: "Eq",
+                      "0": "http://xxx",
+                      "1": Caml_array.caml_array_get(match, 0)
+                    };
             } else {
-              return /* Ok */Block.__(4, [true]);
+              return /* constructor */{
+                      tag: 9,
+                      name: "FailWith",
+                      "0": "regex should match"
+                    };
             }
           })
       ],
-      /* :: */[
-        /* tuple */[
-          "test_str",
+      "1": /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": /* tuple */[
+          "exec_no_match",
           (function (param) {
-              var res = new RegExp("foo").test("#foo#");
-              return /* Eq */Block.__(0, [
-                        true,
-                        res
-                      ]);
+              var match = (/https:\/\/(.*)/).exec("http://xxx.domain.com");
+              if (match !== null) {
+                return /* constructor */{
+                        tag: 9,
+                        name: "FailWith",
+                        "0": "regex should not match"
+                      };
+              } else {
+                return /* constructor */{
+                        tag: 4,
+                        name: "Ok",
+                        "0": true
+                      };
+              }
             })
         ],
-        /* :: */[
-          /* tuple */[
-            "fromStringWithFlags",
+        "1": /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": /* tuple */[
+            "test_str",
             (function (param) {
-                var res = new RegExp("foo", "g");
-                return /* Eq */Block.__(0, [
-                          true,
-                          res.global
-                        ]);
+                var res = new RegExp("foo").test("#foo#");
+                return /* constructor */{
+                        tag: 0,
+                        name: "Eq",
+                        "0": true,
+                        "1": res
+                      };
               })
           ],
-          /* :: */[
-            /* tuple */[
-              "result_index",
+          "1": /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": /* tuple */[
+              "fromStringWithFlags",
               (function (param) {
-                  var match = new RegExp("zbar").exec("foobarbazbar");
-                  if (match !== null) {
-                    return /* Eq */Block.__(0, [
-                              8,
-                              match.index
-                            ]);
-                  } else {
-                    return /* Fail */Block.__(8, [/* () */0]);
-                  }
+                  var res = new RegExp("foo", "g");
+                  return /* constructor */{
+                          tag: 0,
+                          name: "Eq",
+                          "0": true,
+                          "1": res.global
+                        };
                 })
             ],
-            /* :: */[
-              /* tuple */[
-                "result_input",
+            "1": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": /* tuple */[
+                "result_index",
                 (function (param) {
-                    var input = "foobar";
-                    var match = (/foo/g).exec(input);
+                    var match = new RegExp("zbar").exec("foobarbazbar");
                     if (match !== null) {
-                      return /* Eq */Block.__(0, [
-                                input,
-                                match.input
-                              ]);
+                      return /* constructor */{
+                              tag: 0,
+                              name: "Eq",
+                              "0": 8,
+                              "1": match.index
+                            };
                     } else {
-                      return /* Fail */Block.__(8, [/* () */0]);
+                      return /* constructor */{
+                              tag: 8,
+                              name: "Fail",
+                              "0": /* () */0
+                            };
                     }
                   })
               ],
-              /* :: */[
-                /* tuple */[
-                  "t_flags",
+              "1": /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": /* tuple */[
+                  "result_input",
                   (function (param) {
-                      return /* Eq */Block.__(0, [
-                                "gi",
-                                (/./ig).flags
-                              ]);
+                      var input = "foobar";
+                      var match = (/foo/g).exec(input);
+                      if (match !== null) {
+                        return /* constructor */{
+                                tag: 0,
+                                name: "Eq",
+                                "0": input,
+                                "1": match.input
+                              };
+                      } else {
+                        return /* constructor */{
+                                tag: 8,
+                                name: "Fail",
+                                "0": /* () */0
+                              };
+                      }
                     })
                 ],
-                /* :: */[
-                  /* tuple */[
-                    "t_global",
+                "1": /* constructor */{
+                  tag: 0,
+                  name: "::",
+                  "0": /* tuple */[
+                    "t_flags",
                     (function (param) {
-                        return /* Eq */Block.__(0, [
-                                  true,
-                                  (/./ig).global
-                                ]);
+                        return /* constructor */{
+                                tag: 0,
+                                name: "Eq",
+                                "0": "gi",
+                                "1": (/./ig).flags
+                              };
                       })
                   ],
-                  /* :: */[
-                    /* tuple */[
-                      "t_ignoreCase",
+                  "1": /* constructor */{
+                    tag: 0,
+                    name: "::",
+                    "0": /* tuple */[
+                      "t_global",
                       (function (param) {
-                          return /* Eq */Block.__(0, [
-                                    true,
-                                    (/./ig).ignoreCase
-                                  ]);
+                          return /* constructor */{
+                                  tag: 0,
+                                  name: "Eq",
+                                  "0": true,
+                                  "1": (/./ig).global
+                                };
                         })
                     ],
-                    /* :: */[
-                      /* tuple */[
-                        "t_lastIndex",
+                    "1": /* constructor */{
+                      tag: 0,
+                      name: "::",
+                      "0": /* tuple */[
+                        "t_ignoreCase",
                         (function (param) {
-                            var re = (/na/g);
-                            re.exec("banana");
-                            return /* Eq */Block.__(0, [
-                                      4,
-                                      re.lastIndex
-                                    ]);
+                            return /* constructor */{
+                                    tag: 0,
+                                    name: "Eq",
+                                    "0": true,
+                                    "1": (/./ig).ignoreCase
+                                  };
                           })
                       ],
-                      /* :: */[
-                        /* tuple */[
-                          "t_setLastIndex",
+                      "1": /* constructor */{
+                        tag: 0,
+                        name: "::",
+                        "0": /* tuple */[
+                          "t_lastIndex",
                           (function (param) {
                               var re = (/na/g);
-                              var before = re.lastIndex;
-                              re.lastIndex = 42;
-                              var after = re.lastIndex;
-                              return /* Eq */Block.__(0, [
-                                        /* tuple */[
+                              re.exec("banana");
+                              return /* constructor */{
+                                      tag: 0,
+                                      name: "Eq",
+                                      "0": 4,
+                                      "1": re.lastIndex
+                                    };
+                            })
+                        ],
+                        "1": /* constructor */{
+                          tag: 0,
+                          name: "::",
+                          "0": /* tuple */[
+                            "t_setLastIndex",
+                            (function (param) {
+                                var re = (/na/g);
+                                var before = re.lastIndex;
+                                re.lastIndex = 42;
+                                var after = re.lastIndex;
+                                return /* constructor */{
+                                        tag: 0,
+                                        name: "Eq",
+                                        "0": /* tuple */[
                                           0,
                                           42
                                         ],
-                                        /* tuple */[
+                                        "1": /* tuple */[
                                           before,
                                           after
                                         ]
-                                      ]);
-                            })
-                        ],
-                        /* :: */[
-                          /* tuple */[
-                            "t_multiline",
-                            (function (param) {
-                                return /* Eq */Block.__(0, [
-                                          false,
-                                          (/./ig).multiline
-                                        ]);
+                                      };
                               })
                           ],
-                          /* :: */[
-                            /* tuple */[
-                              "t_source",
+                          "1": /* constructor */{
+                            tag: 0,
+                            name: "::",
+                            "0": /* tuple */[
+                              "t_multiline",
                               (function (param) {
-                                  return /* Eq */Block.__(0, [
-                                            "f.+o",
-                                            (/f.+o/ig).source
-                                          ]);
+                                  return /* constructor */{
+                                          tag: 0,
+                                          name: "Eq",
+                                          "0": false,
+                                          "1": (/./ig).multiline
+                                        };
                                 })
                             ],
-                            /* :: */[
-                              /* tuple */[
-                                "t_sticky",
+                            "1": /* constructor */{
+                              tag: 0,
+                              name: "::",
+                              "0": /* tuple */[
+                                "t_source",
                                 (function (param) {
-                                    return /* Eq */Block.__(0, [
-                                              true,
-                                              (/./yg).sticky
-                                            ]);
+                                    return /* constructor */{
+                                            tag: 0,
+                                            name: "Eq",
+                                            "0": "f.+o",
+                                            "1": (/f.+o/ig).source
+                                          };
                                   })
                               ],
-                              /* :: */[
-                                /* tuple */[
-                                  "t_unicode",
+                              "1": /* constructor */{
+                                tag: 0,
+                                name: "::",
+                                "0": /* tuple */[
+                                  "t_sticky",
                                   (function (param) {
-                                      return /* Eq */Block.__(0, [
-                                                false,
-                                                (/./yg).unicode
-                                              ]);
+                                      return /* constructor */{
+                                              tag: 0,
+                                              name: "Eq",
+                                              "0": true,
+                                              "1": (/./yg).sticky
+                                            };
                                     })
                                 ],
-                                /* [] */0
-                              ]
-                            ]
-                          ]
-                        ]
-                      ]
-                    ]
-                  ]
-                ]
-              ]
-            ]
-          ]
-        ]
-      ]
-    ]
-  ]
-];
-
-var suites = /* :: */[
-  suites_000,
-  suites_001
-];
+                                "1": /* constructor */{
+                                  tag: 0,
+                                  name: "::",
+                                  "0": /* tuple */[
+                                    "t_unicode",
+                                    (function (param) {
+                                        return /* constructor */{
+                                                tag: 0,
+                                                name: "Eq",
+                                                "0": false,
+                                                "1": (/./yg).unicode
+                                              };
+                                      })
+                                  ],
+                                  "1": /* [] */0
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+};
 
 Mt.from_pair_suites("Js_re_test", suites);
 

@@ -3,7 +3,6 @@
 var Mt = require("./mt.js");
 var List = require("../../lib/js/list.js");
 var $$Array = require("../../lib/js/array.js");
-var Block = require("../../lib/js/block.js");
 var Curry = require("../../lib/js/curry.js");
 var Caml_obj = require("../../lib/js/caml_obj.js");
 var Caml_array = require("../../lib/js/caml_array.js");
@@ -52,58 +51,74 @@ function is_sorted(x) {
   };
 }
 
-var array_suites_000 = /* tuple */[
-  "init",
-  (function (param) {
-      return /* Eq */Block.__(0, [
-                $$Array.init(5, (function (x) {
+var array_suites = /* constructor */{
+  tag: 0,
+  name: "::",
+  "0": /* tuple */[
+    "init",
+    (function (param) {
+        return /* constructor */{
+                tag: 0,
+                name: "Eq",
+                "0": $$Array.init(5, (function (x) {
                         return x;
                       })),
-                /* array */[
+                "1": /* array */[
                   0,
                   1,
                   2,
                   3,
                   4
                 ]
-              ]);
-    })
-];
-
-var array_suites_001 = /* :: */[
-  /* tuple */[
-    "toList",
-    (function (param) {
-        var aux = function (xs) {
-          return List.fold_left((function (acc, param) {
-                        return /* :: */[
-                                /* tuple */[
-                                  $$Array.to_list(param[0]),
-                                  param[1]
-                                ],
-                                acc
-                              ];
-                      }), /* [] */0, xs);
-        };
-        var match = List.split(aux(/* :: */[
-                  /* tuple */[
-                    /* array */[],
-                    /* [] */0
-                  ],
-                  /* [] */0
-                ]));
-        return /* Eq */Block.__(0, [
-                  match[0],
-                  match[1]
-                ]);
+              };
       })
   ],
-  /* :: */[
-    /* tuple */[
-      "concat",
+  "1": /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": /* tuple */[
+      "toList",
       (function (param) {
-          return /* Eq */Block.__(0, [
-                    /* array */[
+          var aux = function (xs) {
+            return List.fold_left((function (acc, param) {
+                          return /* constructor */{
+                                  tag: 0,
+                                  name: "::",
+                                  "0": /* tuple */[
+                                    $$Array.to_list(param[0]),
+                                    param[1]
+                                  ],
+                                  "1": acc
+                                };
+                        }), /* [] */0, xs);
+          };
+          var match = List.split(aux(/* constructor */{
+                    tag: 0,
+                    name: "::",
+                    "0": /* tuple */[
+                      /* array */[],
+                      /* [] */0
+                    ],
+                    "1": /* [] */0
+                  }));
+          return /* constructor */{
+                  tag: 0,
+                  name: "Eq",
+                  "0": match[0],
+                  "1": match[1]
+                };
+        })
+    ],
+    "1": /* constructor */{
+      tag: 0,
+      name: "::",
+      "0": /* tuple */[
+        "concat",
+        (function (param) {
+            return /* constructor */{
+                    tag: 0,
+                    name: "Eq",
+                    "0": /* array */[
                       0,
                       1,
                       2,
@@ -111,39 +126,51 @@ var array_suites_001 = /* :: */[
                       4,
                       5
                     ],
-                    Caml_array.caml_array_concat(/* :: */[
-                          /* array */[
+                    "1": Caml_array.caml_array_concat(/* constructor */{
+                          tag: 0,
+                          name: "::",
+                          "0": /* array */[
                             0,
                             1,
                             2
                           ],
-                          /* :: */[
-                            /* array */[
+                          "1": /* constructor */{
+                            tag: 0,
+                            name: "::",
+                            "0": /* array */[
                               3,
                               4
                             ],
-                            /* :: */[
-                              /* array */[],
-                              /* :: */[
-                                /* array */[5],
-                                /* [] */0
-                              ]
-                            ]
-                          ]
-                        ])
-                  ]);
-        })
-    ],
-    /* :: */[
-      /* tuple */[
-        "make",
-        (function (param) {
-            return /* Eq */Block.__(0, [
-                      /* tuple */[
+                            "1": /* constructor */{
+                              tag: 0,
+                              name: "::",
+                              "0": /* array */[],
+                              "1": /* constructor */{
+                                tag: 0,
+                                name: "::",
+                                "0": /* array */[5],
+                                "1": /* [] */0
+                              }
+                            }
+                          }
+                        })
+                  };
+          })
+      ],
+      "1": /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": /* tuple */[
+          "make",
+          (function (param) {
+              return /* constructor */{
+                      tag: 0,
+                      name: "Eq",
+                      "0": /* tuple */[
                         Caml_array.caml_make_vect(100, /* "a" */97),
                         Caml_array.caml_make_float_vect(100)
                       ],
-                      /* tuple */[
+                      "1": /* tuple */[
                         $$Array.init(100, (function (param) {
                                 return /* "a" */97;
                               })),
@@ -151,43 +178,51 @@ var array_suites_001 = /* :: */[
                                 return 0;
                               }))
                       ]
-                    ]);
-          })
-      ],
-      /* :: */[
-        /* tuple */[
-          "sub",
-          (function (param) {
-              return /* Eq */Block.__(0, [
-                        $$Array.sub(/* array */[
+                    };
+            })
+        ],
+        "1": /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": /* tuple */[
+            "sub",
+            (function (param) {
+                return /* constructor */{
+                        tag: 0,
+                        name: "Eq",
+                        "0": $$Array.sub(/* array */[
                               0,
                               1,
                               2,
                               3,
                               4
                             ], 2, 2),
-                        /* array */[
+                        "1": /* array */[
                           2,
                           3
                         ]
-                      ]);
-            })
-        ],
-        /* :: */[
-          /* tuple */[
-            "blit",
-            (function (param) {
-                var u = /* array */[
-                  100,
-                  0,
-                  0
-                ];
-                var v = $$Array.init(3, (function (x) {
-                        return (x << 1);
-                      }));
-                $$Array.blit(v, 1, u, 1, 2);
-                return /* Eq */Block.__(0, [
-                          /* tuple */[
+                      };
+              })
+          ],
+          "1": /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": /* tuple */[
+              "blit",
+              (function (param) {
+                  var u = /* array */[
+                    100,
+                    0,
+                    0
+                  ];
+                  var v = $$Array.init(3, (function (x) {
+                          return (x << 1);
+                        }));
+                  $$Array.blit(v, 1, u, 1, 2);
+                  return /* constructor */{
+                          tag: 0,
+                          name: "Eq",
+                          "0": /* tuple */[
                             /* array */[
                               0,
                               2,
@@ -199,24 +234,28 @@ var array_suites_001 = /* :: */[
                               4
                             ]
                           ],
-                          /* tuple */[
+                          "1": /* tuple */[
                             v,
                             u
                           ]
-                        ]);
-              })
-          ],
-          /* :: */[
-            /* tuple */[
-              "File \"array_test.ml\", line 63, characters 2-9",
-              (function (param) {
-                  var a0 = $$Array.init(100, (function (i) {
-                          return (i << 0);
-                        }));
-                  $$Array.blit(a0, 10, a0, 5, 20);
-                  return /* Eq */Block.__(0, [
-                            true,
-                            starts_with(a0, /* array */[
+                        };
+                })
+            ],
+            "1": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": /* tuple */[
+                "File \"array_test.ml\", line 63, characters 2-9",
+                (function (param) {
+                    var a0 = $$Array.init(100, (function (i) {
+                            return (i << 0);
+                          }));
+                    $$Array.blit(a0, 10, a0, 5, 20);
+                    return /* constructor */{
+                            tag: 0,
+                            name: "Eq",
+                            "0": true,
+                            "1": starts_with(a0, /* array */[
                                   0,
                                   1,
                                   2,
@@ -242,20 +281,24 @@ var array_suites_001 = /* :: */[
                                   27,
                                   28
                                 ], Caml_obj.caml_equal)
-                          ]);
-                })
-            ],
-            /* :: */[
-              /* tuple */[
-                "File \"array_test.ml\", line 72, characters 2-9",
-                (function (param) {
-                    var a0 = $$Array.init(100, (function (i) {
-                            return (i << 0);
-                          }));
-                    $$Array.blit(a0, 5, a0, 10, 20);
-                    return /* Eq */Block.__(0, [
-                              true,
-                              starts_with(a0, /* array */[
+                          };
+                  })
+              ],
+              "1": /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": /* tuple */[
+                  "File \"array_test.ml\", line 72, characters 2-9",
+                  (function (param) {
+                      var a0 = $$Array.init(100, (function (i) {
+                              return (i << 0);
+                            }));
+                      $$Array.blit(a0, 5, a0, 10, 20);
+                      return /* constructor */{
+                              tag: 0,
+                              name: "Eq",
+                              "0": true,
+                              "1": starts_with(a0, /* array */[
                                     0,
                                     1,
                                     2,
@@ -283,72 +326,80 @@ var array_suites_001 = /* :: */[
                                     19,
                                     20
                                   ], Caml_obj.caml_equal)
-                            ]);
-                  })
-              ],
-              /* :: */[
-                /* tuple */[
-                  "make",
-                  (function (param) {
-                      return /* Eq */Block.__(0, [
-                                Caml_array.caml_make_vect(2, 1),
-                                /* array */[
+                            };
+                    })
+                ],
+                "1": /* constructor */{
+                  tag: 0,
+                  name: "::",
+                  "0": /* tuple */[
+                    "make",
+                    (function (param) {
+                        return /* constructor */{
+                                tag: 0,
+                                name: "Eq",
+                                "0": Caml_array.caml_make_vect(2, 1),
+                                "1": /* array */[
                                   1,
                                   1
                                 ]
-                              ]);
-                    })
-                ],
-                /* :: */[
-                  /* tuple */[
-                    "sort",
-                    (function (param) {
-                        var u = /* array */[
-                          3,
-                          0,
-                          1
-                        ];
-                        $$Array.sort(Caml_primitive.caml_int_compare, u);
-                        return /* Eq */Block.__(0, [
-                                  Caml_obj.caml_equal(/* array */[
+                              };
+                      })
+                  ],
+                  "1": /* constructor */{
+                    tag: 0,
+                    name: "::",
+                    "0": /* tuple */[
+                      "sort",
+                      (function (param) {
+                          var u = /* array */[
+                            3,
+                            0,
+                            1
+                          ];
+                          $$Array.sort(Caml_primitive.caml_int_compare, u);
+                          return /* constructor */{
+                                  tag: 0,
+                                  name: "Eq",
+                                  "0": Caml_obj.caml_equal(/* array */[
                                         0,
                                         1,
                                         3
                                       ], u),
-                                  true
-                                ]);
-                      })
-                  ],
-                  /* :: */[
-                    /* tuple */[
-                      "sort_large",
-                      (function (param) {
-                          var v = $$Array.init(4, (function (i) {
-                                  return i % 17;
-                                }));
-                          $$Array.sort(Caml_primitive.caml_int_compare, v);
-                          return /* Eq */Block.__(0, [
-                                    true,
-                                    is_sorted(v)
-                                  ]);
+                                  "1": true
+                                };
                         })
                     ],
-                    /* [] */0
-                  ]
-                ]
-              ]
-            ]
-          ]
-        ]
-      ]
-    ]
-  ]
-];
-
-var array_suites = /* :: */[
-  array_suites_000,
-  array_suites_001
-];
+                    "1": /* constructor */{
+                      tag: 0,
+                      name: "::",
+                      "0": /* tuple */[
+                        "sort_large",
+                        (function (param) {
+                            var v = $$Array.init(4, (function (i) {
+                                    return i % 17;
+                                  }));
+                            $$Array.sort(Caml_primitive.caml_int_compare, v);
+                            return /* constructor */{
+                                    tag: 0,
+                                    name: "Eq",
+                                    "0": true,
+                                    "1": is_sorted(v)
+                                  };
+                          })
+                      ],
+                      "1": /* [] */0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+};
 
 Mt.from_pair_suites("Array_test", array_suites);
 

@@ -1,6 +1,5 @@
 'use strict';
 
-var Block = require("../../lib/js/block.js");
 var Curry = require("../../lib/js/curry.js");
 var Caml_obj = require("../../lib/js/caml_obj.js");
 var Caml_option = require("../../lib/js/caml_option.js");
@@ -15,12 +14,20 @@ function eq_A(x, y) {
 
 function Test($star) {
   console.log("no inline");
-  var u = /* A */Block.__(0, [3]);
-  var Block$1 = { };
-  var b = eq_A(/* A */Block.__(0, [3]), u);
+  var u = /* constructor */{
+    tag: 0,
+    name: "A",
+    "0": 3
+  };
+  var Block = { };
+  var b = eq_A(/* constructor */{
+        tag: 0,
+        name: "A",
+        "0": 3
+      }, u);
   return {
           u: u,
-          Block: Block$1,
+          Block: Block,
           y: 32,
           b: b
         };
@@ -28,17 +35,29 @@ function Test($star) {
 
 function Test2($star) {
   console.log("no inline");
-  var Block$1 = { };
-  var b = eq_A(/* A */Block.__(0, [3]), /* A */Block.__(0, [3]));
+  var Block = { };
+  var b = eq_A(/* constructor */{
+        tag: 0,
+        name: "A",
+        "0": 3
+      }, /* constructor */{
+        tag: 0,
+        name: "A",
+        "0": 3
+      });
   return {
-          Block: Block$1,
+          Block: Block,
           y: 32,
           b: b
         };
 }
 
 function f(i, y) {
-  var x = /* A */Block.__(0, [i]);
+  var x = /* constructor */{
+    tag: 0,
+    name: "A",
+    "0": i
+  };
   return eq_A(x, y);
 }
 

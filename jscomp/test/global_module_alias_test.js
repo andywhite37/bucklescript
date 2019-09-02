@@ -2,7 +2,6 @@
 
 var Mt = require("./mt.js");
 var List = require("../../lib/js/list.js");
-var Block = require("../../lib/js/block.js");
 var Curry = require("../../lib/js/curry.js");
 
 var suites = /* record */[/* contents : [] */0];
@@ -11,18 +10,22 @@ var test_id = /* record */[/* contents */0];
 
 function eq(loc, x, y) {
   test_id[0] = test_id[0] + 1 | 0;
-  suites[0] = /* :: */[
-    /* tuple */[
+  suites[0] = /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
-          return /* Eq */Block.__(0, [
-                    x,
-                    y
-                  ]);
+          return /* constructor */{
+                  tag: 0,
+                  name: "Eq",
+                  "0": x,
+                  "1": y
+                };
         })
     ],
-    suites[0]
-  ];
+    "1": suites[0]
+  };
   return /* () */0;
 }
 
@@ -135,13 +138,17 @@ function f(param) {
         };
 }
 
-eq("File \"global_module_alias_test.ml\", line 51, characters 5-12", List.length(/* :: */[
-          1,
-          /* :: */[
-            2,
-            /* [] */0
-          ]
-        ]), 2);
+eq("File \"global_module_alias_test.ml\", line 51, characters 5-12", List.length(/* constructor */{
+          tag: 0,
+          name: "::",
+          "0": 1,
+          "1": /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": 2,
+            "1": /* [] */0
+          }
+        }), 2);
 
 v[0] = v[0] + 1 | 0;
 
@@ -217,19 +224,27 @@ var H = {
 eq("File \"global_module_alias_test.ml\", line 57, characters 5-12", v[0], 12);
 
 function g(param) {
-  return List.length(/* :: */[
-              1,
-              /* :: */[
-                2,
-                /* :: */[
-                  3,
-                  /* :: */[
-                    4,
-                    /* [] */0
-                  ]
-                ]
-              ]
-            ]);
+  return List.length(/* constructor */{
+              tag: 0,
+              name: "::",
+              "0": 1,
+              "1": /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": 2,
+                "1": /* constructor */{
+                  tag: 0,
+                  name: "::",
+                  "0": 3,
+                  "1": /* constructor */{
+                    tag: 0,
+                    name: "::",
+                    "0": 4,
+                    "1": /* [] */0
+                  }
+                }
+              }
+            });
 }
 
 function xx(param) {
@@ -292,28 +307,38 @@ v[0] = v[0] + 1 | 0;
 
 v[0] = v[0] + 1 | 0;
 
-eq("File \"global_module_alias_test.ml\", line 92, characters 5-12", List.length(/* :: */[
-          1,
-          /* :: */[
-            2,
-            /* :: */[
-              3,
-              /* [] */0
-            ]
-          ]
-        ]), 3);
+eq("File \"global_module_alias_test.ml\", line 92, characters 5-12", List.length(/* constructor */{
+          tag: 0,
+          name: "::",
+          "0": 1,
+          "1": /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": 2,
+            "1": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": 3,
+              "1": /* [] */0
+            }
+          }
+        }), 3);
 
 eq("File \"global_module_alias_test.ml\", line 93, characters 5-12", v[0], 15);
 
 var H$1 = f(/* () */0);
 
-eq("File \"global_module_alias_test.ml\", line 95, characters 5-12", Curry._1(H$1.length, /* :: */[
-          1,
-          /* :: */[
-            2,
-            /* [] */0
-          ]
-        ]), 2);
+eq("File \"global_module_alias_test.ml\", line 95, characters 5-12", Curry._1(H$1.length, /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": 1,
+          "1": /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": 2,
+            "1": /* [] */0
+          }
+        }), 2);
 
 eq("File \"global_module_alias_test.ml\", line 96, characters 5-12", v[0], 21);
 

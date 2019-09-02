@@ -1,6 +1,5 @@
 'use strict';
 
-var Block = require("../../lib/js/block.js");
 var Curry = require("../../lib/js/curry.js");
 var Lexing = require("../../lib/js/lexing.js");
 var Pervasives = require("../../lib/js/pervasives.js");
@@ -29,9 +28,17 @@ function __ocaml_lex_lexeme_rec(lexbuf, ___ocaml_lex_state) {
           ___ocaml_lex_state = 0;
           continue ;
       case 1 :
-          return /* NUMERAL */Block.__(0, [Caml_format.caml_int_of_string(Lexing.lexeme(lexbuf))]);
+          return /* constructor */{
+                  tag: 0,
+                  name: "NUMERAL",
+                  "0": Caml_format.caml_int_of_string(Lexing.lexeme(lexbuf))
+                };
       case 2 :
-          return /* IDENT */Block.__(1, [Lexing.lexeme(lexbuf)]);
+          return /* constructor */{
+                  tag: 1,
+                  name: "IDENT",
+                  "0": Lexing.lexeme(lexbuf)
+                };
       case 3 :
           return /* PLUS */0;
       case 4 :

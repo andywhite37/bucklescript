@@ -1,18 +1,24 @@
 'use strict';
 
 
-var fake_y = /* :: */[
-  2,
-  /* :: */[
-    3,
-    /* [] */0
-  ]
-];
+var fake_y = /* constructor */{
+  tag: 0,
+  name: "::",
+  "0": 2,
+  "1": /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": 3,
+    "1": /* [] */0
+  }
+};
 
-var fake_z = /* :: */[
-  1,
-  fake_y
-];
+var fake_z = /* constructor */{
+  tag: 0,
+  name: "::",
+  "0": 1,
+  "1": fake_y
+};
 
 exports.fake_y = fake_y;
 exports.fake_z = fake_z;

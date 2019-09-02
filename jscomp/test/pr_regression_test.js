@@ -1,7 +1,6 @@
 'use strict';
 
 var Mt = require("./mt.js");
-var Block = require("../../lib/js/block.js");
 var Curry = require("../../lib/js/curry.js");
 
 var v = /* record */[/* contents */3];
@@ -80,28 +79,32 @@ f$3((function (prim, prim$1) {
 
 var d = v$3[0];
 
-Mt.from_pair_suites("Pr_regression_test", /* :: */[
-      /* tuple */[
+Mt.from_pair_suites("Pr_regression_test", /* constructor */{
+      tag: 0,
+      name: "::",
+      "0": /* tuple */[
         "partial",
         (function (param) {
-            return /* Eq */Block.__(0, [
-                      /* tuple */[
-                        5,
-                        5,
-                        5,
-                        5
-                      ],
-                      /* tuple */[
-                        a,
-                        b,
-                        c,
-                        d
-                      ]
-                    ]);
+            return /* constructor */{
+                    tag: 0,
+                    name: "Eq",
+                    "0": /* tuple */[
+                      5,
+                      5,
+                      5,
+                      5
+                    ],
+                    "1": /* tuple */[
+                      a,
+                      b,
+                      c,
+                      d
+                    ]
+                  };
           })
       ],
-      /* [] */0
-    ]);
+      "1": /* [] */0
+    });
 
 exports.a = a;
 exports.b = b;

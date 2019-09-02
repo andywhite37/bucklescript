@@ -1,7 +1,6 @@
 'use strict';
 
 var Mt = require("./mt.js");
-var Block = require("../../lib/js/block.js");
 var Curry = require("../../lib/js/curry.js");
 var Queue = require("../../lib/js/queue.js");
 var Genlex = require("../../lib/js/genlex.js");
@@ -22,7 +21,11 @@ function parse(token) {
         return Curry._1(token, /* () */0);
       }
       catch (exn){
-        return /* Kwd */Block.__(0, ["=="]);
+        return /* constructor */{
+                tag: 0,
+                name: "Kwd",
+                "0": "=="
+              };
       }
     } else {
       return Queue.pop(look_ahead);
@@ -103,33 +106,47 @@ function parse(token) {
   return /* tuple */[
           r,
           Queue.fold((function (acc, x) {
-                  return /* :: */[
-                          x,
-                          acc
-                        ];
+                  return /* constructor */{
+                          tag: 0,
+                          name: "::",
+                          "0": x,
+                          "1": acc
+                        };
                 }), /* [] */0, look_ahead)
         ];
 }
 
-var lexer = Genlex.make_lexer(/* :: */[
-      "(",
-      /* :: */[
-        "*",
-        /* :: */[
-          "/",
-          /* :: */[
-            "+",
-            /* :: */[
-              "-",
-              /* :: */[
-                ")",
-                /* [] */0
-              ]
-            ]
-          ]
-        ]
-      ]
-    ]);
+var lexer = Genlex.make_lexer(/* constructor */{
+      tag: 0,
+      name: "::",
+      "0": "(",
+      "1": /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": "*",
+        "1": /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": "/",
+          "1": /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": "+",
+            "1": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": "-",
+              "1": /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": ")",
+                "1": /* [] */0
+              }
+            }
+          }
+        }
+      }
+    });
 
 function token(chars) {
   var strm = lexer(chars);
@@ -149,7 +166,11 @@ function l_parse(token) {
         return Curry._1(token, /* () */0);
       }
       catch (exn){
-        return /* Kwd */Block.__(0, ["=="]);
+        return /* constructor */{
+                tag: 0,
+                name: "Kwd",
+                "0": "=="
+              };
       }
     } else {
       return Queue.pop(look_ahead);
@@ -238,10 +259,12 @@ function l_parse(token) {
   return /* tuple */[
           r,
           Queue.fold((function (acc, x) {
-                  return /* :: */[
-                          x,
-                          acc
-                        ];
+                  return /* constructor */{
+                          tag: 0,
+                          name: "::",
+                          "0": x,
+                          "1": acc
+                        };
                 }), /* [] */0, look_ahead)
         ];
 }
@@ -252,18 +275,22 @@ var test_id = /* record */[/* contents */0];
 
 function eq(loc, x, y) {
   test_id[0] = test_id[0] + 1 | 0;
-  suites[0] = /* :: */[
-    /* tuple */[
+  suites[0] = /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
-          return /* Eq */Block.__(0, [
-                    x,
-                    y
-                  ]);
+          return /* constructor */{
+                  tag: 0,
+                  name: "Eq",
+                  "0": x,
+                  "1": y
+                };
         })
     ],
-    suites[0]
-  ];
+    "1": suites[0]
+  };
   return /* () */0;
 }
 
@@ -274,26 +301,44 @@ eq("File \"stream_parser_test.ml\", line 132, characters 5-12", /* tuple */[
       match[1]
     ], /* tuple */[
       10,
-      /* :: */[
-        /* Ident */Block.__(1, ["a"]),
-        /* [] */0
-      ]
+      /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": /* constructor */{
+          tag: 1,
+          name: "Ident",
+          "0": "a"
+        },
+        "1": /* [] */0
+      }
     ]);
 
 eq("File \"stream_parser_test.ml\", line 133, characters 5-12", /* tuple */[
       2,
-      /* :: */[
-        /* Kwd */Block.__(0, ["=="]),
-        /* [] */0
-      ]
+      /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": /* constructor */{
+          tag: 0,
+          name: "Kwd",
+          "0": "=="
+        },
+        "1": /* [] */0
+      }
     ], parse(token(Stream.of_string("3 - 2  - 1"))));
 
 eq("File \"stream_parser_test.ml\", line 134, characters 5-12", /* tuple */[
       0,
-      /* :: */[
-        /* Kwd */Block.__(0, ["=="]),
-        /* [] */0
-      ]
+      /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": /* constructor */{
+          tag: 0,
+          name: "Kwd",
+          "0": "=="
+        },
+        "1": /* [] */0
+      }
     ], l_parse(token(Stream.of_string("3 - 2  - 1"))));
 
 Mt.from_pair_suites("Stream_parser_test", suites[0]);

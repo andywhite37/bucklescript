@@ -63,10 +63,12 @@ function resize(newSize) {
               ];
         }
         var ind = hashVal(getId(n[0]), getId(n[3]), n[1]) & newSz_1;
-        Caml_array.caml_array_set(newArr, ind, /* :: */[
-              n,
-              Caml_array.caml_array_get(newArr, ind)
-            ]);
+        Caml_array.caml_array_set(newArr, ind, /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": n,
+              "1": Caml_array.caml_array_get(newArr, ind)
+            });
         _bucket = bucket[1];
         continue ;
       } else {
@@ -84,19 +86,23 @@ function resize(newSize) {
 
 function insert(idl, idh, v, ind, bucket, newNode) {
   if (n_items[0] <= sz_1[0]) {
-    Caml_array.caml_array_set(htab[0], ind, /* :: */[
-          newNode,
-          bucket
-        ]);
+    Caml_array.caml_array_set(htab[0], ind, /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": newNode,
+          "1": bucket
+        });
     n_items[0] = n_items[0] + 1 | 0;
     return /* () */0;
   } else {
     resize((sz_1[0] + sz_1[0] | 0) + 2 | 0);
     var ind$1 = hashVal(idl, idh, v) & sz_1[0];
-    return Caml_array.caml_array_set(htab[0], ind$1, /* :: */[
-                newNode,
-                Caml_array.caml_array_get(htab[0], ind$1)
-              ]);
+    return Caml_array.caml_array_set(htab[0], ind$1, /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": newNode,
+                "1": Caml_array.caml_array_get(htab[0], ind$1)
+              });
   }
 }
 
@@ -138,13 +144,14 @@ function mkNode(low, v, high) {
           continue ;
         }
       } else {
-        var n_002 = (nodeC[0] = nodeC[0] + 1 | 0, nodeC[0]);
-        var n$1 = /* Node */[
-          low,
-          v,
-          n_002,
-          high
-        ];
+        var n$1 = /* constructor */{
+          tag: 0,
+          name: "Node",
+          "0": low,
+          "1": v,
+          "2": (nodeC[0] = nodeC[0] + 1 | 0, nodeC[0]),
+          "3": high
+        };
         insert(getId(low), getId(high), v, ind, bucket, n$1);
         return n$1;
       }

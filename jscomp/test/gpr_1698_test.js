@@ -1,6 +1,5 @@
 'use strict';
 
-var Block = require("../../lib/js/block.js");
 var Caml_builtin_exceptions = require("../../lib/js/caml_builtin_exceptions.js");
 
 function is_number(_expr) {
@@ -173,15 +172,47 @@ function compare(context, state, _a, _b) {
   };
 }
 
-var a = /* Sum */Block.__(2, [/* :: */[
-      /* Val */Block.__(0, [/* Symbol */Block.__(1, ["a"])]),
-      /* :: */[
-        /* Val */Block.__(0, [/* Natural */Block.__(0, [2])]),
-        /* [] */0
-      ]
-    ]]);
+var a = /* constructor */{
+  tag: 2,
+  name: "Sum",
+  "0": /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": /* constructor */{
+      tag: 0,
+      name: "Val",
+      "0": /* constructor */{
+        tag: 1,
+        name: "Symbol",
+        "0": "a"
+      }
+    },
+    "1": /* constructor */{
+      tag: 0,
+      name: "::",
+      "0": /* constructor */{
+        tag: 0,
+        name: "Val",
+        "0": /* constructor */{
+          tag: 0,
+          name: "Natural",
+          "0": 2
+        }
+      },
+      "1": /* [] */0
+    }
+  }
+};
 
-var b = /* Val */Block.__(0, [/* Symbol */Block.__(1, ["x"])]);
+var b = /* constructor */{
+  tag: 0,
+  name: "Val",
+  "0": /* constructor */{
+    tag: 1,
+    name: "Symbol",
+    "0": "x"
+  }
+};
 
 console.log(compare(/* InSum */0, /* record */[/* complex */true], a, b));
 

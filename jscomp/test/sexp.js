@@ -60,77 +60,101 @@ function of_rev_list(l) {
 function of_pair(param) {
   return /* `List */[
           848054398,
-          /* :: */[
-            param[0],
-            /* :: */[
-              param[1],
-              /* [] */0
-            ]
-          ]
+          /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": param[0],
+            "1": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": param[1],
+              "1": /* [] */0
+            }
+          }
         ];
 }
 
 function of_triple(param) {
   return /* `List */[
           848054398,
-          /* :: */[
-            param[0],
-            /* :: */[
-              param[1],
-              /* :: */[
-                param[2],
-                /* [] */0
-              ]
-            ]
-          ]
+          /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": param[0],
+            "1": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": param[1],
+              "1": /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": param[2],
+                "1": /* [] */0
+              }
+            }
+          }
         ];
 }
 
 function of_quad(param) {
   return /* `List */[
           848054398,
-          /* :: */[
-            param[0],
-            /* :: */[
-              param[1],
-              /* :: */[
-                param[2],
-                /* :: */[
-                  param[3],
-                  /* [] */0
-                ]
-              ]
-            ]
-          ]
+          /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": param[0],
+            "1": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": param[1],
+              "1": /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": param[2],
+                "1": /* constructor */{
+                  tag: 0,
+                  name: "::",
+                  "0": param[3],
+                  "1": /* [] */0
+                }
+              }
+            }
+          }
         ];
 }
 
 function of_variant(name, args) {
   return /* `List */[
           848054398,
-          /* :: */[
-            /* `Atom */[
+          /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": /* `Atom */[
               726615281,
               name
             ],
-            args
-          ]
+            "1": args
+          }
         ];
 }
 
 function of_field(name, t) {
   return /* `List */[
           848054398,
-          /* :: */[
-            /* `Atom */[
+          /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": /* `Atom */[
               726615281,
               name
             ],
-            /* :: */[
-              t,
-              /* [] */0
-            ]
-          ]
+            "1": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": t,
+              "1": /* [] */0
+            }
+          }
         ];
 }
 
@@ -171,10 +195,12 @@ function map_opt(f, l) {
       var match = Curry._1(f, l$1[0]);
       if (match !== undefined) {
         _l = l$1[1];
-        _acc = /* :: */[
-          Caml_option.valFromOption(match),
-          acc
-        ];
+        _acc = /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": Caml_option.valFromOption(match),
+          "1": acc
+        };
         continue ;
       } else {
         return ;
@@ -220,10 +246,12 @@ function list_all(f, e) {
         var match = Curry._1(f$1, l[0]);
         _l = tl;
         if (match !== undefined) {
-          _acc = /* :: */[
-            Caml_option.valFromOption(match),
-            acc
-          ];
+          _acc = /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": Caml_option.valFromOption(match),
+            "1": acc
+          };
           continue ;
         } else {
           continue ;

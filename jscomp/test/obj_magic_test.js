@@ -10,58 +10,72 @@ function is_block(x) {
   return typeof x !== "number";
 }
 
-var suites_000 = /* tuple */[
-  "is_block_test1",
-  (function (param) {
-      return /* Eq */Block.__(0, [
-                false,
-                false
-              ]);
-    })
-];
-
-var suites_001 = /* :: */[
-  /* tuple */[
-    "is_block_test2",
+var suites = /* constructor */{
+  tag: 0,
+  name: "::",
+  "0": /* tuple */[
+    "is_block_test1",
     (function (param) {
-        return /* Eq */Block.__(0, [
-                  true,
-                  typeof /* :: */[
-                    3,
-                    /* [] */0
-                  ] !== "number"
-                ]);
+        return /* constructor */{
+                tag: 0,
+                name: "Eq",
+                "0": false,
+                "1": false
+              };
       })
   ],
-  /* :: */[
-    /* tuple */[
-      "is_block_test3",
+  "1": /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": /* tuple */[
+      "is_block_test2",
       (function (param) {
-          return /* Eq */Block.__(0, [
-                    true,
-                    true
-                  ]);
+          return /* constructor */{
+                  tag: 0,
+                  name: "Eq",
+                  "0": true,
+                  "1": typeof /* constructor */({
+                      tag: 0,
+                      name: "::",
+                      "0": 3,
+                      "1": /* [] */0
+                    }) !== "number"
+                };
         })
     ],
-    /* :: */[
-      /* tuple */[
-        "is_block_test4",
+    "1": /* constructor */{
+      tag: 0,
+      name: "::",
+      "0": /* tuple */[
+        "is_block_test3",
         (function (param) {
-            return /* Eq */Block.__(0, [
-                      false,
-                      false
-                    ]);
+            return /* constructor */{
+                    tag: 0,
+                    name: "Eq",
+                    "0": true,
+                    "1": true
+                  };
           })
       ],
-      /* [] */0
-    ]
-  ]
-];
-
-var suites = /* :: */[
-  suites_000,
-  suites_001
-];
+      "1": /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": /* tuple */[
+          "is_block_test4",
+          (function (param) {
+              return /* constructor */{
+                      tag: 0,
+                      name: "Eq",
+                      "0": false,
+                      "1": false
+                    };
+            })
+        ],
+        "1": /* [] */0
+      }
+    }
+  }
+};
 
 Mt.from_pair_suites("Obj_magic_test", suites);
 

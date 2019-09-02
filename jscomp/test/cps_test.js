@@ -2,7 +2,6 @@
 
 var Mt = require("./mt.js");
 var $$Array = require("../../lib/js/array.js");
-var Block = require("../../lib/js/block.js");
 var Curry = require("../../lib/js/curry.js");
 var Caml_array = require("../../lib/js/caml_array.js");
 
@@ -71,40 +70,52 @@ function test_closure2(param) {
   return v[0];
 }
 
-Mt.from_pair_suites("Cps_test", /* :: */[
-      /* tuple */[
+Mt.from_pair_suites("Cps_test", /* constructor */{
+      tag: 0,
+      name: "::",
+      "0": /* tuple */[
         "cps_test_sum",
         (function (param) {
-            return /* Eq */Block.__(0, [
-                      55,
-                      test(/* () */0)
-                    ]);
+            return /* constructor */{
+                    tag: 0,
+                    name: "Eq",
+                    "0": 55,
+                    "1": test(/* () */0)
+                  };
           })
       ],
-      /* :: */[
-        /* tuple */[
+      "1": /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": /* tuple */[
           "cps_test_closure",
           (function (param) {
-              return /* Eq */Block.__(0, [
-                        15,
-                        test_closure(/* () */0)
-                      ]);
+              return /* constructor */{
+                      tag: 0,
+                      name: "Eq",
+                      "0": 15,
+                      "1": test_closure(/* () */0)
+                    };
             })
         ],
-        /* :: */[
-          /* tuple */[
+        "1": /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": /* tuple */[
             "cps_test_closure2",
             (function (param) {
-                return /* Eq */Block.__(0, [
-                          30,
-                          test_closure2(/* () */0)
-                        ]);
+                return /* constructor */{
+                        tag: 0,
+                        name: "Eq",
+                        "0": 30,
+                        "1": test_closure2(/* () */0)
+                      };
               })
           ],
-          /* [] */0
-        ]
-      ]
-    ]);
+          "1": /* [] */0
+        }
+      }
+    });
 
 exports.test = test;
 exports.test_closure = test_closure;

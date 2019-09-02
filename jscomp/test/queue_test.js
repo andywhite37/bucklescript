@@ -2,7 +2,6 @@
 
 var Mt = require("./mt.js");
 var $$Array = require("../../lib/js/array.js");
-var Block = require("../../lib/js/block.js");
 var Queue = require("../../lib/js/queue.js");
 var Caml_array = require("../../lib/js/caml_array.js");
 
@@ -26,26 +25,28 @@ function queue_1(x) {
   return to_array(q);
 }
 
-var suites_000 = /* tuple */[
-  "simple push",
-  (function (param) {
-      var x = /* array */[
-        3,
-        4,
-        5,
-        2
-      ];
-      return /* Eq */Block.__(0, [
-                x,
-                queue_1(x)
-              ]);
-    })
-];
-
-var suites = /* :: */[
-  suites_000,
-  /* [] */0
-];
+var suites = /* constructor */{
+  tag: 0,
+  name: "::",
+  "0": /* tuple */[
+    "simple push",
+    (function (param) {
+        var x = /* array */[
+          3,
+          4,
+          5,
+          2
+        ];
+        return /* constructor */{
+                tag: 0,
+                name: "Eq",
+                "0": x,
+                "1": queue_1(x)
+              };
+      })
+  ],
+  "1": /* [] */0
+};
 
 Mt.from_pair_suites("Queue_test", suites);
 

@@ -2,7 +2,6 @@
 
 var Mt = require("./mt.js");
 var List = require("../../lib/js/list.js");
-var Block = require("../../lib/js/block.js");
 var Curry = require("../../lib/js/curry.js");
 var Pervasives = require("../../lib/js/pervasives.js");
 var Caml_oo_curry = require("../../lib/js/caml_oo_curry.js");
@@ -26,18 +25,22 @@ var test_id = /* record */[/* contents */0];
 
 function eq(loc, x, y) {
   test_id[0] = test_id[0] + 1 | 0;
-  suites[0] = /* :: */[
-    /* tuple */[
+  suites[0] = /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
-          return /* Eq */Block.__(0, [
-                    x,
-                    y
-                  ]);
+          return /* constructor */{
+                  tag: 0,
+                  name: "Eq",
+                  "0": x,
+                  "1": y
+                };
         })
     ],
-    suites[0]
-  ];
+    "1": suites[0]
+  };
   return /* () */0;
 }
 
@@ -190,16 +193,22 @@ function intlist_init($$class) {
 
 var intlist = CamlinternalOO.make_class(shared$2, intlist_init);
 
-var l = Curry._2(intlist[0], 0, /* :: */[
-      1,
-      /* :: */[
-        2,
-        /* :: */[
-          3,
-          /* [] */0
-        ]
-      ]
-    ]);
+var l = Curry._2(intlist[0], 0, /* constructor */{
+      tag: 0,
+      name: "::",
+      "0": 1,
+      "1": /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": 2,
+        "1": /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": 3,
+          "1": /* [] */0
+        }
+      }
+    });
 
 eq("File \"class5_test.ml\", line 54, characters 5-12", 6, Caml_oo_curry.js3(-1010803711, 4, l, (function (x, y) {
             return x + y | 0;
@@ -229,16 +238,22 @@ function intlist2_init($$class) {
 
 var intlist2 = CamlinternalOO.make_class(shared$2, intlist2_init);
 
-var l$1 = Curry._2(intlist2[0], 0, /* :: */[
-      1,
-      /* :: */[
-        2,
-        /* :: */[
-          3,
-          /* [] */0
-        ]
-      ]
-    ]);
+var l$1 = Curry._2(intlist2[0], 0, /* constructor */{
+      tag: 0,
+      name: "::",
+      "0": 1,
+      "1": /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": 2,
+        "1": /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": 3,
+          "1": /* [] */0
+        }
+      }
+    });
 
 eq("File \"class5_test.ml\", line 67, characters 5-12", /* tuple */[
       6,

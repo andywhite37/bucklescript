@@ -1,7 +1,6 @@
 'use strict';
 
 var Mt = require("./mt.js");
-var Block = require("../../lib/js/block.js");
 
 function f(x) {
   if (x) {
@@ -31,44 +30,52 @@ var u = ( 1);
 
 var v = ( true);
 
-var suites_000 = /* tuple */[
-  "caml_bool_eq_caml_bool",
-  (function (param) {
-      return /* Eq */Block.__(0, [
-                u,
-                true
-              ]);
-    })
-];
-
-var suites_001 = /* :: */[
-  /* tuple */[
-    "js_bool_eq_js_bool",
+var suites = /* constructor */{
+  tag: 0,
+  name: "::",
+  "0": /* tuple */[
+    "caml_bool_eq_caml_bool",
     (function (param) {
-        return /* Eq */Block.__(0, [
-                  v,
-                  true
-                ]);
+        return /* constructor */{
+                tag: 0,
+                name: "Eq",
+                "0": u,
+                "1": true
+              };
       })
   ],
-  /* :: */[
-    /* tuple */[
-      "js_bool_neq_acml_bool",
+  "1": /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": /* tuple */[
+      "js_bool_eq_js_bool",
       (function (param) {
-          return /* Eq */Block.__(0, [
-                    true,
-                    true === true
-                  ]);
+          return /* constructor */{
+                  tag: 0,
+                  name: "Eq",
+                  "0": v,
+                  "1": true
+                };
         })
     ],
-    /* [] */0
-  ]
-];
-
-var suites = /* :: */[
-  suites_000,
-  suites_001
-];
+    "1": /* constructor */{
+      tag: 0,
+      name: "::",
+      "0": /* tuple */[
+        "js_bool_neq_acml_bool",
+        (function (param) {
+            return /* constructor */{
+                    tag: 0,
+                    name: "Eq",
+                    "0": true,
+                    "1": true === true
+                  };
+          })
+      ],
+      "1": /* [] */0
+    }
+  }
+};
 
 function ff(u) {
   if (u === true) {
