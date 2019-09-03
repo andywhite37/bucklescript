@@ -13,6 +13,7 @@ var Caml_builtin_exceptions = require("../../lib/js/caml_builtin_exceptions.js")
 var graph = /* constructor */{
   tag: 0,
   name: "::",
+  length: 2,
   "0": /* tuple */[
     "a",
     "b"
@@ -20,6 +21,7 @@ var graph = /* constructor */{
   "1": /* constructor */{
     tag: 0,
     name: "::",
+    length: 2,
     "0": /* tuple */[
       "a",
       "c"
@@ -27,6 +29,7 @@ var graph = /* constructor */{
     "1": /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": /* tuple */[
         "a",
         "d"
@@ -34,6 +37,7 @@ var graph = /* constructor */{
       "1": /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": /* tuple */[
           "b",
           "e"
@@ -41,6 +45,7 @@ var graph = /* constructor */{
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": /* tuple */[
             "c",
             "f"
@@ -48,6 +53,7 @@ var graph = /* constructor */{
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": /* tuple */[
               "d",
               "e"
@@ -55,6 +61,7 @@ var graph = /* constructor */{
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": /* tuple */[
                 "e",
                 "f"
@@ -62,6 +69,7 @@ var graph = /* constructor */{
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
+                length: 2,
                 "0": /* tuple */[
                   "e",
                   "g"
@@ -82,6 +90,7 @@ function nexts(x, g) {
                   return /* constructor */{
                           tag: 0,
                           name: "::",
+                          length: 2,
                           "0": param[1],
                           "1": acc
                         };
@@ -106,6 +115,7 @@ function dfs1(_nodes, graph, _visited) {
         _visited = /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": x,
           "1": visited
         };
@@ -121,35 +131,43 @@ function dfs1(_nodes, graph, _visited) {
 if (!Caml_obj.caml_equal(dfs1(/* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": "a",
             "1": /* [] */0
           }, graph, /* [] */0), /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": "a",
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": "d",
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": "e",
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": "g",
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
+                length: 2,
                 "0": "f",
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
+                  length: 2,
                   "0": "c",
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
+                    length: 2,
                     "0": "b",
                     "1": /* [] */0
                   }
@@ -174,11 +192,13 @@ Pervasives.print_newline(/* () */0);
 if (!Caml_obj.caml_equal(dfs1(/* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": "b",
             "1": /* [] */0
           }, /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": /* tuple */[
               "f",
               "d"
@@ -187,22 +207,27 @@ if (!Caml_obj.caml_equal(dfs1(/* constructor */{
           }, /* [] */0), /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": "b",
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": "e",
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": "g",
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": "f",
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
+                length: 2,
                 "0": "d",
                 "1": /* [] */0
               }
@@ -235,6 +260,7 @@ function dfs2(nodes, graph, visited) {
           _visited = aux(nexts(x, graph), graph, /* constructor */{
                 tag: 0,
                 name: "::",
+                length: 2,
                 "0": x,
                 "1": visited
               });
@@ -252,35 +278,43 @@ function dfs2(nodes, graph, visited) {
 if (!Caml_obj.caml_equal(dfs2(/* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": "a",
             "1": /* [] */0
           }, graph, /* [] */0), /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": "a",
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": "d",
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": "e",
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": "g",
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
+                length: 2,
                 "0": "f",
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
+                  length: 2,
                   "0": "c",
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
+                    length: 2,
                     "0": "b",
                     "1": /* [] */0
                   }
@@ -303,11 +337,13 @@ if (!Caml_obj.caml_equal(dfs2(/* constructor */{
 if (!Caml_obj.caml_equal(dfs2(/* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": "b",
             "1": /* [] */0
           }, /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": /* tuple */[
               "f",
               "d"
@@ -316,22 +352,27 @@ if (!Caml_obj.caml_equal(dfs2(/* constructor */{
           }, /* [] */0), /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": "b",
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": "e",
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": "g",
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": "f",
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
+                length: 2,
                 "0": "d",
                 "1": /* [] */0
               }
@@ -358,6 +399,7 @@ function dfs3(nodes, graph) {
       visited[0] = /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": node,
         "1": visited[0]
       };
@@ -375,35 +417,43 @@ function dfs3(nodes, graph) {
 if (!Caml_obj.caml_equal(dfs3(/* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": "a",
             "1": /* [] */0
           }, graph), /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": "a",
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": "d",
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": "e",
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": "g",
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
+                length: 2,
                 "0": "f",
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
+                  length: 2,
                   "0": "c",
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
+                    length: 2,
                     "0": "b",
                     "1": /* [] */0
                   }
@@ -426,11 +476,13 @@ if (!Caml_obj.caml_equal(dfs3(/* constructor */{
 if (!Caml_obj.caml_equal(dfs3(/* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": "b",
             "1": /* [] */0
           }, /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": /* tuple */[
               "f",
               "d"
@@ -439,22 +491,27 @@ if (!Caml_obj.caml_equal(dfs3(/* constructor */{
           }), /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": "b",
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": "e",
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": "g",
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": "f",
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
+                length: 2,
                 "0": "d",
                 "1": /* [] */0
               }
@@ -475,6 +532,7 @@ if (!Caml_obj.caml_equal(dfs3(/* constructor */{
 var grwork = /* constructor */{
   tag: 0,
   name: "::",
+  length: 2,
   "0": /* tuple */[
     "wake",
     "shower"
@@ -482,6 +540,7 @@ var grwork = /* constructor */{
   "1": /* constructor */{
     tag: 0,
     name: "::",
+    length: 2,
     "0": /* tuple */[
       "shower",
       "dress"
@@ -489,6 +548,7 @@ var grwork = /* constructor */{
     "1": /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": /* tuple */[
         "dress",
         "go"
@@ -496,6 +556,7 @@ var grwork = /* constructor */{
       "1": /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": /* tuple */[
           "wake",
           "eat"
@@ -503,6 +564,7 @@ var grwork = /* constructor */{
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": /* tuple */[
             "eat",
             "washup"
@@ -510,6 +572,7 @@ var grwork = /* constructor */{
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": /* tuple */[
               "washup",
               "go"
@@ -533,6 +596,7 @@ function unsafe_topsort(graph) {
       visited[0] = /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": node,
         "1": visited[0]
       };
@@ -548,26 +612,32 @@ function unsafe_topsort(graph) {
 if (!Caml_obj.caml_equal(unsafe_topsort(grwork), /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": "wake",
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": "shower",
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": "dress",
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": "eat",
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
+                length: 2,
                 "0": "washup",
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
+                  length: 2,
                   "0": "go",
                   "1": /* [] */0
                 }
@@ -600,6 +670,7 @@ function create(l, v, r) {
   return /* constructor */{
           tag: 0,
           name: "Node",
+          length: 4,
           "0": l,
           "1": v,
           "2": r,
@@ -656,6 +727,7 @@ function bal(l, v, r) {
     return /* constructor */{
             tag: 0,
             name: "Node",
+            length: 4,
             "0": l,
             "1": v,
             "2": r,
@@ -681,6 +753,7 @@ function add(x, t) {
     return /* constructor */{
             tag: 0,
             name: "Node",
+            length: 4,
             "0": /* Empty */0,
             "1": x,
             "2": /* Empty */0,
@@ -693,6 +766,7 @@ function singleton(x) {
   return /* constructor */{
           tag: 0,
           name: "Node",
+          length: 4,
           "0": /* Empty */0,
           "1": x,
           "2": /* Empty */0,
@@ -961,6 +1035,7 @@ function cons_enum(_s, _e) {
       _e = /* constructor */{
         tag: 0,
         name: "More",
+        length: 3,
         "0": s[1],
         "1": s[2],
         "2": e
@@ -1028,6 +1103,7 @@ function subset(_s1, _s2) {
           if (subset(/* constructor */{
                   tag: 0,
                   name: "Node",
+                  length: 4,
                   "0": l1,
                   "1": v1,
                   "2": /* Empty */0,
@@ -1041,6 +1117,7 @@ function subset(_s1, _s2) {
         } else if (subset(/* constructor */{
                 tag: 0,
                 name: "Node",
+                length: 4,
                 "0": /* Empty */0,
                 "1": v1,
                 "2": r1,
@@ -1182,6 +1259,7 @@ function elements_aux(_accu, _param) {
       _accu = /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": param[1],
         "1": elements_aux(accu, param[2])
       };
@@ -1243,6 +1321,7 @@ function of_list(l) {
                                 /* constructor */{
                                   tag: 0,
                                   name: "Node",
+                                  length: 4,
                                   "0": /* Empty */0,
                                   "1": l[0],
                                   "2": /* Empty */0,
@@ -1260,9 +1339,11 @@ function of_list(l) {
                                   /* constructor */{
                                     tag: 0,
                                     name: "Node",
+                                    length: 4,
                                     "0": /* constructor */{
                                       tag: 0,
                                       name: "Node",
+                                      length: 4,
                                       "0": /* Empty */0,
                                       "1": l[0],
                                       "2": /* Empty */0,
@@ -1288,9 +1369,11 @@ function of_list(l) {
                                     /* constructor */{
                                       tag: 0,
                                       name: "Node",
+                                      length: 4,
                                       "0": /* constructor */{
                                         tag: 0,
                                         name: "Node",
+                                        length: 4,
                                         "0": /* Empty */0,
                                         "1": l[0],
                                         "2": /* Empty */0,
@@ -1300,6 +1383,7 @@ function of_list(l) {
                                       "2": /* constructor */{
                                         tag: 0,
                                         name: "Node",
+                                        length: 4,
                                         "0": /* Empty */0,
                                         "1": match$2[0],
                                         "2": /* Empty */0,
@@ -1405,6 +1489,7 @@ function pathsort(graph) {
             /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": node,
               "1": stack
             }
@@ -1415,6 +1500,7 @@ function pathsort(graph) {
             /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": node,
               "1": stack
             }
@@ -1433,6 +1519,7 @@ function pathsort(graph) {
       visited[0] = /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": node,
         "1": visited[0]
       };
@@ -1448,26 +1535,32 @@ function pathsort(graph) {
 if (!Caml_obj.caml_equal(pathsort(grwork), /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": "wake",
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": "shower",
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": "dress",
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": "eat",
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
+                length: 2,
                 "0": "washup",
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
+                  length: 2,
                   "0": "go",
                   "1": /* [] */0
                 }
@@ -1490,6 +1583,7 @@ try {
   pathsort(/* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": /* tuple */[
           "go",
           "eat"

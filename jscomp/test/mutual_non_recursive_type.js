@@ -12,6 +12,7 @@ var U = {
 var v = /* constructor */{
   tag: 0,
   name: "H",
+  length: 1,
   "0": /* OT */0
 };
 

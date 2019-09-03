@@ -32,12 +32,14 @@ function neq(loc, x, y) {
   suites[0] = /* constructor */{
     tag: 0,
     name: "::",
+    length: 2,
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
                   tag: 1,
                   name: "Neq",
+                  length: 2,
                   "0": x,
                   "1": y
                 };
@@ -189,14 +191,17 @@ function id(x) {
 eq("File \"bs_array_test.ml\", line 44, characters 5-12", Js_list.toVector(/* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": 1,
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 2,
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": 3,
               "1": /* [] */0
             }
@@ -253,14 +258,17 @@ eq("File \"bs_array_test.ml\", line 57, characters 5-12", (Js_vector.filterInPla
 eq("File \"bs_array_test.ml\", line 64, characters 5-12", Js_list.toVector(/* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": 1,
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 2,
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": 3,
               "1": /* [] */0
             }
@@ -274,6 +282,7 @@ eq("File \"bs_array_test.ml\", line 64, characters 5-12", Js_list.toVector(/* co
 eq("File \"bs_array_test.ml\", line 66, characters 5-12", Js_list.toVector(/* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": 1,
           "1": /* [] */0
         }), /* array */[1]);
@@ -283,6 +292,7 @@ id(/* [] */0);
 id(/* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": 1,
       "1": /* [] */0
     });
@@ -290,22 +300,27 @@ id(/* constructor */{
 id(/* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": 1,
       "1": /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": 2,
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": 3,
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 4,
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": 5,
               "1": /* [] */0
             }
@@ -493,6 +508,7 @@ eq("File \"bs_array_test.ml\", line 133, characters 5-12", Belt_List.fromArray(/
 eq("File \"bs_array_test.ml\", line 134, characters 5-12", Belt_List.fromArray(/* array */[1]), /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": 1,
       "1": /* [] */0
     });
@@ -504,14 +520,17 @@ eq("File \"bs_array_test.ml\", line 135, characters 5-12", Belt_List.fromArray(/
         ]), /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": 1,
       "1": /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": 2,
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": 3,
           "1": /* [] */0
         }
@@ -535,6 +554,7 @@ eq("File \"bs_array_test.ml\", line 137, characters 5-12", Belt_List.toArray(/* 
 eq("File \"bs_array_test.ml\", line 138, characters 5-12", Belt_List.toArray(/* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": 1,
           "1": /* [] */0
         }), /* array */[1]);
@@ -542,10 +562,12 @@ eq("File \"bs_array_test.ml\", line 138, characters 5-12", Belt_List.toArray(/* 
 eq("File \"bs_array_test.ml\", line 139, characters 5-12", Belt_List.toArray(/* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": 1,
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 2,
             "1": /* [] */0
           }
@@ -557,14 +579,17 @@ eq("File \"bs_array_test.ml\", line 139, characters 5-12", Belt_List.toArray(/* 
 eq("File \"bs_array_test.ml\", line 140, characters 5-12", Belt_List.toArray(/* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": 1,
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 2,
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": 3,
               "1": /* [] */0
             }
@@ -1319,6 +1344,7 @@ function some2(xs, ys) {
 eq("File \"bs_array_test.ml\", line 304, characters 5-12", every2(/* [] */0, /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 1,
             "1": /* [] */0
           })((function (x, y) {
@@ -1328,16 +1354,19 @@ eq("File \"bs_array_test.ml\", line 304, characters 5-12", every2(/* [] */0, /* 
 eq("File \"bs_array_test.ml\", line 305, characters 5-12", every2(/* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 2,
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": 3,
               "1": /* [] */0
             }
           }, /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 1,
             "1": /* [] */0
           })((function (x, y) {
@@ -1347,11 +1376,13 @@ eq("File \"bs_array_test.ml\", line 305, characters 5-12", every2(/* constructor
 eq("File \"bs_array_test.ml\", line 306, characters 5-12", every2(/* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 2,
             "1": /* [] */0
           }, /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 1,
             "1": /* [] */0
           })((function (x, y) {
@@ -1361,20 +1392,24 @@ eq("File \"bs_array_test.ml\", line 306, characters 5-12", every2(/* constructor
 eq("File \"bs_array_test.ml\", line 307, characters 5-12", every2(/* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 2,
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": 3,
               "1": /* [] */0
             }
           }, /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 1,
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": 4,
               "1": /* [] */0
             }
@@ -1385,20 +1420,24 @@ eq("File \"bs_array_test.ml\", line 307, characters 5-12", every2(/* constructor
 eq("File \"bs_array_test.ml\", line 308, characters 5-12", every2(/* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 2,
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": 3,
               "1": /* [] */0
             }
           }, /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 1,
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": 0,
               "1": /* [] */0
             }
@@ -1409,6 +1448,7 @@ eq("File \"bs_array_test.ml\", line 308, characters 5-12", every2(/* constructor
 eq("File \"bs_array_test.ml\", line 309, characters 5-12", some2(/* [] */0, /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 1,
             "1": /* [] */0
           })((function (x, y) {
@@ -1418,16 +1458,19 @@ eq("File \"bs_array_test.ml\", line 309, characters 5-12", some2(/* [] */0, /* c
 eq("File \"bs_array_test.ml\", line 310, characters 5-12", some2(/* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 2,
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": 3,
               "1": /* [] */0
             }
           }, /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 1,
             "1": /* [] */0
           })((function (x, y) {
@@ -1437,20 +1480,24 @@ eq("File \"bs_array_test.ml\", line 310, characters 5-12", some2(/* constructor 
 eq("File \"bs_array_test.ml\", line 311, characters 5-12", some2(/* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 2,
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": 3,
               "1": /* [] */0
             }
           }, /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 1,
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": 4,
               "1": /* [] */0
             }
@@ -1461,20 +1508,24 @@ eq("File \"bs_array_test.ml\", line 311, characters 5-12", some2(/* constructor 
 eq("File \"bs_array_test.ml\", line 312, characters 5-12", some2(/* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 0,
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": 3,
               "1": /* [] */0
             }
           }, /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 1,
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": 4,
               "1": /* [] */0
             }
@@ -1485,20 +1536,24 @@ eq("File \"bs_array_test.ml\", line 312, characters 5-12", some2(/* constructor 
 eq("File \"bs_array_test.ml\", line 313, characters 5-12", some2(/* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 0,
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": 3,
               "1": /* [] */0
             }
           }, /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 3,
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": 2,
               "1": /* [] */0
             }

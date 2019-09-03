@@ -74,6 +74,7 @@ function Make(funarg) {
             return step2(successor, /* constructor */{
                         tag: 0,
                         name: "::",
+                        length: 2,
                         "0": /* tuple */[
                           top$1,
                           successors
@@ -86,6 +87,7 @@ function Make(funarg) {
             cut_set[0] = /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": top$1,
               "1": cut_set[0]
             };

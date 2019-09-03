@@ -12,6 +12,7 @@ var f = {
 var f2_000 = /* constructor */{
   tag: 0,
   name: "::",
+  length: 2,
   "0": {
     x: {
       y: {
@@ -22,6 +23,7 @@ var f2_000 = /* constructor */{
   "1": /* constructor */{
     tag: 0,
     name: "::",
+    length: 2,
     "0": {
       x: {
         y: {

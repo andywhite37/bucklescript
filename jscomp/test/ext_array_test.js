@@ -76,6 +76,7 @@ function filter(f, a) {
         _acc = /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": v,
           "1": acc
         };
@@ -105,6 +106,7 @@ function filter_map(f, a) {
         _acc = /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": Caml_option.valFromOption(match),
           "1": acc
         };
@@ -153,6 +155,7 @@ function tolist_aux(a, f, _i, _res) {
       _res = match !== undefined ? /* constructor */({
             tag: 0,
             name: "::",
+            length: 2,
             "0": Caml_option.valFromOption(match),
             "1": res
           }) : res;

@@ -13,12 +13,14 @@ function eq(loc, param) {
   suites[0] = /* constructor */{
     tag: 0,
     name: "::",
+    length: 2,
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
                   tag: 0,
                   name: "Eq",
+                  length: 2,
                   "0": x,
                   "1": y
                 };
@@ -96,10 +98,12 @@ var u = {
 var test_type = /* constructor */{
   tag: 0,
   name: "::",
+  length: 2,
   "0": u,
   "1": /* constructor */{
     tag: 0,
     name: "::",
+    length: 2,
     "0": v,
     "1": /* [] */0
   }
@@ -158,10 +162,12 @@ var zz = {
 var test_type2 = /* constructor */{
   tag: 0,
   name: "::",
+  length: 2,
   "0": z,
   "1": /* constructor */{
     tag: 0,
     name: "::",
+    length: 2,
     "0": zz,
     "1": /* [] */0
   }

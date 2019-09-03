@@ -16,6 +16,7 @@ function record(fmt) {
                 accum[0] = /* constructor */{
                   tag: 0,
                   name: "::",
+                  length: 2,
                   "0": s,
                   "1": accum[0]
                 };
@@ -27,9 +28,11 @@ function f_unit(param) {
   return record(/* constructor */{
               tag: 0,
               name: "Format",
+              length: 2,
               "0": /* constructor */{
                 tag: 11,
                 name: "String_literal",
+                length: 2,
                 "0": "unit()",
                 "1": /* End_of_format */0
               },
@@ -41,16 +44,20 @@ function f_bool(b) {
   return Curry._1(record(/* constructor */{
                   tag: 0,
                   name: "Format",
+                  length: 2,
                   "0": /* constructor */{
                     tag: 11,
                     name: "String_literal",
+                    length: 2,
                     "0": "bool(",
                     "1": /* constructor */{
                       tag: 9,
                       name: "Bool",
+                      length: 1,
                       "0": /* constructor */{
                         tag: 12,
                         name: "Char_literal",
+                        length: 2,
                         "0": /* ")" */41,
                         "1": /* End_of_format */0
                       }
@@ -68,17 +75,21 @@ function f_string(s) {
   return Curry._1(record(/* constructor */{
                   tag: 0,
                   name: "Format",
+                  length: 2,
                   "0": /* constructor */{
                     tag: 11,
                     name: "String_literal",
+                    length: 2,
                     "0": "string(",
                     "1": /* constructor */{
                       tag: 2,
                       name: "String",
+                      length: 2,
                       "0": /* No_padding */0,
                       "1": /* constructor */{
                         tag: 12,
                         name: "Char_literal",
+                        length: 2,
                         "0": /* ")" */41,
                         "1": /* End_of_format */0
                       }
@@ -94,19 +105,23 @@ function f_int(i) {
   return Curry._1(record(/* constructor */{
                   tag: 0,
                   name: "Format",
+                  length: 2,
                   "0": /* constructor */{
                     tag: 11,
                     name: "String_literal",
+                    length: 2,
                     "0": "int(",
                     "1": /* constructor */{
                       tag: 4,
                       name: "Int",
+                      length: 4,
                       "0": /* Int_d */0,
                       "1": /* No_padding */0,
                       "2": /* No_precision */0,
                       "3": /* constructor */{
                         tag: 12,
                         name: "Char_literal",
+                        length: 2,
                         "0": /* ")" */41,
                         "1": /* End_of_format */0
                       }
@@ -122,19 +137,23 @@ function f_float(f) {
   return Curry._1(record(/* constructor */{
                   tag: 0,
                   name: "Format",
+                  length: 2,
                   "0": /* constructor */{
                     tag: 11,
                     name: "String_literal",
+                    length: 2,
                     "0": "float(",
                     "1": /* constructor */{
                       tag: 8,
                       name: "Float",
+                      length: 4,
                       "0": /* Float_g */9,
                       "1": /* No_padding */0,
                       "2": /* No_precision */0,
                       "3": /* constructor */{
                         tag: 12,
                         name: "Char_literal",
+                        length: 2,
                         "0": /* ")" */41,
                         "1": /* End_of_format */0
                       }
@@ -150,17 +169,21 @@ function f_symbol(s) {
   return Curry._1(record(/* constructor */{
                   tag: 0,
                   name: "Format",
+                  length: 2,
                   "0": /* constructor */{
                     tag: 11,
                     name: "String_literal",
+                    length: 2,
                     "0": "symbol(",
                     "1": /* constructor */{
                       tag: 2,
                       name: "String",
+                      length: 2,
                       "0": /* No_padding */0,
                       "1": /* constructor */{
                         tag: 12,
                         name: "Char_literal",
+                        length: 2,
                         "0": /* ")" */41,
                         "1": /* End_of_format */0
                       }
@@ -174,17 +197,21 @@ function f_rest(s) {
   return Curry._1(record(/* constructor */{
                   tag: 0,
                   name: "Format",
+                  length: 2,
                   "0": /* constructor */{
                     tag: 11,
                     name: "String_literal",
+                    length: 2,
                     "0": "rest(",
                     "1": /* constructor */{
                       tag: 2,
                       name: "String",
+                      length: 2,
                       "0": /* No_padding */0,
                       "1": /* constructor */{
                         tag: 12,
                         name: "Char_literal",
+                        length: 2,
                         "0": /* ")" */41,
                         "1": /* End_of_format */0
                       }
@@ -198,17 +225,21 @@ function f_anon(s) {
   return Curry._1(record(/* constructor */{
                   tag: 0,
                   name: "Format",
+                  length: 2,
                   "0": /* constructor */{
                     tag: 11,
                     name: "String_literal",
+                    length: 2,
                     "0": "anon(",
                     "1": /* constructor */{
                       tag: 2,
                       name: "String",
+                      length: 2,
                       "0": /* No_padding */0,
                       "1": /* constructor */{
                         tag: 12,
                         name: "Char_literal",
+                        length: 2,
                         "0": /* ")" */41,
                         "1": /* End_of_format */0
                       }
@@ -221,11 +252,13 @@ function f_anon(s) {
 var spec = /* constructor */{
   tag: 0,
   name: "::",
+  length: 2,
   "0": /* tuple */[
     "-u",
     /* constructor */{
       tag: 0,
       name: "Unit",
+      length: 1,
       "0": f_unit
     },
     "Unit (0)"
@@ -233,11 +266,13 @@ var spec = /* constructor */{
   "1": /* constructor */{
     tag: 0,
     name: "::",
+    length: 2,
     "0": /* tuple */[
       "-b",
       /* constructor */{
         tag: 1,
         name: "Bool",
+        length: 1,
         "0": f_bool
       },
       "Bool (1)"
@@ -245,11 +280,13 @@ var spec = /* constructor */{
     "1": /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": /* tuple */[
         "-s",
         /* constructor */{
           tag: 2,
           name: "Set",
+          length: 1,
           "0": r_set
         },
         "Set (0)"
@@ -257,11 +294,13 @@ var spec = /* constructor */{
       "1": /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": /* tuple */[
           "-c",
           /* constructor */{
             tag: 3,
             name: "Clear",
+            length: 1,
             "0": r_clear
           },
           "Clear (0)"
@@ -269,11 +308,13 @@ var spec = /* constructor */{
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": /* tuple */[
             "-str",
             /* constructor */{
               tag: 4,
               name: "String",
+              length: 1,
               "0": f_string
             },
             "String (1)"
@@ -281,11 +322,13 @@ var spec = /* constructor */{
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": /* tuple */[
               "-sstr",
               /* constructor */{
                 tag: 5,
                 name: "Set_string",
+                length: 1,
                 "0": r_string
               },
               "Set_string (1)"
@@ -293,11 +336,13 @@ var spec = /* constructor */{
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": /* tuple */[
                 "-i",
                 /* constructor */{
                   tag: 6,
                   name: "Int",
+                  length: 1,
                   "0": f_int
                 },
                 "Int (1)"
@@ -305,11 +350,13 @@ var spec = /* constructor */{
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
+                length: 2,
                 "0": /* tuple */[
                   "-si",
                   /* constructor */{
                     tag: 7,
                     name: "Set_int",
+                    length: 1,
                     "0": r_int
                   },
                   "Set_int (1)"
@@ -317,11 +364,13 @@ var spec = /* constructor */{
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
+                  length: 2,
                   "0": /* tuple */[
                     "-f",
                     /* constructor */{
                       tag: 8,
                       name: "Float",
+                      length: 1,
                       "0": f_float
                     },
                     "Float (1)"
@@ -329,11 +378,13 @@ var spec = /* constructor */{
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
+                    length: 2,
                     "0": /* tuple */[
                       "-sf",
                       /* constructor */{
                         tag: 9,
                         name: "Set_float",
+                        length: 1,
                         "0": r_float
                       },
                       "Set_float (1)"
@@ -341,33 +392,41 @@ var spec = /* constructor */{
                     "1": /* constructor */{
                       tag: 0,
                       name: "::",
+                      length: 2,
                       "0": /* tuple */[
                         "-t",
                         /* constructor */{
                           tag: 10,
                           name: "Tuple",
+                          length: 1,
                           "0": /* constructor */{
                             tag: 0,
                             name: "::",
+                            length: 2,
                             "0": /* constructor */{
                               tag: 1,
                               name: "Bool",
+                              length: 1,
                               "0": f_bool
                             },
                             "1": /* constructor */{
                               tag: 0,
                               name: "::",
+                              length: 2,
                               "0": /* constructor */{
                                 tag: 4,
                                 name: "String",
+                                length: 1,
                                 "0": f_string
                               },
                               "1": /* constructor */{
                                 tag: 0,
                                 name: "::",
+                                length: 2,
                                 "0": /* constructor */{
                                   tag: 6,
                                   name: "Int",
+                                  length: 1,
                                   "0": f_int
                                 },
                                 "1": /* [] */0
@@ -380,22 +439,27 @@ var spec = /* constructor */{
                       "1": /* constructor */{
                         tag: 0,
                         name: "::",
+                        length: 2,
                         "0": /* tuple */[
                           "-sym",
                           /* constructor */{
                             tag: 11,
                             name: "Symbol",
+                            length: 2,
                             "0": /* constructor */{
                               tag: 0,
                               name: "::",
+                              length: 2,
                               "0": "a",
                               "1": /* constructor */{
                                 tag: 0,
                                 name: "::",
+                                length: 2,
                                 "0": "b",
                                 "1": /* constructor */{
                                   tag: 0,
                                   name: "::",
+                                  length: 2,
                                   "0": "c",
                                   "1": /* [] */0
                                 }
@@ -408,11 +472,13 @@ var spec = /* constructor */{
                         "1": /* constructor */{
                           tag: 0,
                           name: "::",
+                          length: 2,
                           "0": /* tuple */[
                             "-rest",
                             /* constructor */{
                               tag: 12,
                               name: "Rest",
+                              length: 1,
                               "0": f_rest
                             },
                             "Rest (*)"
@@ -496,17 +562,21 @@ function error(s) {
   return Curry._1(Printf.printf(/* constructor */{
                   tag: 0,
                   name: "Format",
+                  length: 2,
                   "0": /* constructor */{
                     tag: 11,
                     name: "String_literal",
+                    length: 2,
                     "0": "error (",
                     "1": /* constructor */{
                       tag: 2,
                       name: "String",
+                      length: 2,
                       "0": /* No_padding */0,
                       "1": /* constructor */{
                         tag: 11,
                         name: "String_literal",
+                        length: 2,
                         "0": ")\n",
                         "1": /* End_of_format */0
                       }
@@ -537,62 +607,77 @@ function test(argv) {
   var reference = /* constructor */{
     tag: 0,
     name: "::",
+    length: 2,
     "0": "anon(anon1)",
     "1": /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": "unit()",
       "1": /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": "bool(true)",
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": "anon(anon2)",
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": "string(foo)",
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": "int(19)",
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
+                length: 2,
                 "0": "float(3.14)",
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
+                  length: 2,
                   "0": "anon(anon3)",
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
+                    length: 2,
                     "0": "bool(false)",
                     "1": /* constructor */{
                       tag: 0,
                       name: "::",
+                      length: 2,
                       "0": "string(gee)",
                       "1": /* constructor */{
                         tag: 0,
                         name: "::",
+                        length: 2,
                         "0": "int(1436)",
                         "1": /* constructor */{
                           tag: 0,
                           name: "::",
+                          length: 2,
                           "0": "symbol(c)",
                           "1": /* constructor */{
                             tag: 0,
                             name: "::",
+                            length: 2,
                             "0": "anon(anon4)",
                             "1": /* constructor */{
                               tag: 0,
                               name: "::",
+                              length: 2,
                               "0": "rest(r1)",
                               "1": /* constructor */{
                                 tag: 0,
                                 name: "::",
+                                length: 2,
                                 "0": "rest(r2)",
                                 "1": /* [] */0
                               }
@@ -615,42 +700,52 @@ function test(argv) {
       return Curry._3(Printf.printf(/* constructor */{
                       tag: 0,
                       name: "Format",
+                      length: 2,
                       "0": /* constructor */{
                         tag: 2,
                         name: "String",
+                        length: 2,
                         "0": /* constructor */{
                           tag: 0,
                           name: "Lit_padding",
+                          length: 2,
                           "0": /* Right */1,
                           "1": 20
                         },
                         "1": /* constructor */{
                           tag: 12,
                           name: "Char_literal",
+                          length: 2,
                           "0": /* " " */32,
                           "1": /* constructor */{
                             tag: 0,
                             name: "Char",
+                            length: 1,
                             "0": /* constructor */{
                               tag: 12,
                               name: "Char_literal",
+                              length: 2,
                               "0": /* " " */32,
                               "1": /* constructor */{
                                 tag: 2,
                                 name: "String",
+                                length: 2,
                                 "0": /* constructor */{
                                   tag: 0,
                                   name: "Lit_padding",
+                                  length: 2,
                                   "0": /* Left */0,
                                   "1": 20
                                 },
                                 "1": /* constructor */{
                                   tag: 12,
                                   name: "Char_literal",
+                                  length: 2,
                                   "0": /* "\n" */10,
                                   "1": /* constructor */{
                                     tag: 10,
                                     name: "Flush",
+                                    length: 1,
                                     "0": /* End_of_format */0
                                   }
                                 }
@@ -676,12 +771,14 @@ test(args1);
 var suites = /* constructor */{
   tag: 0,
   name: "::",
+  length: 2,
   "0": /* tuple */[
     "should raise",
     (function (param) {
         return /* constructor */{
                 tag: 7,
                 name: "ThrowAny",
+                length: 1,
                 "0": (function (param) {
                     return test(args2);
                   })

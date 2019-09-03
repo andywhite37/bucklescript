@@ -19,6 +19,7 @@ function create(l, x, d, r) {
   return /* constructor */{
           tag: 0,
           name: "Node",
+          length: 5,
           "0": l,
           "1": x,
           "2": d,
@@ -78,6 +79,7 @@ function bal(l, x, d, r) {
     return /* constructor */{
             tag: 0,
             name: "Node",
+            length: 5,
             "0": l,
             "1": x,
             "2": d,
@@ -98,6 +100,7 @@ function add(x, data, param) {
       return /* constructor */{
               tag: 0,
               name: "Node",
+              length: 5,
               "0": l,
               "1": x,
               "2": data,
@@ -113,6 +116,7 @@ function add(x, data, param) {
     return /* constructor */{
             tag: 0,
             name: "Node",
+            length: 5,
             "0": /* Empty */0,
             "1": x,
             "2": data,
@@ -144,6 +148,7 @@ var m = List.fold_left((function (acc, param) {
       }), /* Empty */0, /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": /* tuple */[
         10,
         /* "a" */97
@@ -151,6 +156,7 @@ var m = List.fold_left((function (acc, param) {
       "1": /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": /* tuple */[
           3,
           /* "b" */98
@@ -158,6 +164,7 @@ var m = List.fold_left((function (acc, param) {
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": /* tuple */[
             7,
             /* "c" */99
@@ -165,6 +172,7 @@ var m = List.fold_left((function (acc, param) {
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": /* tuple */[
               20,
               /* "d" */100
@@ -189,6 +197,7 @@ function create$1(l, x, d, r) {
   return /* constructor */{
           tag: 0,
           name: "Node",
+          length: 5,
           "0": l,
           "1": x,
           "2": d,
@@ -248,6 +257,7 @@ function bal$1(l, x, d, r) {
     return /* constructor */{
             tag: 0,
             name: "Node",
+            length: 5,
             "0": l,
             "1": x,
             "2": d,
@@ -268,6 +278,7 @@ function add$1(x, data, param) {
       return /* constructor */{
               tag: 0,
               name: "Node",
+              length: 5,
               "0": l,
               "1": x,
               "2": data,
@@ -283,6 +294,7 @@ function add$1(x, data, param) {
     return /* constructor */{
             tag: 0,
             name: "Node",
+            length: 5,
             "0": /* Empty */0,
             "1": x,
             "2": data,
@@ -314,6 +326,7 @@ var s = List.fold_left((function (acc, param) {
       }), /* Empty */0, /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": /* tuple */[
         "10",
         /* "a" */97
@@ -321,6 +334,7 @@ var s = List.fold_left((function (acc, param) {
       "1": /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": /* tuple */[
           "3",
           /* "b" */98
@@ -328,6 +342,7 @@ var s = List.fold_left((function (acc, param) {
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": /* tuple */[
             "7",
             /* "c" */99
@@ -335,6 +350,7 @@ var s = List.fold_left((function (acc, param) {
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": /* tuple */[
               "20",
               /* "d" */100
@@ -348,12 +364,14 @@ var s = List.fold_left((function (acc, param) {
 Mt.from_pair_suites("Map_find_test", /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": /* tuple */[
         "int",
         (function (param) {
             return /* constructor */{
                     tag: 0,
                     name: "Eq",
+                    length: 2,
                     "0": find(10, m),
                     "1": /* "a" */97
                   };
@@ -362,12 +380,14 @@ Mt.from_pair_suites("Map_find_test", /* constructor */{
       "1": /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": /* tuple */[
           "string",
           (function (param) {
               return /* constructor */{
                       tag: 0,
                       name: "Eq",
+                      length: 2,
                       "0": find$1("10", s),
                       "1": /* "a" */97
                     };

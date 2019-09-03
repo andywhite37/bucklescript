@@ -20,12 +20,14 @@ function f(param) {
 var suites = /* constructor */{
   tag: 0,
   name: "::",
+  length: 2,
   "0": /* tuple */[
     "sum",
     (function (param) {
         return /* constructor */{
                 tag: 0,
                 name: "Eq",
+                length: 2,
                 "0": 55,
                 "1": f(/* () */0)
               };

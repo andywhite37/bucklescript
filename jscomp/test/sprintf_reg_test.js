@@ -16,18 +16,22 @@ function eq(f, param) {
 var s = Curry._1(Printf.sprintf(/* constructor */{
           tag: 0,
           name: "Format",
+          length: 2,
           "0": /* constructor */{
             tag: 13,
             name: "Format_arg",
+            length: 3,
             "0": undefined,
             "1": /* constructor */{
               tag: 1,
               name: "String_ty",
+              length: 1,
               "0": /* End_of_fmtty */0
             },
             "2": /* constructor */{
               tag: 12,
               name: "Char_literal",
+              length: 2,
               "0": /* "." */46,
               "1": /* End_of_format */0
             }
@@ -36,13 +40,16 @@ var s = Curry._1(Printf.sprintf(/* constructor */{
         }), /* constructor */{
       tag: 0,
       name: "Format",
+      length: 2,
       "0": /* constructor */{
         tag: 11,
         name: "String_literal",
+        length: 2,
         "0": "32",
         "1": /* constructor */{
           tag: 2,
           name: "String",
+          length: 2,
           "0": /* No_padding */0,
           "1": /* End_of_format */0
         }
@@ -58,23 +65,28 @@ eq("File \"sprintf_reg_test.ml\", line 8, characters 5-12", /* tuple */[
 var s$1 = Curry._2(Printf.sprintf(/* constructor */{
           tag: 0,
           name: "Format",
+          length: 2,
           "0": /* constructor */{
             tag: 4,
             name: "Int",
+            length: 4,
             "0": /* Int_i */3,
             "1": /* No_padding */0,
             "2": /* No_precision */0,
             "3": /* constructor */{
               tag: 12,
               name: "Char_literal",
+              length: 2,
               "0": /* " " */32,
               "1": /* constructor */{
                 tag: 13,
                 name: "Format_arg",
+                length: 3,
                 "0": undefined,
                 "1": /* constructor */{
                   tag: 1,
                   name: "String_ty",
+                  length: 1,
                   "0": /* End_of_fmtty */0
                 },
                 "2": /* End_of_format */0
@@ -85,13 +97,16 @@ var s$1 = Curry._2(Printf.sprintf(/* constructor */{
         }), 1, /* constructor */{
       tag: 0,
       name: "Format",
+      length: 2,
       "0": /* constructor */{
         tag: 11,
         name: "String_literal",
+        length: 2,
         "0": "spells one ",
         "1": /* constructor */{
           tag: 2,
           name: "String",
+          length: 2,
           "0": /* No_padding */0,
           "1": /* End_of_format */0
         }

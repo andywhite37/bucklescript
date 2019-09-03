@@ -58,6 +58,7 @@ var yyact = /* array */[
       return /* constructor */{
               tag: 0,
               name: "Numeral",
+              length: 1,
               "0": _1
             };
     }),
@@ -66,6 +67,7 @@ var yyact = /* array */[
       return /* constructor */{
               tag: 6,
               name: "Variable",
+              length: 1,
               "0": _1
             };
     }),
@@ -75,6 +77,7 @@ var yyact = /* array */[
       return /* constructor */{
               tag: 1,
               name: "Plus",
+              length: 2,
               "0": _1,
               "1": _3
             };
@@ -85,6 +88,7 @@ var yyact = /* array */[
       return /* constructor */{
               tag: 2,
               name: "Minus",
+              length: 2,
               "0": _1,
               "1": _3
             };
@@ -95,6 +99,7 @@ var yyact = /* array */[
       return /* constructor */{
               tag: 3,
               name: "Times",
+              length: 2,
               "0": _1,
               "1": _3
             };
@@ -105,6 +110,7 @@ var yyact = /* array */[
       return /* constructor */{
               tag: 4,
               name: "Divide",
+              length: 2,
               "0": _1,
               "1": _3
             };
@@ -114,6 +120,7 @@ var yyact = /* array */[
       return /* constructor */{
               tag: 5,
               name: "Negate",
+              length: 1,
               "0": _2
             };
     }),

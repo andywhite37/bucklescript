@@ -54,12 +54,14 @@ function is_sorted(x) {
 var array_suites = /* constructor */{
   tag: 0,
   name: "::",
+  length: 2,
   "0": /* tuple */[
     "init",
     (function (param) {
         return /* constructor */{
                 tag: 0,
                 name: "Eq",
+                length: 2,
                 "0": $$Array.init(5, (function (x) {
                         return x;
                       })),
@@ -76,6 +78,7 @@ var array_suites = /* constructor */{
   "1": /* constructor */{
     tag: 0,
     name: "::",
+    length: 2,
     "0": /* tuple */[
       "toList",
       (function (param) {
@@ -84,6 +87,7 @@ var array_suites = /* constructor */{
                           return /* constructor */{
                                   tag: 0,
                                   name: "::",
+                                  length: 2,
                                   "0": /* tuple */[
                                     $$Array.to_list(param[0]),
                                     param[1]
@@ -95,6 +99,7 @@ var array_suites = /* constructor */{
           var match = List.split(aux(/* constructor */{
                     tag: 0,
                     name: "::",
+                    length: 2,
                     "0": /* tuple */[
                       /* array */[],
                       /* [] */0
@@ -104,6 +109,7 @@ var array_suites = /* constructor */{
           return /* constructor */{
                   tag: 0,
                   name: "Eq",
+                  length: 2,
                   "0": match[0],
                   "1": match[1]
                 };
@@ -112,12 +118,14 @@ var array_suites = /* constructor */{
     "1": /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": /* tuple */[
         "concat",
         (function (param) {
             return /* constructor */{
                     tag: 0,
                     name: "Eq",
+                    length: 2,
                     "0": /* array */[
                       0,
                       1,
@@ -129,6 +137,7 @@ var array_suites = /* constructor */{
                     "1": Caml_array.caml_array_concat(/* constructor */{
                           tag: 0,
                           name: "::",
+                          length: 2,
                           "0": /* array */[
                             0,
                             1,
@@ -137,6 +146,7 @@ var array_suites = /* constructor */{
                           "1": /* constructor */{
                             tag: 0,
                             name: "::",
+                            length: 2,
                             "0": /* array */[
                               3,
                               4
@@ -144,10 +154,12 @@ var array_suites = /* constructor */{
                             "1": /* constructor */{
                               tag: 0,
                               name: "::",
+                              length: 2,
                               "0": /* array */[],
                               "1": /* constructor */{
                                 tag: 0,
                                 name: "::",
+                                length: 2,
                                 "0": /* array */[5],
                                 "1": /* [] */0
                               }
@@ -160,12 +172,14 @@ var array_suites = /* constructor */{
       "1": /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": /* tuple */[
           "make",
           (function (param) {
               return /* constructor */{
                       tag: 0,
                       name: "Eq",
+                      length: 2,
                       "0": /* tuple */[
                         Caml_array.caml_make_vect(100, /* "a" */97),
                         Caml_array.caml_make_float_vect(100)
@@ -184,12 +198,14 @@ var array_suites = /* constructor */{
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": /* tuple */[
             "sub",
             (function (param) {
                 return /* constructor */{
                         tag: 0,
                         name: "Eq",
+                        length: 2,
                         "0": $$Array.sub(/* array */[
                               0,
                               1,
@@ -207,6 +223,7 @@ var array_suites = /* constructor */{
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": /* tuple */[
               "blit",
               (function (param) {
@@ -222,6 +239,7 @@ var array_suites = /* constructor */{
                   return /* constructor */{
                           tag: 0,
                           name: "Eq",
+                          length: 2,
                           "0": /* tuple */[
                             /* array */[
                               0,
@@ -244,6 +262,7 @@ var array_suites = /* constructor */{
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": /* tuple */[
                 "File \"array_test.ml\", line 63, characters 2-9",
                 (function (param) {
@@ -254,6 +273,7 @@ var array_suites = /* constructor */{
                     return /* constructor */{
                             tag: 0,
                             name: "Eq",
+                            length: 2,
                             "0": true,
                             "1": starts_with(a0, /* array */[
                                   0,
@@ -287,6 +307,7 @@ var array_suites = /* constructor */{
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
+                length: 2,
                 "0": /* tuple */[
                   "File \"array_test.ml\", line 72, characters 2-9",
                   (function (param) {
@@ -297,6 +318,7 @@ var array_suites = /* constructor */{
                       return /* constructor */{
                               tag: 0,
                               name: "Eq",
+                              length: 2,
                               "0": true,
                               "1": starts_with(a0, /* array */[
                                     0,
@@ -332,12 +354,14 @@ var array_suites = /* constructor */{
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
+                  length: 2,
                   "0": /* tuple */[
                     "make",
                     (function (param) {
                         return /* constructor */{
                                 tag: 0,
                                 name: "Eq",
+                                length: 2,
                                 "0": Caml_array.caml_make_vect(2, 1),
                                 "1": /* array */[
                                   1,
@@ -349,6 +373,7 @@ var array_suites = /* constructor */{
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
+                    length: 2,
                     "0": /* tuple */[
                       "sort",
                       (function (param) {
@@ -361,6 +386,7 @@ var array_suites = /* constructor */{
                           return /* constructor */{
                                   tag: 0,
                                   name: "Eq",
+                                  length: 2,
                                   "0": Caml_obj.caml_equal(/* array */[
                                         0,
                                         1,
@@ -373,6 +399,7 @@ var array_suites = /* constructor */{
                     "1": /* constructor */{
                       tag: 0,
                       name: "::",
+                      length: 2,
                       "0": /* tuple */[
                         "sort_large",
                         (function (param) {
@@ -383,6 +410,7 @@ var array_suites = /* constructor */{
                             return /* constructor */{
                                     tag: 0,
                                     name: "Eq",
+                                    length: 2,
                                     "0": true,
                                     "1": is_sorted(v)
                                   };

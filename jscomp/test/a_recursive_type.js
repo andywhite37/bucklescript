@@ -9,12 +9,14 @@ function g(x) {
 var loop = g(/* constructor */{
       tag: 0,
       name: "A",
+      length: 1,
       "0": g
     });
 
 var x = /* constructor */{
   tag: 0,
   name: "A",
+  length: 1,
   "0": g
 };
 

@@ -94,6 +94,7 @@ function is_arbitrary_exception(param) {
 var suites = /* constructor */{
   tag: 0,
   name: "::",
+  length: 2,
   "0": /* tuple */[
     "is_equal",
     is_equal
@@ -101,6 +102,7 @@ var suites = /* constructor */{
   "1": /* constructor */{
     tag: 0,
     name: "::",
+    length: 2,
     "0": /* tuple */[
       "is_exception",
       is_exception
@@ -108,6 +110,7 @@ var suites = /* constructor */{
     "1": /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": /* tuple */[
         "is_normal_exception",
         is_normal_exception
@@ -115,6 +118,7 @@ var suites = /* constructor */{
       "1": /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": /* tuple */[
           "is_arbitrary_exception",
           is_arbitrary_exception

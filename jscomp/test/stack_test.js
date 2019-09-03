@@ -10,6 +10,7 @@ function to_list(v) {
     acc = /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": Stack.pop(v),
       "1": acc
     };
@@ -28,23 +29,28 @@ function v(param) {
 var suites = /* constructor */{
   tag: 0,
   name: "::",
+  length: 2,
   "0": /* tuple */[
     "push_test",
     (function (param) {
         return /* constructor */{
                 tag: 0,
                 name: "Eq",
+                length: 2,
                 "0": /* constructor */{
                   tag: 0,
                   name: "::",
+                  length: 2,
                   "0": 1,
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
+                    length: 2,
                     "0": 4,
                     "1": /* constructor */{
                       tag: 0,
                       name: "::",
+                      length: 2,
                       "0": 3,
                       "1": /* [] */0
                     }

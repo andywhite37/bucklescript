@@ -12,12 +12,14 @@ var s = Caml_builtin_exceptions.end_of_file;
 var suites = /* constructor */{
   tag: 0,
   name: "::",
+  length: 2,
   "0": /* tuple */[
     "not_found_equal",
     (function (param) {
         return /* constructor */{
                 tag: 0,
                 name: "Eq",
+                length: 2,
                 "0": u,
                 "1": v
               };
@@ -26,12 +28,14 @@ var suites = /* constructor */{
   "1": /* constructor */{
     tag: 0,
     name: "::",
+    length: 2,
     "0": /* tuple */[
       "not_found_not_equal_end_of_file",
       (function (param) {
           return /* constructor */{
                   tag: 1,
                   name: "Neq",
+                  length: 2,
                   "0": u,
                   "1": s
                 };

@@ -21,6 +21,7 @@ var Block = { };
 var v0 = /* constructor */{
   tag: 1,
   name: "A",
+  length: 2,
   "0": 0,
   "1": 1
 };
@@ -30,6 +31,7 @@ var Block$1 = { };
 var v1 = /* constructor */{
   tag: 1,
   name: "A",
+  length: 2,
   "0": 0,
   "1": 1
 };
@@ -52,10 +54,12 @@ var f = Caml_obj.caml_equal;
 eq("File \"block_alias_test.ml\", line 32, characters 6-13", List.length(/* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": 1,
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 2,
             "1": /* [] */0
           }
@@ -64,6 +68,7 @@ eq("File \"block_alias_test.ml\", line 32, characters 6-13", List.length(/* cons
 b("File \"block_alias_test.ml\", line 33, characters 5-12", Caml_obj.caml_equal(v0, /* constructor */{
           tag: 1,
           name: "A",
+          length: 2,
           "0": 0,
           "1": 1
         }));

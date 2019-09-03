@@ -16,12 +16,14 @@ function eq(loc, x, y) {
   suites[0] = /* constructor */{
     tag: 0,
     name: "::",
+    length: 2,
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
                   tag: 0,
                   name: "Eq",
+                  length: 2,
                   "0": x,
                   "1": y
                 };
@@ -42,13 +44,16 @@ function u(param) {
   return Pervasives.$caret$caret(/* constructor */{
               tag: 0,
               name: "Format",
+              length: 2,
               "0": /* constructor */{
                 tag: 11,
                 name: "String_literal",
+                length: 2,
                 "0": "xx ",
                 "1": /* constructor */{
                   tag: 2,
                   name: "String",
+                  length: 2,
                   "0": /* No_padding */0,
                   "1": /* End_of_format */0
                 }
@@ -57,9 +62,11 @@ function u(param) {
             }, /* constructor */{
               tag: 0,
               name: "Format",
+              length: 2,
               "0": /* constructor */{
                 tag: 11,
                 name: "String_literal",
+                length: 2,
                 "0": "yy",
                 "1": /* End_of_format */0
               },

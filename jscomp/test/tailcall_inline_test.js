@@ -28,12 +28,14 @@ function f(param) {
 var suites = /* constructor */{
   tag: 0,
   name: "::",
+  length: 2,
   "0": /* tuple */[
     "acc",
     (function (param) {
         return /* constructor */{
                 tag: 0,
                 name: "Eq",
+                length: 2,
                 "0": f(/* () */0),
                 "1": /* array */[
                   0,
@@ -53,23 +55,28 @@ var suites = /* constructor */{
   "1": /* constructor */{
     tag: 0,
     name: "::",
+    length: 2,
     "0": /* tuple */[
       "array_to_list",
       (function (param) {
           return /* constructor */{
                   tag: 0,
                   name: "Eq",
+                  length: 2,
                   "0": /* constructor */{
                     tag: 0,
                     name: "::",
+                    length: 2,
                     "0": 1,
                     "1": /* constructor */{
                       tag: 0,
                       name: "::",
+                      length: 2,
                       "0": 2,
                       "1": /* constructor */{
                         tag: 0,
                         name: "::",
+                        length: 2,
                         "0": 3,
                         "1": /* [] */0
                       }

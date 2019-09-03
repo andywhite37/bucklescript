@@ -120,12 +120,14 @@ var f008 = Caml_obj.caml_lazy_make((function (param) {
 Mt.from_pair_suites("Lazy_test", /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": /* tuple */[
         "simple",
         (function (param) {
             return /* constructor */{
                     tag: 0,
                     name: "Eq",
+                    length: 2,
                     "0": lazy_test(/* () */0),
                     "1": /* tuple */[
                       3,
@@ -137,12 +139,14 @@ Mt.from_pair_suites("Lazy_test", /* constructor */{
       "1": /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": /* tuple */[
           "lazy_match",
           (function (param) {
               return /* constructor */{
                       tag: 0,
                       name: "Eq",
+                      length: 2,
                       "0": h,
                       "1": 2
                     };
@@ -151,12 +155,14 @@ Mt.from_pair_suites("Lazy_test", /* constructor */{
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": /* tuple */[
             "lazy_force",
             (function (param) {
                 return /* constructor */{
                         tag: 0,
                         name: "Eq",
+                        length: 2,
                         "0": u_v[0],
                         "1": 2
                       };
@@ -165,12 +171,14 @@ Mt.from_pair_suites("Lazy_test", /* constructor */{
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": /* tuple */[
               "lazy_from_fun",
               (function (param) {
                   return /* constructor */{
                           tag: 0,
                           name: "Eq",
+                          length: 2,
                           "0": CamlinternalLazy.force(l_from_fun),
                           "1": 3
                         };
@@ -179,12 +187,14 @@ Mt.from_pair_suites("Lazy_test", /* constructor */{
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": /* tuple */[
                 "lazy_from_val",
                 (function (param) {
                     return /* constructor */{
                             tag: 0,
                             name: "Eq",
+                            length: 2,
                             "0": CamlinternalLazy.force(Lazy.from_val(3)),
                             "1": 3
                           };
@@ -193,12 +203,14 @@ Mt.from_pair_suites("Lazy_test", /* constructor */{
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
+                length: 2,
                 "0": /* tuple */[
                   "lazy_from_val2",
                   (function (param) {
                       return /* constructor */{
                               tag: 0,
                               name: "Eq",
+                              length: 2,
                               "0": CamlinternalLazy.force(CamlinternalLazy.force(Lazy.from_val(3))),
                               "1": 3
                             };
@@ -207,6 +219,7 @@ Mt.from_pair_suites("Lazy_test", /* constructor */{
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
+                  length: 2,
                   "0": /* tuple */[
                     "lazy_from_val3",
                     (function (param) {
@@ -214,6 +227,7 @@ Mt.from_pair_suites("Lazy_test", /* constructor */{
                         return /* constructor */{
                                 tag: 0,
                                 name: "Eq",
+                                length: 2,
                                 "0": CamlinternalLazy.force(CamlinternalLazy.force(Lazy.from_val(forward_test))),
                                 "1": 4
                               };

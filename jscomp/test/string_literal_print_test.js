@@ -9,12 +9,14 @@ var js_zero_to_255 = ("\x00\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0a\x0b\x0c\x0d\
 Mt.from_pair_suites("String_literal_print_test", /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": /* tuple */[
         "test_string_print",
         (function (param) {
             return /* constructor */{
                     tag: 0,
                     name: "Eq",
+                    length: 2,
                     "0": js_zero_to_255,
                     "1": zero_to_255
                   };

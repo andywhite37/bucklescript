@@ -32,17 +32,21 @@ function from_pairs(pair) {
                         return /* constructor */{
                                 tag: 0,
                                 name: "::",
+                                length: 2,
                                 "0": /* tuple */[
                                   Curry._1(Printf.sprintf(/* constructor */{
                                             tag: 0,
                                             name: "Format",
+                                            length: 2,
                                             "0": /* constructor */{
                                               tag: 11,
                                               name: "String_literal",
+                                              length: 2,
                                               "0": "int32_float_of_bits ",
                                               "1": /* constructor */{
                                                 tag: 4,
                                                 name: "Int",
+                                                length: 4,
                                                 "0": /* Int_d */0,
                                                 "1": /* No_padding */0,
                                                 "2": /* No_precision */0,
@@ -55,6 +59,7 @@ function from_pairs(pair) {
                                       return /* constructor */{
                                               tag: 0,
                                               name: "Eq",
+                                              length: 2,
                                               "0": Caml_float.caml_int32_float_of_bits(i32),
                                               "1": f
                                             };
@@ -63,17 +68,21 @@ function from_pairs(pair) {
                                 "1": /* constructor */{
                                   tag: 0,
                                   name: "::",
+                                  length: 2,
                                   "0": /* tuple */[
                                     Curry._1(Printf.sprintf(/* constructor */{
                                               tag: 0,
                                               name: "Format",
+                                              length: 2,
                                               "0": /* constructor */{
                                                 tag: 11,
                                                 name: "String_literal",
+                                                length: 2,
                                                 "0": "int32_bits_of_float ",
                                                 "1": /* constructor */{
                                                   tag: 4,
                                                   name: "Int",
+                                                  length: 4,
                                                   "0": /* Int_d */0,
                                                   "1": /* No_padding */0,
                                                   "2": /* No_precision */0,
@@ -86,6 +95,7 @@ function from_pairs(pair) {
                                         return /* constructor */{
                                                 tag: 0,
                                                 name: "Eq",
+                                                length: 2,
                                                 "0": Caml_float.caml_int32_bits_of_float(f),
                                                 "1": i32
                                               };
@@ -100,12 +110,14 @@ function from_pairs(pair) {
 var suites = Pervasives.$at(/* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": /* tuple */[
         "one",
         (function (param) {
             return /* constructor */{
                     tag: 0,
                     name: "Eq",
+                    length: 2,
                     "0": Caml_int64.bits_of_float(1.0),
                     "1": one_float
                   };
@@ -114,12 +126,14 @@ var suites = Pervasives.$at(/* constructor */{
       "1": /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": /* tuple */[
           "two",
           (function (param) {
               return /* constructor */{
                       tag: 0,
                       name: "Eq",
+                      length: 2,
                       "0": Caml_int64.float_of_bits(one_float),
                       "1": 1.0
                     };

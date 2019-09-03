@@ -38,6 +38,7 @@ function g(param) {
   return /* constructor */{
           tag: 0,
           name: "Eq",
+          length: 2,
           "0": /* tuple */[
             Caml_array.caml_array_get(a, 0),
             Caml_array.caml_array_get(b, 0)
@@ -52,6 +53,7 @@ function g(param) {
 var suites = /* constructor */{
   tag: 0,
   name: "::",
+  length: 2,
   "0": /* tuple */[
     "const_block_test",
     g
@@ -59,6 +61,7 @@ var suites = /* constructor */{
   "1": /* constructor */{
     tag: 0,
     name: "::",
+    length: 2,
     "0": /* tuple */[
       "avoid_mutable_inline_test",
       (function (param) {
@@ -67,6 +70,7 @@ var suites = /* constructor */{
           return /* constructor */{
                   tag: 0,
                   name: "Eq",
+                  length: 2,
                   "0": /* array */[
                     3,
                     4,

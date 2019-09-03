@@ -11,12 +11,14 @@ function f(h, param) {
 Mt.from_pair_suites("Print_alpha_test", /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": /* tuple */[
         "File \"print_alpha_test.ml\", line 15, characters 4-11",
         (function (param) {
             return /* constructor */{
                     tag: 0,
                     name: "Eq",
+                    length: 2,
                     "0": f((function (prim, prim$1) {
                               return prim + prim$1 | 0;
                             }), /* () */0)(1, 2),

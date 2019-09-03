@@ -19,6 +19,7 @@ function create(l, x, d, r) {
   return /* constructor */{
           tag: 0,
           name: "Node",
+          length: 5,
           "0": l,
           "1": x,
           "2": d,
@@ -31,6 +32,7 @@ function singleton(x, d) {
   return /* constructor */{
           tag: 0,
           name: "Node",
+          length: 5,
           "0": /* Empty */0,
           "1": x,
           "2": d,
@@ -90,6 +92,7 @@ function bal(l, x, d, r) {
     return /* constructor */{
             tag: 0,
             name: "Node",
+            length: 5,
             "0": l,
             "1": x,
             "2": d,
@@ -118,6 +121,7 @@ function add(x, data, param) {
       return /* constructor */{
               tag: 0,
               name: "Node",
+              length: 5,
               "0": l,
               "1": x,
               "2": data,
@@ -133,6 +137,7 @@ function add(x, data, param) {
     return /* constructor */{
             tag: 0,
             name: "Node",
+            length: 5,
             "0": /* Empty */0,
             "1": x,
             "2": data,
@@ -284,6 +289,7 @@ function map(f, param) {
     return /* constructor */{
             tag: 0,
             name: "Node",
+            length: 5,
             "0": l$prime,
             "1": param[1],
             "2": d$prime,
@@ -304,6 +310,7 @@ function mapi(f, param) {
     return /* constructor */{
             tag: 0,
             name: "Node",
+            length: 5,
             "0": l$prime,
             "1": v,
             "2": d$prime,
@@ -537,6 +544,7 @@ function cons_enum(_m, _e) {
       _e = /* constructor */{
         tag: 0,
         name: "More",
+        length: 4,
         "0": m[1],
         "1": m[2],
         "2": m[3],
@@ -621,6 +629,7 @@ function bindings_aux(_accu, _param) {
       _accu = /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": /* tuple */[
           param[1],
           param[2]

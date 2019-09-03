@@ -38,6 +38,7 @@ function cons(x, y) {
   return /* constructor */{
           tag: 0,
           name: "Cons",
+          length: 2,
           "0": x,
           "1": y
         };
@@ -56,6 +57,7 @@ function map(f, x) {
     return /* constructor */{
             tag: 0,
             name: "Cons",
+            length: 2,
             "0": Curry._1(f, x[0]),
             "1": map(f, x[1])
           };

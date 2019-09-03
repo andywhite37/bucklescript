@@ -8,6 +8,7 @@ function blackify(s) {
             /* constructor */{
               tag: 0,
               name: "Node",
+              length: 4,
               "0": /* Black */0,
               "1": s[1],
               "2": s[2],
@@ -93,6 +94,7 @@ function balance_left(l, x, r) {
         return /* constructor */{
                 tag: 0,
                 name: "Node",
+                length: 4,
                 "0": /* Black */0,
                 "1": l,
                 "2": x,
@@ -102,10 +104,12 @@ function balance_left(l, x, r) {
         return /* constructor */{
                 tag: 0,
                 name: "Node",
+                length: 4,
                 "0": /* Red */1,
                 "1": /* constructor */{
                   tag: 0,
                   name: "Node",
+                  length: 4,
                   "0": /* Black */0,
                   "1": a,
                   "2": x$1,
@@ -115,6 +119,7 @@ function balance_left(l, x, r) {
                 "3": /* constructor */{
                   tag: 0,
                   name: "Node",
+                  length: 4,
                   "0": /* Black */0,
                   "1": c,
                   "2": z,
@@ -167,6 +172,7 @@ function balance_right(l, x, r) {
         return /* constructor */{
                 tag: 0,
                 name: "Node",
+                length: 4,
                 "0": /* Black */0,
                 "1": l,
                 "2": x,
@@ -176,10 +182,12 @@ function balance_right(l, x, r) {
         return /* constructor */{
                 tag: 0,
                 name: "Node",
+                length: 4,
                 "0": /* Red */1,
                 "1": /* constructor */{
                   tag: 0,
                   name: "Node",
+                  length: 4,
                   "0": /* Black */0,
                   "1": a,
                   "2": x$1,
@@ -189,6 +197,7 @@ function balance_right(l, x, r) {
                 "3": /* constructor */{
                   tag: 0,
                   name: "Node",
+                  length: 4,
                   "0": /* Black */0,
                   "1": c,
                   "2": z,
@@ -203,6 +212,7 @@ function singleton(x) {
   return /* constructor */{
           tag: 0,
           name: "Node",
+          length: 4,
           "0": /* Black */0,
           "1": /* Empty */0,
           "2": x,
@@ -219,6 +229,7 @@ function unbalanced_left(param) {
                 balance_left(/* constructor */{
                       tag: 0,
                       name: "Node",
+                      length: 4,
                       "0": /* Red */1,
                       "1": match[1],
                       "2": match[2],
@@ -238,12 +249,14 @@ function unbalanced_left(param) {
                     /* constructor */{
                       tag: 0,
                       name: "Node",
+                      length: 4,
                       "0": /* Black */0,
                       "1": match$1[1],
                       "2": match$1[2],
                       "3": balance_left(/* constructor */{
                             tag: 0,
                             name: "Node",
+                            length: 4,
                             "0": /* Red */1,
                             "1": match$2[1],
                             "2": match$2[2],
@@ -259,6 +272,7 @@ function unbalanced_left(param) {
                   balance_left(/* constructor */{
                         tag: 0,
                         name: "Node",
+                        length: 4,
                         "0": /* Red */1,
                         "1": match$1[1],
                         "2": match$1[2],
@@ -290,6 +304,7 @@ function unbalanced_right(param) {
                 balance_right(param[1], param[2], /* constructor */{
                       tag: 0,
                       name: "Node",
+                      length: 4,
                       "0": /* Red */1,
                       "1": match[1],
                       "2": match[2],
@@ -311,10 +326,12 @@ function unbalanced_right(param) {
                     /* constructor */{
                       tag: 0,
                       name: "Node",
+                      length: 4,
                       "0": /* Black */0,
                       "1": balance_right(a, x, /* constructor */{
                             tag: 0,
                             name: "Node",
+                            length: 4,
                             "0": /* Red */1,
                             "1": match$2[1],
                             "2": match$2[2],
@@ -332,6 +349,7 @@ function unbalanced_right(param) {
                   balance_right(a, x, /* constructor */{
                         tag: 0,
                         name: "Node",
+                        length: 4,
                         "0": /* Red */1,
                         "1": match$1[1],
                         "2": match$1[2],
@@ -363,10 +381,12 @@ function lbalance(x1, x2, x3) {
         return /* constructor */{
                 tag: 0,
                 name: "Node",
+                length: 4,
                 "0": /* Red */1,
                 "1": /* constructor */{
                   tag: 0,
                   name: "Node",
+                  length: 4,
                   "0": /* Black */0,
                   "1": l[1],
                   "2": l[2],
@@ -376,6 +396,7 @@ function lbalance(x1, x2, x3) {
                 "3": /* constructor */{
                   tag: 0,
                   name: "Node",
+                  length: 4,
                   "0": /* Black */0,
                   "1": r,
                   "2": x2,
@@ -389,10 +410,12 @@ function lbalance(x1, x2, x3) {
           return /* constructor */{
                   tag: 0,
                   name: "Node",
+                  length: 4,
                   "0": /* Red */1,
                   "1": /* constructor */{
                     tag: 0,
                     name: "Node",
+                    length: 4,
                     "0": /* Black */0,
                     "1": l,
                     "2": y,
@@ -402,6 +425,7 @@ function lbalance(x1, x2, x3) {
                   "3": /* constructor */{
                     tag: 0,
                     name: "Node",
+                    length: 4,
                     "0": /* Black */0,
                     "1": r[3],
                     "2": x2,
@@ -412,6 +436,7 @@ function lbalance(x1, x2, x3) {
           return /* constructor */{
                   tag: 0,
                   name: "Node",
+                  length: 4,
                   "0": /* Black */0,
                   "1": x1,
                   "2": x2,
@@ -422,6 +447,7 @@ function lbalance(x1, x2, x3) {
         return /* constructor */{
                 tag: 0,
                 name: "Node",
+                length: 4,
                 "0": /* Black */0,
                 "1": x1,
                 "2": x2,
@@ -432,6 +458,7 @@ function lbalance(x1, x2, x3) {
       return /* constructor */{
               tag: 0,
               name: "Node",
+              length: 4,
               "0": /* Black */0,
               "1": x1,
               "2": x2,
@@ -442,6 +469,7 @@ function lbalance(x1, x2, x3) {
     return /* constructor */{
             tag: 0,
             name: "Node",
+            length: 4,
             "0": /* Black */0,
             "1": x1,
             "2": x2,
@@ -458,10 +486,12 @@ function rbalance(x1, x2, x3) {
       return /* constructor */{
               tag: 0,
               name: "Node",
+              length: 4,
               "0": /* Red */1,
               "1": /* constructor */{
                 tag: 0,
                 name: "Node",
+                length: 4,
                 "0": /* Black */0,
                 "1": x1,
                 "2": x2,
@@ -471,6 +501,7 @@ function rbalance(x1, x2, x3) {
               "3": /* constructor */{
                 tag: 0,
                 name: "Node",
+                length: 4,
                 "0": /* Black */0,
                 "1": b[3],
                 "2": x3[2],
@@ -486,10 +517,12 @@ function rbalance(x1, x2, x3) {
         return /* constructor */{
                 tag: 0,
                 name: "Node",
+                length: 4,
                 "0": /* Red */1,
                 "1": /* constructor */{
                   tag: 0,
                   name: "Node",
+                  length: 4,
                   "0": /* Black */0,
                   "1": x1,
                   "2": x2,
@@ -499,6 +532,7 @@ function rbalance(x1, x2, x3) {
                 "3": /* constructor */{
                   tag: 0,
                   name: "Node",
+                  length: 4,
                   "0": /* Black */0,
                   "1": match[1],
                   "2": match[2],
@@ -513,6 +547,7 @@ function rbalance(x1, x2, x3) {
   return /* constructor */{
           tag: 0,
           name: "Node",
+          length: 4,
           "0": /* Black */0,
           "1": x1,
           "2": x2,
@@ -533,6 +568,7 @@ function ins(x, s) {
           return /* constructor */{
                   tag: 0,
                   name: "Node",
+                  length: 4,
                   "0": /* Red */1,
                   "1": ins(x, a),
                   "2": y,
@@ -542,6 +578,7 @@ function ins(x, s) {
           return /* constructor */{
                   tag: 0,
                   name: "Node",
+                  length: 4,
                   "0": /* Red */1,
                   "1": a,
                   "2": y,
@@ -567,6 +604,7 @@ function ins(x, s) {
     return /* constructor */{
             tag: 0,
             name: "Node",
+            length: 4,
             "0": /* Red */1,
             "1": /* Empty */0,
             "2": x,
@@ -581,6 +619,7 @@ function add(x, s) {
     return /* constructor */{
             tag: 0,
             name: "Node",
+            length: 4,
             "0": /* Black */0,
             "1": s$1[1],
             "2": s$1[2],
@@ -612,6 +651,7 @@ function remove_min(param) {
                   /* constructor */{
                     tag: 0,
                     name: "Node",
+                    length: 4,
                     "0": /* Black */0,
                     "1": match[1],
                     "2": match[2],
@@ -643,6 +683,7 @@ function remove_min(param) {
     var s = /* constructor */{
       tag: 0,
       name: "Node",
+      length: 4,
       "0": c,
       "1": match$1[0],
       "2": param[2],
@@ -686,6 +727,7 @@ function remove_aux(x, n) {
         var n$1 = /* constructor */{
           tag: 0,
           name: "Node",
+          length: 4,
           "0": c,
           "1": l,
           "2": match[1],
@@ -712,6 +754,7 @@ function remove_aux(x, n) {
       var n$2 = /* constructor */{
         tag: 0,
         name: "Node",
+        length: 4,
         "0": c,
         "1": match$1[0],
         "2": y,
@@ -730,6 +773,7 @@ function remove_aux(x, n) {
       var n$3 = /* constructor */{
         tag: 0,
         name: "Node",
+        length: 4,
         "0": c,
         "1": l,
         "2": y,

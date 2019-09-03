@@ -9,12 +9,14 @@ var Caml_bytes = require("../../lib/js/caml_bytes.js");
 var suites = /* constructor */{
   tag: 0,
   name: "::",
+  length: 2,
   "0": /* tuple */[
     "caml_is_printable",
     (function (param) {
         return /* constructor */{
                 tag: 0,
                 name: "Eq",
+                length: 2,
                 "0": Caml_char.caml_is_printable(/* "a" */97),
                 "1": true
               };
@@ -23,6 +25,7 @@ var suites = /* constructor */{
   "1": /* constructor */{
     tag: 0,
     name: "::",
+    length: 2,
     "0": /* tuple */[
       "caml_string_of_bytes",
       (function (param) {
@@ -39,30 +42,37 @@ var suites = /* constructor */{
                     }), /* constructor */{
                     tag: 0,
                     name: "::",
+                    length: 2,
                     "0": 1000,
                     "1": /* constructor */{
                       tag: 0,
                       name: "::",
+                      length: 2,
                       "0": 1024,
                       "1": /* constructor */{
                         tag: 0,
                         name: "::",
+                        length: 2,
                         "0": 1025,
                         "1": /* constructor */{
                           tag: 0,
                           name: "::",
+                          length: 2,
                           "0": 4095,
                           "1": /* constructor */{
                             tag: 0,
                             name: "::",
+                            length: 2,
                             "0": 4096,
                             "1": /* constructor */{
                               tag: 0,
                               name: "::",
+                              length: 2,
                               "0": 5000,
                               "1": /* constructor */{
                                 tag: 0,
                                 name: "::",
+                                length: 2,
                                 "0": 10000,
                                 "1": /* [] */0
                               }
@@ -75,6 +85,7 @@ var suites = /* constructor */{
           return /* constructor */{
                   tag: 0,
                   name: "Eq",
+                  length: 2,
                   "0": match[0],
                   "1": match[1]
                 };

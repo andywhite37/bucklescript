@@ -6,12 +6,14 @@ var Caml_option = require("../../lib/js/caml_option.js");
 var suites = /* constructor */{
   tag: 0,
   name: "::",
+  length: 2,
   "0": /* tuple */[
     "make",
     (function (param) {
         return /* constructor */{
                 tag: 0,
                 name: "Eq",
+                length: 2,
                 "0": "null",
                 "1": String(null).concat("")
               };
@@ -20,12 +22,14 @@ var suites = /* constructor */{
   "1": /* constructor */{
     tag: 0,
     name: "::",
+    length: 2,
     "0": /* tuple */[
       "fromCharCode",
       (function (param) {
           return /* constructor */{
                   tag: 0,
                   name: "Eq",
+                  length: 2,
                   "0": "a",
                   "1": String.fromCharCode(97)
                 };
@@ -34,12 +38,14 @@ var suites = /* constructor */{
     "1": /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": /* tuple */[
         "fromCharCodeMany",
         (function (param) {
             return /* constructor */{
                     tag: 0,
                     name: "Eq",
+                    length: 2,
                     "0": "az",
                     "1": String.fromCharCode(97, 122)
                   };
@@ -48,12 +54,14 @@ var suites = /* constructor */{
       "1": /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": /* tuple */[
           "fromCodePoint",
           (function (param) {
               return /* constructor */{
                       tag: 0,
                       name: "Eq",
+                      length: 2,
                       "0": "a",
                       "1": String.fromCodePoint(97)
                     };
@@ -62,12 +70,14 @@ var suites = /* constructor */{
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": /* tuple */[
             "fromCodePointMany",
             (function (param) {
                 return /* constructor */{
                         tag: 0,
                         name: "Eq",
+                        length: 2,
                         "0": "az",
                         "1": String.fromCodePoint(97, 122)
                       };
@@ -76,12 +86,14 @@ var suites = /* constructor */{
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": /* tuple */[
               "length",
               (function (param) {
                   return /* constructor */{
                           tag: 0,
                           name: "Eq",
+                          length: 2,
                           "0": 3,
                           "1": "foo".length
                         };
@@ -90,12 +102,14 @@ var suites = /* constructor */{
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": /* tuple */[
                 "get",
                 (function (param) {
                     return /* constructor */{
                             tag: 0,
                             name: "Eq",
+                            length: 2,
                             "0": "a",
                             "1": "foobar"[4]
                           };
@@ -104,12 +118,14 @@ var suites = /* constructor */{
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
+                length: 2,
                 "0": /* tuple */[
                   "charAt",
                   (function (param) {
                       return /* constructor */{
                               tag: 0,
                               name: "Eq",
+                              length: 2,
                               "0": "a",
                               "1": "foobar".charAt(4)
                             };
@@ -118,12 +134,14 @@ var suites = /* constructor */{
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
+                  length: 2,
                   "0": /* tuple */[
                     "charCodeAt",
                     (function (param) {
                         return /* constructor */{
                                 tag: 0,
                                 name: "Eq",
+                                length: 2,
                                 "0": 97,
                                 "1": "foobar".charCodeAt(4)
                               };
@@ -132,12 +150,14 @@ var suites = /* constructor */{
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
+                    length: 2,
                     "0": /* tuple */[
                       "codePointAt",
                       (function (param) {
                           return /* constructor */{
                                   tag: 0,
                                   name: "Eq",
+                                  length: 2,
                                   "0": 97,
                                   "1": Caml_option.undefined_to_opt("foobar".codePointAt(4))
                                 };
@@ -146,12 +166,14 @@ var suites = /* constructor */{
                     "1": /* constructor */{
                       tag: 0,
                       name: "::",
+                      length: 2,
                       "0": /* tuple */[
                         "codePointAt - out of bounds",
                         (function (param) {
                             return /* constructor */{
                                     tag: 0,
                                     name: "Eq",
+                                    length: 2,
                                     "0": undefined,
                                     "1": Caml_option.undefined_to_opt("foobar".codePointAt(98))
                                   };
@@ -160,12 +182,14 @@ var suites = /* constructor */{
                       "1": /* constructor */{
                         tag: 0,
                         name: "::",
+                        length: 2,
                         "0": /* tuple */[
                           "concat",
                           (function (param) {
                               return /* constructor */{
                                       tag: 0,
                                       name: "Eq",
+                                      length: 2,
                                       "0": "foobar",
                                       "1": "foo".concat("bar")
                                     };
@@ -174,12 +198,14 @@ var suites = /* constructor */{
                         "1": /* constructor */{
                           tag: 0,
                           name: "::",
+                          length: 2,
                           "0": /* tuple */[
                             "concatMany",
                             (function (param) {
                                 return /* constructor */{
                                         tag: 0,
                                         name: "Eq",
+                                        length: 2,
                                         "0": "foobarbaz",
                                         "1": "foo".concat("bar", "baz")
                                       };
@@ -188,12 +214,14 @@ var suites = /* constructor */{
                           "1": /* constructor */{
                             tag: 0,
                             name: "::",
+                            length: 2,
                             "0": /* tuple */[
                               "endsWith",
                               (function (param) {
                                   return /* constructor */{
                                           tag: 0,
                                           name: "Eq",
+                                          length: 2,
                                           "0": true,
                                           "1": "foobar".endsWith("bar")
                                         };
@@ -202,12 +230,14 @@ var suites = /* constructor */{
                             "1": /* constructor */{
                               tag: 0,
                               name: "::",
+                              length: 2,
                               "0": /* tuple */[
                                 "endsWithFrom",
                                 (function (param) {
                                     return /* constructor */{
                                             tag: 0,
                                             name: "Eq",
+                                            length: 2,
                                             "0": false,
                                             "1": "foobar".endsWith("bar", 1)
                                           };
@@ -216,12 +246,14 @@ var suites = /* constructor */{
                               "1": /* constructor */{
                                 tag: 0,
                                 name: "::",
+                                length: 2,
                                 "0": /* tuple */[
                                   "includes",
                                   (function (param) {
                                       return /* constructor */{
                                               tag: 0,
                                               name: "Eq",
+                                              length: 2,
                                               "0": true,
                                               "1": "foobarbaz".includes("bar")
                                             };
@@ -230,12 +262,14 @@ var suites = /* constructor */{
                                 "1": /* constructor */{
                                   tag: 0,
                                   name: "::",
+                                  length: 2,
                                   "0": /* tuple */[
                                     "includesFrom",
                                     (function (param) {
                                         return /* constructor */{
                                                 tag: 0,
                                                 name: "Eq",
+                                                length: 2,
                                                 "0": false,
                                                 "1": "foobarbaz".includes("bar", 4)
                                               };
@@ -244,12 +278,14 @@ var suites = /* constructor */{
                                   "1": /* constructor */{
                                     tag: 0,
                                     name: "::",
+                                    length: 2,
                                     "0": /* tuple */[
                                       "indexOf",
                                       (function (param) {
                                           return /* constructor */{
                                                   tag: 0,
                                                   name: "Eq",
+                                                  length: 2,
                                                   "0": 3,
                                                   "1": "foobarbaz".indexOf("bar")
                                                 };
@@ -258,12 +294,14 @@ var suites = /* constructor */{
                                     "1": /* constructor */{
                                       tag: 0,
                                       name: "::",
+                                      length: 2,
                                       "0": /* tuple */[
                                         "indexOfFrom",
                                         (function (param) {
                                             return /* constructor */{
                                                     tag: 0,
                                                     name: "Eq",
+                                                    length: 2,
                                                     "0": -1,
                                                     "1": "foobarbaz".indexOf("bar", 4)
                                                   };
@@ -272,12 +310,14 @@ var suites = /* constructor */{
                                       "1": /* constructor */{
                                         tag: 0,
                                         name: "::",
+                                        length: 2,
                                         "0": /* tuple */[
                                           "lastIndexOf",
                                           (function (param) {
                                               return /* constructor */{
                                                       tag: 0,
                                                       name: "Eq",
+                                                      length: 2,
                                                       "0": 3,
                                                       "1": "foobarbaz".lastIndexOf("bar")
                                                     };
@@ -286,12 +326,14 @@ var suites = /* constructor */{
                                         "1": /* constructor */{
                                           tag: 0,
                                           name: "::",
+                                          length: 2,
                                           "0": /* tuple */[
                                             "lastIndexOfFrom",
                                             (function (param) {
                                                 return /* constructor */{
                                                         tag: 0,
                                                         name: "Eq",
+                                                        length: 2,
                                                         "0": 3,
                                                         "1": "foobarbaz".lastIndexOf("bar", 4)
                                                       };
@@ -300,12 +342,14 @@ var suites = /* constructor */{
                                           "1": /* constructor */{
                                             tag: 0,
                                             name: "::",
+                                            length: 2,
                                             "0": /* tuple */[
                                               "localeCompare",
                                               (function (param) {
                                                   return /* constructor */{
                                                           tag: 0,
                                                           name: "Eq",
+                                                          length: 2,
                                                           "0": 0,
                                                           "1": "foo".localeCompare("foo")
                                                         };
@@ -314,12 +358,14 @@ var suites = /* constructor */{
                                             "1": /* constructor */{
                                               tag: 0,
                                               name: "::",
+                                              length: 2,
                                               "0": /* tuple */[
                                                 "match",
                                                 (function (param) {
                                                     return /* constructor */{
                                                             tag: 0,
                                                             name: "Eq",
+                                                            length: 2,
                                                             "0": /* array */[
                                                               "na",
                                                               "na"
@@ -331,12 +377,14 @@ var suites = /* constructor */{
                                               "1": /* constructor */{
                                                 tag: 0,
                                                 name: "::",
+                                                length: 2,
                                                 "0": /* tuple */[
                                                   "match - no match",
                                                   (function (param) {
                                                       return /* constructor */{
                                                               tag: 0,
                                                               name: "Eq",
+                                                              length: 2,
                                                               "0": undefined,
                                                               "1": Caml_option.null_to_opt("banana".match((/nanana+/g)))
                                                             };
@@ -345,12 +393,14 @@ var suites = /* constructor */{
                                                 "1": /* constructor */{
                                                   tag: 0,
                                                   name: "::",
+                                                  length: 2,
                                                   "0": /* tuple */[
                                                     "normalize",
                                                     (function (param) {
                                                         return /* constructor */{
                                                                 tag: 0,
                                                                 name: "Eq",
+                                                                length: 2,
                                                                 "0": "foo",
                                                                 "1": "foo".normalize()
                                                               };
@@ -359,12 +409,14 @@ var suites = /* constructor */{
                                                   "1": /* constructor */{
                                                     tag: 0,
                                                     name: "::",
+                                                    length: 2,
                                                     "0": /* tuple */[
                                                       "normalizeByForm",
                                                       (function (param) {
                                                           return /* constructor */{
                                                                   tag: 0,
                                                                   name: "Eq",
+                                                                  length: 2,
                                                                   "0": "foo",
                                                                   "1": "foo".normalize("NFKD")
                                                                 };
@@ -373,12 +425,14 @@ var suites = /* constructor */{
                                                     "1": /* constructor */{
                                                       tag: 0,
                                                       name: "::",
+                                                      length: 2,
                                                       "0": /* tuple */[
                                                         "repeat",
                                                         (function (param) {
                                                             return /* constructor */{
                                                                     tag: 0,
                                                                     name: "Eq",
+                                                                    length: 2,
                                                                     "0": "foofoofoo",
                                                                     "1": "foo".repeat(3)
                                                                   };
@@ -387,12 +441,14 @@ var suites = /* constructor */{
                                                       "1": /* constructor */{
                                                         tag: 0,
                                                         name: "::",
+                                                        length: 2,
                                                         "0": /* tuple */[
                                                           "replace",
                                                           (function (param) {
                                                               return /* constructor */{
                                                                       tag: 0,
                                                                       name: "Eq",
+                                                                      length: 2,
                                                                       "0": "fooBORKbaz",
                                                                       "1": "foobarbaz".replace("bar", "BORK")
                                                                     };
@@ -401,12 +457,14 @@ var suites = /* constructor */{
                                                         "1": /* constructor */{
                                                           tag: 0,
                                                           name: "::",
+                                                          length: 2,
                                                           "0": /* tuple */[
                                                             "replaceByRe",
                                                             (function (param) {
                                                                 return /* constructor */{
                                                                         tag: 0,
                                                                         name: "Eq",
+                                                                        length: 2,
                                                                         "0": "fooBORKBORK",
                                                                         "1": "foobarbaz".replace((/ba./g), "BORK")
                                                                       };
@@ -415,6 +473,7 @@ var suites = /* constructor */{
                                                           "1": /* constructor */{
                                                             tag: 0,
                                                             name: "::",
+                                                            length: 2,
                                                             "0": /* tuple */[
                                                               "unsafeReplaceBy0",
                                                               (function (param) {
@@ -428,6 +487,7 @@ var suites = /* constructor */{
                                                                   return /* constructor */{
                                                                           tag: 0,
                                                                           name: "Eq",
+                                                                          length: 2,
                                                                           "0": "fooBORKDORK",
                                                                           "1": "foobarbaz".replace((/ba./g), replace)
                                                                         };
@@ -436,6 +496,7 @@ var suites = /* constructor */{
                                                             "1": /* constructor */{
                                                               tag: 0,
                                                               name: "::",
+                                                              length: 2,
                                                               "0": /* tuple */[
                                                                 "unsafeReplaceBy1",
                                                                 (function (param) {
@@ -449,6 +510,7 @@ var suites = /* constructor */{
                                                                     return /* constructor */{
                                                                             tag: 0,
                                                                             name: "Eq",
+                                                                            length: 2,
                                                                             "0": "fooBORKDORK",
                                                                             "1": "foobarbaz".replace((/ba./g), replace)
                                                                           };
@@ -457,6 +519,7 @@ var suites = /* constructor */{
                                                               "1": /* constructor */{
                                                                 tag: 0,
                                                                 name: "::",
+                                                                length: 2,
                                                                 "0": /* tuple */[
                                                                   "unsafeReplaceBy2",
                                                                   (function (param) {
@@ -470,6 +533,7 @@ var suites = /* constructor */{
                                                                       return /* constructor */{
                                                                               tag: 0,
                                                                               name: "Eq",
+                                                                              length: 2,
                                                                               "0": "fooBORKDORK",
                                                                               "1": "foobarbaz".replace((/ba./g), replace)
                                                                             };
@@ -478,6 +542,7 @@ var suites = /* constructor */{
                                                                 "1": /* constructor */{
                                                                   tag: 0,
                                                                   name: "::",
+                                                                  length: 2,
                                                                   "0": /* tuple */[
                                                                     "unsafeReplaceBy3",
                                                                     (function (param) {
@@ -491,6 +556,7 @@ var suites = /* constructor */{
                                                                         return /* constructor */{
                                                                                 tag: 0,
                                                                                 name: "Eq",
+                                                                                length: 2,
                                                                                 "0": "fooBORKDORK",
                                                                                 "1": "foobarbaz".replace((/ba./g), replace)
                                                                               };
@@ -499,12 +565,14 @@ var suites = /* constructor */{
                                                                   "1": /* constructor */{
                                                                     tag: 0,
                                                                     name: "::",
+                                                                    length: 2,
                                                                     "0": /* tuple */[
                                                                       "search",
                                                                       (function (param) {
                                                                           return /* constructor */{
                                                                                   tag: 0,
                                                                                   name: "Eq",
+                                                                                  length: 2,
                                                                                   "0": 3,
                                                                                   "1": "foobarbaz".search((/ba./g))
                                                                                 };
@@ -513,12 +581,14 @@ var suites = /* constructor */{
                                                                     "1": /* constructor */{
                                                                       tag: 0,
                                                                       name: "::",
+                                                                      length: 2,
                                                                       "0": /* tuple */[
                                                                         "slice",
                                                                         (function (param) {
                                                                             return /* constructor */{
                                                                                     tag: 0,
                                                                                     name: "Eq",
+                                                                                    length: 2,
                                                                                     "0": "bar",
                                                                                     "1": "foobarbaz".slice(3, 6)
                                                                                   };
@@ -527,12 +597,14 @@ var suites = /* constructor */{
                                                                       "1": /* constructor */{
                                                                         tag: 0,
                                                                         name: "::",
+                                                                        length: 2,
                                                                         "0": /* tuple */[
                                                                           "sliceToEnd",
                                                                           (function (param) {
                                                                               return /* constructor */{
                                                                                       tag: 0,
                                                                                       name: "Eq",
+                                                                                      length: 2,
                                                                                       "0": "barbaz",
                                                                                       "1": "foobarbaz".slice(3)
                                                                                     };
@@ -541,12 +613,14 @@ var suites = /* constructor */{
                                                                         "1": /* constructor */{
                                                                           tag: 0,
                                                                           name: "::",
+                                                                          length: 2,
                                                                           "0": /* tuple */[
                                                                             "split",
                                                                             (function (param) {
                                                                                 return /* constructor */{
                                                                                         tag: 0,
                                                                                         name: "Eq",
+                                                                                        length: 2,
                                                                                         "0": /* array */[
                                                                                           "foo",
                                                                                           "bar",
@@ -559,12 +633,14 @@ var suites = /* constructor */{
                                                                           "1": /* constructor */{
                                                                             tag: 0,
                                                                             name: "::",
+                                                                            length: 2,
                                                                             "0": /* tuple */[
                                                                               "splitAtMost",
                                                                               (function (param) {
                                                                                   return /* constructor */{
                                                                                           tag: 0,
                                                                                           name: "Eq",
+                                                                                          length: 2,
                                                                                           "0": /* array */[
                                                                                             "foo",
                                                                                             "bar"
@@ -576,12 +652,14 @@ var suites = /* constructor */{
                                                                             "1": /* constructor */{
                                                                               tag: 0,
                                                                               name: "::",
+                                                                              length: 2,
                                                                               "0": /* tuple */[
                                                                                 "splitByRe",
                                                                                 (function (param) {
                                                                                     return /* constructor */{
                                                                                             tag: 0,
                                                                                             name: "Eq",
+                                                                                            length: 2,
                                                                                             "0": /* array */[
                                                                                               "a",
                                                                                               "#",
@@ -598,12 +676,14 @@ var suites = /* constructor */{
                                                                               "1": /* constructor */{
                                                                                 tag: 0,
                                                                                 name: "::",
+                                                                                length: 2,
                                                                                 "0": /* tuple */[
                                                                                   "splitByReAtMost",
                                                                                   (function (param) {
                                                                                       return /* constructor */{
                                                                                               tag: 0,
                                                                                               name: "Eq",
+                                                                                              length: 2,
                                                                                               "0": /* array */[
                                                                                                 "a",
                                                                                                 "#",
@@ -616,12 +696,14 @@ var suites = /* constructor */{
                                                                                 "1": /* constructor */{
                                                                                   tag: 0,
                                                                                   name: "::",
+                                                                                  length: 2,
                                                                                   "0": /* tuple */[
                                                                                     "startsWith",
                                                                                     (function (param) {
                                                                                         return /* constructor */{
                                                                                                 tag: 0,
                                                                                                 name: "Eq",
+                                                                                                length: 2,
                                                                                                 "0": true,
                                                                                                 "1": "foobarbaz".startsWith("foo")
                                                                                               };
@@ -630,12 +712,14 @@ var suites = /* constructor */{
                                                                                   "1": /* constructor */{
                                                                                     tag: 0,
                                                                                     name: "::",
+                                                                                    length: 2,
                                                                                     "0": /* tuple */[
                                                                                       "startsWithFrom",
                                                                                       (function (param) {
                                                                                           return /* constructor */{
                                                                                                   tag: 0,
                                                                                                   name: "Eq",
+                                                                                                  length: 2,
                                                                                                   "0": false,
                                                                                                   "1": "foobarbaz".startsWith("foo", 1)
                                                                                                 };
@@ -644,12 +728,14 @@ var suites = /* constructor */{
                                                                                     "1": /* constructor */{
                                                                                       tag: 0,
                                                                                       name: "::",
+                                                                                      length: 2,
                                                                                       "0": /* tuple */[
                                                                                         "substr",
                                                                                         (function (param) {
                                                                                             return /* constructor */{
                                                                                                     tag: 0,
                                                                                                     name: "Eq",
+                                                                                                    length: 2,
                                                                                                     "0": "barbaz",
                                                                                                     "1": "foobarbaz".substr(3)
                                                                                                   };
@@ -658,12 +744,14 @@ var suites = /* constructor */{
                                                                                       "1": /* constructor */{
                                                                                         tag: 0,
                                                                                         name: "::",
+                                                                                        length: 2,
                                                                                         "0": /* tuple */[
                                                                                           "substrAtMost",
                                                                                           (function (param) {
                                                                                               return /* constructor */{
                                                                                                       tag: 0,
                                                                                                       name: "Eq",
+                                                                                                      length: 2,
                                                                                                       "0": "bar",
                                                                                                       "1": "foobarbaz".substr(3, 3)
                                                                                                     };
@@ -672,12 +760,14 @@ var suites = /* constructor */{
                                                                                         "1": /* constructor */{
                                                                                           tag: 0,
                                                                                           name: "::",
+                                                                                          length: 2,
                                                                                           "0": /* tuple */[
                                                                                             "substring",
                                                                                             (function (param) {
                                                                                                 return /* constructor */{
                                                                                                         tag: 0,
                                                                                                         name: "Eq",
+                                                                                                        length: 2,
                                                                                                         "0": "bar",
                                                                                                         "1": "foobarbaz".substring(3, 6)
                                                                                                       };
@@ -686,12 +776,14 @@ var suites = /* constructor */{
                                                                                           "1": /* constructor */{
                                                                                             tag: 0,
                                                                                             name: "::",
+                                                                                            length: 2,
                                                                                             "0": /* tuple */[
                                                                                               "substringToEnd",
                                                                                               (function (param) {
                                                                                                   return /* constructor */{
                                                                                                           tag: 0,
                                                                                                           name: "Eq",
+                                                                                                          length: 2,
                                                                                                           "0": "barbaz",
                                                                                                           "1": "foobarbaz".substring(3)
                                                                                                         };
@@ -700,12 +792,14 @@ var suites = /* constructor */{
                                                                                             "1": /* constructor */{
                                                                                               tag: 0,
                                                                                               name: "::",
+                                                                                              length: 2,
                                                                                               "0": /* tuple */[
                                                                                                 "toLowerCase",
                                                                                                 (function (param) {
                                                                                                     return /* constructor */{
                                                                                                             tag: 0,
                                                                                                             name: "Eq",
+                                                                                                            length: 2,
                                                                                                             "0": "bork",
                                                                                                             "1": "BORK".toLowerCase()
                                                                                                           };
@@ -714,12 +808,14 @@ var suites = /* constructor */{
                                                                                               "1": /* constructor */{
                                                                                                 tag: 0,
                                                                                                 name: "::",
+                                                                                                length: 2,
                                                                                                 "0": /* tuple */[
                                                                                                   "toLocaleLowerCase",
                                                                                                   (function (param) {
                                                                                                       return /* constructor */{
                                                                                                               tag: 0,
                                                                                                               name: "Eq",
+                                                                                                              length: 2,
                                                                                                               "0": "bork",
                                                                                                               "1": "BORK".toLocaleLowerCase()
                                                                                                             };
@@ -728,12 +824,14 @@ var suites = /* constructor */{
                                                                                                 "1": /* constructor */{
                                                                                                   tag: 0,
                                                                                                   name: "::",
+                                                                                                  length: 2,
                                                                                                   "0": /* tuple */[
                                                                                                     "toUpperCase",
                                                                                                     (function (param) {
                                                                                                         return /* constructor */{
                                                                                                                 tag: 0,
                                                                                                                 name: "Eq",
+                                                                                                                length: 2,
                                                                                                                 "0": "FUBAR",
                                                                                                                 "1": "fubar".toUpperCase()
                                                                                                               };
@@ -742,12 +840,14 @@ var suites = /* constructor */{
                                                                                                   "1": /* constructor */{
                                                                                                     tag: 0,
                                                                                                     name: "::",
+                                                                                                    length: 2,
                                                                                                     "0": /* tuple */[
                                                                                                       "toLocaleUpperCase",
                                                                                                       (function (param) {
                                                                                                           return /* constructor */{
                                                                                                                   tag: 0,
                                                                                                                   name: "Eq",
+                                                                                                                  length: 2,
                                                                                                                   "0": "FUBAR",
                                                                                                                   "1": "fubar".toLocaleUpperCase()
                                                                                                                 };
@@ -756,12 +856,14 @@ var suites = /* constructor */{
                                                                                                     "1": /* constructor */{
                                                                                                       tag: 0,
                                                                                                       name: "::",
+                                                                                                      length: 2,
                                                                                                       "0": /* tuple */[
                                                                                                         "trim",
                                                                                                         (function (param) {
                                                                                                             return /* constructor */{
                                                                                                                     tag: 0,
                                                                                                                     name: "Eq",
+                                                                                                                    length: 2,
                                                                                                                     "0": "foo",
                                                                                                                     "1": "  foo  ".trim()
                                                                                                                   };
@@ -770,12 +872,14 @@ var suites = /* constructor */{
                                                                                                       "1": /* constructor */{
                                                                                                         tag: 0,
                                                                                                         name: "::",
+                                                                                                        length: 2,
                                                                                                         "0": /* tuple */[
                                                                                                           "anchor",
                                                                                                           (function (param) {
                                                                                                               return /* constructor */{
                                                                                                                       tag: 0,
                                                                                                                       name: "Eq",
+                                                                                                                      length: 2,
                                                                                                                       "0": "<a name=\"bar\">foo</a>",
                                                                                                                       "1": "foo".anchor("bar")
                                                                                                                     };
@@ -784,12 +888,14 @@ var suites = /* constructor */{
                                                                                                         "1": /* constructor */{
                                                                                                           tag: 0,
                                                                                                           name: "::",
+                                                                                                          length: 2,
                                                                                                           "0": /* tuple */[
                                                                                                             "link",
                                                                                                             (function (param) {
                                                                                                                 return /* constructor */{
                                                                                                                         tag: 0,
                                                                                                                         name: "Eq",
+                                                                                                                        length: 2,
                                                                                                                         "0": "<a href=\"https://reason.ml\">foo</a>",
                                                                                                                         "1": "foo".link("https://reason.ml")
                                                                                                                       };
@@ -798,12 +904,14 @@ var suites = /* constructor */{
                                                                                                           "1": /* constructor */{
                                                                                                             tag: 0,
                                                                                                             name: "::",
+                                                                                                            length: 2,
                                                                                                             "0": /* tuple */[
                                                                                                               "File \"js_string_test.ml\", line 211, characters 4-11",
                                                                                                               (function (param) {
                                                                                                                   return /* constructor */{
                                                                                                                           tag: 4,
                                                                                                                           name: "Ok",
+                                                                                                                          length: 1,
                                                                                                                           "0": "ab".includes("a")
                                                                                                                         };
                                                                                                                 })

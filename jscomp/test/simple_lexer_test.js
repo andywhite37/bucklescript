@@ -47,12 +47,14 @@ function translate(lexbuf) {
 var suites = /* constructor */{
   tag: 0,
   name: "::",
+  length: 2,
   "0": /* tuple */[
     "translate",
     (function (param) {
         return /* constructor */{
                 tag: 0,
                 name: "Eq",
+                length: 2,
                 "0": __ocaml_lex_translate_rec(Lexing.from_string("-- current_directory --"), 0),
                 "1": "-- . --"
               };

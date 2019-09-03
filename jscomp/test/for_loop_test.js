@@ -159,6 +159,7 @@ function for_9(param) {
     v[0] = /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": x,
       "1": v[0]
     };
@@ -208,12 +209,14 @@ function for_9(param) {
 var suites = /* constructor */{
   tag: 0,
   name: "::",
+  length: 2,
   "0": /* tuple */[
     "for_loop_test_3",
     (function (param) {
         return /* constructor */{
                 tag: 0,
                 name: "Eq",
+                length: 2,
                 "0": 90,
                 "1": for_3(Caml_array.caml_make_vect(10, 2))
               };
@@ -222,12 +225,14 @@ var suites = /* constructor */{
   "1": /* constructor */{
     tag: 0,
     name: "::",
+    length: 2,
     "0": /* tuple */[
       "for_loop_test_4",
       (function (param) {
           return /* constructor */{
                   tag: 0,
                   name: "Eq",
+                  length: 2,
                   "0": 180,
                   "1": for_4(Caml_array.caml_make_vect(10, 2))
                 };
@@ -236,12 +241,14 @@ var suites = /* constructor */{
     "1": /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": /* tuple */[
         "for_loop_test_5",
         (function (param) {
             return /* constructor */{
                     tag: 0,
                     name: "Eq",
+                    length: 2,
                     "0": 2420,
                     "1": for_5(Caml_array.caml_make_vect(10, 2), 11)
                   };
@@ -250,12 +257,14 @@ var suites = /* constructor */{
       "1": /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": /* tuple */[
           "for_loop_test_6",
           (function (param) {
               return /* constructor */{
                       tag: 0,
                       name: "Eq",
+                      length: 2,
                       "0": /* array */[
                         30,
                         1,
@@ -269,12 +278,14 @@ var suites = /* constructor */{
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": /* tuple */[
             "for_loop_test_7",
             (function (param) {
                 return /* constructor */{
                         tag: 0,
                         name: "Eq",
+                        length: 2,
                         "0": 84,
                         "1": for_7(/* () */0)
                       };
@@ -283,12 +294,14 @@ var suites = /* constructor */{
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": /* tuple */[
               "for_loop_test_8",
               (function (param) {
                   return /* constructor */{
                           tag: 0,
                           name: "Eq",
+                          length: 2,
                           "0": 294,
                           "1": for_8(/* () */0)
                         };
@@ -297,12 +310,14 @@ var suites = /* constructor */{
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": /* tuple */[
                 "for_loop_test_9",
                 (function (param) {
                     return /* constructor */{
                             tag: 0,
                             name: "Eq",
+                            length: 2,
                             "0": /* array */[/* tuple */[
                                 10,
                                 /* array */[

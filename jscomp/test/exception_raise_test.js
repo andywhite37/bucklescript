@@ -129,12 +129,14 @@ catch (raw_e$1){
 var suites = /* record */[/* contents : constructor */{
     tag: 0,
     name: "::",
+    length: 2,
     "0": /* tuple */[
       "File \"exception_raise_test.ml\", line 114, characters 4-11",
       (function (param) {
           return /* constructor */{
                   tag: 0,
                   name: "Eq",
+                  length: 2,
                   "0": /* tuple */[
                     f,
                     ff,
@@ -153,6 +155,7 @@ var suites = /* record */[/* contents : constructor */{
     "1": /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": /* tuple */[
         "File \"exception_raise_test.ml\", line 116, characters 4-11",
         (function (param) {
@@ -160,6 +163,7 @@ var suites = /* record */[/* contents : constructor */{
               return /* constructor */{
                       tag: 0,
                       name: "Eq",
+                      length: 2,
                       "0": a1[1],
                       "1": 2
                     };
@@ -225,6 +229,7 @@ function input_lines(ic, _acc) {
     _acc = /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": line,
       "1": acc
     };

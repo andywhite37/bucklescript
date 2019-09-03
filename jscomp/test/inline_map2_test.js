@@ -21,6 +21,7 @@ function Make(Ord) {
     return /* constructor */{
             tag: 0,
             name: "Node",
+            length: 5,
             "0": l,
             "1": x,
             "2": d,
@@ -32,6 +33,7 @@ function Make(Ord) {
     return /* constructor */{
             tag: 0,
             name: "Node",
+            length: 5,
             "0": /* Empty */0,
             "1": x,
             "2": d,
@@ -90,6 +92,7 @@ function Make(Ord) {
       return /* constructor */{
               tag: 0,
               name: "Node",
+              length: 5,
               "0": l,
               "1": x,
               "2": d,
@@ -116,6 +119,7 @@ function Make(Ord) {
         return /* constructor */{
                 tag: 0,
                 name: "Node",
+                length: 5,
                 "0": l,
                 "1": x,
                 "2": data,
@@ -131,6 +135,7 @@ function Make(Ord) {
       return /* constructor */{
               tag: 0,
               name: "Node",
+              length: 5,
               "0": /* Empty */0,
               "1": x,
               "2": data,
@@ -274,6 +279,7 @@ function Make(Ord) {
       return /* constructor */{
               tag: 0,
               name: "Node",
+              length: 5,
               "0": l$prime,
               "1": param[1],
               "2": d$prime,
@@ -293,6 +299,7 @@ function Make(Ord) {
       return /* constructor */{
               tag: 0,
               name: "Node",
+              length: 5,
               "0": l$prime,
               "1": v,
               "2": d$prime,
@@ -513,6 +520,7 @@ function Make(Ord) {
         _e = /* constructor */{
           tag: 0,
           name: "More",
+          length: 4,
           "0": m[1],
           "1": m[2],
           "2": m[3],
@@ -593,6 +601,7 @@ function Make(Ord) {
         _accu = /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": /* tuple */[
             param[1],
             param[2]
@@ -661,6 +670,7 @@ function create(l, x, d, r) {
   return /* constructor */{
           tag: 0,
           name: "Node",
+          length: 5,
           "0": l,
           "1": x,
           "2": d,
@@ -673,6 +683,7 @@ function singleton(x, d) {
   return /* constructor */{
           tag: 0,
           name: "Node",
+          length: 5,
           "0": /* Empty */0,
           "1": x,
           "2": d,
@@ -732,6 +743,7 @@ function bal(l, x, d, r) {
     return /* constructor */{
             tag: 0,
             name: "Node",
+            length: 5,
             "0": l,
             "1": x,
             "2": d,
@@ -760,6 +772,7 @@ function add(x, data, param) {
       return /* constructor */{
               tag: 0,
               name: "Node",
+              length: 5,
               "0": l,
               "1": x,
               "2": data,
@@ -775,6 +788,7 @@ function add(x, data, param) {
     return /* constructor */{
             tag: 0,
             name: "Node",
+            length: 5,
             "0": /* Empty */0,
             "1": x,
             "2": data,
@@ -926,6 +940,7 @@ function map(f, param) {
     return /* constructor */{
             tag: 0,
             name: "Node",
+            length: 5,
             "0": l$prime,
             "1": param[1],
             "2": d$prime,
@@ -946,6 +961,7 @@ function mapi(f, param) {
     return /* constructor */{
             tag: 0,
             name: "Node",
+            length: 5,
             "0": l$prime,
             "1": v,
             "2": d$prime,
@@ -1179,6 +1195,7 @@ function cons_enum(_m, _e) {
       _e = /* constructor */{
         tag: 0,
         name: "More",
+        length: 4,
         "0": m[1],
         "1": m[2],
         "2": m[3],
@@ -1263,6 +1280,7 @@ function bindings_aux(_accu, _param) {
       _accu = /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": /* tuple */[
           param[1],
           param[2]
@@ -1323,6 +1341,7 @@ var m = List.fold_left((function (acc, param) {
       }), /* Empty */0, /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": /* tuple */[
         10,
         /* "a" */97
@@ -1330,6 +1349,7 @@ var m = List.fold_left((function (acc, param) {
       "1": /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": /* tuple */[
           3,
           /* "b" */98
@@ -1337,6 +1357,7 @@ var m = List.fold_left((function (acc, param) {
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": /* tuple */[
             7,
             /* "c" */99
@@ -1344,6 +1365,7 @@ var m = List.fold_left((function (acc, param) {
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": /* tuple */[
               20,
               /* "d" */100
@@ -1368,6 +1390,7 @@ function create$1(l, x, d, r) {
   return /* constructor */{
           tag: 0,
           name: "Node",
+          length: 5,
           "0": l,
           "1": x,
           "2": d,
@@ -1380,6 +1403,7 @@ function singleton$1(x, d) {
   return /* constructor */{
           tag: 0,
           name: "Node",
+          length: 5,
           "0": /* Empty */0,
           "1": x,
           "2": d,
@@ -1439,6 +1463,7 @@ function bal$1(l, x, d, r) {
     return /* constructor */{
             tag: 0,
             name: "Node",
+            length: 5,
             "0": l,
             "1": x,
             "2": d,
@@ -1467,6 +1492,7 @@ function add$1(x, data, param) {
       return /* constructor */{
               tag: 0,
               name: "Node",
+              length: 5,
               "0": l,
               "1": x,
               "2": data,
@@ -1482,6 +1508,7 @@ function add$1(x, data, param) {
     return /* constructor */{
             tag: 0,
             name: "Node",
+            length: 5,
             "0": /* Empty */0,
             "1": x,
             "2": data,
@@ -1633,6 +1660,7 @@ function map$1(f, param) {
     return /* constructor */{
             tag: 0,
             name: "Node",
+            length: 5,
             "0": l$prime,
             "1": param[1],
             "2": d$prime,
@@ -1653,6 +1681,7 @@ function mapi$1(f, param) {
     return /* constructor */{
             tag: 0,
             name: "Node",
+            length: 5,
             "0": l$prime,
             "1": v,
             "2": d$prime,
@@ -1886,6 +1915,7 @@ function cons_enum$1(_m, _e) {
       _e = /* constructor */{
         tag: 0,
         name: "More",
+        length: 4,
         "0": m[1],
         "1": m[2],
         "2": m[3],
@@ -1970,6 +2000,7 @@ function bindings_aux$1(_accu, _param) {
       _accu = /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": /* tuple */[
           param[1],
           param[2]
@@ -2030,6 +2061,7 @@ var s = List.fold_left((function (acc, param) {
       }), /* Empty */0, /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": /* tuple */[
         "10",
         /* "a" */97
@@ -2037,6 +2069,7 @@ var s = List.fold_left((function (acc, param) {
       "1": /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": /* tuple */[
           "3",
           /* "b" */98
@@ -2044,6 +2077,7 @@ var s = List.fold_left((function (acc, param) {
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": /* tuple */[
             "7",
             /* "c" */99
@@ -2051,6 +2085,7 @@ var s = List.fold_left((function (acc, param) {
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": /* tuple */[
               "20",
               /* "d" */100
@@ -2064,12 +2099,14 @@ var s = List.fold_left((function (acc, param) {
 Mt.from_pair_suites("Inline_map2_test", /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": /* tuple */[
         "assertion1",
         (function (param) {
             return /* constructor */{
                     tag: 0,
                     name: "Eq",
+                    length: 2,
                     "0": find(10, m),
                     "1": /* "a" */97
                   };
@@ -2078,12 +2115,14 @@ Mt.from_pair_suites("Inline_map2_test", /* constructor */{
       "1": /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": /* tuple */[
           "assertion2",
           (function (param) {
               return /* constructor */{
                       tag: 0,
                       name: "Eq",
+                      length: 2,
                       "0": find$1("10", s),
                       "1": /* "a" */97
                     };

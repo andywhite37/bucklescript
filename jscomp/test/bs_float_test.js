@@ -24,12 +24,14 @@ function neq(loc, x, y) {
   suites[0] = /* constructor */{
     tag: 0,
     name: "::",
+    length: 2,
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
                   tag: 1,
                   name: "Neq",
+                  length: 2,
                   "0": x,
                   "1": y
                 };

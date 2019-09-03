@@ -31,6 +31,7 @@ function bind(x, f) {
     return /* constructor */{
             tag: 0,
             name: "Left",
+            length: 1,
             "0": Curry._1(f, x[0])
           };
   }

@@ -38,6 +38,7 @@ function update(tr, k, w) {
       return /* constructor */{
               tag: 0,
               name: "Br",
+              length: 3,
               "0": w,
               "1": l,
               "2": r
@@ -48,6 +49,7 @@ function update(tr, k, w) {
         return /* constructor */{
                 tag: 0,
                 name: "Br",
+                length: 3,
                 "0": v,
                 "1": update(l, k / 2 | 0, w),
                 "2": r
@@ -56,6 +58,7 @@ function update(tr, k, w) {
         return /* constructor */{
                 tag: 0,
                 name: "Br",
+                length: 3,
                 "0": v,
                 "1": l,
                 "2": update(r, k / 2 | 0, w)
@@ -66,6 +69,7 @@ function update(tr, k, w) {
     return /* constructor */{
             tag: 0,
             name: "Br",
+            length: 3,
             "0": w,
             "1": /* Lf */0,
             "2": /* Lf */0
@@ -87,6 +91,7 @@ function $$delete(tr, n) {
         return /* constructor */{
                 tag: 0,
                 name: "Br",
+                length: 3,
                 "0": v,
                 "1": $$delete(l, n / 2 | 0),
                 "2": r
@@ -95,6 +100,7 @@ function $$delete(tr, n) {
         return /* constructor */{
                 tag: 0,
                 name: "Br",
+                length: 3,
                 "0": v,
                 "1": l,
                 "2": $$delete(r, n / 2 | 0)
@@ -111,6 +117,7 @@ function loext(tr, w) {
     return /* constructor */{
             tag: 0,
             name: "Br",
+            length: 3,
             "0": w,
             "1": loext(tr[2], tr[0]),
             "2": tr[1]
@@ -119,6 +126,7 @@ function loext(tr, w) {
     return /* constructor */{
             tag: 0,
             name: "Br",
+            length: 3,
             "0": w,
             "1": /* Lf */0,
             "2": /* Lf */0
@@ -133,6 +141,7 @@ function lorem(tr) {
       return /* constructor */{
               tag: 0,
               name: "Br",
+              length: 3,
               "0": l[0],
               "1": tr[2],
               "2": lorem(l)
@@ -243,9 +252,11 @@ function pp(fmt, s) {
   return Curry._1(Format.fprintf(fmt, /* constructor */{
                   tag: 0,
                   name: "Format",
+                  length: 2,
                   "0": /* constructor */{
                     tag: 2,
                     name: "String",
+                    length: 2,
                     "0": /* No_padding */0,
                     "1": /* End_of_format */0
                   },

@@ -20,6 +20,7 @@ var tscanf_data_file = "tscanf_data";
 var tscanf_data_file_lines = /* constructor */{
   tag: 0,
   name: "::",
+  length: 2,
   "0": /* tuple */[
     "Objective",
     "Caml"
@@ -32,9 +33,11 @@ function create_tscanf_data(ob, lines) {
     $$Buffer.add_string(ob, Curry._1(Printf.sprintf(/* constructor */{
                   tag: 0,
                   name: "Format",
+                  length: 2,
                   "0": /* constructor */{
                     tag: 3,
                     name: "Caml_string",
+                    length: 2,
                     "0": /* No_padding */0,
                     "1": /* End_of_format */0
                   },
@@ -44,9 +47,11 @@ function create_tscanf_data(ob, lines) {
     $$Buffer.add_string(ob, Curry._1(Printf.sprintf(/* constructor */{
                   tag: 0,
                   name: "Format",
+                  length: 2,
                   "0": /* constructor */{
                     tag: 3,
                     name: "Caml_string",
+                    length: 2,
                     "0": /* No_padding */0,
                     "1": /* End_of_format */0
                   },
@@ -74,25 +79,31 @@ function get_lines(fname) {
       Curry._1(Scanf.bscanf(ib, /* constructor */{
                 tag: 0,
                 name: "Format",
+                length: 2,
                 "0": /* constructor */{
                   tag: 12,
                   name: "Char_literal",
+                  length: 2,
                   "0": /* " " */32,
                   "1": /* constructor */{
                     tag: 3,
                     name: "Caml_string",
+                    length: 2,
                     "0": /* No_padding */0,
                     "1": /* constructor */{
                       tag: 11,
                       name: "String_literal",
+                      length: 2,
                       "0": " -> ",
                       "1": /* constructor */{
                         tag: 3,
                         name: "Caml_string",
+                        length: 2,
                         "0": /* No_padding */0,
                         "1": /* constructor */{
                           tag: 11,
                           name: "String_literal",
+                          length: 2,
                           "0": "; ",
                           "1": /* End_of_format */0
                         }
@@ -105,6 +116,7 @@ function get_lines(fname) {
               l[0] = /* constructor */{
                 tag: 0,
                 name: "::",
+                length: 2,
                 "0": /* tuple */[
                   x,
                   y
@@ -122,21 +134,26 @@ function get_lines(fname) {
       var s = Curry._2(Printf.sprintf(/* constructor */{
                 tag: 0,
                 name: "Format",
+                length: 2,
                 "0": /* constructor */{
                   tag: 11,
                   name: "String_literal",
+                  length: 2,
                   "0": "in file ",
                   "1": /* constructor */{
                     tag: 2,
                     name: "String",
+                    length: 2,
                     "0": /* No_padding */0,
                     "1": /* constructor */{
                       tag: 11,
                       name: "String_literal",
+                      length: 2,
                       "0": ", ",
                       "1": /* constructor */{
                         tag: 2,
                         name: "String",
+                        length: 2,
                         "0": /* No_padding */0,
                         "1": /* End_of_format */0
                       }
@@ -153,17 +170,21 @@ function get_lines(fname) {
       var s$1 = Curry._1(Printf.sprintf(/* constructor */{
                 tag: 0,
                 name: "Format",
+                length: 2,
                 "0": /* constructor */{
                   tag: 11,
                   name: "String_literal",
+                  length: 2,
                   "0": "in file ",
                   "1": /* constructor */{
                     tag: 2,
                     name: "String",
+                    length: 2,
                     "0": /* No_padding */0,
                     "1": /* constructor */{
                       tag: 11,
                       name: "String_literal",
+                      length: 2,
                       "0": ", unexpected end of file",
                       "1": /* End_of_format */0
                     }
@@ -186,14 +207,17 @@ function add_digest_ib(ob, ib) {
     return Curry._1(Scanf.bscanf(ib, /* constructor */{
                     tag: 0,
                     name: "Format",
+                    length: 2,
                     "0": /* constructor */{
                       tag: 20,
                       name: "Scan_char_set",
+                      length: 3,
                       "0": undefined,
                       "1": "\xff\xdb\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff",
                       "2": /* constructor */{
                         tag: 12,
                         name: "Char_literal",
+                        length: 2,
                         "0": /* "\n" */10,
                         "1": /* End_of_format */0
                       }

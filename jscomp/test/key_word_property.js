@@ -18,6 +18,7 @@ function mk2($$window, $$default) {
   return /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": /* record */[
             /* window */$$window,
             /* default */$$default

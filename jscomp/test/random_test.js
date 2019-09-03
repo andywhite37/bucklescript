@@ -79,55 +79,66 @@ var xxx = Random.int32(103);
 Curry._5(Printf.printf(/* constructor */{
           tag: 0,
           name: "Format",
+          length: 2,
           "0": /* constructor */{
             tag: 7,
             name: "Int64",
+            length: 4,
             "0": /* Int_d */0,
             "1": /* No_padding */0,
             "2": /* No_precision */0,
             "3": /* constructor */{
               tag: 12,
               name: "Char_literal",
+              length: 2,
               "0": /* " " */32,
               "1": /* constructor */{
                 tag: 7,
                 name: "Int64",
+                length: 4,
                 "0": /* Int_d */0,
                 "1": /* No_padding */0,
                 "2": /* No_precision */0,
                 "3": /* constructor */{
                   tag: 12,
                   name: "Char_literal",
+                  length: 2,
                   "0": /* " " */32,
                   "1": /* constructor */{
                     tag: 4,
                     name: "Int",
+                    length: 4,
                     "0": /* Int_d */0,
                     "1": /* No_padding */0,
                     "2": /* No_precision */0,
                     "3": /* constructor */{
                       tag: 12,
                       name: "Char_literal",
+                      length: 2,
                       "0": /* " " */32,
                       "1": /* constructor */{
                         tag: 8,
                         name: "Float",
+                        length: 4,
                         "0": /* Float_f */0,
                         "1": /* No_padding */0,
                         "2": /* No_precision */0,
                         "3": /* constructor */{
                           tag: 12,
                           name: "Char_literal",
+                          length: 2,
                           "0": /* " " */32,
                           "1": /* constructor */{
                             tag: 5,
                             name: "Int32",
+                            length: 4,
                             "0": /* Int_d */0,
                             "1": /* No_padding */0,
                             "2": /* No_precision */0,
                             "3": /* constructor */{
                               tag: 11,
                               name: "String_literal",
+                              length: 2,
                               "0": " \n",
                               "1": /* End_of_format */0
                             }

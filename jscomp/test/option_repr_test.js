@@ -109,14 +109,17 @@ function f13$1(param) {
   return Caml_obj.caml_equal(Belt_List.take(length_10_id, 8), /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": 1,
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
+                length: 2,
                 "0": 2,
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
+                  length: 2,
                   "0": 3,
                   "1": /* [] */0
                 }
@@ -177,6 +180,7 @@ function all_true(xs) {
 var xs = /* constructor */{
   tag: 0,
   name: "::",
+  length: 2,
   "0": gtx(Caml_option.some(null), Caml_option.some(undefined)),
   "1": /* [] */0
 };
@@ -188,48 +192,59 @@ b("File \"option_repr_test.ml\", line 121, characters 5-12", Belt_List.every(xs,
 var xs$1 = /* constructor */{
   tag: 0,
   name: "::",
+  length: 2,
   "0": ltx(Caml_option.some(undefined), 3),
   "1": /* constructor */{
     tag: 0,
     name: "::",
+    length: 2,
     "0": ltx(Caml_option.some(undefined), Caml_option.some(Caml_option.some(undefined))),
     "1": /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": ltx(Caml_option.some(undefined), "3"),
       "1": /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": ltx(Caml_option.some(undefined), true),
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": ltx(Caml_option.some(undefined), false),
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": ltx(false, true),
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": ltx(false, true),
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
+                length: 2,
                 "0": ltx(undefined, Caml_option.some(undefined)),
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
+                  length: 2,
                   "0": ltx(undefined, null),
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
+                    length: 2,
                     "0": ltx(undefined, (function (x) {
                             return x;
                           })),
                     "1": /* constructor */{
                       tag: 0,
                       name: "::",
+                      length: 2,
                       "0": ltx(null, 3),
                       "1": /* [] */0
                     }
@@ -251,22 +266,27 @@ b("File \"option_repr_test.ml\", line 127, characters 5-12", Belt_List.every(xs$
 var xs$2 = /* constructor */{
   tag: 0,
   name: "::",
+  length: 2,
   "0": eqx(undefined, undefined),
   "1": /* constructor */{
     tag: 0,
     name: "::",
+    length: 2,
     "0": neqx(undefined, null),
     "1": /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": eqx(Caml_option.some(undefined), Caml_option.some(undefined)),
       "1": /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": eqx(Caml_option.some(Caml_option.some(undefined)), Caml_option.some(Caml_option.some(undefined))),
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": neqx(Caml_option.some(Caml_option.some(Caml_option.some(undefined))), Caml_option.some(Caml_option.some(undefined))),
           "1": /* [] */0
         }

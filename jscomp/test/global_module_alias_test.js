@@ -13,12 +13,14 @@ function eq(loc, x, y) {
   suites[0] = /* constructor */{
     tag: 0,
     name: "::",
+    length: 2,
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
                   tag: 0,
                   name: "Eq",
+                  length: 2,
                   "0": x,
                   "1": y
                 };
@@ -141,10 +143,12 @@ function f(param) {
 eq("File \"global_module_alias_test.ml\", line 51, characters 5-12", List.length(/* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": 1,
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 2,
             "1": /* [] */0
           }
@@ -227,18 +231,22 @@ function g(param) {
   return List.length(/* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": 1,
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
+                length: 2,
                 "0": 2,
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
+                  length: 2,
                   "0": 3,
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
+                    length: 2,
                     "0": 4,
                     "1": /* [] */0
                   }
@@ -310,14 +318,17 @@ v[0] = v[0] + 1 | 0;
 eq("File \"global_module_alias_test.ml\", line 92, characters 5-12", List.length(/* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": 1,
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 2,
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": 3,
               "1": /* [] */0
             }
@@ -331,10 +342,12 @@ var H$1 = f(/* () */0);
 eq("File \"global_module_alias_test.ml\", line 95, characters 5-12", Curry._1(H$1.length, /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": 1,
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 2,
             "1": /* [] */0
           }

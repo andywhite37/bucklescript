@@ -96,6 +96,7 @@ Mt_global.collect_eq(test_id, suites, "File \"hash_test.ml\", line 34, character
 var param$6 = Hashtbl.hash(/* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": /* `A */[
         65,
         3
@@ -103,6 +104,7 @@ var param$6 = Hashtbl.hash(/* constructor */{
       "1": /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": /* `B */[
           66,
           2
@@ -110,6 +112,7 @@ var param$6 = Hashtbl.hash(/* constructor */{
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": /* `C */[
             67,
             3
@@ -124,6 +127,7 @@ Mt_global.collect_eq(test_id, suites, "File \"hash_test.ml\", line 35, character
 var param$7 = Hashtbl.hash(/* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": /* tuple */[
         /* `A */[
           65,
@@ -137,6 +141,7 @@ var param$7 = Hashtbl.hash(/* constructor */{
       "1": /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": /* tuple */[
           /* `C */[
             67,
@@ -156,6 +161,7 @@ Mt_global.collect_eq(test_id, suites, "File \"hash_test.ml\", line 36, character
 var param$8 = Hashtbl.hash(/* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": /* tuple */[
         /* `A */[
           65,

@@ -14,12 +14,14 @@ function eq(loc, x, y) {
   suites[0] = /* constructor */{
     tag: 0,
     name: "::",
+    length: 2,
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
                   tag: 0,
                   name: "Eq",
+                  length: 2,
                   "0": x,
                   "1": y
                 };
@@ -57,78 +59,97 @@ eq("File \"chn_test.ml\", line 25, characters 7-14", "你好，\n世界", "你�
 eq("File \"chn_test.ml\", line 27, characters 7-14", convert("汉字是世界上最美丽的character"), /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": 27721,
       "1": /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": 23383,
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": 26159,
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 19990,
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": 30028,
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
+                length: 2,
                 "0": 19978,
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
+                  length: 2,
                   "0": 26368,
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
+                    length: 2,
                     "0": 32654,
                     "1": /* constructor */{
                       tag: 0,
                       name: "::",
+                      length: 2,
                       "0": 20029,
                       "1": /* constructor */{
                         tag: 0,
                         name: "::",
+                        length: 2,
                         "0": 30340,
                         "1": /* constructor */{
                           tag: 0,
                           name: "::",
+                          length: 2,
                           "0": 99,
                           "1": /* constructor */{
                             tag: 0,
                             name: "::",
+                            length: 2,
                             "0": 104,
                             "1": /* constructor */{
                               tag: 0,
                               name: "::",
+                              length: 2,
                               "0": 97,
                               "1": /* constructor */{
                                 tag: 0,
                                 name: "::",
+                                length: 2,
                                 "0": 114,
                                 "1": /* constructor */{
                                   tag: 0,
                                   name: "::",
+                                  length: 2,
                                   "0": 97,
                                   "1": /* constructor */{
                                     tag: 0,
                                     name: "::",
+                                    length: 2,
                                     "0": 99,
                                     "1": /* constructor */{
                                       tag: 0,
                                       name: "::",
+                                      length: 2,
                                       "0": 116,
                                       "1": /* constructor */{
                                         tag: 0,
                                         name: "::",
+                                        length: 2,
                                         "0": 101,
                                         "1": /* constructor */{
                                           tag: 0,
                                           name: "::",
+                                          length: 2,
                                           "0": 114,
                                           "1": /* [] */0
                                         }
@@ -154,14 +175,17 @@ eq("File \"chn_test.ml\", line 27, characters 7-14", convert("汉字是世界上
 eq("File \"chn_test.ml\", line 48, characters 5-12", convert("\x3f\x3fa"), /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": 63,
       "1": /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": 63,
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": 97,
           "1": /* [] */0
         }
@@ -171,14 +195,17 @@ eq("File \"chn_test.ml\", line 48, characters 5-12", convert("\x3f\x3fa"), /* co
 eq("File \"chn_test.ml\", line 50, characters 5-12", convert("??a"), /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": 63,
       "1": /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": 63,
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": 97,
           "1": /* [] */0
         }
@@ -188,14 +215,17 @@ eq("File \"chn_test.ml\", line 50, characters 5-12", convert("??a"), /* construc
 eq("File \"chn_test.ml\", line 52, characters 5-12", convert("\u003f\x3fa"), /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": 63,
       "1": /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": 63,
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": 97,
           "1": /* [] */0
         }
@@ -205,14 +235,17 @@ eq("File \"chn_test.ml\", line 52, characters 5-12", convert("\u003f\x3fa"), /* 
 eq("File \"chn_test.ml\", line 54, characters 5-12", convert("🚀🚀a"), /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": 128640,
       "1": /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": 128640,
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": 97,
           "1": /* [] */0
         }
@@ -222,10 +255,12 @@ eq("File \"chn_test.ml\", line 54, characters 5-12", convert("🚀🚀a"), /* co
 eq("File \"chn_test.ml\", line 56, characters 5-12", convert("\uD83D\uDE80a"), /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": 128640,
       "1": /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": 97,
         "1": /* [] */0
       }
@@ -234,10 +269,12 @@ eq("File \"chn_test.ml\", line 56, characters 5-12", convert("\uD83D\uDE80a"), /
 eq("File \"chn_test.ml\", line 58, characters 5-12", convert("\uD83D\uDE80\x3f"), /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": 128640,
       "1": /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": 63,
         "1": /* [] */0
       }
@@ -246,14 +283,17 @@ eq("File \"chn_test.ml\", line 58, characters 5-12", convert("\uD83D\uDE80\x3f")
 eq("File \"chn_test.ml\", line 63, characters 5-12", convert("\uD83D\uDE80\uD83D\uDE80a"), /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": 128640,
       "1": /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": 128640,
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": 97,
           "1": /* [] */0
         }
@@ -267,6 +307,7 @@ eq("No inline string access", Caml_string.get("\uD83D\uDE80\0", 0) & 255, 61);
 eq("File \"chn_test.ml\", line 79, characters 5-12", convert("\uD83D\uDE80"), /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": 128640,
       "1": /* [] */0
     });
@@ -274,10 +315,12 @@ eq("File \"chn_test.ml\", line 79, characters 5-12", convert("\uD83D\uDE80"), /*
 eq("File \"chn_test.ml\", line 81, characters 5-12", convert("\uD83D\uDE80\uD83D\uDE80"), /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": 128640,
       "1": /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": 128640,
         "1": /* [] */0
       }
@@ -286,34 +329,42 @@ eq("File \"chn_test.ml\", line 81, characters 5-12", convert("\uD83D\uDE80\uD83D
 eq("File \"chn_test.ml\", line 82, characters 5-12", convert(" \b\t\n\v\f\ra"), /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": 32,
       "1": /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": 8,
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": 9,
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 10,
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": 11,
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
+                length: 2,
                 "0": 12,
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
+                  length: 2,
                   "0": 13,
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
+                    length: 2,
                     "0": 97,
                     "1": /* [] */0
                   }
@@ -328,50 +379,62 @@ eq("File \"chn_test.ml\", line 82, characters 5-12", convert(" \b\t\n\v\f\ra"), 
 eq("File \"chn_test.ml\", line 89, characters 6-13", convert(" \b\t\n\v\f\r\"\'\\\0a"), /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": 32,
       "1": /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": 8,
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": 9,
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 10,
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": 11,
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
+                length: 2,
                 "0": 12,
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
+                  length: 2,
                   "0": 13,
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
+                    length: 2,
                     "0": 34,
                     "1": /* constructor */{
                       tag: 0,
                       name: "::",
+                      length: 2,
                       "0": 39,
                       "1": /* constructor */{
                         tag: 0,
                         name: "::",
+                        length: 2,
                         "0": 92,
                         "1": /* constructor */{
                           tag: 0,
                           name: "::",
+                          length: 2,
                           "0": 0,
                           "1": /* constructor */{
                             tag: 0,
                             name: "::",
+                            length: 2,
                             "0": 97,
                             "1": /* [] */0
                           }

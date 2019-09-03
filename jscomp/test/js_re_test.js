@@ -7,6 +7,7 @@ var Caml_option = require("../../lib/js/caml_option.js");
 var suites = /* constructor */{
   tag: 0,
   name: "::",
+  length: 2,
   "0": /* tuple */[
     "captures",
     (function (param) {
@@ -18,6 +19,7 @@ var suites = /* constructor */{
           return /* constructor */{
                   tag: 0,
                   name: "Eq",
+                  length: 2,
                   "0": /* tuple */[
                     "3",
                     null
@@ -31,6 +33,7 @@ var suites = /* constructor */{
           return /* constructor */{
                   tag: 8,
                   name: "Fail",
+                  length: 1,
                   "0": /* () */0
                 };
         }
@@ -39,6 +42,7 @@ var suites = /* constructor */{
   "1": /* constructor */{
     tag: 0,
     name: "::",
+    length: 2,
     "0": /* tuple */[
       "fromString",
       (function (param) {
@@ -52,6 +56,7 @@ var suites = /* constructor */{
           return /* constructor */{
                   tag: 0,
                   name: "Eq",
+                  length: 2,
                   "0": contentOf("div", "<div>Hi</div>"),
                   "1": "Hi"
                 };
@@ -60,6 +65,7 @@ var suites = /* constructor */{
     "1": /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": /* tuple */[
         "exec_literal",
         (function (param) {
@@ -68,6 +74,7 @@ var suites = /* constructor */{
               return /* constructor */{
                       tag: 0,
                       name: "Eq",
+                      length: 2,
                       "0": "http://xxx",
                       "1": Caml_array.caml_array_get(match, 0)
                     };
@@ -75,6 +82,7 @@ var suites = /* constructor */{
               return /* constructor */{
                       tag: 9,
                       name: "FailWith",
+                      length: 1,
                       "0": "regex should match"
                     };
             }
@@ -83,6 +91,7 @@ var suites = /* constructor */{
       "1": /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": /* tuple */[
           "exec_no_match",
           (function (param) {
@@ -91,12 +100,14 @@ var suites = /* constructor */{
                 return /* constructor */{
                         tag: 9,
                         name: "FailWith",
+                        length: 1,
                         "0": "regex should not match"
                       };
               } else {
                 return /* constructor */{
                         tag: 4,
                         name: "Ok",
+                        length: 1,
                         "0": true
                       };
               }
@@ -105,6 +116,7 @@ var suites = /* constructor */{
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": /* tuple */[
             "test_str",
             (function (param) {
@@ -112,6 +124,7 @@ var suites = /* constructor */{
                 return /* constructor */{
                         tag: 0,
                         name: "Eq",
+                        length: 2,
                         "0": true,
                         "1": res
                       };
@@ -120,6 +133,7 @@ var suites = /* constructor */{
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": /* tuple */[
               "fromStringWithFlags",
               (function (param) {
@@ -127,6 +141,7 @@ var suites = /* constructor */{
                   return /* constructor */{
                           tag: 0,
                           name: "Eq",
+                          length: 2,
                           "0": true,
                           "1": res.global
                         };
@@ -135,6 +150,7 @@ var suites = /* constructor */{
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": /* tuple */[
                 "result_index",
                 (function (param) {
@@ -143,6 +159,7 @@ var suites = /* constructor */{
                       return /* constructor */{
                               tag: 0,
                               name: "Eq",
+                              length: 2,
                               "0": 8,
                               "1": match.index
                             };
@@ -150,6 +167,7 @@ var suites = /* constructor */{
                       return /* constructor */{
                               tag: 8,
                               name: "Fail",
+                              length: 1,
                               "0": /* () */0
                             };
                     }
@@ -158,6 +176,7 @@ var suites = /* constructor */{
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
+                length: 2,
                 "0": /* tuple */[
                   "result_input",
                   (function (param) {
@@ -167,6 +186,7 @@ var suites = /* constructor */{
                         return /* constructor */{
                                 tag: 0,
                                 name: "Eq",
+                                length: 2,
                                 "0": input,
                                 "1": match.input
                               };
@@ -174,6 +194,7 @@ var suites = /* constructor */{
                         return /* constructor */{
                                 tag: 8,
                                 name: "Fail",
+                                length: 1,
                                 "0": /* () */0
                               };
                       }
@@ -182,12 +203,14 @@ var suites = /* constructor */{
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
+                  length: 2,
                   "0": /* tuple */[
                     "t_flags",
                     (function (param) {
                         return /* constructor */{
                                 tag: 0,
                                 name: "Eq",
+                                length: 2,
                                 "0": "gi",
                                 "1": (/./ig).flags
                               };
@@ -196,12 +219,14 @@ var suites = /* constructor */{
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
+                    length: 2,
                     "0": /* tuple */[
                       "t_global",
                       (function (param) {
                           return /* constructor */{
                                   tag: 0,
                                   name: "Eq",
+                                  length: 2,
                                   "0": true,
                                   "1": (/./ig).global
                                 };
@@ -210,12 +235,14 @@ var suites = /* constructor */{
                     "1": /* constructor */{
                       tag: 0,
                       name: "::",
+                      length: 2,
                       "0": /* tuple */[
                         "t_ignoreCase",
                         (function (param) {
                             return /* constructor */{
                                     tag: 0,
                                     name: "Eq",
+                                    length: 2,
                                     "0": true,
                                     "1": (/./ig).ignoreCase
                                   };
@@ -224,6 +251,7 @@ var suites = /* constructor */{
                       "1": /* constructor */{
                         tag: 0,
                         name: "::",
+                        length: 2,
                         "0": /* tuple */[
                           "t_lastIndex",
                           (function (param) {
@@ -232,6 +260,7 @@ var suites = /* constructor */{
                               return /* constructor */{
                                       tag: 0,
                                       name: "Eq",
+                                      length: 2,
                                       "0": 4,
                                       "1": re.lastIndex
                                     };
@@ -240,6 +269,7 @@ var suites = /* constructor */{
                         "1": /* constructor */{
                           tag: 0,
                           name: "::",
+                          length: 2,
                           "0": /* tuple */[
                             "t_setLastIndex",
                             (function (param) {
@@ -250,6 +280,7 @@ var suites = /* constructor */{
                                 return /* constructor */{
                                         tag: 0,
                                         name: "Eq",
+                                        length: 2,
                                         "0": /* tuple */[
                                           0,
                                           42
@@ -264,12 +295,14 @@ var suites = /* constructor */{
                           "1": /* constructor */{
                             tag: 0,
                             name: "::",
+                            length: 2,
                             "0": /* tuple */[
                               "t_multiline",
                               (function (param) {
                                   return /* constructor */{
                                           tag: 0,
                                           name: "Eq",
+                                          length: 2,
                                           "0": false,
                                           "1": (/./ig).multiline
                                         };
@@ -278,12 +311,14 @@ var suites = /* constructor */{
                             "1": /* constructor */{
                               tag: 0,
                               name: "::",
+                              length: 2,
                               "0": /* tuple */[
                                 "t_source",
                                 (function (param) {
                                     return /* constructor */{
                                             tag: 0,
                                             name: "Eq",
+                                            length: 2,
                                             "0": "f.+o",
                                             "1": (/f.+o/ig).source
                                           };
@@ -292,12 +327,14 @@ var suites = /* constructor */{
                               "1": /* constructor */{
                                 tag: 0,
                                 name: "::",
+                                length: 2,
                                 "0": /* tuple */[
                                   "t_sticky",
                                   (function (param) {
                                       return /* constructor */{
                                               tag: 0,
                                               name: "Eq",
+                                              length: 2,
                                               "0": true,
                                               "1": (/./yg).sticky
                                             };
@@ -306,12 +343,14 @@ var suites = /* constructor */{
                                 "1": /* constructor */{
                                   tag: 0,
                                   name: "::",
+                                  length: 2,
                                   "0": /* tuple */[
                                     "t_unicode",
                                     (function (param) {
                                         return /* constructor */{
                                                 tag: 0,
                                                 name: "Eq",
+                                                length: 2,
                                                 "0": false,
                                                 "1": (/./yg).unicode
                                               };

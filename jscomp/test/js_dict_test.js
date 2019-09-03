@@ -13,12 +13,14 @@ function obj(param) {
 var suites = /* constructor */{
   tag: 0,
   name: "::",
+  length: 2,
   "0": /* tuple */[
     "empty",
     (function (param) {
         return /* constructor */{
                 tag: 0,
                 name: "Eq",
+                length: 2,
                 "0": /* array */[],
                 "1": Object.keys({ })
               };
@@ -27,12 +29,14 @@ var suites = /* constructor */{
   "1": /* constructor */{
     tag: 0,
     name: "::",
+    length: 2,
     "0": /* tuple */[
       "get",
       (function (param) {
           return /* constructor */{
                   tag: 0,
                   name: "Eq",
+                  length: 2,
                   "0": 43,
                   "1": Js_dict.get({
                         foo: 43,
@@ -44,12 +48,14 @@ var suites = /* constructor */{
     "1": /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": /* tuple */[
         "get - property not in object",
         (function (param) {
             return /* constructor */{
                     tag: 0,
                     name: "Eq",
+                    length: 2,
                     "0": undefined,
                     "1": Js_dict.get({
                           foo: 43,
@@ -61,12 +67,14 @@ var suites = /* constructor */{
       "1": /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": /* tuple */[
           "unsafe_get",
           (function (param) {
               return /* constructor */{
                       tag: 0,
                       name: "Eq",
+                      length: 2,
                       "0": 43,
                       "1": ({
                             foo: 43,
@@ -78,6 +86,7 @@ var suites = /* constructor */{
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": /* tuple */[
             "set",
             (function (param) {
@@ -89,6 +98,7 @@ var suites = /* constructor */{
                 return /* constructor */{
                         tag: 0,
                         name: "Eq",
+                        length: 2,
                         "0": 36,
                         "1": Js_dict.get(o, "foo")
                       };
@@ -97,12 +107,14 @@ var suites = /* constructor */{
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": /* tuple */[
               "keys",
               (function (param) {
                   return /* constructor */{
                           tag: 0,
                           name: "Eq",
+                          length: 2,
                           "0": /* array */[
                             "foo",
                             "bar"
@@ -117,12 +129,14 @@ var suites = /* constructor */{
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": /* tuple */[
                 "entries",
                 (function (param) {
                     return /* constructor */{
                             tag: 0,
                             name: "Eq",
+                            length: 2,
                             "0": /* array */[
                               /* tuple */[
                                 "foo",
@@ -143,12 +157,14 @@ var suites = /* constructor */{
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
+                length: 2,
                 "0": /* tuple */[
                   "values",
                   (function (param) {
                       return /* constructor */{
                               tag: 0,
                               name: "Eq",
+                              length: 2,
                               "0": /* array */[
                                 43,
                                 86
@@ -163,12 +179,14 @@ var suites = /* constructor */{
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
+                  length: 2,
                   "0": /* tuple */[
                     "fromList - []",
                     (function (param) {
                         return /* constructor */{
                                 tag: 0,
                                 name: "Eq",
+                                length: 2,
                                 "0": { },
                                 "1": Js_dict.fromList(/* [] */0)
                               };
@@ -177,12 +195,14 @@ var suites = /* constructor */{
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
+                    length: 2,
                     "0": /* tuple */[
                       "fromList",
                       (function (param) {
                           return /* constructor */{
                                   tag: 0,
                                   name: "Eq",
+                                  length: 2,
                                   "0": /* array */[
                                     /* tuple */[
                                       "x",
@@ -196,6 +216,7 @@ var suites = /* constructor */{
                                   "1": Js_dict.entries(Js_dict.fromList(/* constructor */{
                                             tag: 0,
                                             name: "::",
+                                            length: 2,
                                             "0": /* tuple */[
                                               "x",
                                               23
@@ -203,6 +224,7 @@ var suites = /* constructor */{
                                             "1": /* constructor */{
                                               tag: 0,
                                               name: "::",
+                                              length: 2,
                                               "0": /* tuple */[
                                                 "y",
                                                 46
@@ -216,12 +238,14 @@ var suites = /* constructor */{
                     "1": /* constructor */{
                       tag: 0,
                       name: "::",
+                      length: 2,
                       "0": /* tuple */[
                         "fromArray - []",
                         (function (param) {
                             return /* constructor */{
                                     tag: 0,
                                     name: "Eq",
+                                    length: 2,
                                     "0": { },
                                     "1": Js_dict.fromArray(/* array */[])
                                   };
@@ -230,12 +254,14 @@ var suites = /* constructor */{
                       "1": /* constructor */{
                         tag: 0,
                         name: "::",
+                        length: 2,
                         "0": /* tuple */[
                           "fromArray",
                           (function (param) {
                               return /* constructor */{
                                       tag: 0,
                                       name: "Eq",
+                                      length: 2,
                                       "0": /* array */[
                                         /* tuple */[
                                           "x",
@@ -262,12 +288,14 @@ var suites = /* constructor */{
                         "1": /* constructor */{
                           tag: 0,
                           name: "::",
+                          length: 2,
                           "0": /* tuple */[
                             "map",
                             (function (param) {
                                 return /* constructor */{
                                         tag: 0,
                                         name: "Eq",
+                                        length: 2,
                                         "0": {
                                           foo: "43",
                                           bar: "86"

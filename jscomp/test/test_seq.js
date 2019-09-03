@@ -35,6 +35,7 @@ function help_action(param) {
         /* constructor */{
           tag: 0,
           name: "Unknown",
+          length: 1,
           "0": "-help"
         }
       ];
@@ -60,11 +61,13 @@ function add_help(speclist) {
       add1 = /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": /* tuple */[
           "-help",
           /* constructor */{
             tag: 0,
             name: "Unit",
+            length: 1,
             "0": help_action
           },
           " Display this list of options"
@@ -85,11 +88,13 @@ function add_help(speclist) {
       add2 = /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": /* tuple */[
           "--help",
           /* constructor */{
             tag: 0,
             name: "Unit",
+            length: 1,
             "0": help_action
           },
           " Display this list of options"

@@ -33,6 +33,7 @@ var v = 5;
 var u = /* constructor */{
   tag: 0,
   name: "Some",
+  length: 1,
   "0": 3
 };
 

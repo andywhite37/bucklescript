@@ -70,12 +70,14 @@ g();
 Mt.from_pair_suites("Ffi_arity_test", /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": /* tuple */[
         "File \"ffi_arity_test.ml\", line 45, characters 4-11",
         (function (param) {
             return /* constructor */{
                     tag: 0,
                     name: "Eq",
+                    length: 2,
                     "0": v,
                     "1": /* array */[
                       0,
@@ -88,12 +90,14 @@ Mt.from_pair_suites("Ffi_arity_test", /* constructor */{
       "1": /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": /* tuple */[
           "File \"ffi_arity_test.ml\", line 46, characters 4-11",
           (function (param) {
               return /* constructor */{
                       tag: 0,
                       name: "Eq",
+                      length: 2,
                       "0": vv,
                       "1": /* array */[
                         1,
@@ -106,12 +110,14 @@ Mt.from_pair_suites("Ffi_arity_test", /* constructor */{
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": /* tuple */[
             "File \"ffi_arity_test.ml\", line 47, characters 4-11",
             (function (param) {
                 return /* constructor */{
                         tag: 0,
                         name: "Eq",
+                        length: 2,
                         "0": hh,
                         "1": /* array */[
                           1,
@@ -124,12 +130,14 @@ Mt.from_pair_suites("Ffi_arity_test", /* constructor */{
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": /* tuple */[
               "File \"ffi_arity_test.ml\", line 48, characters 4-11",
               (function (param) {
                   return /* constructor */{
                           tag: 0,
                           name: "Eq",
+                          length: 2,
                           "0": /* array */[
                                 1,
                                 2,
@@ -152,12 +160,14 @@ Mt.from_pair_suites("Ffi_arity_test", /* constructor */{
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": /* tuple */[
                 "File \"ffi_arity_test.ml\", line 53, characters 4-11",
                 (function (param) {
                     return /* constructor */{
                             tag: 0,
                             name: "Eq",
+                            length: 2,
                             "0": /* array */[
                                 1,
                                 2,

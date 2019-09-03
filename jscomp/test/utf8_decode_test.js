@@ -13,18 +13,21 @@ function classify(chr) {
     return /* constructor */{
             tag: 0,
             name: "Single",
+            length: 1,
             "0": chr
           };
   } else if ((chr & 64) === 0) {
     return /* constructor */{
             tag: 1,
             name: "Cont",
+            length: 1,
             "0": chr & 63
           };
   } else if ((chr & 32) === 0) {
     return /* constructor */{
             tag: 2,
             name: "Leading",
+            length: 2,
             "0": 1,
             "1": chr & 31
           };
@@ -32,6 +35,7 @@ function classify(chr) {
     return /* constructor */{
             tag: 2,
             name: "Leading",
+            length: 2,
             "0": 2,
             "1": chr & 15
           };
@@ -39,6 +43,7 @@ function classify(chr) {
     return /* constructor */{
             tag: 2,
             name: "Leading",
+            length: 2,
             "0": 3,
             "1": chr & 7
           };
@@ -46,6 +51,7 @@ function classify(chr) {
     return /* constructor */{
             tag: 2,
             name: "Leading",
+            length: 2,
             "0": 4,
             "1": chr & 3
           };
@@ -53,6 +59,7 @@ function classify(chr) {
     return /* constructor */{
             tag: 2,
             name: "Leading",
+            length: 2,
             "0": 5,
             "1": chr & 1
           };
@@ -124,6 +131,7 @@ function to_list(xs) {
           v[0] = /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": x,
             "1": v[0]
           };
@@ -229,12 +237,14 @@ function eq(loc, param) {
   suites[0] = /* constructor */{
     tag: 0,
     name: "::",
+    length: 2,
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
                   tag: 0,
                   name: "Eq",
+                  length: 2,
                   "0": x,
                   "1": y
                 };
@@ -253,95 +263,118 @@ List.iter((function (param) {
       }), /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": /* tuple */[
         "\xe4\xbd\xa0\xe5\xa5\xbdBuckleScript,\xe6\x9c\x80\xe5\xa5\xbd\xe7\x9a\x84JS\xe8\xaf\xad\xe8\xa8\x80",
         /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": 20320,
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 22909,
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": 66,
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
+                length: 2,
                 "0": 117,
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
+                  length: 2,
                   "0": 99,
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
+                    length: 2,
                     "0": 107,
                     "1": /* constructor */{
                       tag: 0,
                       name: "::",
+                      length: 2,
                       "0": 108,
                       "1": /* constructor */{
                         tag: 0,
                         name: "::",
+                        length: 2,
                         "0": 101,
                         "1": /* constructor */{
                           tag: 0,
                           name: "::",
+                          length: 2,
                           "0": 83,
                           "1": /* constructor */{
                             tag: 0,
                             name: "::",
+                            length: 2,
                             "0": 99,
                             "1": /* constructor */{
                               tag: 0,
                               name: "::",
+                              length: 2,
                               "0": 114,
                               "1": /* constructor */{
                                 tag: 0,
                                 name: "::",
+                                length: 2,
                                 "0": 105,
                                 "1": /* constructor */{
                                   tag: 0,
                                   name: "::",
+                                  length: 2,
                                   "0": 112,
                                   "1": /* constructor */{
                                     tag: 0,
                                     name: "::",
+                                    length: 2,
                                     "0": 116,
                                     "1": /* constructor */{
                                       tag: 0,
                                       name: "::",
+                                      length: 2,
                                       "0": 44,
                                       "1": /* constructor */{
                                         tag: 0,
                                         name: "::",
+                                        length: 2,
                                         "0": 26368,
                                         "1": /* constructor */{
                                           tag: 0,
                                           name: "::",
+                                          length: 2,
                                           "0": 22909,
                                           "1": /* constructor */{
                                             tag: 0,
                                             name: "::",
+                                            length: 2,
                                             "0": 30340,
                                             "1": /* constructor */{
                                               tag: 0,
                                               name: "::",
+                                              length: 2,
                                               "0": 74,
                                               "1": /* constructor */{
                                                 tag: 0,
                                                 name: "::",
+                                                length: 2,
                                                 "0": 83,
                                                 "1": /* constructor */{
                                                   tag: 0,
                                                   name: "::",
+                                                  length: 2,
                                                   "0": 35821,
                                                   "1": /* constructor */{
                                                     tag: 0,
                                                     name: "::",
+                                                    length: 2,
                                                     "0": 35328,
                                                     "1": /* [] */0
                                                   }
@@ -370,75 +403,93 @@ List.iter((function (param) {
       "1": /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": /* tuple */[
           "hello \xe4\xbd\xa0\xe5\xa5\xbd\xef\xbc\x8c\xe4\xb8\xad\xe5\x8d\x8e\xe6\xb0\x91\xe6\x97\x8f hei",
           /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 104,
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": 101,
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
+                length: 2,
                 "0": 108,
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
+                  length: 2,
                   "0": 108,
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
+                    length: 2,
                     "0": 111,
                     "1": /* constructor */{
                       tag: 0,
                       name: "::",
+                      length: 2,
                       "0": 32,
                       "1": /* constructor */{
                         tag: 0,
                         name: "::",
+                        length: 2,
                         "0": 20320,
                         "1": /* constructor */{
                           tag: 0,
                           name: "::",
+                          length: 2,
                           "0": 22909,
                           "1": /* constructor */{
                             tag: 0,
                             name: "::",
+                            length: 2,
                             "0": 65292,
                             "1": /* constructor */{
                               tag: 0,
                               name: "::",
+                              length: 2,
                               "0": 20013,
                               "1": /* constructor */{
                                 tag: 0,
                                 name: "::",
+                                length: 2,
                                 "0": 21326,
                                 "1": /* constructor */{
                                   tag: 0,
                                   name: "::",
+                                  length: 2,
                                   "0": 27665,
                                   "1": /* constructor */{
                                     tag: 0,
                                     name: "::",
+                                    length: 2,
                                     "0": 26063,
                                     "1": /* constructor */{
                                       tag: 0,
                                       name: "::",
+                                      length: 2,
                                       "0": 32,
                                       "1": /* constructor */{
                                         tag: 0,
                                         name: "::",
+                                        length: 2,
                                         "0": 104,
                                         "1": /* constructor */{
                                           tag: 0,
                                           name: "::",
+                                          length: 2,
                                           "0": 101,
                                           "1": /* constructor */{
                                             tag: 0,
                                             name: "::",
+                                            length: 2,
                                             "0": 105,
                                             "1": /* [] */0
                                           }

@@ -12,12 +12,14 @@ function $$throw(loc, x) {
   suites[0] = /* constructor */{
     tag: 0,
     name: "::",
+    length: 2,
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
                   tag: 7,
                   name: "ThrowAny",
+                  length: 1,
                   "0": x
                 };
         })

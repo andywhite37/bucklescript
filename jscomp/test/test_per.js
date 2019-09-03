@@ -169,6 +169,7 @@ function $at(l1, l2) {
     return /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": l1[0],
             "1": $at(l1[1], l2)
           };
@@ -191,18 +192,22 @@ function open_out(name) {
   return open_out_gen(/* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": /* Open_wronly */1,
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
+                length: 2,
                 "0": /* Open_creat */3,
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
+                  length: 2,
                   "0": /* Open_trunc */4,
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
+                    length: 2,
                     "0": /* Open_text */7,
                     "1": /* [] */0
                   }
@@ -215,18 +220,22 @@ function open_out_bin(name) {
   return open_out_gen(/* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": /* Open_wronly */1,
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
+                length: 2,
                 "0": /* Open_creat */3,
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
+                  length: 2,
                   "0": /* Open_trunc */4,
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
+                    length: 2,
                     "0": /* Open_binary */6,
                     "1": /* [] */0
                   }
@@ -314,10 +323,12 @@ function open_in(name) {
   return open_in_gen(/* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": /* Open_rdonly */0,
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
+                length: 2,
                 "0": /* Open_text */7,
                 "1": /* [] */0
               }
@@ -328,10 +339,12 @@ function open_in_bin(name) {
   return open_in_gen(/* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": /* Open_rdonly */0,
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
+                length: 2,
                 "0": /* Open_binary */6,
                 "1": /* [] */0
               }
@@ -420,6 +433,7 @@ function input_line(chan) {
         return build_result(Caml_bytes.caml_create_bytes(len$1), len$1, /* constructor */{
                     tag: 0,
                     name: "::",
+                    length: 2,
                     "0": res,
                     "1": accu
                   });
@@ -433,6 +447,7 @@ function input_line(chan) {
       _accu = /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": beg,
         "1": accu
       };
@@ -535,6 +550,7 @@ function $caret$caret(param, param$1) {
   return /* constructor */{
           tag: 0,
           name: "Format",
+          length: 2,
           "0": CamlinternalFormatBasics.concat_fmt(param[0], param$1[0]),
           "1": $caret(param[1], $caret("%,", param$1[1]))
         };

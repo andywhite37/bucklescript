@@ -14,6 +14,7 @@ function commutative_mul(result, a, b) {
   return /* constructor */{
           tag: 0,
           name: "Eq",
+          length: 2,
           "0": /* tuple */[
             result,
             result
@@ -317,17 +318,21 @@ function from_pairs(prefix, pairs) {
                             Curry._2(Printf.sprintf(/* constructor */{
                                       tag: 0,
                                       name: "Format",
+                                      length: 2,
                                       "0": /* constructor */{
                                         tag: 2,
                                         name: "String",
+                                        length: 2,
                                         "0": /* No_padding */0,
                                         "1": /* constructor */{
                                           tag: 12,
                                           name: "Char_literal",
+                                          length: 2,
                                           "0": /* "_" */95,
                                           "1": /* constructor */{
                                             tag: 4,
                                             name: "Int",
+                                            length: 4,
                                             "0": /* Int_d */0,
                                             "1": /* No_padding */0,
                                             "2": /* No_precision */0,
@@ -1603,13 +1608,16 @@ function from(xs) {
                         Curry._1(Printf.sprintf(/* constructor */{
                                   tag: 0,
                                   name: "Format",
+                                  length: 2,
                                   "0": /* constructor */{
                                     tag: 11,
                                     name: "String_literal",
+                                    length: 2,
                                     "0": "small_divs ",
                                     "1": /* constructor */{
                                       tag: 21,
                                       name: "Scan_get_counter",
+                                      length: 2,
                                       "0": /* Token_counter */2,
                                       "1": /* End_of_format */0
                                     }
@@ -1620,6 +1628,7 @@ function from(xs) {
                             return /* constructor */{
                                     tag: 0,
                                     name: "Eq",
+                                    length: 2,
                                     "0": /* tuple */[
                                       c,
                                       d
@@ -1687,13 +1696,16 @@ function from_compare(xs) {
                         Curry._1(Printf.sprintf(/* constructor */{
                                   tag: 0,
                                   name: "Format",
+                                  length: 2,
                                   "0": /* constructor */{
                                     tag: 11,
                                     name: "String_literal",
+                                    length: 2,
                                     "0": "int64_compare ",
                                     "1": /* constructor */{
                                       tag: 21,
                                       name: "Scan_get_counter",
+                                      length: 2,
                                       "0": /* Token_counter */2,
                                       "1": /* End_of_format */0
                                     }
@@ -1704,6 +1716,7 @@ function from_compare(xs) {
                             return /* constructor */{
                                     tag: 0,
                                     name: "Eq",
+                                    length: 2,
                                     "0": c,
                                     "1": Caml_int64.compare(a, b)
                                   };
@@ -1720,13 +1733,16 @@ function from_to_string(xs) {
                         Curry._1(Printf.sprintf(/* constructor */{
                                   tag: 0,
                                   name: "Format",
+                                  length: 2,
                                   "0": /* constructor */{
                                     tag: 11,
                                     name: "String_literal",
+                                    length: 2,
                                     "0": "to_string ",
                                     "1": /* constructor */{
                                       tag: 21,
                                       name: "Scan_get_counter",
+                                      length: 2,
                                       "0": /* Token_counter */2,
                                       "1": /* End_of_format */0
                                     }
@@ -1737,6 +1753,7 @@ function from_to_string(xs) {
                             return /* constructor */{
                                     tag: 0,
                                     name: "Eq",
+                                    length: 2,
                                     "0": str_a,
                                     "1": Caml_format.caml_int64_format("%d", a)
                                   };
@@ -1752,13 +1769,16 @@ Mt.from_pair_suites("Int64_mul_div_test", Pervasives.$at(from_pairs("random", pa
                                 Curry._1(Printf.sprintf(/* constructor */{
                                           tag: 0,
                                           name: "Format",
+                                          length: 2,
                                           "0": /* constructor */{
                                             tag: 11,
                                             name: "String_literal",
+                                            length: 2,
                                             "0": "to_float_",
                                             "1": /* constructor */{
                                               tag: 4,
                                               name: "Int",
+                                              length: 4,
                                               "0": /* Int_d */0,
                                               "1": /* No_padding */0,
                                               "2": /* No_precision */0,
@@ -1771,6 +1791,7 @@ Mt.from_pair_suites("Int64_mul_div_test", Pervasives.$at(from_pairs("random", pa
                                     return /* constructor */{
                                             tag: 0,
                                             name: "Eq",
+                                            length: 2,
                                             "0": Caml_int64.to_float(i64),
                                             "1": f
                                           };
@@ -1783,13 +1804,16 @@ Mt.from_pair_suites("Int64_mul_div_test", Pervasives.$at(from_pairs("random", pa
                                     Curry._1(Printf.sprintf(/* constructor */{
                                               tag: 0,
                                               name: "Format",
+                                              length: 2,
                                               "0": /* constructor */{
                                                 tag: 11,
                                                 name: "String_literal",
+                                                length: 2,
                                                 "0": "of_float_",
                                                 "1": /* constructor */{
                                                   tag: 4,
                                                   name: "Int",
+                                                  length: 4,
                                                   "0": /* Int_d */0,
                                                   "1": /* No_padding */0,
                                                   "2": /* No_precision */0,
@@ -1802,6 +1826,7 @@ Mt.from_pair_suites("Int64_mul_div_test", Pervasives.$at(from_pairs("random", pa
                                         return /* constructor */{
                                                 tag: 0,
                                                 name: "Eq",
+                                                length: 2,
                                                 "0": Caml_int64.of_float(f),
                                                 "1": i64
                                               };
@@ -1810,12 +1835,14 @@ Mt.from_pair_suites("Int64_mul_div_test", Pervasives.$at(from_pairs("random", pa
                           }), $$Array.to_list(of_float_pairs)), Pervasives.$at(/* constructor */{
                           tag: 0,
                           name: "::",
+                          length: 2,
                           "0": /* tuple */[
                             "compare_check_complete",
                             (function (param) {
                                 return /* constructor */{
                                         tag: 0,
                                         name: "Eq",
+                                        length: 2,
                                         "0": $$Array.map((function (param) {
                                                 return true;
                                               }), check_complete_compare),
@@ -1827,12 +1854,14 @@ Mt.from_pair_suites("Int64_mul_div_test", Pervasives.$at(from_pairs("random", pa
                         }, Pervasives.$at(from(simple_divs), Pervasives.$at(from_compare(int64_compare_tests), /* constructor */{
                                   tag: 0,
                                   name: "::",
+                                  length: 2,
                                   "0": /* tuple */[
                                     "div_rem_0",
                                     (function (param) {
                                         return /* constructor */{
                                                 tag: 0,
                                                 name: "Eq",
+                                                length: 2,
                                                 "0": /* int64 */[
                                                   /* hi */0,
                                                   /* lo */0
@@ -1847,12 +1876,14 @@ Mt.from_pair_suites("Int64_mul_div_test", Pervasives.$at(from_pairs("random", pa
                                   "1": /* constructor */{
                                     tag: 0,
                                     name: "::",
+                                    length: 2,
                                     "0": /* tuple */[
                                       "div_rem_1",
                                       (function (param) {
                                           return /* constructor */{
                                                   tag: 0,
                                                   name: "Eq",
+                                                  length: 2,
                                                   "0": /* int64 */[
                                                     /* hi */-1,
                                                     /* lo */4294967295
@@ -1867,12 +1898,14 @@ Mt.from_pair_suites("Int64_mul_div_test", Pervasives.$at(from_pairs("random", pa
                                     "1": /* constructor */{
                                       tag: 0,
                                       name: "::",
+                                      length: 2,
                                       "0": /* tuple */[
                                         "File \"int64_mul_div_test.ml\", line 214, characters 5-12",
                                         (function (param) {
                                             return /* constructor */{
                                                     tag: 0,
                                                     name: "Eq",
+                                                    length: 2,
                                                     "0": Caml_int64.to_float(Int64.max_int),
                                                     "1": 9.22337203685477581e+18
                                                   };

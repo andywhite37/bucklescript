@@ -44,6 +44,7 @@ function read_lines(inc) {
       _acc = /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": match,
         "1": acc
       };
@@ -72,6 +73,7 @@ function read_lines2(inc) {
     _acc = /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": l,
       "1": acc
     };
@@ -86,6 +88,7 @@ function read_lines3(inc) {
       return loop(/* constructor */{
                   tag: 0,
                   name: "::",
+                  length: 2,
                   "0": l,
                   "1": acc
                 });

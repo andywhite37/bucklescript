@@ -11,6 +11,7 @@ function to_list(q) {
                     return /* constructor */{
                             tag: 0,
                             name: "::",
+                            length: 2,
                             "0": x,
                             "1": l
                           };
@@ -71,6 +72,7 @@ Queue.add(1, q);
 if (!(Caml_obj.caml_equal(to_list(q), /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": 1,
           "1": /* [] */0
         }) && q[/* length */0] === 1)) {
@@ -89,10 +91,12 @@ Queue.add(2, q);
 if (!(Caml_obj.caml_equal(to_list(q), /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": 1,
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 2,
             "1": /* [] */0
           }
@@ -112,14 +116,17 @@ Queue.add(3, q);
 if (!(Caml_obj.caml_equal(to_list(q), /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": 1,
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 2,
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": 3,
               "1": /* [] */0
             }
@@ -140,18 +147,22 @@ Queue.add(4, q);
 if (!(Caml_obj.caml_equal(to_list(q), /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": 1,
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 2,
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": 3,
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
+                length: 2,
                 "0": 4,
                 "1": /* [] */0
               }
@@ -182,14 +193,17 @@ if (Queue.take(q) !== 1) {
 if (!(Caml_obj.caml_equal(to_list(q), /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": 2,
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 3,
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": 4,
               "1": /* [] */0
             }
@@ -219,10 +233,12 @@ if (Queue.take(q) !== 2) {
 if (!(Caml_obj.caml_equal(to_list(q), /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": 3,
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 4,
             "1": /* [] */0
           }
@@ -251,6 +267,7 @@ if (Queue.take(q) !== 3) {
 if (!(Caml_obj.caml_equal(to_list(q), /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": 4,
           "1": /* [] */0
         }) && q[/* length */0] === 1)) {
@@ -567,42 +584,52 @@ var q2 = Queue.copy(q1);
 if (!Caml_obj.caml_equal(to_list(q1), /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": 1,
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": 2,
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 3,
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": 4,
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
+                length: 2,
                 "0": 5,
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
+                  length: 2,
                   "0": 6,
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
+                    length: 2,
                     "0": 7,
                     "1": /* constructor */{
                       tag: 0,
                       name: "::",
+                      length: 2,
                       "0": 8,
                       "1": /* constructor */{
                         tag: 0,
                         name: "::",
+                        length: 2,
                         "0": 9,
                         "1": /* constructor */{
                           tag: 0,
                           name: "::",
+                          length: 2,
                           "0": 10,
                           "1": /* [] */0
                         }
@@ -628,42 +655,52 @@ if (!Caml_obj.caml_equal(to_list(q1), /* constructor */{
 if (!Caml_obj.caml_equal(to_list(q2), /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": 1,
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": 2,
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 3,
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": 4,
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
+                length: 2,
                 "0": 5,
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
+                  length: 2,
                   "0": 6,
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
+                    length: 2,
                     "0": 7,
                     "1": /* constructor */{
                       tag: 0,
                       name: "::",
+                      length: 2,
                       "0": 8,
                       "1": /* constructor */{
                         tag: 0,
                         name: "::",
+                        length: 2,
                         "0": 9,
                         "1": /* constructor */{
                           tag: 0,
                           name: "::",
+                          length: 2,
                           "0": 10,
                           "1": /* [] */0
                         }
@@ -977,18 +1014,22 @@ if (q1$2[/* length */0] !== 4) {
 if (!Caml_obj.caml_equal(to_list(q1$2), /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": 1,
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": 2,
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 3,
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": 4,
               "1": /* [] */0
             }
@@ -1065,18 +1106,22 @@ if (q2$2[/* length */0] !== 4) {
 if (!Caml_obj.caml_equal(to_list(q2$2), /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": 1,
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": 2,
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 3,
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": 4,
               "1": /* [] */0
             }
@@ -1143,18 +1188,22 @@ if (q2$3[/* length */0] !== 4) {
 if (!Caml_obj.caml_equal(to_list(q2$3), /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": 5,
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": 6,
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 7,
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": 8,
               "1": /* [] */0
             }
@@ -1209,18 +1258,22 @@ if (q2$3[/* length */0] !== 4) {
 if (!Caml_obj.caml_equal(to_list(q2$3), /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": 5,
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": 6,
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 7,
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": 8,
               "1": /* [] */0
             }
@@ -1269,18 +1322,22 @@ if (q1$4[/* length */0] !== 4) {
 if (!Caml_obj.caml_equal(to_list(q1$4), /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": 1,
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": 2,
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 3,
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": 4,
               "1": /* [] */0
             }
@@ -1311,18 +1368,22 @@ if (q2$4[/* length */0] !== 4) {
 if (!Caml_obj.caml_equal(to_list(q2$4), /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": 5,
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": 6,
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 7,
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": 8,
               "1": /* [] */0
             }
@@ -1377,34 +1438,42 @@ if (q2$4[/* length */0] !== 8) {
 if (!Caml_obj.caml_equal(to_list(q2$4), /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": 5,
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": 6,
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": 7,
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": 8,
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
+                length: 2,
                 "0": 1,
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
+                  length: 2,
                   "0": 2,
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
+                    length: 2,
                     "0": 3,
                     "1": /* constructor */{
                       tag: 0,
                       name: "::",
+                      length: 2,
                       "0": 4,
                       "1": /* [] */0
                     }

@@ -187,7 +187,11 @@ let make_block ?comment
     | Some s -> s
     | None -> assert false in
     let comment = Some "constructor" in
-    let property_map = [("tag", tag); ("name", str name)] @ List.mapi (fun n e -> (string_of_int n, e)) es in
+    let property_map = [
+      ("tag", tag);
+      ("name", str name);
+      ("length", {expression_desc = Number (Int {i = Int32.of_int (List.length es); c=None}) ; comment=None})]
+      @ List.mapi (fun n e -> (string_of_int n, e)) es in
     {expression_desc = Object property_map; comment}
   | _ -> 
   let comment = 

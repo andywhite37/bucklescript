@@ -24,6 +24,7 @@ function parse(token) {
         return /* constructor */{
                 tag: 0,
                 name: "Kwd",
+                length: 1,
                 "0": "=="
               };
       }
@@ -109,6 +110,7 @@ function parse(token) {
                   return /* constructor */{
                           tag: 0,
                           name: "::",
+                          length: 2,
                           "0": x,
                           "1": acc
                         };
@@ -119,26 +121,32 @@ function parse(token) {
 var lexer = Genlex.make_lexer(/* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": "(",
       "1": /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": "*",
         "1": /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": "/",
           "1": /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": "+",
             "1": /* constructor */{
               tag: 0,
               name: "::",
+              length: 2,
               "0": "-",
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
+                length: 2,
                 "0": ")",
                 "1": /* [] */0
               }
@@ -169,6 +177,7 @@ function l_parse(token) {
         return /* constructor */{
                 tag: 0,
                 name: "Kwd",
+                length: 1,
                 "0": "=="
               };
       }
@@ -262,6 +271,7 @@ function l_parse(token) {
                   return /* constructor */{
                           tag: 0,
                           name: "::",
+                          length: 2,
                           "0": x,
                           "1": acc
                         };
@@ -278,12 +288,14 @@ function eq(loc, x, y) {
   suites[0] = /* constructor */{
     tag: 0,
     name: "::",
+    length: 2,
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
                   tag: 0,
                   name: "Eq",
+                  length: 2,
                   "0": x,
                   "1": y
                 };
@@ -304,9 +316,11 @@ eq("File \"stream_parser_test.ml\", line 132, characters 5-12", /* tuple */[
       /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": /* constructor */{
           tag: 1,
           name: "Ident",
+          length: 1,
           "0": "a"
         },
         "1": /* [] */0
@@ -318,9 +332,11 @@ eq("File \"stream_parser_test.ml\", line 133, characters 5-12", /* tuple */[
       /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": /* constructor */{
           tag: 0,
           name: "Kwd",
+          length: 1,
           "0": "=="
         },
         "1": /* [] */0
@@ -332,9 +348,11 @@ eq("File \"stream_parser_test.ml\", line 134, characters 5-12", /* tuple */[
       /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": /* constructor */{
           tag: 0,
           name: "Kwd",
+          length: 1,
           "0": "=="
         },
         "1": /* [] */0

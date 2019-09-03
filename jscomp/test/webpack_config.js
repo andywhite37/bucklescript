@@ -62,10 +62,12 @@ List$1.xx();
 List.length(/* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": 1,
       "1": /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": 2,
         "1": /* [] */0
       }

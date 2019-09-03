@@ -71,25 +71,31 @@ function chop_extension($staropt$star, name) {
       return Curry._2(Format.ksprintf(Pervasives.invalid_arg, /* constructor */{
                       tag: 0,
                       name: "Format",
+                      length: 2,
                       "0": /* constructor */{
                         tag: 11,
                         name: "String_literal",
+                        length: 2,
                         "0": "Filename.chop_extension ( ",
                         "1": /* constructor */{
                           tag: 2,
                           name: "String",
+                          length: 2,
                           "0": /* No_padding */0,
                           "1": /* constructor */{
                             tag: 11,
                             name: "String_literal",
+                            length: 2,
                             "0": " : ",
                             "1": /* constructor */{
                               tag: 2,
                               name: "String",
+                              length: 2,
                               "0": /* No_padding */0,
                               "1": /* constructor */{
                                 tag: 11,
                                 name: "String_literal",
+                                length: 2,
                                 "0": " )",
                                 "1": /* End_of_format */0
                               }
@@ -148,6 +154,7 @@ function relative_path(file_or_dir_1, file_or_dir_2) {
       return $$String.concat(node_sep, /* constructor */{
                   tag: 0,
                   name: "::",
+                  length: 2,
                   "0": node_current,
                   "1": ys
                 });
@@ -156,6 +163,7 @@ function relative_path(file_or_dir_1, file_or_dir_2) {
     return $$String.concat(node_sep, /* constructor */{
                 tag: 0,
                 name: "::",
+                length: 2,
                 "0": node_current,
                 "1": ys
               });
@@ -174,13 +182,16 @@ function node_relative_path(node_modules_shorten, file1, dep_file) {
           return Curry._1(Ext_pervasives_test.failwithf("File \"ext_filename_test.ml\", line 162, characters 43-50", /* constructor */{
                           tag: 0,
                           name: "Format",
+                          length: 2,
                           "0": /* constructor */{
                             tag: 11,
                             name: "String_literal",
+                            length: 2,
                             "0": "invalid path: ",
                             "1": /* constructor */{
                               tag: 2,
                               name: "String",
+                              length: 2,
                               "0": /* No_padding */0,
                               "1": /* End_of_format */0
                             }
@@ -230,17 +241,21 @@ function find_root_filename(_cwd, filename) {
         return Curry._2(Ext_pervasives_test.failwithf("File \"ext_filename_test.ml\", line 205, characters 13-20", /* constructor */{
                         tag: 0,
                         name: "Format",
+                        length: 2,
                         "0": /* constructor */{
                           tag: 2,
                           name: "String",
+                          length: 2,
                           "0": /* No_padding */0,
                           "1": /* constructor */{
                             tag: 11,
                             name: "String_literal",
+                            length: 2,
                             "0": " not found from ",
                             "1": /* constructor */{
                               tag: 2,
                               name: "String",
+                              length: 2,
                               "0": /* No_padding */0,
                               "1": /* End_of_format */0
                             }
@@ -305,6 +320,7 @@ function split_aux(p) {
         _acc = /* constructor */{
           tag: 0,
           name: "::",
+          length: 2,
           "0": new_path,
           "1": acc
         };
@@ -379,6 +395,7 @@ function normalize_absolute_path(x) {
           _acc = /* constructor */{
             tag: 0,
             name: "::",
+            length: 2,
             "0": x,
             "1": acc
           };

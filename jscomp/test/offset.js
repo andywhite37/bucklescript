@@ -20,6 +20,7 @@ function create(l, v, r) {
   return /* constructor */{
           tag: 0,
           name: "Node",
+          length: 4,
           "0": l,
           "1": v,
           "2": r,
@@ -76,6 +77,7 @@ function bal(l, v, r) {
     return /* constructor */{
             tag: 0,
             name: "Node",
+            length: 4,
             "0": l,
             "1": v,
             "2": r,
@@ -101,6 +103,7 @@ function add(x, t) {
     return /* constructor */{
             tag: 0,
             name: "Node",
+            length: 4,
             "0": /* Empty */0,
             "1": x,
             "2": /* Empty */0,
@@ -113,6 +116,7 @@ function singleton(x) {
   return /* constructor */{
           tag: 0,
           name: "Node",
+          length: 4,
           "0": /* Empty */0,
           "1": x,
           "2": /* Empty */0,
@@ -381,6 +385,7 @@ function cons_enum(_s, _e) {
       _e = /* constructor */{
         tag: 0,
         name: "More",
+        length: 3,
         "0": s[1],
         "1": s[2],
         "2": e
@@ -448,6 +453,7 @@ function subset(_s1, _s2) {
           if (subset(/* constructor */{
                   tag: 0,
                   name: "Node",
+                  length: 4,
                   "0": l1,
                   "1": v1,
                   "2": /* Empty */0,
@@ -461,6 +467,7 @@ function subset(_s1, _s2) {
         } else if (subset(/* constructor */{
                 tag: 0,
                 name: "Node",
+                length: 4,
                 "0": /* Empty */0,
                 "1": v1,
                 "2": r1,
@@ -602,6 +609,7 @@ function elements_aux(_accu, _param) {
       _accu = /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": param[1],
         "1": elements_aux(accu, param[2])
       };
@@ -663,6 +671,7 @@ function of_list(l) {
                                 /* constructor */{
                                   tag: 0,
                                   name: "Node",
+                                  length: 4,
                                   "0": /* Empty */0,
                                   "1": l[0],
                                   "2": /* Empty */0,
@@ -680,9 +689,11 @@ function of_list(l) {
                                   /* constructor */{
                                     tag: 0,
                                     name: "Node",
+                                    length: 4,
                                     "0": /* constructor */{
                                       tag: 0,
                                       name: "Node",
+                                      length: 4,
                                       "0": /* Empty */0,
                                       "1": l[0],
                                       "2": /* Empty */0,
@@ -708,9 +719,11 @@ function of_list(l) {
                                     /* constructor */{
                                       tag: 0,
                                       name: "Node",
+                                      length: 4,
                                       "0": /* constructor */{
                                         tag: 0,
                                         name: "Node",
+                                        length: 4,
                                         "0": /* Empty */0,
                                         "1": l[0],
                                         "2": /* Empty */0,
@@ -720,6 +733,7 @@ function of_list(l) {
                                       "2": /* constructor */{
                                         tag: 0,
                                         name: "Node",
+                                        length: 4,
                                         "0": /* Empty */0,
                                         "1": match$2[0],
                                         "2": /* Empty */0,

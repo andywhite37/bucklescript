@@ -20,9 +20,11 @@ function scan_rest(ib, accu) {
   return Curry._1(Scanf.bscanf(ib, /* constructor */{
                   tag: 0,
                   name: "Format",
+                  length: 2,
                   "0": /* constructor */{
                     tag: 20,
                     name: "Scan_char_set",
+                    length: 3,
                     "0": undefined,
                     "1": "\0\0\0\0\0\0\0\0\0\0\0 \0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                     "2": /* End_of_format */0
@@ -37,19 +39,23 @@ function scan_rest(ib, accu) {
                   return Curry._1(Scanf.bscanf(ib$1, /* constructor */{
                                   tag: 0,
                                   name: "Format",
+                                  length: 2,
                                   "0": /* constructor */{
                                     tag: 12,
                                     name: "Char_literal",
+                                    length: 2,
                                     "0": /* " " */32,
                                     "1": /* constructor */{
                                       tag: 4,
                                       name: "Int",
+                                      length: 4,
                                       "0": /* Int_i */3,
                                       "1": /* No_padding */0,
                                       "2": /* No_precision */0,
                                       "3": /* constructor */{
                                         tag: 12,
                                         name: "Char_literal",
+                                        length: 2,
                                         "0": /* " " */32,
                                         "1": /* End_of_format */0
                                       }
@@ -61,15 +67,18 @@ function scan_rest(ib, accu) {
                                 var accu$2 = /* constructor */{
                                   tag: 0,
                                   name: "::",
+                                  length: 2,
                                   "0": i,
                                   "1": accu$1
                                 };
                                 return Curry._1(Scanf.bscanf(ib$2, /* constructor */{
                                                 tag: 0,
                                                 name: "Format",
+                                                length: 2,
                                                 "0": /* constructor */{
                                                   tag: 20,
                                                   name: "Scan_char_set",
+                                                  length: 3,
                                                   "0": 1,
                                                   "1": "\0\0\0\0\0\0\0\b\0\0\0 \0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                                                   "2": /* End_of_format */0
@@ -85,9 +94,11 @@ function scan_rest(ib, accu) {
                                                   var s = Printf.sprintf(/* constructor */{
                                                         tag: 0,
                                                         name: "Format",
+                                                        length: 2,
                                                         "0": /* constructor */{
                                                           tag: 11,
                                                           name: "String_literal",
+                                                          length: 2,
                                                           "0": "scan_int_list",
                                                           "1": /* End_of_format */0
                                                         },
@@ -108,9 +119,11 @@ function scan_int_list(ib) {
   Curry._1(Scanf.bscanf(ib, /* constructor */{
             tag: 0,
             name: "Format",
+            length: 2,
             "0": /* constructor */{
               tag: 11,
               name: "String_literal",
+              length: 2,
               "0": " [ ",
               "1": /* End_of_format */0
             },

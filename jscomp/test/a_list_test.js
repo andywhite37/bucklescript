@@ -6,23 +6,28 @@ var Ext_list_test = require("./ext_list_test.js");
 var suites = /* constructor */{
   tag: 0,
   name: "::",
+  length: 2,
   "0": /* tuple */[
     "drop",
     (function (param) {
         return /* constructor */{
                 tag: 0,
                 name: "Eq",
+                length: 2,
                 "0": Ext_list_test.drop(3, /* constructor */{
                       tag: 0,
                       name: "::",
+                      length: 2,
                       "0": 0,
                       "1": /* constructor */{
                         tag: 0,
                         name: "::",
+                        length: 2,
                         "0": 1,
                         "1": /* constructor */{
                           tag: 0,
                           name: "::",
+                          length: 2,
                           "0": 2,
                           "1": /* [] */0
                         }
@@ -35,23 +40,28 @@ var suites = /* constructor */{
   "1": /* constructor */{
     tag: 0,
     name: "::",
+    length: 2,
     "0": /* tuple */[
       "drop1",
       (function (param) {
           return /* constructor */{
                   tag: 0,
                   name: "Eq",
+                  length: 2,
                   "0": Ext_list_test.drop(2, /* constructor */{
                         tag: 0,
                         name: "::",
+                        length: 2,
                         "0": 0,
                         "1": /* constructor */{
                           tag: 0,
                           name: "::",
+                          length: 2,
                           "0": 1,
                           "1": /* constructor */{
                             tag: 0,
                             name: "::",
+                            length: 2,
                             "0": 2,
                             "1": /* [] */0
                           }
@@ -60,6 +70,7 @@ var suites = /* constructor */{
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
+                    length: 2,
                     "0": 2,
                     "1": /* [] */0
                   }
@@ -69,31 +80,38 @@ var suites = /* constructor */{
     "1": /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": /* tuple */[
         "flat_map",
         (function (param) {
             return /* constructor */{
                     tag: 0,
                     name: "Eq",
+                    length: 2,
                     "0": /* constructor */{
                       tag: 0,
                       name: "::",
+                      length: 2,
                       "0": 0,
                       "1": /* constructor */{
                         tag: 0,
                         name: "::",
+                        length: 2,
                         "0": 0,
                         "1": /* constructor */{
                           tag: 0,
                           name: "::",
+                          length: 2,
                           "0": 1,
                           "1": /* constructor */{
                             tag: 0,
                             name: "::",
+                            length: 2,
                             "0": 1,
                             "1": /* constructor */{
                               tag: 0,
                               name: "::",
+                              length: 2,
                               "0": 0,
                               "1": /* [] */0
                             }
@@ -106,6 +124,7 @@ var suites = /* constructor */{
                               return /* constructor */{
                                       tag: 0,
                                       name: "::",
+                                      length: 2,
                                       "0": 0,
                                       "1": /* [] */0
                                     };
@@ -113,10 +132,12 @@ var suites = /* constructor */{
                               return /* constructor */{
                                       tag: 0,
                                       name: "::",
+                                      length: 2,
                                       "0": 1,
                                       "1": /* constructor */{
                                         tag: 0,
                                         name: "::",
+                                        length: 2,
                                         "0": 1,
                                         "1": /* [] */0
                                       }
@@ -125,18 +146,22 @@ var suites = /* constructor */{
                           }), /* constructor */{
                           tag: 0,
                           name: "::",
+                          length: 2,
                           "0": 0,
                           "1": /* constructor */{
                             tag: 0,
                             name: "::",
+                            length: 2,
                             "0": 0,
                             "1": /* constructor */{
                               tag: 0,
                               name: "::",
+                              length: 2,
                               "0": 3,
                               "1": /* constructor */{
                                 tag: 0,
                                 name: "::",
+                                length: 2,
                                 "0": 0,
                                 "1": /* [] */0
                               }

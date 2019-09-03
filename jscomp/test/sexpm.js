@@ -111,16 +111,20 @@ function to_buf(b, t) {
         return Curry._2(Printf.bprintf(b, /* constructor */{
                         tag: 0,
                         name: "Format",
+                        length: 2,
                         "0": /* constructor */{
                           tag: 12,
                           name: "Char_literal",
+                          length: 2,
                           "0": /* "(" */40,
                           "1": /* constructor */{
                             tag: 15,
                             name: "Alpha",
+                            length: 1,
                             "0": /* constructor */{
                               tag: 12,
                               name: "Char_literal",
+                              length: 2,
                               "0": /* ")" */41,
                               "1": /* End_of_format */0
                             }
@@ -138,17 +142,21 @@ function to_buf(b, t) {
       return Curry._1(Printf.bprintf(b, /* constructor */{
                       tag: 0,
                       name: "Format",
+                      length: 2,
                       "0": /* constructor */{
                         tag: 12,
                         name: "Char_literal",
+                        length: 2,
                         "0": /* "\"" */34,
                         "1": /* constructor */{
                           tag: 2,
                           name: "String",
+                          length: 2,
                           "0": /* No_padding */0,
                           "1": /* constructor */{
                             tag: 12,
                             name: "Char_literal",
+                            length: 2,
                             "0": /* "\"" */34,
                             "1": /* End_of_format */0
                           }
@@ -176,18 +184,23 @@ function print(fmt, t) {
         Format.fprintf(fmt, /* constructor */{
               tag: 0,
               name: "Format",
+              length: 2,
               "0": /* constructor */{
                 tag: 18,
                 name: "Formatting_gen",
+                length: 2,
                 "0": /* constructor */{
                   tag: 1,
                   name: "Open_box",
+                  length: 1,
                   "0": /* constructor */{
                     tag: 0,
                     name: "Format",
+                    length: 2,
                     "0": /* constructor */{
                       tag: 11,
                       name: "String_literal",
+                      length: 2,
                       "0": "<hov1>",
                       "1": /* End_of_format */0
                     },
@@ -197,6 +210,7 @@ function print(fmt, t) {
                 "1": /* constructor */{
                   tag: 12,
                   name: "Char_literal",
+                  length: 2,
                   "0": /* "(" */40,
                   "1": /* End_of_format */0
                 }
@@ -208,12 +222,15 @@ function print(fmt, t) {
                   Format.fprintf(fmt, /* constructor */{
                         tag: 0,
                         name: "Format",
+                        length: 2,
                         "0": /* constructor */{
                           tag: 17,
                           name: "Formatting_lit",
+                          length: 2,
                           "0": /* constructor */{
                             tag: 0,
                             name: "Break",
+                            length: 3,
                             "0": "@ ",
                             "1": 1,
                             "2": 0
@@ -228,13 +245,16 @@ function print(fmt, t) {
         return Format.fprintf(fmt, /* constructor */{
                     tag: 0,
                     name: "Format",
+                    length: 2,
                     "0": /* constructor */{
                       tag: 12,
                       name: "Char_literal",
+                      length: 2,
                       "0": /* ")" */41,
                       "1": /* constructor */{
                         tag: 17,
                         name: "Formatting_lit",
+                        length: 2,
                         "0": /* Close_box */0,
                         "1": /* End_of_format */0
                       }
@@ -245,18 +265,23 @@ function print(fmt, t) {
         return Curry._2(Format.fprintf(fmt, /* constructor */{
                         tag: 0,
                         name: "Format",
+                        length: 2,
                         "0": /* constructor */{
                           tag: 18,
                           name: "Formatting_gen",
+                          length: 2,
                           "0": /* constructor */{
                             tag: 1,
                             name: "Open_box",
+                            length: 1,
                             "0": /* constructor */{
                               tag: 0,
                               name: "Format",
+                              length: 2,
                               "0": /* constructor */{
                                 tag: 11,
                                 name: "String_literal",
+                                length: 2,
                                 "0": "<hov2>",
                                 "1": /* End_of_format */0
                               },
@@ -266,17 +291,21 @@ function print(fmt, t) {
                           "1": /* constructor */{
                             tag: 12,
                             name: "Char_literal",
+                            length: 2,
                             "0": /* "(" */40,
                             "1": /* constructor */{
                               tag: 15,
                               name: "Alpha",
+                              length: 1,
                               "0": /* constructor */{
                                 tag: 12,
                                 name: "Char_literal",
+                                length: 2,
                                 "0": /* ")" */41,
                                 "1": /* constructor */{
                                   tag: 17,
                                   name: "Formatting_lit",
+                                  length: 2,
                                   "0": /* Close_box */0,
                                   "1": /* End_of_format */0
                                 }
@@ -296,17 +325,21 @@ function print(fmt, t) {
       return Curry._1(Format.fprintf(fmt, /* constructor */{
                       tag: 0,
                       name: "Format",
+                      length: 2,
                       "0": /* constructor */{
                         tag: 12,
                         name: "Char_literal",
+                        length: 2,
                         "0": /* "\"" */34,
                         "1": /* constructor */{
                           tag: 2,
                           name: "String",
+                          length: 2,
                           "0": /* No_padding */0,
                           "1": /* constructor */{
                             tag: 12,
                             name: "Char_literal",
+                            length: 2,
                             "0": /* "\"" */34,
                             "1": /* End_of_format */0
                           }
@@ -337,16 +370,20 @@ function print_noindent(fmt, t) {
         return Curry._2(Format.fprintf(fmt, /* constructor */{
                         tag: 0,
                         name: "Format",
+                        length: 2,
                         "0": /* constructor */{
                           tag: 12,
                           name: "Char_literal",
+                          length: 2,
                           "0": /* "(" */40,
                           "1": /* constructor */{
                             tag: 15,
                             name: "Alpha",
+                            length: 1,
                             "0": /* constructor */{
                               tag: 12,
                               name: "Char_literal",
+                              length: 2,
                               "0": /* ")" */41,
                               "1": /* End_of_format */0
                             }
@@ -364,17 +401,21 @@ function print_noindent(fmt, t) {
       return Curry._1(Format.fprintf(fmt, /* constructor */{
                       tag: 0,
                       name: "Format",
+                      length: 2,
                       "0": /* constructor */{
                         tag: 12,
                         name: "Char_literal",
+                        length: 2,
                         "0": /* "\"" */34,
                         "1": /* constructor */{
                           tag: 2,
                           name: "String",
+                          length: 2,
                           "0": /* No_padding */0,
                           "1": /* constructor */{
                             tag: 12,
                             name: "Char_literal",
+                            length: 2,
                             "0": /* "\"" */34,
                             "1": /* End_of_format */0
                           }
@@ -495,29 +536,35 @@ function _error(t, msg) {
   Curry._2(Printf.bprintf(b, /* constructor */{
             tag: 0,
             name: "Format",
+            length: 2,
             "0": /* constructor */{
               tag: 11,
               name: "String_literal",
+              length: 2,
               "0": "at ",
               "1": /* constructor */{
                 tag: 4,
                 name: "Int",
+                length: 4,
                 "0": /* Int_d */0,
                 "1": /* No_padding */0,
                 "2": /* No_precision */0,
                 "3": /* constructor */{
                   tag: 11,
                   name: "String_literal",
+                  length: 2,
                   "0": ", ",
                   "1": /* constructor */{
                     tag: 4,
                     name: "Int",
+                    length: 4,
                     "0": /* Int_d */0,
                     "1": /* No_padding */0,
                     "2": /* No_precision */0,
                     "3": /* constructor */{
                       tag: 11,
                       name: "String_literal",
+                      length: 2,
                       "0": ": ",
                       "1": /* End_of_format */0
                     }
@@ -540,9 +587,11 @@ function _error_eof(t) {
   return _error(t, /* constructor */{
               tag: 0,
               name: "Format",
+              length: 2,
               "0": /* constructor */{
                 tag: 11,
                 name: "String_literal",
+                length: 2,
                 "0": "unexpected end of input",
                 "1": /* End_of_format */0
               },
@@ -580,9 +629,11 @@ function expr_starting_with(c, k, t) {
         return _error(t, /* constructor */{
                     tag: 0,
                     name: "Format",
+                    length: 2,
                     "0": /* constructor */{
                       tag: 11,
                       name: "String_literal",
+                      length: 2,
                       "0": "unexpected '\\'",
                       "1": /* End_of_format */0
                     },
@@ -622,9 +673,11 @@ function expr_starting_with(c, k, t) {
             return _error(t, /* constructor */{
                         tag: 0,
                         name: "Format",
+                        length: 2,
                         "0": /* constructor */{
                           tag: 11,
                           name: "String_literal",
+                          length: 2,
                           "0": "unexpected ')'",
                           "1": /* End_of_format */0
                         },
@@ -676,6 +729,7 @@ function expr_list(acc, k, t) {
                           return expr_list(/* constructor */{
                                       tag: 0,
                                       name: "::",
+                                      length: 2,
                                       "0": e,
                                       "1": acc
                                     }, k, t);
@@ -685,6 +739,7 @@ function expr_list(acc, k, t) {
                                       List.rev(/* constructor */{
                                             tag: 0,
                                             name: "::",
+                                            length: 2,
                                             "0": e,
                                             "1": acc
                                           })
@@ -695,6 +750,7 @@ function expr_list(acc, k, t) {
                                       return expr_list(/* constructor */{
                                                   tag: 0,
                                                   name: "::",
+                                                  length: 2,
                                                   "0": l,
                                                   "1": acc
                                                 }, k, t);
@@ -704,6 +760,7 @@ function expr_list(acc, k, t) {
                       return expr_list(/* constructor */{
                                   tag: 0,
                                   name: "::",
+                                  length: 2,
                                   "0": e,
                                   "1": acc
                                 }, k, t);
@@ -741,9 +798,11 @@ function atom(k, t) {
             return _error(t, /* constructor */{
                         tag: 0,
                         name: "Format",
+                        length: 2,
                         "0": /* constructor */{
                           tag: 11,
                           name: "String_literal",
+                          length: 2,
                           "0": "unexpected '\\' in non-quoted string",
                           "1": /* End_of_format */0
                         },
@@ -766,9 +825,11 @@ function atom(k, t) {
                 return _error(t, /* constructor */{
                             tag: 0,
                             name: "Format",
+                            length: 2,
                             "0": /* constructor */{
                               tag: 11,
                               name: "String_literal",
+                              length: 2,
                               "0": "unexpected '\"' in the middle of an atom",
                               "1": /* End_of_format */0
                             },
@@ -875,16 +936,20 @@ function escaped(k, t) {
       return Curry._1(_error(t, /* constructor */{
                       tag: 0,
                       name: "Format",
+                      length: 2,
                       "0": /* constructor */{
                         tag: 11,
                         name: "String_literal",
+                        length: 2,
                         "0": "unexpected escaped char '",
                         "1": /* constructor */{
                           tag: 0,
                           name: "Char",
+                          length: 1,
                           "0": /* constructor */{
                             tag: 12,
                             name: "Char_literal",
+                            length: 2,
                             "0": /* "'" */39,
                             "1": /* End_of_format */0
                           }
@@ -909,16 +974,20 @@ function read2int(i, k, t) {
       return Curry._1(_error(t, /* constructor */{
                       tag: 0,
                       name: "Format",
+                      length: 2,
                       "0": /* constructor */{
                         tag: 11,
                         name: "String_literal",
+                        length: 2,
                         "0": "unexpected char '",
                         "1": /* constructor */{
                           tag: 0,
                           name: "Char",
+                          length: 1,
                           "0": /* constructor */{
                             tag: 11,
                             name: "String_literal",
+                            length: 2,
                             "0": "' when reading byte",
                             "1": /* End_of_format */0
                           }
@@ -943,16 +1012,20 @@ function read1int(i, k, t) {
       return Curry._1(_error(t, /* constructor */{
                       tag: 0,
                       name: "Format",
+                      length: 2,
                       "0": /* constructor */{
                         tag: 11,
                         name: "String_literal",
+                        length: 2,
                         "0": "unexpected char '",
                         "1": /* constructor */{
                           tag: 0,
                           name: "Char",
+                          length: 1,
                           "0": /* constructor */{
                             tag: 11,
                             name: "String_literal",
+                            length: 2,
                             "0": "' when reading byte",
                             "1": /* End_of_format */0
                           }
@@ -1087,6 +1160,7 @@ function parse_chan_list(bufsize, ic) {
       _acc = /* constructor */{
         tag: 0,
         name: "::",
+        length: 2,
         "0": e[1],
         "1": acc
       };
@@ -1166,29 +1240,35 @@ function MakeDecode(funarg) {
     Curry._2(Printf.bprintf(b, /* constructor */{
               tag: 0,
               name: "Format",
+              length: 2,
               "0": /* constructor */{
                 tag: 11,
                 name: "String_literal",
+                length: 2,
                 "0": "at ",
                 "1": /* constructor */{
                   tag: 4,
                   name: "Int",
+                  length: 4,
                   "0": /* Int_d */0,
                   "1": /* No_padding */0,
                   "2": /* No_precision */0,
                   "3": /* constructor */{
                     tag: 11,
                     name: "String_literal",
+                    length: 2,
                     "0": ", ",
                     "1": /* constructor */{
                       tag: 4,
                       name: "Int",
+                      length: 4,
                       "0": /* Int_d */0,
                       "1": /* No_padding */0,
                       "2": /* No_precision */0,
                       "3": /* constructor */{
                         tag: 11,
                         name: "String_literal",
+                        length: 2,
                         "0": ": ",
                         "1": /* End_of_format */0
                       }
@@ -1210,9 +1290,11 @@ function MakeDecode(funarg) {
     return _error(t, /* constructor */{
                 tag: 0,
                 name: "Format",
+                length: 2,
                 "0": /* constructor */{
                   tag: 11,
                   name: "String_literal",
+                  length: 2,
                   "0": "unexpected end of input",
                   "1": /* End_of_format */0
                 },
@@ -1248,9 +1330,11 @@ function MakeDecode(funarg) {
           return _error(t, /* constructor */{
                       tag: 0,
                       name: "Format",
+                      length: 2,
                       "0": /* constructor */{
                         tag: 11,
                         name: "String_literal",
+                        length: 2,
                         "0": "unexpected '\\'",
                         "1": /* End_of_format */0
                       },
@@ -1290,9 +1374,11 @@ function MakeDecode(funarg) {
               return _error(t, /* constructor */{
                           tag: 0,
                           name: "Format",
+                          length: 2,
                           "0": /* constructor */{
                             tag: 11,
                             name: "String_literal",
+                            length: 2,
                             "0": "unexpected ')'",
                             "1": /* End_of_format */0
                           },
@@ -1343,6 +1429,7 @@ function MakeDecode(funarg) {
                             return expr_list(/* constructor */{
                                         tag: 0,
                                         name: "::",
+                                        length: 2,
                                         "0": e,
                                         "1": acc
                                       }, k, t);
@@ -1352,6 +1439,7 @@ function MakeDecode(funarg) {
                                         List.rev(/* constructor */{
                                               tag: 0,
                                               name: "::",
+                                              length: 2,
                                               "0": e,
                                               "1": acc
                                             })
@@ -1362,6 +1450,7 @@ function MakeDecode(funarg) {
                                         return expr_list(/* constructor */{
                                                     tag: 0,
                                                     name: "::",
+                                                    length: 2,
                                                     "0": l,
                                                     "1": acc
                                                   }, k, t);
@@ -1371,6 +1460,7 @@ function MakeDecode(funarg) {
                         return expr_list(/* constructor */{
                                     tag: 0,
                                     name: "::",
+                                    length: 2,
                                     "0": e,
                                     "1": acc
                                   }, k, t);
@@ -1406,9 +1496,11 @@ function MakeDecode(funarg) {
               return _error(t, /* constructor */{
                           tag: 0,
                           name: "Format",
+                          length: 2,
                           "0": /* constructor */{
                             tag: 11,
                             name: "String_literal",
+                            length: 2,
                             "0": "unexpected '\\' in non-quoted string",
                             "1": /* End_of_format */0
                           },
@@ -1431,9 +1523,11 @@ function MakeDecode(funarg) {
                   return _error(t, /* constructor */{
                               tag: 0,
                               name: "Format",
+                              length: 2,
                               "0": /* constructor */{
                                 tag: 11,
                                 name: "String_literal",
+                                length: 2,
                                 "0": "unexpected '\"' in the middle of an atom",
                                 "1": /* End_of_format */0
                               },
@@ -1538,16 +1632,20 @@ function MakeDecode(funarg) {
         return Curry._1(_error(t, /* constructor */{
                         tag: 0,
                         name: "Format",
+                        length: 2,
                         "0": /* constructor */{
                           tag: 11,
                           name: "String_literal",
+                          length: 2,
                           "0": "unexpected escaped char '",
                           "1": /* constructor */{
                             tag: 0,
                             name: "Char",
+                            length: 1,
                             "0": /* constructor */{
                               tag: 12,
                               name: "Char_literal",
+                              length: 2,
                               "0": /* "'" */39,
                               "1": /* End_of_format */0
                             }
@@ -1571,16 +1669,20 @@ function MakeDecode(funarg) {
         return Curry._1(_error(t, /* constructor */{
                         tag: 0,
                         name: "Format",
+                        length: 2,
                         "0": /* constructor */{
                           tag: 11,
                           name: "String_literal",
+                          length: 2,
                           "0": "unexpected char '",
                           "1": /* constructor */{
                             tag: 0,
                             name: "Char",
+                            length: 1,
                             "0": /* constructor */{
                               tag: 11,
                               name: "String_literal",
+                              length: 2,
                               "0": "' when reading byte",
                               "1": /* End_of_format */0
                             }
@@ -1604,16 +1706,20 @@ function MakeDecode(funarg) {
         return Curry._1(_error(t, /* constructor */{
                         tag: 0,
                         name: "Format",
+                        length: 2,
                         "0": /* constructor */{
                           tag: 11,
                           name: "String_literal",
+                          length: 2,
                           "0": "unexpected char '",
                           "1": /* constructor */{
                             tag: 0,
                             name: "Char",
+                            length: 1,
                             "0": /* constructor */{
                               tag: 11,
                               name: "String_literal",
+                              length: 2,
                               "0": "' when reading byte",
                               "1": /* End_of_format */0
                             }

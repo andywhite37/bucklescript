@@ -82,12 +82,14 @@ var d = v$3[0];
 Mt.from_pair_suites("Pr_regression_test", /* constructor */{
       tag: 0,
       name: "::",
+      length: 2,
       "0": /* tuple */[
         "partial",
         (function (param) {
             return /* constructor */{
                     tag: 0,
                     name: "Eq",
+                    length: 2,
                     "0": /* tuple */[
                       5,
                       5,
