@@ -36,6 +36,11 @@ external length : t -> int = "#obj_length"
 (** The same as {!Obj.set_tag} *)
 external set_tag : t -> int -> unit = "tag" [@@bs.set]
 
+(* let size_of_t : t -> 'a Js.undefined = fun%raw o ->  {|
+console.log(o, ".length", o.length, "keys", Object.keys(o).length - 3);
+return Object.keys(o).length - 2
+|} *)
+
 external size_of_t : t -> 'a Js.undefined =
   "length" [@@bs.get]
 
