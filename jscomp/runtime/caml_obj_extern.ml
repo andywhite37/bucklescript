@@ -41,8 +41,13 @@ external set_tag : t -> int -> unit = "tag" [@@bs.set]
   "length" [@@bs.get] *)
 
 (* polymorphic variants are still arrays *)
-let size_of_t : t -> 'a Js.undefined = fun%raw o ->  {|
+let size_of_t : t -> 'a Js.undefined = fun%raw o -> {|
 return Array.isArray(o) ? o.length : Object.keys(o).length - 3
+|}
+
+let length : t -> int = fun%raw o -> {|
+if (Array.isArray(o)) { return o.length }
+else { return (Object.keys(o).length | 3) - 3 }
 |}
 
 external magic : 'a -> 'b = "%identity"
