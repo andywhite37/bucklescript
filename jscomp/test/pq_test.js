@@ -12,7 +12,6 @@ function insert(queue, prio, elt) {
       return /* constructor */{
               tag: 0,
               name: "Node",
-              length: 4,
               "0": prio,
               "1": elt,
               "2": insert(right, p, e),
@@ -22,7 +21,6 @@ function insert(queue, prio, elt) {
       return /* constructor */{
               tag: 0,
               name: "Node",
-              length: 4,
               "0": p,
               "1": e,
               "2": insert(right, prio, elt),
@@ -33,7 +31,6 @@ function insert(queue, prio, elt) {
     return /* constructor */{
             tag: 0,
             name: "Node",
-            length: 4,
             "0": prio,
             "1": elt,
             "2": /* Empty */0,
@@ -56,7 +53,6 @@ function remove_top(param) {
           return /* constructor */{
                   tag: 0,
                   name: "Node",
-                  length: 4,
                   "0": lprio,
                   "1": left[1],
                   "2": remove_top(left),
@@ -66,7 +62,6 @@ function remove_top(param) {
           return /* constructor */{
                   tag: 0,
                   name: "Node",
-                  length: 4,
                   "0": rprio,
                   "1": right[1],
                   "2": left,

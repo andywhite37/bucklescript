@@ -17,7 +17,6 @@ function filter_map(f, _xs) {
         return /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": Caml_option.valFromOption(match),
                 "1": filter_map(f, ys)
               };
@@ -49,7 +48,6 @@ function excludes(p, l) {
           _accu = /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": x,
             "1": accu
           };
@@ -92,7 +90,6 @@ function exclude_with_fact(p, l) {
           _accu = /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": x,
             "1": accu
           };
@@ -133,7 +130,6 @@ function exclude_with_fact2(p1, p2, l) {
           _accu = /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": x,
             "1": accu
           };
@@ -184,7 +180,6 @@ function filter_mapi(f, xs) {
           return /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": Caml_option.valFromOption(match),
                   "1": aux(i + 1 | 0, ys)
                 };
@@ -214,7 +209,6 @@ function filter_map2(f, _xs, _ys) {
           return /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": Caml_option.valFromOption(match),
                   "1": filter_map2(f, us, vs)
                 };
@@ -255,7 +249,6 @@ function filter_map2i(f, xs, ys) {
             return /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": Caml_option.valFromOption(match),
                     "1": aux(i + 1 | 0, us, vs)
                   };
@@ -292,7 +285,6 @@ function rev_map_append(f, _l1, _l2) {
       _l2 = /* constructor */{
         tag: 0,
         name: "::",
-        length: 2,
         "0": Curry._1(f, l1[0]),
         "1": l2
       };
@@ -368,7 +360,6 @@ function map2_last(f, l1, l2) {
           return /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": Curry._3(f, true, u, l2[0]),
                   "1": /* [] */0
                 };
@@ -386,7 +377,6 @@ function map2_last(f, l1, l2) {
       return /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": r,
               "1": map2_last(f, l1$1, l2[1])
             };
@@ -415,7 +405,6 @@ function map_last(f, l1) {
       return /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": r,
               "1": map_last(f, l1$1)
             };
@@ -423,7 +412,6 @@ function map_last(f, l1) {
       return /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": Curry._2(f, true, u),
               "1": /* [] */0
             };
@@ -556,7 +544,6 @@ function exclude_tail(x) {
         _acc = /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": x$2,
           "1": acc
         };
@@ -592,11 +579,9 @@ function aux(cmp, x, xss) {
       return /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": x,
                 "1": y
               },
@@ -606,7 +591,6 @@ function aux(cmp, x, xss) {
       return /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": y,
               "1": aux(cmp, x, ys)
             };
@@ -615,11 +599,9 @@ function aux(cmp, x, xss) {
     return /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": x,
               "1": /* [] */0
             },
@@ -709,7 +691,6 @@ function rev_map_acc(acc, f, l) {
       _accu = /* constructor */{
         tag: 0,
         name: "::",
-        length: 2,
         "0": Curry._1(f, param[0]),
         "1": accu
       };
@@ -725,7 +706,6 @@ function map_acc(acc, f, l) {
     return /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": Curry._1(f, l[0]),
             "1": map_acc(acc, f, l[1])
           };
@@ -811,14 +791,12 @@ function split_map(f, xs) {
       _cs = /* constructor */{
         tag: 0,
         name: "::",
-        length: 2,
         "0": match[1],
         "1": cs
       };
       _bs = /* constructor */{
         tag: 0,
         name: "::",
-        length: 2,
         "0": match[0],
         "1": bs
       };
@@ -886,7 +864,6 @@ function ref_push(x, refs) {
   refs[0] = /* constructor */{
     tag: 0,
     name: "::",
-    length: 2,
     "0": x,
     "1": refs[0]
   };
@@ -920,7 +897,6 @@ function rev_except_last(xs) {
         _acc = /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": x,
           "1": acc
         };

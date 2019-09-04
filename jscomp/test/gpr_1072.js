@@ -8,7 +8,6 @@ var u = {
 var v_ice_cream3 = /* constructor */{
   tag: 0,
   name: "::",
-  length: 2,
   "0": {
     flavor: "vanilla",
     num: 3
@@ -16,7 +15,6 @@ var v_ice_cream3 = /* constructor */{
   "1": /* constructor */{
     tag: 0,
     name: "::",
-    length: 2,
     "0": {
       flavor: "x",
       num: 3
@@ -24,7 +22,6 @@ var v_ice_cream3 = /* constructor */{
     "1": /* constructor */{
       tag: 0,
       name: "::",
-      length: 2,
       "0": {
         flavor: "vanilla",
         num: 3
@@ -37,7 +34,6 @@ var v_ice_cream3 = /* constructor */{
 var v_ice_cream4 = /* constructor */{
   tag: 0,
   name: "::",
-  length: 2,
   "0": {
     flavor: "vanilla",
     num: 3
@@ -45,7 +41,6 @@ var v_ice_cream4 = /* constructor */{
   "1": /* constructor */{
     tag: 0,
     name: "::",
-    length: 2,
     "0": {
       flavor: "x",
       num: 3
@@ -69,19 +64,16 @@ var int_expect2 = {
 var int_expects = /* constructor */{
   tag: 0,
   name: "::",
-  length: 2,
   "0": { },
   "1": /* constructor */{
     tag: 0,
     name: "::",
-    length: 2,
     "0": {
       x: 2
     },
     "1": /* constructor */{
       tag: 0,
       name: "::",
-      length: 2,
       "0": {
         x: 3
       },
@@ -129,21 +121,18 @@ var mk_u = {
 var v_mk7 = /* constructor */{
   tag: 0,
   name: "::",
-  length: 2,
   "0": {
     y: 3
   },
   "1": /* constructor */{
     tag: 0,
     name: "::",
-    length: 2,
     "0": {
       y: 2
     },
     "1": /* constructor */{
       tag: 0,
       name: "::",
-      length: 2,
       "0": {
         y: 2
       },

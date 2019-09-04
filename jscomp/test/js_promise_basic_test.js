@@ -16,14 +16,12 @@ function eq(loc, x, y) {
   suites[0] = /* constructor */{
     tag: 0,
     name: "::",
-    length: 2,
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
                   tag: 0,
                   name: "Eq",
-                  length: 2,
                   "0": x,
                   "1": y
                 };
@@ -303,14 +301,12 @@ function re(prim) {
 Mt.from_promise_suites("Js_promise_basic_test", /* constructor */{
       tag: 0,
       name: "::",
-      length: 2,
       "0": /* tuple */[
         "File \"js_promise_basic_test.ml\", line 187, characters 4-11",
         twop.then((function (x) {
                 return Promise.resolve(/* constructor */{
                             tag: 0,
                             name: "Eq",
-                            length: 2,
                             "0": x,
                             "1": 2
                           });
@@ -319,14 +315,12 @@ Mt.from_promise_suites("Js_promise_basic_test", /* constructor */{
       "1": /* constructor */{
         tag: 0,
         name: "::",
-        length: 2,
         "0": /* tuple */[
           "File \"js_promise_basic_test.ml\", line 190, characters 4-11",
           twop.then((function (x) {
                   return Promise.resolve(/* constructor */{
                               tag: 1,
                               name: "Neq",
-                              length: 2,
                               "0": x,
                               "1": 3
                             });

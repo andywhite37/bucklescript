@@ -66,7 +66,6 @@ function resize(newSize) {
         Caml_array.caml_array_set(newArr, ind, /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": n,
               "1": Caml_array.caml_array_get(newArr, ind)
             });
@@ -90,7 +89,6 @@ function insert(idl, idh, v, ind, bucket, newNode) {
     Caml_array.caml_array_set(htab[0], ind, /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": newNode,
           "1": bucket
         });
@@ -102,7 +100,6 @@ function insert(idl, idh, v, ind, bucket, newNode) {
     return Caml_array.caml_array_set(htab[0], ind$1, /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": newNode,
                 "1": Caml_array.caml_array_get(htab[0], ind$1)
               });
@@ -150,7 +147,6 @@ function mkNode(low, v, high) {
         var n$1 = /* constructor */{
           tag: 0,
           name: "Node",
-          length: 4,
           "0": low,
           "1": v,
           "2": (nodeC[0] = nodeC[0] + 1 | 0, nodeC[0]),

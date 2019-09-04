@@ -5,17 +5,14 @@ var Mt = require("./mt.js");
 console.log(JSON.stringify(/* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": 1,
           "1": /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": 2,
             "1": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": 3,
               "1": /* [] */0
             }
@@ -27,14 +24,12 @@ console.log("hey");
 var suites = /* constructor */{
   tag: 0,
   name: "::",
-  length: 2,
   "0": /* tuple */[
     "anything_to_string",
     (function (param) {
         return /* constructor */{
                 tag: 0,
                 name: "Eq",
-                length: 2,
                 "0": "3",
                 "1": String(3)
               };

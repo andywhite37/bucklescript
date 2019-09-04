@@ -8,12 +8,10 @@ var a0 = Caml_builtin_exceptions.not_found;
 var b = List.length(/* constructor */{
       tag: 0,
       name: "::",
-      length: 2,
       "0": 1,
       "1": /* constructor */{
         tag: 0,
         name: "::",
-        length: 2,
         "0": 2,
         "1": /* [] */0
       }

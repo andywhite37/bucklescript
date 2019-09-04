@@ -10,14 +10,12 @@ var v = "gso";
 var suites = /* constructor */{
   tag: 0,
   name: "::",
-  length: 2,
   "0": /* tuple */[
     "equal",
     (function (param) {
         return /* constructor */{
                 tag: 0,
                 name: "Eq",
-                length: 2,
                 "0": /* tuple */[
                   Caml_bytes.get(Bytes.make(3, /* "a" */97), 0),
                   Bytes.make(3, /* "a" */97)[0]
@@ -32,7 +30,6 @@ var suites = /* constructor */{
   "1": /* constructor */{
     tag: 0,
     name: "::",
-    length: 2,
     "0": /* tuple */[
       "equal2",
       (function (param) {
@@ -41,7 +38,6 @@ var suites = /* constructor */{
           return /* constructor */{
                   tag: 0,
                   name: "Eq",
-                  length: 2,
                   "0": /* tuple */[
                     u[0],
                     /* "g" */103
@@ -56,7 +52,6 @@ var suites = /* constructor */{
     "1": /* constructor */{
       tag: 0,
       name: "::",
-      length: 2,
       "0": /* tuple */[
         "buffer",
         (function (param) {
@@ -67,7 +62,6 @@ var suites = /* constructor */{
             return /* constructor */{
                     tag: 0,
                     name: "Eq",
-                    length: 2,
                     "0": $$Buffer.contents(v),
                     "1": "012345678910"
                   };

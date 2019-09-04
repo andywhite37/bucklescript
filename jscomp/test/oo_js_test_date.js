@@ -18,14 +18,12 @@ var d3 = d2(2016)(1, /* () */0);
 var suites = /* constructor */{
   tag: 0,
   name: "::",
-  length: 2,
   "0": /* tuple */[
     "getMonth",
     (function (param) {
         return /* constructor */{
                 tag: 0,
                 name: "Eq",
-                length: 2,
                 "0": 2,
                 "1": d.getMonth()
               };
@@ -34,14 +32,12 @@ var suites = /* constructor */{
   "1": /* constructor */{
     tag: 0,
     name: "::",
-    length: 2,
     "0": /* tuple */[
       "getYear",
       (function (param) {
           return /* constructor */{
                   tag: 0,
                   name: "Eq",
-                  length: 2,
                   "0": /* tuple */[
                     2016,
                     2,

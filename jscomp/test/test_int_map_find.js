@@ -18,7 +18,6 @@ function create(l, x, d, r) {
   return /* constructor */{
           tag: 0,
           name: "Node",
-          length: 5,
           "0": l,
           "1": x,
           "2": d,
@@ -78,7 +77,6 @@ function bal(l, x, d, r) {
     return /* constructor */{
             tag: 0,
             name: "Node",
-            length: 5,
             "0": l,
             "1": x,
             "2": d,
@@ -99,7 +97,6 @@ function add(x, data, param) {
       return /* constructor */{
               tag: 0,
               name: "Node",
-              length: 5,
               "0": l,
               "1": x,
               "2": data,
@@ -115,7 +112,6 @@ function add(x, data, param) {
     return /* constructor */{
             tag: 0,
             name: "Node",
-            length: 5,
             "0": /* Empty */0,
             "1": x,
             "2": data,
@@ -130,7 +126,6 @@ List.fold_left((function (acc, param) {
       }), /* Empty */0, /* constructor */{
       tag: 0,
       name: "::",
-      length: 2,
       "0": /* tuple */[
         10,
         /* "a" */97
@@ -138,7 +133,6 @@ List.fold_left((function (acc, param) {
       "1": /* constructor */{
         tag: 0,
         name: "::",
-        length: 2,
         "0": /* tuple */[
           3,
           /* "b" */98
@@ -146,7 +140,6 @@ List.fold_left((function (acc, param) {
         "1": /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": /* tuple */[
             7,
             /* "c" */99
@@ -154,7 +147,6 @@ List.fold_left((function (acc, param) {
           "1": /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": /* tuple */[
               20,
               /* "d" */100

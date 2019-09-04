@@ -5,7 +5,6 @@ function t_error3(param_0) {
   return /* constructor */{
           tag: 0,
           name: "T_error3",
-          length: 1,
           "0": param_0
         };
 }

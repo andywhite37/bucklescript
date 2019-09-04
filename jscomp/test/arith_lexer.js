@@ -31,14 +31,12 @@ function __ocaml_lex_lexeme_rec(lexbuf, ___ocaml_lex_state) {
           return /* constructor */{
                   tag: 0,
                   name: "NUMERAL",
-                  length: 1,
                   "0": Caml_format.caml_int_of_string(Lexing.lexeme(lexbuf))
                 };
       case 2 :
           return /* constructor */{
                   tag: 1,
                   name: "IDENT",
-                  length: 1,
                   "0": Lexing.lexeme(lexbuf)
                 };
       case 3 :

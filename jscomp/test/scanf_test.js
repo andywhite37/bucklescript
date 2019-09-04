@@ -17,23 +17,19 @@ eq("File \"scanf_test.ml\", line 6, characters 5-12", /* tuple */[
       Curry._1(Scanf.sscanf("32 31", /* constructor */{
                 tag: 0,
                 name: "Format",
-                length: 2,
                 "0": /* constructor */{
                   tag: 4,
                   name: "Int",
-                  length: 4,
                   "0": /* Int_d */0,
                   "1": /* No_padding */0,
                   "2": /* No_precision */0,
                   "3": /* constructor */{
                     tag: 12,
                     name: "Char_literal",
-                    length: 2,
                     "0": /* " " */32,
                     "1": /* constructor */{
                       tag: 4,
                       name: "Int",
-                      length: 4,
                       "0": /* Int_d */0,
                       "1": /* No_padding */0,
                       "2": /* No_precision */0,
@@ -52,11 +48,9 @@ eq("File \"scanf_test.ml\", line 7, characters 5-12", /* tuple */[
       Curry._1(Scanf.sscanf("12306459064359371967", /* constructor */{
                 tag: 0,
                 name: "Format",
-                length: 2,
                 "0": /* constructor */{
                   tag: 7,
                   name: "Int64",
-                  length: 4,
                   "0": /* Int_u */12,
                   "1": /* No_padding */0,
                   "2": /* No_precision */0,

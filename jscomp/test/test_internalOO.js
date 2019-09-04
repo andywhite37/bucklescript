@@ -56,7 +56,6 @@ function create(l, x, d, r) {
   return /* constructor */{
           tag: 0,
           name: "Node",
-          length: 5,
           "0": l,
           "1": x,
           "2": d,
@@ -69,7 +68,6 @@ function singleton(x, d) {
   return /* constructor */{
           tag: 0,
           name: "Node",
-          length: 5,
           "0": /* Empty */0,
           "1": x,
           "2": d,
@@ -129,7 +127,6 @@ function bal(l, x, d, r) {
     return /* constructor */{
             tag: 0,
             name: "Node",
-            length: 5,
             "0": l,
             "1": x,
             "2": d,
@@ -158,7 +155,6 @@ function add(x, data, param) {
       return /* constructor */{
               tag: 0,
               name: "Node",
-              length: 5,
               "0": l,
               "1": x,
               "2": data,
@@ -174,7 +170,6 @@ function add(x, data, param) {
     return /* constructor */{
             tag: 0,
             name: "Node",
-            length: 5,
             "0": /* Empty */0,
             "1": x,
             "2": data,
@@ -326,7 +321,6 @@ function map(f, param) {
     return /* constructor */{
             tag: 0,
             name: "Node",
-            length: 5,
             "0": l$prime,
             "1": param[1],
             "2": d$prime,
@@ -347,7 +341,6 @@ function mapi(f, param) {
     return /* constructor */{
             tag: 0,
             name: "Node",
-            length: 5,
             "0": l$prime,
             "1": v,
             "2": d$prime,
@@ -581,7 +574,6 @@ function cons_enum(_m, _e) {
       _e = /* constructor */{
         tag: 0,
         name: "More",
-        length: 4,
         "0": m[1],
         "1": m[2],
         "2": m[3],
@@ -666,7 +658,6 @@ function bindings_aux(_accu, _param) {
       _accu = /* constructor */{
         tag: 0,
         name: "::",
-        length: 2,
         "0": /* tuple */[
           param[1],
           param[2]
@@ -725,7 +716,6 @@ function create$1(l, x, d, r) {
   return /* constructor */{
           tag: 0,
           name: "Node",
-          length: 5,
           "0": l,
           "1": x,
           "2": d,
@@ -738,7 +728,6 @@ function singleton$1(x, d) {
   return /* constructor */{
           tag: 0,
           name: "Node",
-          length: 5,
           "0": /* Empty */0,
           "1": x,
           "2": d,
@@ -798,7 +787,6 @@ function bal$1(l, x, d, r) {
     return /* constructor */{
             tag: 0,
             name: "Node",
-            length: 5,
             "0": l,
             "1": x,
             "2": d,
@@ -827,7 +815,6 @@ function add$1(x, data, param) {
       return /* constructor */{
               tag: 0,
               name: "Node",
-              length: 5,
               "0": l,
               "1": x,
               "2": data,
@@ -843,7 +830,6 @@ function add$1(x, data, param) {
     return /* constructor */{
             tag: 0,
             name: "Node",
-            length: 5,
             "0": /* Empty */0,
             "1": x,
             "2": data,
@@ -995,7 +981,6 @@ function map$1(f, param) {
     return /* constructor */{
             tag: 0,
             name: "Node",
-            length: 5,
             "0": l$prime,
             "1": param[1],
             "2": d$prime,
@@ -1016,7 +1001,6 @@ function mapi$1(f, param) {
     return /* constructor */{
             tag: 0,
             name: "Node",
-            length: 5,
             "0": l$prime,
             "1": v,
             "2": d$prime,
@@ -1250,7 +1234,6 @@ function cons_enum$1(_m, _e) {
       _e = /* constructor */{
         tag: 0,
         name: "More",
-        length: 4,
         "0": m[1],
         "1": m[2],
         "2": m[3],
@@ -1335,7 +1318,6 @@ function bindings_aux$1(_accu, _param) {
       _accu = /* constructor */{
         tag: 0,
         name: "::",
-        length: 2,
         "0": /* tuple */[
           param[1],
           param[2]
@@ -1394,7 +1376,6 @@ function create$2(l, x, d, r) {
   return /* constructor */{
           tag: 0,
           name: "Node",
-          length: 5,
           "0": l,
           "1": x,
           "2": d,
@@ -1407,7 +1388,6 @@ function singleton$2(x, d) {
   return /* constructor */{
           tag: 0,
           name: "Node",
-          length: 5,
           "0": /* Empty */0,
           "1": x,
           "2": d,
@@ -1467,7 +1447,6 @@ function bal$2(l, x, d, r) {
     return /* constructor */{
             tag: 0,
             name: "Node",
-            length: 5,
             "0": l,
             "1": x,
             "2": d,
@@ -1496,7 +1475,6 @@ function add$2(x, data, param) {
       return /* constructor */{
               tag: 0,
               name: "Node",
-              length: 5,
               "0": l,
               "1": x,
               "2": data,
@@ -1512,7 +1490,6 @@ function add$2(x, data, param) {
     return /* constructor */{
             tag: 0,
             name: "Node",
-            length: 5,
             "0": /* Empty */0,
             "1": x,
             "2": data,
@@ -1664,7 +1641,6 @@ function map$2(f, param) {
     return /* constructor */{
             tag: 0,
             name: "Node",
-            length: 5,
             "0": l$prime,
             "1": param[1],
             "2": d$prime,
@@ -1685,7 +1661,6 @@ function mapi$2(f, param) {
     return /* constructor */{
             tag: 0,
             name: "Node",
-            length: 5,
             "0": l$prime,
             "1": v,
             "2": d$prime,
@@ -1919,7 +1894,6 @@ function cons_enum$2(_m, _e) {
       _e = /* constructor */{
         tag: 0,
         name: "More",
-        length: 4,
         "0": m[1],
         "1": m[2],
         "2": m[3],
@@ -2004,7 +1978,6 @@ function bindings_aux$2(_accu, _param) {
       _accu = /* constructor */{
         tag: 0,
         name: "::",
-        length: 2,
         "0": /* tuple */[
           param[1],
           param[2]
@@ -2150,7 +2123,6 @@ function set_method(table, label, element) {
     table[/* hidden_meths */5] = /* constructor */{
       tag: 0,
       name: "::",
-      length: 2,
       "0": /* tuple */[
         label,
         element
@@ -2195,7 +2167,6 @@ function narrow(table, vars, virt_meths, concr_meths) {
   table[/* previous_states */4] = /* constructor */{
     tag: 0,
     name: "::",
-    length: 2,
     "0": /* tuple */[
       table[/* methods_by_name */2],
       table[/* methods_by_label */3],
@@ -2245,7 +2216,6 @@ function narrow(table, vars, virt_meths, concr_meths) {
             return /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": met,
                     "1": hm
                   };
@@ -2270,7 +2240,6 @@ function widen(table) {
             return /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": met,
                     "1": hm
                   };
@@ -2353,7 +2322,6 @@ function add_initializer(table, f) {
   table[/* initializers */7] = /* constructor */{
     tag: 0,
     name: "::",
-    length: 2,
     "0": f,
     "1": table[/* initializers */7]
   };
@@ -2390,19 +2358,16 @@ function inherits(cla, vals, virt_meths, concr_meths, param, top) {
   return Caml_array.caml_array_concat(/* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": /* array */[init],
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": $$Array.map((function (param) {
                         return get_variable(cla, param);
                       }), to_array(vals)),
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": $$Array.map((function (nm) {
                           return get_method(cla, get_method_label(cla, nm));
                         }), to_array(concr_meths)),
@@ -2519,7 +2484,6 @@ function build_path(n, keys, tables) {
     r = /* constructor */{
       tag: 0,
       name: "Cons",
-      length: 3,
       "0": Caml_array.caml_array_get(keys, i),
       "1": r,
       "2": /* Empty */0
@@ -2546,7 +2510,6 @@ function lookup_keys(i, keys, tables) {
         var next = /* constructor */{
           tag: 0,
           name: "Cons",
-          length: 3,
           "0": key,
           "1": /* Empty */0,
           "2": /* Empty */0

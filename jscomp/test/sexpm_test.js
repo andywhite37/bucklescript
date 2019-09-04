@@ -16,14 +16,12 @@ function eq(loc, param) {
   suites[0] = /* constructor */{
     tag: 0,
     name: "::",
-    length: 2,
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
                   tag: 0,
                   name: "Eq",
-                  length: 2,
                   "0": x,
                   "1": y
                 };
@@ -39,19 +37,15 @@ function print_or_error(fmt, x) {
     return Curry._1(Format.fprintf(fmt, /* constructor */{
                     tag: 0,
                     name: "Format",
-                    length: 2,
                     "0": /* constructor */{
                       tag: 18,
                       name: "Formatting_gen",
-                      length: 2,
                       "0": /* constructor */{
                         tag: 1,
                         name: "Open_box",
-                        length: 1,
                         "0": /* constructor */{
                           tag: 0,
                           name: "Format",
-                          length: 2,
                           "0": /* End_of_format */0,
                           "1": ""
                         }
@@ -59,22 +53,18 @@ function print_or_error(fmt, x) {
                       "1": /* constructor */{
                         tag: 11,
                         name: "String_literal",
-                        length: 2,
                         "0": "Error:",
                         "1": /* constructor */{
                           tag: 2,
                           name: "String",
-                          length: 2,
                           "0": /* No_padding */0,
                           "1": /* constructor */{
                             tag: 17,
                             name: "Formatting_lit",
-                            length: 2,
                             "0": /* Close_box */0,
                             "1": /* constructor */{
                               tag: 17,
                               name: "Formatting_lit",
-                              length: 2,
                               "0": /* Flush_newline */4,
                               "1": /* End_of_format */0
                             }
@@ -88,19 +78,15 @@ function print_or_error(fmt, x) {
     return Curry._2(Format.fprintf(fmt, /* constructor */{
                     tag: 0,
                     name: "Format",
-                    length: 2,
                     "0": /* constructor */{
                       tag: 18,
                       name: "Formatting_gen",
-                      length: 2,
                       "0": /* constructor */{
                         tag: 1,
                         name: "Open_box",
-                        length: 1,
                         "0": /* constructor */{
                           tag: 0,
                           name: "Format",
-                          length: 2,
                           "0": /* End_of_format */0,
                           "1": ""
                         }
@@ -108,21 +94,17 @@ function print_or_error(fmt, x) {
                       "1": /* constructor */{
                         tag: 11,
                         name: "String_literal",
-                        length: 2,
                         "0": "Ok:",
                         "1": /* constructor */{
                           tag: 15,
                           name: "Alpha",
-                          length: 1,
                           "0": /* constructor */{
                             tag: 17,
                             name: "Formatting_lit",
-                            length: 2,
                             "0": /* Close_box */0,
                             "1": /* constructor */{
                               tag: 17,
                               name: "Formatting_lit",
-                              length: 2,
                               "0": /* Flush_newline */4,
                               "1": /* End_of_format */0
                             }
@@ -145,7 +127,6 @@ eq("File \"sexpm_test.ml\", line 17, characters 7-14", /* tuple */[
           /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": /* `Atom */[
               726615281,
               "x"
@@ -153,7 +134,6 @@ eq("File \"sexpm_test.ml\", line 17, characters 7-14", /* tuple */[
             "1": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": /* `Atom */[
                 726615281,
                 "x"
@@ -161,7 +141,6 @@ eq("File \"sexpm_test.ml\", line 17, characters 7-14", /* tuple */[
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": /* `Atom */[
                   726615281,
                   "gh"
@@ -169,7 +148,6 @@ eq("File \"sexpm_test.ml\", line 17, characters 7-14", /* tuple */[
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": /* `Atom */[
                     726615281,
                     "3"
@@ -177,7 +155,6 @@ eq("File \"sexpm_test.ml\", line 17, characters 7-14", /* tuple */[
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": /* `Atom */[
                       726615281,
                       "3"
@@ -197,11 +174,9 @@ eq("File \"sexpm_test.ml\", line 21, characters 7-14", /* tuple */[
       Curry._2(Format.asprintf(/* constructor */{
                   tag: 0,
                   name: "Format",
-                  length: 2,
                   "0": /* constructor */{
                     tag: 15,
                     name: "Alpha",
-                    length: 1,
                     "0": /* End_of_format */0
                   },
                   "1": "%a"

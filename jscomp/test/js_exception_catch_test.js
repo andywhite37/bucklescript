@@ -17,7 +17,6 @@ function add_test(loc, test) {
   suites[0] = /* constructor */{
     tag: 0,
     name: "::",
-    length: 2,
     "0": /* tuple */[
       id,
       test
@@ -32,7 +31,6 @@ function eq(loc, x, y) {
                 return /* constructor */{
                         tag: 0,
                         name: "Eq",
-                        length: 2,
                         "0": x,
                         "1": y
                       };
@@ -44,7 +42,6 @@ function false_(loc) {
                 return /* constructor */{
                         tag: 4,
                         name: "Ok",
-                        length: 1,
                         "0": false
                       };
               }));
@@ -55,7 +52,6 @@ function true_(loc) {
                 return /* constructor */{
                         tag: 4,
                         name: "Ok",
-                        length: 1,
                         "0": true
                       };
               }));
@@ -76,7 +72,6 @@ catch (raw_exn){
             return /* constructor */{
                     tag: 4,
                     name: "Ok",
-                    length: 1,
                     "0": true
                   };
           }));
@@ -90,7 +85,6 @@ if (exit === 1) {
           return /* constructor */{
                   tag: 4,
                   name: "Ok",
-                  length: 1,
                   "0": false
                 };
         }));

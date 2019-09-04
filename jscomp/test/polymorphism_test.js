@@ -7,7 +7,6 @@ function map(f, param) {
     return /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": r,
             "1": map(f, param[1])
           };

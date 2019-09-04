@@ -8,16 +8,13 @@ function err(str, f) {
   return Curry._1(Format.fprintf(Format.err_formatter, Pervasives.$caret$caret(/* constructor */{
                       tag: 0,
                       name: "Format",
-                      length: 2,
                       "0": /* constructor */{
                         tag: 2,
                         name: "String",
-                        length: 2,
                         "0": /* No_padding */0,
                         "1": /* constructor */{
                           tag: 12,
                           name: "Char_literal",
-                          length: 2,
                           "0": /* " " */32,
                           "1": /* End_of_format */0
                         }
@@ -26,11 +23,9 @@ function err(str, f) {
                     }, Pervasives.$caret$caret(f, /* constructor */{
                           tag: 0,
                           name: "Format",
-                          length: 2,
                           "0": /* constructor */{
                             tag: 17,
                             name: "Formatting_lit",
-                            length: 2,
                             "0": /* Flush_newline */4,
                             "1": /* End_of_format */0
                           },
@@ -43,16 +38,13 @@ function ierr(b, str, f) {
     return Curry._1(Format.fprintf(Format.err_formatter, Pervasives.$caret$caret(/* constructor */{
                         tag: 0,
                         name: "Format",
-                        length: 2,
                         "0": /* constructor */{
                           tag: 2,
                           name: "String",
-                          length: 2,
                           "0": /* No_padding */0,
                           "1": /* constructor */{
                             tag: 12,
                             name: "Char_literal",
-                            length: 2,
                             "0": /* " " */32,
                             "1": /* End_of_format */0
                           }
@@ -63,16 +55,13 @@ function ierr(b, str, f) {
     return Curry._1(Format.ifprintf(Format.err_formatter, Pervasives.$caret$caret(/* constructor */{
                         tag: 0,
                         name: "Format",
-                        length: 2,
                         "0": /* constructor */{
                           tag: 2,
                           name: "String",
-                          length: 2,
                           "0": /* No_padding */0,
                           "1": /* constructor */{
                             tag: 12,
                             name: "Char_literal",
-                            length: 2,
                             "0": /* " " */32,
                             "1": /* End_of_format */0
                           }
@@ -86,21 +75,17 @@ function warn(str, f) {
   return Curry._1(Format.fprintf(Format.err_formatter, Pervasives.$caret$caret(/* constructor */{
                       tag: 0,
                       name: "Format",
-                      length: 2,
                       "0": /* constructor */{
                         tag: 11,
                         name: "String_literal",
-                        length: 2,
                         "0": "WARN: ",
                         "1": /* constructor */{
                           tag: 2,
                           name: "String",
-                          length: 2,
                           "0": /* No_padding */0,
                           "1": /* constructor */{
                             tag: 12,
                             name: "Char_literal",
-                            length: 2,
                             "0": /* " " */32,
                             "1": /* End_of_format */0
                           }
@@ -110,11 +95,9 @@ function warn(str, f) {
                     }, Pervasives.$caret$caret(f, /* constructor */{
                           tag: 0,
                           name: "Format",
-                          length: 2,
                           "0": /* constructor */{
                             tag: 17,
                             name: "Formatting_lit",
-                            length: 2,
                             "0": /* Flush_newline */4,
                             "1": /* End_of_format */0
                           },
@@ -127,21 +110,17 @@ function iwarn(b, str, f) {
     return Curry._1(Format.fprintf(Format.err_formatter, Pervasives.$caret$caret(/* constructor */{
                         tag: 0,
                         name: "Format",
-                        length: 2,
                         "0": /* constructor */{
                           tag: 11,
                           name: "String_literal",
-                          length: 2,
                           "0": "WARN: ",
                           "1": /* constructor */{
                             tag: 2,
                             name: "String",
-                            length: 2,
                             "0": /* No_padding */0,
                             "1": /* constructor */{
                               tag: 12,
                               name: "Char_literal",
-                              length: 2,
                               "0": /* " " */32,
                               "1": /* End_of_format */0
                             }
@@ -153,21 +132,17 @@ function iwarn(b, str, f) {
     return Curry._1(Format.ifprintf(Format.err_formatter, Pervasives.$caret$caret(/* constructor */{
                         tag: 0,
                         name: "Format",
-                        length: 2,
                         "0": /* constructor */{
                           tag: 11,
                           name: "String_literal",
-                          length: 2,
                           "0": "WARN: ",
                           "1": /* constructor */{
                             tag: 2,
                             name: "String",
-                            length: 2,
                             "0": /* No_padding */0,
                             "1": /* constructor */{
                               tag: 12,
                               name: "Char_literal",
-                              length: 2,
                               "0": /* " " */32,
                               "1": /* End_of_format */0
                             }
@@ -182,21 +157,17 @@ function info(str, f) {
   return Curry._1(Format.fprintf(Format.err_formatter, Pervasives.$caret$caret(/* constructor */{
                       tag: 0,
                       name: "Format",
-                      length: 2,
                       "0": /* constructor */{
                         tag: 11,
                         name: "String_literal",
-                        length: 2,
                         "0": "INFO: ",
                         "1": /* constructor */{
                           tag: 2,
                           name: "String",
-                          length: 2,
                           "0": /* No_padding */0,
                           "1": /* constructor */{
                             tag: 12,
                             name: "Char_literal",
-                            length: 2,
                             "0": /* " " */32,
                             "1": /* End_of_format */0
                           }
@@ -211,21 +182,17 @@ function iinfo(b, str, f) {
     return Curry._1(Format.fprintf(Format.err_formatter, Pervasives.$caret$caret(/* constructor */{
                         tag: 0,
                         name: "Format",
-                        length: 2,
                         "0": /* constructor */{
                           tag: 11,
                           name: "String_literal",
-                          length: 2,
                           "0": "INFO: ",
                           "1": /* constructor */{
                             tag: 2,
                             name: "String",
-                            length: 2,
                             "0": /* No_padding */0,
                             "1": /* constructor */{
                               tag: 12,
                               name: "Char_literal",
-                              length: 2,
                               "0": /* " " */32,
                               "1": /* End_of_format */0
                             }
@@ -237,21 +204,17 @@ function iinfo(b, str, f) {
     return Curry._1(Format.fprintf(Format.err_formatter, Pervasives.$caret$caret(/* constructor */{
                         tag: 0,
                         name: "Format",
-                        length: 2,
                         "0": /* constructor */{
                           tag: 11,
                           name: "String_literal",
-                          length: 2,
                           "0": "INFO: ",
                           "1": /* constructor */{
                             tag: 2,
                             name: "String",
-                            length: 2,
                             "0": /* No_padding */0,
                             "1": /* constructor */{
                               tag: 12,
                               name: "Char_literal",
-                              length: 2,
                               "0": /* " " */32,
                               "1": /* End_of_format */0
                             }

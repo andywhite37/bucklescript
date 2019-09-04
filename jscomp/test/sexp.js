@@ -63,12 +63,10 @@ function of_pair(param) {
           /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": param[0],
             "1": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": param[1],
               "1": /* [] */0
             }
@@ -82,17 +80,14 @@ function of_triple(param) {
           /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": param[0],
             "1": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": param[1],
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": param[2],
                 "1": /* [] */0
               }
@@ -107,22 +102,18 @@ function of_quad(param) {
           /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": param[0],
             "1": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": param[1],
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": param[2],
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": param[3],
                   "1": /* [] */0
                 }
@@ -138,7 +129,6 @@ function of_variant(name, args) {
           /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": /* `Atom */[
               726615281,
               name
@@ -154,7 +144,6 @@ function of_field(name, t) {
           /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": /* `Atom */[
               726615281,
               name
@@ -162,7 +151,6 @@ function of_field(name, t) {
             "1": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": t,
               "1": /* [] */0
             }
@@ -210,7 +198,6 @@ function map_opt(f, l) {
         _acc = /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": Caml_option.valFromOption(match),
           "1": acc
         };
@@ -262,7 +249,6 @@ function list_all(f, e) {
           _acc = /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": Caml_option.valFromOption(match),
             "1": acc
           };

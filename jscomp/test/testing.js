@@ -37,23 +37,19 @@ function print_failure_test_fail(param) {
   return Pervasives.print_string(Curry._1(Printf.sprintf(/* constructor */{
                       tag: 0,
                       name: "Format",
-                      length: 2,
                       "0": /* constructor */{
                         tag: 11,
                         name: "String_literal",
-                        length: 2,
                         "0": "\n********* Failure Test number ",
                         "1": /* constructor */{
                           tag: 4,
                           name: "Int",
-                          length: 4,
                           "0": /* Int_i */3,
                           "1": /* No_padding */0,
                           "2": /* No_precision */0,
                           "3": /* constructor */{
                             tag: 11,
                             name: "String_literal",
-                            length: 2,
                             "0": " incorrectly failed ***********\n",
                             "1": /* End_of_format */0
                           }
@@ -68,23 +64,19 @@ function print_failure_test_succeed(param) {
   return Pervasives.print_string(Curry._1(Printf.sprintf(/* constructor */{
                       tag: 0,
                       name: "Format",
-                      length: 2,
                       "0": /* constructor */{
                         tag: 11,
                         name: "String_literal",
-                        length: 2,
                         "0": "\n********* Failure Test number ",
                         "1": /* constructor */{
                           tag: 4,
                           name: "Int",
-                          length: 4,
                           "0": /* Int_i */3,
                           "1": /* No_padding */0,
                           "2": /* No_precision */0,
                           "3": /* constructor */{
                             tag: 11,
                             name: "String_literal",
-                            length: 2,
                             "0": " failed to fail ***********\n",
                             "1": /* End_of_format */0
                           }
@@ -104,23 +96,19 @@ function test(b) {
     return Pervasives.print_string(Curry._1(Printf.sprintf(/* constructor */{
                         tag: 0,
                         name: "Format",
-                        length: 2,
                         "0": /* constructor */{
                           tag: 11,
                           name: "String_literal",
-                          length: 2,
                           "0": "\n********* Test number ",
                           "1": /* constructor */{
                             tag: 4,
                             name: "Int",
-                            length: 4,
                             "0": /* Int_i */3,
                             "1": /* No_padding */0,
                             "2": /* No_precision */0,
                             "3": /* constructor */{
                               tag: 11,
                               name: "String_literal",
-                              length: 2,
                               "0": " failed ***********\n",
                               "1": /* End_of_format */0
                             }

@@ -27,14 +27,12 @@ var x = new Int8Array(/* array */[
 var suites = /* constructor */{
   tag: 0,
   name: "::",
-  length: 2,
   "0": /* tuple */[
     "array_buffer - make",
     (function (param) {
         return /* constructor */{
                 tag: 0,
                 name: "Eq",
-                length: 2,
                 "0": 5,
                 "1": new ArrayBuffer(5).byteLength
               };
@@ -43,14 +41,12 @@ var suites = /* constructor */{
   "1": /* constructor */{
     tag: 0,
     name: "::",
-    length: 2,
     "0": /* tuple */[
       "array_buffer - byteLength",
       (function (param) {
           return /* constructor */{
                   tag: 0,
                   name: "Eq",
-                  length: 2,
                   "0": 5,
                   "1": new ArrayBuffer(5).byteLength
                 };
@@ -59,14 +55,12 @@ var suites = /* constructor */{
     "1": /* constructor */{
       tag: 0,
       name: "::",
-      length: 2,
       "0": /* tuple */[
         "array_buffer - slice",
         (function (param) {
             return /* constructor */{
                     tag: 0,
                     name: "Eq",
-                    length: 2,
                     "0": 2,
                     "1": new ArrayBuffer(5).slice(2, 4).byteLength
                   };
@@ -75,14 +69,12 @@ var suites = /* constructor */{
       "1": /* constructor */{
         tag: 0,
         name: "::",
-        length: 2,
         "0": /* tuple */[
           "array_buffer - sliceFrom",
           (function (param) {
               return /* constructor */{
                       tag: 0,
                       name: "Eq",
-                      length: 2,
                       "0": 3,
                       "1": new ArrayBuffer(5).slice(2).byteLength
                     };
@@ -91,14 +83,12 @@ var suites = /* constructor */{
         "1": /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": /* tuple */[
             "typed_array - unsafe_get",
             (function (param) {
                 return /* constructor */{
                         tag: 0,
                         name: "Eq",
-                        length: 2,
                         "0": 4,
                         "1": new Int8Array(/* array */[
                                 1,
@@ -113,7 +103,6 @@ var suites = /* constructor */{
           "1": /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": /* tuple */[
               "typed_array - unsafe_set",
               (function (param) {
@@ -128,7 +117,6 @@ var suites = /* constructor */{
                   return /* constructor */{
                           tag: 0,
                           name: "Eq",
-                          length: 2,
                           "0": 14,
                           "1": a[3]
                         };
@@ -137,14 +125,12 @@ var suites = /* constructor */{
             "1": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": /* tuple */[
                 "typed_array - buffer",
                 (function (param) {
                     return /* constructor */{
                             tag: 0,
                             name: "Eq",
-                            length: 2,
                             "0": new Int8Array(/* array */[
                                   3,
                                   4,
@@ -163,14 +149,12 @@ var suites = /* constructor */{
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": /* tuple */[
                   "typed_array - byteLength",
                   (function (param) {
                       return /* constructor */{
                               tag: 0,
                               name: "Eq",
-                              length: 2,
                               "0": 10,
                               "1": new Int16Array(/* array */[
                                     1,
@@ -185,14 +169,12 @@ var suites = /* constructor */{
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": /* tuple */[
                     "typed_array - byteOffset",
                     (function (param) {
                         return /* constructor */{
                                 tag: 0,
                                 name: "Eq",
-                                length: 2,
                                 "0": 0,
                                 "1": new Int8Array(/* array */[
                                       1,
@@ -207,7 +189,6 @@ var suites = /* constructor */{
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": /* tuple */[
                       "typed_array - setArray",
                       (function (param) {
@@ -222,7 +203,6 @@ var suites = /* constructor */{
                           return /* constructor */{
                                   tag: 0,
                                   name: "Eq",
-                                  length: 2,
                                   "0": new Int8Array(/* array */[
                                         9,
                                         8,
@@ -243,7 +223,6 @@ var suites = /* constructor */{
                     "1": /* constructor */{
                       tag: 0,
                       name: "::",
-                      length: 2,
                       "0": /* tuple */[
                         "typed_array - setArrayOffset",
                         (function (param) {
@@ -258,7 +237,6 @@ var suites = /* constructor */{
                             return /* constructor */{
                                     tag: 0,
                                     name: "Eq",
-                                    length: 2,
                                     "0": new Int8Array(/* array */[
                                           1,
                                           2,
@@ -279,14 +257,12 @@ var suites = /* constructor */{
                       "1": /* constructor */{
                         tag: 0,
                         name: "::",
-                        length: 2,
                         "0": /* tuple */[
                           "typed_array - length",
                           (function (param) {
                               return /* constructor */{
                                       tag: 0,
                                       name: "Eq",
-                                      length: 2,
                                       "0": 5,
                                       "1": new Int8Array(/* array */[
                                             1,
@@ -301,14 +277,12 @@ var suites = /* constructor */{
                         "1": /* constructor */{
                           tag: 0,
                           name: "::",
-                          length: 2,
                           "0": /* tuple */[
                             "typed_array - copyWithin",
                             (function (param) {
                                 return /* constructor */{
                                         tag: 0,
                                         name: "Eq",
-                                        length: 2,
                                         "0": new Int8Array(/* array */[
                                               1,
                                               2,
@@ -329,14 +303,12 @@ var suites = /* constructor */{
                           "1": /* constructor */{
                             tag: 0,
                             name: "::",
-                            length: 2,
                             "0": /* tuple */[
                               "typed_array - copyWithinFrom",
                               (function (param) {
                                   return /* constructor */{
                                           tag: 0,
                                           name: "Eq",
-                                          length: 2,
                                           "0": new Int8Array(/* array */[
                                                 4,
                                                 5,
@@ -357,14 +329,12 @@ var suites = /* constructor */{
                             "1": /* constructor */{
                               tag: 0,
                               name: "::",
-                              length: 2,
                               "0": /* tuple */[
                                 "typed_array - copyWithinFromRange",
                                 (function (param) {
                                     return /* constructor */{
                                             tag: 0,
                                             name: "Eq",
-                                            length: 2,
                                             "0": new Int8Array(/* array */[
                                                   4,
                                                   2,
@@ -385,14 +355,12 @@ var suites = /* constructor */{
                               "1": /* constructor */{
                                 tag: 0,
                                 name: "::",
-                                length: 2,
                                 "0": /* tuple */[
                                   "typed_array - fillInPlace",
                                   (function (param) {
                                       return /* constructor */{
                                               tag: 0,
                                               name: "Eq",
-                                              length: 2,
                                               "0": new Int8Array(/* array */[
                                                     4,
                                                     4,
@@ -409,14 +377,12 @@ var suites = /* constructor */{
                                 "1": /* constructor */{
                                   tag: 0,
                                   name: "::",
-                                  length: 2,
                                   "0": /* tuple */[
                                     "typed_array - fillFromInPlace",
                                     (function (param) {
                                         return /* constructor */{
                                                 tag: 0,
                                                 name: "Eq",
-                                                length: 2,
                                                 "0": new Int8Array(/* array */[
                                                       1,
                                                       4,
@@ -433,14 +399,12 @@ var suites = /* constructor */{
                                   "1": /* constructor */{
                                     tag: 0,
                                     name: "::",
-                                    length: 2,
                                     "0": /* tuple */[
                                       "typed_array - fillRangeInPlace",
                                       (function (param) {
                                           return /* constructor */{
                                                   tag: 0,
                                                   name: "Eq",
-                                                  length: 2,
                                                   "0": new Int8Array(/* array */[
                                                         1,
                                                         4,
@@ -457,14 +421,12 @@ var suites = /* constructor */{
                                     "1": /* constructor */{
                                       tag: 0,
                                       name: "::",
-                                      length: 2,
                                       "0": /* tuple */[
                                         "typed_array - reverseInPlace",
                                         (function (param) {
                                             return /* constructor */{
                                                     tag: 0,
                                                     name: "Eq",
-                                                    length: 2,
                                                     "0": new Int8Array(/* array */[
                                                           3,
                                                           2,
@@ -481,14 +443,12 @@ var suites = /* constructor */{
                                       "1": /* constructor */{
                                         tag: 0,
                                         name: "::",
-                                        length: 2,
                                         "0": /* tuple */[
                                           "typed_array - sortInPlace",
                                           (function (param) {
                                               return /* constructor */{
                                                       tag: 0,
                                                       name: "Eq",
-                                                      length: 2,
                                                       "0": new Int8Array(/* array */[
                                                             1,
                                                             2,
@@ -505,14 +465,12 @@ var suites = /* constructor */{
                                         "1": /* constructor */{
                                           tag: 0,
                                           name: "::",
-                                          length: 2,
                                           "0": /* tuple */[
                                             "typed_array - sortInPlaceWith",
                                             (function (param) {
                                                 return /* constructor */{
                                                         tag: 0,
                                                         name: "Eq",
-                                                        length: 2,
                                                         "0": new Int8Array(/* array */[
                                                               3,
                                                               2,
@@ -531,14 +489,12 @@ var suites = /* constructor */{
                                           "1": /* constructor */{
                                             tag: 0,
                                             name: "::",
-                                            length: 2,
                                             "0": /* tuple */[
                                               "typed_array - includes",
                                               (function (param) {
                                                   return /* constructor */{
                                                           tag: 0,
                                                           name: "Eq",
-                                                          length: 2,
                                                           "0": true,
                                                           "1": new Int8Array(/* array */[
                                                                   1,
@@ -551,14 +507,12 @@ var suites = /* constructor */{
                                             "1": /* constructor */{
                                               tag: 0,
                                               name: "::",
-                                              length: 2,
                                               "0": /* tuple */[
                                                 "typed_array - indexOf",
                                                 (function (param) {
                                                     return /* constructor */{
                                                             tag: 0,
                                                             name: "Eq",
-                                                            length: 2,
                                                             "0": 1,
                                                             "1": new Int8Array(/* array */[
                                                                     1,
@@ -571,14 +525,12 @@ var suites = /* constructor */{
                                               "1": /* constructor */{
                                                 tag: 0,
                                                 name: "::",
-                                                length: 2,
                                                 "0": /* tuple */[
                                                   "typed_array - indexOfFrom",
                                                   (function (param) {
                                                       return /* constructor */{
                                                               tag: 0,
                                                               name: "Eq",
-                                                              length: 2,
                                                               "0": 3,
                                                               "1": new Int8Array(/* array */[
                                                                       1,
@@ -592,14 +544,12 @@ var suites = /* constructor */{
                                                 "1": /* constructor */{
                                                   tag: 0,
                                                   name: "::",
-                                                  length: 2,
                                                   "0": /* tuple */[
                                                     "typed_array - join",
                                                     (function (param) {
                                                         return /* constructor */{
                                                                 tag: 0,
                                                                 name: "Eq",
-                                                                length: 2,
                                                                 "0": "1,2,3",
                                                                 "1": new Int8Array(/* array */[
                                                                         1,
@@ -612,14 +562,12 @@ var suites = /* constructor */{
                                                   "1": /* constructor */{
                                                     tag: 0,
                                                     name: "::",
-                                                    length: 2,
                                                     "0": /* tuple */[
                                                       "typed_array - joinWith",
                                                       (function (param) {
                                                           return /* constructor */{
                                                                   tag: 0,
                                                                   name: "Eq",
-                                                                  length: 2,
                                                                   "0": "1;2;3",
                                                                   "1": new Int8Array(/* array */[
                                                                           1,
@@ -632,14 +580,12 @@ var suites = /* constructor */{
                                                     "1": /* constructor */{
                                                       tag: 0,
                                                       name: "::",
-                                                      length: 2,
                                                       "0": /* tuple */[
                                                         "typed_array - lastIndexOf",
                                                         (function (param) {
                                                             return /* constructor */{
                                                                     tag: 0,
                                                                     name: "Eq",
-                                                                    length: 2,
                                                                     "0": 1,
                                                                     "1": new Int8Array(/* array */[
                                                                             1,
@@ -652,14 +598,12 @@ var suites = /* constructor */{
                                                       "1": /* constructor */{
                                                         tag: 0,
                                                         name: "::",
-                                                        length: 2,
                                                         "0": /* tuple */[
                                                           "typed_array - lastIndexOfFrom",
                                                           (function (param) {
                                                               return /* constructor */{
                                                                       tag: 0,
                                                                       name: "Eq",
-                                                                      length: 2,
                                                                       "0": 1,
                                                                       "1": new Int8Array(/* array */[
                                                                               1,
@@ -673,14 +617,12 @@ var suites = /* constructor */{
                                                         "1": /* constructor */{
                                                           tag: 0,
                                                           name: "::",
-                                                          length: 2,
                                                           "0": /* tuple */[
                                                             "typed_array - slice",
                                                             (function (param) {
                                                                 return /* constructor */{
                                                                         tag: 0,
                                                                         name: "Eq",
-                                                                        length: 2,
                                                                         "0": new Int8Array(/* array */[
                                                                               2,
                                                                               3
@@ -698,14 +640,12 @@ var suites = /* constructor */{
                                                           "1": /* constructor */{
                                                             tag: 0,
                                                             name: "::",
-                                                            length: 2,
                                                             "0": /* tuple */[
                                                               "typed_array - copy",
                                                               (function (param) {
                                                                   return /* constructor */{
                                                                           tag: 0,
                                                                           name: "Eq",
-                                                                          length: 2,
                                                                           "0": new Int8Array(/* array */[
                                                                                 1,
                                                                                 2,
@@ -726,14 +666,12 @@ var suites = /* constructor */{
                                                             "1": /* constructor */{
                                                               tag: 0,
                                                               name: "::",
-                                                              length: 2,
                                                               "0": /* tuple */[
                                                                 "typed_array - sliceFrom",
                                                                 (function (param) {
                                                                     return /* constructor */{
                                                                             tag: 0,
                                                                             name: "Eq",
-                                                                            length: 2,
                                                                             "0": new Int8Array(/* array */[
                                                                                   3,
                                                                                   4,
@@ -752,14 +690,12 @@ var suites = /* constructor */{
                                                               "1": /* constructor */{
                                                                 tag: 0,
                                                                 name: "::",
-                                                                length: 2,
                                                                 "0": /* tuple */[
                                                                   "typed_array - subarray",
                                                                   (function (param) {
                                                                       return /* constructor */{
                                                                               tag: 0,
                                                                               name: "Eq",
-                                                                              length: 2,
                                                                               "0": new Int8Array(/* array */[
                                                                                     2,
                                                                                     3
@@ -777,14 +713,12 @@ var suites = /* constructor */{
                                                                 "1": /* constructor */{
                                                                   tag: 0,
                                                                   name: "::",
-                                                                  length: 2,
                                                                   "0": /* tuple */[
                                                                     "typed_array - subarrayFrom",
                                                                     (function (param) {
                                                                         return /* constructor */{
                                                                                 tag: 0,
                                                                                 name: "Eq",
-                                                                                length: 2,
                                                                                 "0": new Int8Array(/* array */[
                                                                                       3,
                                                                                       4,
@@ -803,14 +737,12 @@ var suites = /* constructor */{
                                                                   "1": /* constructor */{
                                                                     tag: 0,
                                                                     name: "::",
-                                                                    length: 2,
                                                                     "0": /* tuple */[
                                                                       "typed_array - toString",
                                                                       (function (param) {
                                                                           return /* constructor */{
                                                                                   tag: 0,
                                                                                   name: "Eq",
-                                                                                  length: 2,
                                                                                   "0": "1,2,3",
                                                                                   "1": new Int8Array(/* array */[
                                                                                           1,
@@ -823,14 +755,12 @@ var suites = /* constructor */{
                                                                     "1": /* constructor */{
                                                                       tag: 0,
                                                                       name: "::",
-                                                                      length: 2,
                                                                       "0": /* tuple */[
                                                                         "typed_array - toLocaleString",
                                                                         (function (param) {
                                                                             return /* constructor */{
                                                                                     tag: 0,
                                                                                     name: "Eq",
-                                                                                    length: 2,
                                                                                     "0": "1,2,3",
                                                                                     "1": new Int8Array(/* array */[
                                                                                             1,
@@ -843,14 +773,12 @@ var suites = /* constructor */{
                                                                       "1": /* constructor */{
                                                                         tag: 0,
                                                                         name: "::",
-                                                                        length: 2,
                                                                         "0": /* tuple */[
                                                                           "typed_array - every",
                                                                           (function (param) {
                                                                               return /* constructor */{
                                                                                       tag: 0,
                                                                                       name: "Eq",
-                                                                                      length: 2,
                                                                                       "0": true,
                                                                                       "1": new Int8Array(/* array */[
                                                                                               1,
@@ -865,14 +793,12 @@ var suites = /* constructor */{
                                                                         "1": /* constructor */{
                                                                           tag: 0,
                                                                           name: "::",
-                                                                          length: 2,
                                                                           "0": /* tuple */[
                                                                             "typed_array - everyi",
                                                                             (function (param) {
                                                                                 return /* constructor */{
                                                                                         tag: 0,
                                                                                         name: "Eq",
-                                                                                        length: 2,
                                                                                         "0": false,
                                                                                         "1": new Int8Array(/* array */[
                                                                                                 1,
@@ -887,14 +813,12 @@ var suites = /* constructor */{
                                                                           "1": /* constructor */{
                                                                             tag: 0,
                                                                             name: "::",
-                                                                            length: 2,
                                                                             "0": /* tuple */[
                                                                               "typed_array - filter",
                                                                               (function (param) {
                                                                                   return /* constructor */{
                                                                                           tag: 0,
                                                                                           name: "Eq",
-                                                                                          length: 2,
                                                                                           "0": new Int8Array(/* array */[
                                                                                                 2,
                                                                                                 4
@@ -913,14 +837,12 @@ var suites = /* constructor */{
                                                                             "1": /* constructor */{
                                                                               tag: 0,
                                                                               name: "::",
-                                                                              length: 2,
                                                                               "0": /* tuple */[
                                                                                 "typed_array - filteri",
                                                                                 (function (param) {
                                                                                     return /* constructor */{
                                                                                             tag: 0,
                                                                                             name: "Eq",
-                                                                                            length: 2,
                                                                                             "0": new Int8Array(/* array */[
                                                                                                   1,
                                                                                                   3
@@ -939,14 +861,12 @@ var suites = /* constructor */{
                                                                               "1": /* constructor */{
                                                                                 tag: 0,
                                                                                 name: "::",
-                                                                                length: 2,
                                                                                 "0": /* tuple */[
                                                                                   "typed_array - find",
                                                                                   (function (param) {
                                                                                       return /* constructor */{
                                                                                               tag: 0,
                                                                                               name: "Eq",
-                                                                                              length: 2,
                                                                                               "0": 2,
                                                                                               "1": new Int8Array(/* array */[
                                                                                                       1,
@@ -962,14 +882,12 @@ var suites = /* constructor */{
                                                                                 "1": /* constructor */{
                                                                                   tag: 0,
                                                                                   name: "::",
-                                                                                  length: 2,
                                                                                   "0": /* tuple */[
                                                                                     "typed_array - findi",
                                                                                     (function (param) {
                                                                                         return /* constructor */{
                                                                                                 tag: 0,
                                                                                                 name: "Eq",
-                                                                                                length: 2,
                                                                                                 "0": 1,
                                                                                                 "1": new Int8Array(/* array */[
                                                                                                         1,
@@ -985,14 +903,12 @@ var suites = /* constructor */{
                                                                                   "1": /* constructor */{
                                                                                     tag: 0,
                                                                                     name: "::",
-                                                                                    length: 2,
                                                                                     "0": /* tuple */[
                                                                                       "typed_array - findIndex",
                                                                                       (function (param) {
                                                                                           return /* constructor */{
                                                                                                   tag: 0,
                                                                                                   name: "Eq",
-                                                                                                  length: 2,
                                                                                                   "0": 1,
                                                                                                   "1": new Int8Array(/* array */[
                                                                                                           1,
@@ -1008,14 +924,12 @@ var suites = /* constructor */{
                                                                                     "1": /* constructor */{
                                                                                       tag: 0,
                                                                                       name: "::",
-                                                                                      length: 2,
                                                                                       "0": /* tuple */[
                                                                                         "typed_array - findIndexi",
                                                                                         (function (param) {
                                                                                             return /* constructor */{
                                                                                                     tag: 0,
                                                                                                     name: "Eq",
-                                                                                                    length: 2,
                                                                                                     "0": 0,
                                                                                                     "1": new Int8Array(/* array */[
                                                                                                             1,
@@ -1031,7 +945,6 @@ var suites = /* constructor */{
                                                                                       "1": /* constructor */{
                                                                                         tag: 0,
                                                                                         name: "::",
-                                                                                        length: 2,
                                                                                         "0": /* tuple */[
                                                                                           "typed_array - forEach",
                                                                                           (function (param) {
@@ -1047,7 +960,6 @@ var suites = /* constructor */{
                                                                                               return /* constructor */{
                                                                                                       tag: 0,
                                                                                                       name: "Eq",
-                                                                                                      length: 2,
                                                                                                       "0": 6,
                                                                                                       "1": sum[0]
                                                                                                     };
@@ -1056,7 +968,6 @@ var suites = /* constructor */{
                                                                                         "1": /* constructor */{
                                                                                           tag: 0,
                                                                                           name: "::",
-                                                                                          length: 2,
                                                                                           "0": /* tuple */[
                                                                                             "typed_array - forEachi",
                                                                                             (function (param) {
@@ -1072,7 +983,6 @@ var suites = /* constructor */{
                                                                                                 return /* constructor */{
                                                                                                         tag: 0,
                                                                                                         name: "Eq",
-                                                                                                        length: 2,
                                                                                                         "0": 3,
                                                                                                         "1": sum[0]
                                                                                                       };
@@ -1081,14 +991,12 @@ var suites = /* constructor */{
                                                                                           "1": /* constructor */{
                                                                                             tag: 0,
                                                                                             name: "::",
-                                                                                            length: 2,
                                                                                             "0": /* tuple */[
                                                                                               "typed_array - map",
                                                                                               (function (param) {
                                                                                                   return /* constructor */{
                                                                                                           tag: 0,
                                                                                                           name: "Eq",
-                                                                                                          length: 2,
                                                                                                           "0": new Int8Array(/* array */[
                                                                                                                 2,
                                                                                                                 4,
@@ -1109,14 +1017,12 @@ var suites = /* constructor */{
                                                                                             "1": /* constructor */{
                                                                                               tag: 0,
                                                                                               name: "::",
-                                                                                              length: 2,
                                                                                               "0": /* tuple */[
                                                                                                 "typed_array - map",
                                                                                                 (function (param) {
                                                                                                     return /* constructor */{
                                                                                                             tag: 0,
                                                                                                             name: "Eq",
-                                                                                                            length: 2,
                                                                                                             "0": new Int8Array(/* array */[
                                                                                                                   0,
                                                                                                                   2,
@@ -1137,14 +1043,12 @@ var suites = /* constructor */{
                                                                                               "1": /* constructor */{
                                                                                                 tag: 0,
                                                                                                 name: "::",
-                                                                                                length: 2,
                                                                                                 "0": /* tuple */[
                                                                                                   "typed_array - reduce",
                                                                                                   (function (param) {
                                                                                                       return /* constructor */{
                                                                                                               tag: 0,
                                                                                                               name: "Eq",
-                                                                                                              length: 2,
                                                                                                               "0": -10,
                                                                                                               "1": new Int8Array(/* array */[
                                                                                                                       1,
@@ -1160,14 +1064,12 @@ var suites = /* constructor */{
                                                                                                 "1": /* constructor */{
                                                                                                   tag: 0,
                                                                                                   name: "::",
-                                                                                                  length: 2,
                                                                                                   "0": /* tuple */[
                                                                                                     "typed_array - reducei",
                                                                                                     (function (param) {
                                                                                                         return /* constructor */{
                                                                                                                 tag: 0,
                                                                                                                 name: "Eq",
-                                                                                                                length: 2,
                                                                                                                 "0": -6,
                                                                                                                 "1": new Int8Array(/* array */[
                                                                                                                         1,
@@ -1183,14 +1085,12 @@ var suites = /* constructor */{
                                                                                                   "1": /* constructor */{
                                                                                                     tag: 0,
                                                                                                     name: "::",
-                                                                                                    length: 2,
                                                                                                     "0": /* tuple */[
                                                                                                       "typed_array - reduceRight",
                                                                                                       (function (param) {
                                                                                                           return /* constructor */{
                                                                                                                   tag: 0,
                                                                                                                   name: "Eq",
-                                                                                                                  length: 2,
                                                                                                                   "0": -10,
                                                                                                                   "1": new Int8Array(/* array */[
                                                                                                                           1,
@@ -1206,14 +1106,12 @@ var suites = /* constructor */{
                                                                                                     "1": /* constructor */{
                                                                                                       tag: 0,
                                                                                                       name: "::",
-                                                                                                      length: 2,
                                                                                                       "0": /* tuple */[
                                                                                                         "typed_array - reduceRighti",
                                                                                                         (function (param) {
                                                                                                             return /* constructor */{
                                                                                                                     tag: 0,
                                                                                                                     name: "Eq",
-                                                                                                                    length: 2,
                                                                                                                     "0": -6,
                                                                                                                     "1": new Int8Array(/* array */[
                                                                                                                             1,
@@ -1229,14 +1127,12 @@ var suites = /* constructor */{
                                                                                                       "1": /* constructor */{
                                                                                                         tag: 0,
                                                                                                         name: "::",
-                                                                                                        length: 2,
                                                                                                         "0": /* tuple */[
                                                                                                           "typed_array - some",
                                                                                                           (function (param) {
                                                                                                               return /* constructor */{
                                                                                                                       tag: 0,
                                                                                                                       name: "Eq",
-                                                                                                                      length: 2,
                                                                                                                       "0": false,
                                                                                                                       "1": new Int8Array(/* array */[
                                                                                                                               1,
@@ -1252,14 +1148,12 @@ var suites = /* constructor */{
                                                                                                         "1": /* constructor */{
                                                                                                           tag: 0,
                                                                                                           name: "::",
-                                                                                                          length: 2,
                                                                                                           "0": /* tuple */[
                                                                                                             "typed_array - somei",
                                                                                                             (function (param) {
                                                                                                                 return /* constructor */{
                                                                                                                         tag: 0,
                                                                                                                         name: "Eq",
-                                                                                                                        length: 2,
                                                                                                                         "0": true,
                                                                                                                         "1": new Int8Array(/* array */[
                                                                                                                                 1,
@@ -1275,14 +1169,12 @@ var suites = /* constructor */{
                                                                                                           "1": /* constructor */{
                                                                                                             tag: 0,
                                                                                                             name: "::",
-                                                                                                            length: 2,
                                                                                                             "0": /* tuple */[
                                                                                                               "int8_array - _BYTES_PER_ELEMENT",
                                                                                                               (function (param) {
                                                                                                                   return /* constructor */{
                                                                                                                           tag: 0,
                                                                                                                           name: "Eq",
-                                                                                                                          length: 2,
                                                                                                                           "0": 1,
                                                                                                                           "1": Int8Array.BYTES_PER_ELEMENT
                                                                                                                         };
@@ -1291,14 +1183,12 @@ var suites = /* constructor */{
                                                                                                             "1": /* constructor */{
                                                                                                               tag: 0,
                                                                                                               name: "::",
-                                                                                                              length: 2,
                                                                                                               "0": /* tuple */[
                                                                                                                 "int8_array - make",
                                                                                                                 (function (param) {
                                                                                                                     return /* constructor */{
                                                                                                                             tag: 0,
                                                                                                                             name: "Eq",
-                                                                                                                            length: 2,
                                                                                                                             "0": 3,
                                                                                                                             "1": new Int8Array(/* array */[
                                                                                                                                   1,
@@ -1311,14 +1201,12 @@ var suites = /* constructor */{
                                                                                                               "1": /* constructor */{
                                                                                                                 tag: 0,
                                                                                                                 name: "::",
-                                                                                                                length: 2,
                                                                                                                 "0": /* tuple */[
                                                                                                                   "int8_array - fromBuffer",
                                                                                                                   (function (param) {
                                                                                                                       return /* constructor */{
                                                                                                                               tag: 0,
                                                                                                                               name: "Eq",
-                                                                                                                              length: 2,
                                                                                                                               "0": 32,
                                                                                                                               "1": new Int8Array(new ArrayBuffer(32)).byteLength
                                                                                                                             };
@@ -1327,7 +1215,6 @@ var suites = /* constructor */{
                                                                                                                 "1": /* constructor */{
                                                                                                                   tag: 0,
                                                                                                                   name: "::",
-                                                                                                                  length: 2,
                                                                                                                   "0": /* tuple */[
                                                                                                                     "int8_array - fromBufferOffset",
                                                                                                                     (function (param) {
@@ -1335,7 +1222,6 @@ var suites = /* constructor */{
                                                                                                                         return /* constructor */{
                                                                                                                                 tag: 0,
                                                                                                                                 name: "Eq",
-                                                                                                                                length: 2,
                                                                                                                                 "0": 24,
                                                                                                                                 "1": new Int8Array(buffer, 8).byteLength
                                                                                                                               };
@@ -1344,7 +1230,6 @@ var suites = /* constructor */{
                                                                                                                   "1": /* constructor */{
                                                                                                                     tag: 0,
                                                                                                                     name: "::",
-                                                                                                                    length: 2,
                                                                                                                     "0": /* tuple */[
                                                                                                                       "int8_array - fromBufferRange",
                                                                                                                       (function (param) {
@@ -1352,7 +1237,6 @@ var suites = /* constructor */{
                                                                                                                           return /* constructor */{
                                                                                                                                   tag: 0,
                                                                                                                                   name: "Eq",
-                                                                                                                                  length: 2,
                                                                                                                                   "0": 2,
                                                                                                                                   "1": new Int8Array(buffer, 8, 2).byteLength
                                                                                                                                 };
@@ -1361,14 +1245,12 @@ var suites = /* constructor */{
                                                                                                                     "1": /* constructor */{
                                                                                                                       tag: 0,
                                                                                                                       name: "::",
-                                                                                                                      length: 2,
                                                                                                                       "0": /* tuple */[
                                                                                                                         "int8_array - fromLength",
                                                                                                                         (function (param) {
                                                                                                                             return /* constructor */{
                                                                                                                                     tag: 0,
                                                                                                                                     name: "Eq",
-                                                                                                                                    length: 2,
                                                                                                                                     "0": 3,
                                                                                                                                     "1": new Int8Array(3).byteLength
                                                                                                                                   };
@@ -1377,7 +1259,6 @@ var suites = /* constructor */{
                                                                                                                       "1": /* constructor */{
                                                                                                                         tag: 0,
                                                                                                                         name: "::",
-                                                                                                                        length: 2,
                                                                                                                         "0": /* tuple */[
                                                                                                                           "int8_array - unsafe_set - typed_array sanity check",
                                                                                                                           (function (param) {
@@ -1392,7 +1273,6 @@ var suites = /* constructor */{
                                                                                                                               return /* constructor */{
                                                                                                                                       tag: 0,
                                                                                                                                       name: "Eq",
-                                                                                                                                      length: 2,
                                                                                                                                       "0": 14,
                                                                                                                                       "1": a[3]
                                                                                                                                     };
@@ -1401,14 +1281,12 @@ var suites = /* constructor */{
                                                                                                                         "1": /* constructor */{
                                                                                                                           tag: 0,
                                                                                                                           name: "::",
-                                                                                                                          length: 2,
                                                                                                                           "0": /* tuple */[
                                                                                                                             "uint8_array - _BYTES_PER_ELEMENT",
                                                                                                                             (function (param) {
                                                                                                                                 return /* constructor */{
                                                                                                                                         tag: 0,
                                                                                                                                         name: "Eq",
-                                                                                                                                        length: 2,
                                                                                                                                         "0": 1,
                                                                                                                                         "1": Uint8Array.BYTES_PER_ELEMENT
                                                                                                                                       };
@@ -1417,14 +1295,12 @@ var suites = /* constructor */{
                                                                                                                           "1": /* constructor */{
                                                                                                                             tag: 0,
                                                                                                                             name: "::",
-                                                                                                                            length: 2,
                                                                                                                             "0": /* tuple */[
                                                                                                                               "uint8_array - make",
                                                                                                                               (function (param) {
                                                                                                                                   return /* constructor */{
                                                                                                                                           tag: 0,
                                                                                                                                           name: "Eq",
-                                                                                                                                          length: 2,
                                                                                                                                           "0": 3,
                                                                                                                                           "1": new Uint8Array(/* array */[
                                                                                                                                                 1,
@@ -1437,14 +1313,12 @@ var suites = /* constructor */{
                                                                                                                             "1": /* constructor */{
                                                                                                                               tag: 0,
                                                                                                                               name: "::",
-                                                                                                                              length: 2,
                                                                                                                               "0": /* tuple */[
                                                                                                                                 "uint8_array - fromBuffer",
                                                                                                                                 (function (param) {
                                                                                                                                     return /* constructor */{
                                                                                                                                             tag: 0,
                                                                                                                                             name: "Eq",
-                                                                                                                                            length: 2,
                                                                                                                                             "0": 32,
                                                                                                                                             "1": new Uint8Array(new ArrayBuffer(32)).byteLength
                                                                                                                                           };
@@ -1453,7 +1327,6 @@ var suites = /* constructor */{
                                                                                                                               "1": /* constructor */{
                                                                                                                                 tag: 0,
                                                                                                                                 name: "::",
-                                                                                                                                length: 2,
                                                                                                                                 "0": /* tuple */[
                                                                                                                                   "uint8_array - fromBufferOffset",
                                                                                                                                   (function (param) {
@@ -1461,7 +1334,6 @@ var suites = /* constructor */{
                                                                                                                                       return /* constructor */{
                                                                                                                                               tag: 0,
                                                                                                                                               name: "Eq",
-                                                                                                                                              length: 2,
                                                                                                                                               "0": 24,
                                                                                                                                               "1": new Uint8Array(buffer, 8).byteLength
                                                                                                                                             };
@@ -1470,7 +1342,6 @@ var suites = /* constructor */{
                                                                                                                                 "1": /* constructor */{
                                                                                                                                   tag: 0,
                                                                                                                                   name: "::",
-                                                                                                                                  length: 2,
                                                                                                                                   "0": /* tuple */[
                                                                                                                                     "uint8_array - fromBufferRange",
                                                                                                                                     (function (param) {
@@ -1478,7 +1349,6 @@ var suites = /* constructor */{
                                                                                                                                         return /* constructor */{
                                                                                                                                                 tag: 0,
                                                                                                                                                 name: "Eq",
-                                                                                                                                                length: 2,
                                                                                                                                                 "0": 2,
                                                                                                                                                 "1": new Uint8Array(buffer, 8, 2).byteLength
                                                                                                                                               };
@@ -1487,14 +1357,12 @@ var suites = /* constructor */{
                                                                                                                                   "1": /* constructor */{
                                                                                                                                     tag: 0,
                                                                                                                                     name: "::",
-                                                                                                                                    length: 2,
                                                                                                                                     "0": /* tuple */[
                                                                                                                                       "uint8_array - fromLength",
                                                                                                                                       (function (param) {
                                                                                                                                           return /* constructor */{
                                                                                                                                                   tag: 0,
                                                                                                                                                   name: "Eq",
-                                                                                                                                                  length: 2,
                                                                                                                                                   "0": 3,
                                                                                                                                                   "1": new Uint8Array(3).byteLength
                                                                                                                                                 };
@@ -1503,7 +1371,6 @@ var suites = /* constructor */{
                                                                                                                                     "1": /* constructor */{
                                                                                                                                       tag: 0,
                                                                                                                                       name: "::",
-                                                                                                                                      length: 2,
                                                                                                                                       "0": /* tuple */[
                                                                                                                                         "uint8_array - unsafe_set - typed_array sanity check",
                                                                                                                                         (function (param) {
@@ -1518,7 +1385,6 @@ var suites = /* constructor */{
                                                                                                                                             return /* constructor */{
                                                                                                                                                     tag: 0,
                                                                                                                                                     name: "Eq",
-                                                                                                                                                    length: 2,
                                                                                                                                                     "0": 14,
                                                                                                                                                     "1": a[3]
                                                                                                                                                   };
@@ -1527,14 +1393,12 @@ var suites = /* constructor */{
                                                                                                                                       "1": /* constructor */{
                                                                                                                                         tag: 0,
                                                                                                                                         name: "::",
-                                                                                                                                        length: 2,
                                                                                                                                         "0": /* tuple */[
                                                                                                                                           "uint8clamped_array - _BYTES_PER_ELEMENT",
                                                                                                                                           (function (param) {
                                                                                                                                               return /* constructor */{
                                                                                                                                                       tag: 0,
                                                                                                                                                       name: "Eq",
-                                                                                                                                                      length: 2,
                                                                                                                                                       "0": 1,
                                                                                                                                                       "1": Uint8ClampedArray.BYTES_PER_ELEMENT
                                                                                                                                                     };
@@ -1543,14 +1407,12 @@ var suites = /* constructor */{
                                                                                                                                         "1": /* constructor */{
                                                                                                                                           tag: 0,
                                                                                                                                           name: "::",
-                                                                                                                                          length: 2,
                                                                                                                                           "0": /* tuple */[
                                                                                                                                             "uint8clamped_array - make",
                                                                                                                                             (function (param) {
                                                                                                                                                 return /* constructor */{
                                                                                                                                                         tag: 0,
                                                                                                                                                         name: "Eq",
-                                                                                                                                                        length: 2,
                                                                                                                                                         "0": 3,
                                                                                                                                                         "1": new Uint8ClampedArray(/* array */[
                                                                                                                                                               1,
@@ -1563,14 +1425,12 @@ var suites = /* constructor */{
                                                                                                                                           "1": /* constructor */{
                                                                                                                                             tag: 0,
                                                                                                                                             name: "::",
-                                                                                                                                            length: 2,
                                                                                                                                             "0": /* tuple */[
                                                                                                                                               "uint8clamped_array - fromBuffer",
                                                                                                                                               (function (param) {
                                                                                                                                                   return /* constructor */{
                                                                                                                                                           tag: 0,
                                                                                                                                                           name: "Eq",
-                                                                                                                                                          length: 2,
                                                                                                                                                           "0": 32,
                                                                                                                                                           "1": new Uint8ClampedArray(new ArrayBuffer(32)).byteLength
                                                                                                                                                         };
@@ -1579,7 +1439,6 @@ var suites = /* constructor */{
                                                                                                                                             "1": /* constructor */{
                                                                                                                                               tag: 0,
                                                                                                                                               name: "::",
-                                                                                                                                              length: 2,
                                                                                                                                               "0": /* tuple */[
                                                                                                                                                 "uint8clamped_array - fromBufferOffset",
                                                                                                                                                 (function (param) {
@@ -1587,7 +1446,6 @@ var suites = /* constructor */{
                                                                                                                                                     return /* constructor */{
                                                                                                                                                             tag: 0,
                                                                                                                                                             name: "Eq",
-                                                                                                                                                            length: 2,
                                                                                                                                                             "0": 24,
                                                                                                                                                             "1": new Uint8ClampedArray(buffer, 8).byteLength
                                                                                                                                                           };
@@ -1596,7 +1454,6 @@ var suites = /* constructor */{
                                                                                                                                               "1": /* constructor */{
                                                                                                                                                 tag: 0,
                                                                                                                                                 name: "::",
-                                                                                                                                                length: 2,
                                                                                                                                                 "0": /* tuple */[
                                                                                                                                                   "uint8clamped_array - fromBufferRange",
                                                                                                                                                   (function (param) {
@@ -1604,7 +1461,6 @@ var suites = /* constructor */{
                                                                                                                                                       return /* constructor */{
                                                                                                                                                               tag: 0,
                                                                                                                                                               name: "Eq",
-                                                                                                                                                              length: 2,
                                                                                                                                                               "0": 2,
                                                                                                                                                               "1": new Uint8ClampedArray(buffer, 8, 2).byteLength
                                                                                                                                                             };
@@ -1613,14 +1469,12 @@ var suites = /* constructor */{
                                                                                                                                                 "1": /* constructor */{
                                                                                                                                                   tag: 0,
                                                                                                                                                   name: "::",
-                                                                                                                                                  length: 2,
                                                                                                                                                   "0": /* tuple */[
                                                                                                                                                     "uint8clamped_array - fromLength",
                                                                                                                                                     (function (param) {
                                                                                                                                                         return /* constructor */{
                                                                                                                                                                 tag: 0,
                                                                                                                                                                 name: "Eq",
-                                                                                                                                                                length: 2,
                                                                                                                                                                 "0": 3,
                                                                                                                                                                 "1": new Uint8ClampedArray(3).byteLength
                                                                                                                                                               };
@@ -1629,7 +1483,6 @@ var suites = /* constructor */{
                                                                                                                                                   "1": /* constructor */{
                                                                                                                                                     tag: 0,
                                                                                                                                                     name: "::",
-                                                                                                                                                    length: 2,
                                                                                                                                                     "0": /* tuple */[
                                                                                                                                                       "uint8clamped_array - unsafe_set - typed_array sanity check",
                                                                                                                                                       (function (param) {
@@ -1644,7 +1497,6 @@ var suites = /* constructor */{
                                                                                                                                                           return /* constructor */{
                                                                                                                                                                   tag: 0,
                                                                                                                                                                   name: "Eq",
-                                                                                                                                                                  length: 2,
                                                                                                                                                                   "0": 14,
                                                                                                                                                                   "1": a[3]
                                                                                                                                                                 };
@@ -1653,14 +1505,12 @@ var suites = /* constructor */{
                                                                                                                                                     "1": /* constructor */{
                                                                                                                                                       tag: 0,
                                                                                                                                                       name: "::",
-                                                                                                                                                      length: 2,
                                                                                                                                                       "0": /* tuple */[
                                                                                                                                                         "int16_array - _BYTES_PER_ELEMENT",
                                                                                                                                                         (function (param) {
                                                                                                                                                             return /* constructor */{
                                                                                                                                                                     tag: 0,
                                                                                                                                                                     name: "Eq",
-                                                                                                                                                                    length: 2,
                                                                                                                                                                     "0": 2,
                                                                                                                                                                     "1": Int16Array.BYTES_PER_ELEMENT
                                                                                                                                                                   };
@@ -1669,14 +1519,12 @@ var suites = /* constructor */{
                                                                                                                                                       "1": /* constructor */{
                                                                                                                                                         tag: 0,
                                                                                                                                                         name: "::",
-                                                                                                                                                        length: 2,
                                                                                                                                                         "0": /* tuple */[
                                                                                                                                                           "int16_array - make",
                                                                                                                                                           (function (param) {
                                                                                                                                                               return /* constructor */{
                                                                                                                                                                       tag: 0,
                                                                                                                                                                       name: "Eq",
-                                                                                                                                                                      length: 2,
                                                                                                                                                                       "0": 6,
                                                                                                                                                                       "1": new Int16Array(/* array */[
                                                                                                                                                                             1,
@@ -1689,14 +1537,12 @@ var suites = /* constructor */{
                                                                                                                                                         "1": /* constructor */{
                                                                                                                                                           tag: 0,
                                                                                                                                                           name: "::",
-                                                                                                                                                          length: 2,
                                                                                                                                                           "0": /* tuple */[
                                                                                                                                                             "int16_array - fromBuffer",
                                                                                                                                                             (function (param) {
                                                                                                                                                                 return /* constructor */{
                                                                                                                                                                         tag: 0,
                                                                                                                                                                         name: "Eq",
-                                                                                                                                                                        length: 2,
                                                                                                                                                                         "0": 32,
                                                                                                                                                                         "1": new Int16Array(new ArrayBuffer(32)).byteLength
                                                                                                                                                                       };
@@ -1705,7 +1551,6 @@ var suites = /* constructor */{
                                                                                                                                                           "1": /* constructor */{
                                                                                                                                                             tag: 0,
                                                                                                                                                             name: "::",
-                                                                                                                                                            length: 2,
                                                                                                                                                             "0": /* tuple */[
                                                                                                                                                               "int16_array - fromBufferOffset",
                                                                                                                                                               (function (param) {
@@ -1713,7 +1558,6 @@ var suites = /* constructor */{
                                                                                                                                                                   return /* constructor */{
                                                                                                                                                                           tag: 0,
                                                                                                                                                                           name: "Eq",
-                                                                                                                                                                          length: 2,
                                                                                                                                                                           "0": 24,
                                                                                                                                                                           "1": new Int16Array(buffer, 8).byteLength
                                                                                                                                                                         };
@@ -1722,7 +1566,6 @@ var suites = /* constructor */{
                                                                                                                                                             "1": /* constructor */{
                                                                                                                                                               tag: 0,
                                                                                                                                                               name: "::",
-                                                                                                                                                              length: 2,
                                                                                                                                                               "0": /* tuple */[
                                                                                                                                                                 "int16_array - fromBufferRange",
                                                                                                                                                                 (function (param) {
@@ -1730,7 +1573,6 @@ var suites = /* constructor */{
                                                                                                                                                                     return /* constructor */{
                                                                                                                                                                             tag: 0,
                                                                                                                                                                             name: "Eq",
-                                                                                                                                                                            length: 2,
                                                                                                                                                                             "0": 4,
                                                                                                                                                                             "1": new Int16Array(buffer, 8, 2).byteLength
                                                                                                                                                                           };
@@ -1739,14 +1581,12 @@ var suites = /* constructor */{
                                                                                                                                                               "1": /* constructor */{
                                                                                                                                                                 tag: 0,
                                                                                                                                                                 name: "::",
-                                                                                                                                                                length: 2,
                                                                                                                                                                 "0": /* tuple */[
                                                                                                                                                                   "int16_array - fromLength",
                                                                                                                                                                   (function (param) {
                                                                                                                                                                       return /* constructor */{
                                                                                                                                                                               tag: 0,
                                                                                                                                                                               name: "Eq",
-                                                                                                                                                                              length: 2,
                                                                                                                                                                               "0": 6,
                                                                                                                                                                               "1": new Int16Array(3).byteLength
                                                                                                                                                                             };
@@ -1755,7 +1595,6 @@ var suites = /* constructor */{
                                                                                                                                                                 "1": /* constructor */{
                                                                                                                                                                   tag: 0,
                                                                                                                                                                   name: "::",
-                                                                                                                                                                  length: 2,
                                                                                                                                                                   "0": /* tuple */[
                                                                                                                                                                     "int16_array - unsafe_set - typed_array sanity check",
                                                                                                                                                                     (function (param) {
@@ -1770,7 +1609,6 @@ var suites = /* constructor */{
                                                                                                                                                                         return /* constructor */{
                                                                                                                                                                                 tag: 0,
                                                                                                                                                                                 name: "Eq",
-                                                                                                                                                                                length: 2,
                                                                                                                                                                                 "0": 14,
                                                                                                                                                                                 "1": a[3]
                                                                                                                                                                               };
@@ -1779,14 +1617,12 @@ var suites = /* constructor */{
                                                                                                                                                                   "1": /* constructor */{
                                                                                                                                                                     tag: 0,
                                                                                                                                                                     name: "::",
-                                                                                                                                                                    length: 2,
                                                                                                                                                                     "0": /* tuple */[
                                                                                                                                                                       "uint16_array - _BYTES_PER_ELEMENT",
                                                                                                                                                                       (function (param) {
                                                                                                                                                                           return /* constructor */{
                                                                                                                                                                                   tag: 0,
                                                                                                                                                                                   name: "Eq",
-                                                                                                                                                                                  length: 2,
                                                                                                                                                                                   "0": 2,
                                                                                                                                                                                   "1": Uint16Array.BYTES_PER_ELEMENT
                                                                                                                                                                                 };
@@ -1795,14 +1631,12 @@ var suites = /* constructor */{
                                                                                                                                                                     "1": /* constructor */{
                                                                                                                                                                       tag: 0,
                                                                                                                                                                       name: "::",
-                                                                                                                                                                      length: 2,
                                                                                                                                                                       "0": /* tuple */[
                                                                                                                                                                         "uint16_array - make",
                                                                                                                                                                         (function (param) {
                                                                                                                                                                             return /* constructor */{
                                                                                                                                                                                     tag: 0,
                                                                                                                                                                                     name: "Eq",
-                                                                                                                                                                                    length: 2,
                                                                                                                                                                                     "0": 6,
                                                                                                                                                                                     "1": new Uint16Array(/* array */[
                                                                                                                                                                                           1,
@@ -1815,14 +1649,12 @@ var suites = /* constructor */{
                                                                                                                                                                       "1": /* constructor */{
                                                                                                                                                                         tag: 0,
                                                                                                                                                                         name: "::",
-                                                                                                                                                                        length: 2,
                                                                                                                                                                         "0": /* tuple */[
                                                                                                                                                                           "uint16_array - fromBuffer",
                                                                                                                                                                           (function (param) {
                                                                                                                                                                               return /* constructor */{
                                                                                                                                                                                       tag: 0,
                                                                                                                                                                                       name: "Eq",
-                                                                                                                                                                                      length: 2,
                                                                                                                                                                                       "0": 32,
                                                                                                                                                                                       "1": new Uint16Array(new ArrayBuffer(32)).byteLength
                                                                                                                                                                                     };
@@ -1831,7 +1663,6 @@ var suites = /* constructor */{
                                                                                                                                                                         "1": /* constructor */{
                                                                                                                                                                           tag: 0,
                                                                                                                                                                           name: "::",
-                                                                                                                                                                          length: 2,
                                                                                                                                                                           "0": /* tuple */[
                                                                                                                                                                             "uint16_array - fromBufferOffset",
                                                                                                                                                                             (function (param) {
@@ -1839,7 +1670,6 @@ var suites = /* constructor */{
                                                                                                                                                                                 return /* constructor */{
                                                                                                                                                                                         tag: 0,
                                                                                                                                                                                         name: "Eq",
-                                                                                                                                                                                        length: 2,
                                                                                                                                                                                         "0": 24,
                                                                                                                                                                                         "1": new Uint16Array(buffer, 8).byteLength
                                                                                                                                                                                       };
@@ -1848,7 +1678,6 @@ var suites = /* constructor */{
                                                                                                                                                                           "1": /* constructor */{
                                                                                                                                                                             tag: 0,
                                                                                                                                                                             name: "::",
-                                                                                                                                                                            length: 2,
                                                                                                                                                                             "0": /* tuple */[
                                                                                                                                                                               "uint16_array - fromBufferRange",
                                                                                                                                                                               (function (param) {
@@ -1856,7 +1685,6 @@ var suites = /* constructor */{
                                                                                                                                                                                   return /* constructor */{
                                                                                                                                                                                           tag: 0,
                                                                                                                                                                                           name: "Eq",
-                                                                                                                                                                                          length: 2,
                                                                                                                                                                                           "0": 4,
                                                                                                                                                                                           "1": new Uint16Array(buffer, 8, 2).byteLength
                                                                                                                                                                                         };
@@ -1865,14 +1693,12 @@ var suites = /* constructor */{
                                                                                                                                                                             "1": /* constructor */{
                                                                                                                                                                               tag: 0,
                                                                                                                                                                               name: "::",
-                                                                                                                                                                              length: 2,
                                                                                                                                                                               "0": /* tuple */[
                                                                                                                                                                                 "uint16_array - fromLength",
                                                                                                                                                                                 (function (param) {
                                                                                                                                                                                     return /* constructor */{
                                                                                                                                                                                             tag: 0,
                                                                                                                                                                                             name: "Eq",
-                                                                                                                                                                                            length: 2,
                                                                                                                                                                                             "0": 6,
                                                                                                                                                                                             "1": new Uint16Array(3).byteLength
                                                                                                                                                                                           };
@@ -1881,7 +1707,6 @@ var suites = /* constructor */{
                                                                                                                                                                               "1": /* constructor */{
                                                                                                                                                                                 tag: 0,
                                                                                                                                                                                 name: "::",
-                                                                                                                                                                                length: 2,
                                                                                                                                                                                 "0": /* tuple */[
                                                                                                                                                                                   "uint16_array - unsafe_set - typed_array sanity check",
                                                                                                                                                                                   (function (param) {
@@ -1896,7 +1721,6 @@ var suites = /* constructor */{
                                                                                                                                                                                       return /* constructor */{
                                                                                                                                                                                               tag: 0,
                                                                                                                                                                                               name: "Eq",
-                                                                                                                                                                                              length: 2,
                                                                                                                                                                                               "0": 14,
                                                                                                                                                                                               "1": a[3]
                                                                                                                                                                                             };
@@ -1905,14 +1729,12 @@ var suites = /* constructor */{
                                                                                                                                                                                 "1": /* constructor */{
                                                                                                                                                                                   tag: 0,
                                                                                                                                                                                   name: "::",
-                                                                                                                                                                                  length: 2,
                                                                                                                                                                                   "0": /* tuple */[
                                                                                                                                                                                     "int32_array - _BYTES_PER_ELEMENT",
                                                                                                                                                                                     (function (param) {
                                                                                                                                                                                         return /* constructor */{
                                                                                                                                                                                                 tag: 0,
                                                                                                                                                                                                 name: "Eq",
-                                                                                                                                                                                                length: 2,
                                                                                                                                                                                                 "0": 4,
                                                                                                                                                                                                 "1": Int32Array.BYTES_PER_ELEMENT
                                                                                                                                                                                               };
@@ -1921,14 +1743,12 @@ var suites = /* constructor */{
                                                                                                                                                                                   "1": /* constructor */{
                                                                                                                                                                                     tag: 0,
                                                                                                                                                                                     name: "::",
-                                                                                                                                                                                    length: 2,
                                                                                                                                                                                     "0": /* tuple */[
                                                                                                                                                                                       "int32_array - make",
                                                                                                                                                                                       (function (param) {
                                                                                                                                                                                           return /* constructor */{
                                                                                                                                                                                                   tag: 0,
                                                                                                                                                                                                   name: "Eq",
-                                                                                                                                                                                                  length: 2,
                                                                                                                                                                                                   "0": 12,
                                                                                                                                                                                                   "1": new Int32Array($$Array.map((function (prim) {
                                                                                                                                                                                                               return prim;
@@ -1943,14 +1763,12 @@ var suites = /* constructor */{
                                                                                                                                                                                     "1": /* constructor */{
                                                                                                                                                                                       tag: 0,
                                                                                                                                                                                       name: "::",
-                                                                                                                                                                                      length: 2,
                                                                                                                                                                                       "0": /* tuple */[
                                                                                                                                                                                         "int32_array - fromBuffer",
                                                                                                                                                                                         (function (param) {
                                                                                                                                                                                             return /* constructor */{
                                                                                                                                                                                                     tag: 0,
                                                                                                                                                                                                     name: "Eq",
-                                                                                                                                                                                                    length: 2,
                                                                                                                                                                                                     "0": 32,
                                                                                                                                                                                                     "1": new Int32Array(new ArrayBuffer(32)).byteLength
                                                                                                                                                                                                   };
@@ -1959,7 +1777,6 @@ var suites = /* constructor */{
                                                                                                                                                                                       "1": /* constructor */{
                                                                                                                                                                                         tag: 0,
                                                                                                                                                                                         name: "::",
-                                                                                                                                                                                        length: 2,
                                                                                                                                                                                         "0": /* tuple */[
                                                                                                                                                                                           "int32_array - fromBufferOffset",
                                                                                                                                                                                           (function (param) {
@@ -1967,7 +1784,6 @@ var suites = /* constructor */{
                                                                                                                                                                                               return /* constructor */{
                                                                                                                                                                                                       tag: 0,
                                                                                                                                                                                                       name: "Eq",
-                                                                                                                                                                                                      length: 2,
                                                                                                                                                                                                       "0": 24,
                                                                                                                                                                                                       "1": new Int32Array(buffer, 8).byteLength
                                                                                                                                                                                                     };
@@ -1976,7 +1792,6 @@ var suites = /* constructor */{
                                                                                                                                                                                         "1": /* constructor */{
                                                                                                                                                                                           tag: 0,
                                                                                                                                                                                           name: "::",
-                                                                                                                                                                                          length: 2,
                                                                                                                                                                                           "0": /* tuple */[
                                                                                                                                                                                             "int32_array - fromBufferRange",
                                                                                                                                                                                             (function (param) {
@@ -1984,7 +1799,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                 return /* constructor */{
                                                                                                                                                                                                         tag: 0,
                                                                                                                                                                                                         name: "Eq",
-                                                                                                                                                                                                        length: 2,
                                                                                                                                                                                                         "0": 8,
                                                                                                                                                                                                         "1": new Int32Array(buffer, 8, 2).byteLength
                                                                                                                                                                                                       };
@@ -1993,14 +1807,12 @@ var suites = /* constructor */{
                                                                                                                                                                                           "1": /* constructor */{
                                                                                                                                                                                             tag: 0,
                                                                                                                                                                                             name: "::",
-                                                                                                                                                                                            length: 2,
                                                                                                                                                                                             "0": /* tuple */[
                                                                                                                                                                                               "int32_array - fromLength",
                                                                                                                                                                                               (function (param) {
                                                                                                                                                                                                   return /* constructor */{
                                                                                                                                                                                                           tag: 0,
                                                                                                                                                                                                           name: "Eq",
-                                                                                                                                                                                                          length: 2,
                                                                                                                                                                                                           "0": 12,
                                                                                                                                                                                                           "1": new Int32Array(3).byteLength
                                                                                                                                                                                                         };
@@ -2009,7 +1821,6 @@ var suites = /* constructor */{
                                                                                                                                                                                             "1": /* constructor */{
                                                                                                                                                                                               tag: 0,
                                                                                                                                                                                               name: "::",
-                                                                                                                                                                                              length: 2,
                                                                                                                                                                                               "0": /* tuple */[
                                                                                                                                                                                                 "int32_array - unsafe_set - typed_array sanity check",
                                                                                                                                                                                                 (function (param) {
@@ -2026,7 +1837,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                     return /* constructor */{
                                                                                                                                                                                                             tag: 0,
                                                                                                                                                                                                             name: "Eq",
-                                                                                                                                                                                                            length: 2,
                                                                                                                                                                                                             "0": 14,
                                                                                                                                                                                                             "1": a[3]
                                                                                                                                                                                                           };
@@ -2035,14 +1845,12 @@ var suites = /* constructor */{
                                                                                                                                                                                               "1": /* constructor */{
                                                                                                                                                                                                 tag: 0,
                                                                                                                                                                                                 name: "::",
-                                                                                                                                                                                                length: 2,
                                                                                                                                                                                                 "0": /* tuple */[
                                                                                                                                                                                                   "uint32_array - _BYTES_PER_ELEMENT",
                                                                                                                                                                                                   (function (param) {
                                                                                                                                                                                                       return /* constructor */{
                                                                                                                                                                                                               tag: 0,
                                                                                                                                                                                                               name: "Eq",
-                                                                                                                                                                                                              length: 2,
                                                                                                                                                                                                               "0": 4,
                                                                                                                                                                                                               "1": Uint32Array.BYTES_PER_ELEMENT
                                                                                                                                                                                                             };
@@ -2051,14 +1859,12 @@ var suites = /* constructor */{
                                                                                                                                                                                                 "1": /* constructor */{
                                                                                                                                                                                                   tag: 0,
                                                                                                                                                                                                   name: "::",
-                                                                                                                                                                                                  length: 2,
                                                                                                                                                                                                   "0": /* tuple */[
                                                                                                                                                                                                     "uint32_array - make",
                                                                                                                                                                                                     (function (param) {
                                                                                                                                                                                                         return /* constructor */{
                                                                                                                                                                                                                 tag: 0,
                                                                                                                                                                                                                 name: "Eq",
-                                                                                                                                                                                                                length: 2,
                                                                                                                                                                                                                 "0": 12,
                                                                                                                                                                                                                 "1": new Uint32Array(/* array */[
                                                                                                                                                                                                                       1,
@@ -2071,14 +1877,12 @@ var suites = /* constructor */{
                                                                                                                                                                                                   "1": /* constructor */{
                                                                                                                                                                                                     tag: 0,
                                                                                                                                                                                                     name: "::",
-                                                                                                                                                                                                    length: 2,
                                                                                                                                                                                                     "0": /* tuple */[
                                                                                                                                                                                                       "uint32_array - fromBuffer",
                                                                                                                                                                                                       (function (param) {
                                                                                                                                                                                                           return /* constructor */{
                                                                                                                                                                                                                   tag: 0,
                                                                                                                                                                                                                   name: "Eq",
-                                                                                                                                                                                                                  length: 2,
                                                                                                                                                                                                                   "0": 32,
                                                                                                                                                                                                                   "1": new Uint32Array(new ArrayBuffer(32)).byteLength
                                                                                                                                                                                                                 };
@@ -2087,7 +1891,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                     "1": /* constructor */{
                                                                                                                                                                                                       tag: 0,
                                                                                                                                                                                                       name: "::",
-                                                                                                                                                                                                      length: 2,
                                                                                                                                                                                                       "0": /* tuple */[
                                                                                                                                                                                                         "uint32_array - fromBufferOffset",
                                                                                                                                                                                                         (function (param) {
@@ -2095,7 +1898,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                             return /* constructor */{
                                                                                                                                                                                                                     tag: 0,
                                                                                                                                                                                                                     name: "Eq",
-                                                                                                                                                                                                                    length: 2,
                                                                                                                                                                                                                     "0": 24,
                                                                                                                                                                                                                     "1": new Uint32Array(buffer, 8).byteLength
                                                                                                                                                                                                                   };
@@ -2104,7 +1906,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                       "1": /* constructor */{
                                                                                                                                                                                                         tag: 0,
                                                                                                                                                                                                         name: "::",
-                                                                                                                                                                                                        length: 2,
                                                                                                                                                                                                         "0": /* tuple */[
                                                                                                                                                                                                           "uint32_array - fromBufferRange",
                                                                                                                                                                                                           (function (param) {
@@ -2112,7 +1913,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                               return /* constructor */{
                                                                                                                                                                                                                       tag: 0,
                                                                                                                                                                                                                       name: "Eq",
-                                                                                                                                                                                                                      length: 2,
                                                                                                                                                                                                                       "0": 8,
                                                                                                                                                                                                                       "1": new Uint32Array(buffer, 8, 2).byteLength
                                                                                                                                                                                                                     };
@@ -2121,14 +1921,12 @@ var suites = /* constructor */{
                                                                                                                                                                                                         "1": /* constructor */{
                                                                                                                                                                                                           tag: 0,
                                                                                                                                                                                                           name: "::",
-                                                                                                                                                                                                          length: 2,
                                                                                                                                                                                                           "0": /* tuple */[
                                                                                                                                                                                                             "uint32_array - fromLength",
                                                                                                                                                                                                             (function (param) {
                                                                                                                                                                                                                 return /* constructor */{
                                                                                                                                                                                                                         tag: 0,
                                                                                                                                                                                                                         name: "Eq",
-                                                                                                                                                                                                                        length: 2,
                                                                                                                                                                                                                         "0": 12,
                                                                                                                                                                                                                         "1": new Uint32Array(3).byteLength
                                                                                                                                                                                                                       };
@@ -2137,7 +1935,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                           "1": /* constructor */{
                                                                                                                                                                                                             tag: 0,
                                                                                                                                                                                                             name: "::",
-                                                                                                                                                                                                            length: 2,
                                                                                                                                                                                                             "0": /* tuple */[
                                                                                                                                                                                                               "uint32_array - unsafe_set - typed_array sanity check",
                                                                                                                                                                                                               (function (param) {
@@ -2152,7 +1949,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                   return /* constructor */{
                                                                                                                                                                                                                           tag: 0,
                                                                                                                                                                                                                           name: "Eq",
-                                                                                                                                                                                                                          length: 2,
                                                                                                                                                                                                                           "0": 14,
                                                                                                                                                                                                                           "1": a[3]
                                                                                                                                                                                                                         };
@@ -2161,14 +1957,12 @@ var suites = /* constructor */{
                                                                                                                                                                                                             "1": /* constructor */{
                                                                                                                                                                                                               tag: 0,
                                                                                                                                                                                                               name: "::",
-                                                                                                                                                                                                              length: 2,
                                                                                                                                                                                                               "0": /* tuple */[
                                                                                                                                                                                                                 "float32_array - _BYTES_PER_ELEMENT",
                                                                                                                                                                                                                 (function (param) {
                                                                                                                                                                                                                     return /* constructor */{
                                                                                                                                                                                                                             tag: 0,
                                                                                                                                                                                                                             name: "Eq",
-                                                                                                                                                                                                                            length: 2,
                                                                                                                                                                                                                             "0": 4,
                                                                                                                                                                                                                             "1": Float32Array.BYTES_PER_ELEMENT
                                                                                                                                                                                                                           };
@@ -2177,14 +1971,12 @@ var suites = /* constructor */{
                                                                                                                                                                                                               "1": /* constructor */{
                                                                                                                                                                                                                 tag: 0,
                                                                                                                                                                                                                 name: "::",
-                                                                                                                                                                                                                length: 2,
                                                                                                                                                                                                                 "0": /* tuple */[
                                                                                                                                                                                                                   "float32_array - make",
                                                                                                                                                                                                                   (function (param) {
                                                                                                                                                                                                                       return /* constructor */{
                                                                                                                                                                                                                               tag: 0,
                                                                                                                                                                                                                               name: "Eq",
-                                                                                                                                                                                                                              length: 2,
                                                                                                                                                                                                                               "0": 12,
                                                                                                                                                                                                                               "1": new Float32Array(/* array */[
                                                                                                                                                                                                                                     1,
@@ -2197,14 +1989,12 @@ var suites = /* constructor */{
                                                                                                                                                                                                                 "1": /* constructor */{
                                                                                                                                                                                                                   tag: 0,
                                                                                                                                                                                                                   name: "::",
-                                                                                                                                                                                                                  length: 2,
                                                                                                                                                                                                                   "0": /* tuple */[
                                                                                                                                                                                                                     "float32_array - fromBuffer",
                                                                                                                                                                                                                     (function (param) {
                                                                                                                                                                                                                         return /* constructor */{
                                                                                                                                                                                                                                 tag: 0,
                                                                                                                                                                                                                                 name: "Eq",
-                                                                                                                                                                                                                                length: 2,
                                                                                                                                                                                                                                 "0": 32,
                                                                                                                                                                                                                                 "1": new Float32Array(new ArrayBuffer(32)).byteLength
                                                                                                                                                                                                                               };
@@ -2213,7 +2003,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                   "1": /* constructor */{
                                                                                                                                                                                                                     tag: 0,
                                                                                                                                                                                                                     name: "::",
-                                                                                                                                                                                                                    length: 2,
                                                                                                                                                                                                                     "0": /* tuple */[
                                                                                                                                                                                                                       "float32_array - fromBufferOffset",
                                                                                                                                                                                                                       (function (param) {
@@ -2221,7 +2010,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                           return /* constructor */{
                                                                                                                                                                                                                                   tag: 0,
                                                                                                                                                                                                                                   name: "Eq",
-                                                                                                                                                                                                                                  length: 2,
                                                                                                                                                                                                                                   "0": 24,
                                                                                                                                                                                                                                   "1": new Float32Array(buffer, 8).byteLength
                                                                                                                                                                                                                                 };
@@ -2230,7 +2018,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                     "1": /* constructor */{
                                                                                                                                                                                                                       tag: 0,
                                                                                                                                                                                                                       name: "::",
-                                                                                                                                                                                                                      length: 2,
                                                                                                                                                                                                                       "0": /* tuple */[
                                                                                                                                                                                                                         "float32_array - fromBufferRange",
                                                                                                                                                                                                                         (function (param) {
@@ -2238,7 +2025,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                             return /* constructor */{
                                                                                                                                                                                                                                     tag: 0,
                                                                                                                                                                                                                                     name: "Eq",
-                                                                                                                                                                                                                                    length: 2,
                                                                                                                                                                                                                                     "0": 8,
                                                                                                                                                                                                                                     "1": new Float32Array(buffer, 8, 2).byteLength
                                                                                                                                                                                                                                   };
@@ -2247,14 +2033,12 @@ var suites = /* constructor */{
                                                                                                                                                                                                                       "1": /* constructor */{
                                                                                                                                                                                                                         tag: 0,
                                                                                                                                                                                                                         name: "::",
-                                                                                                                                                                                                                        length: 2,
                                                                                                                                                                                                                         "0": /* tuple */[
                                                                                                                                                                                                                           "float32_array - fromLength",
                                                                                                                                                                                                                           (function (param) {
                                                                                                                                                                                                                               return /* constructor */{
                                                                                                                                                                                                                                       tag: 0,
                                                                                                                                                                                                                                       name: "Eq",
-                                                                                                                                                                                                                                      length: 2,
                                                                                                                                                                                                                                       "0": 12,
                                                                                                                                                                                                                                       "1": new Float32Array(3).byteLength
                                                                                                                                                                                                                                     };
@@ -2263,7 +2047,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                         "1": /* constructor */{
                                                                                                                                                                                                                           tag: 0,
                                                                                                                                                                                                                           name: "::",
-                                                                                                                                                                                                                          length: 2,
                                                                                                                                                                                                                           "0": /* tuple */[
                                                                                                                                                                                                                             "float32_array - unsafe_set - typed_array sanity check",
                                                                                                                                                                                                                             (function (param) {
@@ -2278,7 +2061,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                 return /* constructor */{
                                                                                                                                                                                                                                         tag: 0,
                                                                                                                                                                                                                                         name: "Eq",
-                                                                                                                                                                                                                                        length: 2,
                                                                                                                                                                                                                                         "0": 14,
                                                                                                                                                                                                                                         "1": a[3]
                                                                                                                                                                                                                                       };
@@ -2287,14 +2069,12 @@ var suites = /* constructor */{
                                                                                                                                                                                                                           "1": /* constructor */{
                                                                                                                                                                                                                             tag: 0,
                                                                                                                                                                                                                             name: "::",
-                                                                                                                                                                                                                            length: 2,
                                                                                                                                                                                                                             "0": /* tuple */[
                                                                                                                                                                                                                               "float64_array - _BYTES_PER_ELEMENT",
                                                                                                                                                                                                                               (function (param) {
                                                                                                                                                                                                                                   return /* constructor */{
                                                                                                                                                                                                                                           tag: 0,
                                                                                                                                                                                                                                           name: "Eq",
-                                                                                                                                                                                                                                          length: 2,
                                                                                                                                                                                                                                           "0": 8,
                                                                                                                                                                                                                                           "1": Float64Array.BYTES_PER_ELEMENT
                                                                                                                                                                                                                                         };
@@ -2303,14 +2083,12 @@ var suites = /* constructor */{
                                                                                                                                                                                                                             "1": /* constructor */{
                                                                                                                                                                                                                               tag: 0,
                                                                                                                                                                                                                               name: "::",
-                                                                                                                                                                                                                              length: 2,
                                                                                                                                                                                                                               "0": /* tuple */[
                                                                                                                                                                                                                                 "float64_array - make",
                                                                                                                                                                                                                                 (function (param) {
                                                                                                                                                                                                                                     return /* constructor */{
                                                                                                                                                                                                                                             tag: 0,
                                                                                                                                                                                                                                             name: "Eq",
-                                                                                                                                                                                                                                            length: 2,
                                                                                                                                                                                                                                             "0": 24,
                                                                                                                                                                                                                                             "1": new Float64Array(/* array */[
                                                                                                                                                                                                                                                   1,
@@ -2323,14 +2101,12 @@ var suites = /* constructor */{
                                                                                                                                                                                                                               "1": /* constructor */{
                                                                                                                                                                                                                                 tag: 0,
                                                                                                                                                                                                                                 name: "::",
-                                                                                                                                                                                                                                length: 2,
                                                                                                                                                                                                                                 "0": /* tuple */[
                                                                                                                                                                                                                                   "float64_array - fromBuffer",
                                                                                                                                                                                                                                   (function (param) {
                                                                                                                                                                                                                                       return /* constructor */{
                                                                                                                                                                                                                                               tag: 0,
                                                                                                                                                                                                                                               name: "Eq",
-                                                                                                                                                                                                                                              length: 2,
                                                                                                                                                                                                                                               "0": 32,
                                                                                                                                                                                                                                               "1": new Float64Array(new ArrayBuffer(32)).byteLength
                                                                                                                                                                                                                                             };
@@ -2339,7 +2115,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                 "1": /* constructor */{
                                                                                                                                                                                                                                   tag: 0,
                                                                                                                                                                                                                                   name: "::",
-                                                                                                                                                                                                                                  length: 2,
                                                                                                                                                                                                                                   "0": /* tuple */[
                                                                                                                                                                                                                                     "float64_array - fromBufferOffset",
                                                                                                                                                                                                                                     (function (param) {
@@ -2347,7 +2122,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                         return /* constructor */{
                                                                                                                                                                                                                                                 tag: 0,
                                                                                                                                                                                                                                                 name: "Eq",
-                                                                                                                                                                                                                                                length: 2,
                                                                                                                                                                                                                                                 "0": 24,
                                                                                                                                                                                                                                                 "1": new Float64Array(buffer, 8).byteLength
                                                                                                                                                                                                                                               };
@@ -2356,7 +2130,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                   "1": /* constructor */{
                                                                                                                                                                                                                                     tag: 0,
                                                                                                                                                                                                                                     name: "::",
-                                                                                                                                                                                                                                    length: 2,
                                                                                                                                                                                                                                     "0": /* tuple */[
                                                                                                                                                                                                                                       "float64_array - fromBufferRange",
                                                                                                                                                                                                                                       (function (param) {
@@ -2364,7 +2137,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                           return /* constructor */{
                                                                                                                                                                                                                                                   tag: 0,
                                                                                                                                                                                                                                                   name: "Eq",
-                                                                                                                                                                                                                                                  length: 2,
                                                                                                                                                                                                                                                   "0": 16,
                                                                                                                                                                                                                                                   "1": new Float64Array(buffer, 8, 2).byteLength
                                                                                                                                                                                                                                                 };
@@ -2373,14 +2145,12 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                     "1": /* constructor */{
                                                                                                                                                                                                                                       tag: 0,
                                                                                                                                                                                                                                       name: "::",
-                                                                                                                                                                                                                                      length: 2,
                                                                                                                                                                                                                                       "0": /* tuple */[
                                                                                                                                                                                                                                         "float64_array - fromLength",
                                                                                                                                                                                                                                         (function (param) {
                                                                                                                                                                                                                                             return /* constructor */{
                                                                                                                                                                                                                                                     tag: 0,
                                                                                                                                                                                                                                                     name: "Eq",
-                                                                                                                                                                                                                                                    length: 2,
                                                                                                                                                                                                                                                     "0": 24,
                                                                                                                                                                                                                                                     "1": new Float64Array(3).byteLength
                                                                                                                                                                                                                                                   };
@@ -2389,7 +2159,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                       "1": /* constructor */{
                                                                                                                                                                                                                                         tag: 0,
                                                                                                                                                                                                                                         name: "::",
-                                                                                                                                                                                                                                        length: 2,
                                                                                                                                                                                                                                         "0": /* tuple */[
                                                                                                                                                                                                                                           "float64_array - unsafe_set - typed_array sanity check",
                                                                                                                                                                                                                                           (function (param) {
@@ -2404,7 +2173,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                               return /* constructor */{
                                                                                                                                                                                                                                                       tag: 0,
                                                                                                                                                                                                                                                       name: "Eq",
-                                                                                                                                                                                                                                                      length: 2,
                                                                                                                                                                                                                                                       "0": 14,
                                                                                                                                                                                                                                                       "1": a[3]
                                                                                                                                                                                                                                                     };
@@ -2413,14 +2181,12 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                         "1": /* constructor */{
                                                                                                                                                                                                                                           tag: 0,
                                                                                                                                                                                                                                           name: "::",
-                                                                                                                                                                                                                                          length: 2,
                                                                                                                                                                                                                                           "0": /* tuple */[
                                                                                                                                                                                                                                             "DataView - make, byteLength",
                                                                                                                                                                                                                                             (function (param) {
                                                                                                                                                                                                                                                 return /* constructor */{
                                                                                                                                                                                                                                                         tag: 0,
                                                                                                                                                                                                                                                         name: "Eq",
-                                                                                                                                                                                                                                                        length: 2,
                                                                                                                                                                                                                                                         "0": 32,
                                                                                                                                                                                                                                                         "1": new DataView(new ArrayBuffer(32)).byteLength
                                                                                                                                                                                                                                                       };
@@ -2429,14 +2195,12 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                           "1": /* constructor */{
                                                                                                                                                                                                                                             tag: 0,
                                                                                                                                                                                                                                             name: "::",
-                                                                                                                                                                                                                                            length: 2,
                                                                                                                                                                                                                                             "0": /* tuple */[
                                                                                                                                                                                                                                               "DataView - fromBuffer",
                                                                                                                                                                                                                                               (function (param) {
                                                                                                                                                                                                                                                   return /* constructor */{
                                                                                                                                                                                                                                                           tag: 0,
                                                                                                                                                                                                                                                           name: "Eq",
-                                                                                                                                                                                                                                                          length: 2,
                                                                                                                                                                                                                                                           "0": 32,
                                                                                                                                                                                                                                                           "1": new DataView(new ArrayBuffer(32)).byteLength
                                                                                                                                                                                                                                                         };
@@ -2445,7 +2209,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                             "1": /* constructor */{
                                                                                                                                                                                                                                               tag: 0,
                                                                                                                                                                                                                                               name: "::",
-                                                                                                                                                                                                                                              length: 2,
                                                                                                                                                                                                                                               "0": /* tuple */[
                                                                                                                                                                                                                                                 "DataView - fromBufferOffset",
                                                                                                                                                                                                                                                 (function (param) {
@@ -2453,7 +2216,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                     return /* constructor */{
                                                                                                                                                                                                                                                             tag: 0,
                                                                                                                                                                                                                                                             name: "Eq",
-                                                                                                                                                                                                                                                            length: 2,
                                                                                                                                                                                                                                                             "0": 24,
                                                                                                                                                                                                                                                             "1": new DataView(buffer, 8).byteLength
                                                                                                                                                                                                                                                           };
@@ -2462,7 +2224,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                               "1": /* constructor */{
                                                                                                                                                                                                                                                 tag: 0,
                                                                                                                                                                                                                                                 name: "::",
-                                                                                                                                                                                                                                                length: 2,
                                                                                                                                                                                                                                                 "0": /* tuple */[
                                                                                                                                                                                                                                                   "DataView - fromBufferRange",
                                                                                                                                                                                                                                                   (function (param) {
@@ -2470,7 +2231,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                       return /* constructor */{
                                                                                                                                                                                                                                                               tag: 0,
                                                                                                                                                                                                                                                               name: "Eq",
-                                                                                                                                                                                                                                                              length: 2,
                                                                                                                                                                                                                                                               "0": 4,
                                                                                                                                                                                                                                                               "1": new DataView(buffer, 8, 4).byteLength
                                                                                                                                                                                                                                                             };
@@ -2479,7 +2239,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                 "1": /* constructor */{
                                                                                                                                                                                                                                                   tag: 0,
                                                                                                                                                                                                                                                   name: "::",
-                                                                                                                                                                                                                                                  length: 2,
                                                                                                                                                                                                                                                   "0": /* tuple */[
                                                                                                                                                                                                                                                     "DataView - buffer",
                                                                                                                                                                                                                                                     (function (param) {
@@ -2487,7 +2246,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                         return /* constructor */{
                                                                                                                                                                                                                                                                 tag: 0,
                                                                                                                                                                                                                                                                 name: "Eq",
-                                                                                                                                                                                                                                                                length: 2,
                                                                                                                                                                                                                                                                 "0": buffer,
                                                                                                                                                                                                                                                                 "1": new DataView(buffer).buffer
                                                                                                                                                                                                                                                               };
@@ -2496,7 +2254,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                   "1": /* constructor */{
                                                                                                                                                                                                                                                     tag: 0,
                                                                                                                                                                                                                                                     name: "::",
-                                                                                                                                                                                                                                                    length: 2,
                                                                                                                                                                                                                                                     "0": /* tuple */[
                                                                                                                                                                                                                                                       "DataView - byteOffset",
                                                                                                                                                                                                                                                       (function (param) {
@@ -2504,7 +2261,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                           return /* constructor */{
                                                                                                                                                                                                                                                                   tag: 0,
                                                                                                                                                                                                                                                                   name: "Eq",
-                                                                                                                                                                                                                                                                  length: 2,
                                                                                                                                                                                                                                                                   "0": 8,
                                                                                                                                                                                                                                                                   "1": new DataView(buffer, 8).byteOffset
                                                                                                                                                                                                                                                                 };
@@ -2513,7 +2269,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                     "1": /* constructor */{
                                                                                                                                                                                                                                                       tag: 0,
                                                                                                                                                                                                                                                       name: "::",
-                                                                                                                                                                                                                                                      length: 2,
                                                                                                                                                                                                                                                       "0": /* tuple */[
                                                                                                                                                                                                                                                         "DataView - setInt8, getInt8",
                                                                                                                                                                                                                                                         (function (param) {
@@ -2523,7 +2278,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                             return /* constructor */{
                                                                                                                                                                                                                                                                     tag: 0,
                                                                                                                                                                                                                                                                     name: "Eq",
-                                                                                                                                                                                                                                                                    length: 2,
                                                                                                                                                                                                                                                                     "0": 1,
                                                                                                                                                                                                                                                                     "1": view.getInt8(0)
                                                                                                                                                                                                                                                                   };
@@ -2532,7 +2286,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                       "1": /* constructor */{
                                                                                                                                                                                                                                                         tag: 0,
                                                                                                                                                                                                                                                         name: "::",
-                                                                                                                                                                                                                                                        length: 2,
                                                                                                                                                                                                                                                         "0": /* tuple */[
                                                                                                                                                                                                                                                           "DataView - setUint8, getUint8",
                                                                                                                                                                                                                                                           (function (param) {
@@ -2542,7 +2295,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                               return /* constructor */{
                                                                                                                                                                                                                                                                       tag: 0,
                                                                                                                                                                                                                                                                       name: "Eq",
-                                                                                                                                                                                                                                                                      length: 2,
                                                                                                                                                                                                                                                                       "0": 128,
                                                                                                                                                                                                                                                                       "1": view.getUint8(0)
                                                                                                                                                                                                                                                                     };
@@ -2551,7 +2303,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                         "1": /* constructor */{
                                                                                                                                                                                                                                                           tag: 0,
                                                                                                                                                                                                                                                           name: "::",
-                                                                                                                                                                                                                                                          length: 2,
                                                                                                                                                                                                                                                           "0": /* tuple */[
                                                                                                                                                                                                                                                             "DataView - setInt16, getInt16",
                                                                                                                                                                                                                                                             (function (param) {
@@ -2561,7 +2312,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                                 return /* constructor */{
                                                                                                                                                                                                                                                                         tag: 0,
                                                                                                                                                                                                                                                                         name: "Eq",
-                                                                                                                                                                                                                                                                        length: 2,
                                                                                                                                                                                                                                                                         "0": 257,
                                                                                                                                                                                                                                                                         "1": view.getInt16(0)
                                                                                                                                                                                                                                                                       };
@@ -2570,7 +2320,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                           "1": /* constructor */{
                                                                                                                                                                                                                                                             tag: 0,
                                                                                                                                                                                                                                                             name: "::",
-                                                                                                                                                                                                                                                            length: 2,
                                                                                                                                                                                                                                                             "0": /* tuple */[
                                                                                                                                                                                                                                                               "DataView - getInt16LittleEndian",
                                                                                                                                                                                                                                                               (function (param) {
@@ -2580,7 +2329,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                                   return /* constructor */{
                                                                                                                                                                                                                                                                           tag: 0,
                                                                                                                                                                                                                                                                           name: "Eq",
-                                                                                                                                                                                                                                                                          length: 2,
                                                                                                                                                                                                                                                                           "0": 25000,
                                                                                                                                                                                                                                                                           "1": view.getInt16(0, 1)
                                                                                                                                                                                                                                                                         };
@@ -2589,7 +2337,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                             "1": /* constructor */{
                                                                                                                                                                                                                                                               tag: 0,
                                                                                                                                                                                                                                                               name: "::",
-                                                                                                                                                                                                                                                              length: 2,
                                                                                                                                                                                                                                                               "0": /* tuple */[
                                                                                                                                                                                                                                                                 "DataView - setInt16LittleEndian",
                                                                                                                                                                                                                                                                 (function (param) {
@@ -2599,7 +2346,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                                     return /* constructor */{
                                                                                                                                                                                                                                                                             tag: 0,
                                                                                                                                                                                                                                                                             name: "Eq",
-                                                                                                                                                                                                                                                                            length: 2,
                                                                                                                                                                                                                                                                             "0": -22431,
                                                                                                                                                                                                                                                                             "1": view.getInt16(0)
                                                                                                                                                                                                                                                                           };
@@ -2608,7 +2354,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                               "1": /* constructor */{
                                                                                                                                                                                                                                                                 tag: 0,
                                                                                                                                                                                                                                                                 name: "::",
-                                                                                                                                                                                                                                                                length: 2,
                                                                                                                                                                                                                                                                 "0": /* tuple */[
                                                                                                                                                                                                                                                                   "DataView - setUint16, getUint16",
                                                                                                                                                                                                                                                                   (function (param) {
@@ -2618,7 +2363,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                                       return /* constructor */{
                                                                                                                                                                                                                                                                               tag: 0,
                                                                                                                                                                                                                                                                               name: "Eq",
-                                                                                                                                                                                                                                                                              length: 2,
                                                                                                                                                                                                                                                                               "0": 32768,
                                                                                                                                                                                                                                                                               "1": view.getUint16(0)
                                                                                                                                                                                                                                                                             };
@@ -2627,7 +2371,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                                 "1": /* constructor */{
                                                                                                                                                                                                                                                                   tag: 0,
                                                                                                                                                                                                                                                                   name: "::",
-                                                                                                                                                                                                                                                                  length: 2,
                                                                                                                                                                                                                                                                   "0": /* tuple */[
                                                                                                                                                                                                                                                                     "DataView - getUint16LittleEndian",
                                                                                                                                                                                                                                                                     (function (param) {
@@ -2637,7 +2380,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                                         return /* constructor */{
                                                                                                                                                                                                                                                                                 tag: 0,
                                                                                                                                                                                                                                                                                 name: "Eq",
-                                                                                                                                                                                                                                                                                length: 2,
                                                                                                                                                                                                                                                                                 "0": 32768,
                                                                                                                                                                                                                                                                                 "1": view.getUint16(0, 1)
                                                                                                                                                                                                                                                                               };
@@ -2646,7 +2388,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                                   "1": /* constructor */{
                                                                                                                                                                                                                                                                     tag: 0,
                                                                                                                                                                                                                                                                     name: "::",
-                                                                                                                                                                                                                                                                    length: 2,
                                                                                                                                                                                                                                                                     "0": /* tuple */[
                                                                                                                                                                                                                                                                       "DataView - setUint16LittleEndian",
                                                                                                                                                                                                                                                                       (function (param) {
@@ -2656,7 +2397,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                                           return /* constructor */{
                                                                                                                                                                                                                                                                                   tag: 0,
                                                                                                                                                                                                                                                                                   name: "Eq",
-                                                                                                                                                                                                                                                                                  length: 2,
                                                                                                                                                                                                                                                                                   "0": 128,
                                                                                                                                                                                                                                                                                   "1": view.getUint16(0)
                                                                                                                                                                                                                                                                                 };
@@ -2665,7 +2405,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                                     "1": /* constructor */{
                                                                                                                                                                                                                                                                       tag: 0,
                                                                                                                                                                                                                                                                       name: "::",
-                                                                                                                                                                                                                                                                      length: 2,
                                                                                                                                                                                                                                                                       "0": /* tuple */[
                                                                                                                                                                                                                                                                         "DataView - setInt32, getInt32",
                                                                                                                                                                                                                                                                         (function (param) {
@@ -2675,7 +2414,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                                             return /* constructor */{
                                                                                                                                                                                                                                                                                     tag: 0,
                                                                                                                                                                                                                                                                                     name: "Eq",
-                                                                                                                                                                                                                                                                                    length: 2,
                                                                                                                                                                                                                                                                                     "0": 65537,
                                                                                                                                                                                                                                                                                     "1": view.getInt32(0)
                                                                                                                                                                                                                                                                                   };
@@ -2684,7 +2422,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                                       "1": /* constructor */{
                                                                                                                                                                                                                                                                         tag: 0,
                                                                                                                                                                                                                                                                         name: "::",
-                                                                                                                                                                                                                                                                        length: 2,
                                                                                                                                                                                                                                                                         "0": /* tuple */[
                                                                                                                                                                                                                                                                           "DataView - getInt32LittleEndian",
                                                                                                                                                                                                                                                                           (function (param) {
@@ -2694,7 +2431,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                                               return /* constructor */{
                                                                                                                                                                                                                                                                                       tag: 0,
                                                                                                                                                                                                                                                                                       name: "Eq",
-                                                                                                                                                                                                                                                                                      length: 2,
                                                                                                                                                                                                                                                                                       "0": 65537,
                                                                                                                                                                                                                                                                                       "1": view.getInt32(0, 1)
                                                                                                                                                                                                                                                                                     };
@@ -2703,7 +2439,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                                         "1": /* constructor */{
                                                                                                                                                                                                                                                                           tag: 0,
                                                                                                                                                                                                                                                                           name: "::",
-                                                                                                                                                                                                                                                                          length: 2,
                                                                                                                                                                                                                                                                           "0": /* tuple */[
                                                                                                                                                                                                                                                                             "DataView - setInt32LittleEndian",
                                                                                                                                                                                                                                                                             (function (param) {
@@ -2713,7 +2448,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                                                 return /* constructor */{
                                                                                                                                                                                                                                                                                         tag: 0,
                                                                                                                                                                                                                                                                                         name: "Eq",
-                                                                                                                                                                                                                                                                                        length: 2,
                                                                                                                                                                                                                                                                                         "0": 16777472,
                                                                                                                                                                                                                                                                                         "1": view.getInt32(0)
                                                                                                                                                                                                                                                                                       };
@@ -2722,7 +2456,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                                           "1": /* constructor */{
                                                                                                                                                                                                                                                                             tag: 0,
                                                                                                                                                                                                                                                                             name: "::",
-                                                                                                                                                                                                                                                                            length: 2,
                                                                                                                                                                                                                                                                             "0": /* tuple */[
                                                                                                                                                                                                                                                                               "DataView - setUint32, getUint32",
                                                                                                                                                                                                                                                                               (function (param) {
@@ -2732,7 +2465,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                                                   return /* constructor */{
                                                                                                                                                                                                                                                                                           tag: 0,
                                                                                                                                                                                                                                                                                           name: "Eq",
-                                                                                                                                                                                                                                                                                          length: 2,
                                                                                                                                                                                                                                                                                           "0": 65537,
                                                                                                                                                                                                                                                                                           "1": view.getUint32(0)
                                                                                                                                                                                                                                                                                         };
@@ -2741,7 +2473,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                                             "1": /* constructor */{
                                                                                                                                                                                                                                                                               tag: 0,
                                                                                                                                                                                                                                                                               name: "::",
-                                                                                                                                                                                                                                                                              length: 2,
                                                                                                                                                                                                                                                                               "0": /* tuple */[
                                                                                                                                                                                                                                                                                 "DataView - getUint32LittleEndian",
                                                                                                                                                                                                                                                                                 (function (param) {
@@ -2751,7 +2482,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                                                     return /* constructor */{
                                                                                                                                                                                                                                                                                             tag: 0,
                                                                                                                                                                                                                                                                                             name: "Eq",
-                                                                                                                                                                                                                                                                                            length: 2,
                                                                                                                                                                                                                                                                                             "0": 65537,
                                                                                                                                                                                                                                                                                             "1": view.getUint32(0, 1)
                                                                                                                                                                                                                                                                                           };
@@ -2760,7 +2490,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                                               "1": /* constructor */{
                                                                                                                                                                                                                                                                                 tag: 0,
                                                                                                                                                                                                                                                                                 name: "::",
-                                                                                                                                                                                                                                                                                length: 2,
                                                                                                                                                                                                                                                                                 "0": /* tuple */[
                                                                                                                                                                                                                                                                                   "DataView - setUint32LittleEndian",
                                                                                                                                                                                                                                                                                   (function (param) {
@@ -2770,7 +2499,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                                                       return /* constructor */{
                                                                                                                                                                                                                                                                                               tag: 0,
                                                                                                                                                                                                                                                                                               name: "Eq",
-                                                                                                                                                                                                                                                                                              length: 2,
                                                                                                                                                                                                                                                                                               "0": 16777472,
                                                                                                                                                                                                                                                                                               "1": view.getUint32(0)
                                                                                                                                                                                                                                                                                             };
@@ -2779,7 +2507,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                                                 "1": /* constructor */{
                                                                                                                                                                                                                                                                                   tag: 0,
                                                                                                                                                                                                                                                                                   name: "::",
-                                                                                                                                                                                                                                                                                  length: 2,
                                                                                                                                                                                                                                                                                   "0": /* tuple */[
                                                                                                                                                                                                                                                                                     "DataView - setFloat32, getFloat32",
                                                                                                                                                                                                                                                                                     (function (param) {
@@ -2789,7 +2516,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                                                         return /* constructor */{
                                                                                                                                                                                                                                                                                                 tag: 0,
                                                                                                                                                                                                                                                                                                 name: "Eq",
-                                                                                                                                                                                                                                                                                                length: 2,
                                                                                                                                                                                                                                                                                                 "0": 65537.0,
                                                                                                                                                                                                                                                                                                 "1": view.getFloat32(0)
                                                                                                                                                                                                                                                                                               };
@@ -2798,7 +2524,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                                                   "1": /* constructor */{
                                                                                                                                                                                                                                                                                     tag: 0,
                                                                                                                                                                                                                                                                                     name: "::",
-                                                                                                                                                                                                                                                                                    length: 2,
                                                                                                                                                                                                                                                                                     "0": /* tuple */[
                                                                                                                                                                                                                                                                                       "DataView - getFloat32LittleEndian",
                                                                                                                                                                                                                                                                                       (function (param) {
@@ -2808,7 +2533,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                                                           return /* constructor */{
                                                                                                                                                                                                                                                                                                   tag: 0,
                                                                                                                                                                                                                                                                                                   name: "Eq",
-                                                                                                                                                                                                                                                                                                  length: 2,
                                                                                                                                                                                                                                                                                                   "0": 65537.0,
                                                                                                                                                                                                                                                                                                   "1": view.getFloat32(0, 1)
                                                                                                                                                                                                                                                                                                 };
@@ -2817,7 +2541,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                                                     "1": /* constructor */{
                                                                                                                                                                                                                                                                                       tag: 0,
                                                                                                                                                                                                                                                                                       name: "::",
-                                                                                                                                                                                                                                                                                      length: 2,
                                                                                                                                                                                                                                                                                       "0": /* tuple */[
                                                                                                                                                                                                                                                                                         "DataView - setFloat32LittleEndian",
                                                                                                                                                                                                                                                                                         (function (param) {
@@ -2827,7 +2550,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                                                             return /* constructor */{
                                                                                                                                                                                                                                                                                                     tag: 0,
                                                                                                                                                                                                                                                                                                     name: "Eq",
-                                                                                                                                                                                                                                                                                                    length: 2,
                                                                                                                                                                                                                                                                                                     "0": 4.600602988224807e-41,
                                                                                                                                                                                                                                                                                                     "1": view.getFloat32(0)
                                                                                                                                                                                                                                                                                                   };
@@ -2836,7 +2558,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                                                       "1": /* constructor */{
                                                                                                                                                                                                                                                                                         tag: 0,
                                                                                                                                                                                                                                                                                         name: "::",
-                                                                                                                                                                                                                                                                                        length: 2,
                                                                                                                                                                                                                                                                                         "0": /* tuple */[
                                                                                                                                                                                                                                                                                           "DataView - setFloat64, getFloat64",
                                                                                                                                                                                                                                                                                           (function (param) {
@@ -2846,7 +2567,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                                                               return /* constructor */{
                                                                                                                                                                                                                                                                                                       tag: 0,
                                                                                                                                                                                                                                                                                                       name: "Eq",
-                                                                                                                                                                                                                                                                                                      length: 2,
                                                                                                                                                                                                                                                                                                       "0": 1e200,
                                                                                                                                                                                                                                                                                                       "1": view.getFloat64(0)
                                                                                                                                                                                                                                                                                                     };
@@ -2855,7 +2575,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                                                         "1": /* constructor */{
                                                                                                                                                                                                                                                                                           tag: 0,
                                                                                                                                                                                                                                                                                           name: "::",
-                                                                                                                                                                                                                                                                                          length: 2,
                                                                                                                                                                                                                                                                                           "0": /* tuple */[
                                                                                                                                                                                                                                                                                             "DataView - getFloat64LittleEndian",
                                                                                                                                                                                                                                                                                             (function (param) {
@@ -2865,7 +2584,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                                                                 return /* constructor */{
                                                                                                                                                                                                                                                                                                         tag: 0,
                                                                                                                                                                                                                                                                                                         name: "Eq",
-                                                                                                                                                                                                                                                                                                        length: 2,
                                                                                                                                                                                                                                                                                                         "0": 1e200,
                                                                                                                                                                                                                                                                                                         "1": view.getFloat64(0, 1)
                                                                                                                                                                                                                                                                                                       };
@@ -2874,7 +2592,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                                                           "1": /* constructor */{
                                                                                                                                                                                                                                                                                             tag: 0,
                                                                                                                                                                                                                                                                                             name: "::",
-                                                                                                                                                                                                                                                                                            length: 2,
                                                                                                                                                                                                                                                                                             "0": /* tuple */[
                                                                                                                                                                                                                                                                                               "DataView - setFloat64LittleEndian",
                                                                                                                                                                                                                                                                                               (function (param) {
@@ -2884,7 +2601,6 @@ var suites = /* constructor */{
                                                                                                                                                                                                                                                                                                   return /* constructor */{
                                                                                                                                                                                                                                                                                                           tag: 0,
                                                                                                                                                                                                                                                                                                           name: "Eq",
-                                                                                                                                                                                                                                                                                                          length: 2,
                                                                                                                                                                                                                                                                                                           "0": 3.03865e-319,
                                                                                                                                                                                                                                                                                                           "1": view.getFloat64(0)
                                                                                                                                                                                                                                                                                                         };

@@ -84,14 +84,12 @@ var two = Caml_oo_curry.js1(291546447, 5, tmp$1);
 Mt.from_pair_suites("Class_test", /* constructor */{
       tag: 0,
       name: "::",
-      length: 2,
       "0": /* tuple */[
         "File \"class_test.ml\", line 33, characters 4-11",
         (function (param) {
             return /* constructor */{
                     tag: 0,
                     name: "Eq",
-                    length: 2,
                     "0": zero,
                     "1": 0
                   };
@@ -100,14 +98,12 @@ Mt.from_pair_suites("Class_test", /* constructor */{
       "1": /* constructor */{
         tag: 0,
         name: "::",
-        length: 2,
         "0": /* tuple */[
           "File \"class_test.ml\", line 34, characters 4-11",
           (function (param) {
               return /* constructor */{
                       tag: 0,
                       name: "Eq",
-                      length: 2,
                       "0": three,
                       "1": 3
                     };
@@ -116,14 +112,12 @@ Mt.from_pair_suites("Class_test", /* constructor */{
         "1": /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": /* tuple */[
             "File \"class_test.ml\", line 35, characters 4-11",
             (function (param) {
                 return /* constructor */{
                         tag: 0,
                         name: "Eq",
-                        length: 2,
                         "0": one,
                         "1": 1
                       };
@@ -132,14 +126,12 @@ Mt.from_pair_suites("Class_test", /* constructor */{
           "1": /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": /* tuple */[
               "File \"class_test.ml\", line 36, characters 4-11",
               (function (param) {
                   return /* constructor */{
                           tag: 0,
                           name: "Eq",
-                          length: 2,
                           "0": two,
                           "1": 2
                         };

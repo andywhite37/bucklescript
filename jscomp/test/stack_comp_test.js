@@ -28,7 +28,6 @@ function to_list(s) {
           l[0] = /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": x,
             "1": l[0]
           };
@@ -74,7 +73,6 @@ Stack.push(1, s);
 assert_("File \"stack_comp_test.ml\", line 34, characters 32-39", Caml_obj.caml_equal(to_list(s), /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": 1,
           "1": /* [] */0
         }) && List.length(s[/* c */0]) === 1);
@@ -84,12 +82,10 @@ Stack.push(2, s);
 assert_("File \"stack_comp_test.ml\", line 35, characters 32-39", Caml_obj.caml_equal(to_list(s), /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": 1,
           "1": /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": 2,
             "1": /* [] */0
           }
@@ -100,17 +96,14 @@ Stack.push(3, s);
 assert_("File \"stack_comp_test.ml\", line 36, characters 32-39", Caml_obj.caml_equal(to_list(s), /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": 1,
           "1": /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": 2,
             "1": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": 3,
               "1": /* [] */0
             }
@@ -122,22 +115,18 @@ Stack.push(4, s);
 assert_("File \"stack_comp_test.ml\", line 37, characters 32-39", Caml_obj.caml_equal(to_list(s), /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": 1,
           "1": /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": 2,
             "1": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": 3,
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": 4,
                 "1": /* [] */0
               }
@@ -150,17 +139,14 @@ assert_("File \"stack_comp_test.ml\", line 38, characters 10-17", Stack.pop(s) =
 assert_("File \"stack_comp_test.ml\", line 38, characters 41-48", Caml_obj.caml_equal(to_list(s), /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": 1,
           "1": /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": 2,
             "1": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": 3,
               "1": /* [] */0
             }
@@ -172,12 +158,10 @@ assert_("File \"stack_comp_test.ml\", line 39, characters 10-17", Stack.pop(s) =
 assert_("File \"stack_comp_test.ml\", line 39, characters 41-48", Caml_obj.caml_equal(to_list(s), /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": 1,
           "1": /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": 2,
             "1": /* [] */0
           }
@@ -188,7 +172,6 @@ assert_("File \"stack_comp_test.ml\", line 40, characters 10-17", Stack.pop(s) =
 assert_("File \"stack_comp_test.ml\", line 40, characters 41-48", Caml_obj.caml_equal(to_list(s), /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": 1,
           "1": /* [] */0
         }) && List.length(s[/* c */0]) === 1);
@@ -274,52 +257,42 @@ var s2 = /* record */[/* c */s1[/* c */0]];
 assert_("File \"stack_comp_test.ml\", line 79, characters 10-17", Caml_obj.caml_equal(to_list(s1), /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": 1,
           "1": /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": 2,
             "1": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": 3,
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": 4,
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": 5,
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": 6,
                     "1": /* constructor */{
                       tag: 0,
                       name: "::",
-                      length: 2,
                       "0": 7,
                       "1": /* constructor */{
                         tag: 0,
                         name: "::",
-                        length: 2,
                         "0": 8,
                         "1": /* constructor */{
                           tag: 0,
                           name: "::",
-                          length: 2,
                           "0": 9,
                           "1": /* constructor */{
                             tag: 0,
                             name: "::",
-                            length: 2,
                             "0": 10,
                             "1": /* [] */0
                           }
@@ -336,52 +309,42 @@ assert_("File \"stack_comp_test.ml\", line 79, characters 10-17", Caml_obj.caml_
 assert_("File \"stack_comp_test.ml\", line 80, characters 10-17", Caml_obj.caml_equal(to_list(s2), /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": 1,
           "1": /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": 2,
             "1": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": 3,
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": 4,
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": 5,
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": 6,
                     "1": /* constructor */{
                       tag: 0,
                       name: "::",
-                      length: 2,
                       "0": 7,
                       "1": /* constructor */{
                         tag: 0,
                         name: "::",
-                        length: 2,
                         "0": 8,
                         "1": /* constructor */{
                           tag: 0,
                           name: "::",
-                          length: 2,
                           "0": 9,
                           "1": /* constructor */{
                             tag: 0,
                             name: "::",
-                            length: 2,
                             "0": 10,
                             "1": /* [] */0
                           }
@@ -468,22 +431,18 @@ assert_("File \"stack_comp_test.ml\", line 126, characters 10-17", List.length(s
 assert_("File \"stack_comp_test.ml\", line 126, characters 45-52", Caml_obj.caml_equal(to_list(s1$2), /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": 1,
           "1": /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": 2,
             "1": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": 3,
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": 4,
                 "1": /* [] */0
               }
@@ -498,22 +457,18 @@ assert_("File \"stack_comp_test.ml\", line 128, characters 10-17", List.length(s
 assert_("File \"stack_comp_test.ml\", line 128, characters 45-52", Caml_obj.caml_equal(to_list(s1$2), /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": 1,
           "1": /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": 2,
             "1": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": 3,
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": 4,
                 "1": /* [] */0
               }
@@ -526,22 +481,18 @@ assert_("File \"stack_comp_test.ml\", line 129, characters 10-17", List.length(s
 assert_("File \"stack_comp_test.ml\", line 129, characters 45-52", Caml_obj.caml_equal(to_list(s2$2), /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": 1,
           "1": /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": 2,
             "1": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": 3,
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": 4,
                 "1": /* [] */0
               }

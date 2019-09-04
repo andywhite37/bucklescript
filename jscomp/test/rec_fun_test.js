@@ -13,14 +13,12 @@ function eq(loc, x, y) {
   suites[0] = /* constructor */{
     tag: 0,
     name: "::",
-    length: 2,
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
                   tag: 0,
                   name: "Eq",
-                  length: 2,
                   "0": x,
                   "1": y
                 };
@@ -56,7 +54,6 @@ var y = [];
 Caml_obj.caml_update_dummy(x, /* constructor */{
       tag: 0,
       name: "::",
-      length: 2,
       "0": 1,
       "1": y
     });
@@ -64,7 +61,6 @@ Caml_obj.caml_update_dummy(x, /* constructor */{
 Caml_obj.caml_update_dummy(y, /* constructor */{
       tag: 0,
       name: "::",
-      length: 2,
       "0": 2,
       "1": x
     });

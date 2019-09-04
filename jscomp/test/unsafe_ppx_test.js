@@ -58,14 +58,12 @@ var v = $$test(1, 2);
 Mt.from_pair_suites("Unsafe_ppx_test", /* constructor */{
       tag: 0,
       name: "::",
-      length: 2,
       "0": /* tuple */[
         "unsafe_max",
         (function (param) {
             return /* constructor */{
                     tag: 0,
                     name: "Eq",
-                    length: 2,
                     "0": 2,
                     "1": max(1, 2)
                   };
@@ -74,14 +72,12 @@ Mt.from_pair_suites("Unsafe_ppx_test", /* constructor */{
       "1": /* constructor */{
         tag: 0,
         name: "::",
-        length: 2,
         "0": /* tuple */[
           "unsafe_test",
           (function (param) {
               return /* constructor */{
                       tag: 0,
                       name: "Eq",
-                      length: 2,
                       "0": 3,
                       "1": v
                     };
@@ -90,14 +86,12 @@ Mt.from_pair_suites("Unsafe_ppx_test", /* constructor */{
         "1": /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": /* tuple */[
             "unsafe_max2",
             (function (param) {
                 return /* constructor */{
                         tag: 0,
                         name: "Eq",
-                        length: 2,
                         "0": 2,
                         "1": (Math.max)(1, 2)
                       };
@@ -106,14 +100,12 @@ Mt.from_pair_suites("Unsafe_ppx_test", /* constructor */{
           "1": /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": /* tuple */[
               "ffi_keys",
               (function (param) {
                   return /* constructor */{
                           tag: 0,
                           name: "Eq",
-                          length: 2,
                           "0": /* array */["a"],
                           "1": Ffi_js_test.keys(( {a : 3}))
                         };

@@ -21,7 +21,6 @@ function create(l, x, d, r) {
   return /* constructor */{
           tag: 0,
           name: "Node",
-          length: 5,
           "0": l,
           "1": x,
           "2": d,
@@ -81,7 +80,6 @@ function bal(l, x, d, r) {
     return /* constructor */{
             tag: 0,
             name: "Node",
-            length: 5,
             "0": l,
             "1": x,
             "2": d,
@@ -102,7 +100,6 @@ function add(x, data, param) {
       return /* constructor */{
               tag: 0,
               name: "Node",
-              length: 5,
               "0": l,
               "1": x,
               "2": data,
@@ -118,7 +115,6 @@ function add(x, data, param) {
     return /* constructor */{
             tag: 0,
             name: "Node",
-            length: 5,
             "0": /* Empty */0,
             "1": x,
             "2": data,
@@ -136,7 +132,6 @@ function cons_enum(_m, _e) {
       _e = /* constructor */{
         tag: 0,
         name: "More",
-        length: 4,
         "0": m[1],
         "1": m[2],
         "2": m[3],
@@ -226,7 +221,6 @@ function create$1(l, x, d, r) {
   return /* constructor */{
           tag: 0,
           name: "Node",
-          length: 5,
           "0": l,
           "1": x,
           "2": d,
@@ -286,7 +280,6 @@ function bal$1(l, x, d, r) {
     return /* constructor */{
             tag: 0,
             name: "Node",
-            length: 5,
             "0": l,
             "1": x,
             "2": d,
@@ -307,7 +300,6 @@ function add$1(x, data, param) {
       return /* constructor */{
               tag: 0,
               name: "Node",
-              length: 5,
               "0": l,
               "1": x,
               "2": data,
@@ -323,7 +315,6 @@ function add$1(x, data, param) {
     return /* constructor */{
             tag: 0,
             name: "Node",
-            length: 5,
             "0": /* Empty */0,
             "1": x,
             "2": data,
@@ -359,14 +350,12 @@ function of_list(kvs) {
 var int_map_suites = /* constructor */{
   tag: 0,
   name: "::",
-  length: 2,
   "0": /* tuple */[
     "add",
     (function (param) {
         var v = of_list(/* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": /* tuple */[
                 1,
                 /* "1" */49
@@ -374,7 +363,6 @@ var int_map_suites = /* constructor */{
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": /* tuple */[
                   2,
                   /* "3" */51
@@ -382,7 +370,6 @@ var int_map_suites = /* constructor */{
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": /* tuple */[
                     3,
                     /* "4" */52
@@ -394,7 +381,6 @@ var int_map_suites = /* constructor */{
         return /* constructor */{
                 tag: 0,
                 name: "Eq",
-                length: 2,
                 "0": cardinal(v),
                 "1": 3
               };
@@ -403,14 +389,12 @@ var int_map_suites = /* constructor */{
   "1": /* constructor */{
     tag: 0,
     name: "::",
-    length: 2,
     "0": /* tuple */[
       "equal",
       (function (param) {
           var v = of_list(/* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": /* tuple */[
                   1,
                   /* "1" */49
@@ -418,7 +402,6 @@ var int_map_suites = /* constructor */{
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": /* tuple */[
                     2,
                     /* "3" */51
@@ -426,7 +409,6 @@ var int_map_suites = /* constructor */{
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": /* tuple */[
                       3,
                       /* "4" */52
@@ -438,7 +420,6 @@ var int_map_suites = /* constructor */{
           var u = of_list(/* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": /* tuple */[
                   2,
                   /* "3" */51
@@ -446,7 +427,6 @@ var int_map_suites = /* constructor */{
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": /* tuple */[
                     3,
                     /* "4" */52
@@ -454,7 +434,6 @@ var int_map_suites = /* constructor */{
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": /* tuple */[
                       1,
                       /* "1" */49
@@ -466,7 +445,6 @@ var int_map_suites = /* constructor */{
           return /* constructor */{
                   tag: 0,
                   name: "Eq",
-                  length: 2,
                   "0": compare(Caml_obj.caml_compare, u, v),
                   "1": 0
                 };
@@ -475,14 +453,12 @@ var int_map_suites = /* constructor */{
     "1": /* constructor */{
       tag: 0,
       name: "::",
-      length: 2,
       "0": /* tuple */[
         "equal2",
         (function (param) {
             var v = of_list(/* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": /* tuple */[
                     1,
                     /* "1" */49
@@ -490,7 +466,6 @@ var int_map_suites = /* constructor */{
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": /* tuple */[
                       2,
                       /* "3" */51
@@ -498,7 +473,6 @@ var int_map_suites = /* constructor */{
                     "1": /* constructor */{
                       tag: 0,
                       name: "::",
-                      length: 2,
                       "0": /* tuple */[
                         3,
                         /* "4" */52
@@ -510,7 +484,6 @@ var int_map_suites = /* constructor */{
             var u = of_list(/* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": /* tuple */[
                     2,
                     /* "3" */51
@@ -518,7 +491,6 @@ var int_map_suites = /* constructor */{
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": /* tuple */[
                       3,
                       /* "4" */52
@@ -526,7 +498,6 @@ var int_map_suites = /* constructor */{
                     "1": /* constructor */{
                       tag: 0,
                       name: "::",
-                      length: 2,
                       "0": /* tuple */[
                         1,
                         /* "1" */49
@@ -538,7 +509,6 @@ var int_map_suites = /* constructor */{
             return /* constructor */{
                     tag: 0,
                     name: "Eq",
-                    length: 2,
                     "0": true,
                     "1": equal((function (x, y) {
                             return x === y;
@@ -549,7 +519,6 @@ var int_map_suites = /* constructor */{
       "1": /* constructor */{
         tag: 0,
         name: "::",
-        length: 2,
         "0": /* tuple */[
           "iteration",
           (function (param) {
@@ -567,7 +536,6 @@ var int_map_suites = /* constructor */{
               return /* constructor */{
                       tag: 0,
                       name: "Eq",
-                      length: 2,
                       "0": v,
                       "1": -1
                     };

@@ -28,7 +28,6 @@ function queue_1(x) {
 var suites = /* constructor */{
   tag: 0,
   name: "::",
-  length: 2,
   "0": /* tuple */[
     "simple push",
     (function (param) {
@@ -41,7 +40,6 @@ var suites = /* constructor */{
         return /* constructor */{
                 tag: 0,
                 name: "Eq",
-                length: 2,
                 "0": x,
                 "1": queue_1(x)
               };

@@ -17,7 +17,6 @@ function f(H) {
                     return /* constructor */{
                             tag: 0,
                             name: "::",
-                            length: 2,
                             "0": /* tuple */[
                               k,
                               v
@@ -39,7 +38,6 @@ function g(H, count) {
           return /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": /* tuple */[
                     k,
                     v
@@ -66,18 +64,15 @@ var Int_hash = Hashtbl.Make({
 var suites = /* constructor */{
   tag: 0,
   name: "::",
-  length: 2,
   "0": /* tuple */[
     "simple",
     (function (param) {
         return /* constructor */{
                 tag: 0,
                 name: "Eq",
-                length: 2,
                 "0": /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": /* tuple */[
                     1,
                     /* "1" */49
@@ -85,7 +80,6 @@ var suites = /* constructor */{
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": /* tuple */[
                       2,
                       /* "2" */50
@@ -100,14 +94,12 @@ var suites = /* constructor */{
   "1": /* constructor */{
     tag: 0,
     name: "::",
-    length: 2,
     "0": /* tuple */[
       "more_iterations",
       (function (param) {
           return /* constructor */{
                   tag: 0,
                   name: "Eq",
-                  length: 2,
                   "0": $$Array.init(1001, (function (i) {
                           return /* tuple */[
                                   (i << 1),

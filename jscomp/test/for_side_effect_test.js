@@ -22,14 +22,12 @@ function test2(param) {
 var suites = /* constructor */{
   tag: 0,
   name: "::",
-  length: 2,
   "0": /* tuple */[
     "for_order",
     (function (param) {
         return /* constructor */{
                 tag: 0,
                 name: "Eq",
-                length: 2,
                 "0": 10,
                 "1": test2(/* () */0)
               };

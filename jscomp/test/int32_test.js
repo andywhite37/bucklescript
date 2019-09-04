@@ -155,14 +155,12 @@ var $star$tilde = Caml_int32.imul;
 var suites = /* record */[/* contents */Pervasives.$at(/* constructor */{
         tag: 0,
         name: "::",
-        length: 2,
         "0": /* tuple */[
           "File \"int32_test.ml\", line 31, characters 2-9",
           (function (param) {
               return /* constructor */{
                       tag: 0,
                       name: "Eq",
-                      length: 2,
                       "0": 1,
                       "1": 1
                     };
@@ -171,14 +169,12 @@ var suites = /* record */[/* contents */Pervasives.$at(/* constructor */{
         "1": /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": /* tuple */[
             "File \"int32_test.ml\", line 32, characters 2-9",
             (function (param) {
                 return /* constructor */{
                         tag: 0,
                         name: "Eq",
-                        length: 2,
                         "0": -2147483647,
                         "1": -2147483647
                       };
@@ -191,16 +187,13 @@ var suites = /* record */[/* contents */Pervasives.$at(/* constructor */{
                               Curry._1(Format.asprintf(/* constructor */{
                                         tag: 0,
                                         name: "Format",
-                                        length: 2,
                                         "0": /* constructor */{
                                           tag: 11,
                                           name: "String_literal",
-                                          length: 2,
                                           "0": "shift_right_logical_cases ",
                                           "1": /* constructor */{
                                             tag: 4,
                                             name: "Int",
-                                            length: 4,
                                             "0": /* Int_d */0,
                                             "1": /* No_padding */0,
                                             "2": /* No_precision */0,
@@ -213,7 +206,6 @@ var suites = /* record */[/* contents */Pervasives.$at(/* constructor */{
                                   return /* constructor */{
                                           tag: 0,
                                           name: "Eq",
-                                          length: 2,
                                           "0": a,
                                           "1": b
                                         };
@@ -224,16 +216,13 @@ var suites = /* record */[/* contents */Pervasives.$at(/* constructor */{
                                   Curry._1(Format.asprintf(/* constructor */{
                                             tag: 0,
                                             name: "Format",
-                                            length: 2,
                                             "0": /* constructor */{
                                               tag: 11,
                                               name: "String_literal",
-                                              length: 2,
                                               "0": "shift_right_cases ",
                                               "1": /* constructor */{
                                                 tag: 4,
                                                 name: "Int",
-                                                length: 4,
                                                 "0": /* Int_d */0,
                                                 "1": /* No_padding */0,
                                                 "2": /* No_precision */0,
@@ -246,7 +235,6 @@ var suites = /* record */[/* contents */Pervasives.$at(/* constructor */{
                                       return /* constructor */{
                                               tag: 0,
                                               name: "Eq",
-                                              length: 2,
                                               "0": a,
                                               "1": b
                                             };
@@ -257,16 +245,13 @@ var suites = /* record */[/* contents */Pervasives.$at(/* constructor */{
                                   Curry._1(Format.asprintf(/* constructor */{
                                             tag: 0,
                                             name: "Format",
-                                            length: 2,
                                             "0": /* constructor */{
                                               tag: 11,
                                               name: "String_literal",
-                                              length: 2,
                                               "0": "shift_left_cases ",
                                               "1": /* constructor */{
                                                 tag: 4,
                                                 name: "Int",
-                                                length: 4,
                                                 "0": /* Int_d */0,
                                                 "1": /* No_padding */0,
                                                 "2": /* No_precision */0,
@@ -279,7 +264,6 @@ var suites = /* record */[/* contents */Pervasives.$at(/* constructor */{
                                       return /* constructor */{
                                               tag: 0,
                                               name: "Eq",
-                                              length: 2,
                                               "0": a,
                                               "1": b
                                             };

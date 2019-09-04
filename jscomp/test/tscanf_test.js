@@ -42,17 +42,14 @@ function test0(param) {
   return ((((Curry._2(Scanf.sscanf("", /* constructor */{
                           tag: 0,
                           name: "Format",
-                          length: 2,
                           "0": /* End_of_format */0,
                           "1": ""
                         }), id, 1) + Curry._2(Scanf.sscanf("", /* constructor */{
                           tag: 0,
                           name: "Format",
-                          length: 2,
                           "0": /* constructor */{
                             tag: 12,
                             name: "Char_literal",
-                            length: 2,
                             "0": /* " " */32,
                             "1": /* End_of_format */0
                           },
@@ -60,11 +57,9 @@ function test0(param) {
                         }), id, 2) | 0) + Curry._2(Scanf.sscanf(" ", /* constructor */{
                         tag: 0,
                         name: "Format",
-                        length: 2,
                         "0": /* constructor */{
                           tag: 12,
                           name: "Char_literal",
-                          length: 2,
                           "0": /* " " */32,
                           "1": /* End_of_format */0
                         },
@@ -72,11 +67,9 @@ function test0(param) {
                       }), id, 3) | 0) + Curry._2(Scanf.sscanf("\t", /* constructor */{
                       tag: 0,
                       name: "Format",
-                      length: 2,
                       "0": /* constructor */{
                         tag: 12,
                         name: "Char_literal",
-                        length: 2,
                         "0": /* " " */32,
                         "1": /* End_of_format */0
                       },
@@ -84,11 +77,9 @@ function test0(param) {
                     }), id, 4) | 0) + Curry._2(Scanf.sscanf("\n", /* constructor */{
                     tag: 0,
                     name: "Format",
-                    length: 2,
                     "0": /* constructor */{
                       tag: 12,
                       name: "Char_literal",
-                      length: 2,
                       "0": /* " " */32,
                       "1": /* End_of_format */0
                     },
@@ -96,16 +87,13 @@ function test0(param) {
                   }), id, 5) | 0) + Curry._1(Scanf.sscanf("\n\t 6", /* constructor */{
                   tag: 0,
                   name: "Format",
-                  length: 2,
                   "0": /* constructor */{
                     tag: 12,
                     name: "Char_literal",
-                    length: 2,
                     "0": /* " " */32,
                     "1": /* constructor */{
                       tag: 4,
                       name: "Int",
-                      length: 4,
                       "0": /* Int_d */0,
                       "1": /* No_padding */0,
                       "2": /* No_precision */0,
@@ -122,11 +110,9 @@ function test1(param) {
   return (((Curry._1(Scanf.sscanf("1", /* constructor */{
                         tag: 0,
                         name: "Format",
-                        length: 2,
                         "0": /* constructor */{
                           tag: 4,
                           name: "Int",
-                          length: 4,
                           "0": /* Int_d */0,
                           "1": /* No_padding */0,
                           "2": /* No_precision */0,
@@ -136,16 +122,13 @@ function test1(param) {
                       }), id) + Curry._1(Scanf.sscanf(" 2", /* constructor */{
                         tag: 0,
                         name: "Format",
-                        length: 2,
                         "0": /* constructor */{
                           tag: 12,
                           name: "Char_literal",
-                          length: 2,
                           "0": /* " " */32,
                           "1": /* constructor */{
                             tag: 4,
                             name: "Int",
-                            length: 4,
                             "0": /* Int_d */0,
                             "1": /* No_padding */0,
                             "2": /* No_precision */0,
@@ -156,16 +139,13 @@ function test1(param) {
                       }), id) | 0) + Curry._1(Scanf.sscanf(" -2", /* constructor */{
                       tag: 0,
                       name: "Format",
-                      length: 2,
                       "0": /* constructor */{
                         tag: 12,
                         name: "Char_literal",
-                        length: 2,
                         "0": /* " " */32,
                         "1": /* constructor */{
                           tag: 4,
                           name: "Int",
-                          length: 4,
                           "0": /* Int_d */0,
                           "1": /* No_padding */0,
                           "2": /* No_precision */0,
@@ -176,16 +156,13 @@ function test1(param) {
                     }), id) | 0) + Curry._1(Scanf.sscanf(" +2", /* constructor */{
                     tag: 0,
                     name: "Format",
-                    length: 2,
                     "0": /* constructor */{
                       tag: 12,
                       name: "Char_literal",
-                      length: 2,
                       "0": /* " " */32,
                       "1": /* constructor */{
                         tag: 4,
                         name: "Int",
-                        length: 4,
                         "0": /* Int_d */0,
                         "1": /* No_padding */0,
                         "2": /* No_precision */0,
@@ -196,23 +173,19 @@ function test1(param) {
                   }), id) | 0) + Curry._1(Scanf.sscanf(" 2a ", /* constructor */{
                   tag: 0,
                   name: "Format",
-                  length: 2,
                   "0": /* constructor */{
                     tag: 12,
                     name: "Char_literal",
-                    length: 2,
                     "0": /* " " */32,
                     "1": /* constructor */{
                       tag: 4,
                       name: "Int",
-                      length: 4,
                       "0": /* Int_d */0,
                       "1": /* No_padding */0,
                       "2": /* No_precision */0,
                       "3": /* constructor */{
                         tag: 12,
                         name: "Char_literal",
-                        length: 2,
                         "0": /* "a" */97,
                         "1": /* End_of_format */0
                       }
@@ -228,16 +201,13 @@ function test2(param) {
   return (Curry._1(Scanf.sscanf("123", /* constructor */{
                     tag: 0,
                     name: "Format",
-                    length: 2,
                     "0": /* constructor */{
                       tag: 4,
                       name: "Int",
-                      length: 4,
                       "0": /* Int_i */3,
                       "1": /* constructor */{
                         tag: 0,
                         name: "Lit_padding",
-                        length: 2,
                         "0": /* Right */1,
                         "1": 2
                       },
@@ -248,11 +218,9 @@ function test2(param) {
                   }), id) + Curry._1(Scanf.sscanf("245", /* constructor */{
                     tag: 0,
                     name: "Format",
-                    length: 2,
                     "0": /* constructor */{
                       tag: 4,
                       name: "Int",
-                      length: 4,
                       "0": /* Int_d */0,
                       "1": /* No_padding */0,
                       "2": /* No_precision */0,
@@ -262,21 +230,17 @@ function test2(param) {
                   }), id) | 0) + Curry._1(Scanf.sscanf(" 2a ", /* constructor */{
                   tag: 0,
                   name: "Format",
-                  length: 2,
                   "0": /* constructor */{
                     tag: 12,
                     name: "Char_literal",
-                    length: 2,
                     "0": /* " " */32,
                     "1": /* constructor */{
                       tag: 4,
                       name: "Int",
-                      length: 4,
                       "0": /* Int_d */0,
                       "1": /* constructor */{
                         tag: 0,
                         name: "Lit_padding",
-                        length: 2,
                         "0": /* Right */1,
                         "1": 1
                       },
@@ -284,7 +248,6 @@ function test2(param) {
                       "3": /* constructor */{
                         tag: 12,
                         name: "Char_literal",
-                        length: 2,
                         "0": /* "a" */97,
                         "1": /* End_of_format */0
                       }
@@ -300,16 +263,13 @@ function test3(param) {
   return ((Curry._1(Scanf.sscanf("0xff", /* constructor */{
                       tag: 0,
                       name: "Format",
-                      length: 2,
                       "0": /* constructor */{
                         tag: 4,
                         name: "Int",
-                        length: 4,
                         "0": /* Int_i */3,
                         "1": /* constructor */{
                           tag: 0,
                           name: "Lit_padding",
-                          length: 2,
                           "0": /* Right */1,
                           "1": 3
                         },
@@ -320,16 +280,13 @@ function test3(param) {
                     }), id) + Curry._1(Scanf.sscanf("0XEF", /* constructor */{
                       tag: 0,
                       name: "Format",
-                      length: 2,
                       "0": /* constructor */{
                         tag: 4,
                         name: "Int",
-                        length: 4,
                         "0": /* Int_i */3,
                         "1": /* constructor */{
                           tag: 0,
                           name: "Lit_padding",
-                          length: 2,
                           "0": /* Right */1,
                           "1": 3
                         },
@@ -340,16 +297,13 @@ function test3(param) {
                     }), id) | 0) + Curry._1(Scanf.sscanf("x=-245", /* constructor */{
                     tag: 0,
                     name: "Format",
-                    length: 2,
                     "0": /* constructor */{
                       tag: 11,
                       name: "String_literal",
-                      length: 2,
                       "0": " x = ",
                       "1": /* constructor */{
                         tag: 4,
                         name: "Int",
-                        length: 4,
                         "0": /* Int_d */0,
                         "1": /* No_padding */0,
                         "2": /* No_precision */0,
@@ -360,21 +314,17 @@ function test3(param) {
                   }), id) | 0) + Curry._1(Scanf.sscanf(" 2a ", /* constructor */{
                   tag: 0,
                   name: "Format",
-                  length: 2,
                   "0": /* constructor */{
                     tag: 12,
                     name: "Char_literal",
-                    length: 2,
                     "0": /* " " */32,
                     "1": /* constructor */{
                       tag: 4,
                       name: "Int",
-                      length: 4,
                       "0": /* Int_d */0,
                       "1": /* constructor */{
                         tag: 0,
                         name: "Lit_padding",
-                        length: 2,
                         "0": /* Right */1,
                         "1": 1
                       },
@@ -382,7 +332,6 @@ function test3(param) {
                       "3": /* constructor */{
                         tag: 12,
                         name: "Char_literal",
-                        length: 2,
                         "0": /* "a" */97,
                         "1": /* End_of_format */0
                       }
@@ -398,11 +347,9 @@ function test4(param) {
   if (Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("1"), /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 8,
                 name: "Float",
-                length: 4,
                 "0": /* Float_f */0,
                 "1": /* No_padding */0,
                 "2": /* No_precision */0,
@@ -414,11 +361,9 @@ function test4(param) {
           })) && Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("-1"), /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 8,
                 name: "Float",
-                length: 4,
                 "0": /* Float_f */0,
                 "1": /* No_padding */0,
                 "2": /* No_precision */0,
@@ -430,11 +375,9 @@ function test4(param) {
           })) && Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("+1"), /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 8,
                 name: "Float",
-                length: 4,
                 "0": /* Float_f */0,
                 "1": /* No_padding */0,
                 "2": /* No_precision */0,
@@ -446,11 +389,9 @@ function test4(param) {
           })) && Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("1."), /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 8,
                 name: "Float",
-                length: 4,
                 "0": /* Float_f */0,
                 "1": /* No_padding */0,
                 "2": /* No_precision */0,
@@ -462,11 +403,9 @@ function test4(param) {
           })) && Curry._1(Scanf.bscanf(Scanf.Scanning.from_string(".1"), /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 8,
                 name: "Float",
-                length: 4,
                 "0": /* Float_f */0,
                 "1": /* No_padding */0,
                 "2": /* No_precision */0,
@@ -478,11 +417,9 @@ function test4(param) {
           })) && Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("-.1"), /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 8,
                 name: "Float",
-                length: 4,
                 "0": /* Float_f */0,
                 "1": /* No_padding */0,
                 "2": /* No_precision */0,
@@ -494,11 +431,9 @@ function test4(param) {
           })) && Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("+.1"), /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 8,
                 name: "Float",
-                length: 4,
                 "0": /* Float_f */0,
                 "1": /* No_padding */0,
                 "2": /* No_precision */0,
@@ -510,11 +445,9 @@ function test4(param) {
           })) && Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("+1."), /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 8,
                 name: "Float",
-                length: 4,
                 "0": /* Float_f */0,
                 "1": /* No_padding */0,
                 "2": /* No_precision */0,
@@ -526,11 +459,9 @@ function test4(param) {
           })) && Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("-1."), /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 8,
                 name: "Float",
-                length: 4,
                 "0": /* Float_f */0,
                 "1": /* No_padding */0,
                 "2": /* No_precision */0,
@@ -542,35 +473,29 @@ function test4(param) {
           })) && Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("0 1. 1.3"), /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 8,
                 name: "Float",
-                length: 4,
                 "0": /* Float_f */0,
                 "1": /* No_padding */0,
                 "2": /* No_precision */0,
                 "3": /* constructor */{
                   tag: 12,
                   name: "Char_literal",
-                  length: 2,
                   "0": /* " " */32,
                   "1": /* constructor */{
                     tag: 8,
                     name: "Float",
-                    length: 4,
                     "0": /* Float_f */0,
                     "1": /* No_padding */0,
                     "2": /* No_precision */0,
                     "3": /* constructor */{
                       tag: 12,
                       name: "Char_literal",
-                      length: 2,
                       "0": /* " " */32,
                       "1": /* constructor */{
                         tag: 8,
                         name: "Float",
-                        length: 4,
                         "0": /* Float_f */0,
                         "1": /* No_padding */0,
                         "2": /* No_precision */0,
@@ -586,16 +511,13 @@ function test4(param) {
           })) && Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("0.113"), /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 8,
                 name: "Float",
-                length: 4,
                 "0": /* Float_f */0,
                 "1": /* constructor */{
                   tag: 0,
                   name: "Lit_padding",
-                  length: 2,
                   "0": /* Right */1,
                   "1": 4
                 },
@@ -608,16 +530,13 @@ function test4(param) {
           })) && Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("0.113"), /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 8,
                 name: "Float",
-                length: 4,
                 "0": /* Float_f */0,
                 "1": /* constructor */{
                   tag: 0,
                   name: "Lit_padding",
-                  length: 2,
                   "0": /* Right */1,
                   "1": 5
                 },
@@ -630,16 +549,13 @@ function test4(param) {
           })) && Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("000.113"), /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 8,
                 name: "Float",
-                length: 4,
                 "0": /* Float_f */0,
                 "1": /* constructor */{
                   tag: 0,
                   name: "Lit_padding",
-                  length: 2,
                   "0": /* Right */1,
                   "1": 15
                 },
@@ -652,16 +568,13 @@ function test4(param) {
           })) && Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("+000.113"), /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 8,
                 name: "Float",
-                length: 4,
                 "0": /* Float_f */0,
                 "1": /* constructor */{
                   tag: 0,
                   name: "Lit_padding",
-                  length: 2,
                   "0": /* Right */1,
                   "1": 15
                 },
@@ -675,16 +588,13 @@ function test4(param) {
     return Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("-000.113"), /* constructor */{
                     tag: 0,
                     name: "Format",
-                    length: 2,
                     "0": /* constructor */{
                       tag: 8,
                       name: "Float",
-                      length: 4,
                       "0": /* Float_f */0,
                       "1": /* constructor */{
                         tag: 0,
                         name: "Lit_padding",
-                        length: 2,
                         "0": /* Right */1,
                         "1": 15
                       },
@@ -706,11 +616,9 @@ function test5(param) {
   if (Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("1e1"), /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 8,
                 name: "Float",
-                length: 4,
                 "0": /* Float_e */3,
                 "1": /* No_padding */0,
                 "2": /* No_precision */0,
@@ -722,11 +630,9 @@ function test5(param) {
           })) && Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("1e+1"), /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 8,
                 name: "Float",
-                length: 4,
                 "0": /* Float_e */3,
                 "1": /* No_padding */0,
                 "2": /* No_precision */0,
@@ -738,11 +644,9 @@ function test5(param) {
           })) && Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("10e-1"), /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 8,
                 name: "Float",
-                length: 4,
                 "0": /* Float_e */3,
                 "1": /* No_padding */0,
                 "2": /* No_precision */0,
@@ -754,11 +658,9 @@ function test5(param) {
           })) && Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("10.e-1"), /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 8,
                 name: "Float",
-                length: 4,
                 "0": /* Float_e */3,
                 "1": /* No_padding */0,
                 "2": /* No_precision */0,
@@ -770,35 +672,29 @@ function test5(param) {
           })) && Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("1e1 1.e+1 1.3e-1"), /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 8,
                 name: "Float",
-                length: 4,
                 "0": /* Float_e */3,
                 "1": /* No_padding */0,
                 "2": /* No_precision */0,
                 "3": /* constructor */{
                   tag: 12,
                   name: "Char_literal",
-                  length: 2,
                   "0": /* " " */32,
                   "1": /* constructor */{
                     tag: 8,
                     name: "Float",
-                    length: 4,
                     "0": /* Float_e */3,
                     "1": /* No_padding */0,
                     "2": /* No_precision */0,
                     "3": /* constructor */{
                       tag: 12,
                       name: "Char_literal",
-                      length: 2,
                       "0": /* " " */32,
                       "1": /* constructor */{
                         tag: 8,
                         name: "Float",
-                        length: 4,
                         "0": /* Float_e */3,
                         "1": /* No_padding */0,
                         "2": /* No_precision */0,
@@ -815,47 +711,39 @@ function test5(param) {
     return Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("1 1.1 0e+1 1.3e-1"), /* constructor */{
                     tag: 0,
                     name: "Format",
-                    length: 2,
                     "0": /* constructor */{
                       tag: 8,
                       name: "Float",
-                      length: 4,
                       "0": /* Float_g */9,
                       "1": /* No_padding */0,
                       "2": /* No_precision */0,
                       "3": /* constructor */{
                         tag: 12,
                         name: "Char_literal",
-                        length: 2,
                         "0": /* " " */32,
                         "1": /* constructor */{
                           tag: 8,
                           name: "Float",
-                          length: 4,
                           "0": /* Float_g */9,
                           "1": /* No_padding */0,
                           "2": /* No_precision */0,
                           "3": /* constructor */{
                             tag: 12,
                             name: "Char_literal",
-                            length: 2,
                             "0": /* " " */32,
                             "1": /* constructor */{
                               tag: 8,
                               name: "Float",
-                              length: 4,
                               "0": /* Float_g */9,
                               "1": /* No_padding */0,
                               "2": /* No_precision */0,
                               "3": /* constructor */{
                                 tag: 12,
                                 name: "Char_literal",
-                                length: 2,
                                 "0": /* " " */32,
                                 "1": /* constructor */{
                                   tag: 8,
                                   name: "Float",
-                                  length: 4,
                                   "0": /* Float_g */9,
                                   "1": /* No_padding */0,
                                   "2": /* No_precision */0,
@@ -886,15 +774,12 @@ function test6(param) {
   if (Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("truetrue"), /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 9,
                 name: "Bool",
-                length: 1,
                 "0": /* constructor */{
                   tag: 9,
                   name: "Bool",
-                  length: 1,
                   "0": /* End_of_format */0
                 }
               },
@@ -910,15 +795,12 @@ function test6(param) {
           })) && Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("truefalse"), /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 9,
                 name: "Bool",
-                length: 1,
                 "0": /* constructor */{
                   tag: 9,
                   name: "Bool",
-                  length: 1,
                   "0": /* End_of_format */0
                 }
               },
@@ -934,15 +816,12 @@ function test6(param) {
           })) && Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("falsetrue"), /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 9,
                 name: "Bool",
-                length: 1,
                 "0": /* constructor */{
                   tag: 9,
                   name: "Bool",
-                  length: 1,
                   "0": /* End_of_format */0
                 }
               },
@@ -958,15 +837,12 @@ function test6(param) {
           })) && Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("falsefalse"), /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 9,
                 name: "Bool",
-                length: 1,
                 "0": /* constructor */{
                   tag: 9,
                   name: "Bool",
-                  length: 1,
                   "0": /* End_of_format */0
                 }
               },
@@ -983,20 +859,16 @@ function test6(param) {
     return Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("true false"), /* constructor */{
                     tag: 0,
                     name: "Format",
-                    length: 2,
                     "0": /* constructor */{
                       tag: 9,
                       name: "Bool",
-                      length: 1,
                       "0": /* constructor */{
                         tag: 12,
                         name: "Char_literal",
-                        length: 2,
                         "0": /* " " */32,
                         "1": /* constructor */{
                           tag: 9,
                           name: "Bool",
-                          length: 1,
                           "0": /* End_of_format */0
                         }
                       }
@@ -1022,47 +894,37 @@ function test7(param) {
   if (Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("'a' '\n' '\t' '\0' ' '"), /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 1,
                 name: "Caml_char",
-                length: 1,
                 "0": /* constructor */{
                   tag: 12,
                   name: "Char_literal",
-                  length: 2,
                   "0": /* " " */32,
                   "1": /* constructor */{
                     tag: 1,
                     name: "Caml_char",
-                    length: 1,
                     "0": /* constructor */{
                       tag: 12,
                       name: "Char_literal",
-                      length: 2,
                       "0": /* " " */32,
                       "1": /* constructor */{
                         tag: 1,
                         name: "Caml_char",
-                        length: 1,
                         "0": /* constructor */{
                           tag: 12,
                           name: "Char_literal",
-                          length: 2,
                           "0": /* " " */32,
                           "1": /* constructor */{
                             tag: 1,
                             name: "Caml_char",
-                            length: 1,
                             "0": /* constructor */{
                               tag: 12,
                               name: "Char_literal",
-                              length: 2,
                               "0": /* " " */32,
                               "1": /* constructor */{
                                 tag: 1,
                                 name: "Caml_char",
-                                length: 1,
                                 "0": /* End_of_format */0
                               }
                             }
@@ -1080,33 +942,26 @@ function test7(param) {
     return Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("a \n \t \0  b"), /* constructor */{
                     tag: 0,
                     name: "Format",
-                    length: 2,
                     "0": /* constructor */{
                       tag: 0,
                       name: "Char",
-                      length: 1,
                       "0": /* constructor */{
                         tag: 12,
                         name: "Char_literal",
-                        length: 2,
                         "0": /* " " */32,
                         "1": /* constructor */{
                           tag: 0,
                           name: "Char",
-                          length: 1,
                           "0": /* constructor */{
                             tag: 12,
                             name: "Char_literal",
-                            length: 2,
                             "0": /* " " */32,
                             "1": /* constructor */{
                               tag: 0,
                               name: "Char",
-                              length: 1,
                               "0": /* constructor */{
                                 tag: 12,
                                 name: "Char_literal",
-                                length: 2,
                                 "0": /* " " */32,
                                 "1": /* End_of_format */0
                               }
@@ -1134,11 +989,9 @@ function verify_read(c) {
   var s = Curry._1(Printf.sprintf(/* constructor */{
             tag: 0,
             name: "Format",
-            length: 2,
             "0": /* constructor */{
               tag: 1,
               name: "Caml_char",
-              length: 1,
               "0": /* End_of_format */0
             },
             "1": "%C"
@@ -1147,11 +1000,9 @@ function verify_read(c) {
   if (Curry._1(Scanf.bscanf(ib, /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 1,
                 name: "Caml_char",
-                length: 1,
                 "0": /* End_of_format */0
               },
               "1": "%C"
@@ -1186,11 +1037,9 @@ function unit(fmt, s) {
   var ib = Scanf.Scanning.from_string(Curry._1(Printf.sprintf(/* constructor */{
                 tag: 0,
                 name: "Format",
-                length: 2,
                 "0": /* constructor */{
                   tag: 3,
                   name: "Caml_string",
-                  length: 2,
                   "0": /* No_padding */0,
                   "1": /* End_of_format */0
                 },
@@ -1208,11 +1057,9 @@ var test9_string = "\xef\xbb\xbf";
 var partial_arg = /* constructor */{
   tag: 0,
   name: "Format",
-  length: 2,
   "0": /* constructor */{
     tag: 3,
     name: "Caml_string",
-    length: 2,
     "0": /* No_padding */0,
     "1": /* End_of_format */0
   },
@@ -1227,11 +1074,9 @@ function test9(param) {
   if (test_S("poi") && test_S("a\"b") && test_S("a\nb") && test_S("a\nb") && test_S("a\\\nb \\\nc\n\\\nb") && test_S("a\\\n\\\n\\\nb \\\nc\n\\\nb") && test_S("\xef") && test_S("\\xef") && Curry._1(Scanf.sscanf("\"\\xef\"", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 3,
                 name: "Caml_string",
-                length: 2,
                 "0": /* No_padding */0,
                 "1": /* End_of_format */0
               },
@@ -1241,11 +1086,9 @@ function test9(param) {
           })) === "\xef" && Curry._1(Scanf.sscanf("\"\\xef\\xbb\\xbf\"", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 3,
                 name: "Caml_string",
-                length: 2,
                 "0": /* No_padding */0,
                 "1": /* End_of_format */0
               },
@@ -1255,11 +1098,9 @@ function test9(param) {
           })) === test9_string && Curry._1(Scanf.sscanf("\"\\xef\\xbb\\xbf\"", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 3,
                 name: "Caml_string",
-                length: 2,
                 "0": /* No_padding */0,
                 "1": /* End_of_format */0
               },
@@ -1269,11 +1110,9 @@ function test9(param) {
           })) === "\xef\xbb\xbf" && Curry._1(Scanf.sscanf("\"\xef\xbb\xbf\"", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 3,
                 name: "Caml_string",
-                length: 2,
                 "0": /* No_padding */0,
                 "1": /* End_of_format */0
               },
@@ -1283,11 +1122,9 @@ function test9(param) {
           })) === test9_string && Curry._1(Scanf.sscanf("\"\\\\xef\\\\xbb\\\\xbf\"", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 3,
                 name: "Caml_string",
-                length: 2,
                 "0": /* No_padding */0,
                 "1": /* End_of_format */0
               },
@@ -1298,11 +1135,9 @@ function test9(param) {
     return Curry._1(Scanf.sscanf("\" \"", /* constructor */{
                     tag: 0,
                     name: "Format",
-                    length: 2,
                     "0": /* constructor */{
                       tag: 3,
                       name: "Caml_string",
-                      length: 2,
                       "0": /* No_padding */0,
                       "1": /* End_of_format */0
                     },
@@ -1323,11 +1158,9 @@ function test10(param) {
     return Curry._1(Scanf.bscanf(ib, /* constructor */{
                     tag: 0,
                     name: "Format",
-                    length: 2,
                     "0": /* constructor */{
                       tag: 3,
                       name: "Caml_string",
-                      length: 2,
                       "0": /* No_padding */0,
                       "1": /* End_of_format */0
                     },
@@ -1337,61 +1170,49 @@ function test10(param) {
   var res = Curry._1(Scanf.sscanf("Une chaine: \"celle-ci\" et \"celle-la\"!", /* constructor */{
             tag: 0,
             name: "Format",
-            length: 2,
             "0": /* constructor */{
               tag: 2,
               name: "String",
-              length: 2,
               "0": /* No_padding */0,
               "1": /* constructor */{
                 tag: 12,
                 name: "Char_literal",
-                length: 2,
                 "0": /* " " */32,
                 "1": /* constructor */{
                   tag: 2,
                   name: "String",
-                  length: 2,
                   "0": /* No_padding */0,
                   "1": /* constructor */{
                     tag: 12,
                     name: "Char_literal",
-                    length: 2,
                     "0": /* " " */32,
                     "1": /* constructor */{
                       tag: 3,
                       name: "Caml_string",
-                      length: 2,
                       "0": /* No_padding */0,
                       "1": /* constructor */{
                         tag: 12,
                         name: "Char_literal",
-                        length: 2,
                         "0": /* " " */32,
                         "1": /* constructor */{
                           tag: 2,
                           name: "String",
-                          length: 2,
                           "0": /* No_padding */0,
                           "1": /* constructor */{
                             tag: 12,
                             name: "Char_literal",
-                            length: 2,
                             "0": /* " " */32,
                             "1": /* constructor */{
                               tag: 3,
                               name: "Caml_string",
-                              length: 2,
                               "0": /* No_padding */0,
                               "1": /* constructor */{
                                 tag: 12,
                                 name: "Char_literal",
-                                length: 2,
                                 "0": /* " " */32,
                                 "1": /* constructor */{
                                   tag: 2,
                                   name: "String",
-                                  length: 2,
                                   "0": /* No_padding */0,
                                   "1": /* End_of_format */0
                                 }
@@ -1422,31 +1243,25 @@ function test11(param) {
   if (Curry._1(Scanf.sscanf("Pierre\tWeis\t70", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 2,
                 name: "String",
-                length: 2,
                 "0": /* No_padding */0,
                 "1": /* constructor */{
                   tag: 12,
                   name: "Char_literal",
-                  length: 2,
                   "0": /* " " */32,
                   "1": /* constructor */{
                     tag: 2,
                     name: "String",
-                    length: 2,
                     "0": /* No_padding */0,
                     "1": /* constructor */{
                       tag: 12,
                       name: "Char_literal",
-                      length: 2,
                       "0": /* " " */32,
                       "1": /* constructor */{
                         tag: 2,
                         name: "String",
-                        length: 2,
                         "0": /* No_padding */0,
                         "1": /* End_of_format */0
                       }
@@ -1460,33 +1275,27 @@ function test11(param) {
           })) && Curry._1(Scanf.sscanf("Jean-Luc\tde Leage\t68", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 20,
                 name: "Scan_char_set",
-                length: 3,
                 "0": undefined,
                 "1": "\xff\xfd\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff",
                 "2": /* constructor */{
                   tag: 12,
                   name: "Char_literal",
-                  length: 2,
                   "0": /* " " */32,
                   "1": /* constructor */{
                     tag: 20,
                     name: "Scan_char_set",
-                    length: 3,
                     "0": undefined,
                     "1": "\xff\xfd\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff",
                     "2": /* constructor */{
                       tag: 12,
                       name: "Char_literal",
-                      length: 2,
                       "0": /* " " */32,
                       "1": /* constructor */{
                         tag: 4,
                         name: "Int",
-                        length: 4,
                         "0": /* Int_d */0,
                         "1": /* No_padding */0,
                         "2": /* No_precision */0,
@@ -1503,51 +1312,41 @@ function test11(param) {
     return Curry._1(Scanf.sscanf("Daniel\tde Rauglaudre\t66", /* constructor */{
                     tag: 0,
                     name: "Format",
-                    length: 2,
                     "0": /* constructor */{
                       tag: 2,
                       name: "String",
-                      length: 2,
                       "0": /* No_padding */0,
                       "1": /* constructor */{
                         tag: 17,
                         name: "Formatting_lit",
-                        length: 2,
                         "0": /* constructor */{
                           tag: 2,
                           name: "Scan_indic",
-                          length: 1,
                           "0": /* "\t" */9
                         },
                         "1": /* constructor */{
                           tag: 12,
                           name: "Char_literal",
-                          length: 2,
                           "0": /* " " */32,
                           "1": /* constructor */{
                             tag: 2,
                             name: "String",
-                            length: 2,
                             "0": /* No_padding */0,
                             "1": /* constructor */{
                               tag: 17,
                               name: "Formatting_lit",
-                              length: 2,
                               "0": /* constructor */{
                                 tag: 2,
                                 name: "Scan_indic",
-                                length: 1,
                                 "0": /* "\t" */9
                               },
                               "1": /* constructor */{
                                 tag: 12,
                                 name: "Char_literal",
-                                length: 2,
                                 "0": /* " " */32,
                                 "1": /* constructor */{
                                   tag: 4,
                                   name: "Int",
-                                  length: 4,
                                   "0": /* Int_d */0,
                                   "1": /* No_padding */0,
                                   "2": /* No_precision */0,
@@ -1576,11 +1375,9 @@ function test110(param) {
   if (Curry._2(Scanf.sscanf("", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 12,
                 name: "Char_literal",
-                length: 2,
                 "0": /* " " */32,
                 "1": /* End_of_format */0
               },
@@ -1590,11 +1387,9 @@ function test110(param) {
           }), "") === "" && Curry._1(Scanf.sscanf("", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 2,
                 name: "String",
-                length: 2,
                 "0": /* No_padding */0,
                 "1": /* End_of_format */0
               },
@@ -1604,16 +1399,13 @@ function test110(param) {
           })) && Curry._1(Scanf.sscanf("", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 2,
                 name: "String",
-                length: 2,
                 "0": /* No_padding */0,
                 "1": /* constructor */{
                   tag: 2,
                   name: "String",
-                  length: 2,
                   "0": /* No_padding */0,
                   "1": /* End_of_format */0
                 }
@@ -1624,16 +1416,13 @@ function test110(param) {
           })) && Curry._1(Scanf.sscanf("", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 2,
                 name: "String",
-                length: 2,
                 "0": /* No_padding */0,
                 "1": /* constructor */{
                   tag: 12,
                   name: "Char_literal",
-                  length: 2,
                   "0": /* " " */32,
                   "1": /* End_of_format */0
                 }
@@ -1644,16 +1433,13 @@ function test110(param) {
           })) && Curry._1(Scanf.sscanf("", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 12,
                 name: "Char_literal",
-                length: 2,
                 "0": /* " " */32,
                 "1": /* constructor */{
                   tag: 2,
                   name: "String",
-                  length: 2,
                   "0": /* No_padding */0,
                   "1": /* End_of_format */0
                 }
@@ -1664,21 +1450,17 @@ function test110(param) {
           })) && Curry._1(Scanf.sscanf("", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 12,
                 name: "Char_literal",
-                length: 2,
                 "0": /* " " */32,
                 "1": /* constructor */{
                   tag: 2,
                   name: "String",
-                  length: 2,
                   "0": /* No_padding */0,
                   "1": /* constructor */{
                     tag: 12,
                     name: "Char_literal",
-                    length: 2,
                     "0": /* " " */32,
                     "1": /* End_of_format */0
                   }
@@ -1690,11 +1472,9 @@ function test110(param) {
           })) && Curry._1(Scanf.sscanf("", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 20,
                 name: "Scan_char_set",
-                length: 3,
                 "0": undefined,
                 "1": "\xff\xfb\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff",
                 "2": /* End_of_format */0
@@ -1705,17 +1485,14 @@ function test110(param) {
           })) && Curry._1(Scanf.sscanf("", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 20,
                 name: "Scan_char_set",
-                length: 3,
                 "0": undefined,
                 "1": "\xff\xfb\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff",
                 "2": /* constructor */{
                   tag: 12,
                   name: "Char_literal",
-                  length: 2,
                   "0": /* " " */32,
                   "1": /* End_of_format */0
                 }
@@ -1726,11 +1503,9 @@ function test110(param) {
           })) && Curry._1(Scanf.sscanf(" ", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 2,
                 name: "String",
-                length: 2,
                 "0": /* No_padding */0,
                 "1": /* End_of_format */0
               },
@@ -1740,16 +1515,13 @@ function test110(param) {
           })) && Curry._1(Scanf.sscanf(" ", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 2,
                 name: "String",
-                length: 2,
                 "0": /* No_padding */0,
                 "1": /* constructor */{
                   tag: 2,
                   name: "String",
-                  length: 2,
                   "0": /* No_padding */0,
                   "1": /* End_of_format */0
                 }
@@ -1760,21 +1532,17 @@ function test110(param) {
           })) && Curry._1(Scanf.sscanf(" ", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 12,
                 name: "Char_literal",
-                length: 2,
                 "0": /* " " */32,
                 "1": /* constructor */{
                   tag: 2,
                   name: "String",
-                  length: 2,
                   "0": /* No_padding */0,
                   "1": /* constructor */{
                     tag: 12,
                     name: "Char_literal",
-                    length: 2,
                     "0": /* " " */32,
                     "1": /* End_of_format */0
                   }
@@ -1786,26 +1554,21 @@ function test110(param) {
           })) && Curry._1(Scanf.sscanf(" ", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 12,
                 name: "Char_literal",
-                length: 2,
                 "0": /* " " */32,
                 "1": /* constructor */{
                   tag: 2,
                   name: "String",
-                  length: 2,
                   "0": /* No_padding */0,
                   "1": /* constructor */{
                     tag: 12,
                     name: "Char_literal",
-                    length: 2,
                     "0": /* " " */32,
                     "1": /* constructor */{
                       tag: 2,
                       name: "String",
-                      length: 2,
                       "0": /* No_padding */0,
                       "1": /* End_of_format */0
                     }
@@ -1818,25 +1581,20 @@ function test110(param) {
           })) && Curry._1(Scanf.sscanf(" ", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 12,
                 name: "Char_literal",
-                length: 2,
                 "0": /* " " */32,
                 "1": /* constructor */{
                   tag: 2,
                   name: "String",
-                  length: 2,
                   "0": /* No_padding */0,
                   "1": /* constructor */{
                     tag: 17,
                     name: "Formatting_lit",
-                    length: 2,
                     "0": /* constructor */{
                       tag: 0,
                       name: "Break",
-                      length: 3,
                       "0": "@ ",
                       "1": 1,
                       "2": 0
@@ -1844,7 +1602,6 @@ function test110(param) {
                     "1": /* constructor */{
                       tag: 2,
                       name: "String",
-                      length: 2,
                       "0": /* No_padding */0,
                       "1": /* End_of_format */0
                     }
@@ -1857,25 +1614,20 @@ function test110(param) {
           })) && Curry._1(Scanf.sscanf(" poi !", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 12,
                 name: "Char_literal",
-                length: 2,
                 "0": /* " " */32,
                 "1": /* constructor */{
                   tag: 2,
                   name: "String",
-                  length: 2,
                   "0": /* No_padding */0,
                   "1": /* constructor */{
                     tag: 17,
                     name: "Formatting_lit",
-                    length: 2,
                     "0": /* constructor */{
                       tag: 0,
                       name: "Break",
-                      length: 3,
                       "0": "@ ",
                       "1": 1,
                       "2": 0
@@ -1883,12 +1635,10 @@ function test110(param) {
                     "1": /* constructor */{
                       tag: 2,
                       name: "String",
-                      length: 2,
                       "0": /* No_padding */0,
                       "1": /* constructor */{
                         tag: 17,
                         name: "Formatting_lit",
-                        length: 2,
                         "0": /* Flush_newline */4,
                         "1": /* End_of_format */0
                       }
@@ -1903,20 +1653,16 @@ function test110(param) {
     return Curry._1(Scanf.sscanf(" poi !", /* constructor */{
                     tag: 0,
                     name: "Format",
-                    length: 2,
                     "0": /* constructor */{
                       tag: 2,
                       name: "String",
-                      length: 2,
                       "0": /* No_padding */0,
                       "1": /* constructor */{
                         tag: 17,
                         name: "Formatting_lit",
-                        length: 2,
                         "0": /* constructor */{
                           tag: 0,
                           name: "Break",
-                          length: 3,
                           "0": "@ ",
                           "1": 1,
                           "2": 0
@@ -1924,12 +1670,10 @@ function test110(param) {
                         "1": /* constructor */{
                           tag: 2,
                           name: "String",
-                          length: 2,
                           "0": /* No_padding */0,
                           "1": /* constructor */{
                             tag: 17,
                             name: "Formatting_lit",
-                            length: 2,
                             "0": /* Flush_newline */4,
                             "1": /* End_of_format */0
                           }
@@ -1953,17 +1697,14 @@ function test111(param) {
   return Curry._1(Scanf.sscanf("", /* constructor */{
                   tag: 0,
                   name: "Format",
-                  length: 2,
                   "0": /* constructor */{
                     tag: 20,
                     name: "Scan_char_set",
-                    length: 3,
                     "0": undefined,
                     "1": "\xff\xfb\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff",
                     "2": /* constructor */{
                       tag: 17,
                       name: "Formatting_lit",
-                      length: 2,
                       "0": /* Force_newline */3,
                       "1": /* End_of_format */0
                     }
@@ -1984,11 +1725,9 @@ function f(ib) {
   Curry._1(Scanf.bscanf(ib, /* constructor */{
             tag: 0,
             name: "Format",
-            length: 2,
             "0": /* constructor */{
               tag: 11,
               name: "String_literal",
-              length: 2,
               "0": " [",
               "1": /* End_of_format */0
             },
@@ -1997,23 +1736,19 @@ function f(ib) {
   return Curry._1(Scanf.bscanf(ib, /* constructor */{
                   tag: 0,
                   name: "Format",
-                  length: 2,
                   "0": /* constructor */{
                     tag: 12,
                     name: "Char_literal",
-                    length: 2,
                     "0": /* " " */32,
                     "1": /* constructor */{
                       tag: 4,
                       name: "Int",
-                      length: 4,
                       "0": /* Int_i */3,
                       "1": /* No_padding */0,
                       "2": /* No_precision */0,
                       "3": /* constructor */{
                         tag: 12,
                         name: "Char_literal",
-                        length: 2,
                         "0": /* ";" */59,
                         "1": /* End_of_format */0
                       }
@@ -2024,23 +1759,19 @@ function f(ib) {
                 return Curry._1(Scanf.bscanf(ib, /* constructor */{
                                 tag: 0,
                                 name: "Format",
-                                length: 2,
                                 "0": /* constructor */{
                                   tag: 12,
                                   name: "Char_literal",
-                                  length: 2,
                                   "0": /* " " */32,
                                   "1": /* constructor */{
                                     tag: 4,
                                     name: "Int",
-                                    length: 4,
                                     "0": /* Int_i */3,
                                     "1": /* No_padding */0,
                                     "2": /* No_precision */0,
                                     "3": /* constructor */{
                                       tag: 12,
                                       name: "Char_literal",
-                                      length: 2,
                                       "0": /* ";" */59,
                                       "1": /* End_of_format */0
                                     }
@@ -2051,23 +1782,19 @@ function f(ib) {
                               return Curry._1(Scanf.bscanf(ib, /* constructor */{
                                               tag: 0,
                                               name: "Format",
-                                              length: 2,
                                               "0": /* constructor */{
                                                 tag: 12,
                                                 name: "Char_literal",
-                                                length: 2,
                                                 "0": /* " " */32,
                                                 "1": /* constructor */{
                                                   tag: 4,
                                                   name: "Int",
-                                                  length: 4,
                                                   "0": /* Int_i */3,
                                                   "1": /* No_padding */0,
                                                   "2": /* No_precision */0,
                                                   "3": /* constructor */{
                                                     tag: 12,
                                                     name: "Char_literal",
-                                                    length: 2,
                                                     "0": /* ";" */59,
                                                     "1": /* End_of_format */0
                                                   }
@@ -2078,23 +1805,19 @@ function f(ib) {
                                             return Curry._1(Scanf.bscanf(ib, /* constructor */{
                                                             tag: 0,
                                                             name: "Format",
-                                                            length: 2,
                                                             "0": /* constructor */{
                                                               tag: 12,
                                                               name: "Char_literal",
-                                                              length: 2,
                                                               "0": /* " " */32,
                                                               "1": /* constructor */{
                                                                 tag: 4,
                                                                 name: "Int",
-                                                                length: 4,
                                                                 "0": /* Int_i */3,
                                                                 "1": /* No_padding */0,
                                                                 "2": /* No_precision */0,
                                                                 "3": /* constructor */{
                                                                   tag: 12,
                                                                   name: "Char_literal",
-                                                                  length: 2,
                                                                   "0": /* ";" */59,
                                                                   "1": /* End_of_format */0
                                                                 }
@@ -2105,11 +1828,9 @@ function f(ib) {
                                                           Curry._1(Scanf.bscanf(ib, /* constructor */{
                                                                     tag: 0,
                                                                     name: "Format",
-                                                                    length: 2,
                                                                     "0": /* constructor */{
                                                                       tag: 11,
                                                                       name: "String_literal",
-                                                                      length: 2,
                                                                       "0": " ]",
                                                                       "1": /* End_of_format */0
                                                                     },
@@ -2118,22 +1839,18 @@ function f(ib) {
                                                           return /* constructor */{
                                                                   tag: 0,
                                                                   name: "::",
-                                                                  length: 2,
                                                                   "0": i,
                                                                   "1": /* constructor */{
                                                                     tag: 0,
                                                                     name: "::",
-                                                                    length: 2,
                                                                     "0": j,
                                                                     "1": /* constructor */{
                                                                       tag: 0,
                                                                       name: "::",
-                                                                      length: 2,
                                                                       "0": k,
                                                                       "1": /* constructor */{
                                                                         tag: 0,
                                                                         name: "::",
-                                                                        length: 2,
                                                                         "0": l,
                                                                         "1": /* [] */0
                                                                       }
@@ -2150,22 +1867,18 @@ function test12(param) {
   return Caml_obj.caml_equal(f(Scanf.Scanning.from_string("[1;2;3;4; ]")), /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": 1,
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": 2,
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": 3,
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": 4,
                     "1": /* [] */0
                   }
@@ -2181,23 +1894,19 @@ function scan_elems(ib, accu) {
     return Curry._1(Scanf.bscanf(ib, /* constructor */{
                     tag: 0,
                     name: "Format",
-                    length: 2,
                     "0": /* constructor */{
                       tag: 12,
                       name: "Char_literal",
-                      length: 2,
                       "0": /* " " */32,
                       "1": /* constructor */{
                         tag: 4,
                         name: "Int",
-                        length: 4,
                         "0": /* Int_i */3,
                         "1": /* No_padding */0,
                         "2": /* No_precision */0,
                         "3": /* constructor */{
                           tag: 12,
                           name: "Char_literal",
-                          length: 2,
                           "0": /* ";" */59,
                           "1": /* End_of_format */0
                         }
@@ -2208,7 +1917,6 @@ function scan_elems(ib, accu) {
                   return scan_elems(ib, /* constructor */{
                               tag: 0,
                               name: "::",
-                              length: 2,
                               "0": i,
                               "1": accu
                             });
@@ -2223,11 +1931,9 @@ function g(ib) {
   Curry._1(Scanf.bscanf(ib, /* constructor */{
             tag: 0,
             name: "Format",
-            length: 2,
             "0": /* constructor */{
               tag: 11,
               name: "String_literal",
-              length: 2,
               "0": "[ ",
               "1": /* End_of_format */0
             },
@@ -2240,22 +1946,18 @@ function test13(param) {
   return Caml_obj.caml_equal(g(Scanf.Scanning.from_string("[1;2;3;4; ]")), /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": 1,
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": 2,
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": 3,
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": 4,
                     "1": /* [] */0
                   }
@@ -2270,11 +1972,9 @@ function scan_int_list(ib) {
   Curry._1(Scanf.bscanf(ib, /* constructor */{
             tag: 0,
             name: "Format",
-            length: 2,
             "0": /* constructor */{
               tag: 11,
               name: "String_literal",
-              length: 2,
               "0": "[ ",
               "1": /* End_of_format */0
             },
@@ -2284,11 +1984,9 @@ function scan_int_list(ib) {
   Curry._1(Scanf.bscanf(ib, /* constructor */{
             tag: 0,
             name: "Format",
-            length: 2,
             "0": /* constructor */{
               tag: 11,
               name: "String_literal",
-              length: 2,
               "0": " ]",
               "1": /* End_of_format */0
             },
@@ -2301,22 +1999,18 @@ function test14(param) {
   return Caml_obj.caml_equal(scan_int_list(Scanf.Scanning.from_string("[1;2;3;4; ]")), /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": 1,
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": 2,
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": 3,
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": 4,
                     "1": /* [] */0
                   }
@@ -2331,28 +2025,23 @@ function scan_elems$1(ib, accu) {
   return Curry._1(Scanf.bscanf(ib, /* constructor */{
                   tag: 0,
                   name: "Format",
-                  length: 2,
                   "0": /* constructor */{
                     tag: 12,
                     name: "Char_literal",
-                    length: 2,
                     "0": /* " " */32,
                     "1": /* constructor */{
                       tag: 4,
                       name: "Int",
-                      length: 4,
                       "0": /* Int_i */3,
                       "1": /* No_padding */0,
                       "2": /* No_precision */0,
                       "3": /* constructor */{
                         tag: 12,
                         name: "Char_literal",
-                        length: 2,
                         "0": /* " " */32,
                         "1": /* constructor */{
                           tag: 0,
                           name: "Char",
-                          length: 1,
                           "0": /* End_of_format */0
                         }
                       }
@@ -2370,7 +2059,6 @@ function scan_elems$1(ib, accu) {
                   return List.rev(/* constructor */{
                               tag: 0,
                               name: "::",
-                              length: 2,
                               "0": i,
                               "1": accu
                             });
@@ -2378,7 +2066,6 @@ function scan_elems$1(ib, accu) {
                   return scan_elems$1(ib, /* constructor */{
                               tag: 0,
                               name: "::",
-                              length: 2,
                               "0": i,
                               "1": accu
                             });
@@ -2390,11 +2077,9 @@ function scan_int_list$1(ib) {
   Curry._1(Scanf.bscanf(ib, /* constructor */{
             tag: 0,
             name: "Format",
-            length: 2,
             "0": /* constructor */{
               tag: 11,
               name: "String_literal",
-              length: 2,
               "0": "[ ",
               "1": /* End_of_format */0
             },
@@ -2407,22 +2092,18 @@ function test15(param) {
   return Caml_obj.caml_equal(scan_int_list$1(Scanf.Scanning.from_string("[1;2;3;4]")), /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": 1,
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": 2,
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": 3,
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": 4,
                     "1": /* [] */0
                   }
@@ -2438,20 +2119,16 @@ function scan_elems$2(ib, accu) {
     return Curry._1(Scanf.bscanf(ib, /* constructor */{
                     tag: 0,
                     name: "Format",
-                    length: 2,
                     "0": /* constructor */{
                       tag: 0,
                       name: "Char",
-                      length: 1,
                       "0": /* constructor */{
                         tag: 12,
                         name: "Char_literal",
-                        length: 2,
                         "0": /* " " */32,
                         "1": /* constructor */{
                           tag: 4,
                           name: "Int",
-                          length: 4,
                           "0": /* Int_i */3,
                           "1": /* No_padding */0,
                           "2": /* No_precision */0,
@@ -2469,7 +2146,6 @@ function scan_elems$2(ib, accu) {
                               return scan_elems$2(ib, /* constructor */{
                                           tag: 0,
                                           name: "::",
-                                          length: 2,
                                           "0": i,
                                           "1": accu
                                         });
@@ -2481,7 +2157,6 @@ function scan_elems$2(ib, accu) {
                             return List.rev(/* constructor */{
                                         tag: 0,
                                         name: "::",
-                                        length: 2,
                                         "0": i,
                                         "1": accu
                                       });
@@ -2493,7 +2168,6 @@ function scan_elems$2(ib, accu) {
                     return scan_elems$2(ib, /* constructor */{
                                 tag: 0,
                                 name: "::",
-                                length: 2,
                                 "0": i,
                                 "1": accu
                               });
@@ -2511,11 +2185,9 @@ function scan_elems$2(ib, accu) {
       Curry._1(Scanf.bscanf(ib, /* constructor */{
                 tag: 0,
                 name: "Format",
-                length: 2,
                 "0": /* constructor */{
                   tag: 12,
                   name: "Char_literal",
-                  length: 2,
                   "0": /* "]" */93,
                   "1": /* End_of_format */0
                 },
@@ -2534,22 +2206,18 @@ function test16(param) {
   if (Caml_obj.caml_equal(scan_elems$2(Scanf.Scanning.from_string("[]"), /* [] */0), List.rev(/* [] */0)) && Caml_obj.caml_equal(scan_elems$2(Scanf.Scanning.from_string("[1;2;3;4]"), /* [] */0), List.rev(/* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": 1,
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": 2,
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": 3,
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": 4,
                     "1": /* [] */0
                   }
@@ -2558,22 +2226,18 @@ function test16(param) {
             })) && Caml_obj.caml_equal(scan_elems$2(Scanf.Scanning.from_string("[1;2;3;4; ]"), /* [] */0), List.rev(/* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": 1,
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": 2,
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": 3,
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": 4,
                     "1": /* [] */0
                   }
@@ -2583,22 +2247,18 @@ function test16(param) {
     return Caml_obj.caml_equal(scan_elems$2(Scanf.Scanning.from_string("[1;2;3;4"), /* [] */0), List.rev(/* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": 1,
                     "1": /* constructor */{
                       tag: 0,
                       name: "::",
-                      length: 2,
                       "0": 2,
                       "1": /* constructor */{
                         tag: 0,
                         name: "::",
-                        length: 2,
                         "0": 3,
                         "1": /* constructor */{
                           tag: 0,
                           name: "::",
-                          length: 2,
                           "0": 4,
                           "1": /* [] */0
                         }
@@ -2616,23 +2276,19 @@ function scan_elems$3(ib, accu) {
   return Curry._1(Scanf.bscanf(ib, /* constructor */{
                   tag: 0,
                   name: "Format",
-                  length: 2,
                   "0": /* constructor */{
                     tag: 12,
                     name: "Char_literal",
-                    length: 2,
                     "0": /* " " */32,
                     "1": /* constructor */{
                       tag: 4,
                       name: "Int",
-                      length: 4,
                       "0": /* Int_i */3,
                       "1": /* No_padding */0,
                       "2": /* No_precision */0,
                       "3": /* constructor */{
                         tag: 20,
                         name: "Scan_char_set",
-                        length: 3,
                         "0": undefined,
                         "1": "\0&\0\0\x01\0\0\b\0\0\0 \0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                         "2": /* End_of_format */0
@@ -2646,7 +2302,6 @@ function scan_elems$3(ib, accu) {
                       return scan_elems$3(ib, /* constructor */{
                                   tag: 0,
                                   name: "::",
-                                  length: 2,
                                   "0": i,
                                   "1": accu
                                 });
@@ -2654,7 +2309,6 @@ function scan_elems$3(ib, accu) {
                       return List.rev(/* constructor */{
                                   tag: 0,
                                   name: "::",
-                                  length: 2,
                                   "0": i,
                                   "1": accu
                                 });
@@ -2662,7 +2316,6 @@ function scan_elems$3(ib, accu) {
                     return List.rev(/* constructor */{
                                 tag: 0,
                                 name: "::",
-                                length: 2,
                                 "0": i,
                                 "1": accu
                               });
@@ -2674,11 +2327,9 @@ function scan_int_list$2(ib) {
   Curry._1(Scanf.bscanf(ib, /* constructor */{
             tag: 0,
             name: "Format",
-            length: 2,
             "0": /* constructor */{
               tag: 11,
               name: "String_literal",
-              length: 2,
               "0": " [",
               "1": /* End_of_format */0
             },
@@ -2691,22 +2342,18 @@ function test17(param) {
   if (Caml_obj.caml_equal(scan_int_list$2(Scanf.Scanning.from_string("[1;2;3;4]")), /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": 1,
           "1": /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": 2,
             "1": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": 3,
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": 4,
                 "1": /* [] */0
               }
@@ -2715,22 +2362,18 @@ function test17(param) {
         }) && Caml_obj.caml_equal(scan_int_list$2(Scanf.Scanning.from_string("[1;2;3;4; ]")), /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": 1,
           "1": /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": 2,
             "1": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": 3,
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": 4,
                 "1": /* [] */0
               }
@@ -2740,22 +2383,18 @@ function test17(param) {
     return Caml_obj.caml_equal(scan_int_list$2(Scanf.Scanning.from_string("[1;2;3;4 5]")), /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": 1,
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": 2,
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": 3,
                     "1": /* constructor */{
                       tag: 0,
                       name: "::",
-                      length: 2,
                       "0": 4,
                       "1": /* [] */0
                     }
@@ -2773,20 +2412,16 @@ function scan_rest(ib, accu) {
   return Curry._1(Scanf.bscanf(ib, /* constructor */{
                   tag: 0,
                   name: "Format",
-                  length: 2,
                   "0": /* constructor */{
                     tag: 12,
                     name: "Char_literal",
-                    length: 2,
                     "0": /* " " */32,
                     "1": /* constructor */{
                       tag: 0,
                       name: "Char",
-                      length: 1,
                       "0": /* constructor */{
                         tag: 12,
                         name: "Char_literal",
-                        length: 2,
                         "0": /* " " */32,
                         "1": /* End_of_format */0
                       }
@@ -2806,11 +2441,9 @@ function scan_rest(ib, accu) {
                   return Curry._1(Scanf.bscanf(ib, /* constructor */{
                                   tag: 0,
                                   name: "Format",
-                                  length: 2,
                                   "0": /* constructor */{
                                     tag: 20,
                                     name: "Scan_char_set",
-                                    length: 3,
                                     "0": undefined,
                                     "1": "\0\0\0\0\0\0\0\0\0\0\0 \0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                                     "2": /* End_of_format */0
@@ -2823,23 +2456,19 @@ function scan_rest(ib, accu) {
                                   return Curry._1(Scanf.bscanf(ib, /* constructor */{
                                                   tag: 0,
                                                   name: "Format",
-                                                  length: 2,
                                                   "0": /* constructor */{
                                                     tag: 12,
                                                     name: "Char_literal",
-                                                    length: 2,
                                                     "0": /* " " */32,
                                                     "1": /* constructor */{
                                                       tag: 4,
                                                       name: "Int",
-                                                      length: 4,
                                                       "0": /* Int_i */3,
                                                       "1": /* No_padding */0,
                                                       "2": /* No_precision */0,
                                                       "3": /* constructor */{
                                                         tag: 12,
                                                         name: "Char_literal",
-                                                        length: 2,
                                                         "0": /* " " */32,
                                                         "1": /* End_of_format */0
                                                       }
@@ -2850,7 +2479,6 @@ function scan_rest(ib, accu) {
                                                 return scan_rest(ib, /* constructor */{
                                                             tag: 0,
                                                             name: "::",
-                                                            length: 2,
                                                             "0": i,
                                                             "1": accu
                                                           });
@@ -2865,20 +2493,16 @@ function scan_elems$4(ib, accu) {
   return Curry._1(Scanf.bscanf(ib, /* constructor */{
                   tag: 0,
                   name: "Format",
-                  length: 2,
                   "0": /* constructor */{
                     tag: 12,
                     name: "Char_literal",
-                    length: 2,
                     "0": /* " " */32,
                     "1": /* constructor */{
                       tag: 0,
                       name: "Char",
-                      length: 1,
                       "0": /* constructor */{
                         tag: 12,
                         name: "Char_literal",
-                        length: 2,
                         "0": /* " " */32,
                         "1": /* End_of_format */0
                       }
@@ -2896,11 +2520,9 @@ function scan_elems$4(ib, accu) {
                   return Curry._1(Scanf.bscanf(ib, /* constructor */{
                                   tag: 0,
                                   name: "Format",
-                                  length: 2,
                                   "0": /* constructor */{
                                     tag: 20,
                                     name: "Scan_char_set",
-                                    length: 3,
                                     "0": undefined,
                                     "1": "\0\0\0\0\0\0\0\0\0\0\0 \0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                                     "2": /* End_of_format */0
@@ -2913,23 +2535,19 @@ function scan_elems$4(ib, accu) {
                                   return Curry._1(Scanf.bscanf(ib, /* constructor */{
                                                   tag: 0,
                                                   name: "Format",
-                                                  length: 2,
                                                   "0": /* constructor */{
                                                     tag: 12,
                                                     name: "Char_literal",
-                                                    length: 2,
                                                     "0": /* " " */32,
                                                     "1": /* constructor */{
                                                       tag: 4,
                                                       name: "Int",
-                                                      length: 4,
                                                       "0": /* Int_i */3,
                                                       "1": /* No_padding */0,
                                                       "2": /* No_precision */0,
                                                       "3": /* constructor */{
                                                         tag: 12,
                                                         name: "Char_literal",
-                                                        length: 2,
                                                         "0": /* " " */32,
                                                         "1": /* End_of_format */0
                                                       }
@@ -2940,7 +2558,6 @@ function scan_elems$4(ib, accu) {
                                                 return scan_rest(ib, /* constructor */{
                                                             tag: 0,
                                                             name: "::",
-                                                            length: 2,
                                                             "0": i,
                                                             "1": accu
                                                           });
@@ -2969,22 +2586,18 @@ function test18(param) {
       if (Caml_obj.caml_equal(List.rev(scan_elems$4(ib$2, /* [] */0)), /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": 1,
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": 2,
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": 3,
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": 4,
                     "1": /* [] */0
                   }
@@ -2995,22 +2608,18 @@ function test18(param) {
         return Caml_obj.caml_equal(List.rev(scan_elems$4(ib$3, /* [] */0)), /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": 1,
                     "1": /* constructor */{
                       tag: 0,
                       name: "::",
-                      length: 2,
                       "0": 2,
                       "1": /* constructor */{
                         tag: 0,
                         name: "::",
-                        length: 2,
                         "0": 3,
                         "1": /* constructor */{
                           tag: 0,
                           name: "::",
-                          length: 2,
                           "0": 4,
                           "1": /* [] */0
                         }
@@ -3052,11 +2661,9 @@ function scan_rest$1(ib, accu) {
   return Curry._1(Scanf.bscanf(ib, /* constructor */{
                   tag: 0,
                   name: "Format",
-                  length: 2,
                   "0": /* constructor */{
                     tag: 20,
                     name: "Scan_char_set",
-                    length: 3,
                     "0": undefined,
                     "1": "\0\0\0\0\0\0\0\0\0\0\0 \0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                     "2": /* End_of_format */0
@@ -3071,23 +2678,19 @@ function scan_rest$1(ib, accu) {
                   return Curry._1(Scanf.bscanf(ib$1, /* constructor */{
                                   tag: 0,
                                   name: "Format",
-                                  length: 2,
                                   "0": /* constructor */{
                                     tag: 12,
                                     name: "Char_literal",
-                                    length: 2,
                                     "0": /* " " */32,
                                     "1": /* constructor */{
                                       tag: 4,
                                       name: "Int",
-                                      length: 4,
                                       "0": /* Int_i */3,
                                       "1": /* No_padding */0,
                                       "2": /* No_precision */0,
                                       "3": /* constructor */{
                                         tag: 12,
                                         name: "Char_literal",
-                                        length: 2,
                                         "0": /* " " */32,
                                         "1": /* End_of_format */0
                                       }
@@ -3099,18 +2702,15 @@ function scan_rest$1(ib, accu) {
                                 var accu$2 = /* constructor */{
                                   tag: 0,
                                   name: "::",
-                                  length: 2,
                                   "0": i,
                                   "1": accu$1
                                 };
                                 return Curry._1(Scanf.bscanf(ib$2, /* constructor */{
                                                 tag: 0,
                                                 name: "Format",
-                                                length: 2,
                                                 "0": /* constructor */{
                                                   tag: 20,
                                                   name: "Scan_char_set",
-                                                  length: 3,
                                                   "0": 1,
                                                   "1": "\0\0\0\0\0\0\0\b\0\0\0 \0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                                                   "2": /* End_of_format */0
@@ -3126,11 +2726,9 @@ function scan_rest$1(ib, accu) {
                                                   var s = Printf.sprintf(/* constructor */{
                                                         tag: 0,
                                                         name: "Format",
-                                                        length: 2,
                                                         "0": /* constructor */{
                                                           tag: 11,
                                                           name: "String_literal",
-                                                          length: 2,
                                                           "0": "scan_int_list",
                                                           "1": /* End_of_format */0
                                                         },
@@ -3151,11 +2749,9 @@ function scan_int_list$4(ib) {
   Curry._1(Scanf.bscanf(ib, /* constructor */{
             tag: 0,
             name: "Format",
-            length: 2,
             "0": /* constructor */{
               tag: 11,
               name: "String_literal",
-              length: 2,
               "0": " [ ",
               "1": /* End_of_format */0
             },
@@ -3168,28 +2764,23 @@ function test22(param) {
   if (scan_int_list$4(Scanf.Scanning.from_string("[]")) === /* [] */0 && scan_int_list$4(Scanf.Scanning.from_string("[ ]")) === /* [] */0 && Caml_obj.caml_equal(scan_int_list$4(Scanf.Scanning.from_string("[1]")), /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": 1,
           "1": /* [] */0
         }) && Caml_obj.caml_equal(scan_int_list$4(Scanf.Scanning.from_string("[1;2;3;4]")), /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": 1,
           "1": /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": 2,
             "1": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": 3,
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": 4,
                 "1": /* [] */0
               }
@@ -3199,22 +2790,18 @@ function test22(param) {
     return Caml_obj.caml_equal(scan_int_list$4(Scanf.Scanning.from_string("[1;2;3;4;]")), /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": 1,
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": 2,
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": 3,
                     "1": /* constructor */{
                       tag: 0,
                       name: "::",
-                      length: 2,
                       "0": 4,
                       "1": /* [] */0
                     }
@@ -3234,7 +2821,6 @@ function scan_elems$5(ib, scan_elem, accu) {
                   var accu$1 = /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": i,
                     "1": accu
                   };
@@ -3259,11 +2845,9 @@ function scan_list(scan_elem, ib) {
   Curry._1(Scanf.bscanf(ib, /* constructor */{
             tag: 0,
             name: "Format",
-            length: 2,
             "0": /* constructor */{
               tag: 11,
               name: "String_literal",
-              length: 2,
               "0": "[ ",
               "1": /* End_of_format */0
             },
@@ -3273,11 +2857,9 @@ function scan_list(scan_elem, ib) {
   Curry._1(Scanf.bscanf(ib, /* constructor */{
             tag: 0,
             name: "Format",
-            length: 2,
             "0": /* constructor */{
               tag: 11,
               name: "String_literal",
-              length: 2,
               "0": " ]",
               "1": /* End_of_format */0
             },
@@ -3290,28 +2872,23 @@ function scan_int_elem(ib) {
   return Scanf.bscanf(ib, /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 12,
                 name: "Char_literal",
-                length: 2,
                 "0": /* " " */32,
                 "1": /* constructor */{
                   tag: 4,
                   name: "Int",
-                  length: 4,
                   "0": /* Int_i */3,
                   "1": /* No_padding */0,
                   "2": /* No_precision */0,
                   "3": /* constructor */{
                     tag: 12,
                     name: "Char_literal",
-                    length: 2,
                     "0": /* " " */32,
                     "1": /* constructor */{
                       tag: 20,
                       name: "Scan_char_set",
-                      length: 3,
                       "0": 1,
                       "1": "\0\0\0\0\0\0\0\b\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                       "2": /* End_of_format */0
@@ -3331,28 +2908,23 @@ function test23(param) {
   if (scan_list(scan_int_elem, Scanf.Scanning.from_string("[]")) === /* [] */0 && scan_list(scan_int_elem, Scanf.Scanning.from_string("[ ]")) === /* [] */0 && Caml_obj.caml_equal(scan_list(scan_int_elem, Scanf.Scanning.from_string("[1]")), /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": 1,
           "1": /* [] */0
         }) && Caml_obj.caml_equal(scan_list(scan_int_elem, Scanf.Scanning.from_string("[1;2;3;4]")), /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": 1,
           "1": /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": 2,
             "1": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": 3,
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": 4,
                 "1": /* [] */0
               }
@@ -3362,22 +2934,18 @@ function test23(param) {
     return Caml_obj.caml_equal(scan_list(scan_int_elem, Scanf.Scanning.from_string("[1;2;3;4;]")), /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": 1,
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": 2,
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": 3,
                     "1": /* constructor */{
                       tag: 0,
                       name: "::",
-                      length: 2,
                       "0": 4,
                       "1": /* [] */0
                     }
@@ -3413,36 +2981,29 @@ function scan_string_elem(ib) {
   return Scanf.bscanf(ib, /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 11,
                 name: "String_literal",
-                length: 2,
                 "0": " \"",
                 "1": /* constructor */{
                   tag: 2,
                   name: "String",
-                  length: 2,
                   "0": /* No_padding */0,
                   "1": /* constructor */{
                     tag: 17,
                     name: "Formatting_lit",
-                    length: 2,
                     "0": /* constructor */{
                       tag: 2,
                       name: "Scan_indic",
-                      length: 1,
                       "0": /* "\"" */34
                     },
                     "1": /* constructor */{
                       tag: 12,
                       name: "Char_literal",
-                      length: 2,
                       "0": /* " " */32,
                       "1": /* constructor */{
                         tag: 20,
                         name: "Scan_char_set",
-                        length: 3,
                         "0": 1,
                         "1": "\0\0\0\0\0\0\0\b\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                         "2": /* End_of_format */0
@@ -3459,26 +3020,21 @@ function scan_String_elem(ib) {
   return Scanf.bscanf(ib, /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 12,
                 name: "Char_literal",
-                length: 2,
                 "0": /* " " */32,
                 "1": /* constructor */{
                   tag: 3,
                   name: "Caml_string",
-                  length: 2,
                   "0": /* No_padding */0,
                   "1": /* constructor */{
                     tag: 12,
                     name: "Char_literal",
-                    length: 2,
                     "0": /* " " */32,
                     "1": /* constructor */{
                       tag: 20,
                       name: "Scan_char_set",
-                      length: 3,
                       "0": 1,
                       "1": "\0\0\0\0\0\0\0\b\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                       "2": /* End_of_format */0
@@ -3498,28 +3054,23 @@ function test28(param) {
   if (scan_list(scan_string_elem, Scanf.Scanning.from_string("[]")) === /* [] */0 && Caml_obj.caml_equal(scan_list(scan_string_elem, Scanf.Scanning.from_string("[\"Le\"]")), /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": "Le",
           "1": /* [] */0
         }) && Caml_obj.caml_equal(scan_list(scan_string_elem, Scanf.Scanning.from_string("[\"Le\";\"langage\";\"Objective\";\"Caml\"]")), /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": "Le",
           "1": /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": "langage",
             "1": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": "Objective",
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": "Caml",
                 "1": /* [] */0
               }
@@ -3528,22 +3079,18 @@ function test28(param) {
         }) && Caml_obj.caml_equal(scan_list(scan_string_elem, Scanf.Scanning.from_string("[\"Le\";\"langage\";\"Objective\";\"Caml\"; ]")), /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": "Le",
           "1": /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": "langage",
             "1": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": "Objective",
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": "Caml",
                 "1": /* [] */0
               }
@@ -3552,28 +3099,23 @@ function test28(param) {
         }) && scan_String_list(Scanf.Scanning.from_string("[]")) === /* [] */0 && Caml_obj.caml_equal(scan_String_list(Scanf.Scanning.from_string("[\"Le\"]")), /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": "Le",
           "1": /* [] */0
         }) && Caml_obj.caml_equal(scan_String_list(Scanf.Scanning.from_string("[\"Le\";\"langage\";\"Objective\";\"Caml\"]")), /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": "Le",
           "1": /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": "langage",
             "1": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": "Objective",
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": "Caml",
                 "1": /* [] */0
               }
@@ -3583,22 +3125,18 @@ function test28(param) {
     return Caml_obj.caml_equal(scan_String_list(Scanf.Scanning.from_string("[\"Le\";\"langage\";\"Objective\";\"Caml\"; ]")), /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": "Le",
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": "langage",
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": "Objective",
                     "1": /* constructor */{
                       tag: 0,
                       name: "::",
-                      length: 2,
                       "0": "Caml",
                       "1": /* [] */0
                     }
@@ -3617,7 +3155,6 @@ function scan_elems$6(ib, scan_elem, accu) {
                 var accu$1 = /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": i,
                   "1": accu
                 };
@@ -3635,11 +3172,9 @@ function scan_list$1(scan_elem, ib) {
   Curry._1(Scanf.bscanf(ib, /* constructor */{
             tag: 0,
             name: "Format",
-            length: 2,
             "0": /* constructor */{
               tag: 11,
               name: "String_literal",
-              length: 2,
               "0": "[ ",
               "1": /* End_of_format */0
             },
@@ -3649,11 +3184,9 @@ function scan_list$1(scan_elem, ib) {
   Curry._1(Scanf.bscanf(ib, /* constructor */{
             tag: 0,
             name: "Format",
-            length: 2,
             "0": /* constructor */{
               tag: 11,
               name: "String_literal",
-              length: 2,
               "0": " ]",
               "1": /* End_of_format */0
             },
@@ -3666,28 +3199,23 @@ function scan_int_elem$1(ib, f, ek) {
   return Curry._1(Scanf.kscanf(ib, ek, /* constructor */{
                   tag: 0,
                   name: "Format",
-                  length: 2,
                   "0": /* constructor */{
                     tag: 12,
                     name: "Char_literal",
-                    length: 2,
                     "0": /* " " */32,
                     "1": /* constructor */{
                       tag: 4,
                       name: "Int",
-                      length: 4,
                       "0": /* Int_i */3,
                       "1": /* No_padding */0,
                       "2": /* No_precision */0,
                       "3": /* constructor */{
                         tag: 12,
                         name: "Char_literal",
-                        length: 2,
                         "0": /* " " */32,
                         "1": /* constructor */{
                           tag: 20,
                           name: "Scan_char_set",
-                          length: 3,
                           "0": 1,
                           "1": "\0\0\0\0\0\0\0\b\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                           "2": /* End_of_format */0
@@ -3703,28 +3231,23 @@ function test29(param) {
   if (scan_list$1(scan_int_elem$1, Scanf.Scanning.from_string("[]")) === /* [] */0 && scan_list$1(scan_int_elem$1, Scanf.Scanning.from_string("[ ]")) === /* [] */0 && Caml_obj.caml_equal(scan_list$1(scan_int_elem$1, Scanf.Scanning.from_string("[1]")), /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": 1,
           "1": /* [] */0
         }) && Caml_obj.caml_equal(scan_list$1(scan_int_elem$1, Scanf.Scanning.from_string("[1;2;3;4]")), /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": 1,
           "1": /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": 2,
             "1": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": 3,
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": 4,
                 "1": /* [] */0
               }
@@ -3734,22 +3257,18 @@ function test29(param) {
     return Caml_obj.caml_equal(scan_list$1(scan_int_elem$1, Scanf.Scanning.from_string("[1;2;3;4;]")), /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": 1,
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": 2,
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": 3,
                     "1": /* constructor */{
                       tag: 0,
                       name: "::",
-                      length: 2,
                       "0": 4,
                       "1": /* [] */0
                     }
@@ -3767,26 +3286,21 @@ function scan_string_elem$1(ib, f, ek) {
   return Curry._1(Scanf.kscanf(ib, ek, /* constructor */{
                   tag: 0,
                   name: "Format",
-                  length: 2,
                   "0": /* constructor */{
                     tag: 12,
                     name: "Char_literal",
-                    length: 2,
                     "0": /* " " */32,
                     "1": /* constructor */{
                       tag: 3,
                       name: "Caml_string",
-                      length: 2,
                       "0": /* No_padding */0,
                       "1": /* constructor */{
                         tag: 12,
                         name: "Char_literal",
-                        length: 2,
                         "0": /* " " */32,
                         "1": /* constructor */{
                           tag: 20,
                           name: "Scan_char_set",
-                          length: 3,
                           "0": 1,
                           "1": "\0\0\0\0\0\0\0\b\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                           "2": /* End_of_format */0
@@ -3802,28 +3316,23 @@ function test30(param) {
   if (scan_list$1(scan_string_elem$1, Scanf.Scanning.from_string("[]")) === /* [] */0 && scan_list$1(scan_string_elem$1, Scanf.Scanning.from_string("[ ]")) === /* [] */0 && Caml_obj.caml_equal(scan_list$1(scan_string_elem$1, Scanf.Scanning.from_string("[ \"1\" ]")), /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": "1",
           "1": /* [] */0
         }) && Caml_obj.caml_equal(scan_list$1(scan_string_elem$1, Scanf.Scanning.from_string("[\"1\"; \"2\"; \"3\"; \"4\"]")), /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": "1",
           "1": /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": "2",
             "1": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": "3",
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": "4",
                 "1": /* [] */0
               }
@@ -3833,22 +3342,18 @@ function test30(param) {
     return Caml_obj.caml_equal(scan_list$1(scan_string_elem$1, Scanf.Scanning.from_string("[\"1\"; \"2\"; \"3\"; \"4\";]")), /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": "1",
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": "2",
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": "3",
                     "1": /* constructor */{
                       tag: 0,
                       name: "::",
-                      length: 2,
                       "0": "4",
                       "1": /* [] */0
                     }
@@ -3871,7 +3376,6 @@ function scan_elems$7(ib, scan_elem, accu) {
                 var accu$1 = /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": i,
                   "1": accu
                 };
@@ -3880,16 +3384,13 @@ function scan_elems$7(ib, scan_elem, accu) {
                                 }), /* constructor */{
                                 tag: 0,
                                 name: "Format",
-                                length: 2,
                                 "0": /* constructor */{
                                   tag: 12,
                                   name: "Char_literal",
-                                  length: 2,
                                   "0": /* " " */32,
                                   "1": /* constructor */{
                                     tag: 20,
                                     name: "Scan_char_set",
-                                    length: 3,
                                     "0": 1,
                                     "1": "\0\0\0\0\0\0\0\b\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                                     "2": /* End_of_format */0
@@ -3912,11 +3413,9 @@ function scan_list$2(scan_elem, ib) {
   Curry._1(Scanf.bscanf(ib, /* constructor */{
             tag: 0,
             name: "Format",
-            length: 2,
             "0": /* constructor */{
               tag: 11,
               name: "String_literal",
-              length: 2,
               "0": "[ ",
               "1": /* End_of_format */0
             },
@@ -3926,11 +3425,9 @@ function scan_list$2(scan_elem, ib) {
   Curry._1(Scanf.bscanf(ib, /* constructor */{
             tag: 0,
             name: "Format",
-            length: 2,
             "0": /* constructor */{
               tag: 11,
               name: "String_literal",
-              length: 2,
               "0": " ]",
               "1": /* End_of_format */0
             },
@@ -3942,16 +3439,13 @@ function scan_list$2(scan_elem, ib) {
 var partial_arg$1 = /* constructor */{
   tag: 0,
   name: "Format",
-  length: 2,
   "0": /* constructor */{
     tag: 12,
     name: "Char_literal",
-    length: 2,
     "0": /* " " */32,
     "1": /* constructor */{
       tag: 4,
       name: "Int",
-      length: 4,
       "0": /* Int_i */3,
       "1": /* No_padding */0,
       "2": /* No_precision */0,
@@ -3972,16 +3466,13 @@ function scan_int_list$6(param) {
 var partial_arg$3 = /* constructor */{
   tag: 0,
   name: "Format",
-  length: 2,
   "0": /* constructor */{
     tag: 12,
     name: "Char_literal",
-    length: 2,
     "0": /* " " */32,
     "1": /* constructor */{
       tag: 3,
       name: "Caml_string",
-      length: 2,
       "0": /* No_padding */0,
       "1": /* End_of_format */0
     }
@@ -4001,28 +3492,23 @@ function test31(param) {
   if (Curry._1(scan_int_list$6, Scanf.Scanning.from_string("[]")) === /* [] */0 && Curry._1(scan_int_list$6, Scanf.Scanning.from_string("[ ]")) === /* [] */0 && Caml_obj.caml_equal(Curry._1(scan_int_list$6, Scanf.Scanning.from_string("[1]")), /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": 1,
           "1": /* [] */0
         }) && Caml_obj.caml_equal(Curry._1(scan_int_list$6, Scanf.Scanning.from_string("[1;2;3;4]")), /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": 1,
           "1": /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": 2,
             "1": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": 3,
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": 4,
                 "1": /* [] */0
               }
@@ -4032,22 +3518,18 @@ function test31(param) {
     return Caml_obj.caml_equal(Curry._1(scan_int_list$6, Scanf.Scanning.from_string("[1;2;3;4;]")), /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": 1,
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": 2,
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": 3,
                     "1": /* constructor */{
                       tag: 0,
                       name: "::",
-                      length: 2,
                       "0": 4,
                       "1": /* [] */0
                     }
@@ -4065,28 +3547,23 @@ function test32(param) {
   if (Curry._1(scan_string_list, Scanf.Scanning.from_string("[]")) === /* [] */0 && Curry._1(scan_string_list, Scanf.Scanning.from_string("[ ]")) === /* [] */0 && Caml_obj.caml_equal(Curry._1(scan_string_list, Scanf.Scanning.from_string("[ \"1\" ]")), /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": "1",
           "1": /* [] */0
         }) && Caml_obj.caml_equal(Curry._1(scan_string_list, Scanf.Scanning.from_string("[\"1\"; \"2\"; \"3\"; \"4\"]")), /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": "1",
           "1": /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": "2",
             "1": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": "3",
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": "4",
                 "1": /* [] */0
               }
@@ -4096,22 +3573,18 @@ function test32(param) {
     return Caml_obj.caml_equal(Curry._1(scan_string_list, Scanf.Scanning.from_string("[\"1\"; \"2\"; \"3\"; \"4\";]")), /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": "1",
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": "2",
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": "3",
                     "1": /* constructor */{
                       tag: 0,
                       name: "::",
-                      length: 2,
                       "0": "4",
                       "1": /* [] */0
                     }
@@ -4132,29 +3605,24 @@ function scan_elems$8(ib, scan_elem_fmt, accu) {
                 var accu$1 = /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": i,
                   "1": accu
                 };
                 return Curry._1(Scanf.bscanf(ib, /* constructor */{
                                 tag: 0,
                                 name: "Format",
-                                length: 2,
                                 "0": /* constructor */{
                                   tag: 12,
                                   name: "Char_literal",
-                                  length: 2,
                                   "0": /* " " */32,
                                   "1": /* constructor */{
                                     tag: 20,
                                     name: "Scan_char_set",
-                                    length: 3,
                                     "0": 1,
                                     "1": "\0\0\0\0\0\0\0\b\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                                     "2": /* constructor */{
                                       tag: 12,
                                       name: "Char_literal",
-                                      length: 2,
                                       "0": /* " " */32,
                                       "1": /* End_of_format */0
                                     }
@@ -4175,11 +3643,9 @@ function scan_list$3(scan_elem_fmt, ib) {
   Curry._1(Scanf.bscanf(ib, /* constructor */{
             tag: 0,
             name: "Format",
-            length: 2,
             "0": /* constructor */{
               tag: 11,
               name: "String_literal",
-              length: 2,
               "0": "[ ",
               "1": /* End_of_format */0
             },
@@ -4189,11 +3655,9 @@ function scan_list$3(scan_elem_fmt, ib) {
   Curry._1(Scanf.bscanf(ib, /* constructor */{
             tag: 0,
             name: "Format",
-            length: 2,
             "0": /* constructor */{
               tag: 11,
               name: "String_literal",
-              length: 2,
               "0": " ]",
               "1": /* End_of_format */0
             },
@@ -4205,11 +3669,9 @@ function scan_list$3(scan_elem_fmt, ib) {
 var partial_arg$5 = /* constructor */{
   tag: 0,
   name: "Format",
-  length: 2,
   "0": /* constructor */{
     tag: 4,
     name: "Int",
-    length: 4,
     "0": /* Int_i */3,
     "1": /* No_padding */0,
     "2": /* No_precision */0,
@@ -4225,11 +3687,9 @@ function scan_int_list$7(param) {
 var partial_arg$6 = /* constructor */{
   tag: 0,
   name: "Format",
-  length: 2,
   "0": /* constructor */{
     tag: 3,
     name: "Caml_string",
-    length: 2,
     "0": /* No_padding */0,
     "1": /* End_of_format */0
   },
@@ -4244,28 +3704,23 @@ function test33(param) {
   if (Curry._1(scan_int_list$7, Scanf.Scanning.from_string("[]")) === /* [] */0 && Curry._1(scan_int_list$7, Scanf.Scanning.from_string("[ ]")) === /* [] */0 && Caml_obj.caml_equal(Curry._1(scan_int_list$7, Scanf.Scanning.from_string("[ 1 ]")), /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": 1,
           "1": /* [] */0
         }) && Caml_obj.caml_equal(Curry._1(scan_int_list$7, Scanf.Scanning.from_string("[ 1; 2; 3; 4 ]")), /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": 1,
           "1": /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": 2,
             "1": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": 3,
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": 4,
                 "1": /* [] */0
               }
@@ -4275,22 +3730,18 @@ function test33(param) {
     return Caml_obj.caml_equal(Curry._1(scan_int_list$7, Scanf.Scanning.from_string("[1;2;3;4;]")), /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": 1,
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": 2,
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": 3,
                     "1": /* constructor */{
                       tag: 0,
                       name: "::",
-                      length: 2,
                       "0": 4,
                       "1": /* [] */0
                     }
@@ -4308,28 +3759,23 @@ function test34(param) {
   if (Curry._1(scan_string_list$1, Scanf.Scanning.from_string("[]")) === /* [] */0 && Curry._1(scan_string_list$1, Scanf.Scanning.from_string("[ ]")) === /* [] */0 && Caml_obj.caml_equal(Curry._1(scan_string_list$1, Scanf.Scanning.from_string("[ \"1\" ]")), /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": "1",
           "1": /* [] */0
         }) && Caml_obj.caml_equal(Curry._1(scan_string_list$1, Scanf.Scanning.from_string("[\"1\"; \"2\"; \"3\"; \"4\"]")), /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": "1",
           "1": /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": "2",
             "1": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": "3",
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": "4",
                 "1": /* [] */0
               }
@@ -4339,22 +3785,18 @@ function test34(param) {
     return Caml_obj.caml_equal(Curry._1(scan_string_list$1, Scanf.Scanning.from_string("[\"1\"; \"2\"; \"3\"; \"4\";]")), /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": "1",
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": "2",
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": "3",
                     "1": /* constructor */{
                       tag: 0,
                       name: "::",
-                      length: 2,
                       "0": "4",
                       "1": /* [] */0
                     }
@@ -4374,11 +3816,9 @@ function scan_elems$9(scan_elem, accu, ib) {
                   }), /* constructor */{
                   tag: 0,
                   name: "Format",
-                  length: 2,
                   "0": /* constructor */{
                     tag: 19,
                     name: "Reader",
-                    length: 1,
                     "0": /* End_of_format */0
                   },
                   "1": "%r"
@@ -4387,29 +3827,24 @@ function scan_elems$9(scan_elem, accu, ib) {
                               var accu$1 = /* constructor */{
                                 tag: 0,
                                 name: "::",
-                                length: 2,
                                 "0": elem,
                                 "1": accu
                               };
                               return Curry._1(Scanf.bscanf(ib, /* constructor */{
                                               tag: 0,
                                               name: "Format",
-                                              length: 2,
                                               "0": /* constructor */{
                                                 tag: 12,
                                                 name: "Char_literal",
-                                                length: 2,
                                                 "0": /* " " */32,
                                                 "1": /* constructor */{
                                                   tag: 20,
                                                   name: "Scan_char_set",
-                                                  length: 3,
                                                   "0": 1,
                                                   "1": "\0\0\0\0\0\0\0\b\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                                                   "2": /* constructor */{
                                                     tag: 12,
                                                     name: "Char_literal",
-                                                    length: 2,
                                                     "0": /* " " */32,
                                                     "1": /* End_of_format */0
                                                   }
@@ -4433,11 +3868,9 @@ function scan_list$4(scan_elem, ib) {
   Curry._1(Scanf.bscanf(ib, /* constructor */{
             tag: 0,
             name: "Format",
-            length: 2,
             "0": /* constructor */{
               tag: 11,
               name: "String_literal",
-              length: 2,
               "0": "[ ",
               "1": /* End_of_format */0
             },
@@ -4447,11 +3880,9 @@ function scan_list$4(scan_elem, ib) {
   Curry._1(Scanf.bscanf(ib, /* constructor */{
             tag: 0,
             name: "Format",
-            length: 2,
             "0": /* constructor */{
               tag: 11,
               name: "String_literal",
-              length: 2,
               "0": " ]",
               "1": /* End_of_format */0
             },
@@ -4464,11 +3895,9 @@ function scan_float(ib) {
   return Scanf.bscanf(ib, /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 8,
                 name: "Float",
-                length: 4,
                 "0": /* Float_f */0,
                 "1": /* No_padding */0,
                 "2": /* No_precision */0,
@@ -4483,11 +3912,9 @@ function scan_int_list$8(param) {
                 return Scanf.bscanf(ib, /* constructor */{
                             tag: 0,
                             name: "Format",
-                            length: 2,
                             "0": /* constructor */{
                               tag: 4,
                               name: "Int",
-                              length: 4,
                               "0": /* Int_i */3,
                               "1": /* No_padding */0,
                               "2": /* No_precision */0,
@@ -4503,11 +3930,9 @@ function scan_string_list$2(param) {
                 return Scanf.bscanf(ib, /* constructor */{
                             tag: 0,
                             name: "Format",
-                            length: 2,
                             "0": /* constructor */{
                               tag: 3,
                               name: "Caml_string",
-                              length: 2,
                               "0": /* No_padding */0,
                               "1": /* End_of_format */0
                             },
@@ -4521,11 +3946,9 @@ function scan_bool_list(param) {
                 return Scanf.bscanf(ib, /* constructor */{
                             tag: 0,
                             name: "Format",
-                            length: 2,
                             "0": /* constructor */{
                               tag: 9,
                               name: "Bool",
-                              length: 1,
                               "0": /* End_of_format */0
                             },
                             "1": "%B"
@@ -4538,11 +3961,9 @@ function scan_char_list(param) {
                 return Scanf.bscanf(ib, /* constructor */{
                             tag: 0,
                             name: "Format",
-                            length: 2,
                             "0": /* constructor */{
                               tag: 1,
                               name: "Caml_char",
-                              length: 1,
                               "0": /* End_of_format */0
                             },
                             "1": "%C"
@@ -4560,42 +3981,34 @@ function test340(param) {
   return Caml_obj.caml_equal(scan_float_list_list(Scanf.Scanning.from_string("[[1.0] ; []; [2.0; 3; 5.0; 6.];]")), /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": 1,
                 "1": /* [] */0
               },
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": /* [] */0,
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": 2,
                     "1": /* constructor */{
                       tag: 0,
                       name: "::",
-                      length: 2,
                       "0": 3,
                       "1": /* constructor */{
                         tag: 0,
                         name: "::",
-                        length: 2,
                         "0": 5,
                         "1": /* constructor */{
                           tag: 0,
                           name: "::",
-                          length: 2,
                           "0": 6,
                           "1": /* [] */0
                         }
@@ -4632,11 +4045,9 @@ function test35(param) {
   if (Curry._1(Scanf.sscanf("", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 21,
                 name: "Scan_get_counter",
-                length: 2,
                 "0": /* Token_counter */2,
                 "1": /* End_of_format */0
               },
@@ -4646,11 +4057,9 @@ function test35(param) {
           })) === 0 && Curry._1(Scanf.sscanf("456", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 21,
                 name: "Scan_get_counter",
-                length: 2,
                 "0": /* Token_counter */2,
                 "1": /* End_of_format */0
               },
@@ -4660,18 +4069,15 @@ function test35(param) {
           })) === 0 && Caml_obj.caml_equal(Curry._1(Scanf.sscanf("456", /* constructor */{
                   tag: 0,
                   name: "Format",
-                  length: 2,
                   "0": /* constructor */{
                     tag: 4,
                     name: "Int",
-                    length: 4,
                     "0": /* Int_d */0,
                     "1": /* No_padding */0,
                     "2": /* No_precision */0,
                     "3": /* constructor */{
                       tag: 21,
                       name: "Scan_get_counter",
-                      length: 2,
                       "0": /* Token_counter */2,
                       "1": /* End_of_format */0
                     }
@@ -4689,21 +4095,17 @@ function test35(param) {
     return Caml_obj.caml_equal(Curry._1(Scanf.sscanf(" ", /* constructor */{
                         tag: 0,
                         name: "Format",
-                        length: 2,
                         "0": /* constructor */{
                           tag: 21,
                           name: "Scan_get_counter",
-                          length: 2,
                           "0": /* Token_counter */2,
                           "1": /* constructor */{
                             tag: 2,
                             name: "String",
-                            length: 2,
                             "0": /* No_padding */0,
                             "1": /* constructor */{
                               tag: 21,
                               name: "Scan_get_counter",
-                              length: 2,
                               "0": /* Token_counter */2,
                               "1": /* End_of_format */0
                             }
@@ -4734,26 +4136,21 @@ function read_elems(read_elem, accu, ib) {
                   }), /* constructor */{
                   tag: 0,
                   name: "Format",
-                  length: 2,
                   "0": /* constructor */{
                     tag: 19,
                     name: "Reader",
-                    length: 1,
                     "0": /* constructor */{
                       tag: 12,
                       name: "Char_literal",
-                      length: 2,
                       "0": /* " " */32,
                       "1": /* constructor */{
                         tag: 20,
                         name: "Scan_char_set",
-                        length: 3,
                         "0": 1,
                         "1": "\0\0\0\0\0\0\0\b\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                         "2": /* constructor */{
                           tag: 12,
                           name: "Char_literal",
-                          length: 2,
                           "0": /* " " */32,
                           "1": /* End_of_format */0
                         }
@@ -4765,7 +4162,6 @@ function read_elems(read_elem, accu, ib) {
                     return /* constructor */{
                             tag: 0,
                             name: "::",
-                            length: 2,
                             "0": elem,
                             "1": accu
                           };
@@ -4782,20 +4178,16 @@ function read_list(read_elem, ib) {
   return Curry._2(Scanf.bscanf(ib, /* constructor */{
                   tag: 0,
                   name: "Format",
-                  length: 2,
                   "0": /* constructor */{
                     tag: 11,
                     name: "String_literal",
-                    length: 2,
                     "0": "[ ",
                     "1": /* constructor */{
                       tag: 19,
                       name: "Reader",
-                      length: 1,
                       "0": /* constructor */{
                         tag: 11,
                         name: "String_literal",
-                        length: 2,
                         "0": " ]",
                         "1": /* End_of_format */0
                       }
@@ -4823,11 +4215,9 @@ function test36(param) {
   if (Curry._1(Scanf.sscanf("", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 21,
                 name: "Scan_get_counter",
-                length: 2,
                 "0": /* Char_counter */1,
                 "1": /* End_of_format */0
               },
@@ -4837,11 +4227,9 @@ function test36(param) {
           })) === 0 && Curry._1(Scanf.sscanf("456", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 21,
                 name: "Scan_get_counter",
-                length: 2,
                 "0": /* Char_counter */1,
                 "1": /* End_of_format */0
               },
@@ -4851,18 +4239,15 @@ function test36(param) {
           })) === 0 && Caml_obj.caml_equal(Curry._1(Scanf.sscanf("456", /* constructor */{
                   tag: 0,
                   name: "Format",
-                  length: 2,
                   "0": /* constructor */{
                     tag: 4,
                     name: "Int",
-                    length: 4,
                     "0": /* Int_d */0,
                     "1": /* No_padding */0,
                     "2": /* No_precision */0,
                     "3": /* constructor */{
                       tag: 21,
                       name: "Scan_get_counter",
-                      length: 2,
                       "0": /* Char_counter */1,
                       "1": /* End_of_format */0
                     }
@@ -4880,21 +4265,17 @@ function test36(param) {
     return Caml_obj.caml_equal(Curry._1(Scanf.sscanf(" ", /* constructor */{
                         tag: 0,
                         name: "Format",
-                        length: 2,
                         "0": /* constructor */{
                           tag: 21,
                           name: "Scan_get_counter",
-                          length: 2,
                           "0": /* Char_counter */1,
                           "1": /* constructor */{
                             tag: 2,
                             name: "String",
-                            length: 2,
                             "0": /* No_padding */0,
                             "1": /* constructor */{
                               tag: 21,
                               name: "Scan_get_counter",
-                              length: 2,
                               "0": /* Char_counter */1,
                               "1": /* End_of_format */0
                             }
@@ -4923,13 +4304,11 @@ function test37(param) {
   if (Curry._1(Scanf.sscanf("", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* End_of_format */0,
               "1": ""
             }), true) && Curry._2(Scanf.sscanf("", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* End_of_format */0,
               "1": ""
             }), (function (x) {
@@ -4938,7 +4317,6 @@ function test37(param) {
     return Curry._2(Scanf.sscanf("123", /* constructor */{
                     tag: 0,
                     name: "Format",
-                    length: 2,
                     "0": /* End_of_format */0,
                     "1": ""
                   }), (function (x) {
@@ -4955,16 +4333,13 @@ function test38(param) {
   if (Curry._1(Scanf.sscanf("a", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 12,
                 name: "Char_literal",
-                length: 2,
                 "0": /* "a" */97,
                 "1": /* constructor */{
                   tag: 10,
                   name: "Flush",
-                  length: 1,
                   "0": /* End_of_format */0
                 }
               },
@@ -4972,20 +4347,16 @@ function test38(param) {
             }), true) && Curry._1(Scanf.sscanf("a", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 12,
                 name: "Char_literal",
-                length: 2,
                 "0": /* "a" */97,
                 "1": /* constructor */{
                   tag: 10,
                   name: "Flush",
-                  length: 1,
                   "0": /* constructor */{
                     tag: 10,
                     name: "Flush",
-                    length: 1,
                     "0": /* End_of_format */0
                   }
                 }
@@ -4994,16 +4365,13 @@ function test38(param) {
             }), true) && Curry._1(Scanf.sscanf(" a", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 11,
                 name: "String_literal",
-                length: 2,
                 "0": " a",
                 "1": /* constructor */{
                   tag: 10,
                   name: "Flush",
-                  length: 1,
                   "0": /* End_of_format */0
                 }
               },
@@ -5011,16 +4379,13 @@ function test38(param) {
             }), true) && Curry._1(Scanf.sscanf("a ", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 11,
                 name: "String_literal",
-                length: 2,
                 "0": "a ",
                 "1": /* constructor */{
                   tag: 10,
                   name: "Flush",
-                  length: 1,
                   "0": /* End_of_format */0
                 }
               },
@@ -5028,27 +4393,22 @@ function test38(param) {
             }), true) && Curry._1(Scanf.sscanf("", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 10,
                 name: "Flush",
-                length: 1,
                 "0": /* End_of_format */0
               },
               "1": "%!"
             }), true) && Curry._1(Scanf.sscanf(" ", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 12,
                 name: "Char_literal",
-                length: 2,
                 "0": /* " " */32,
                 "1": /* constructor */{
                   tag: 10,
                   name: "Flush",
-                  length: 1,
                   "0": /* End_of_format */0
                 }
               },
@@ -5056,16 +4416,13 @@ function test38(param) {
             }), true) && Curry._1(Scanf.sscanf("", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 12,
                 name: "Char_literal",
-                length: 2,
                 "0": /* " " */32,
                 "1": /* constructor */{
                   tag: 10,
                   name: "Flush",
-                  length: 1,
                   "0": /* End_of_format */0
                 }
               },
@@ -5074,20 +4431,16 @@ function test38(param) {
     return Curry._1(Scanf.sscanf("", /* constructor */{
                     tag: 0,
                     name: "Format",
-                    length: 2,
                     "0": /* constructor */{
                       tag: 12,
                       name: "Char_literal",
-                      length: 2,
                       "0": /* " " */32,
                       "1": /* constructor */{
                         tag: 10,
                         name: "Flush",
-                        length: 1,
                         "0": /* constructor */{
                           tag: 10,
                           name: "Flush",
-                          length: 1,
                           "0": /* End_of_format */0
                         }
                       }
@@ -5124,22 +4477,18 @@ function test40(param) {
   return Curry._1(Scanf.bscanf(ib, /* constructor */{
                   tag: 0,
                   name: "Format",
-                  length: 2,
                   "0": /* constructor */{
                     tag: 20,
                     name: "Scan_char_set",
-                    length: 3,
                     "0": undefined,
                     "1": "\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xf9\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff",
                     "2": /* constructor */{
                       tag: 2,
                       name: "String",
-                      length: 2,
                       "0": /* No_padding */0,
                       "1": /* constructor */{
                         tag: 10,
                         name: "Flush",
-                        length: 1,
                         "0": /* End_of_format */0
                       }
                     }
@@ -5161,23 +4510,19 @@ function test41(param) {
   return Curry._1(Scanf.bscanf(ib, /* constructor */{
                   tag: 0,
                   name: "Format",
-                  length: 2,
                   "0": /* constructor */{
                     tag: 20,
                     name: "Scan_char_set",
-                    length: 3,
                     "0": undefined,
                     "1": "\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xf1\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff",
                     "2": /* constructor */{
                       tag: 20,
                       name: "Scan_char_set",
-                      length: 3,
                       "0": undefined,
                       "1": "\0\0\0\0\0\0\0\0\0\0\0\0\x0e\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                       "2": /* constructor */{
                         tag: 10,
                         name: "Flush",
-                        length: 1,
                         "0": /* End_of_format */0
                       }
                     }
@@ -5200,28 +4545,23 @@ function test42(param) {
   if (Curry._1(Scanf.bscanf(ib, /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 20,
                 name: "Scan_char_set",
-                length: 3,
                 "0": undefined,
                 "1": "\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xf1\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff",
                 "2": /* constructor */{
                   tag: 20,
                   name: "Scan_char_set",
-                  length: 3,
                   "0": undefined,
                   "1": "\0\0\0\0\0\0\0\0\0\0\0\0\x0e\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                   "2": /* constructor */{
                     tag: 2,
                     name: "String",
-                    length: 2,
                     "0": /* No_padding */0,
                     "1": /* constructor */{
                       tag: 10,
                       name: "Flush",
-                      length: 1,
                       "0": /* End_of_format */0
                     }
                   }
@@ -5239,20 +4579,16 @@ function test42(param) {
     return Curry._1(Scanf.bscanf(ib$1, /* constructor */{
                     tag: 0,
                     name: "Format",
-                    length: 2,
                     "0": /* constructor */{
                       tag: 2,
                       name: "String",
-                      length: 2,
                       "0": /* No_padding */0,
                       "1": /* constructor */{
                         tag: 17,
                         name: "Formatting_lit",
-                        length: 2,
                         "0": /* constructor */{
                           tag: 2,
                           name: "Scan_indic",
-                          length: 1,
                           "0": /* "\t" */9
                         },
                         "1": /* End_of_format */0
@@ -5275,18 +4611,15 @@ function test43(param) {
   return Curry._1(Scanf.bscanf(ib$1, /* constructor */{
                   tag: 0,
                   name: "Format",
-                  length: 2,
                   "0": /* constructor */{
                     tag: 4,
                     name: "Int",
-                    length: 4,
                     "0": /* Int_i */3,
                     "1": /* No_padding */0,
                     "2": /* No_precision */0,
                     "3": /* constructor */{
                       tag: 10,
                       name: "Flush",
-                      length: 1,
                       "0": /* End_of_format */0
                     }
                   },
@@ -5300,15 +4633,12 @@ function test44(param) {
   return Curry._1(Scanf.bscanf(ib$1, /* constructor */{
                   tag: 0,
                   name: "Format",
-                  length: 2,
                   "0": /* constructor */{
                     tag: 10,
                     name: "Flush",
-                    length: 1,
                     "0": /* constructor */{
                       tag: 4,
                       name: "Int",
-                      length: 4,
                       "0": /* Int_i */3,
                       "1": /* No_padding */0,
                       "2": /* No_precision */0,
@@ -5328,33 +4658,27 @@ function test45(param) {
   return Curry._1(Scanf.bscanf(ib, /* constructor */{
                   tag: 0,
                   name: "Format",
-                  length: 2,
                   "0": /* constructor */{
                     tag: 20,
                     name: "Scan_char_set",
-                    length: 3,
                     "0": undefined,
                     "1": "\0\0\0\0\0\0\xff\x03\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                     "2": /* constructor */{
                       tag: 12,
                       name: "Char_literal",
-                      length: 2,
                       "0": /* "." */46,
                       "1": /* constructor */{
                         tag: 20,
                         name: "Scan_char_set",
-                        length: 3,
                         "0": undefined,
                         "1": "\0\0\0\0\0\0\xff\x03\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                         "2": /* constructor */{
                           tag: 2,
                           name: "String",
-                          length: 2,
                           "0": /* No_padding */0,
                           "1": /* constructor */{
                             tag: 10,
                             name: "Flush",
-                            length: 1,
                             "0": /* End_of_format */0
                           }
                         }
@@ -5377,34 +4701,28 @@ function test46(param) {
   return Curry._3(Printf.sprintf(/* constructor */{
                   tag: 0,
                   name: "Format",
-                  length: 2,
                   "0": /* constructor */{
                     tag: 4,
                     name: "Int",
-                    length: 4,
                     "0": /* Int_i */3,
                     "1": /* No_padding */0,
                     "2": /* No_precision */0,
                     "3": /* constructor */{
                       tag: 12,
                       name: "Char_literal",
-                      length: 2,
                       "0": /* " " */32,
                       "1": /* constructor */{
                         tag: 14,
                         name: "Format_subst",
-                        length: 3,
                         "0": undefined,
                         "1": /* constructor */{
                           tag: 1,
                           name: "String_ty",
-                          length: 1,
                           "0": /* End_of_fmtty */0
                         },
                         "2": /* constructor */{
                           tag: 12,
                           name: "Char_literal",
-                          length: 2,
                           "0": /* "." */46,
                           "1": /* End_of_format */0
                         }
@@ -5415,16 +4733,13 @@ function test46(param) {
                 }), 1, /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 11,
                 name: "String_literal",
-                length: 2,
                 "0": "spells one, ",
                 "1": /* constructor */{
                   tag: 2,
                   name: "String",
-                  length: 2,
                   "0": /* No_padding */0,
                   "1": /* End_of_format */0
                 }
@@ -5437,44 +4752,36 @@ function test47(param) {
   return Curry._3(Printf.sprintf(/* constructor */{
                   tag: 0,
                   name: "Format",
-                  length: 2,
                   "0": /* constructor */{
                     tag: 4,
                     name: "Int",
-                    length: 4,
                     "0": /* Int_i */3,
                     "1": /* No_padding */0,
                     "2": /* No_precision */0,
                     "3": /* constructor */{
                       tag: 12,
                       name: "Char_literal",
-                      length: 2,
                       "0": /* " " */32,
                       "1": /* constructor */{
                         tag: 13,
                         name: "Format_arg",
-                        length: 3,
                         "0": undefined,
                         "1": /* constructor */{
                           tag: 1,
                           name: "String_ty",
-                          length: 1,
                           "0": /* End_of_fmtty */0
                         },
                         "2": /* constructor */{
                           tag: 11,
                           name: "String_literal",
-                          length: 2,
                           "0": ", ",
                           "1": /* constructor */{
                             tag: 2,
                             name: "String",
-                            length: 2,
                             "0": /* No_padding */0,
                             "1": /* constructor */{
                               tag: 12,
                               name: "Char_literal",
-                              length: 2,
                               "0": /* "." */46,
                               "1": /* End_of_format */0
                             }
@@ -5487,16 +4794,13 @@ function test47(param) {
                 }), 1, /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 11,
                 name: "String_literal",
-                length: 2,
                 "0": "spells one ",
                 "1": /* constructor */{
                   tag: 2,
                   name: "String",
-                  length: 2,
                   "0": /* No_padding */0,
                   "1": /* End_of_format */0
                 }
@@ -5516,11 +4820,9 @@ function test48(param) {
   var fmt = /* constructor */{
     tag: 0,
     name: "Format",
-    length: 2,
     "0": /* constructor */{
       tag: 4,
       name: "Int",
-      length: 4,
       "0": /* Int_i */3,
       "1": /* No_padding */0,
       "2": /* No_precision */0,
@@ -5531,11 +4833,9 @@ function test48(param) {
   if (test_meta_read("%i", fmt, fmt) && test_meta_read("%i", /* constructor */{
           tag: 0,
           name: "Format",
-          length: 2,
           "0": /* constructor */{
             tag: 4,
             name: "Int",
-            length: 4,
             "0": /* Int_d */0,
             "1": /* No_padding */0,
             "2": /* No_precision */0,
@@ -5545,11 +4845,9 @@ function test48(param) {
         }, /* constructor */{
           tag: 0,
           name: "Format",
-          length: 2,
           "0": /* constructor */{
             tag: 4,
             name: "Int",
-            length: 4,
             "0": /* Int_i */3,
             "1": /* No_padding */0,
             "2": /* No_precision */0,
@@ -5559,44 +4857,36 @@ function test48(param) {
         }) && Curry._1(Scanf.sscanf("12 \"%i\"89 ", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 4,
                 name: "Int",
-                length: 4,
                 "0": /* Int_i */3,
                 "1": /* No_padding */0,
                 "2": /* No_precision */0,
                 "3": /* constructor */{
                   tag: 12,
                   name: "Char_literal",
-                  length: 2,
                   "0": /* " " */32,
                   "1": /* constructor */{
                     tag: 13,
                     name: "Format_arg",
-                    length: 3,
                     "0": undefined,
                     "1": /* constructor */{
                       tag: 2,
                       name: "Int_ty",
-                      length: 1,
                       "0": /* End_of_fmtty */0
                     },
                     "2": /* constructor */{
                       tag: 2,
                       name: "String",
-                      length: 2,
                       "0": /* No_padding */0,
                       "1": /* constructor */{
                         tag: 12,
                         name: "Char_literal",
-                        length: 2,
                         "0": /* " " */32,
                         "1": /* constructor */{
                           tag: 10,
                           name: "Flush",
-                          length: 1,
                           "0": /* End_of_format */0
                         }
                       }
@@ -5609,11 +4899,9 @@ function test48(param) {
             if (i === 12 && Caml_obj.caml_equal(f, /* constructor */{
                     tag: 0,
                     name: "Format",
-                    length: 2,
                     "0": /* constructor */{
                       tag: 4,
                       name: "Int",
-                      length: 4,
                       "0": /* Int_i */3,
                       "1": /* No_padding */0,
                       "2": /* No_precision */0,
@@ -5630,16 +4918,13 @@ function test48(param) {
       return Curry._1(Scanf.sscanf(s, /* constructor */{
                       tag: 0,
                       name: "Format",
-                      length: 2,
                       "0": /* constructor */{
                         tag: 14,
                         name: "Format_subst",
-                        length: 3,
                         "0": undefined,
                         "1": /* constructor */{
                           tag: 6,
                           name: "Float_ty",
-                          length: 1,
                           "0": /* End_of_fmtty */0
                         },
                         "2": /* End_of_format */0
@@ -5654,21 +4939,17 @@ function test48(param) {
         return Curry._1(Scanf.sscanf(s, /* constructor */{
                         tag: 0,
                         name: "Format",
-                        length: 2,
                         "0": /* constructor */{
                           tag: 11,
                           name: "String_literal",
-                          length: 2,
                           "0": "Read integers with ",
                           "1": /* constructor */{
                             tag: 14,
                             name: "Format_subst",
-                            length: 3,
                             "0": undefined,
                             "1": /* constructor */{
                               tag: 2,
                               name: "Int_ty",
-                              length: 1,
                               "0": /* End_of_fmtty */0
                             },
                             "2": /* End_of_format */0
@@ -5684,25 +4965,20 @@ function test48(param) {
           return Curry._1(Scanf.sscanf(s, /* constructor */{
                           tag: 0,
                           name: "Format",
-                          length: 2,
                           "0": /* constructor */{
                             tag: 11,
                             name: "String_literal",
-                            length: 2,
                             "0": "with ",
                             "1": /* constructor */{
                               tag: 14,
                               name: "Format_subst",
-                              length: 3,
                               "0": undefined,
                               "1": /* constructor */{
                                 tag: 2,
                                 name: "Int_ty",
-                                length: 1,
                                 "0": /* constructor */{
                                   tag: 1,
                                   name: "String_ty",
-                                  length: 1,
                                   "0": /* End_of_fmtty */0
                                 }
                               },
@@ -5734,25 +5010,20 @@ function test48(param) {
             return Curry._1(Scanf.sscanf(s, /* constructor */{
                             tag: 0,
                             name: "Format",
-                            length: 2,
                             "0": /* constructor */{
                               tag: 11,
                               name: "String_literal",
-                              length: 2,
                               "0": "with ",
                               "1": /* constructor */{
                                 tag: 14,
                                 name: "Format_subst",
-                                length: 3,
                                 "0": undefined,
                                 "1": /* constructor */{
                                   tag: 2,
                                   name: "Int_ty",
-                                  length: 1,
                                   "0": /* constructor */{
                                     tag: 1,
                                     name: "String_ty",
-                                    length: 1,
                                     "0": /* End_of_fmtty */0
                                   }
                                 },
@@ -5804,11 +5075,9 @@ function test49(param) {
   if (Curry._1(Scanf.sscanf("as", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 20,
                 name: "Scan_char_set",
-                length: 3,
                 "0": undefined,
                 "1": "\0\0\0\0\0\0\0\0\0\0\0\x10\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                 "2": /* End_of_format */0
@@ -5819,17 +5088,14 @@ function test49(param) {
           })) && Curry._1(Scanf.sscanf("as", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 20,
                 name: "Scan_char_set",
-                length: 3,
                 "0": undefined,
                 "1": "\0\0\0\0\0\0\0\0\0\0\0\x10\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                 "2": /* constructor */{
                   tag: 2,
                   name: "String",
-                  length: 2,
                   "0": /* No_padding */0,
                   "1": /* End_of_format */0
                 }
@@ -5840,22 +5106,18 @@ function test49(param) {
           })) && Curry._1(Scanf.sscanf("as", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 20,
                 name: "Scan_char_set",
-                length: 3,
                 "0": undefined,
                 "1": "\0\0\0\0\0\0\0\0\0\0\0\x10\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                 "2": /* constructor */{
                   tag: 2,
                   name: "String",
-                  length: 2,
                   "0": /* No_padding */0,
                   "1": /* constructor */{
                     tag: 10,
                     name: "Flush",
-                    length: 1,
                     "0": /* End_of_format */0
                   }
                 }
@@ -5866,11 +5128,9 @@ function test49(param) {
           })) && Curry._1(Scanf.sscanf("as", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 20,
                 name: "Scan_char_set",
-                length: 3,
                 "0": undefined,
                 "1": "\0\0\0\0\0@\0\0\0\0\0\0\x02\0\0\x04\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                 "2": /* End_of_format */0
@@ -5881,11 +5141,9 @@ function test49(param) {
           })) && Curry._1(Scanf.sscanf("as", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 20,
                 name: "Scan_char_set",
-                length: 3,
                 "0": undefined,
                 "1": "\0\0\0\0\0\0\0\0\0\0\0\0\xfe\xff\xff\x07\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                 "2": /* End_of_format */0
@@ -5896,17 +5154,14 @@ function test49(param) {
           })) && Curry._1(Scanf.sscanf("as", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 20,
                 name: "Scan_char_set",
-                length: 3,
                 "0": undefined,
                 "1": "\0\0\0\0\0@\0\0\0\0\0\0\x02\0\0\x04\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                 "2": /* constructor */{
                   tag: 2,
                   name: "String",
-                  length: 2,
                   "0": /* No_padding */0,
                   "1": /* End_of_format */0
                 }
@@ -5917,17 +5172,14 @@ function test49(param) {
           })) && Curry._1(Scanf.sscanf("as", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 20,
                 name: "Scan_char_set",
-                length: 3,
                 "0": undefined,
                 "1": "\0\0\0\0\0\0\0\0\0\0\0\0\xfe\xff\xff\x07\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                 "2": /* constructor */{
                   tag: 2,
                   name: "String",
-                  length: 2,
                   "0": /* No_padding */0,
                   "1": /* End_of_format */0
                 }
@@ -5938,11 +5190,9 @@ function test49(param) {
           })) && Curry._1(Scanf.sscanf("-as", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 20,
                 name: "Scan_char_set",
-                length: 3,
                 "0": undefined,
                 "1": "\0\0\0\0\0 \0\0\0\0\0\0\xfe\xff\xff\x07\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                 "2": /* End_of_format */0
@@ -5953,21 +5203,17 @@ function test49(param) {
           })) && Curry._1(Scanf.sscanf("-as", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 20,
                 name: "Scan_char_set",
-                length: 3,
                 "0": undefined,
                 "1": "\0\0\0\0\0 \0\0\0\0\0\0\xfe\xff\xff\x07\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                 "2": /* constructor */{
                   tag: 17,
                   name: "Formatting_lit",
-                  length: 2,
                   "0": /* constructor */{
                     tag: 2,
                     name: "Scan_indic",
-                    length: 1,
                     "0": /* "s" */115
                   },
                   "1": /* End_of_format */0
@@ -5979,26 +5225,21 @@ function test49(param) {
           })) && Curry._1(Scanf.sscanf("-as", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 12,
                 name: "Char_literal",
-                length: 2,
                 "0": /* "-" */45,
                 "1": /* constructor */{
                   tag: 20,
                   name: "Scan_char_set",
-                  length: 3,
                   "0": undefined,
                   "1": "\0\0\0\0\0\0\0\0\0\0\0\0\x02\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                   "2": /* constructor */{
                     tag: 17,
                     name: "Formatting_lit",
-                    length: 2,
                     "0": /* constructor */{
                       tag: 2,
                       name: "Scan_indic",
-                      length: 1,
                       "0": /* "s" */115
                     },
                     "1": /* End_of_format */0
@@ -6011,37 +5252,30 @@ function test49(param) {
           })) && Curry._1(Scanf.sscanf("-asb", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 12,
                 name: "Char_literal",
-                length: 2,
                 "0": /* "-" */45,
                 "1": /* constructor */{
                   tag: 20,
                   name: "Scan_char_set",
-                  length: 3,
                   "0": undefined,
                   "1": "\0\0\0\0\0\0\0\0\0\0\0\0\x02\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                   "2": /* constructor */{
                     tag: 17,
                     name: "Formatting_lit",
-                    length: 2,
                     "0": /* constructor */{
                       tag: 2,
                       name: "Scan_indic",
-                      length: 1,
                       "0": /* "s" */115
                     },
                     "1": /* constructor */{
                       tag: 12,
                       name: "Char_literal",
-                      length: 2,
                       "0": /* "b" */98,
                       "1": /* constructor */{
                         tag: 10,
                         name: "Flush",
-                        length: 1,
                         "0": /* End_of_format */0
                       }
                     }
@@ -6055,32 +5289,26 @@ function test49(param) {
     return Curry._1(Scanf.sscanf("-asb", /* constructor */{
                     tag: 0,
                     name: "Format",
-                    length: 2,
                     "0": /* constructor */{
                       tag: 12,
                       name: "Char_literal",
-                      length: 2,
                       "0": /* "-" */45,
                       "1": /* constructor */{
                         tag: 20,
                         name: "Scan_char_set",
-                        length: 3,
                         "0": undefined,
                         "1": "\0\0\0\0\0\0\0\0\0\0\0\0\x02\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                         "2": /* constructor */{
                           tag: 17,
                           name: "Formatting_lit",
-                          length: 2,
                           "0": /* constructor */{
                             tag: 2,
                             name: "Scan_indic",
-                            length: 1,
                             "0": /* "s" */115
                           },
                           "1": /* constructor */{
                             tag: 2,
                             name: "String",
-                            length: 2,
                             "0": /* No_padding */0,
                             "1": /* End_of_format */0
                           }
@@ -6127,16 +5355,13 @@ function writer(ib, ob) {
   return Curry._1(Scanf.bscanf(ib, /* constructor */{
                   tag: 0,
                   name: "Format",
-                  length: 2,
                   "0": /* constructor */{
                     tag: 2,
                     name: "String",
-                    length: 2,
                     "0": /* No_padding */0,
                     "1": /* constructor */{
                       tag: 12,
                       name: "Char_literal",
-                      length: 2,
                       "0": /* "\n" */10,
                       "1": /* End_of_format */0
                     }
@@ -6151,11 +5376,9 @@ function writer(ib, ob) {
                       return Curry._1(Scanf.bscanf(ib, /* constructor */{
                                       tag: 0,
                                       name: "Format",
-                                      length: 2,
                                       "0": /* constructor */{
                                         tag: 4,
                                         name: "Int",
-                                        length: 4,
                                         "0": /* Int_i */3,
                                         "1": /* No_padding */0,
                                         "2": /* No_precision */0,
@@ -6184,17 +5407,14 @@ function reader(ib, ob) {
     return Curry._1(Scanf.bscanf(ib, /* constructor */{
                     tag: 0,
                     name: "Format",
-                    length: 2,
                     "0": /* constructor */{
                       tag: 20,
                       name: "Scan_char_set",
-                      length: 3,
                       "0": undefined,
                       "1": "\xff\xfb\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff",
                       "2": /* constructor */{
                         tag: 12,
                         name: "Char_literal",
-                        length: 2,
                         "0": /* "\n" */10,
                         "1": /* End_of_format */0
                       }
@@ -6237,11 +5457,9 @@ function test51(param) {
   if (Curry._1(Scanf.sscanf("Hello", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 2,
                 name: "String",
-                length: 2,
                 "0": /* No_padding */0,
                 "1": /* End_of_format */0
               },
@@ -6249,16 +5467,13 @@ function test51(param) {
             }), id) === "Hello" && Curry._1(Scanf.sscanf("Hello\n", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 2,
                 name: "String",
-                length: 2,
                 "0": /* No_padding */0,
                 "1": /* constructor */{
                   tag: 12,
                   name: "Char_literal",
-                  length: 2,
                   "0": /* "\n" */10,
                   "1": /* End_of_format */0
                 }
@@ -6267,21 +5482,17 @@ function test51(param) {
             }), id) === "Hello" && Curry._1(Scanf.sscanf("Hello\n", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 2,
                 name: "String",
-                length: 2,
                 "0": /* No_padding */0,
                 "1": /* constructor */{
                   tag: 2,
                   name: "String",
-                  length: 2,
                   "0": /* No_padding */0,
                   "1": /* constructor */{
                     tag: 12,
                     name: "Char_literal",
-                    length: 2,
                     "0": /* "\n" */10,
                     "1": /* End_of_format */0
                   }
@@ -6293,26 +5504,21 @@ function test51(param) {
           })) && Curry._1(Scanf.sscanf("Hello\nWorld", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 2,
                 name: "String",
-                length: 2,
                 "0": /* No_padding */0,
                 "1": /* constructor */{
                   tag: 12,
                   name: "Char_literal",
-                  length: 2,
                   "0": /* "\n" */10,
                   "1": /* constructor */{
                     tag: 2,
                     name: "String",
-                    length: 2,
                     "0": /* No_padding */0,
                     "1": /* constructor */{
                       tag: 10,
                       name: "Flush",
-                      length: 1,
                       "0": /* End_of_format */0
                     }
                   }
@@ -6324,21 +5530,17 @@ function test51(param) {
           })) && Curry._1(Scanf.sscanf("Hello\nWorld!", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 2,
                 name: "String",
-                length: 2,
                 "0": /* No_padding */0,
                 "1": /* constructor */{
                   tag: 12,
                   name: "Char_literal",
-                  length: 2,
                   "0": /* "\n" */10,
                   "1": /* constructor */{
                     tag: 2,
                     name: "String",
-                    length: 2,
                     "0": /* No_padding */0,
                     "1": /* End_of_format */0
                   }
@@ -6350,21 +5552,17 @@ function test51(param) {
           })) && Curry._1(Scanf.sscanf("Hello\n", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 2,
                 name: "String",
-                length: 2,
                 "0": /* No_padding */0,
                 "1": /* constructor */{
                   tag: 17,
                   name: "Formatting_lit",
-                  length: 2,
                   "0": /* Force_newline */3,
                   "1": /* constructor */{
                     tag: 2,
                     name: "String",
-                    length: 2,
                     "0": /* No_padding */0,
                     "1": /* End_of_format */0
                   }
@@ -6377,21 +5575,17 @@ function test51(param) {
     return Curry._1(Scanf.sscanf("Hello \n", /* constructor */{
                     tag: 0,
                     name: "Format",
-                    length: 2,
                     "0": /* constructor */{
                       tag: 2,
                       name: "String",
-                      length: 2,
                       "0": /* No_padding */0,
                       "1": /* constructor */{
                         tag: 17,
                         name: "Formatting_lit",
-                        length: 2,
                         "0": /* Force_newline */3,
                         "1": /* constructor */{
                           tag: 2,
                           name: "String",
-                          length: 2,
                           "0": /* No_padding */0,
                           "1": /* End_of_format */0
                         }
@@ -6416,16 +5610,13 @@ function test52(param) {
   if (Curry._1(Scanf.sscanf("Hello\n", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 2,
                 name: "String",
-                length: 2,
                 "0": /* No_padding */0,
                 "1": /* constructor */{
                   tag: 17,
                   name: "Formatting_lit",
-                  length: 2,
                   "0": /* Force_newline */3,
                   "1": /* End_of_format */0
                 }
@@ -6434,16 +5625,13 @@ function test52(param) {
             }), id) === "Hello" && Curry._1(Scanf.sscanf("Hello", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 2,
                 name: "String",
-                length: 2,
                 "0": /* No_padding */0,
                 "1": /* constructor */{
                   tag: 17,
                   name: "Formatting_lit",
-                  length: 2,
                   "0": /* Force_newline */3,
                   "1": /* End_of_format */0
                 }
@@ -6452,21 +5640,17 @@ function test52(param) {
             }), id) === "Hello" && Curry._1(Scanf.sscanf("Hello", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 2,
                 name: "String",
-                length: 2,
                 "0": /* No_padding */0,
                 "1": /* constructor */{
                   tag: 2,
                   name: "String",
-                  length: 2,
                   "0": /* No_padding */0,
                   "1": /* constructor */{
                     tag: 17,
                     name: "Formatting_lit",
-                    length: 2,
                     "0": /* Force_newline */3,
                     "1": /* End_of_format */0
                   }
@@ -6478,26 +5662,21 @@ function test52(param) {
           })) && Curry._1(Scanf.sscanf("Hello\nWorld", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 2,
                 name: "String",
-                length: 2,
                 "0": /* No_padding */0,
                 "1": /* constructor */{
                   tag: 17,
                   name: "Formatting_lit",
-                  length: 2,
                   "0": /* Force_newline */3,
                   "1": /* constructor */{
                     tag: 2,
                     name: "String",
-                    length: 2,
                     "0": /* No_padding */0,
                     "1": /* constructor */{
                       tag: 10,
                       name: "Flush",
-                      length: 1,
                       "0": /* End_of_format */0
                     }
                   }
@@ -6509,26 +5688,21 @@ function test52(param) {
           })) && Curry._1(Scanf.sscanf("Hello\nWorld!", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 2,
                 name: "String",
-                length: 2,
                 "0": /* No_padding */0,
                 "1": /* constructor */{
                   tag: 17,
                   name: "Formatting_lit",
-                  length: 2,
                   "0": /* Force_newline */3,
                   "1": /* constructor */{
                     tag: 2,
                     name: "String",
-                    length: 2,
                     "0": /* No_padding */0,
                     "1": /* constructor */{
                       tag: 17,
                       name: "Formatting_lit",
-                      length: 2,
                       "0": /* Force_newline */3,
                       "1": /* End_of_format */0
                     }
@@ -6541,21 +5715,17 @@ function test52(param) {
           })) && Curry._1(Scanf.sscanf("Hello\n", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 2,
                 name: "String",
-                length: 2,
                 "0": /* No_padding */0,
                 "1": /* constructor */{
                   tag: 17,
                   name: "Formatting_lit",
-                  length: 2,
                   "0": /* Force_newline */3,
                   "1": /* constructor */{
                     tag: 2,
                     name: "String",
-                    length: 2,
                     "0": /* No_padding */0,
                     "1": /* End_of_format */0
                   }
@@ -6567,21 +5737,17 @@ function test52(param) {
           })) && Curry._1(Scanf.sscanf("Hello \n", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 2,
                 name: "String",
-                length: 2,
                 "0": /* No_padding */0,
                 "1": /* constructor */{
                   tag: 2,
                   name: "String",
-                  length: 2,
                   "0": /* No_padding */0,
                   "1": /* constructor */{
                     tag: 17,
                     name: "Formatting_lit",
-                    length: 2,
                     "0": /* Force_newline */3,
                     "1": /* End_of_format */0
                   }
@@ -6593,32 +5759,26 @@ function test52(param) {
           })) && Curry._1(Scanf.sscanf("Hello \n", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 2,
                 name: "String",
-                length: 2,
                 "0": /* No_padding */0,
                 "1": /* constructor */{
                   tag: 2,
                   name: "String",
-                  length: 2,
                   "0": /* No_padding */0,
                   "1": /* constructor */{
                     tag: 23,
                     name: "Ignored_param",
-                    length: 2,
                     "0": /* constructor */{
                       tag: 9,
                       name: "Ignored_scan_char_set",
-                      length: 2,
                       "0": 1,
                       "1": "\0\0\0\0\x01\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
                     },
                     "1": /* constructor */{
                       tag: 12,
                       name: "Char_literal",
-                      length: 2,
                       "0": /* "\n" */10,
                       "1": /* End_of_format */0
                     }
@@ -6631,32 +5791,26 @@ function test52(param) {
           })) && Curry._1(Scanf.sscanf("Hello \n", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 2,
                 name: "String",
-                length: 2,
                 "0": /* No_padding */0,
                 "1": /* constructor */{
                   tag: 23,
                   name: "Ignored_param",
-                  length: 2,
                   "0": /* constructor */{
                     tag: 9,
                     name: "Ignored_scan_char_set",
-                    length: 2,
                     "0": 1,
                     "1": "\0\0\0\0\x01\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
                   },
                   "1": /* constructor */{
                     tag: 2,
                     name: "String",
-                    length: 2,
                     "0": /* No_padding */0,
                     "1": /* constructor */{
                       tag: 12,
                       name: "Char_literal",
-                      length: 2,
                       "0": /* "\n" */10,
                       "1": /* End_of_format */0
                     }
@@ -6669,26 +5823,21 @@ function test52(param) {
           })) && Curry._1(Scanf.sscanf("Hello\nWorld", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 2,
                 name: "String",
-                length: 2,
                 "0": /* No_padding */0,
                 "1": /* constructor */{
                   tag: 12,
                   name: "Char_literal",
-                  length: 2,
                   "0": /* "\n" */10,
                   "1": /* constructor */{
                     tag: 2,
                     name: "String",
-                    length: 2,
                     "0": /* No_padding */0,
                     "1": /* constructor */{
                       tag: 10,
                       name: "Flush",
-                      length: 1,
                       "0": /* End_of_format */0
                     }
                   }
@@ -6700,26 +5849,21 @@ function test52(param) {
           })) && Curry._1(Scanf.sscanf("Hello\nWorld!", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 2,
                 name: "String",
-                length: 2,
                 "0": /* No_padding */0,
                 "1": /* constructor */{
                   tag: 12,
                   name: "Char_literal",
-                  length: 2,
                   "0": /* "\n" */10,
                   "1": /* constructor */{
                     tag: 2,
                     name: "String",
-                    length: 2,
                     "0": /* No_padding */0,
                     "1": /* constructor */{
                       tag: 10,
                       name: "Flush",
-                      length: 1,
                       "0": /* End_of_format */0
                     }
                   }
@@ -6731,36 +5875,29 @@ function test52(param) {
           })) && Curry._1(Scanf.sscanf("Hello\nWorld!", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 2,
                 name: "String",
-                length: 2,
                 "0": /* No_padding */0,
                 "1": /* constructor */{
                   tag: 12,
                   name: "Char_literal",
-                  length: 2,
                   "0": /* "\n" */10,
                   "1": /* constructor */{
                     tag: 2,
                     name: "String",
-                    length: 2,
                     "0": /* No_padding */0,
                     "1": /* constructor */{
                       tag: 17,
                       name: "Formatting_lit",
-                      length: 2,
                       "0": /* constructor */{
                         tag: 2,
                         name: "Scan_indic",
-                        length: 1,
                         "0": /* "!" */33
                       },
                       "1": /* constructor */{
                         tag: 10,
                         name: "Flush",
-                        length: 1,
                         "0": /* End_of_format */0
                       }
                     }
@@ -6773,24 +5910,19 @@ function test52(param) {
           })) && Curry._1(Scanf.sscanf("Hello{foo}", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 2,
                 name: "String",
-                length: 2,
                 "0": /* No_padding */0,
                 "1": /* constructor */{
                   tag: 18,
                   name: "Formatting_gen",
-                  length: 2,
                   "0": /* constructor */{
                     tag: 0,
                     name: "Open_tag",
-                    length: 1,
                     "0": /* constructor */{
                       tag: 0,
                       name: "Format",
-                      length: 2,
                       "0": /* End_of_format */0,
                       "1": ""
                     }
@@ -6798,7 +5930,6 @@ function test52(param) {
                   "1": /* constructor */{
                     tag: 2,
                     name: "String",
-                    length: 2,
                     "0": /* No_padding */0,
                     "1": /* End_of_format */0
                   }
@@ -6811,24 +5942,19 @@ function test52(param) {
     return Curry._1(Scanf.sscanf("Hello[foo]", /* constructor */{
                     tag: 0,
                     name: "Format",
-                    length: 2,
                     "0": /* constructor */{
                       tag: 2,
                       name: "String",
-                      length: 2,
                       "0": /* No_padding */0,
                       "1": /* constructor */{
                         tag: 18,
                         name: "Formatting_gen",
-                        length: 2,
                         "0": /* constructor */{
                           tag: 1,
                           name: "Open_box",
-                          length: 1,
                           "0": /* constructor */{
                             tag: 0,
                             name: "Format",
-                            length: 2,
                             "0": /* End_of_format */0,
                             "1": ""
                           }
@@ -6836,7 +5962,6 @@ function test52(param) {
                         "1": /* constructor */{
                           tag: 2,
                           name: "String",
-                          length: 2,
                           "0": /* No_padding */0,
                           "1": /* End_of_format */0
                         }
@@ -6861,11 +5986,9 @@ function test53(param) {
   if (Curry._1(Scanf.sscanf("123", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 6,
                 name: "Nativeint",
-                length: 4,
                 "0": /* Int_d */0,
                 "1": /* No_padding */0,
                 "2": /* No_precision */0,
@@ -6875,11 +5998,9 @@ function test53(param) {
             }), id) === 123 && Curry._1(Scanf.sscanf("124", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 6,
                 name: "Nativeint",
-                length: 4,
                 "0": /* Int_d */0,
                 "1": /* No_padding */0,
                 "2": /* No_precision */0,
@@ -6891,11 +6012,9 @@ function test53(param) {
           })) && Curry._1(Scanf.sscanf("123", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 5,
                 name: "Int32",
-                length: 4,
                 "0": /* Int_d */0,
                 "1": /* No_padding */0,
                 "2": /* No_precision */0,
@@ -6905,11 +6024,9 @@ function test53(param) {
             }), id) === 123 && Curry._1(Scanf.sscanf("124", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 5,
                 name: "Int32",
-                length: 4,
                 "0": /* Int_d */0,
                 "1": /* No_padding */0,
                 "2": /* No_precision */0,
@@ -6921,11 +6038,9 @@ function test53(param) {
           })) && Caml_int64.eq(Curry._1(Scanf.sscanf("123", /* constructor */{
                   tag: 0,
                   name: "Format",
-                  length: 2,
                   "0": /* constructor */{
                     tag: 7,
                     name: "Int64",
-                    length: 4,
                     "0": /* Int_d */0,
                     "1": /* No_padding */0,
                     "2": /* No_precision */0,
@@ -6939,11 +6054,9 @@ function test53(param) {
     return Curry._1(Scanf.sscanf("124", /* constructor */{
                     tag: 0,
                     name: "Format",
-                    length: 2,
                     "0": /* constructor */{
                       tag: 7,
                       name: "Int64",
-                      length: 4,
                       "0": /* Int_d */0,
                       "1": /* No_padding */0,
                       "2": /* No_precision */0,
@@ -6971,18 +6084,15 @@ function test56(param) {
     return Curry._1(Scanf.sscanf(s, /* constructor */{
                     tag: 0,
                     name: "Format",
-                    length: 2,
                     "0": /* constructor */{
                       tag: 4,
                       name: "Int",
-                      length: 4,
                       "0": /* Int_d */0,
                       "1": /* No_padding */0,
                       "2": /* No_precision */0,
                       "3": /* constructor */{
                         tag: 21,
                         name: "Scan_get_counter",
-                        length: 2,
                         "0": /* Char_counter */1,
                         "1": /* End_of_format */0
                       }
@@ -7020,11 +6130,9 @@ function test57(param) {
   if (test_format_scan(" %i ", /* constructor */{
           tag: 0,
           name: "Format",
-          length: 2,
           "0": /* constructor */{
             tag: 4,
             name: "Int",
-            length: 4,
             "0": /* Int_i */3,
             "1": /* No_padding */0,
             "2": /* No_precision */0,
@@ -7034,23 +6142,19 @@ function test57(param) {
         }, /* constructor */{
           tag: 0,
           name: "Format",
-          length: 2,
           "0": /* constructor */{
             tag: 12,
             name: "Char_literal",
-            length: 2,
             "0": /* " " */32,
             "1": /* constructor */{
               tag: 4,
               name: "Int",
-              length: 4,
               "0": /* Int_i */3,
               "1": /* No_padding */0,
               "2": /* No_precision */0,
               "3": /* constructor */{
                 tag: 12,
                 name: "Char_literal",
-                length: 2,
                 "0": /* " " */32,
                 "1": /* End_of_format */0
               }
@@ -7060,11 +6164,9 @@ function test57(param) {
         }) && test_format_scan("%i", /* constructor */{
           tag: 0,
           name: "Format",
-          length: 2,
           "0": /* constructor */{
             tag: 4,
             name: "Int",
-            length: 4,
             "0": /* Int_d */0,
             "1": /* No_padding */0,
             "2": /* No_precision */0,
@@ -7074,11 +6176,9 @@ function test57(param) {
         }, /* constructor */{
           tag: 0,
           name: "Format",
-          length: 2,
           "0": /* constructor */{
             tag: 4,
             name: "Int",
-            length: 4,
             "0": /* Int_i */3,
             "1": /* No_padding */0,
             "2": /* No_precision */0,
@@ -7088,33 +6188,27 @@ function test57(param) {
         }) && test_format_scan("Read an int %i then a string %s.", /* constructor */{
           tag: 0,
           name: "Format",
-          length: 2,
           "0": /* constructor */{
             tag: 11,
             name: "String_literal",
-            length: 2,
             "0": "Spec",
             "1": /* constructor */{
               tag: 4,
               name: "Int",
-              length: 4,
               "0": /* Int_d */0,
               "1": /* No_padding */0,
               "2": /* No_precision */0,
               "3": /* constructor */{
                 tag: 11,
                 name: "String_literal",
-                length: 2,
                 "0": "ifi",
                 "1": /* constructor */{
                   tag: 2,
                   name: "String",
-                  length: 2,
                   "0": /* No_padding */0,
                   "1": /* constructor */{
                     tag: 11,
                     name: "String_literal",
-                    length: 2,
                     "0": "cation",
                     "1": /* End_of_format */0
                   }
@@ -7126,33 +6220,27 @@ function test57(param) {
         }, /* constructor */{
           tag: 0,
           name: "Format",
-          length: 2,
           "0": /* constructor */{
             tag: 11,
             name: "String_literal",
-            length: 2,
             "0": "Read an int ",
             "1": /* constructor */{
               tag: 4,
               name: "Int",
-              length: 4,
               "0": /* Int_i */3,
               "1": /* No_padding */0,
               "2": /* No_precision */0,
               "3": /* constructor */{
                 tag: 11,
                 name: "String_literal",
-                length: 2,
                 "0": " then a string ",
                 "1": /* constructor */{
                   tag: 2,
                   name: "String",
-                  length: 2,
                   "0": /* No_padding */0,
                   "1": /* constructor */{
                     tag: 12,
                     name: "Char_literal",
-                    length: 2,
                     "0": /* "." */46,
                     "1": /* End_of_format */0
                   }
@@ -7164,33 +6252,27 @@ function test57(param) {
         }) && test_format_scan("Read an int %i then a string \"%s\".", /* constructor */{
           tag: 0,
           name: "Format",
-          length: 2,
           "0": /* constructor */{
             tag: 11,
             name: "String_literal",
-            length: 2,
             "0": "Spec",
             "1": /* constructor */{
               tag: 4,
               name: "Int",
-              length: 4,
               "0": /* Int_d */0,
               "1": /* No_padding */0,
               "2": /* No_precision */0,
               "3": /* constructor */{
                 tag: 11,
                 name: "String_literal",
-                length: 2,
                 "0": "ifi",
                 "1": /* constructor */{
                   tag: 3,
                   name: "Caml_string",
-                  length: 2,
                   "0": /* No_padding */0,
                   "1": /* constructor */{
                     tag: 11,
                     name: "String_literal",
-                    length: 2,
                     "0": "cation",
                     "1": /* End_of_format */0
                   }
@@ -7202,33 +6284,27 @@ function test57(param) {
         }, /* constructor */{
           tag: 0,
           name: "Format",
-          length: 2,
           "0": /* constructor */{
             tag: 11,
             name: "String_literal",
-            length: 2,
             "0": "Read an int ",
             "1": /* constructor */{
               tag: 4,
               name: "Int",
-              length: 4,
               "0": /* Int_i */3,
               "1": /* No_padding */0,
               "2": /* No_precision */0,
               "3": /* constructor */{
                 tag: 11,
                 name: "String_literal",
-                length: 2,
                 "0": " then a string \"",
                 "1": /* constructor */{
                   tag: 2,
                   name: "String",
-                  length: 2,
                   "0": /* No_padding */0,
                   "1": /* constructor */{
                     tag: 11,
                     name: "String_literal",
-                    length: 2,
                     "0": "\".",
                     "1": /* End_of_format */0
                   }
@@ -7240,33 +6316,27 @@ function test57(param) {
         }) && test_format_scan("Read an int %i then a string \"%s\".", /* constructor */{
           tag: 0,
           name: "Format",
-          length: 2,
           "0": /* constructor */{
             tag: 11,
             name: "String_literal",
-            length: 2,
             "0": "Spec",
             "1": /* constructor */{
               tag: 4,
               name: "Int",
-              length: 4,
               "0": /* Int_d */0,
               "1": /* No_padding */0,
               "2": /* No_precision */0,
               "3": /* constructor */{
                 tag: 11,
                 name: "String_literal",
-                length: 2,
                 "0": "ifi",
                 "1": /* constructor */{
                   tag: 2,
                   name: "String",
-                  length: 2,
                   "0": /* No_padding */0,
                   "1": /* constructor */{
                     tag: 11,
                     name: "String_literal",
-                    length: 2,
                     "0": "cation",
                     "1": /* End_of_format */0
                   }
@@ -7278,33 +6348,27 @@ function test57(param) {
         }, /* constructor */{
           tag: 0,
           name: "Format",
-          length: 2,
           "0": /* constructor */{
             tag: 11,
             name: "String_literal",
-            length: 2,
             "0": "Read an int ",
             "1": /* constructor */{
               tag: 4,
               name: "Int",
-              length: 4,
               "0": /* Int_i */3,
               "1": /* No_padding */0,
               "2": /* No_precision */0,
               "3": /* constructor */{
                 tag: 11,
                 name: "String_literal",
-                length: 2,
                 "0": " then a string \"",
                 "1": /* constructor */{
                   tag: 2,
                   name: "String",
-                  length: 2,
                   "0": /* No_padding */0,
                   "1": /* constructor */{
                     tag: 11,
                     name: "String_literal",
-                    length: 2,
                     "0": "\".",
                     "1": /* End_of_format */0
                   }
@@ -7317,44 +6381,36 @@ function test57(param) {
     return Curry._1(Scanf.sscanf("12 \"%i\"89 ", /* constructor */{
                     tag: 0,
                     name: "Format",
-                    length: 2,
                     "0": /* constructor */{
                       tag: 4,
                       name: "Int",
-                      length: 4,
                       "0": /* Int_i */3,
                       "1": /* No_padding */0,
                       "2": /* No_precision */0,
                       "3": /* constructor */{
                         tag: 12,
                         name: "Char_literal",
-                        length: 2,
                         "0": /* " " */32,
                         "1": /* constructor */{
                           tag: 13,
                           name: "Format_arg",
-                          length: 3,
                           "0": undefined,
                           "1": /* constructor */{
                             tag: 2,
                             name: "Int_ty",
-                            length: 1,
                             "0": /* End_of_fmtty */0
                           },
                           "2": /* constructor */{
                             tag: 2,
                             name: "String",
-                            length: 2,
                             "0": /* No_padding */0,
                             "1": /* constructor */{
                               tag: 12,
                               name: "Char_literal",
-                              length: 2,
                               "0": /* " " */32,
                               "1": /* constructor */{
                                 tag: 10,
                                 name: "Flush",
-                                length: 1,
                                 "0": /* End_of_format */0
                               }
                             }
@@ -7367,11 +6423,9 @@ function test57(param) {
                   if (i === 12 && Caml_obj.caml_equal(f, /* constructor */{
                           tag: 0,
                           name: "Format",
-                          length: 2,
                           "0": /* constructor */{
                             tag: 4,
                             name: "Int",
-                            length: 4,
                             "0": /* Int_i */3,
                             "1": /* No_padding */0,
                             "2": /* No_precision */0,
@@ -7395,21 +6449,17 @@ function test58(param) {
   if (Curry._1(Scanf.sscanf("string1%string2", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 2,
                 name: "String",
-                length: 2,
                 "0": /* No_padding */0,
                 "1": /* constructor */{
                   tag: 17,
                   name: "Formatting_lit",
-                  length: 2,
                   "0": /* Escaped_percent */6,
                   "1": /* constructor */{
                     tag: 12,
                     name: "Char_literal",
-                    length: 2,
                     "0": /* "s" */115,
                     "1": /* End_of_format */0
                   }
@@ -7419,21 +6469,17 @@ function test58(param) {
             }), id) === "string1" && Curry._1(Scanf.sscanf("string1%string2", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 2,
                 name: "String",
-                length: 2,
                 "0": /* No_padding */0,
                 "1": /* constructor */{
                   tag: 17,
                   name: "Formatting_lit",
-                  length: 2,
                   "0": /* Escaped_percent */6,
                   "1": /* constructor */{
                     tag: 2,
                     name: "String",
-                    length: 2,
                     "0": /* No_padding */0,
                     "1": /* End_of_format */0
                   }
@@ -7445,22 +6491,18 @@ function test58(param) {
           })) === "string1string2" && Curry._1(Scanf.sscanf("string1@string2", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 20,
                 name: "Scan_char_set",
-                length: 3,
                 "0": undefined,
                 "1": "\0\0\0\0\0\0\xff\x03\0\0\0\0\xfe\xff\xff\x07\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                 "2": /* constructor */{
                   tag: 12,
                   name: "Char_literal",
-                  length: 2,
                   "0": /* "@" */64,
                   "1": /* constructor */{
                     tag: 2,
                     name: "String",
-                    length: 2,
                     "0": /* No_padding */0,
                     "1": /* End_of_format */0
                   }
@@ -7473,27 +6515,22 @@ function test58(param) {
     return Curry._1(Scanf.sscanf("string1@%string2", /* constructor */{
                     tag: 0,
                     name: "Format",
-                    length: 2,
                     "0": /* constructor */{
                       tag: 20,
                       name: "Scan_char_set",
-                      length: 3,
                       "0": undefined,
                       "1": "\0\0\0\0\0\0\xff\x03\0\0\0\0\xfe\xff\xff\x07\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                       "2": /* constructor */{
                         tag: 12,
                         name: "Char_literal",
-                        length: 2,
                         "0": /* "@" */64,
                         "1": /* constructor */{
                           tag: 12,
                           name: "Char_literal",
-                          length: 2,
                           "0": /* "%" */37,
                           "1": /* constructor */{
                             tag: 2,
                             name: "String",
-                            length: 2,
                             "0": /* No_padding */0,
                             "1": /* End_of_format */0
                           }
@@ -7517,23 +6554,18 @@ function test60(param) {
   if (Curry._1(Scanf.sscanf("abc", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 22,
                 name: "Scan_next_char",
-                length: 1,
                 "0": /* constructor */{
                   tag: 22,
                   name: "Scan_next_char",
-                  length: 1,
                   "0": /* constructor */{
                     tag: 0,
                     name: "Char",
-                    length: 1,
                     "0": /* constructor */{
                       tag: 21,
                       name: "Scan_get_counter",
-                      length: 2,
                       "0": /* Char_counter */1,
                       "1": /* End_of_format */0
                     }
@@ -7546,22 +6578,18 @@ function test60(param) {
           })) && Curry._1(Scanf.sscanf("abc", /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 2,
                 name: "String",
-                length: 2,
                 "0": /* constructor */{
                   tag: 0,
                   name: "Lit_padding",
-                  length: 2,
                   "0": /* Right */1,
                   "1": 0
                 },
                 "1": /* constructor */{
                   tag: 2,
                   name: "String",
-                  length: 2,
                   "0": /* No_padding */0,
                   "1": /* End_of_format */0
                 }
@@ -7573,22 +6601,18 @@ function test60(param) {
     return Curry._1(Scanf.sscanf("abc", /* constructor */{
                     tag: 0,
                     name: "Format",
-                    length: 2,
                     "0": /* constructor */{
                       tag: 2,
                       name: "String",
-                      length: 2,
                       "0": /* constructor */{
                         tag: 0,
                         name: "Lit_padding",
-                        length: 2,
                         "0": /* Right */1,
                         "1": 1
                       },
                       "1": /* constructor */{
                         tag: 2,
                         name: "String",
-                        length: 2,
                         "0": /* No_padding */0,
                         "1": /* End_of_format */0
                       }
@@ -7613,7 +6637,6 @@ Mt.from_pair_suites("Tscanf_test", suites[0]);
 var tscanf_data_file_lines = /* constructor */{
   tag: 0,
   name: "::",
-  length: 2,
   "0": /* tuple */[
     "Objective",
     "Caml"

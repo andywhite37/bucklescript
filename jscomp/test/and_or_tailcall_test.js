@@ -31,14 +31,12 @@ function or_f(b, x, _n) {
 var suites = /* constructor */{
   tag: 0,
   name: "::",
-  length: 2,
   "0": /* tuple */[
     "and_tail",
     (function (param) {
         return /* constructor */{
                 tag: 0,
                 name: "Eq",
-                length: 2,
                 "0": false,
                 "1": f(true, 1, 0)
               };
@@ -47,14 +45,12 @@ var suites = /* constructor */{
   "1": /* constructor */{
     tag: 0,
     name: "::",
-    length: 2,
     "0": /* tuple */[
       "or_tail",
       (function (param) {
           return /* constructor */{
                   tag: 0,
                   name: "Eq",
-                  length: 2,
                   "0": false,
                   "1": or_f(false, 1, 0)
                 };

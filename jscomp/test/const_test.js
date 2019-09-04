@@ -13,7 +13,6 @@ function fff(x) {
   var match = /* constructor */{
     tag: 0,
     name: "A",
-    length: 1,
     "0": x
   };
   switch (match.tag | 0) {

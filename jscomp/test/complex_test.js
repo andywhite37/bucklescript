@@ -6,14 +6,12 @@ var Complex = require("../../lib/js/complex.js");
 var suites = /* constructor */{
   tag: 0,
   name: "::",
-  length: 2,
   "0": /* tuple */[
     "basic_add",
     (function (param) {
         return /* constructor */{
                 tag: 0,
                 name: "Eq",
-                length: 2,
                 "0": /* record */[
                   /* re */2,
                   /* im */2

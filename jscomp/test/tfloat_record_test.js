@@ -17,11 +17,9 @@ function print_float(f) {
   return Curry._1(Format.fprintf(fmt, /* constructor */{
                   tag: 0,
                   name: "Format",
-                  length: 2,
                   "0": /* constructor */{
                     tag: 2,
                     name: "String",
-                    length: 2,
                     "0": /* No_padding */0,
                     "1": /* End_of_format */0
                   },
@@ -33,11 +31,9 @@ function print_newline(param) {
   return Format.fprintf(fmt, /* constructor */{
               tag: 0,
               name: "Format",
-              length: 2,
               "0": /* constructor */{
                 tag: 12,
                 name: "Char_literal",
-                length: 2,
                 "0": /* "\n" */10,
                 "1": /* End_of_format */0
               },

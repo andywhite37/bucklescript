@@ -15,7 +15,6 @@ function create(l, v, r) {
   return /* constructor */{
           tag: 0,
           name: "Node",
-          length: 4,
           "0": l,
           "1": v,
           "2": r,
@@ -60,7 +59,6 @@ function bal(l, v, r) {
     return /* constructor */{
             tag: 0,
             name: "Node",
-            length: 4,
             "0": l,
             "1": v,
             "2": r,
@@ -96,7 +94,6 @@ function add(x, t) {
     return /* constructor */{
             tag: 0,
             name: "Node",
-            length: 4,
             "0": /* Empty */0,
             "1": x,
             "2": /* Empty */0,

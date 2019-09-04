@@ -175,34 +175,27 @@ function compare(context, state, _a, _b) {
 var a = /* constructor */{
   tag: 2,
   name: "Sum",
-  length: 1,
   "0": /* constructor */{
     tag: 0,
     name: "::",
-    length: 2,
     "0": /* constructor */{
       tag: 0,
       name: "Val",
-      length: 1,
       "0": /* constructor */{
         tag: 1,
         name: "Symbol",
-        length: 1,
         "0": "a"
       }
     },
     "1": /* constructor */{
       tag: 0,
       name: "::",
-      length: 2,
       "0": /* constructor */{
         tag: 0,
         name: "Val",
-        length: 1,
         "0": /* constructor */{
           tag: 0,
           name: "Natural",
-          length: 1,
           "0": 2
         }
       },
@@ -214,11 +207,9 @@ var a = /* constructor */{
 var b = /* constructor */{
   tag: 0,
   name: "Val",
-  length: 1,
   "0": /* constructor */{
     tag: 1,
     name: "Symbol",
-    length: 1,
     "0": "x"
   }
 };

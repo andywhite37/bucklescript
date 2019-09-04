@@ -13,14 +13,12 @@ function is_block(x) {
 var suites = /* constructor */{
   tag: 0,
   name: "::",
-  length: 2,
   "0": /* tuple */[
     "is_block_test1",
     (function (param) {
         return /* constructor */{
                 tag: 0,
                 name: "Eq",
-                length: 2,
                 "0": false,
                 "1": false
               };
@@ -29,19 +27,16 @@ var suites = /* constructor */{
   "1": /* constructor */{
     tag: 0,
     name: "::",
-    length: 2,
     "0": /* tuple */[
       "is_block_test2",
       (function (param) {
           return /* constructor */{
                   tag: 0,
                   name: "Eq",
-                  length: 2,
                   "0": true,
                   "1": typeof /* constructor */({
                       tag: 0,
                       name: "::",
-                      length: 2,
                       "0": 3,
                       "1": /* [] */0
                     }) !== "number"
@@ -51,14 +46,12 @@ var suites = /* constructor */{
     "1": /* constructor */{
       tag: 0,
       name: "::",
-      length: 2,
       "0": /* tuple */[
         "is_block_test3",
         (function (param) {
             return /* constructor */{
                     tag: 0,
                     name: "Eq",
-                    length: 2,
                     "0": true,
                     "1": true
                   };
@@ -67,14 +60,12 @@ var suites = /* constructor */{
       "1": /* constructor */{
         tag: 0,
         name: "::",
-        length: 2,
         "0": /* tuple */[
           "is_block_test4",
           (function (param) {
               return /* constructor */{
                       tag: 0,
                       name: "Eq",
-                      length: 2,
                       "0": false,
                       "1": false
                     };

@@ -36,14 +36,12 @@ function to_int(x) {
 var suites = /* constructor */{
   tag: 0,
   name: "::",
-  length: 2,
   "0": /* tuple */[
     "test_int",
     (function (param) {
         return /* constructor */{
                 tag: 0,
                 name: "Eq",
-                length: 2,
                 "0": 3,
                 "1": to_int([
                       Int,
@@ -56,14 +54,12 @@ var suites = /* constructor */{
   "1": /* constructor */{
     tag: 0,
     name: "::",
-    length: 2,
     "0": /* tuple */[
       "test_int2",
       (function (param) {
           return /* constructor */{
                   tag: 0,
                   name: "Eq",
-                  length: 2,
                   "0": 0,
                   "1": to_int([
                         Int$1,
@@ -76,14 +72,12 @@ var suites = /* constructor */{
     "1": /* constructor */{
       tag: 0,
       name: "::",
-      length: 2,
       "0": /* tuple */[
         "test_string",
         (function (param) {
             return /* constructor */{
                     tag: 0,
                     name: "Eq",
-                    length: 2,
                     "0": -1,
                     "1": to_int([
                           Str,

@@ -6,11 +6,9 @@ var Format = require("../../lib/js/format.js");
 Curry._1(Format.fprintf(Format.std_formatter, /* constructor */{
           tag: 0,
           name: "Format",
-          length: 2,
           "0": /* constructor */{
             tag: 4,
             name: "Int",
-            length: 4,
             "0": /* Int_d */0,
             "1": /* No_padding */0,
             "2": /* No_precision */0,

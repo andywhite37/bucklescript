@@ -7,14 +7,12 @@ var Js_undefined = require("../../lib/js/js_undefined.js");
 var suites = /* constructor */{
   tag: 0,
   name: "::",
-  length: 2,
   "0": /* tuple */[
     "toOption - empty",
     (function (param) {
         return /* constructor */{
                 tag: 0,
                 name: "Eq",
-                length: 2,
                 "0": undefined,
                 "1": undefined
               };
@@ -23,14 +21,12 @@ var suites = /* constructor */{
   "1": /* constructor */{
     tag: 0,
     name: "::",
-    length: 2,
     "0": /* tuple */[
       "toOption - 'a",
       (function (param) {
           return /* constructor */{
                   tag: 0,
                   name: "Eq",
-                  length: 2,
                   "0": /* () */0,
                   "1": Caml_option.undefined_to_opt(/* () */0)
                 };
@@ -39,14 +35,12 @@ var suites = /* constructor */{
     "1": /* constructor */{
       tag: 0,
       name: "::",
-      length: 2,
       "0": /* tuple */[
         "return",
         (function (param) {
             return /* constructor */{
                     tag: 0,
                     name: "Eq",
-                    length: 2,
                     "0": "something",
                     "1": Caml_option.undefined_to_opt("something")
                   };
@@ -55,14 +49,12 @@ var suites = /* constructor */{
       "1": /* constructor */{
         tag: 0,
         name: "::",
-        length: 2,
         "0": /* tuple */[
           "test - empty",
           (function (param) {
               return /* constructor */{
                       tag: 0,
                       name: "Eq",
-                      length: 2,
                       "0": true,
                       "1": true
                     };
@@ -71,14 +63,12 @@ var suites = /* constructor */{
         "1": /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": /* tuple */[
             "test - 'a",
             (function (param) {
                 return /* constructor */{
                         tag: 0,
                         name: "Eq",
-                        length: 2,
                         "0": false,
                         "1": false
                       };
@@ -87,14 +77,12 @@ var suites = /* constructor */{
           "1": /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": /* tuple */[
               "bind - empty",
               (function (param) {
                   return /* constructor */{
                           tag: 0,
                           name: "Eq",
-                          length: 2,
                           "0": undefined,
                           "1": Js_undefined.bind(undefined, (function (v) {
                                   return v;
@@ -105,14 +93,12 @@ var suites = /* constructor */{
             "1": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": /* tuple */[
                 "bind - 'a",
                 (function (param) {
                     return /* constructor */{
                             tag: 0,
                             name: "Eq",
-                            length: 2,
                             "0": 4,
                             "1": Js_undefined.bind(2, (function (n) {
                                     return (n << 1);
@@ -123,7 +109,6 @@ var suites = /* constructor */{
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": /* tuple */[
                   "iter - empty",
                   (function (param) {
@@ -135,7 +120,6 @@ var suites = /* constructor */{
                       return /* constructor */{
                               tag: 0,
                               name: "Eq",
-                              length: 2,
                               "0": false,
                               "1": hit[0]
                             };
@@ -144,7 +128,6 @@ var suites = /* constructor */{
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": /* tuple */[
                     "iter - 'a",
                     (function (param) {
@@ -156,7 +139,6 @@ var suites = /* constructor */{
                         return /* constructor */{
                                 tag: 0,
                                 name: "Eq",
-                                length: 2,
                                 "0": 2,
                                 "1": hit[0]
                               };
@@ -165,14 +147,12 @@ var suites = /* constructor */{
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": /* tuple */[
                       "fromOption - None",
                       (function (param) {
                           return /* constructor */{
                                   tag: 0,
                                   name: "Eq",
-                                  length: 2,
                                   "0": undefined,
                                   "1": Js_undefined.fromOption(undefined)
                                 };
@@ -181,14 +161,12 @@ var suites = /* constructor */{
                     "1": /* constructor */{
                       tag: 0,
                       name: "::",
-                      length: 2,
                       "0": /* tuple */[
                         "fromOption - Some",
                         (function (param) {
                             return /* constructor */{
                                     tag: 0,
                                     name: "Eq",
-                                    length: 2,
                                     "0": 2,
                                     "1": Js_undefined.fromOption(2)
                                   };

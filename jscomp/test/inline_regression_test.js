@@ -46,14 +46,12 @@ function basename(param) {
 var suites = /* constructor */{
   tag: 0,
   name: "::",
-  length: 2,
   "0": /* tuple */[
     "basename",
     (function (param) {
         return /* constructor */{
                 tag: 0,
                 name: "Eq",
-                length: 2,
                 "0": basename("b/c/a.b"),
                 "1": "a.b"
               };

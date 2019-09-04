@@ -8,14 +8,12 @@ var v = (Number.EPSILON?Number.EPSILON:2.220446049250313e-16);
 var suites = /* constructor */{
   tag: 0,
   name: "::",
-  length: 2,
   "0": /* tuple */[
     "epsilon",
     (function (param) {
         return /* constructor */{
                 tag: 0,
                 name: "Eq",
-                length: 2,
                 "0": Pervasives.epsilon_float,
                 "1": v
               };
@@ -24,14 +22,12 @@ var suites = /* constructor */{
   "1": /* constructor */{
     tag: 0,
     name: "::",
-    length: 2,
     "0": /* tuple */[
       "raw_epsilon",
       (function (param) {
           return /* constructor */{
                   tag: 0,
                   name: "Eq",
-                  length: 2,
                   "0": 2.220446049250313e-16,
                   "1": v
                 };

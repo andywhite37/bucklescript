@@ -14,7 +14,6 @@ function eq(loc, x, y) {
 var oppHeroes = /* constructor */{
   tag: 0,
   name: "::",
-  length: 2,
   "0": 0,
   "1": /* [] */0
 };

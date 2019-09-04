@@ -125,16 +125,13 @@ function from_pairs(ps) {
                             Curry._1(Printf.sprintf(/* constructor */{
                                       tag: 0,
                                       name: "Format",
-                                      length: 2,
                                       "0": /* constructor */{
                                         tag: 11,
                                         name: "String_literal",
-                                        length: 2,
                                         "0": "pair ",
                                         "1": /* constructor */{
                                           tag: 4,
                                           name: "Int",
-                                          length: 4,
                                           "0": /* Int_d */0,
                                           "1": /* No_padding */0,
                                           "2": /* No_precision */0,
@@ -147,7 +144,6 @@ function from_pairs(ps) {
                                 return /* constructor */{
                                         tag: 5,
                                         name: "Approx",
-                                        length: 2,
                                         "0": a,
                                         "1": b
                                       };
@@ -251,14 +247,12 @@ var a = match$4[0];
 Mt.from_pair_suites("Float_test", Pervasives.$at(/* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": /* tuple */[
             "mod_float",
             (function (param) {
                 return /* constructor */{
                         tag: 5,
                         name: "Approx",
-                        length: 2,
                         "0": 3.2 % 0.5,
                         "1": 0.200000000000000178
                       };
@@ -267,14 +261,12 @@ Mt.from_pair_suites("Float_test", Pervasives.$at(/* constructor */{
           "1": /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": /* tuple */[
               "modf_float1",
               (function (param) {
                   return /* constructor */{
                           tag: 5,
                           name: "Approx",
-                          length: 2,
                           "0": a,
                           "1": 0.299999999999997158
                         };
@@ -283,14 +275,12 @@ Mt.from_pair_suites("Float_test", Pervasives.$at(/* constructor */{
             "1": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": /* tuple */[
                 "modf_float2",
                 (function (param) {
                     return /* constructor */{
                             tag: 5,
                             name: "Approx",
-                            length: 2,
                             "0": b,
                             "1": 32
                           };
@@ -299,14 +289,12 @@ Mt.from_pair_suites("Float_test", Pervasives.$at(/* constructor */{
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": /* tuple */[
                   "int_of_float",
                   (function (param) {
                       return /* constructor */{
                               tag: 0,
                               name: "Eq",
-                              length: 2,
                               "0": 3,
                               "1": 3
                             };

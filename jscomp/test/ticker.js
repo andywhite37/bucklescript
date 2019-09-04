@@ -29,7 +29,6 @@ function split(delim, s) {
             return /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": $$String.sub(s, 0, i),
                     "1": l
                   };
@@ -40,14 +39,12 @@ function split(delim, s) {
         var l$1 = /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": $$String.sub(s, i$prime + 1 | 0, (i - i$prime | 0) - 1 | 0),
           "1": l
         };
         var l$2 = i$prime === 0 ? /* constructor */({
               tag: 0,
               name: "::",
-              length: 2,
               "0": "",
               "1": l$1
             }) : l$1;
@@ -87,23 +84,19 @@ function string_of_rank(param) {
     return Curry._1(Printf.sprintf(/* constructor */{
                     tag: 0,
                     name: "Format",
-                    length: 2,
                     "0": /* constructor */{
                       tag: 11,
                       name: "String_literal",
-                      length: 2,
                       "0": "Ranked(",
                       "1": /* constructor */{
                         tag: 4,
                         name: "Int",
-                        length: 4,
                         "0": /* Int_i */3,
                         "1": /* No_padding */0,
                         "2": /* No_precision */0,
                         "3": /* constructor */{
                           tag: 12,
                           name: "Char_literal",
-                          length: 2,
                           "0": /* ")" */41,
                           "1": /* End_of_format */0
                         }
@@ -145,7 +138,6 @@ function create(l, x, d, r) {
   return /* constructor */{
           tag: 0,
           name: "Node",
-          length: 5,
           "0": l,
           "1": x,
           "2": d,
@@ -158,7 +150,6 @@ function singleton(x, d) {
   return /* constructor */{
           tag: 0,
           name: "Node",
-          length: 5,
           "0": /* Empty */0,
           "1": x,
           "2": d,
@@ -218,7 +209,6 @@ function bal(l, x, d, r) {
     return /* constructor */{
             tag: 0,
             name: "Node",
-            length: 5,
             "0": l,
             "1": x,
             "2": d,
@@ -247,7 +237,6 @@ function add(x, data, param) {
       return /* constructor */{
               tag: 0,
               name: "Node",
-              length: 5,
               "0": l,
               "1": x,
               "2": data,
@@ -263,7 +252,6 @@ function add(x, data, param) {
     return /* constructor */{
             tag: 0,
             name: "Node",
-            length: 5,
             "0": /* Empty */0,
             "1": x,
             "2": data,
@@ -415,7 +403,6 @@ function map(f, param) {
     return /* constructor */{
             tag: 0,
             name: "Node",
-            length: 5,
             "0": l$prime,
             "1": param[1],
             "2": d$prime,
@@ -436,7 +423,6 @@ function mapi(f, param) {
     return /* constructor */{
             tag: 0,
             name: "Node",
-            length: 5,
             "0": l$prime,
             "1": v,
             "2": d$prime,
@@ -670,7 +656,6 @@ function cons_enum(_m, _e) {
       _e = /* constructor */{
         tag: 0,
         name: "More",
-        length: 4,
         "0": m[1],
         "1": m[2],
         "2": m[3],
@@ -755,7 +740,6 @@ function bindings_aux(_accu, _param) {
       _accu = /* constructor */{
         tag: 0,
         name: "::",
-        length: 2,
         "0": /* tuple */[
           param[1],
           param[2]
@@ -815,7 +799,6 @@ function compute_update_sequences(all_tickers) {
                 ticker[/* rank */1] = /* constructor */{
                   tag: 0,
                   name: "Ranked",
-                  length: 1,
                   "0": counter$3
                 };
                 return counter$3;
@@ -824,7 +807,6 @@ function compute_update_sequences(all_tickers) {
                 ticker[/* rank */1] = /* constructor */{
                   tag: 0,
                   name: "Ranked",
-                  length: 1,
                   "0": counter$4
                 };
                 return counter$4;
@@ -849,7 +831,6 @@ function compute_update_sequences(all_tickers) {
                   var map$1 = loop(/* constructor */{
                         tag: 0,
                         name: "::",
-                        length: 2,
                         "0": ticker,
                         "1": up
                       }, map, match[/* lhs */2]);
@@ -858,7 +839,6 @@ function compute_update_sequences(all_tickers) {
                   _up = /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": ticker,
                     "1": up
                   };
@@ -874,7 +854,6 @@ function compute_update_sequences(all_tickers) {
             return add(ticker[/* ticker_name */2], /* constructor */{
                         tag: 0,
                         name: "::",
-                        length: 2,
                         "0": ticker,
                         "1": /* [] */0
                       }, map);
@@ -943,7 +922,6 @@ function process_input_line(ticker_map, all_tickers, line) {
             /* type_ : constructor */{
               tag: 0,
               name: "Binary_op",
-              length: 1,
               "0": /* record */[
                 /* op */op,
                 /* rhs */rhs$1,
@@ -1007,7 +985,6 @@ function process_input_line(ticker_map, all_tickers, line) {
                                 /* constructor */{
                                   tag: 0,
                                   name: "::",
-                                  length: 2,
                                   "0": make_binary_op(ticker_name, match$4[0], match$5[0], /* PLUS */0),
                                   "1": all_tickers
                                 },
@@ -1040,7 +1017,6 @@ function process_input_line(ticker_map, all_tickers, line) {
                                 /* constructor */{
                                   tag: 0,
                                   name: "::",
-                                  length: 2,
                                   "0": make_binary_op(ticker_name, match$6[0], match$7[0], /* MINUS */1),
                                   "1": all_tickers
                                 },
@@ -1069,7 +1045,6 @@ function process_input_line(ticker_map, all_tickers, line) {
                             /* constructor */{
                               tag: 0,
                               name: "::",
-                              length: 2,
                               "0": /* record */[
                                 /* value */undefined,
                                 /* rank : Uninitialized */0,
@@ -1130,47 +1105,38 @@ function loop(_lines, _param) {
 var lines = /* constructor */{
   tag: 0,
   name: "::",
-  length: 2,
   "0": "R|MSFT|S",
   "1": /* constructor */{
     tag: 0,
     name: "::",
-    length: 2,
     "0": "R|IBM|S",
     "1": /* constructor */{
       tag: 0,
       name: "::",
-      length: 2,
       "0": "R|FB|S",
       "1": /* constructor */{
         tag: 0,
         name: "::",
-        length: 2,
         "0": "R|CP1|+|MSFT|IBM",
         "1": /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": "R|CP2|-|FB|IBM",
           "1": /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": "R|CP12|+|CP1|CP2",
             "1": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": "Q|MSFT|120.",
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": "Q|IBM|130.",
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": "Q|FB|80.",
                   "1": /* [] */0
                 }

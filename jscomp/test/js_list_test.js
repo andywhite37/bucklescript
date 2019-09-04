@@ -14,14 +14,12 @@ function eq(loc, x, y) {
   suites[0] = /* constructor */{
     tag: 0,
     name: "::",
-    length: 2,
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
                   tag: 0,
                   name: "Eq",
-                  length: 2,
                   "0": x,
                   "1": y
                 };
@@ -35,16 +33,13 @@ function eq(loc, x, y) {
 eq("File \"js_list_test.ml\", line 11, characters 7-14", Js_list.flatten(/* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": 1,
             "1": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": 2,
               "1": /* [] */0
             }
@@ -52,37 +47,30 @@ eq("File \"js_list_test.ml\", line 11, characters 7-14", Js_list.flatten(/* cons
           "1": /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": 3,
               "1": /* [] */0
             },
             "1": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": /* [] */0,
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": 1,
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": 2,
                     "1": /* constructor */{
                       tag: 0,
                       name: "::",
-                      length: 2,
                       "0": 3,
                       "1": /* [] */0
                     }
@@ -95,32 +83,26 @@ eq("File \"js_list_test.ml\", line 11, characters 7-14", Js_list.flatten(/* cons
         }), /* constructor */{
       tag: 0,
       name: "::",
-      length: 2,
       "0": 1,
       "1": /* constructor */{
         tag: 0,
         name: "::",
-        length: 2,
         "0": 2,
         "1": /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": 3,
           "1": /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": 1,
             "1": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": 2,
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": 3,
                 "1": /* [] */0
               }
@@ -138,37 +120,30 @@ eq("File \"js_list_test.ml\", line 14, characters 7-14", Js_list.filterMap((func
           }), /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": 1,
           "1": /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": 2,
             "1": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": 3,
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": 4,
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": 5,
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": 6,
                     "1": /* constructor */{
                       tag: 0,
                       name: "::",
-                      length: 2,
                       "0": 7,
                       "1": /* [] */0
                     }
@@ -180,17 +155,14 @@ eq("File \"js_list_test.ml\", line 14, characters 7-14", Js_list.filterMap((func
         }), /* constructor */{
       tag: 0,
       name: "::",
-      length: 2,
       "0": 2,
       "1": /* constructor */{
         tag: 0,
         name: "::",
-        length: 2,
         "0": 4,
         "1": /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": 6,
           "1": /* [] */0
         }
@@ -205,32 +177,26 @@ eq("File \"js_list_test.ml\", line 17, characters 7-14", Js_list.filterMap((func
           }), /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": 1,
           "1": /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": 2,
             "1": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": 3,
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": 4,
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": 5,
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": 6,
                     "1": /* [] */0
                   }
@@ -241,17 +207,14 @@ eq("File \"js_list_test.ml\", line 17, characters 7-14", Js_list.filterMap((func
         }), /* constructor */{
       tag: 0,
       name: "::",
-      length: 2,
       "0": 2,
       "1": /* constructor */{
         tag: 0,
         name: "::",
-        length: 2,
         "0": 4,
         "1": /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": 6,
           "1": /* [] */0
         }
@@ -263,32 +226,26 @@ eq("File \"js_list_test.ml\", line 20, characters 7-14", Js_list.countBy((functi
           }), /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": 1,
           "1": /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": 2,
             "1": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": 3,
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": 4,
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": 5,
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": 6,
                     "1": /* [] */0
                   }
@@ -312,7 +269,6 @@ var vv = Js_list.foldRight((function (x, y) {
         return /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": x,
                 "1": y
               };

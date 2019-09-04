@@ -77,14 +77,12 @@ function eq(loc, x, y) {
   suites[0] = /* constructor */{
     tag: 0,
     name: "::",
-    length: 2,
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
                   tag: 0,
                   name: "Eq",
-                  length: 2,
                   "0": x,
                   "1": y
                 };
@@ -110,7 +108,6 @@ function add5(a0, a1, a2, a3, a4) {
   all_v[0] = /* constructor */{
     tag: 0,
     name: "::",
-    length: 2,
     "0": v[0],
     "1": all_v[0]
   };
@@ -138,7 +135,6 @@ function g(x) {
   all_v[0] = /* constructor */{
     tag: 0,
     name: "::",
-    length: 2,
     "0": v[0],
     "1": all_v[0]
   };
@@ -164,32 +160,26 @@ eq("File \"earger_curry_test.ml\", line 121, characters 7-14", d, 11);
 eq("File \"earger_curry_test.ml\", line 122, characters 7-14", all_v[0], /* constructor */{
       tag: 0,
       name: "::",
-      length: 2,
       "0": 8,
       "1": /* constructor */{
         tag: 0,
         name: "::",
-        length: 2,
         "0": 8,
         "1": /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": 6,
           "1": /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": 6,
             "1": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": 4,
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": 2,
                 "1": /* [] */0
               }

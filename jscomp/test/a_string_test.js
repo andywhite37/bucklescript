@@ -7,29 +7,24 @@ var Ext_string_test = require("./ext_string_test.js");
 var suites = /* constructor */{
   tag: 0,
   name: "::",
-  length: 2,
   "0": /* tuple */[
     "split",
     (function (param) {
         return /* constructor */{
                 tag: 0,
                 name: "Eq",
-                length: 2,
                 "0": Ext_string_test.split(true, "hihi", /* "i" */105),
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": "h",
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": "h",
                     "1": /* constructor */{
                       tag: 0,
                       name: "::",
-                      length: 2,
                       "0": "",
                       "1": /* [] */0
                     }
@@ -41,24 +36,20 @@ var suites = /* constructor */{
   "1": /* constructor */{
     tag: 0,
     name: "::",
-    length: 2,
     "0": /* tuple */[
       "split_non_empty",
       (function (param) {
           return /* constructor */{
                   tag: 0,
                   name: "Eq",
-                  length: 2,
                   "0": Ext_string_test.split(undefined, "hihi", /* "i" */105),
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": "h",
                     "1": /* constructor */{
                       tag: 0,
                       name: "::",
-                      length: 2,
                       "0": "h",
                       "1": /* [] */0
                     }
@@ -69,14 +60,12 @@ var suites = /* constructor */{
     "1": /* constructor */{
       tag: 0,
       name: "::",
-      length: 2,
       "0": /* tuple */[
         "split_empty",
         (function (param) {
             return /* constructor */{
                     tag: 0,
                     name: "Eq",
-                    length: 2,
                     "0": Ext_string_test.split(true, "", /* "i" */105),
                     "1": /* [] */0
                   };
@@ -85,29 +74,24 @@ var suites = /* constructor */{
       "1": /* constructor */{
         tag: 0,
         name: "::",
-        length: 2,
         "0": /* tuple */[
           "split_normal",
           (function (param) {
               return /* constructor */{
                       tag: 0,
                       name: "Eq",
-                      length: 2,
                       "0": Ext_string_test.split(true, "h i i", /* " " */32),
                       "1": /* constructor */{
                         tag: 0,
                         name: "::",
-                        length: 2,
                         "0": "h",
                         "1": /* constructor */{
                           tag: 0,
                           name: "::",
-                          length: 2,
                           "0": "i",
                           "1": /* constructor */{
                             tag: 0,
                             name: "::",
-                            length: 2,
                             "0": "i",
                             "1": /* [] */0
                           }
@@ -119,14 +103,12 @@ var suites = /* constructor */{
         "1": /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": /* tuple */[
             "split_by",
             (function (param) {
                 return /* constructor */{
                         tag: 0,
                         name: "Eq",
-                        length: 2,
                         "0": List.filter((function (s) {
                                   return s !== "";
                                 }))(Ext_string_test.split_by(undefined, (function (x) {
@@ -139,22 +121,18 @@ var suites = /* constructor */{
                         "1": /* constructor */{
                           tag: 0,
                           name: "::",
-                          length: 2,
                           "0": "h",
                           "1": /* constructor */{
                             tag: 0,
                             name: "::",
-                            length: 2,
                             "0": "hgso",
                             "1": /* constructor */{
                               tag: 0,
                               name: "::",
-                              length: 2,
                               "0": "hgso",
                               "1": /* constructor */{
                                 tag: 0,
                                 name: "::",
-                                length: 2,
                                 "0": "hi",
                                 "1": /* [] */0
                               }

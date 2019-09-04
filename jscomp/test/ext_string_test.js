@@ -28,7 +28,6 @@ function split_by($staropt$star, is_delim, str) {
         return /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": $$String.sub(str, 0, last_pos),
                 "1": acc
               };
@@ -42,7 +41,6 @@ function split_by($staropt$star, is_delim, str) {
         _acc = /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": v,
           "1": acc
         };
@@ -526,22 +524,18 @@ function is_valid_source_name(name) {
   var match = check_any_suffix_case_then_chop(name, /* constructor */{
         tag: 0,
         name: "::",
-        length: 2,
         "0": ".ml",
         "1": /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": ".re",
           "1": /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": ".mli",
             "1": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": ".rei",
               "1": /* [] */0
             }

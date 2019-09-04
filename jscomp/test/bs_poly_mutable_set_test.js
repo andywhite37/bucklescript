@@ -298,27 +298,22 @@ b("File \"bs_poly_mutable_set_test.ml\", line 163, characters 4-11", Belt_Mutabl
 Belt_List.forEach(/* constructor */{
       tag: 0,
       name: "::",
-      length: 2,
       "0": a0,
       "1": /* constructor */{
         tag: 0,
         name: "::",
-        length: 2,
         "0": a1,
         "1": /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": a2,
           "1": /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": a3,
             "1": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": a4,
               "1": /* [] */0
             }

@@ -108,7 +108,6 @@ function dump(r) {
           _acc = /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": r[n$1],
             "1": acc
           };
@@ -144,7 +143,6 @@ function dump(r) {
         return /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": h,
                 "1": t
               };
@@ -215,28 +213,23 @@ function dump(r) {
         var name = Curry._2(Printf.sprintf(/* constructor */{
                   tag: 0,
                   name: "Format",
-                  length: 2,
                   "0": /* constructor */{
                     tag: 11,
                     name: "String_literal",
-                    length: 2,
                     "0": "unknown: tag ",
                     "1": /* constructor */{
                       tag: 4,
                       name: "Int",
-                      length: 4,
                       "0": /* Int_d */0,
                       "1": /* No_padding */0,
                       "2": /* No_precision */0,
                       "3": /* constructor */{
                         tag: 11,
                         name: "String_literal",
-                        length: 2,
                         "0": " size ",
                         "1": /* constructor */{
                           tag: 4,
                           name: "Int",
-                          length: 4,
                           "0": /* Int_d */0,
                           "1": /* No_padding */0,
                           "2": /* No_precision */0,
@@ -262,19 +255,15 @@ function pp_any(fmt, v) {
   return Curry._1(Format.fprintf(fmt, /* constructor */{
                   tag: 0,
                   name: "Format",
-                  length: 2,
                   "0": /* constructor */{
                     tag: 18,
                     name: "Formatting_gen",
-                    length: 2,
                     "0": /* constructor */{
                       tag: 1,
                       name: "Open_box",
-                      length: 1,
                       "0": /* constructor */{
                         tag: 0,
                         name: "Format",
-                        length: 2,
                         "0": /* End_of_format */0,
                         "1": ""
                       }
@@ -282,12 +271,10 @@ function pp_any(fmt, v) {
                     "1": /* constructor */{
                       tag: 2,
                       name: "String",
-                      length: 2,
                       "0": /* No_padding */0,
                       "1": /* constructor */{
                         tag: 17,
                         name: "Formatting_lit",
-                        length: 2,
                         "0": /* Close_box */0,
                         "1": /* End_of_format */0
                       }

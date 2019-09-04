@@ -24,14 +24,12 @@ function eq(loc, param) {
   suites[0] = /* constructor */{
     tag: 0,
     name: "::",
-    length: 2,
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
                   tag: 0,
                   name: "Eq",
-                  length: 2,
                   "0": x,
                   "1": y
                 };
@@ -60,12 +58,10 @@ eq("File \"ffi_js_test.ml\", line 32, characters 5-12", /* tuple */[
 var same_type_000 = /* constructor */{
   tag: 0,
   name: "::",
-  length: 2,
   "0": int_config,
   "1": /* constructor */{
     tag: 0,
     name: "::",
-    length: 2,
     "0": {
       hi: 3,
       low: 32
@@ -77,12 +73,10 @@ var same_type_000 = /* constructor */{
 var same_type_001 = /* constructor */{
   tag: 0,
   name: "::",
-  length: 2,
   "0": string_config,
   "1": /* constructor */{
     tag: 0,
     name: "::",
-    length: 2,
     "0": {
       hi: 3,
       low: "32"

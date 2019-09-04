@@ -15,13 +15,11 @@ var test = /* record */[/* contents */true];
 var arg_spec = /* constructor */{
   tag: 0,
   name: "::",
-  length: 2,
   "0": /* tuple */[
     "-c",
     /* constructor */{
       tag: 2,
       name: "Set",
-      length: 1,
       "0": compile
     },
     " Compile"
@@ -29,13 +27,11 @@ var arg_spec = /* constructor */{
   "1": /* constructor */{
     tag: 0,
     name: "::",
-    length: 2,
     "0": /* tuple */[
       "-d",
       /* constructor */{
         tag: 3,
         name: "Clear",
-        length: 1,
         "0": test
       },
       " Test"

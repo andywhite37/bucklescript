@@ -168,7 +168,6 @@ function create(l, v, r) {
   return /* constructor */{
           tag: 0,
           name: "Node",
-          length: 4,
           "0": l,
           "1": v,
           "2": r,
@@ -225,7 +224,6 @@ function bal(l, v, r) {
     return /* constructor */{
             tag: 0,
             name: "Node",
-            length: 4,
             "0": l,
             "1": v,
             "2": r,
@@ -251,7 +249,6 @@ function add(x, t) {
     return /* constructor */{
             tag: 0,
             name: "Node",
-            length: 4,
             "0": /* Empty */0,
             "1": x,
             "2": /* Empty */0,
@@ -264,7 +261,6 @@ function singleton(x) {
   return /* constructor */{
           tag: 0,
           name: "Node",
-          length: 4,
           "0": /* Empty */0,
           "1": x,
           "2": /* Empty */0,
@@ -533,7 +529,6 @@ function cons_enum(_s, _e) {
       _e = /* constructor */{
         tag: 0,
         name: "More",
-        length: 3,
         "0": s[1],
         "1": s[2],
         "2": e
@@ -601,7 +596,6 @@ function subset(_s1, _s2) {
           if (subset(/* constructor */{
                   tag: 0,
                   name: "Node",
-                  length: 4,
                   "0": l1,
                   "1": v1,
                   "2": /* Empty */0,
@@ -615,7 +609,6 @@ function subset(_s1, _s2) {
         } else if (subset(/* constructor */{
                 tag: 0,
                 name: "Node",
-                length: 4,
                 "0": /* Empty */0,
                 "1": v1,
                 "2": r1,
@@ -757,7 +750,6 @@ function elements_aux(_accu, _param) {
       _accu = /* constructor */{
         tag: 0,
         name: "::",
-        length: 2,
         "0": param[1],
         "1": elements_aux(accu, param[2])
       };
@@ -819,7 +811,6 @@ function of_list(l) {
                                 /* constructor */{
                                   tag: 0,
                                   name: "Node",
-                                  length: 4,
                                   "0": /* Empty */0,
                                   "1": l[0],
                                   "2": /* Empty */0,
@@ -837,11 +828,9 @@ function of_list(l) {
                                   /* constructor */{
                                     tag: 0,
                                     name: "Node",
-                                    length: 4,
                                     "0": /* constructor */{
                                       tag: 0,
                                       name: "Node",
-                                      length: 4,
                                       "0": /* Empty */0,
                                       "1": l[0],
                                       "2": /* Empty */0,
@@ -867,11 +856,9 @@ function of_list(l) {
                                     /* constructor */{
                                       tag: 0,
                                       name: "Node",
-                                      length: 4,
                                       "0": /* constructor */{
                                         tag: 0,
                                         name: "Node",
-                                        length: 4,
                                         "0": /* Empty */0,
                                         "1": l[0],
                                         "2": /* Empty */0,
@@ -881,7 +868,6 @@ function of_list(l) {
                                       "2": /* constructor */{
                                         tag: 0,
                                         name: "Node",
-                                        length: 4,
                                         "0": /* Empty */0,
                                         "1": match$2[0],
                                         "2": /* Empty */0,
@@ -994,14 +980,12 @@ Caml_module.update_mod([[[
 var suites = /* constructor */{
   tag: 0,
   name: "::",
-  length: 2,
   "0": /* tuple */[
     "test1",
     (function (param) {
         return /* constructor */{
                 tag: 0,
                 name: "Eq",
-                length: 2,
                 "0": /* tuple */[
                   true,
                   true,
@@ -1020,14 +1004,12 @@ var suites = /* constructor */{
   "1": /* constructor */{
     tag: 0,
     name: "::",
-    length: 2,
     "0": /* tuple */[
       "test2",
       (function (param) {
           return /* constructor */{
                   tag: 0,
                   name: "Eq",
-                  length: 2,
                   "0": Curry._1(BB.y, /* () */0),
                   "1": 32
                 };
@@ -1036,14 +1018,12 @@ var suites = /* constructor */{
     "1": /* constructor */{
       tag: 0,
       name: "::",
-      length: 2,
       "0": /* tuple */[
         "test3",
         (function (param) {
             return /* constructor */{
                     tag: 0,
                     name: "Eq",
-                    length: 2,
                     "0": Curry._1(AA.x, /* () */0),
                     "1": 35
                   };
@@ -1052,14 +1032,12 @@ var suites = /* constructor */{
       "1": /* constructor */{
         tag: 0,
         name: "::",
-        length: 2,
         "0": /* tuple */[
           "test4",
           (function (param) {
               return /* constructor */{
                       tag: 0,
                       name: "Eq",
-                      length: 2,
                       "0": true,
                       "1": Curry._1(A.even, 2)
                     };
@@ -1068,14 +1046,12 @@ var suites = /* constructor */{
         "1": /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": /* tuple */[
             "test4",
             (function (param) {
                 return /* constructor */{
                         tag: 0,
                         name: "Eq",
-                        length: 2,
                         "0": true,
                         "1": Curry._1(AA.even, 4)
                       };
@@ -1084,14 +1060,12 @@ var suites = /* constructor */{
           "1": /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": /* tuple */[
               "test5",
               (function (param) {
                   return /* constructor */{
                           tag: 0,
                           name: "Eq",
-                          length: 2,
                           "0": false,
                           "1": Curry._1(B.odd, 2)
                         };
@@ -1100,43 +1074,35 @@ var suites = /* constructor */{
             "1": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": /* tuple */[
                 "test6",
                 (function (param) {
                     return /* constructor */{
                             tag: 0,
                             name: "Eq",
-                            length: 2,
                             "0": 2,
                             "1": cardinal(of_list(/* constructor */{
                                       tag: 0,
                                       name: "::",
-                                      length: 2,
                                       "0": /* constructor */{
                                         tag: 0,
                                         name: "Leaf",
-                                        length: 1,
                                         "0": "a"
                                       },
                                       "1": /* constructor */{
                                         tag: 0,
                                         name: "::",
-                                        length: 2,
                                         "0": /* constructor */{
                                           tag: 0,
                                           name: "Leaf",
-                                          length: 1,
                                           "0": "b"
                                         },
                                         "1": /* constructor */{
                                           tag: 0,
                                           name: "::",
-                                          length: 2,
                                           "0": /* constructor */{
                                             tag: 0,
                                             name: "Leaf",
-                                            length: 1,
                                             "0": "a"
                                           },
                                           "1": /* [] */0

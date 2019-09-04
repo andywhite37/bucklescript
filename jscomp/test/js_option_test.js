@@ -10,14 +10,12 @@ function simpleEq(a, b) {
 var option_suites = /* constructor */{
   tag: 0,
   name: "::",
-  length: 2,
   "0": /* tuple */[
     "option_isSome_Some",
     (function (param) {
         return /* constructor */{
                 tag: 0,
                 name: "Eq",
-                length: 2,
                 "0": true,
                 "1": true
               };
@@ -26,14 +24,12 @@ var option_suites = /* constructor */{
   "1": /* constructor */{
     tag: 0,
     name: "::",
-    length: 2,
     "0": /* tuple */[
       "option_isSome_None",
       (function (param) {
           return /* constructor */{
                   tag: 0,
                   name: "Eq",
-                  length: 2,
                   "0": false,
                   "1": false
                 };
@@ -42,14 +38,12 @@ var option_suites = /* constructor */{
     "1": /* constructor */{
       tag: 0,
       name: "::",
-      length: 2,
       "0": /* tuple */[
         "option_isNone_Some",
         (function (param) {
             return /* constructor */{
                     tag: 0,
                     name: "Eq",
-                    length: 2,
                     "0": false,
                     "1": false
                   };
@@ -58,14 +52,12 @@ var option_suites = /* constructor */{
       "1": /* constructor */{
         tag: 0,
         name: "::",
-        length: 2,
         "0": /* tuple */[
           "option_isNone_None",
           (function (param) {
               return /* constructor */{
                       tag: 0,
                       name: "Eq",
-                      length: 2,
                       "0": true,
                       "1": true
                     };
@@ -74,14 +66,12 @@ var option_suites = /* constructor */{
         "1": /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": /* tuple */[
             "option_isSomeValue_Eq",
             (function (param) {
                 return /* constructor */{
                         tag: 0,
                         name: "Eq",
-                        length: 2,
                         "0": true,
                         "1": Js_option.isSomeValue(simpleEq, 2, 2)
                       };
@@ -90,14 +80,12 @@ var option_suites = /* constructor */{
           "1": /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": /* tuple */[
               "option_isSomeValue_Diff",
               (function (param) {
                   return /* constructor */{
                           tag: 0,
                           name: "Eq",
-                          length: 2,
                           "0": false,
                           "1": Js_option.isSomeValue(simpleEq, 1, 2)
                         };
@@ -106,14 +94,12 @@ var option_suites = /* constructor */{
             "1": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": /* tuple */[
                 "option_isSomeValue_DiffNone",
                 (function (param) {
                     return /* constructor */{
                             tag: 0,
                             name: "Eq",
-                            length: 2,
                             "0": false,
                             "1": Js_option.isSomeValue(simpleEq, 1, undefined)
                           };
@@ -122,14 +108,12 @@ var option_suites = /* constructor */{
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": /* tuple */[
                   "option_getExn_Some",
                   (function (param) {
                       return /* constructor */{
                               tag: 0,
                               name: "Eq",
-                              length: 2,
                               "0": 2,
                               "1": Js_option.getExn(2)
                             };
@@ -138,14 +122,12 @@ var option_suites = /* constructor */{
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": /* tuple */[
                     "option_equal_Eq",
                     (function (param) {
                         return /* constructor */{
                                 tag: 0,
                                 name: "Eq",
-                                length: 2,
                                 "0": true,
                                 "1": Js_option.equal(simpleEq, 2, 2)
                               };
@@ -154,14 +136,12 @@ var option_suites = /* constructor */{
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": /* tuple */[
                       "option_equal_Diff",
                       (function (param) {
                           return /* constructor */{
                                   tag: 0,
                                   name: "Eq",
-                                  length: 2,
                                   "0": false,
                                   "1": Js_option.equal(simpleEq, 1, 2)
                                 };
@@ -170,14 +150,12 @@ var option_suites = /* constructor */{
                     "1": /* constructor */{
                       tag: 0,
                       name: "::",
-                      length: 2,
                       "0": /* tuple */[
                         "option_equal_DiffNone",
                         (function (param) {
                             return /* constructor */{
                                     tag: 0,
                                     name: "Eq",
-                                    length: 2,
                                     "0": false,
                                     "1": Js_option.equal(simpleEq, 1, undefined)
                                   };
@@ -186,14 +164,12 @@ var option_suites = /* constructor */{
                       "1": /* constructor */{
                         tag: 0,
                         name: "::",
-                        length: 2,
                         "0": /* tuple */[
                           "option_andThen_SomeSome",
                           (function (param) {
                               return /* constructor */{
                                       tag: 0,
                                       name: "Eq",
-                                      length: 2,
                                       "0": true,
                                       "1": Js_option.isSomeValue(simpleEq, 3, Js_option.andThen((function (a) {
                                                   return a + 1 | 0;
@@ -204,14 +180,12 @@ var option_suites = /* constructor */{
                         "1": /* constructor */{
                           tag: 0,
                           name: "::",
-                          length: 2,
                           "0": /* tuple */[
                             "option_andThen_SomeNone",
                             (function (param) {
                                 return /* constructor */{
                                         tag: 0,
                                         name: "Eq",
-                                        length: 2,
                                         "0": false,
                                         "1": Js_option.isSomeValue(simpleEq, 3, Js_option.andThen((function (param) {
                                                     return ;
@@ -222,14 +196,12 @@ var option_suites = /* constructor */{
                           "1": /* constructor */{
                             tag: 0,
                             name: "::",
-                            length: 2,
                             "0": /* tuple */[
                               "option_map_Some",
                               (function (param) {
                                   return /* constructor */{
                                           tag: 0,
                                           name: "Eq",
-                                          length: 2,
                                           "0": true,
                                           "1": Js_option.isSomeValue(simpleEq, 3, Js_option.map((function (a) {
                                                       return a + 1 | 0;
@@ -240,14 +212,12 @@ var option_suites = /* constructor */{
                             "1": /* constructor */{
                               tag: 0,
                               name: "::",
-                              length: 2,
                               "0": /* tuple */[
                                 "option_map_None",
                                 (function (param) {
                                     return /* constructor */{
                                             tag: 0,
                                             name: "Eq",
-                                            length: 2,
                                             "0": undefined,
                                             "1": Js_option.map((function (a) {
                                                     return a + 1 | 0;
@@ -258,14 +228,12 @@ var option_suites = /* constructor */{
                               "1": /* constructor */{
                                 tag: 0,
                                 name: "::",
-                                length: 2,
                                 "0": /* tuple */[
                                   "option_default_Some",
                                   (function (param) {
                                       return /* constructor */{
                                               tag: 0,
                                               name: "Eq",
-                                              length: 2,
                                               "0": 2,
                                               "1": Js_option.getWithDefault(3, 2)
                                             };
@@ -274,14 +242,12 @@ var option_suites = /* constructor */{
                                 "1": /* constructor */{
                                   tag: 0,
                                   name: "::",
-                                  length: 2,
                                   "0": /* tuple */[
                                     "option_default_None",
                                     (function (param) {
                                         return /* constructor */{
                                                 tag: 0,
                                                 name: "Eq",
-                                                length: 2,
                                                 "0": 3,
                                                 "1": Js_option.getWithDefault(3, undefined)
                                               };
@@ -290,14 +256,12 @@ var option_suites = /* constructor */{
                                   "1": /* constructor */{
                                     tag: 0,
                                     name: "::",
-                                    length: 2,
                                     "0": /* tuple */[
                                       "option_filter_Pass",
                                       (function (param) {
                                           return /* constructor */{
                                                   tag: 0,
                                                   name: "Eq",
-                                                  length: 2,
                                                   "0": true,
                                                   "1": Js_option.isSomeValue(simpleEq, 2, Js_option.filter((function (a) {
                                                               return a % 2 === 0;
@@ -308,14 +272,12 @@ var option_suites = /* constructor */{
                                     "1": /* constructor */{
                                       tag: 0,
                                       name: "::",
-                                      length: 2,
                                       "0": /* tuple */[
                                         "option_filter_Reject",
                                         (function (param) {
                                             return /* constructor */{
                                                     tag: 0,
                                                     name: "Eq",
-                                                    length: 2,
                                                     "0": undefined,
                                                     "1": Js_option.filter((function (a) {
                                                             return a % 3 === 0;
@@ -326,14 +288,12 @@ var option_suites = /* constructor */{
                                       "1": /* constructor */{
                                         tag: 0,
                                         name: "::",
-                                        length: 2,
                                         "0": /* tuple */[
                                           "option_filter_None",
                                           (function (param) {
                                               return /* constructor */{
                                                       tag: 0,
                                                       name: "Eq",
-                                                      length: 2,
                                                       "0": undefined,
                                                       "1": Js_option.filter((function (a) {
                                                               return a % 3 === 0;
@@ -344,14 +304,12 @@ var option_suites = /* constructor */{
                                         "1": /* constructor */{
                                           tag: 0,
                                           name: "::",
-                                          length: 2,
                                           "0": /* tuple */[
                                             "option_firstSome_First",
                                             (function (param) {
                                                 return /* constructor */{
                                                         tag: 0,
                                                         name: "Eq",
-                                                        length: 2,
                                                         "0": true,
                                                         "1": Js_option.isSomeValue(simpleEq, 3, Js_option.firstSome(3, 2))
                                                       };
@@ -360,14 +318,12 @@ var option_suites = /* constructor */{
                                           "1": /* constructor */{
                                             tag: 0,
                                             name: "::",
-                                            length: 2,
                                             "0": /* tuple */[
                                               "option_firstSome_First",
                                               (function (param) {
                                                   return /* constructor */{
                                                           tag: 0,
                                                           name: "Eq",
-                                                          length: 2,
                                                           "0": true,
                                                           "1": Js_option.isSomeValue(simpleEq, 2, Js_option.firstSome(undefined, 2))
                                                         };
@@ -376,14 +332,12 @@ var option_suites = /* constructor */{
                                             "1": /* constructor */{
                                               tag: 0,
                                               name: "::",
-                                              length: 2,
                                               "0": /* tuple */[
                                                 "option_firstSome_None",
                                                 (function (param) {
                                                     return /* constructor */{
                                                             tag: 0,
                                                             name: "Eq",
-                                                            length: 2,
                                                             "0": undefined,
                                                             "1": Js_option.firstSome(undefined, undefined)
                                                           };

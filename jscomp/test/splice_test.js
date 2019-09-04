@@ -40,12 +40,10 @@ function dynamic(arr) {
   return eq("File \"splice_test.ml\", line 34, characters 5-12", a, Caml_array.caml_array_concat(/* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": /* array */[1],
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": arr,
                     "1": /* [] */0
                   }
@@ -86,12 +84,10 @@ function dynamic$1(arr) {
   return eq("File \"splice_test.ml\", line 56, characters 7-14", a, Caml_array.caml_array_concat(/* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": /* array */[1],
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": arr,
                     "1": /* [] */0
                   }

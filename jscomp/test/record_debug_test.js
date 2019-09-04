@@ -76,22 +76,18 @@ console.log(" " + (String(Format.std_formatter) + (" " + (String(a) + (" " + (St
 var h = /* constructor */{
   tag: 0,
   name: "::",
-  length: 2,
   "0": 1,
   "1": /* constructor */{
     tag: 0,
     name: "::",
-    length: 2,
     "0": 2,
     "1": /* constructor */{
       tag: 0,
       name: "::",
-      length: 2,
       "0": 3,
       "1": /* constructor */{
         tag: 0,
         name: "::",
-        length: 2,
         "0": 4,
         "1": /* [] */0
       }

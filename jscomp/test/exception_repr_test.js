@@ -16,14 +16,12 @@ function eq(loc, x, y) {
   suites[0] = /* constructor */{
     tag: 0,
     name: "::",
-    length: 2,
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
                   tag: 0,
                   name: "Eq",
-                  length: 2,
                   "0": x,
                   "1": y
                 };
@@ -47,23 +45,19 @@ Printexc.register_printer((function (param) {
           return Curry._1(Format.asprintf(/* constructor */{
                           tag: 0,
                           name: "Format",
-                          length: 2,
                           "0": /* constructor */{
                             tag: 11,
                             name: "String_literal",
-                            length: 2,
                             "0": "A(",
                             "1": /* constructor */{
                               tag: 4,
                               name: "Int",
-                              length: 4,
                               "0": /* Int_d */0,
                               "1": /* No_padding */0,
                               "2": /* No_precision */0,
                               "3": /* constructor */{
                                 tag: 12,
                                 name: "Char_literal",
-                                length: 2,
                                 "0": /* ")" */41,
                                 "1": /* End_of_format */0
                               }

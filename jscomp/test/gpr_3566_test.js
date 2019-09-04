@@ -17,14 +17,12 @@ function Test($star) {
   var u = /* constructor */{
     tag: 0,
     name: "A",
-    length: 1,
     "0": 3
   };
   var Block = { };
   var b = eq_A(/* constructor */{
         tag: 0,
         name: "A",
-        length: 1,
         "0": 3
       }, u);
   return {
@@ -41,12 +39,10 @@ function Test2($star) {
   var b = eq_A(/* constructor */{
         tag: 0,
         name: "A",
-        length: 1,
         "0": 3
       }, /* constructor */{
         tag: 0,
         name: "A",
-        length: 1,
         "0": 3
       });
   return {
@@ -60,7 +56,6 @@ function f(i, y) {
   var x = /* constructor */{
     tag: 0,
     name: "A",
-    length: 1,
     "0": i
   };
   return eq_A(x, y);

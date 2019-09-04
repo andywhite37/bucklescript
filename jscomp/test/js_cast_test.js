@@ -12,7 +12,6 @@ function add_test(loc, test) {
   suites[0] = /* constructor */{
     tag: 0,
     name: "::",
-    length: 2,
     "0": /* tuple */[
       id,
       test
@@ -27,7 +26,6 @@ function eq(loc, x, y) {
                 return /* constructor */{
                         tag: 0,
                         name: "Eq",
-                        length: 2,
                         "0": x,
                         "1": y
                       };

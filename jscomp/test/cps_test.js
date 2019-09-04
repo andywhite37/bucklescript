@@ -73,14 +73,12 @@ function test_closure2(param) {
 Mt.from_pair_suites("Cps_test", /* constructor */{
       tag: 0,
       name: "::",
-      length: 2,
       "0": /* tuple */[
         "cps_test_sum",
         (function (param) {
             return /* constructor */{
                     tag: 0,
                     name: "Eq",
-                    length: 2,
                     "0": 55,
                     "1": test(/* () */0)
                   };
@@ -89,14 +87,12 @@ Mt.from_pair_suites("Cps_test", /* constructor */{
       "1": /* constructor */{
         tag: 0,
         name: "::",
-        length: 2,
         "0": /* tuple */[
           "cps_test_closure",
           (function (param) {
               return /* constructor */{
                       tag: 0,
                       name: "Eq",
-                      length: 2,
                       "0": 15,
                       "1": test_closure(/* () */0)
                     };
@@ -105,14 +101,12 @@ Mt.from_pair_suites("Cps_test", /* constructor */{
         "1": /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": /* tuple */[
             "cps_test_closure2",
             (function (param) {
                 return /* constructor */{
                         tag: 0,
                         name: "Eq",
-                        length: 2,
                         "0": 30,
                         "1": test_closure2(/* () */0)
                       };

@@ -6,14 +6,12 @@ var Test_google_closure = require("./test_google_closure.js");
 Mt.from_pair_suites("Closure", /* constructor */{
       tag: 0,
       name: "::",
-      length: 2,
       "0": /* tuple */[
         "partial",
         (function (param) {
             return /* constructor */{
                     tag: 0,
                     name: "Eq",
-                    length: 2,
                     "0": /* tuple */[
                       Test_google_closure.a,
                       Test_google_closure.b,

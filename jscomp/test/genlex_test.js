@@ -8,42 +8,34 @@ var Stream = require("../../lib/js/stream.js");
 var lexer = Genlex.make_lexer(/* constructor */{
       tag: 0,
       name: "::",
-      length: 2,
       "0": "+",
       "1": /* constructor */{
         tag: 0,
         name: "::",
-        length: 2,
         "0": "-",
         "1": /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": "*",
           "1": /* constructor */{
             tag: 0,
             name: "::",
-            length: 2,
             "0": "/",
             "1": /* constructor */{
               tag: 0,
               name: "::",
-              length: 2,
               "0": "let",
               "1": /* constructor */{
                 tag: 0,
                 name: "::",
-                length: 2,
                 "0": "=",
                 "1": /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": "(",
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": ")",
                     "1": /* [] */0
                   }
@@ -73,7 +65,6 @@ function to_list(s) {
     _acc = /* constructor */{
       tag: 0,
       name: "::",
-      length: 2,
       "0": v,
       "1": acc
     };
@@ -84,82 +75,66 @@ function to_list(s) {
 var suites = /* constructor */{
   tag: 0,
   name: "::",
-  length: 2,
   "0": /* tuple */[
     "lexer_stream_genlex",
     (function (param) {
         return /* constructor */{
                 tag: 0,
                 name: "Eq",
-                length: 2,
                 "0": /* constructor */{
                   tag: 0,
                   name: "::",
-                  length: 2,
                   "0": /* constructor */{
                     tag: 2,
                     name: "Int",
-                    length: 1,
                     "0": 3
                   },
                   "1": /* constructor */{
                     tag: 0,
                     name: "::",
-                    length: 2,
                     "0": /* constructor */{
                       tag: 0,
                       name: "Kwd",
-                      length: 1,
                       "0": "("
                     },
                     "1": /* constructor */{
                       tag: 0,
                       name: "::",
-                      length: 2,
                       "0": /* constructor */{
                         tag: 2,
                         name: "Int",
-                        length: 1,
                         "0": 3
                       },
                       "1": /* constructor */{
                         tag: 0,
                         name: "::",
-                        length: 2,
                         "0": /* constructor */{
                           tag: 0,
                           name: "Kwd",
-                          length: 1,
                           "0": "+"
                         },
                         "1": /* constructor */{
                           tag: 0,
                           name: "::",
-                          length: 2,
                           "0": /* constructor */{
                             tag: 2,
                             name: "Int",
-                            length: 1,
                             "0": 2
                           },
                           "1": /* constructor */{
                             tag: 0,
                             name: "::",
-                            length: 2,
                             "0": /* constructor */{
                               tag: 2,
                               name: "Int",
-                              length: 1,
                               "0": -1
                             },
                             "1": /* constructor */{
                               tag: 0,
                               name: "::",
-                              length: 2,
                               "0": /* constructor */{
                                 tag: 0,
                                 name: "Kwd",
-                                length: 1,
                                 "0": ")"
                               },
                               "1": /* [] */0

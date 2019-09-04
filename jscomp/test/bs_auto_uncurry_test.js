@@ -11,14 +11,12 @@ function eq(loc, x, y) {
   suites[0] = /* constructor */{
     tag: 0,
     name: "::",
-    length: 2,
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
                   tag: 0,
                   name: "Eq",
-                  length: 2,
                   "0": x,
                   "1": y
                 };
@@ -43,7 +41,6 @@ hi((function () {
         xs[0] = /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": /* () */0,
           "1": xs[0]
         };
@@ -54,7 +51,6 @@ hi((function () {
         xs[0] = /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": /* () */0,
           "1": xs[0]
         };
@@ -64,12 +60,10 @@ hi((function () {
 eq("File \"bs_auto_uncurry_test.ml\", line 27, characters 7-14", xs[0], /* constructor */{
       tag: 0,
       name: "::",
-      length: 2,
       "0": /* () */0,
       "1": /* constructor */{
         tag: 0,
         name: "::",
-        length: 2,
         "0": /* () */0,
         "1": /* [] */0
       }

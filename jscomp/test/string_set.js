@@ -60,7 +60,6 @@ function add(x, tree) {
     return /* constructor */{
             tag: 0,
             name: "Node",
-            length: 4,
             "0": /* Empty */0,
             "1": x,
             "2": /* Empty */0,
@@ -202,7 +201,6 @@ function subset(_s1, _s2) {
           if (subset(/* constructor */{
                   tag: 0,
                   name: "Node",
-                  length: 4,
                   "0": l1,
                   "1": v1,
                   "2": /* Empty */0,
@@ -216,7 +214,6 @@ function subset(_s1, _s2) {
         } else if (subset(/* constructor */{
                 tag: 0,
                 name: "Node",
-                length: 4,
                 "0": /* Empty */0,
                 "1": v1,
                 "2": r1,

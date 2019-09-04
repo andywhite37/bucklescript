@@ -24,7 +24,6 @@ var hhh = $$Array.append(/* array */[
 var u = Caml_array.caml_array_concat(/* constructor */{
       tag: 0,
       name: "::",
-      length: 2,
       "0": /* array */[
         1,
         2
@@ -32,7 +31,6 @@ var u = Caml_array.caml_array_concat(/* constructor */{
       "1": /* constructor */{
         tag: 0,
         name: "::",
-        length: 2,
         "0": /* array */[
           2,
           3
@@ -40,7 +38,6 @@ var u = Caml_array.caml_array_concat(/* constructor */{
         "1": /* constructor */{
           tag: 0,
           name: "::",
-          length: 2,
           "0": /* array */[
             3,
             4

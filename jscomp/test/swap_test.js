@@ -858,16 +858,13 @@ var suites_16 = List.map((function (param) {
                 Curry._1(Printf.sprintf(/* constructor */{
                           tag: 0,
                           name: "Format",
-                          length: 2,
                           "0": /* constructor */{
                             tag: 11,
                             name: "String_literal",
-                            length: 2,
                             "0": "swap16 ",
                             "1": /* constructor */{
                               tag: 4,
                               name: "Int",
-                              length: 4,
                               "0": /* Int_d */0,
                               "1": /* No_padding */0,
                               "2": /* No_precision */0,
@@ -880,7 +877,6 @@ var suites_16 = List.map((function (param) {
                     return /* constructor */{
                             tag: 0,
                             name: "Eq",
-                            length: 2,
                             "0": Caml_int32.caml_bswap16(a),
                             "1": b
                           };
@@ -895,16 +891,13 @@ var suites_32 = List.map((function (param) {
                 Curry._1(Printf.sprintf(/* constructor */{
                           tag: 0,
                           name: "Format",
-                          length: 2,
                           "0": /* constructor */{
                             tag: 11,
                             name: "String_literal",
-                            length: 2,
                             "0": "swap32 ",
                             "1": /* constructor */{
                               tag: 4,
                               name: "Int",
-                              length: 4,
                               "0": /* Int_d */0,
                               "1": /* No_padding */0,
                               "2": /* No_precision */0,
@@ -917,7 +910,6 @@ var suites_32 = List.map((function (param) {
                     return /* constructor */{
                             tag: 0,
                             name: "Eq",
-                            length: 2,
                             "0": Caml_int32.caml_int32_bswap(a),
                             "1": b
                           };
@@ -932,16 +924,13 @@ var suites_64 = List.map((function (param) {
                 Curry._1(Printf.sprintf(/* constructor */{
                           tag: 0,
                           name: "Format",
-                          length: 2,
                           "0": /* constructor */{
                             tag: 11,
                             name: "String_literal",
-                            length: 2,
                             "0": "swap64 ",
                             "1": /* constructor */{
                               tag: 4,
                               name: "Int",
-                              length: 4,
                               "0": /* Int_d */0,
                               "1": /* No_padding */0,
                               "2": /* No_precision */0,
@@ -954,7 +943,6 @@ var suites_64 = List.map((function (param) {
                     return /* constructor */{
                             tag: 0,
                             name: "Eq",
-                            length: 2,
                             "0": Caml_int64.swap(a),
                             "1": b
                           };
@@ -965,11 +953,9 @@ var suites_64 = List.map((function (param) {
 var d16_000 = /* constructor */{
   tag: 0,
   name: "Format",
-  length: 2,
   "0": /* constructor */{
     tag: 4,
     name: "Int",
-    length: 4,
     "0": /* Int_x */6,
     "1": /* No_padding */0,
     "2": /* No_precision */0,
@@ -1000,11 +986,9 @@ var d16 = /* tuple */[
 var d32_000 = /* constructor */{
   tag: 0,
   name: "Format",
-  length: 2,
   "0": /* constructor */{
     tag: 5,
     name: "Int32",
-    length: 4,
     "0": /* Int_x */6,
     "1": /* No_padding */0,
     "2": /* No_precision */0,
@@ -1042,21 +1026,17 @@ function f(s, param) {
                             Curry._2(Format.asprintf(/* constructor */{
                                       tag: 0,
                                       name: "Format",
-                                      length: 2,
                                       "0": /* constructor */{
                                         tag: 2,
                                         name: "String",
-                                        length: 2,
                                         "0": /* No_padding */0,
                                         "1": /* constructor */{
                                           tag: 12,
                                           name: "Char_literal",
-                                          length: 2,
                                           "0": /* " " */32,
                                           "1": /* constructor */{
                                             tag: 4,
                                             name: "Int",
-                                            length: 4,
                                             "0": /* Int_i */3,
                                             "1": /* No_padding */0,
                                             "2": /* No_precision */0,
@@ -1070,7 +1050,6 @@ function f(s, param) {
                                 return /* constructor */{
                                         tag: 0,
                                         name: "Eq",
-                                        length: 2,
                                         "0": Curry._1(Format.asprintf(x), Curry._1(swap, a)),
                                         "1": b
                                       };

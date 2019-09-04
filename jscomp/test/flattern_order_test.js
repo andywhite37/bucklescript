@@ -8,7 +8,6 @@ var ys = [];
 Caml_obj.caml_update_dummy(ys, /* constructor */{
       tag: 0,
       name: "::",
-      length: 2,
       "0": 1,
       "1": ys
     });
@@ -23,12 +22,10 @@ function _zs(param) {
 var xs_000 = /* constructor */{
   tag: 0,
   name: "::",
-  length: 2,
   "0": 2,
   "1": /* constructor */{
     tag: 0,
     name: "::",
-    length: 2,
     "0": List.hd(ys),
     "1": /* [] */0
   }
