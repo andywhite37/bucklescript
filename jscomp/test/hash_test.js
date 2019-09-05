@@ -119,7 +119,7 @@ var param$6 = Hashtbl.hash(/* constructor */{
       }
     }) & 1073741823;
 
-Mt_global.collect_eq(test_id, suites, "File \"hash_test.ml\", line 35, characters 5-12", param$6, 1017654909);
+Mt_global.collect_eq(test_id, suites, "File \"hash_test.ml\", line 35, characters 5-12", param$6, 147368683);
 
 var param$7 = Hashtbl.hash(/* constructor */{
       tag: 0,
@@ -151,7 +151,7 @@ var param$7 = Hashtbl.hash(/* constructor */{
       }
     }) & 1073741823;
 
-Mt_global.collect_eq(test_id, suites, "File \"hash_test.ml\", line 36, characters 5-12", param$7, 81986873);
+Mt_global.collect_eq(test_id, suites, "File \"hash_test.ml\", line 36, characters 5-12", param$7, 611453038);
 
 var param$8 = Hashtbl.hash(/* constructor */{
       tag: 0,
@@ -176,7 +176,7 @@ var param$8 = Hashtbl.hash(/* constructor */{
       "1": /* [] */0
     }) & 1073741823;
 
-Mt_global.collect_eq(test_id, suites, "File \"hash_test.ml\", line 39, characters 5-12", param$8, 100650590);
+Mt_global.collect_eq(test_id, suites, "File \"hash_test.ml\", line 39, characters 5-12", param$8, 64809327);
 
 Mt.from_pair_suites("Hash_test", suites[0]);
 
