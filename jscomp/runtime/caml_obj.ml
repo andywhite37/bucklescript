@@ -137,7 +137,7 @@ let caml_update_dummy0 (x : Caml_obj_extern.t) (y : Caml_obj_extern.t) : unit =
 (* [set_length] seems redundant here given that it is initialized as an array 
 *)
 
-let () = Js.log(caml_update_dummy0)
+let () = if [1] == [1] then Js.log(caml_update_dummy0)
 
 let caml_update_dummy : Caml_obj_extern.t -> Caml_obj_extern.t -> unit = fun%raw x y-> {|
 if (Array.isArray(x) && Array.isArray(y)) { return caml_update_dummy0(x,y) }
