@@ -49,7 +49,7 @@ let length : t -> int = fun%raw o -> {|
 if (Array.isArray(o)) { return o.length }
 else {
   const keys = Object.keys(o);
-  return keys["tag"] ? keys.length - 2 : keys.length }
+  keys.length }
 |}
 
 external magic : 'a -> 'b = "%identity"
