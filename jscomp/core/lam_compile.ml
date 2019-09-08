@@ -607,7 +607,7 @@ and compile_switch switch_arg sw (lambda_cxt : Lam_compile_context.t) =
          (* [e] will be used twice  *)
          let dispatch e =
            S.if_
-             (E.is_type_number e )
+             ((* E.is_type_string *) E.is_type_number e)
              (compile_cases cxt e sw_consts sw_num_default (get_name true)
              )
              (* default still needed, could simplified*)
