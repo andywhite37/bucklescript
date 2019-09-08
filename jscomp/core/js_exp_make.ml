@@ -786,6 +786,9 @@ let rec string_equal ?comment (e0 : t) (e1 : t) : t =
 let is_type_number ?comment (e : t) : t = 
   string_equal ?comment (typeof e) (str "number")    
 
+let is_type_string ?comment (e : t) : t = 
+  string_equal ?comment (typeof e) (str "string")    
+  
 
 (* we are calling [Caml_primitive.primitive_name], since it's under our
    control, we should make it follow the javascript name convention, and
@@ -794,11 +797,11 @@ let is_type_number ?comment (e : t) : t =
 
 
 let tag ?comment e : t = 
-  (* let comment = Some "XXX" in *)
+  (* let comment = Some "XXX" in
+  {expression_desc = Caml_block_tag e; comment } *)
   {expression_desc = 
      Bin (Bor, {expression_desc = Caml_block_tag e; comment }, zero_int_literal );
-   comment = None }    
-
+   comment = None }
 
 (* according to the compiler, [Btype.hash_variant], 
    it's reduced to 31 bits for hash
