@@ -5,7 +5,6 @@ var Sys = require("../../lib/js/sys.js");
 var Char = require("../../lib/js/char.js");
 var List = require("../../lib/js/list.js");
 var $$Array = require("../../lib/js/array.js");
-var Block = require("../../lib/js/block.js");
 var Bytes = require("../../lib/js/bytes.js");
 var Curry = require("../../lib/js/curry.js");
 var $$Buffer = require("../../lib/js/buffer.js");
@@ -115,37 +114,59 @@ var default_executable_name = "a.out";
 
 function print_config(oc) {
   var p = function (name, valu) {
-    return Curry._2(Printf.fprintf(oc, /* Format */[
-                    /* String */Block.__(2, [
-                        /* No_padding */0,
-                        /* String_literal */Block.__(11, [
-                            ": ",
-                            /* String */Block.__(2, [
-                                /* No_padding */0,
-                                /* Char_literal */Block.__(12, [
-                                    /* "\n" */10,
-                                    /* End_of_format */0
-                                  ])
-                              ])
-                          ])
-                      ]),
-                    "%s: %s\n"
-                  ]), name, valu);
+    return Curry._2(Printf.fprintf(oc, /* constructor */{
+                    tag: 0,
+                    name: "Format",
+                    "0": /* constructor */{
+                      tag: 2,
+                      name: "String",
+                      "0": /* No_padding */0,
+                      "1": /* constructor */{
+                        tag: 11,
+                        name: "String_literal",
+                        "0": ": ",
+                        "1": /* constructor */{
+                          tag: 2,
+                          name: "String",
+                          "0": /* No_padding */0,
+                          "1": /* constructor */{
+                            tag: 12,
+                            name: "Char_literal",
+                            "0": /* "\n" */10,
+                            "1": /* End_of_format */0
+                          }
+                        }
+                      }
+                    },
+                    "1": "%s: %s\n"
+                  }), name, valu);
   };
   var p_bool = function (name, valu) {
-    return Curry._2(Printf.fprintf(oc, /* Format */[
-                    /* String */Block.__(2, [
-                        /* No_padding */0,
-                        /* String_literal */Block.__(11, [
-                            ": ",
-                            /* Bool */Block.__(9, [/* Char_literal */Block.__(12, [
-                                    /* "\n" */10,
-                                    /* End_of_format */0
-                                  ])])
-                          ])
-                      ]),
-                    "%s: %B\n"
-                  ]), name, valu);
+    return Curry._2(Printf.fprintf(oc, /* constructor */{
+                    tag: 0,
+                    name: "Format",
+                    "0": /* constructor */{
+                      tag: 2,
+                      name: "String",
+                      "0": /* No_padding */0,
+                      "1": /* constructor */{
+                        tag: 11,
+                        name: "String_literal",
+                        "0": ": ",
+                        "1": /* constructor */{
+                          tag: 9,
+                          name: "Bool",
+                          "0": /* constructor */{
+                            tag: 12,
+                            name: "Char_literal",
+                            "0": /* "\n" */10,
+                            "1": /* End_of_format */0
+                          }
+                        }
+                      }
+                    },
+                    "1": "%s: %B\n"
+                  }), name, valu);
   };
   p("version", Sys.ocaml_version);
   p("standard_library_default", standard_library_default);
@@ -406,10 +427,12 @@ function std_include_dir(param) {
   if (no_std_include[0]) {
     return /* [] */0;
   } else {
-    return /* :: */[
-            standard_library,
-            /* [] */0
-          ];
+    return /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": standard_library,
+            "1": /* [] */0
+          };
   }
 }
 
@@ -584,10 +607,12 @@ function try_finally(work, cleanup) {
 
 function map_end(f, l1, l2) {
   if (l1) {
-    return /* :: */[
-            Curry._1(f, l1[0]),
-            map_end(f, l1[1], l2)
-          ];
+    return /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": Curry._1(f, l1[0]),
+            "1": map_end(f, l1[1], l2)
+          };
   } else {
     return l2;
   }
@@ -596,10 +621,12 @@ function map_end(f, l1, l2) {
 function map_left_right(f, param) {
   if (param) {
     var res = Curry._1(f, param[0]);
-    return /* :: */[
-            res,
-            map_left_right(f, param[1])
-          ];
+    return /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": res,
+            "1": map_left_right(f, param[1])
+          };
   } else {
     return /* [] */0;
   }
@@ -629,10 +656,12 @@ function replicate_list(elem, n) {
   if (n <= 0) {
     return /* [] */0;
   } else {
-    return /* :: */[
-            elem,
-            replicate_list(elem, n - 1 | 0)
-          ];
+    return /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": elem,
+            "1": replicate_list(elem, n - 1 | 0)
+          };
   }
 }
 
@@ -643,10 +672,12 @@ function list_remove(x, param) {
     if (Caml_obj.caml_equal(hd, x)) {
       return tl;
     } else {
-      return /* :: */[
-              hd,
-              list_remove(x, tl)
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": hd,
+              "1": list_remove(x, tl)
+            };
     }
   } else {
     return /* [] */0;
@@ -660,10 +691,12 @@ function split_last(param) {
     if (tl) {
       var match = split_last(tl);
       return /* tuple */[
-              /* :: */[
-                x,
-                match[0]
-              ],
+              /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": x,
+                "1": match[0]
+              },
               match[1]
             ];
     } else {
@@ -982,20 +1015,24 @@ function replace_substring(before, after, str) {
       catch (exn){
         if (exn === Caml_builtin_exceptions.not_found) {
           var suffix = $$String.sub(str, curr, str.length - curr | 0);
-          return List.rev(/* :: */[
-                      suffix,
-                      acc
-                    ]);
+          return List.rev(/* constructor */{
+                      tag: 0,
+                      name: "::",
+                      "0": suffix,
+                      "1": acc
+                    });
         } else {
           throw exn;
         }
       }
       var prefix = $$String.sub(str, curr, next - curr | 0);
       _curr = next + before.length | 0;
-      _acc = /* :: */[
-        prefix,
-        acc
-      ];
+      _acc = /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": prefix,
+        "1": acc
+      };
       continue ;
     };
   };
@@ -1031,10 +1068,12 @@ function rev_split_words(s) {
     while(true) {
       var j = _j;
       if (j >= s.length) {
-        return /* :: */[
-                $$String.sub(s, i, j - i | 0),
-                res
-              ];
+        return /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": $$String.sub(s, i, j - i | 0),
+                "1": res
+              };
       } else {
         var match = Caml_string.get(s, j);
         var switcher = match - 9 | 0;
@@ -1048,10 +1087,12 @@ function rev_split_words(s) {
           _j = j + 1 | 0;
           continue ;
         }
-        return split1(/* :: */[
-                    $$String.sub(s, i, j - i | 0),
-                    res
-                  ], j + 1 | 0);
+        return split1(/* constructor */{
+                    tag: 0,
+                    name: "::",
+                    "0": $$String.sub(s, i, j - i | 0),
+                    "1": res
+                  }, j + 1 | 0);
       }
     };
   };
@@ -1196,10 +1237,12 @@ function split(s, c) {
     var to_rev = _to_rev;
     var pos = _pos;
     if (pos === len) {
-      return List.rev(/* :: */[
-                  "",
-                  to_rev
-                ]);
+      return List.rev(/* constructor */{
+                  tag: 0,
+                  name: "::",
+                  "0": "",
+                  "1": to_rev
+                });
     } else {
       var match;
       try {
@@ -1215,25 +1258,31 @@ function split(s, c) {
       if (match !== undefined) {
         var pos2 = match;
         if (pos2 === pos) {
-          _to_rev = /* :: */[
-            "",
-            to_rev
-          ];
+          _to_rev = /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": "",
+            "1": to_rev
+          };
           _pos = pos + 1 | 0;
           continue ;
         } else {
-          _to_rev = /* :: */[
-            $$String.sub(s, pos, pos2 - pos | 0),
-            to_rev
-          ];
+          _to_rev = /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": $$String.sub(s, pos, pos2 - pos | 0),
+            "1": to_rev
+          };
           _pos = pos2 + 1 | 0;
           continue ;
         }
       } else {
-        return List.rev(/* :: */[
-                    $$String.sub(s, pos, len - pos | 0),
-                    to_rev
-                  ]);
+        return List.rev(/* constructor */{
+                    tag: 0,
+                    name: "::",
+                    "0": $$String.sub(s, pos, len - pos | 0),
+                    "1": to_rev
+                  });
       }
     }
   };
@@ -1295,24 +1344,42 @@ function ansi_of_style_l(l) {
 }
 
 var default_styles = /* record */[
-  /* error : :: */[
-    /* Bold */0,
-    /* :: */[
-      /* FG */Block.__(0, [/* Red */1]),
-      /* [] */0
-    ]
-  ],
-  /* warning : :: */[
-    /* Bold */0,
-    /* :: */[
-      /* FG */Block.__(0, [/* Magenta */5]),
-      /* [] */0
-    ]
-  ],
-  /* loc : :: */[
-    /* Bold */0,
-    /* [] */0
-  ]
+  /* error : constructor */{
+    tag: 0,
+    name: "::",
+    "0": /* Bold */0,
+    "1": /* constructor */{
+      tag: 0,
+      name: "::",
+      "0": /* constructor */{
+        tag: 0,
+        name: "FG",
+        "0": /* Red */1
+      },
+      "1": /* [] */0
+    }
+  },
+  /* warning : constructor */{
+    tag: 0,
+    name: "::",
+    "0": /* Bold */0,
+    "1": /* constructor */{
+      tag: 0,
+      name: "::",
+      "0": /* constructor */{
+        tag: 0,
+        name: "FG",
+        "0": /* Magenta */5
+      },
+      "1": /* [] */0
+    }
+  },
+  /* loc : constructor */{
+    tag: 0,
+    name: "::",
+    "0": /* Bold */0,
+    "1": /* [] */0
+  }
 ];
 
 var cur_styles = /* record */[/* contents */default_styles];
@@ -1329,25 +1396,41 @@ function set_styles(s) {
 function style_of_tag(s) {
   switch (s) {
     case "dim" :
-        return /* :: */[
-                /* Dim */2,
-                /* [] */0
-              ];
+        return /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": /* Dim */2,
+                "1": /* [] */0
+              };
     case "error" :
         return cur_styles[0][/* error */0];
     case "filename" :
-        return /* :: */[
-                /* FG */Block.__(0, [/* Cyan */6]),
-                /* [] */0
-              ];
+        return /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": /* constructor */{
+                  tag: 0,
+                  name: "FG",
+                  "0": /* Cyan */6
+                },
+                "1": /* [] */0
+              };
     case "info" :
-        return /* :: */[
-                /* Bold */0,
-                /* :: */[
-                  /* FG */Block.__(0, [/* Yellow */3]),
-                  /* [] */0
-                ]
-              ];
+        return /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": /* Bold */0,
+                "1": /* constructor */{
+                  tag: 0,
+                  name: "::",
+                  "0": /* constructor */{
+                    tag: 0,
+                    name: "FG",
+                    "0": /* Yellow */3
+                  },
+                  "1": /* [] */0
+                }
+              };
     case "loc" :
         return cur_styles[0][/* loc */2];
     case "warning" :
@@ -1388,10 +1471,12 @@ function set_color_tag_handling(ppf) {
     try {
       style_of_tag(s);
       if (color_enabled[0]) {
-        return ansi_of_style_l(/* :: */[
-                    /* Reset */1,
-                    /* [] */0
-                  ]);
+        return ansi_of_style_l(/* constructor */{
+                    tag: 0,
+                    name: "::",
+                    "0": /* Reset */1,
+                    "1": /* [] */0
+                  });
       } else {
         return "";
       }
@@ -1418,18 +1503,22 @@ function set_color_tag_handling(ppf) {
 
 var first = /* record */[/* contents */true];
 
-var formatter_l_001 = /* :: */[
-  Format.err_formatter,
-  /* :: */[
-    Format.str_formatter,
-    /* [] */0
-  ]
-];
-
-var formatter_l = /* :: */[
-  Format.std_formatter,
-  formatter_l_001
-];
+var formatter_l = /* constructor */{
+  tag: 0,
+  name: "::",
+  "0": Format.std_formatter,
+  "1": /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": Format.err_formatter,
+    "1": /* constructor */{
+      tag: 0,
+      name: "::",
+      "0": Format.str_formatter,
+      "1": /* [] */0
+    }
+  }
+};
 
 function setup(o) {
   if (first[0]) {
@@ -1638,10 +1727,12 @@ function loop(i) {
   if (i === 0) {
     return /* [] */0;
   } else {
-    return /* :: */[
-            i,
-            loop(i - 1 | 0)
-          ];
+    return /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": i,
+            "1": loop(i - 1 | 0)
+          };
   }
 }
 
@@ -1652,92 +1743,134 @@ function letter(param) {
     case 97 :
         return letter_all;
     case 99 :
-        return /* :: */[
-                1,
-                /* :: */[
-                  2,
-                  /* [] */0
-                ]
-              ];
+        return /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": 1,
+                "1": /* constructor */{
+                  tag: 0,
+                  name: "::",
+                  "0": 2,
+                  "1": /* [] */0
+                }
+              };
     case 100 :
-        return /* :: */[
-                3,
-                /* [] */0
-              ];
+        return /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": 3,
+                "1": /* [] */0
+              };
     case 101 :
-        return /* :: */[
-                4,
-                /* [] */0
-              ];
+        return /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": 4,
+                "1": /* [] */0
+              };
     case 102 :
-        return /* :: */[
-                5,
-                /* [] */0
-              ];
+        return /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": 5,
+                "1": /* [] */0
+              };
     case 107 :
-        return /* :: */[
-                32,
-                /* :: */[
-                  33,
-                  /* :: */[
-                    34,
-                    /* :: */[
-                      35,
-                      /* :: */[
-                        36,
-                        /* :: */[
-                          37,
-                          /* :: */[
-                            38,
-                            /* :: */[
-                              39,
-                              /* [] */0
-                            ]
-                          ]
-                        ]
-                      ]
-                    ]
-                  ]
-                ]
-              ];
+        return /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": 32,
+                "1": /* constructor */{
+                  tag: 0,
+                  name: "::",
+                  "0": 33,
+                  "1": /* constructor */{
+                    tag: 0,
+                    name: "::",
+                    "0": 34,
+                    "1": /* constructor */{
+                      tag: 0,
+                      name: "::",
+                      "0": 35,
+                      "1": /* constructor */{
+                        tag: 0,
+                        name: "::",
+                        "0": 36,
+                        "1": /* constructor */{
+                          tag: 0,
+                          name: "::",
+                          "0": 37,
+                          "1": /* constructor */{
+                            tag: 0,
+                            name: "::",
+                            "0": 38,
+                            "1": /* constructor */{
+                              tag: 0,
+                              name: "::",
+                              "0": 39,
+                              "1": /* [] */0
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              };
     case 108 :
-        return /* :: */[
-                6,
-                /* [] */0
-              ];
+        return /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": 6,
+                "1": /* [] */0
+              };
     case 109 :
-        return /* :: */[
-                7,
-                /* [] */0
-              ];
+        return /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": 7,
+                "1": /* [] */0
+              };
     case 112 :
-        return /* :: */[
-                8,
-                /* [] */0
-              ];
+        return /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": 8,
+                "1": /* [] */0
+              };
     case 114 :
-        return /* :: */[
-                9,
-                /* [] */0
-              ];
+        return /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": 9,
+                "1": /* [] */0
+              };
     case 115 :
-        return /* :: */[
-                10,
-                /* [] */0
-              ];
+        return /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": 10,
+                "1": /* [] */0
+              };
     case 117 :
-        return /* :: */[
-                11,
-                /* :: */[
-                  12,
-                  /* [] */0
-                ]
-              ];
+        return /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": 11,
+                "1": /* constructor */{
+                  tag: 0,
+                  name: "::",
+                  "0": 12,
+                  "1": /* [] */0
+                }
+              };
     case 118 :
-        return /* :: */[
-                13,
-                /* [] */0
-              ];
+        return /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": 13,
+                "1": /* [] */0
+              };
     case 98 :
     case 103 :
     case 104 :
@@ -1750,56 +1883,86 @@ function letter(param) {
     case 119 :
         return /* [] */0;
     case 120 :
-        return /* :: */[
-                14,
-                /* :: */[
-                  15,
-                  /* :: */[
-                    16,
-                    /* :: */[
-                      17,
-                      /* :: */[
-                        18,
-                        /* :: */[
-                          19,
-                          /* :: */[
-                            20,
-                            /* :: */[
-                              21,
-                              /* :: */[
-                                22,
-                                /* :: */[
-                                  23,
-                                  /* :: */[
-                                    24,
-                                    /* :: */[
-                                      25,
-                                      /* :: */[
-                                        30,
-                                        /* [] */0
-                                      ]
-                                    ]
-                                  ]
-                                ]
-                              ]
-                            ]
-                          ]
-                        ]
-                      ]
-                    ]
-                  ]
-                ]
-              ];
+        return /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": 14,
+                "1": /* constructor */{
+                  tag: 0,
+                  name: "::",
+                  "0": 15,
+                  "1": /* constructor */{
+                    tag: 0,
+                    name: "::",
+                    "0": 16,
+                    "1": /* constructor */{
+                      tag: 0,
+                      name: "::",
+                      "0": 17,
+                      "1": /* constructor */{
+                        tag: 0,
+                        name: "::",
+                        "0": 18,
+                        "1": /* constructor */{
+                          tag: 0,
+                          name: "::",
+                          "0": 19,
+                          "1": /* constructor */{
+                            tag: 0,
+                            name: "::",
+                            "0": 20,
+                            "1": /* constructor */{
+                              tag: 0,
+                              name: "::",
+                              "0": 21,
+                              "1": /* constructor */{
+                                tag: 0,
+                                name: "::",
+                                "0": 22,
+                                "1": /* constructor */{
+                                  tag: 0,
+                                  name: "::",
+                                  "0": 23,
+                                  "1": /* constructor */{
+                                    tag: 0,
+                                    name: "::",
+                                    "0": 24,
+                                    "1": /* constructor */{
+                                      tag: 0,
+                                      name: "::",
+                                      "0": 25,
+                                      "1": /* constructor */{
+                                        tag: 0,
+                                        name: "::",
+                                        "0": 30,
+                                        "1": /* [] */0
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              };
     case 121 :
-        return /* :: */[
-                26,
-                /* [] */0
-              ];
+        return /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": 26,
+                "1": /* [] */0
+              };
     case 122 :
-        return /* :: */[
-                27,
-                /* [] */0
-              ];
+        return /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": 27,
+                "1": /* [] */0
+              };
     default:
       throw [
             Caml_builtin_exceptions.assert_failure,
@@ -2075,16 +2238,22 @@ function message(param) {
             var slist = match[1];
             var lab = match[0];
             if (slist) {
-              return $$String.concat(" ", /* :: */[
-                          "the following methods are overridden by the class",
-                          /* :: */[
-                            lab,
-                            /* :: */[
-                              ":\n ",
-                              slist
-                            ]
-                          ]
-                        ]);
+              return $$String.concat(" ", /* constructor */{
+                          tag: 0,
+                          name: "::",
+                          "0": "the following methods are overridden by the class",
+                          "1": /* constructor */{
+                            tag: 0,
+                            name: "::",
+                            "0": lab,
+                            "1": /* constructor */{
+                              tag: 0,
+                              name: "::",
+                              "0": ":\n ",
+                              "1": slist
+                            }
+                          }
+                        });
             } else {
               return "the method " + (lab + " is overridden.");
             }
@@ -2113,16 +2282,22 @@ function message(param) {
             var slist$1 = match$1[1];
             var lab$1 = match$1[0];
             if (slist$1) {
-              return $$String.concat(" ", /* :: */[
-                          "the following instance variables are overridden by the class",
-                          /* :: */[
-                            lab$1,
-                            /* :: */[
-                              ":\n ",
-                              slist$1
-                            ]
-                          ]
-                        ]) + "\nThe behaviour changed in ocaml 3.10 (previous behaviour was hiding.)";
+              return $$String.concat(" ", /* constructor */{
+                          tag: 0,
+                          name: "::",
+                          "0": "the following instance variables are overridden by the class",
+                          "1": /* constructor */{
+                            tag: 0,
+                            name: "::",
+                            "0": lab$1,
+                            "1": /* constructor */{
+                              tag: 0,
+                              name: "::",
+                              "0": ":\n ",
+                              "1": slist$1
+                            }
+                          }
+                        }) + "\nThe behaviour changed in ocaml 3.10 (previous behaviour was hiding.)";
             } else {
               return "the instance variable " + (lab$1 + " is overridden.\nThe behaviour changed in ocaml 3.10 (previous behaviour was hiding.)");
             }
@@ -2152,60 +2327,94 @@ function message(param) {
       case /* Unused_var_strict */13 :
           return "unused variable " + (param[0] + ".");
       case /* Duplicate_definitions */14 :
-          return Curry._4(Printf.sprintf(/* Format */[
-                          /* String_literal */Block.__(11, [
-                              "the ",
-                              /* String */Block.__(2, [
-                                  /* No_padding */0,
-                                  /* Char_literal */Block.__(12, [
-                                      /* " " */32,
-                                      /* String */Block.__(2, [
-                                          /* No_padding */0,
-                                          /* String_literal */Block.__(11, [
-                                              " is defined in both types ",
-                                              /* String */Block.__(2, [
-                                                  /* No_padding */0,
-                                                  /* String_literal */Block.__(11, [
-                                                      " and ",
-                                                      /* String */Block.__(2, [
-                                                          /* No_padding */0,
-                                                          /* Char_literal */Block.__(12, [
-                                                              /* "." */46,
-                                                              /* End_of_format */0
-                                                            ])
-                                                        ])
-                                                    ])
-                                                ])
-                                            ])
-                                        ])
-                                    ])
-                                ])
-                            ]),
-                          "the %s %s is defined in both types %s and %s."
-                        ]), param[0], param[1], param[2], param[3]);
+          return Curry._4(Printf.sprintf(/* constructor */{
+                          tag: 0,
+                          name: "Format",
+                          "0": /* constructor */{
+                            tag: 11,
+                            name: "String_literal",
+                            "0": "the ",
+                            "1": /* constructor */{
+                              tag: 2,
+                              name: "String",
+                              "0": /* No_padding */0,
+                              "1": /* constructor */{
+                                tag: 12,
+                                name: "Char_literal",
+                                "0": /* " " */32,
+                                "1": /* constructor */{
+                                  tag: 2,
+                                  name: "String",
+                                  "0": /* No_padding */0,
+                                  "1": /* constructor */{
+                                    tag: 11,
+                                    name: "String_literal",
+                                    "0": " is defined in both types ",
+                                    "1": /* constructor */{
+                                      tag: 2,
+                                      name: "String",
+                                      "0": /* No_padding */0,
+                                      "1": /* constructor */{
+                                        tag: 11,
+                                        name: "String_literal",
+                                        "0": " and ",
+                                        "1": /* constructor */{
+                                          tag: 2,
+                                          name: "String",
+                                          "0": /* No_padding */0,
+                                          "1": /* constructor */{
+                                            tag: 12,
+                                            name: "Char_literal",
+                                            "0": /* "." */46,
+                                            "1": /* End_of_format */0
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "1": "the %s %s is defined in both types %s and %s."
+                        }), param[0], param[1], param[2], param[3]);
       case /* Multiple_definition */15 :
-          return Curry._3(Printf.sprintf(/* Format */[
-                          /* String_literal */Block.__(11, [
-                              "files ",
-                              /* String */Block.__(2, [
-                                  /* No_padding */0,
-                                  /* String_literal */Block.__(11, [
-                                      " and ",
-                                      /* String */Block.__(2, [
-                                          /* No_padding */0,
-                                          /* String_literal */Block.__(11, [
-                                              " both define a module named ",
-                                              /* String */Block.__(2, [
-                                                  /* No_padding */0,
-                                                  /* End_of_format */0
-                                                ])
-                                            ])
-                                        ])
-                                    ])
-                                ])
-                            ]),
-                          "files %s and %s both define a module named %s"
-                        ]), param[1], param[2], param[0]);
+          return Curry._3(Printf.sprintf(/* constructor */{
+                          tag: 0,
+                          name: "Format",
+                          "0": /* constructor */{
+                            tag: 11,
+                            name: "String_literal",
+                            "0": "files ",
+                            "1": /* constructor */{
+                              tag: 2,
+                              name: "String",
+                              "0": /* No_padding */0,
+                              "1": /* constructor */{
+                                tag: 11,
+                                name: "String_literal",
+                                "0": " and ",
+                                "1": /* constructor */{
+                                  tag: 2,
+                                  name: "String",
+                                  "0": /* No_padding */0,
+                                  "1": /* constructor */{
+                                    tag: 11,
+                                    name: "String_literal",
+                                    "0": " both define a module named ",
+                                    "1": /* constructor */{
+                                      tag: 2,
+                                      name: "String",
+                                      "0": /* No_padding */0,
+                                      "1": /* End_of_format */0
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "1": "files %s and %s both define a module named %s"
+                        }), param[1], param[2], param[0]);
       case /* Unused_value_declaration */16 :
           return "unused value " + (param[0] + ".");
       case /* Unused_open */17 :
@@ -2276,97 +2485,151 @@ function message(param) {
       case /* Nonoptional_label */26 :
           return "the label " + (param[0] + " is not optional.");
       case /* Open_shadow_identifier */27 :
-          return Curry._2(Printf.sprintf(/* Format */[
-                          /* String_literal */Block.__(11, [
-                              "this open statement shadows the ",
-                              /* String */Block.__(2, [
-                                  /* No_padding */0,
-                                  /* String_literal */Block.__(11, [
-                                      " identifier ",
-                                      /* String */Block.__(2, [
-                                          /* No_padding */0,
-                                          /* String_literal */Block.__(11, [
-                                              " (which is later used)",
-                                              /* End_of_format */0
-                                            ])
-                                        ])
-                                    ])
-                                ])
-                            ]),
-                          "this open statement shadows the %s identifier %s (which is later used)"
-                        ]), param[0], param[1]);
+          return Curry._2(Printf.sprintf(/* constructor */{
+                          tag: 0,
+                          name: "Format",
+                          "0": /* constructor */{
+                            tag: 11,
+                            name: "String_literal",
+                            "0": "this open statement shadows the ",
+                            "1": /* constructor */{
+                              tag: 2,
+                              name: "String",
+                              "0": /* No_padding */0,
+                              "1": /* constructor */{
+                                tag: 11,
+                                name: "String_literal",
+                                "0": " identifier ",
+                                "1": /* constructor */{
+                                  tag: 2,
+                                  name: "String",
+                                  "0": /* No_padding */0,
+                                  "1": /* constructor */{
+                                    tag: 11,
+                                    name: "String_literal",
+                                    "0": " (which is later used)",
+                                    "1": /* End_of_format */0
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "1": "this open statement shadows the %s identifier %s (which is later used)"
+                        }), param[0], param[1]);
       case /* Open_shadow_label_constructor */28 :
-          return Curry._2(Printf.sprintf(/* Format */[
-                          /* String_literal */Block.__(11, [
-                              "this open statement shadows the ",
-                              /* String */Block.__(2, [
-                                  /* No_padding */0,
-                                  /* Char_literal */Block.__(12, [
-                                      /* " " */32,
-                                      /* String */Block.__(2, [
-                                          /* No_padding */0,
-                                          /* String_literal */Block.__(11, [
-                                              " (which is later used)",
-                                              /* End_of_format */0
-                                            ])
-                                        ])
-                                    ])
-                                ])
-                            ]),
-                          "this open statement shadows the %s %s (which is later used)"
-                        ]), param[0], param[1]);
+          return Curry._2(Printf.sprintf(/* constructor */{
+                          tag: 0,
+                          name: "Format",
+                          "0": /* constructor */{
+                            tag: 11,
+                            name: "String_literal",
+                            "0": "this open statement shadows the ",
+                            "1": /* constructor */{
+                              tag: 2,
+                              name: "String",
+                              "0": /* No_padding */0,
+                              "1": /* constructor */{
+                                tag: 12,
+                                name: "Char_literal",
+                                "0": /* " " */32,
+                                "1": /* constructor */{
+                                  tag: 2,
+                                  name: "String",
+                                  "0": /* No_padding */0,
+                                  "1": /* constructor */{
+                                    tag: 11,
+                                    name: "String_literal",
+                                    "0": " (which is later used)",
+                                    "1": /* End_of_format */0
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "1": "this open statement shadows the %s %s (which is later used)"
+                        }), param[0], param[1]);
       case /* Bad_env_variable */29 :
-          return Curry._2(Printf.sprintf(/* Format */[
-                          /* String_literal */Block.__(11, [
-                              "illegal environment variable ",
-                              /* String */Block.__(2, [
-                                  /* No_padding */0,
-                                  /* String_literal */Block.__(11, [
-                                      " : ",
-                                      /* String */Block.__(2, [
-                                          /* No_padding */0,
-                                          /* End_of_format */0
-                                        ])
-                                    ])
-                                ])
-                            ]),
-                          "illegal environment variable %s : %s"
-                        ]), param[0], param[1]);
+          return Curry._2(Printf.sprintf(/* constructor */{
+                          tag: 0,
+                          name: "Format",
+                          "0": /* constructor */{
+                            tag: 11,
+                            name: "String_literal",
+                            "0": "illegal environment variable ",
+                            "1": /* constructor */{
+                              tag: 2,
+                              name: "String",
+                              "0": /* No_padding */0,
+                              "1": /* constructor */{
+                                tag: 11,
+                                name: "String_literal",
+                                "0": " : ",
+                                "1": /* constructor */{
+                                  tag: 2,
+                                  name: "String",
+                                  "0": /* No_padding */0,
+                                  "1": /* End_of_format */0
+                                }
+                              }
+                            }
+                          },
+                          "1": "illegal environment variable %s : %s"
+                        }), param[0], param[1]);
       case /* Attribute_payload */30 :
-          return Curry._2(Printf.sprintf(/* Format */[
-                          /* String_literal */Block.__(11, [
-                              "illegal payload for attribute '",
-                              /* String */Block.__(2, [
-                                  /* No_padding */0,
-                                  /* String_literal */Block.__(11, [
-                                      "'.\n",
-                                      /* String */Block.__(2, [
-                                          /* No_padding */0,
-                                          /* End_of_format */0
-                                        ])
-                                    ])
-                                ])
-                            ]),
-                          "illegal payload for attribute '%s'.\n%s"
-                        ]), param[0], param[1]);
+          return Curry._2(Printf.sprintf(/* constructor */{
+                          tag: 0,
+                          name: "Format",
+                          "0": /* constructor */{
+                            tag: 11,
+                            name: "String_literal",
+                            "0": "illegal payload for attribute '",
+                            "1": /* constructor */{
+                              tag: 2,
+                              name: "String",
+                              "0": /* No_padding */0,
+                              "1": /* constructor */{
+                                tag: 11,
+                                name: "String_literal",
+                                "0": "'.\n",
+                                "1": /* constructor */{
+                                  tag: 2,
+                                  name: "String",
+                                  "0": /* No_padding */0,
+                                  "1": /* End_of_format */0
+                                }
+                              }
+                            }
+                          },
+                          "1": "illegal payload for attribute '%s'.\n%s"
+                        }), param[0], param[1]);
       case /* Eliminated_optional_arguments */31 :
           var sl = param[0];
-          return Curry._2(Printf.sprintf(/* Format */[
-                          /* String_literal */Block.__(11, [
-                              "implicit elimination of optional argument",
-                              /* String */Block.__(2, [
-                                  /* No_padding */0,
-                                  /* Char_literal */Block.__(12, [
-                                      /* " " */32,
-                                      /* String */Block.__(2, [
-                                          /* No_padding */0,
-                                          /* End_of_format */0
-                                        ])
-                                    ])
-                                ])
-                            ]),
-                          "implicit elimination of optional argument%s %s"
-                        ]), List.length(sl) === 1 ? "" : "s", $$String.concat(", ", sl));
+          return Curry._2(Printf.sprintf(/* constructor */{
+                          tag: 0,
+                          name: "Format",
+                          "0": /* constructor */{
+                            tag: 11,
+                            name: "String_literal",
+                            "0": "implicit elimination of optional argument",
+                            "1": /* constructor */{
+                              tag: 2,
+                              name: "String",
+                              "0": /* No_padding */0,
+                              "1": /* constructor */{
+                                tag: 12,
+                                name: "Char_literal",
+                                "0": /* " " */32,
+                                "1": /* constructor */{
+                                  tag: 2,
+                                  name: "String",
+                                  "0": /* No_padding */0,
+                                  "1": /* End_of_format */0
+                                }
+                              }
+                            }
+                          },
+                          "1": "implicit elimination of optional argument%s %s"
+                        }), List.length(sl) === 1 ? "" : "s", $$String.concat(", ", sl));
       case /* No_cmi_file */32 :
           return "no cmi file was found in path for module " + param[0];
       case /* Bad_docstring */33 :
@@ -2391,21 +2654,29 @@ var nerrors = /* record */[/* contents */0];
 function print(ppf, w) {
   var msg = message(w);
   var num = number(w);
-  Curry._2(Format.fprintf(ppf, /* Format */[
-            /* Int */Block.__(4, [
-                /* Int_d */0,
-                /* No_padding */0,
-                /* No_precision */0,
-                /* String_literal */Block.__(11, [
-                    ": ",
-                    /* String */Block.__(2, [
-                        /* No_padding */0,
-                        /* End_of_format */0
-                      ])
-                  ])
-              ]),
-            "%d: %s"
-          ]), num, msg);
+  Curry._2(Format.fprintf(ppf, /* constructor */{
+            tag: 0,
+            name: "Format",
+            "0": /* constructor */{
+              tag: 4,
+              name: "Int",
+              "0": /* Int_d */0,
+              "1": /* No_padding */0,
+              "2": /* No_precision */0,
+              "3": /* constructor */{
+                tag: 11,
+                name: "String_literal",
+                "0": ": ",
+                "1": /* constructor */{
+                  tag: 2,
+                  name: "String",
+                  "0": /* No_padding */0,
+                  "1": /* End_of_format */0
+                }
+              }
+            },
+            "1": "%d: %s"
+          }), num, msg);
   Format.pp_print_flush(ppf, /* () */0);
   if (Caml_array.caml_array_get(current[0][/* error */1], num)) {
     nerrors[0] = nerrors[0] + 1 | 0;
@@ -2418,13 +2689,17 @@ function print(ppf, w) {
 function super_print(message, ppf, w) {
   var msg = Curry._1(message, w);
   var num = number(w);
-  Curry._1(Format.fprintf(ppf, /* Format */[
-            /* String */Block.__(2, [
-                /* No_padding */0,
-                /* End_of_format */0
-              ]),
-            "%s"
-          ]), msg);
+  Curry._1(Format.fprintf(ppf, /* constructor */{
+            tag: 0,
+            name: "Format",
+            "0": /* constructor */{
+              tag: 2,
+              name: "String",
+              "0": /* No_padding */0,
+              "1": /* End_of_format */0
+            },
+            "1": "%s"
+          }), msg);
   Format.pp_print_flush(ppf, /* () */0);
   if (Caml_array.caml_array_get(current[0][/* error */1], num)) {
     nerrors[0] = nerrors[0] + 1 | 0;
@@ -2452,377 +2727,519 @@ function check_fatal(param) {
 
 function help_warnings(param) {
   List.iter((function (param) {
-          return Curry._2(Printf.printf(/* Format */[
-                          /* Int */Block.__(4, [
-                              /* Int_i */3,
-                              /* Lit_padding */Block.__(0, [
-                                  /* Right */1,
-                                  3
-                                ]),
-                              /* No_precision */0,
-                              /* Char_literal */Block.__(12, [
-                                  /* " " */32,
-                                  /* String */Block.__(2, [
-                                      /* No_padding */0,
-                                      /* Char_literal */Block.__(12, [
-                                          /* "\n" */10,
-                                          /* End_of_format */0
-                                        ])
-                                    ])
-                                ])
-                            ]),
-                          "%3i %s\n"
-                        ]), param[0], param[1]);
-        }), /* :: */[
-        /* tuple */[
+          return Curry._2(Printf.printf(/* constructor */{
+                          tag: 0,
+                          name: "Format",
+                          "0": /* constructor */{
+                            tag: 4,
+                            name: "Int",
+                            "0": /* Int_i */3,
+                            "1": /* constructor */{
+                              tag: 0,
+                              name: "Lit_padding",
+                              "0": /* Right */1,
+                              "1": 3
+                            },
+                            "2": /* No_precision */0,
+                            "3": /* constructor */{
+                              tag: 12,
+                              name: "Char_literal",
+                              "0": /* " " */32,
+                              "1": /* constructor */{
+                                tag: 2,
+                                name: "String",
+                                "0": /* No_padding */0,
+                                "1": /* constructor */{
+                                  tag: 12,
+                                  name: "Char_literal",
+                                  "0": /* "\n" */10,
+                                  "1": /* End_of_format */0
+                                }
+                              }
+                            }
+                          },
+                          "1": "%3i %s\n"
+                        }), param[0], param[1]);
+        }), /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": /* tuple */[
           1,
           "Suspicious-looking start-of-comment mark."
         ],
-        /* :: */[
-          /* tuple */[
+        "1": /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": /* tuple */[
             2,
             "Suspicious-looking end-of-comment mark."
           ],
-          /* :: */[
-            /* tuple */[
+          "1": /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": /* tuple */[
               3,
               "Deprecated feature."
             ],
-            /* :: */[
-              /* tuple */[
+            "1": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": /* tuple */[
                 4,
                 "Fragile pattern matching: matching that will remain complete even\n    if additional constructors are added to one of the variant types\n    matched."
               ],
-              /* :: */[
-                /* tuple */[
+              "1": /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": /* tuple */[
                   5,
                   "Partially applied function: expression whose result has function\n    type and is ignored."
                 ],
-                /* :: */[
-                  /* tuple */[
+                "1": /* constructor */{
+                  tag: 0,
+                  name: "::",
+                  "0": /* tuple */[
                     6,
                     "Label omitted in function application."
                   ],
-                  /* :: */[
-                    /* tuple */[
+                  "1": /* constructor */{
+                    tag: 0,
+                    name: "::",
+                    "0": /* tuple */[
                       7,
                       "Method overridden."
                     ],
-                    /* :: */[
-                      /* tuple */[
+                    "1": /* constructor */{
+                      tag: 0,
+                      name: "::",
+                      "0": /* tuple */[
                         8,
                         "Partial match: missing cases in pattern-matching."
                       ],
-                      /* :: */[
-                        /* tuple */[
+                      "1": /* constructor */{
+                        tag: 0,
+                        name: "::",
+                        "0": /* tuple */[
                           9,
                           "Missing fields in a record pattern."
                         ],
-                        /* :: */[
-                          /* tuple */[
+                        "1": /* constructor */{
+                          tag: 0,
+                          name: "::",
+                          "0": /* tuple */[
                             10,
                             "Expression on the left-hand side of a sequence that doesn't have type\n    \"unit\" (and that is not a function, see warning number 5)."
                           ],
-                          /* :: */[
-                            /* tuple */[
+                          "1": /* constructor */{
+                            tag: 0,
+                            name: "::",
+                            "0": /* tuple */[
                               11,
                               "Redundant case in a pattern matching (unused match case)."
                             ],
-                            /* :: */[
-                              /* tuple */[
+                            "1": /* constructor */{
+                              tag: 0,
+                              name: "::",
+                              "0": /* tuple */[
                                 12,
                                 "Redundant sub-pattern in a pattern-matching."
                               ],
-                              /* :: */[
-                                /* tuple */[
+                              "1": /* constructor */{
+                                tag: 0,
+                                name: "::",
+                                "0": /* tuple */[
                                   13,
                                   "Instance variable overridden."
                                 ],
-                                /* :: */[
-                                  /* tuple */[
+                                "1": /* constructor */{
+                                  tag: 0,
+                                  name: "::",
+                                  "0": /* tuple */[
                                     14,
                                     "Illegal backslash escape in a string constant."
                                   ],
-                                  /* :: */[
-                                    /* tuple */[
+                                  "1": /* constructor */{
+                                    tag: 0,
+                                    name: "::",
+                                    "0": /* tuple */[
                                       15,
                                       "Private method made public implicitly."
                                     ],
-                                    /* :: */[
-                                      /* tuple */[
+                                    "1": /* constructor */{
+                                      tag: 0,
+                                      name: "::",
+                                      "0": /* tuple */[
                                         16,
                                         "Unerasable optional argument."
                                       ],
-                                      /* :: */[
-                                        /* tuple */[
+                                      "1": /* constructor */{
+                                        tag: 0,
+                                        name: "::",
+                                        "0": /* tuple */[
                                           17,
                                           "Undeclared virtual method."
                                         ],
-                                        /* :: */[
-                                          /* tuple */[
+                                        "1": /* constructor */{
+                                          tag: 0,
+                                          name: "::",
+                                          "0": /* tuple */[
                                             18,
                                             "Non-principal type."
                                           ],
-                                          /* :: */[
-                                            /* tuple */[
+                                          "1": /* constructor */{
+                                            tag: 0,
+                                            name: "::",
+                                            "0": /* tuple */[
                                               19,
                                               "Type without principality."
                                             ],
-                                            /* :: */[
-                                              /* tuple */[
+                                            "1": /* constructor */{
+                                              tag: 0,
+                                              name: "::",
+                                              "0": /* tuple */[
                                                 20,
                                                 "Unused function argument."
                                               ],
-                                              /* :: */[
-                                                /* tuple */[
+                                              "1": /* constructor */{
+                                                tag: 0,
+                                                name: "::",
+                                                "0": /* tuple */[
                                                   21,
                                                   "Non-returning statement."
                                                 ],
-                                                /* :: */[
-                                                  /* tuple */[
+                                                "1": /* constructor */{
+                                                  tag: 0,
+                                                  name: "::",
+                                                  "0": /* tuple */[
                                                     22,
                                                     "Proprocessor warning."
                                                   ],
-                                                  /* :: */[
-                                                    /* tuple */[
+                                                  "1": /* constructor */{
+                                                    tag: 0,
+                                                    name: "::",
+                                                    "0": /* tuple */[
                                                       23,
                                                       "Useless record \"with\" clause."
                                                     ],
-                                                    /* :: */[
-                                                      /* tuple */[
+                                                    "1": /* constructor */{
+                                                      tag: 0,
+                                                      name: "::",
+                                                      "0": /* tuple */[
                                                         24,
                                                         "Bad module name: the source file name is not a valid OCaml module name."
                                                       ],
-                                                      /* :: */[
-                                                        /* tuple */[
+                                                      "1": /* constructor */{
+                                                        tag: 0,
+                                                        name: "::",
+                                                        "0": /* tuple */[
                                                           25,
                                                           "Pattern-matching with all clauses guarded.  Exhaustiveness cannot be\n    checked."
                                                         ],
-                                                        /* :: */[
-                                                          /* tuple */[
+                                                        "1": /* constructor */{
+                                                          tag: 0,
+                                                          name: "::",
+                                                          "0": /* tuple */[
                                                             26,
                                                             "Suspicious unused variable: unused variable that is bound\n    with \"let\" or \"as\", and doesn't start with an underscore (\"_\")\n    character."
                                                           ],
-                                                          /* :: */[
-                                                            /* tuple */[
+                                                          "1": /* constructor */{
+                                                            tag: 0,
+                                                            name: "::",
+                                                            "0": /* tuple */[
                                                               27,
                                                               "Innocuous unused variable: unused variable that is not bound with\n    \"let\" nor \"as\", and doesn't start with an underscore (\"_\")\n    character."
                                                             ],
-                                                            /* :: */[
-                                                              /* tuple */[
+                                                            "1": /* constructor */{
+                                                              tag: 0,
+                                                              name: "::",
+                                                              "0": /* tuple */[
                                                                 28,
                                                                 "Wildcard pattern given as argument to a constant constructor."
                                                               ],
-                                                              /* :: */[
-                                                                /* tuple */[
+                                                              "1": /* constructor */{
+                                                                tag: 0,
+                                                                name: "::",
+                                                                "0": /* tuple */[
                                                                   29,
                                                                   "Unescaped end-of-line in a string constant (non-portable code)."
                                                                 ],
-                                                                /* :: */[
-                                                                  /* tuple */[
+                                                                "1": /* constructor */{
+                                                                  tag: 0,
+                                                                  name: "::",
+                                                                  "0": /* tuple */[
                                                                     30,
                                                                     "Two labels or constructors of the same name are defined in two\n    mutually recursive types."
                                                                   ],
-                                                                  /* :: */[
-                                                                    /* tuple */[
+                                                                  "1": /* constructor */{
+                                                                    tag: 0,
+                                                                    name: "::",
+                                                                    "0": /* tuple */[
                                                                       31,
                                                                       "A module is linked twice in the same executable."
                                                                     ],
-                                                                    /* :: */[
-                                                                      /* tuple */[
+                                                                    "1": /* constructor */{
+                                                                      tag: 0,
+                                                                      name: "::",
+                                                                      "0": /* tuple */[
                                                                         32,
                                                                         "Unused value declaration."
                                                                       ],
-                                                                      /* :: */[
-                                                                        /* tuple */[
+                                                                      "1": /* constructor */{
+                                                                        tag: 0,
+                                                                        name: "::",
+                                                                        "0": /* tuple */[
                                                                           33,
                                                                           "Unused open statement."
                                                                         ],
-                                                                        /* :: */[
-                                                                          /* tuple */[
+                                                                        "1": /* constructor */{
+                                                                          tag: 0,
+                                                                          name: "::",
+                                                                          "0": /* tuple */[
                                                                             34,
                                                                             "Unused type declaration."
                                                                           ],
-                                                                          /* :: */[
-                                                                            /* tuple */[
+                                                                          "1": /* constructor */{
+                                                                            tag: 0,
+                                                                            name: "::",
+                                                                            "0": /* tuple */[
                                                                               35,
                                                                               "Unused for-loop index."
                                                                             ],
-                                                                            /* :: */[
-                                                                              /* tuple */[
+                                                                            "1": /* constructor */{
+                                                                              tag: 0,
+                                                                              name: "::",
+                                                                              "0": /* tuple */[
                                                                                 36,
                                                                                 "Unused ancestor variable."
                                                                               ],
-                                                                              /* :: */[
-                                                                                /* tuple */[
+                                                                              "1": /* constructor */{
+                                                                                tag: 0,
+                                                                                name: "::",
+                                                                                "0": /* tuple */[
                                                                                   37,
                                                                                   "Unused constructor."
                                                                                 ],
-                                                                                /* :: */[
-                                                                                  /* tuple */[
+                                                                                "1": /* constructor */{
+                                                                                  tag: 0,
+                                                                                  name: "::",
+                                                                                  "0": /* tuple */[
                                                                                     38,
                                                                                     "Unused extension constructor."
                                                                                   ],
-                                                                                  /* :: */[
-                                                                                    /* tuple */[
+                                                                                  "1": /* constructor */{
+                                                                                    tag: 0,
+                                                                                    name: "::",
+                                                                                    "0": /* tuple */[
                                                                                       39,
                                                                                       "Unused rec flag."
                                                                                     ],
-                                                                                    /* :: */[
-                                                                                      /* tuple */[
+                                                                                    "1": /* constructor */{
+                                                                                      tag: 0,
+                                                                                      name: "::",
+                                                                                      "0": /* tuple */[
                                                                                         40,
                                                                                         "Constructor or label name used out of scope."
                                                                                       ],
-                                                                                      /* :: */[
-                                                                                        /* tuple */[
+                                                                                      "1": /* constructor */{
+                                                                                        tag: 0,
+                                                                                        name: "::",
+                                                                                        "0": /* tuple */[
                                                                                           41,
                                                                                           "Ambiguous constructor or label name."
                                                                                         ],
-                                                                                        /* :: */[
-                                                                                          /* tuple */[
+                                                                                        "1": /* constructor */{
+                                                                                          tag: 0,
+                                                                                          name: "::",
+                                                                                          "0": /* tuple */[
                                                                                             42,
                                                                                             "Disambiguated constructor or label name."
                                                                                           ],
-                                                                                          /* :: */[
-                                                                                            /* tuple */[
+                                                                                          "1": /* constructor */{
+                                                                                            tag: 0,
+                                                                                            name: "::",
+                                                                                            "0": /* tuple */[
                                                                                               43,
                                                                                               "Nonoptional label applied as optional."
                                                                                             ],
-                                                                                            /* :: */[
-                                                                                              /* tuple */[
+                                                                                            "1": /* constructor */{
+                                                                                              tag: 0,
+                                                                                              name: "::",
+                                                                                              "0": /* tuple */[
                                                                                                 44,
                                                                                                 "Open statement shadows an already defined identifier."
                                                                                               ],
-                                                                                              /* :: */[
-                                                                                                /* tuple */[
+                                                                                              "1": /* constructor */{
+                                                                                                tag: 0,
+                                                                                                name: "::",
+                                                                                                "0": /* tuple */[
                                                                                                   45,
                                                                                                   "Open statement shadows an already defined label or constructor."
                                                                                                 ],
-                                                                                                /* :: */[
-                                                                                                  /* tuple */[
+                                                                                                "1": /* constructor */{
+                                                                                                  tag: 0,
+                                                                                                  name: "::",
+                                                                                                  "0": /* tuple */[
                                                                                                     46,
                                                                                                     "Error in environment variable."
                                                                                                   ],
-                                                                                                  /* :: */[
-                                                                                                    /* tuple */[
+                                                                                                  "1": /* constructor */{
+                                                                                                    tag: 0,
+                                                                                                    name: "::",
+                                                                                                    "0": /* tuple */[
                                                                                                       47,
                                                                                                       "Illegal attribute payload."
                                                                                                     ],
-                                                                                                    /* :: */[
-                                                                                                      /* tuple */[
+                                                                                                    "1": /* constructor */{
+                                                                                                      tag: 0,
+                                                                                                      name: "::",
+                                                                                                      "0": /* tuple */[
                                                                                                         48,
                                                                                                         "Implicit elimination of optional arguments."
                                                                                                       ],
-                                                                                                      /* :: */[
-                                                                                                        /* tuple */[
+                                                                                                      "1": /* constructor */{
+                                                                                                        tag: 0,
+                                                                                                        name: "::",
+                                                                                                        "0": /* tuple */[
                                                                                                           49,
                                                                                                           "Missing cmi file when looking up module alias."
                                                                                                         ],
-                                                                                                        /* :: */[
-                                                                                                          /* tuple */[
+                                                                                                        "1": /* constructor */{
+                                                                                                          tag: 0,
+                                                                                                          name: "::",
+                                                                                                          "0": /* tuple */[
                                                                                                             50,
                                                                                                             "Unexpected documentation comment."
                                                                                                           ],
-                                                                                                          /* :: */[
-                                                                                                            /* tuple */[
+                                                                                                          "1": /* constructor */{
+                                                                                                            tag: 0,
+                                                                                                            name: "::",
+                                                                                                            "0": /* tuple */[
                                                                                                               101,
                                                                                                               "Unused bs attributes"
                                                                                                             ],
-                                                                                                            /* [] */0
-                                                                                                          ]
-                                                                                                        ]
-                                                                                                      ]
-                                                                                                    ]
-                                                                                                  ]
-                                                                                                ]
-                                                                                              ]
-                                                                                            ]
-                                                                                          ]
-                                                                                        ]
-                                                                                      ]
-                                                                                    ]
-                                                                                  ]
-                                                                                ]
-                                                                              ]
-                                                                            ]
-                                                                          ]
-                                                                        ]
-                                                                      ]
-                                                                    ]
-                                                                  ]
-                                                                ]
-                                                              ]
-                                                            ]
-                                                          ]
-                                                        ]
-                                                      ]
-                                                    ]
-                                                  ]
-                                                ]
-                                              ]
-                                            ]
-                                          ]
-                                        ]
-                                      ]
-                                    ]
-                                  ]
-                                ]
-                              ]
-                            ]
-                          ]
-                        ]
-                      ]
-                    ]
-                  ]
-                ]
-              ]
-            ]
-          ]
-        ]
-      ]);
+                                                                                                            "1": /* [] */0
+                                                                                                          }
+                                                                                                        }
+                                                                                                      }
+                                                                                                    }
+                                                                                                  }
+                                                                                                }
+                                                                                              }
+                                                                                            }
+                                                                                          }
+                                                                                        }
+                                                                                      }
+                                                                                    }
+                                                                                  }
+                                                                                }
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      });
   console.log("  A all warnings");
   for(var i = /* "b" */98; i <= /* "z" */122; ++i){
     var c = Char.chr(i);
     var l = letter(c);
     if (l) {
       if (l[1]) {
-        Curry._2(Printf.printf(/* Format */[
-                  /* String_literal */Block.__(11, [
-                      "  ",
-                      /* Char */Block.__(0, [/* String_literal */Block.__(11, [
-                              " warnings ",
-                              /* String */Block.__(2, [
-                                  /* No_padding */0,
-                                  /* String_literal */Block.__(11, [
-                                      ".\n",
-                                      /* End_of_format */0
-                                    ])
-                                ])
-                            ])])
-                    ]),
-                  "  %c warnings %s.\n"
-                ]), Char.uppercase(c), $$String.concat(", ", List.map((function (prim) {
+        Curry._2(Printf.printf(/* constructor */{
+                  tag: 0,
+                  name: "Format",
+                  "0": /* constructor */{
+                    tag: 11,
+                    name: "String_literal",
+                    "0": "  ",
+                    "1": /* constructor */{
+                      tag: 0,
+                      name: "Char",
+                      "0": /* constructor */{
+                        tag: 11,
+                        name: "String_literal",
+                        "0": " warnings ",
+                        "1": /* constructor */{
+                          tag: 2,
+                          name: "String",
+                          "0": /* No_padding */0,
+                          "1": /* constructor */{
+                            tag: 11,
+                            name: "String_literal",
+                            "0": ".\n",
+                            "1": /* End_of_format */0
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "1": "  %c warnings %s.\n"
+                }), Char.uppercase(c), $$String.concat(", ", List.map((function (prim) {
                         return String(prim);
                       }), l)));
       } else {
-        Curry._2(Printf.printf(/* Format */[
-                  /* String_literal */Block.__(11, [
-                      "  ",
-                      /* Char */Block.__(0, [/* String_literal */Block.__(11, [
-                              " warning ",
-                              /* Int */Block.__(4, [
-                                  /* Int_i */3,
-                                  /* No_padding */0,
-                                  /* No_precision */0,
-                                  /* Char_literal */Block.__(12, [
-                                      /* "\n" */10,
-                                      /* End_of_format */0
-                                    ])
-                                ])
-                            ])])
-                    ]),
-                  "  %c warning %i\n"
-                ]), Char.uppercase(c), l[0]);
+        Curry._2(Printf.printf(/* constructor */{
+                  tag: 0,
+                  name: "Format",
+                  "0": /* constructor */{
+                    tag: 11,
+                    name: "String_literal",
+                    "0": "  ",
+                    "1": /* constructor */{
+                      tag: 0,
+                      name: "Char",
+                      "0": /* constructor */{
+                        tag: 11,
+                        name: "String_literal",
+                        "0": " warning ",
+                        "1": /* constructor */{
+                          tag: 4,
+                          name: "Int",
+                          "0": /* Int_i */3,
+                          "1": /* No_padding */0,
+                          "2": /* No_precision */0,
+                          "3": /* constructor */{
+                            tag: 12,
+                            name: "Char_literal",
+                            "0": /* "\n" */10,
+                            "1": /* End_of_format */0
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "1": "  %c warning %i\n"
+                }), Char.uppercase(c), l[0]);
       }
     }
     
@@ -3016,32 +3433,46 @@ function highlight_dumb(ppf, lb, loc) {
     }
     
   }
-  Curry._2(Format.fprintf(ppf, /* Format */[
-            /* String_literal */Block.__(11, [
-                "Characters ",
-                /* Int */Block.__(4, [
-                    /* Int_i */3,
-                    /* No_padding */0,
-                    /* No_precision */0,
-                    /* Char_literal */Block.__(12, [
-                        /* "-" */45,
-                        /* Int */Block.__(4, [
-                            /* Int_i */3,
-                            /* No_padding */0,
-                            /* No_precision */0,
-                            /* Char_literal */Block.__(12, [
-                                /* ":" */58,
-                                /* Formatting_lit */Block.__(17, [
-                                    /* Flush_newline */4,
-                                    /* End_of_format */0
-                                  ])
-                              ])
-                          ])
-                      ])
-                  ])
-              ]),
-            "Characters %i-%i:@."
-          ]), loc[/* loc_start */0][/* pos_cnum */3], loc[/* loc_end */1][/* pos_cnum */3]);
+  Curry._2(Format.fprintf(ppf, /* constructor */{
+            tag: 0,
+            name: "Format",
+            "0": /* constructor */{
+              tag: 11,
+              name: "String_literal",
+              "0": "Characters ",
+              "1": /* constructor */{
+                tag: 4,
+                name: "Int",
+                "0": /* Int_i */3,
+                "1": /* No_padding */0,
+                "2": /* No_precision */0,
+                "3": /* constructor */{
+                  tag: 12,
+                  name: "Char_literal",
+                  "0": /* "-" */45,
+                  "1": /* constructor */{
+                    tag: 4,
+                    name: "Int",
+                    "0": /* Int_i */3,
+                    "1": /* No_padding */0,
+                    "2": /* No_precision */0,
+                    "3": /* constructor */{
+                      tag: 12,
+                      name: "Char_literal",
+                      "0": /* ":" */58,
+                      "1": /* constructor */{
+                        tag: 17,
+                        name: "Formatting_lit",
+                        "0": /* Flush_newline */4,
+                        "1": /* End_of_format */0
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "1": "Characters %i-%i:@."
+          }), loc[/* loc_start */0][/* pos_cnum */3], loc[/* loc_end */1][/* pos_cnum */3]);
   Format.pp_print_string(ppf, "  ");
   var line = 0;
   var pos_at_bol = 0;
@@ -3071,16 +3502,22 @@ function highlight_dumb(ppf, lb, loc) {
       
     } else {
       if (line === line_start && line === line_end) {
-        Format.fprintf(ppf, /* Format */[
-              /* Formatting_lit */Block.__(17, [
-                  /* Flush_newline */4,
-                  /* String_literal */Block.__(11, [
-                      "  ",
-                      /* End_of_format */0
-                    ])
-                ]),
-              "@.  "
-            ]);
+        Format.fprintf(ppf, /* constructor */{
+              tag: 0,
+              name: "Format",
+              "0": /* constructor */{
+                tag: 17,
+                name: "Formatting_lit",
+                "0": /* Flush_newline */4,
+                "1": /* constructor */{
+                  tag: 11,
+                  name: "String_literal",
+                  "0": "  ",
+                  "1": /* End_of_format */0
+                }
+              },
+              "1": "@.  "
+            });
         for(var _i = pos_at_bol ,_i_finish = loc[/* loc_start */0][/* pos_cnum */3] - 1 | 0; _i <= _i_finish; ++_i){
           Format.pp_print_char(ppf, /* " " */32);
         }
@@ -3089,13 +3526,17 @@ function highlight_dumb(ppf, lb, loc) {
         }
       }
       if (line >= line_start && line <= line_end) {
-        Format.fprintf(ppf, /* Format */[
-              /* Formatting_lit */Block.__(17, [
-                  /* Flush_newline */4,
-                  /* End_of_format */0
-                ]),
-              "@."
-            ]);
+        Format.fprintf(ppf, /* constructor */{
+              tag: 0,
+              name: "Format",
+              "0": /* constructor */{
+                tag: 17,
+                name: "Formatting_lit",
+                "0": /* Flush_newline */4,
+                "1": /* End_of_format */0
+              },
+              "1": "@."
+            });
         if (pos$1 < loc[/* loc_end */1][/* pos_cnum */3]) {
           Format.pp_print_string(ppf, "  ");
         }
@@ -3201,13 +3642,17 @@ function show_filename(file) {
 }
 
 function print_filename(ppf, file) {
-  return Curry._1(Format.fprintf(ppf, /* Format */[
-                  /* String */Block.__(2, [
-                      /* No_padding */0,
-                      /* End_of_format */0
-                    ]),
-                  "%s"
-                ]), show_filename(file));
+  return Curry._1(Format.fprintf(ppf, /* constructor */{
+                  tag: 0,
+                  name: "Format",
+                  "0": /* constructor */{
+                    tag: 2,
+                    name: "String",
+                    "0": /* No_padding */0,
+                    "1": /* End_of_format */0
+                  },
+                  "1": "%s"
+                }), show_filename(file));
 }
 
 function reset(param) {
@@ -3235,120 +3680,192 @@ function print_loc(ppf, loc) {
   var startchar$1 = bs_vscode ? startchar + 1 | 0 : startchar;
   var endchar = (loc[/* loc_end */1][/* pos_cnum */3] - loc[/* loc_start */0][/* pos_cnum */3] | 0) + startchar$1 | 0;
   if (file === "//toplevel//") {
-    if (highlight_locations(ppf, /* :: */[
-            loc,
-            /* [] */0
-          ])) {
+    if (highlight_locations(ppf, /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": loc,
+            "1": /* [] */0
+          })) {
       return /* () */0;
     } else {
-      return Curry._2(Format.fprintf(ppf, /* Format */[
-                      /* String_literal */Block.__(11, [
-                          "Characters ",
-                          /* Int */Block.__(4, [
-                              /* Int_i */3,
-                              /* No_padding */0,
-                              /* No_precision */0,
-                              /* Char_literal */Block.__(12, [
-                                  /* "-" */45,
-                                  /* Int */Block.__(4, [
-                                      /* Int_i */3,
-                                      /* No_padding */0,
-                                      /* No_precision */0,
-                                      /* End_of_format */0
-                                    ])
-                                ])
-                            ])
-                        ]),
-                      "Characters %i-%i"
-                    ]), loc[/* loc_start */0][/* pos_cnum */3], loc[/* loc_end */1][/* pos_cnum */3]);
+      return Curry._2(Format.fprintf(ppf, /* constructor */{
+                      tag: 0,
+                      name: "Format",
+                      "0": /* constructor */{
+                        tag: 11,
+                        name: "String_literal",
+                        "0": "Characters ",
+                        "1": /* constructor */{
+                          tag: 4,
+                          name: "Int",
+                          "0": /* Int_i */3,
+                          "1": /* No_padding */0,
+                          "2": /* No_precision */0,
+                          "3": /* constructor */{
+                            tag: 12,
+                            name: "Char_literal",
+                            "0": /* "-" */45,
+                            "1": /* constructor */{
+                              tag: 4,
+                              name: "Int",
+                              "0": /* Int_i */3,
+                              "1": /* No_padding */0,
+                              "2": /* No_precision */0,
+                              "3": /* End_of_format */0
+                            }
+                          }
+                        }
+                      },
+                      "1": "Characters %i-%i"
+                    }), loc[/* loc_start */0][/* pos_cnum */3], loc[/* loc_end */1][/* pos_cnum */3]);
     }
   } else {
-    Curry._5(Format.fprintf(ppf, /* Format */[
-              /* String */Block.__(2, [
-                  /* No_padding */0,
-                  /* Formatting_gen */Block.__(18, [
-                      /* Open_tag */Block.__(0, [/* Format */[
-                            /* String_literal */Block.__(11, [
-                                "<loc>",
-                                /* End_of_format */0
-                              ]),
-                            "<loc>"
-                          ]]),
-                      /* Alpha */Block.__(15, [/* String */Block.__(2, [
-                              /* No_padding */0,
-                              /* Int */Block.__(4, [
-                                  /* Int_i */3,
-                                  /* No_padding */0,
-                                  /* No_precision */0,
-                                  /* End_of_format */0
-                                ])
-                            ])])
-                    ])
-                ]),
-              "%s@{<loc>%a%s%i"
-            ]), "File \"", print_filename, file, "\", line ", match[1]);
+    Curry._5(Format.fprintf(ppf, /* constructor */{
+              tag: 0,
+              name: "Format",
+              "0": /* constructor */{
+                tag: 2,
+                name: "String",
+                "0": /* No_padding */0,
+                "1": /* constructor */{
+                  tag: 18,
+                  name: "Formatting_gen",
+                  "0": /* constructor */{
+                    tag: 0,
+                    name: "Open_tag",
+                    "0": /* constructor */{
+                      tag: 0,
+                      name: "Format",
+                      "0": /* constructor */{
+                        tag: 11,
+                        name: "String_literal",
+                        "0": "<loc>",
+                        "1": /* End_of_format */0
+                      },
+                      "1": "<loc>"
+                    }
+                  },
+                  "1": /* constructor */{
+                    tag: 15,
+                    name: "Alpha",
+                    "0": /* constructor */{
+                      tag: 2,
+                      name: "String",
+                      "0": /* No_padding */0,
+                      "1": /* constructor */{
+                        tag: 4,
+                        name: "Int",
+                        "0": /* Int_i */3,
+                        "1": /* No_padding */0,
+                        "2": /* No_precision */0,
+                        "3": /* End_of_format */0
+                      }
+                    }
+                  }
+                }
+              },
+              "1": "%s@{<loc>%a%s%i"
+            }), "File \"", print_filename, file, "\", line ", match[1]);
     if (startchar$1 >= 0) {
-      Curry._4(Format.fprintf(ppf, /* Format */[
-                /* String */Block.__(2, [
-                    /* No_padding */0,
-                    /* Int */Block.__(4, [
-                        /* Int_i */3,
-                        /* No_padding */0,
-                        /* No_precision */0,
-                        /* String */Block.__(2, [
-                            /* No_padding */0,
-                            /* Int */Block.__(4, [
-                                /* Int_i */3,
-                                /* No_padding */0,
-                                /* No_precision */0,
-                                /* End_of_format */0
-                              ])
-                          ])
-                      ])
-                  ]),
-                "%s%i%s%i"
-              ]), ", characters ", startchar$1, "-", endchar);
+      Curry._4(Format.fprintf(ppf, /* constructor */{
+                tag: 0,
+                name: "Format",
+                "0": /* constructor */{
+                  tag: 2,
+                  name: "String",
+                  "0": /* No_padding */0,
+                  "1": /* constructor */{
+                    tag: 4,
+                    name: "Int",
+                    "0": /* Int_i */3,
+                    "1": /* No_padding */0,
+                    "2": /* No_precision */0,
+                    "3": /* constructor */{
+                      tag: 2,
+                      name: "String",
+                      "0": /* No_padding */0,
+                      "1": /* constructor */{
+                        tag: 4,
+                        name: "Int",
+                        "0": /* Int_i */3,
+                        "1": /* No_padding */0,
+                        "2": /* No_precision */0,
+                        "3": /* End_of_format */0
+                      }
+                    }
+                  }
+                },
+                "1": "%s%i%s%i"
+              }), ", characters ", startchar$1, "-", endchar);
     }
-    return Format.fprintf(ppf, /* Format */[
-                /* Formatting_lit */Block.__(17, [
-                    /* Close_tag */1,
-                    /* End_of_format */0
-                  ]),
-                "@}"
-              ]);
+    return Format.fprintf(ppf, /* constructor */{
+                tag: 0,
+                name: "Format",
+                "0": /* constructor */{
+                  tag: 17,
+                  name: "Formatting_lit",
+                  "0": /* Close_tag */1,
+                  "1": /* End_of_format */0
+                },
+                "1": "@}"
+              });
   }
 }
 
 function print$1(ppf, loc) {
   setup_colors(/* () */0);
-  if (loc[/* loc_start */0][/* pos_fname */0] === "//toplevel//" && highlight_locations(ppf, /* :: */[
-          loc,
-          /* [] */0
-        ])) {
+  if (loc[/* loc_start */0][/* pos_fname */0] === "//toplevel//" && highlight_locations(ppf, /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": loc,
+          "1": /* [] */0
+        })) {
     return /* () */0;
   } else {
-    return Curry._3(Format.fprintf(ppf, /* Format */[
-                    /* Formatting_gen */Block.__(18, [
-                        /* Open_tag */Block.__(0, [/* Format */[
-                              /* String_literal */Block.__(11, [
-                                  "<loc>",
-                                  /* End_of_format */0
-                                ]),
-                              "<loc>"
-                            ]]),
-                        /* Alpha */Block.__(15, [/* Formatting_lit */Block.__(17, [
-                                /* Close_tag */1,
-                                /* String */Block.__(2, [
-                                    /* No_padding */0,
-                                    /* Formatting_lit */Block.__(17, [
-                                        /* Flush_newline */4,
-                                        /* End_of_format */0
-                                      ])
-                                  ])
-                              ])])
-                      ]),
-                    "@{<loc>%a@}%s@."
-                  ]), print_loc, loc, ":");
+    return Curry._3(Format.fprintf(ppf, /* constructor */{
+                    tag: 0,
+                    name: "Format",
+                    "0": /* constructor */{
+                      tag: 18,
+                      name: "Formatting_gen",
+                      "0": /* constructor */{
+                        tag: 0,
+                        name: "Open_tag",
+                        "0": /* constructor */{
+                          tag: 0,
+                          name: "Format",
+                          "0": /* constructor */{
+                            tag: 11,
+                            name: "String_literal",
+                            "0": "<loc>",
+                            "1": /* End_of_format */0
+                          },
+                          "1": "<loc>"
+                        }
+                      },
+                      "1": /* constructor */{
+                        tag: 15,
+                        name: "Alpha",
+                        "0": /* constructor */{
+                          tag: 17,
+                          name: "Formatting_lit",
+                          "0": /* Close_tag */1,
+                          "1": /* constructor */{
+                            tag: 2,
+                            name: "String",
+                            "0": /* No_padding */0,
+                            "1": /* constructor */{
+                              tag: 17,
+                              name: "Formatting_lit",
+                              "0": /* Flush_newline */4,
+                              "1": /* End_of_format */0
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "1": "@{<loc>%a@}%s@."
+                  }), print_loc, loc, ":");
   }
 }
 
@@ -3356,28 +3873,46 @@ var error_prefix = "Error";
 
 function print_error_prefix(ppf, param) {
   setup_colors(/* () */0);
-  Curry._1(Format.fprintf(ppf, /* Format */[
-            /* Formatting_gen */Block.__(18, [
-                /* Open_tag */Block.__(0, [/* Format */[
-                      /* String_literal */Block.__(11, [
-                          "<error>",
-                          /* End_of_format */0
-                        ]),
-                      "<error>"
-                    ]]),
-                /* String */Block.__(2, [
-                    /* No_padding */0,
-                    /* Formatting_lit */Block.__(17, [
-                        /* Close_tag */1,
-                        /* Char_literal */Block.__(12, [
-                            /* ":" */58,
-                            /* End_of_format */0
-                          ])
-                      ])
-                  ])
-              ]),
-            "@{<error>%s@}:"
-          ]), error_prefix);
+  Curry._1(Format.fprintf(ppf, /* constructor */{
+            tag: 0,
+            name: "Format",
+            "0": /* constructor */{
+              tag: 18,
+              name: "Formatting_gen",
+              "0": /* constructor */{
+                tag: 0,
+                name: "Open_tag",
+                "0": /* constructor */{
+                  tag: 0,
+                  name: "Format",
+                  "0": /* constructor */{
+                    tag: 11,
+                    name: "String_literal",
+                    "0": "<error>",
+                    "1": /* End_of_format */0
+                  },
+                  "1": "<error>"
+                }
+              },
+              "1": /* constructor */{
+                tag: 2,
+                name: "String",
+                "0": /* No_padding */0,
+                "1": /* constructor */{
+                  tag: 17,
+                  name: "Formatting_lit",
+                  "0": /* Close_tag */1,
+                  "1": /* constructor */{
+                    tag: 12,
+                    name: "Char_literal",
+                    "0": /* ":" */58,
+                    "1": /* End_of_format */0
+                  }
+                }
+              }
+            },
+            "1": "@{<error>%s@}:"
+          }), error_prefix);
   return /* () */0;
 }
 
@@ -3394,31 +3929,55 @@ function default_warning_printer(loc, ppf, w) {
   if (is_active(w)) {
     setup_colors(/* () */0);
     print$1(ppf, loc);
-    return Curry._3(Format.fprintf(ppf, /* Format */[
-                    /* Formatting_gen */Block.__(18, [
-                        /* Open_tag */Block.__(0, [/* Format */[
-                              /* String_literal */Block.__(11, [
-                                  "<warning>",
-                                  /* End_of_format */0
-                                ]),
-                              "<warning>"
-                            ]]),
-                        /* String */Block.__(2, [
-                            /* No_padding */0,
-                            /* Formatting_lit */Block.__(17, [
-                                /* Close_tag */1,
-                                /* Char_literal */Block.__(12, [
-                                    /* " " */32,
-                                    /* Alpha */Block.__(15, [/* Formatting_lit */Block.__(17, [
-                                            /* Flush_newline */4,
-                                            /* End_of_format */0
-                                          ])])
-                                  ])
-                              ])
-                          ])
-                      ]),
-                    "@{<warning>%s@} %a@."
-                  ]), "Warning", print, w);
+    return Curry._3(Format.fprintf(ppf, /* constructor */{
+                    tag: 0,
+                    name: "Format",
+                    "0": /* constructor */{
+                      tag: 18,
+                      name: "Formatting_gen",
+                      "0": /* constructor */{
+                        tag: 0,
+                        name: "Open_tag",
+                        "0": /* constructor */{
+                          tag: 0,
+                          name: "Format",
+                          "0": /* constructor */{
+                            tag: 11,
+                            name: "String_literal",
+                            "0": "<warning>",
+                            "1": /* End_of_format */0
+                          },
+                          "1": "<warning>"
+                        }
+                      },
+                      "1": /* constructor */{
+                        tag: 2,
+                        name: "String",
+                        "0": /* No_padding */0,
+                        "1": /* constructor */{
+                          tag: 17,
+                          name: "Formatting_lit",
+                          "0": /* Close_tag */1,
+                          "1": /* constructor */{
+                            tag: 12,
+                            name: "Char_literal",
+                            "0": /* " " */32,
+                            "1": /* constructor */{
+                              tag: 15,
+                              name: "Alpha",
+                              "0": /* constructor */{
+                                tag: 17,
+                                name: "Formatting_lit",
+                                "0": /* Flush_newline */4,
+                                "1": /* End_of_format */0
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "1": "@{<warning>%s@} %a@."
+                  }), "Warning", print, w);
   } else {
     return 0;
   }
@@ -3502,10 +4061,12 @@ function error($staropt$star, $staropt$star$1, $staropt$star$2, msg) {
 var error_of_exn = /* record */[/* contents : [] */0];
 
 function register_error_of_exn(f) {
-  error_of_exn[0] = /* :: */[
-    f,
-    error_of_exn[0]
-  ];
+  error_of_exn[0] = /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": f,
+    "1": error_of_exn[0]
+  };
   return /* () */0;
 }
 
@@ -3532,10 +4093,12 @@ function default_error_reporter(ppf, err) {
   var highlighted;
   if (if_highlight !== "") {
     var collect_locs = function (locs, param) {
-      return List.fold_left(collect_locs, /* :: */[
-                  param[/* loc */0],
-                  locs
-                ], param[/* sub */2]);
+      return List.fold_left(collect_locs, /* constructor */{
+                  tag: 0,
+                  name: "::",
+                  "0": param[/* loc */0],
+                  "1": locs
+                }, param[/* sub */2]);
     };
     var locs = collect_locs(/* [] */0, err);
     highlighted = highlight_locations(ppf, locs);
@@ -3545,35 +4108,69 @@ function default_error_reporter(ppf, err) {
   if (highlighted) {
     return Format.pp_print_string(ppf, if_highlight);
   } else {
-    Curry._5(Format.fprintf(ppf, /* Format */[
-              /* Alpha */Block.__(15, [/* Alpha */Block.__(15, [/* Char_literal */Block.__(12, [
-                          /* " " */32,
-                          /* String */Block.__(2, [
-                              /* No_padding */0,
-                              /* End_of_format */0
-                            ])
-                        ])])]),
-              "%a%a %s"
-            ]), print$1, err[/* loc */0], print_error_prefix, /* () */0, err[/* msg */1]);
-    return List.iter(Curry._1(Format.fprintf(ppf, /* Format */[
-                        /* Formatting_lit */Block.__(17, [
-                            /* Force_newline */3,
-                            /* Formatting_gen */Block.__(18, [
-                                /* Open_box */Block.__(1, [/* Format */[
-                                      /* String_literal */Block.__(11, [
-                                          "<2>",
-                                          /* End_of_format */0
-                                        ]),
-                                      "<2>"
-                                    ]]),
-                                /* Alpha */Block.__(15, [/* Formatting_lit */Block.__(17, [
-                                        /* Close_box */0,
-                                        /* End_of_format */0
-                                      ])])
-                              ])
-                          ]),
-                        "@\n@[<2>%a@]"
-                      ]), default_error_reporter), err[/* sub */2]);
+    Curry._5(Format.fprintf(ppf, /* constructor */{
+              tag: 0,
+              name: "Format",
+              "0": /* constructor */{
+                tag: 15,
+                name: "Alpha",
+                "0": /* constructor */{
+                  tag: 15,
+                  name: "Alpha",
+                  "0": /* constructor */{
+                    tag: 12,
+                    name: "Char_literal",
+                    "0": /* " " */32,
+                    "1": /* constructor */{
+                      tag: 2,
+                      name: "String",
+                      "0": /* No_padding */0,
+                      "1": /* End_of_format */0
+                    }
+                  }
+                }
+              },
+              "1": "%a%a %s"
+            }), print$1, err[/* loc */0], print_error_prefix, /* () */0, err[/* msg */1]);
+    return List.iter(Curry._1(Format.fprintf(ppf, /* constructor */{
+                        tag: 0,
+                        name: "Format",
+                        "0": /* constructor */{
+                          tag: 17,
+                          name: "Formatting_lit",
+                          "0": /* Force_newline */3,
+                          "1": /* constructor */{
+                            tag: 18,
+                            name: "Formatting_gen",
+                            "0": /* constructor */{
+                              tag: 1,
+                              name: "Open_box",
+                              "0": /* constructor */{
+                                tag: 0,
+                                name: "Format",
+                                "0": /* constructor */{
+                                  tag: 11,
+                                  name: "String_literal",
+                                  "0": "<2>",
+                                  "1": /* End_of_format */0
+                                },
+                                "1": "<2>"
+                              }
+                            },
+                            "1": /* constructor */{
+                              tag: 15,
+                              name: "Alpha",
+                              "0": /* constructor */{
+                                tag: 17,
+                                name: "Formatting_lit",
+                                "0": /* Close_box */0,
+                                "1": /* End_of_format */0
+                              }
+                            }
+                          }
+                        },
+                        "1": "@\n@[<2>%a@]"
+                      }), default_error_reporter), err[/* sub */2]);
   }
 }
 
@@ -3584,13 +4181,21 @@ function report_error(ppf, err) {
 }
 
 function error_of_printer(loc, print, x) {
-  return Curry._2(errorf(loc, undefined, undefined, /* Format */[
-                  /* Alpha */Block.__(15, [/* Formatting_lit */Block.__(17, [
-                          /* FFlush */2,
-                          /* End_of_format */0
-                        ])]),
-                  "%a@?"
-                ]), print, x);
+  return Curry._2(errorf(loc, undefined, undefined, /* constructor */{
+                  tag: 0,
+                  name: "Format",
+                  "0": /* constructor */{
+                    tag: 15,
+                    name: "Alpha",
+                    "0": /* constructor */{
+                      tag: 17,
+                      name: "Formatting_lit",
+                      "0": /* FFlush */2,
+                      "1": /* End_of_format */0
+                    }
+                  },
+                  "1": "%a@?"
+                }), print, x);
 }
 
 function error_of_printer_file(print, x) {
@@ -3599,32 +4204,46 @@ function error_of_printer_file(print, x) {
 
 register_error_of_exn((function (param) {
         if (param[0] === Caml_builtin_exceptions.sys_error) {
-          return Curry._1(errorf(in_file(input_name[0]), undefined, undefined, /* Format */[
-                          /* String_literal */Block.__(11, [
-                              "I/O error: ",
-                              /* String */Block.__(2, [
-                                  /* No_padding */0,
-                                  /* End_of_format */0
-                                ])
-                            ]),
-                          "I/O error: %s"
-                        ]), param[1]);
+          return Curry._1(errorf(in_file(input_name[0]), undefined, undefined, /* constructor */{
+                          tag: 0,
+                          name: "Format",
+                          "0": /* constructor */{
+                            tag: 11,
+                            name: "String_literal",
+                            "0": "I/O error: ",
+                            "1": /* constructor */{
+                              tag: 2,
+                              name: "String",
+                              "0": /* No_padding */0,
+                              "1": /* End_of_format */0
+                            }
+                          },
+                          "1": "I/O error: %s"
+                        }), param[1]);
         } else if (param[0] === Errors) {
-          return Curry._1(errorf(in_file(input_name[0]), undefined, undefined, /* Format */[
-                          /* String_literal */Block.__(11, [
-                              "Some fatal warnings were triggered (",
-                              /* Int */Block.__(4, [
-                                  /* Int_d */0,
-                                  /* No_padding */0,
-                                  /* No_precision */0,
-                                  /* String_literal */Block.__(11, [
-                                      " occurrences)",
-                                      /* End_of_format */0
-                                    ])
-                                ])
-                            ]),
-                          "Some fatal warnings were triggered (%d occurrences)"
-                        ]), param[1]);
+          return Curry._1(errorf(in_file(input_name[0]), undefined, undefined, /* constructor */{
+                          tag: 0,
+                          name: "Format",
+                          "0": /* constructor */{
+                            tag: 11,
+                            name: "String_literal",
+                            "0": "Some fatal warnings were triggered (",
+                            "1": /* constructor */{
+                              tag: 4,
+                              name: "Int",
+                              "0": /* Int_d */0,
+                              "1": /* No_padding */0,
+                              "2": /* No_precision */0,
+                              "3": /* constructor */{
+                                tag: 11,
+                                name: "String_literal",
+                                "0": " occurrences)",
+                                "1": /* End_of_format */0
+                              }
+                            }
+                          },
+                          "1": "Some fatal warnings were triggered (%d occurrences)"
+                        }), param[1]);
         } else {
           return ;
         }
@@ -3640,22 +4259,40 @@ function report_exception(ppf, exn) {
     try {
       var match = error_of_exn$1(exn$1);
       if (match !== undefined) {
-        return Curry._2(Format.fprintf(ppf$1, /* Format */[
-                        /* Formatting_gen */Block.__(18, [
-                            /* Open_box */Block.__(1, [/* Format */[
-                                  /* End_of_format */0,
-                                  ""
-                                ]]),
-                            /* Alpha */Block.__(15, [/* Formatting_lit */Block.__(17, [
-                                    /* Close_box */0,
-                                    /* Formatting_lit */Block.__(17, [
-                                        /* Flush_newline */4,
-                                        /* End_of_format */0
-                                      ])
-                                  ])])
-                          ]),
-                        "@[%a@]@."
-                      ]), report_error, match);
+        return Curry._2(Format.fprintf(ppf$1, /* constructor */{
+                        tag: 0,
+                        name: "Format",
+                        "0": /* constructor */{
+                          tag: 18,
+                          name: "Formatting_gen",
+                          "0": /* constructor */{
+                            tag: 1,
+                            name: "Open_box",
+                            "0": /* constructor */{
+                              tag: 0,
+                              name: "Format",
+                              "0": /* End_of_format */0,
+                              "1": ""
+                            }
+                          },
+                          "1": /* constructor */{
+                            tag: 15,
+                            name: "Alpha",
+                            "0": /* constructor */{
+                              tag: 17,
+                              name: "Formatting_lit",
+                              "0": /* Close_box */0,
+                              "1": /* constructor */{
+                                tag: 17,
+                                name: "Formatting_lit",
+                                "0": /* Flush_newline */4,
+                                "1": /* End_of_format */0
+                              }
+                            }
+                          }
+                        },
+                        "1": "@[%a@]@."
+                      }), report_error, match);
       } else {
         throw exn$1;
       }
@@ -3757,16 +4394,20 @@ function flatten(lid) {
     var accu = _accu;
     switch (param.tag | 0) {
       case /* Lident */0 :
-          return /* :: */[
-                  param[0],
-                  accu
-                ];
+          return /* constructor */{
+                  tag: 0,
+                  name: "::",
+                  "0": param[0],
+                  "1": accu
+                };
       case /* Ldot */1 :
           _param = param[0];
-          _accu = /* :: */[
-            param[1],
-            accu
-          ];
+          _accu = /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": param[1],
+            "1": accu
+          };
           continue ;
       case /* Lapply */2 :
           return fatal_error("Longident.flat");
@@ -3790,17 +4431,21 @@ function last(param) {
 function split_at_dots(s, pos) {
   try {
     var dot = $$String.index_from(s, pos, /* "." */46);
-    return /* :: */[
-            $$String.sub(s, pos, dot - pos | 0),
-            split_at_dots(s, dot + 1 | 0)
-          ];
+    return /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": $$String.sub(s, pos, dot - pos | 0),
+            "1": split_at_dots(s, dot + 1 | 0)
+          };
   }
   catch (exn){
     if (exn === Caml_builtin_exceptions.not_found) {
-      return /* :: */[
-              $$String.sub(s, pos, s.length - pos | 0),
-              /* [] */0
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": $$String.sub(s, pos, s.length - pos | 0),
+              "1": /* [] */0
+            };
     } else {
       throw exn;
     }
@@ -3811,13 +4456,23 @@ function parse(s) {
   var match = split_at_dots(s, 0);
   if (match) {
     return List.fold_left((function (p, s) {
-                  return /* Ldot */Block.__(1, [
-                            p,
-                            s
-                          ]);
-                }), /* Lident */Block.__(0, [match[0]]), match[1]);
+                  return /* constructor */{
+                          tag: 1,
+                          name: "Ldot",
+                          "0": p,
+                          "1": s
+                        };
+                }), /* constructor */{
+                tag: 0,
+                name: "Lident",
+                "0": match[0]
+              }, match[1]);
   } else {
-    return /* Lident */Block.__(0, [""]);
+    return /* constructor */{
+            tag: 0,
+            name: "Lident",
+            "0": ""
+          };
   }
 }
 
@@ -3832,18 +4487,30 @@ var Parsetree = { };
 var docstrings = /* record */[/* contents : [] */0];
 
 function warn_bad_docstrings(param) {
-  if (is_active(/* Bad_docstring */Block.__(33, [true]))) {
+  if (is_active(/* constructor */{
+          tag: 33,
+          name: "Bad_docstring",
+          "0": true
+        })) {
     return List.iter((function (ds) {
                   var match = ds[/* ds_attached */2];
                   switch (match) {
                     case /* Unattached */0 :
-                        return prerr_warning(ds[/* ds_loc */1], /* Bad_docstring */Block.__(33, [true]));
+                        return prerr_warning(ds[/* ds_loc */1], /* constructor */{
+                                    tag: 33,
+                                    name: "Bad_docstring",
+                                    "0": true
+                                  });
                     case /* Info */1 :
                         return /* () */0;
                     case /* Docs */2 :
                         var match$1 = ds[/* ds_associated */3];
                         if (match$1 >= 2) {
-                          return prerr_warning(ds[/* ds_loc */1], /* Bad_docstring */Block.__(33, [false]));
+                          return prerr_warning(ds[/* ds_loc */1], /* constructor */{
+                                      tag: 33,
+                                      name: "Bad_docstring",
+                                      "0": false
+                                    });
                         } else {
                           return /* () */0;
                         }
@@ -3862,10 +4529,12 @@ function docstring(body, loc) {
     /* ds_attached : Unattached */0,
     /* ds_associated : Zero */0
   ];
-  docstrings[0] = /* :: */[
-    ds,
-    docstrings[0]
-  ];
+  docstrings[0] = /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": ds,
+    "1": docstrings[0]
+  };
   return ds;
 }
 
@@ -3888,20 +4557,28 @@ var doc_loc = /* record */[
 ];
 
 function docs_attr(ds) {
-  var exp_000 = /* pexp_desc : Pexp_constant */Block.__(1, [/* Const_string */Block.__(2, [
-          ds[/* ds_body */0],
-          undefined
-        ])]);
+  var exp_000 = /* pexp_desc : constructor */{
+    tag: 1,
+    name: "Pexp_constant",
+    "0": /* constructor */{
+      tag: 2,
+      name: "Const_string",
+      "0": ds[/* ds_body */0],
+      "1": undefined
+    }
+  };
   var exp_001 = /* pexp_loc */ds[/* ds_loc */1];
   var exp = /* record */[
     exp_000,
     exp_001,
     /* pexp_attributes : [] */0
   ];
-  var item_000 = /* pstr_desc : Pstr_eval */Block.__(0, [
-      exp,
-      /* [] */0
-    ]);
+  var item_000 = /* pstr_desc : constructor */{
+    tag: 0,
+    name: "Pstr_eval",
+    "0": exp,
+    "1": /* [] */0
+  };
   var item_001 = exp_001;
   var item = /* record */[
     item_000,
@@ -3909,25 +4586,35 @@ function docs_attr(ds) {
   ];
   return /* tuple */[
           doc_loc,
-          /* PStr */Block.__(0, [/* :: */[
-                item,
-                /* [] */0
-              ]])
+          /* constructor */{
+            tag: 0,
+            name: "PStr",
+            "0": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": item,
+              "1": /* [] */0
+            }
+          }
         ];
 }
 
 function add_docs_attrs(docs, attrs) {
   var match = docs[/* docs_pre */0];
-  var attrs$1 = match !== undefined ? /* :: */[
-      docs_attr(match),
-      attrs
-    ] : attrs;
+  var attrs$1 = match !== undefined ? /* constructor */({
+        tag: 0,
+        name: "::",
+        "0": docs_attr(match),
+        "1": attrs
+      }) : attrs;
   var match$1 = docs[/* docs_post */1];
   if (match$1 !== undefined) {
-    return Pervasives.$at(attrs$1, /* :: */[
-                docs_attr(match$1),
-                /* [] */0
-              ]);
+    return Pervasives.$at(attrs$1, /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": docs_attr(match$1),
+                "1": /* [] */0
+              });
   } else {
     return attrs$1;
   }
@@ -3935,10 +4622,12 @@ function add_docs_attrs(docs, attrs) {
 
 function add_info_attrs(info, attrs) {
   if (info !== undefined) {
-    return Pervasives.$at(attrs, /* :: */[
-                docs_attr(info),
-                /* [] */0
-              ]);
+    return Pervasives.$at(attrs, /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": docs_attr(info),
+                "1": /* [] */0
+              });
   } else {
     return attrs;
   }
@@ -3950,20 +4639,28 @@ var text_loc = /* record */[
 ];
 
 function text_attr(ds) {
-  var exp_000 = /* pexp_desc : Pexp_constant */Block.__(1, [/* Const_string */Block.__(2, [
-          ds[/* ds_body */0],
-          undefined
-        ])]);
+  var exp_000 = /* pexp_desc : constructor */{
+    tag: 1,
+    name: "Pexp_constant",
+    "0": /* constructor */{
+      tag: 2,
+      name: "Const_string",
+      "0": ds[/* ds_body */0],
+      "1": undefined
+    }
+  };
   var exp_001 = /* pexp_loc */ds[/* ds_loc */1];
   var exp = /* record */[
     exp_000,
     exp_001,
     /* pexp_attributes : [] */0
   ];
-  var item_000 = /* pstr_desc : Pstr_eval */Block.__(0, [
-      exp,
-      /* [] */0
-    ]);
+  var item_000 = /* pstr_desc : constructor */{
+    tag: 0,
+    name: "Pstr_eval",
+    "0": exp,
+    "1": /* [] */0
+  };
   var item_001 = exp_001;
   var item = /* record */[
     item_000,
@@ -3971,10 +4668,16 @@ function text_attr(ds) {
   ];
   return /* tuple */[
           text_loc,
-          /* PStr */Block.__(0, [/* :: */[
-                item,
-                /* [] */0
-              ]])
+          /* constructor */{
+            tag: 0,
+            name: "PStr",
+            "0": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": item,
+              "1": /* [] */0
+            }
+          }
         ];
 }
 
@@ -4014,10 +4717,12 @@ function get_docstrings(dsl) {
       if (match !== 1) {
         ds[/* ds_attached */2] = /* Docs */2;
         _param = param[1];
-        _acc = /* :: */[
-          ds,
-          acc
-        ];
+        _acc = /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": ds,
+          "1": acc
+        };
         continue ;
       } else {
         _param = param[1];
@@ -4370,10 +5075,12 @@ function attr(d, a) {
   return /* record */[
           /* ptyp_desc */d[/* ptyp_desc */0],
           /* ptyp_loc */d[/* ptyp_loc */1],
-          /* ptyp_attributes */Pervasives.$at(d[/* ptyp_attributes */2], /* :: */[
-                a,
-                /* [] */0
-              ])
+          /* ptyp_attributes */Pervasives.$at(d[/* ptyp_attributes */2], /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": a,
+                "1": /* [] */0
+              })
         ];
 }
 
@@ -4382,73 +5089,103 @@ function any(loc, attrs, param) {
 }
 
 function $$var(loc, attrs, a) {
-  return mk(loc, attrs, /* Ptyp_var */Block.__(0, [a]));
+  return mk(loc, attrs, /* constructor */{
+              tag: 0,
+              name: "Ptyp_var",
+              "0": a
+            });
 }
 
 function arrow(loc, attrs, a, b, c) {
-  return mk(loc, attrs, /* Ptyp_arrow */Block.__(1, [
-                a,
-                b,
-                c
-              ]));
+  return mk(loc, attrs, /* constructor */{
+              tag: 1,
+              name: "Ptyp_arrow",
+              "0": a,
+              "1": b,
+              "2": c
+            });
 }
 
 function tuple(loc, attrs, a) {
-  return mk(loc, attrs, /* Ptyp_tuple */Block.__(2, [a]));
+  return mk(loc, attrs, /* constructor */{
+              tag: 2,
+              name: "Ptyp_tuple",
+              "0": a
+            });
 }
 
 function constr(loc, attrs, a, b) {
-  return mk(loc, attrs, /* Ptyp_constr */Block.__(3, [
-                a,
-                b
-              ]));
+  return mk(loc, attrs, /* constructor */{
+              tag: 3,
+              name: "Ptyp_constr",
+              "0": a,
+              "1": b
+            });
 }
 
 function object_(loc, attrs, a, b) {
-  return mk(loc, attrs, /* Ptyp_object */Block.__(4, [
-                a,
-                b
-              ]));
+  return mk(loc, attrs, /* constructor */{
+              tag: 4,
+              name: "Ptyp_object",
+              "0": a,
+              "1": b
+            });
 }
 
 function class_(loc, attrs, a, b) {
-  return mk(loc, attrs, /* Ptyp_class */Block.__(5, [
-                a,
-                b
-              ]));
+  return mk(loc, attrs, /* constructor */{
+              tag: 5,
+              name: "Ptyp_class",
+              "0": a,
+              "1": b
+            });
 }
 
 function alias(loc, attrs, a, b) {
-  return mk(loc, attrs, /* Ptyp_alias */Block.__(6, [
-                a,
-                b
-              ]));
+  return mk(loc, attrs, /* constructor */{
+              tag: 6,
+              name: "Ptyp_alias",
+              "0": a,
+              "1": b
+            });
 }
 
 function variant(loc, attrs, a, b, c) {
-  return mk(loc, attrs, /* Ptyp_variant */Block.__(7, [
-                a,
-                b,
-                c
-              ]));
+  return mk(loc, attrs, /* constructor */{
+              tag: 7,
+              name: "Ptyp_variant",
+              "0": a,
+              "1": b,
+              "2": c
+            });
 }
 
 function poly(loc, attrs, a, b) {
-  return mk(loc, attrs, /* Ptyp_poly */Block.__(8, [
-                a,
-                b
-              ]));
+  return mk(loc, attrs, /* constructor */{
+              tag: 8,
+              name: "Ptyp_poly",
+              "0": a,
+              "1": b
+            });
 }
 
 function $$package(loc, attrs, a, b) {
-  return mk(loc, attrs, /* Ptyp_package */Block.__(9, [/* tuple */[
-                  a,
-                  b
-                ]]));
+  return mk(loc, attrs, /* constructor */{
+              tag: 9,
+              name: "Ptyp_package",
+              "0": /* tuple */[
+                a,
+                b
+              ]
+            });
 }
 
 function extension(loc, attrs, a) {
-  return mk(loc, attrs, /* Ptyp_extension */Block.__(10, [a]));
+  return mk(loc, attrs, /* constructor */{
+              tag: 10,
+              name: "Ptyp_extension",
+              "0": a
+            });
 }
 
 function force_poly(t) {
@@ -4491,10 +5228,12 @@ function attr$1(d, a) {
   return /* record */[
           /* ppat_desc */d[/* ppat_desc */0],
           /* ppat_loc */d[/* ppat_loc */1],
-          /* ppat_attributes */Pervasives.$at(d[/* ppat_attributes */2], /* :: */[
-                a,
-                /* [] */0
-              ])
+          /* ppat_attributes */Pervasives.$at(d[/* ppat_attributes */2], /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": a,
+                "1": /* [] */0
+              })
         ];
 }
 
@@ -4503,88 +5242,138 @@ function any$1(loc, attrs, param) {
 }
 
 function $$var$1(loc, attrs, a) {
-  return mk$1(loc, attrs, /* Ppat_var */Block.__(0, [a]));
+  return mk$1(loc, attrs, /* constructor */{
+              tag: 0,
+              name: "Ppat_var",
+              "0": a
+            });
 }
 
 function alias$1(loc, attrs, a, b) {
-  return mk$1(loc, attrs, /* Ppat_alias */Block.__(1, [
-                a,
-                b
-              ]));
+  return mk$1(loc, attrs, /* constructor */{
+              tag: 1,
+              name: "Ppat_alias",
+              "0": a,
+              "1": b
+            });
 }
 
 function constant(loc, attrs, a) {
-  return mk$1(loc, attrs, /* Ppat_constant */Block.__(2, [a]));
+  return mk$1(loc, attrs, /* constructor */{
+              tag: 2,
+              name: "Ppat_constant",
+              "0": a
+            });
 }
 
 function interval(loc, attrs, a, b) {
-  return mk$1(loc, attrs, /* Ppat_interval */Block.__(3, [
-                a,
-                b
-              ]));
+  return mk$1(loc, attrs, /* constructor */{
+              tag: 3,
+              name: "Ppat_interval",
+              "0": a,
+              "1": b
+            });
 }
 
 function tuple$1(loc, attrs, a) {
-  return mk$1(loc, attrs, /* Ppat_tuple */Block.__(4, [a]));
+  return mk$1(loc, attrs, /* constructor */{
+              tag: 4,
+              name: "Ppat_tuple",
+              "0": a
+            });
 }
 
 function construct(loc, attrs, a, b) {
-  return mk$1(loc, attrs, /* Ppat_construct */Block.__(5, [
-                a,
-                b
-              ]));
+  return mk$1(loc, attrs, /* constructor */{
+              tag: 5,
+              name: "Ppat_construct",
+              "0": a,
+              "1": b
+            });
 }
 
 function variant$1(loc, attrs, a, b) {
-  return mk$1(loc, attrs, /* Ppat_variant */Block.__(6, [
-                a,
-                b
-              ]));
+  return mk$1(loc, attrs, /* constructor */{
+              tag: 6,
+              name: "Ppat_variant",
+              "0": a,
+              "1": b
+            });
 }
 
 function record(loc, attrs, a, b) {
-  return mk$1(loc, attrs, /* Ppat_record */Block.__(7, [
-                a,
-                b
-              ]));
+  return mk$1(loc, attrs, /* constructor */{
+              tag: 7,
+              name: "Ppat_record",
+              "0": a,
+              "1": b
+            });
 }
 
 function array(loc, attrs, a) {
-  return mk$1(loc, attrs, /* Ppat_array */Block.__(8, [a]));
+  return mk$1(loc, attrs, /* constructor */{
+              tag: 8,
+              name: "Ppat_array",
+              "0": a
+            });
 }
 
 function or_(loc, attrs, a, b) {
-  return mk$1(loc, attrs, /* Ppat_or */Block.__(9, [
-                a,
-                b
-              ]));
+  return mk$1(loc, attrs, /* constructor */{
+              tag: 9,
+              name: "Ppat_or",
+              "0": a,
+              "1": b
+            });
 }
 
 function constraint_(loc, attrs, a, b) {
-  return mk$1(loc, attrs, /* Ppat_constraint */Block.__(10, [
-                a,
-                b
-              ]));
+  return mk$1(loc, attrs, /* constructor */{
+              tag: 10,
+              name: "Ppat_constraint",
+              "0": a,
+              "1": b
+            });
 }
 
 function type_(loc, attrs, a) {
-  return mk$1(loc, attrs, /* Ppat_type */Block.__(11, [a]));
+  return mk$1(loc, attrs, /* constructor */{
+              tag: 11,
+              name: "Ppat_type",
+              "0": a
+            });
 }
 
 function lazy_(loc, attrs, a) {
-  return mk$1(loc, attrs, /* Ppat_lazy */Block.__(12, [a]));
+  return mk$1(loc, attrs, /* constructor */{
+              tag: 12,
+              name: "Ppat_lazy",
+              "0": a
+            });
 }
 
 function unpack(loc, attrs, a) {
-  return mk$1(loc, attrs, /* Ppat_unpack */Block.__(13, [a]));
+  return mk$1(loc, attrs, /* constructor */{
+              tag: 13,
+              name: "Ppat_unpack",
+              "0": a
+            });
 }
 
 function exception_(loc, attrs, a) {
-  return mk$1(loc, attrs, /* Ppat_exception */Block.__(14, [a]));
+  return mk$1(loc, attrs, /* constructor */{
+              tag: 14,
+              name: "Ppat_exception",
+              "0": a
+            });
 }
 
 function extension$1(loc, attrs, a) {
-  return mk$1(loc, attrs, /* Ppat_extension */Block.__(15, [a]));
+  return mk$1(loc, attrs, /* constructor */{
+              tag: 15,
+              name: "Ppat_extension",
+              "0": a
+            });
 }
 
 var Pat = {
@@ -4623,224 +5412,318 @@ function attr$2(d, a) {
   return /* record */[
           /* pexp_desc */d[/* pexp_desc */0],
           /* pexp_loc */d[/* pexp_loc */1],
-          /* pexp_attributes */Pervasives.$at(d[/* pexp_attributes */2], /* :: */[
-                a,
-                /* [] */0
-              ])
+          /* pexp_attributes */Pervasives.$at(d[/* pexp_attributes */2], /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": a,
+                "1": /* [] */0
+              })
         ];
 }
 
 function ident(loc, attrs, a) {
-  return mk$2(loc, attrs, /* Pexp_ident */Block.__(0, [a]));
+  return mk$2(loc, attrs, /* constructor */{
+              tag: 0,
+              name: "Pexp_ident",
+              "0": a
+            });
 }
 
 function constant$1(loc, attrs, a) {
-  return mk$2(loc, attrs, /* Pexp_constant */Block.__(1, [a]));
+  return mk$2(loc, attrs, /* constructor */{
+              tag: 1,
+              name: "Pexp_constant",
+              "0": a
+            });
 }
 
 function let_(loc, attrs, a, b, c) {
-  return mk$2(loc, attrs, /* Pexp_let */Block.__(2, [
-                a,
-                b,
-                c
-              ]));
+  return mk$2(loc, attrs, /* constructor */{
+              tag: 2,
+              name: "Pexp_let",
+              "0": a,
+              "1": b,
+              "2": c
+            });
 }
 
 function fun_(loc, attrs, a, b, c, d) {
-  return mk$2(loc, attrs, /* Pexp_fun */Block.__(4, [
-                a,
-                b,
-                c,
-                d
-              ]));
+  return mk$2(loc, attrs, /* constructor */{
+              tag: 4,
+              name: "Pexp_fun",
+              "0": a,
+              "1": b,
+              "2": c,
+              "3": d
+            });
 }
 
 function function_(loc, attrs, a) {
-  return mk$2(loc, attrs, /* Pexp_function */Block.__(3, [a]));
+  return mk$2(loc, attrs, /* constructor */{
+              tag: 3,
+              name: "Pexp_function",
+              "0": a
+            });
 }
 
 function apply(loc, attrs, a, b) {
-  return mk$2(loc, attrs, /* Pexp_apply */Block.__(5, [
-                a,
-                b
-              ]));
+  return mk$2(loc, attrs, /* constructor */{
+              tag: 5,
+              name: "Pexp_apply",
+              "0": a,
+              "1": b
+            });
 }
 
 function match_(loc, attrs, a, b) {
-  return mk$2(loc, attrs, /* Pexp_match */Block.__(6, [
-                a,
-                b
-              ]));
+  return mk$2(loc, attrs, /* constructor */{
+              tag: 6,
+              name: "Pexp_match",
+              "0": a,
+              "1": b
+            });
 }
 
 function try_(loc, attrs, a, b) {
-  return mk$2(loc, attrs, /* Pexp_try */Block.__(7, [
-                a,
-                b
-              ]));
+  return mk$2(loc, attrs, /* constructor */{
+              tag: 7,
+              name: "Pexp_try",
+              "0": a,
+              "1": b
+            });
 }
 
 function tuple$2(loc, attrs, a) {
-  return mk$2(loc, attrs, /* Pexp_tuple */Block.__(8, [a]));
+  return mk$2(loc, attrs, /* constructor */{
+              tag: 8,
+              name: "Pexp_tuple",
+              "0": a
+            });
 }
 
 function construct$1(loc, attrs, a, b) {
-  return mk$2(loc, attrs, /* Pexp_construct */Block.__(9, [
-                a,
-                b
-              ]));
+  return mk$2(loc, attrs, /* constructor */{
+              tag: 9,
+              name: "Pexp_construct",
+              "0": a,
+              "1": b
+            });
 }
 
 function variant$2(loc, attrs, a, b) {
-  return mk$2(loc, attrs, /* Pexp_variant */Block.__(10, [
-                a,
-                b
-              ]));
+  return mk$2(loc, attrs, /* constructor */{
+              tag: 10,
+              name: "Pexp_variant",
+              "0": a,
+              "1": b
+            });
 }
 
 function record$1(loc, attrs, a, b) {
-  return mk$2(loc, attrs, /* Pexp_record */Block.__(11, [
-                a,
-                b
-              ]));
+  return mk$2(loc, attrs, /* constructor */{
+              tag: 11,
+              name: "Pexp_record",
+              "0": a,
+              "1": b
+            });
 }
 
 function field(loc, attrs, a, b) {
-  return mk$2(loc, attrs, /* Pexp_field */Block.__(12, [
-                a,
-                b
-              ]));
+  return mk$2(loc, attrs, /* constructor */{
+              tag: 12,
+              name: "Pexp_field",
+              "0": a,
+              "1": b
+            });
 }
 
 function setfield(loc, attrs, a, b, c) {
-  return mk$2(loc, attrs, /* Pexp_setfield */Block.__(13, [
-                a,
-                b,
-                c
-              ]));
+  return mk$2(loc, attrs, /* constructor */{
+              tag: 13,
+              name: "Pexp_setfield",
+              "0": a,
+              "1": b,
+              "2": c
+            });
 }
 
 function array$1(loc, attrs, a) {
-  return mk$2(loc, attrs, /* Pexp_array */Block.__(14, [a]));
+  return mk$2(loc, attrs, /* constructor */{
+              tag: 14,
+              name: "Pexp_array",
+              "0": a
+            });
 }
 
 function ifthenelse(loc, attrs, a, b, c) {
-  return mk$2(loc, attrs, /* Pexp_ifthenelse */Block.__(15, [
-                a,
-                b,
-                c
-              ]));
+  return mk$2(loc, attrs, /* constructor */{
+              tag: 15,
+              name: "Pexp_ifthenelse",
+              "0": a,
+              "1": b,
+              "2": c
+            });
 }
 
 function sequence(loc, attrs, a, b) {
-  return mk$2(loc, attrs, /* Pexp_sequence */Block.__(16, [
-                a,
-                b
-              ]));
+  return mk$2(loc, attrs, /* constructor */{
+              tag: 16,
+              name: "Pexp_sequence",
+              "0": a,
+              "1": b
+            });
 }
 
 function while_(loc, attrs, a, b) {
-  return mk$2(loc, attrs, /* Pexp_while */Block.__(17, [
-                a,
-                b
-              ]));
+  return mk$2(loc, attrs, /* constructor */{
+              tag: 17,
+              name: "Pexp_while",
+              "0": a,
+              "1": b
+            });
 }
 
 function for_(loc, attrs, a, b, c, d, e) {
-  return mk$2(loc, attrs, /* Pexp_for */Block.__(18, [
-                a,
-                b,
-                c,
-                d,
-                e
-              ]));
+  return mk$2(loc, attrs, /* constructor */{
+              tag: 18,
+              name: "Pexp_for",
+              "0": a,
+              "1": b,
+              "2": c,
+              "3": d,
+              "4": e
+            });
 }
 
 function constraint_$1(loc, attrs, a, b) {
-  return mk$2(loc, attrs, /* Pexp_constraint */Block.__(19, [
-                a,
-                b
-              ]));
+  return mk$2(loc, attrs, /* constructor */{
+              tag: 19,
+              name: "Pexp_constraint",
+              "0": a,
+              "1": b
+            });
 }
 
 function coerce(loc, attrs, a, b, c) {
-  return mk$2(loc, attrs, /* Pexp_coerce */Block.__(20, [
-                a,
-                b,
-                c
-              ]));
+  return mk$2(loc, attrs, /* constructor */{
+              tag: 20,
+              name: "Pexp_coerce",
+              "0": a,
+              "1": b,
+              "2": c
+            });
 }
 
 function send(loc, attrs, a, b) {
-  return mk$2(loc, attrs, /* Pexp_send */Block.__(21, [
-                a,
-                b
-              ]));
+  return mk$2(loc, attrs, /* constructor */{
+              tag: 21,
+              name: "Pexp_send",
+              "0": a,
+              "1": b
+            });
 }
 
 function new_(loc, attrs, a) {
-  return mk$2(loc, attrs, /* Pexp_new */Block.__(22, [a]));
+  return mk$2(loc, attrs, /* constructor */{
+              tag: 22,
+              name: "Pexp_new",
+              "0": a
+            });
 }
 
 function setinstvar(loc, attrs, a, b) {
-  return mk$2(loc, attrs, /* Pexp_setinstvar */Block.__(23, [
-                a,
-                b
-              ]));
+  return mk$2(loc, attrs, /* constructor */{
+              tag: 23,
+              name: "Pexp_setinstvar",
+              "0": a,
+              "1": b
+            });
 }
 
 function override(loc, attrs, a) {
-  return mk$2(loc, attrs, /* Pexp_override */Block.__(24, [a]));
+  return mk$2(loc, attrs, /* constructor */{
+              tag: 24,
+              name: "Pexp_override",
+              "0": a
+            });
 }
 
 function letmodule(loc, attrs, a, b, c) {
-  return mk$2(loc, attrs, /* Pexp_letmodule */Block.__(25, [
-                a,
-                b,
-                c
-              ]));
+  return mk$2(loc, attrs, /* constructor */{
+              tag: 25,
+              name: "Pexp_letmodule",
+              "0": a,
+              "1": b,
+              "2": c
+            });
 }
 
 function assert_(loc, attrs, a) {
-  return mk$2(loc, attrs, /* Pexp_assert */Block.__(26, [a]));
+  return mk$2(loc, attrs, /* constructor */{
+              tag: 26,
+              name: "Pexp_assert",
+              "0": a
+            });
 }
 
 function lazy_$1(loc, attrs, a) {
-  return mk$2(loc, attrs, /* Pexp_lazy */Block.__(27, [a]));
+  return mk$2(loc, attrs, /* constructor */{
+              tag: 27,
+              name: "Pexp_lazy",
+              "0": a
+            });
 }
 
 function poly$1(loc, attrs, a, b) {
-  return mk$2(loc, attrs, /* Pexp_poly */Block.__(28, [
-                a,
-                b
-              ]));
+  return mk$2(loc, attrs, /* constructor */{
+              tag: 28,
+              name: "Pexp_poly",
+              "0": a,
+              "1": b
+            });
 }
 
 function object_$1(loc, attrs, a) {
-  return mk$2(loc, attrs, /* Pexp_object */Block.__(29, [a]));
+  return mk$2(loc, attrs, /* constructor */{
+              tag: 29,
+              name: "Pexp_object",
+              "0": a
+            });
 }
 
 function newtype(loc, attrs, a, b) {
-  return mk$2(loc, attrs, /* Pexp_newtype */Block.__(30, [
-                a,
-                b
-              ]));
+  return mk$2(loc, attrs, /* constructor */{
+              tag: 30,
+              name: "Pexp_newtype",
+              "0": a,
+              "1": b
+            });
 }
 
 function pack(loc, attrs, a) {
-  return mk$2(loc, attrs, /* Pexp_pack */Block.__(31, [a]));
+  return mk$2(loc, attrs, /* constructor */{
+              tag: 31,
+              name: "Pexp_pack",
+              "0": a
+            });
 }
 
 function open_(loc, attrs, a, b, c) {
-  return mk$2(loc, attrs, /* Pexp_open */Block.__(32, [
-                a,
-                b,
-                c
-              ]));
+  return mk$2(loc, attrs, /* constructor */{
+              tag: 32,
+              name: "Pexp_open",
+              "0": a,
+              "1": b,
+              "2": c
+            });
 }
 
 function extension$2(loc, attrs, a) {
-  return mk$2(loc, attrs, /* Pexp_extension */Block.__(33, [a]));
+  return mk$2(loc, attrs, /* constructor */{
+              tag: 33,
+              name: "Pexp_extension",
+              "0": a
+            });
 }
 
 function $$case(lhs, guard, rhs) {
@@ -4865,46 +5748,72 @@ function attr$3(d, a) {
   return /* record */[
           /* pmty_desc */d[/* pmty_desc */0],
           /* pmty_loc */d[/* pmty_loc */1],
-          /* pmty_attributes */Pervasives.$at(d[/* pmty_attributes */2], /* :: */[
-                a,
-                /* [] */0
-              ])
+          /* pmty_attributes */Pervasives.$at(d[/* pmty_attributes */2], /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": a,
+                "1": /* [] */0
+              })
         ];
 }
 
 function ident$1(loc, attrs, a) {
-  return mk$3(loc, attrs, /* Pmty_ident */Block.__(0, [a]));
+  return mk$3(loc, attrs, /* constructor */{
+              tag: 0,
+              name: "Pmty_ident",
+              "0": a
+            });
 }
 
 function alias$2(loc, attrs, a) {
-  return mk$3(loc, attrs, /* Pmty_alias */Block.__(6, [a]));
+  return mk$3(loc, attrs, /* constructor */{
+              tag: 6,
+              name: "Pmty_alias",
+              "0": a
+            });
 }
 
 function signature(loc, attrs, a) {
-  return mk$3(loc, attrs, /* Pmty_signature */Block.__(1, [a]));
+  return mk$3(loc, attrs, /* constructor */{
+              tag: 1,
+              name: "Pmty_signature",
+              "0": a
+            });
 }
 
 function functor_(loc, attrs, a, b, c) {
-  return mk$3(loc, attrs, /* Pmty_functor */Block.__(2, [
-                a,
-                b,
-                c
-              ]));
+  return mk$3(loc, attrs, /* constructor */{
+              tag: 2,
+              name: "Pmty_functor",
+              "0": a,
+              "1": b,
+              "2": c
+            });
 }
 
 function with_(loc, attrs, a, b) {
-  return mk$3(loc, attrs, /* Pmty_with */Block.__(3, [
-                a,
-                b
-              ]));
+  return mk$3(loc, attrs, /* constructor */{
+              tag: 3,
+              name: "Pmty_with",
+              "0": a,
+              "1": b
+            });
 }
 
 function typeof_(loc, attrs, a) {
-  return mk$3(loc, attrs, /* Pmty_typeof */Block.__(4, [a]));
+  return mk$3(loc, attrs, /* constructor */{
+              tag: 4,
+              name: "Pmty_typeof",
+              "0": a
+            });
 }
 
 function extension$3(loc, attrs, a) {
-  return mk$3(loc, attrs, /* Pmty_extension */Block.__(5, [a]));
+  return mk$3(loc, attrs, /* constructor */{
+              tag: 5,
+              name: "Pmty_extension",
+              "0": a
+            });
 }
 
 var Mty = {
@@ -4933,49 +5842,73 @@ function attr$4(d, a) {
   return /* record */[
           /* pmod_desc */d[/* pmod_desc */0],
           /* pmod_loc */d[/* pmod_loc */1],
-          /* pmod_attributes */Pervasives.$at(d[/* pmod_attributes */2], /* :: */[
-                a,
-                /* [] */0
-              ])
+          /* pmod_attributes */Pervasives.$at(d[/* pmod_attributes */2], /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": a,
+                "1": /* [] */0
+              })
         ];
 }
 
 function ident$2(loc, attrs, x) {
-  return mk$4(loc, attrs, /* Pmod_ident */Block.__(0, [x]));
+  return mk$4(loc, attrs, /* constructor */{
+              tag: 0,
+              name: "Pmod_ident",
+              "0": x
+            });
 }
 
 function structure(loc, attrs, x) {
-  return mk$4(loc, attrs, /* Pmod_structure */Block.__(1, [x]));
+  return mk$4(loc, attrs, /* constructor */{
+              tag: 1,
+              name: "Pmod_structure",
+              "0": x
+            });
 }
 
 function functor_$1(loc, attrs, arg, arg_ty, body) {
-  return mk$4(loc, attrs, /* Pmod_functor */Block.__(2, [
-                arg,
-                arg_ty,
-                body
-              ]));
+  return mk$4(loc, attrs, /* constructor */{
+              tag: 2,
+              name: "Pmod_functor",
+              "0": arg,
+              "1": arg_ty,
+              "2": body
+            });
 }
 
 function apply$1(loc, attrs, m1, m2) {
-  return mk$4(loc, attrs, /* Pmod_apply */Block.__(3, [
-                m1,
-                m2
-              ]));
+  return mk$4(loc, attrs, /* constructor */{
+              tag: 3,
+              name: "Pmod_apply",
+              "0": m1,
+              "1": m2
+            });
 }
 
 function constraint_$2(loc, attrs, m, mty) {
-  return mk$4(loc, attrs, /* Pmod_constraint */Block.__(4, [
-                m,
-                mty
-              ]));
+  return mk$4(loc, attrs, /* constructor */{
+              tag: 4,
+              name: "Pmod_constraint",
+              "0": m,
+              "1": mty
+            });
 }
 
 function unpack$1(loc, attrs, e) {
-  return mk$4(loc, attrs, /* Pmod_unpack */Block.__(5, [e]));
+  return mk$4(loc, attrs, /* constructor */{
+              tag: 5,
+              name: "Pmod_unpack",
+              "0": e
+            });
 }
 
 function extension$4(loc, attrs, a) {
-  return mk$4(loc, attrs, /* Pmod_extension */Block.__(6, [a]));
+  return mk$4(loc, attrs, /* constructor */{
+              tag: 6,
+              name: "Pmod_extension",
+              "0": a
+            });
 }
 
 var Mod = {
@@ -4999,66 +5932,120 @@ function mk$5($staropt$star, d) {
 }
 
 function value(loc, a) {
-  return mk$5(loc, /* Psig_value */Block.__(0, [a]));
+  return mk$5(loc, /* constructor */{
+              tag: 0,
+              name: "Psig_value",
+              "0": a
+            });
 }
 
 function type_$1(loc, a) {
-  return mk$5(loc, /* Psig_type */Block.__(1, [a]));
+  return mk$5(loc, /* constructor */{
+              tag: 1,
+              name: "Psig_type",
+              "0": a
+            });
 }
 
 function type_extension(loc, a) {
-  return mk$5(loc, /* Psig_typext */Block.__(2, [a]));
+  return mk$5(loc, /* constructor */{
+              tag: 2,
+              name: "Psig_typext",
+              "0": a
+            });
 }
 
 function exception_$1(loc, a) {
-  return mk$5(loc, /* Psig_exception */Block.__(3, [a]));
+  return mk$5(loc, /* constructor */{
+              tag: 3,
+              name: "Psig_exception",
+              "0": a
+            });
 }
 
 function module_(loc, a) {
-  return mk$5(loc, /* Psig_module */Block.__(4, [a]));
+  return mk$5(loc, /* constructor */{
+              tag: 4,
+              name: "Psig_module",
+              "0": a
+            });
 }
 
 function rec_module(loc, a) {
-  return mk$5(loc, /* Psig_recmodule */Block.__(5, [a]));
+  return mk$5(loc, /* constructor */{
+              tag: 5,
+              name: "Psig_recmodule",
+              "0": a
+            });
 }
 
 function modtype(loc, a) {
-  return mk$5(loc, /* Psig_modtype */Block.__(6, [a]));
+  return mk$5(loc, /* constructor */{
+              tag: 6,
+              name: "Psig_modtype",
+              "0": a
+            });
 }
 
 function open_$1(loc, a) {
-  return mk$5(loc, /* Psig_open */Block.__(7, [a]));
+  return mk$5(loc, /* constructor */{
+              tag: 7,
+              name: "Psig_open",
+              "0": a
+            });
 }
 
 function include_(loc, a) {
-  return mk$5(loc, /* Psig_include */Block.__(8, [a]));
+  return mk$5(loc, /* constructor */{
+              tag: 8,
+              name: "Psig_include",
+              "0": a
+            });
 }
 
 function class_$1(loc, a) {
-  return mk$5(loc, /* Psig_class */Block.__(9, [a]));
+  return mk$5(loc, /* constructor */{
+              tag: 9,
+              name: "Psig_class",
+              "0": a
+            });
 }
 
 function class_type(loc, a) {
-  return mk$5(loc, /* Psig_class_type */Block.__(10, [a]));
+  return mk$5(loc, /* constructor */{
+              tag: 10,
+              name: "Psig_class_type",
+              "0": a
+            });
 }
 
 function extension$5(loc, $staropt$star, a) {
   var attrs = $staropt$star !== undefined ? $staropt$star : /* [] */0;
-  return mk$5(loc, /* Psig_extension */Block.__(12, [
-                a,
-                attrs
-              ]));
+  return mk$5(loc, /* constructor */{
+              tag: 12,
+              name: "Psig_extension",
+              "0": a,
+              "1": attrs
+            });
 }
 
 function attribute(loc, a) {
-  return mk$5(loc, /* Psig_attribute */Block.__(11, [a]));
+  return mk$5(loc, /* constructor */{
+              tag: 11,
+              name: "Psig_attribute",
+              "0": a
+            });
 }
 
 function text(txt) {
   return List.map((function (ds) {
                 var a = text_attr(ds);
                 var loc = ds[/* ds_loc */1];
-                return mk$5(loc, /* Psig_attribute */Block.__(11, [a]));
+                return mk$5(loc, /* constructor */{
+                            tag: 11,
+                            name: "Psig_attribute",
+                            "0": a
+                          });
               }), txt);
 }
 
@@ -5090,80 +6077,138 @@ function mk$6($staropt$star, d) {
 
 function $$eval(loc, $staropt$star, a) {
   var attrs = $staropt$star !== undefined ? $staropt$star : /* [] */0;
-  return mk$6(loc, /* Pstr_eval */Block.__(0, [
-                a,
-                attrs
-              ]));
+  return mk$6(loc, /* constructor */{
+              tag: 0,
+              name: "Pstr_eval",
+              "0": a,
+              "1": attrs
+            });
 }
 
 function value$1(loc, a, b) {
-  return mk$6(loc, /* Pstr_value */Block.__(1, [
-                a,
-                b
-              ]));
+  return mk$6(loc, /* constructor */{
+              tag: 1,
+              name: "Pstr_value",
+              "0": a,
+              "1": b
+            });
 }
 
 function primitive(loc, a) {
-  return mk$6(loc, /* Pstr_primitive */Block.__(2, [a]));
+  return mk$6(loc, /* constructor */{
+              tag: 2,
+              name: "Pstr_primitive",
+              "0": a
+            });
 }
 
 function type_$2(loc, a) {
-  return mk$6(loc, /* Pstr_type */Block.__(3, [a]));
+  return mk$6(loc, /* constructor */{
+              tag: 3,
+              name: "Pstr_type",
+              "0": a
+            });
 }
 
 function type_extension$1(loc, a) {
-  return mk$6(loc, /* Pstr_typext */Block.__(4, [a]));
+  return mk$6(loc, /* constructor */{
+              tag: 4,
+              name: "Pstr_typext",
+              "0": a
+            });
 }
 
 function exception_$2(loc, a) {
-  return mk$6(loc, /* Pstr_exception */Block.__(5, [a]));
+  return mk$6(loc, /* constructor */{
+              tag: 5,
+              name: "Pstr_exception",
+              "0": a
+            });
 }
 
 function module_$1(loc, a) {
-  return mk$6(loc, /* Pstr_module */Block.__(6, [a]));
+  return mk$6(loc, /* constructor */{
+              tag: 6,
+              name: "Pstr_module",
+              "0": a
+            });
 }
 
 function rec_module$1(loc, a) {
-  return mk$6(loc, /* Pstr_recmodule */Block.__(7, [a]));
+  return mk$6(loc, /* constructor */{
+              tag: 7,
+              name: "Pstr_recmodule",
+              "0": a
+            });
 }
 
 function modtype$1(loc, a) {
-  return mk$6(loc, /* Pstr_modtype */Block.__(8, [a]));
+  return mk$6(loc, /* constructor */{
+              tag: 8,
+              name: "Pstr_modtype",
+              "0": a
+            });
 }
 
 function open_$2(loc, a) {
-  return mk$6(loc, /* Pstr_open */Block.__(9, [a]));
+  return mk$6(loc, /* constructor */{
+              tag: 9,
+              name: "Pstr_open",
+              "0": a
+            });
 }
 
 function class_$2(loc, a) {
-  return mk$6(loc, /* Pstr_class */Block.__(10, [a]));
+  return mk$6(loc, /* constructor */{
+              tag: 10,
+              name: "Pstr_class",
+              "0": a
+            });
 }
 
 function class_type$1(loc, a) {
-  return mk$6(loc, /* Pstr_class_type */Block.__(11, [a]));
+  return mk$6(loc, /* constructor */{
+              tag: 11,
+              name: "Pstr_class_type",
+              "0": a
+            });
 }
 
 function include_$1(loc, a) {
-  return mk$6(loc, /* Pstr_include */Block.__(12, [a]));
+  return mk$6(loc, /* constructor */{
+              tag: 12,
+              name: "Pstr_include",
+              "0": a
+            });
 }
 
 function extension$6(loc, $staropt$star, a) {
   var attrs = $staropt$star !== undefined ? $staropt$star : /* [] */0;
-  return mk$6(loc, /* Pstr_extension */Block.__(14, [
-                a,
-                attrs
-              ]));
+  return mk$6(loc, /* constructor */{
+              tag: 14,
+              name: "Pstr_extension",
+              "0": a,
+              "1": attrs
+            });
 }
 
 function attribute$1(loc, a) {
-  return mk$6(loc, /* Pstr_attribute */Block.__(13, [a]));
+  return mk$6(loc, /* constructor */{
+              tag: 13,
+              name: "Pstr_attribute",
+              "0": a
+            });
 }
 
 function text$1(txt) {
   return List.map((function (ds) {
                 var a = text_attr(ds);
                 var loc = ds[/* ds_loc */1];
-                return mk$6(loc, /* Pstr_attribute */Block.__(13, [a]));
+                return mk$6(loc, /* constructor */{
+                            tag: 13,
+                            name: "Pstr_attribute",
+                            "0": a
+                          });
               }), txt);
 }
 
@@ -5201,57 +6246,77 @@ function attr$5(d, a) {
   return /* record */[
           /* pcl_desc */d[/* pcl_desc */0],
           /* pcl_loc */d[/* pcl_loc */1],
-          /* pcl_attributes */Pervasives.$at(d[/* pcl_attributes */2], /* :: */[
-                a,
-                /* [] */0
-              ])
+          /* pcl_attributes */Pervasives.$at(d[/* pcl_attributes */2], /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": a,
+                "1": /* [] */0
+              })
         ];
 }
 
 function constr$1(loc, attrs, a, b) {
-  return mk$7(loc, attrs, /* Pcl_constr */Block.__(0, [
-                a,
-                b
-              ]));
+  return mk$7(loc, attrs, /* constructor */{
+              tag: 0,
+              name: "Pcl_constr",
+              "0": a,
+              "1": b
+            });
 }
 
 function structure$1(loc, attrs, a) {
-  return mk$7(loc, attrs, /* Pcl_structure */Block.__(1, [a]));
+  return mk$7(loc, attrs, /* constructor */{
+              tag: 1,
+              name: "Pcl_structure",
+              "0": a
+            });
 }
 
 function fun_$1(loc, attrs, a, b, c, d) {
-  return mk$7(loc, attrs, /* Pcl_fun */Block.__(2, [
-                a,
-                b,
-                c,
-                d
-              ]));
+  return mk$7(loc, attrs, /* constructor */{
+              tag: 2,
+              name: "Pcl_fun",
+              "0": a,
+              "1": b,
+              "2": c,
+              "3": d
+            });
 }
 
 function apply$2(loc, attrs, a, b) {
-  return mk$7(loc, attrs, /* Pcl_apply */Block.__(3, [
-                a,
-                b
-              ]));
+  return mk$7(loc, attrs, /* constructor */{
+              tag: 3,
+              name: "Pcl_apply",
+              "0": a,
+              "1": b
+            });
 }
 
 function let_$1(loc, attrs, a, b, c) {
-  return mk$7(loc, attrs, /* Pcl_let */Block.__(4, [
-                a,
-                b,
-                c
-              ]));
+  return mk$7(loc, attrs, /* constructor */{
+              tag: 4,
+              name: "Pcl_let",
+              "0": a,
+              "1": b,
+              "2": c
+            });
 }
 
 function constraint_$3(loc, attrs, a, b) {
-  return mk$7(loc, attrs, /* Pcl_constraint */Block.__(5, [
-                a,
-                b
-              ]));
+  return mk$7(loc, attrs, /* constructor */{
+              tag: 5,
+              name: "Pcl_constraint",
+              "0": a,
+              "1": b
+            });
 }
 
 function extension$7(loc, attrs, a) {
-  return mk$7(loc, attrs, /* Pcl_extension */Block.__(6, [a]));
+  return mk$7(loc, attrs, /* constructor */{
+              tag: 6,
+              name: "Pcl_extension",
+              "0": a
+            });
 }
 
 var Cl = {
@@ -5280,34 +6345,48 @@ function attr$6(d, a) {
   return /* record */[
           /* pcty_desc */d[/* pcty_desc */0],
           /* pcty_loc */d[/* pcty_loc */1],
-          /* pcty_attributes */Pervasives.$at(d[/* pcty_attributes */2], /* :: */[
-                a,
-                /* [] */0
-              ])
+          /* pcty_attributes */Pervasives.$at(d[/* pcty_attributes */2], /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": a,
+                "1": /* [] */0
+              })
         ];
 }
 
 function constr$2(loc, attrs, a, b) {
-  return mk$8(loc, attrs, /* Pcty_constr */Block.__(0, [
-                a,
-                b
-              ]));
+  return mk$8(loc, attrs, /* constructor */{
+              tag: 0,
+              name: "Pcty_constr",
+              "0": a,
+              "1": b
+            });
 }
 
 function signature$1(loc, attrs, a) {
-  return mk$8(loc, attrs, /* Pcty_signature */Block.__(1, [a]));
+  return mk$8(loc, attrs, /* constructor */{
+              tag: 1,
+              name: "Pcty_signature",
+              "0": a
+            });
 }
 
 function arrow$1(loc, attrs, a, b, c) {
-  return mk$8(loc, attrs, /* Pcty_arrow */Block.__(2, [
-                a,
-                b,
-                c
-              ]));
+  return mk$8(loc, attrs, /* constructor */{
+              tag: 2,
+              name: "Pcty_arrow",
+              "0": a,
+              "1": b,
+              "2": c
+            });
 }
 
 function extension$8(loc, attrs, a) {
-  return mk$8(loc, attrs, /* Pcty_extension */Block.__(3, [a]));
+  return mk$8(loc, attrs, /* constructor */{
+              tag: 3,
+              name: "Pcty_extension",
+              "0": a
+            });
 }
 
 var Cty = {
@@ -5331,40 +6410,64 @@ function mk$9($staropt$star, $staropt$star$1, $staropt$star$2, d) {
 }
 
 function inherit_(loc, attrs, a) {
-  return mk$9(loc, attrs, undefined, /* Pctf_inherit */Block.__(0, [a]));
+  return mk$9(loc, attrs, undefined, /* constructor */{
+              tag: 0,
+              name: "Pctf_inherit",
+              "0": a
+            });
 }
 
 function val_(loc, attrs, a, b, c, d) {
-  return mk$9(loc, attrs, undefined, /* Pctf_val */Block.__(1, [/* tuple */[
-                  a,
-                  b,
-                  c,
-                  d
-                ]]));
+  return mk$9(loc, attrs, undefined, /* constructor */{
+              tag: 1,
+              name: "Pctf_val",
+              "0": /* tuple */[
+                a,
+                b,
+                c,
+                d
+              ]
+            });
 }
 
 function method_(loc, attrs, a, b, c, d) {
-  return mk$9(loc, attrs, undefined, /* Pctf_method */Block.__(2, [/* tuple */[
-                  a,
-                  b,
-                  c,
-                  d
-                ]]));
+  return mk$9(loc, attrs, undefined, /* constructor */{
+              tag: 2,
+              name: "Pctf_method",
+              "0": /* tuple */[
+                a,
+                b,
+                c,
+                d
+              ]
+            });
 }
 
 function constraint_$4(loc, attrs, a, b) {
-  return mk$9(loc, attrs, undefined, /* Pctf_constraint */Block.__(3, [/* tuple */[
-                  a,
-                  b
-                ]]));
+  return mk$9(loc, attrs, undefined, /* constructor */{
+              tag: 3,
+              name: "Pctf_constraint",
+              "0": /* tuple */[
+                a,
+                b
+              ]
+            });
 }
 
 function extension$9(loc, attrs, a) {
-  return mk$9(loc, attrs, undefined, /* Pctf_extension */Block.__(5, [a]));
+  return mk$9(loc, attrs, undefined, /* constructor */{
+              tag: 5,
+              name: "Pctf_extension",
+              "0": a
+            });
 }
 
 function attribute$2(loc, a) {
-  return mk$9(loc, undefined, undefined, /* Pctf_attribute */Block.__(4, [a]));
+  return mk$9(loc, undefined, undefined, /* constructor */{
+              tag: 4,
+              name: "Pctf_attribute",
+              "0": a
+            });
 }
 
 function text$2(txt) {
@@ -5377,10 +6480,12 @@ function attr$7(d, a) {
   return /* record */[
           /* pctf_desc */d[/* pctf_desc */0],
           /* pctf_loc */d[/* pctf_loc */1],
-          /* pctf_attributes */Pervasives.$at(d[/* pctf_attributes */2], /* :: */[
-                a,
-                /* [] */0
-              ])
+          /* pctf_attributes */Pervasives.$at(d[/* pctf_attributes */2], /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": a,
+                "1": /* [] */0
+              })
         ];
 }
 
@@ -5396,46 +6501,72 @@ function mk$10($staropt$star, $staropt$star$1, $staropt$star$2, d) {
 }
 
 function inherit_$1(loc, attrs, a, b, c) {
-  return mk$10(loc, attrs, undefined, /* Pcf_inherit */Block.__(0, [
-                a,
-                b,
-                c
-              ]));
+  return mk$10(loc, attrs, undefined, /* constructor */{
+              tag: 0,
+              name: "Pcf_inherit",
+              "0": a,
+              "1": b,
+              "2": c
+            });
 }
 
 function val_$1(loc, attrs, a, b, c) {
-  return mk$10(loc, attrs, undefined, /* Pcf_val */Block.__(1, [/* tuple */[
-                  a,
-                  b,
-                  c
-                ]]));
+  return mk$10(loc, attrs, undefined, /* constructor */{
+              tag: 1,
+              name: "Pcf_val",
+              "0": /* tuple */[
+                a,
+                b,
+                c
+              ]
+            });
 }
 
 function method_$1(loc, attrs, a, b, c) {
-  return mk$10(loc, attrs, undefined, /* Pcf_method */Block.__(2, [/* tuple */[
-                  a,
-                  b,
-                  c
-                ]]));
+  return mk$10(loc, attrs, undefined, /* constructor */{
+              tag: 2,
+              name: "Pcf_method",
+              "0": /* tuple */[
+                a,
+                b,
+                c
+              ]
+            });
 }
 
 function constraint_$5(loc, attrs, a, b) {
-  return mk$10(loc, attrs, undefined, /* Pcf_constraint */Block.__(3, [/* tuple */[
-                  a,
-                  b
-                ]]));
+  return mk$10(loc, attrs, undefined, /* constructor */{
+              tag: 3,
+              name: "Pcf_constraint",
+              "0": /* tuple */[
+                a,
+                b
+              ]
+            });
 }
 
 function initializer_(loc, attrs, a) {
-  return mk$10(loc, attrs, undefined, /* Pcf_initializer */Block.__(4, [a]));
+  return mk$10(loc, attrs, undefined, /* constructor */{
+              tag: 4,
+              name: "Pcf_initializer",
+              "0": a
+            });
 }
 
 function extension$10(loc, attrs, a) {
-  return mk$10(loc, attrs, undefined, /* Pcf_extension */Block.__(6, [a]));
+  return mk$10(loc, attrs, undefined, /* constructor */{
+              tag: 6,
+              name: "Pcf_extension",
+              "0": a
+            });
 }
 
 function attribute$3(loc, a) {
-  return mk$10(loc, undefined, undefined, /* Pcf_attribute */Block.__(5, [a]));
+  return mk$10(loc, undefined, undefined, /* constructor */{
+              tag: 5,
+              name: "Pcf_attribute",
+              "0": a
+            });
 }
 
 function text$3(txt) {
@@ -5445,24 +6576,32 @@ function text$3(txt) {
 }
 
 function virtual_(ct) {
-  return /* Cfk_virtual */Block.__(0, [ct]);
+  return /* constructor */{
+          tag: 0,
+          name: "Cfk_virtual",
+          "0": ct
+        };
 }
 
 function concrete(o, e) {
-  return /* Cfk_concrete */Block.__(1, [
-            o,
-            e
-          ]);
+  return /* constructor */{
+          tag: 1,
+          name: "Cfk_concrete",
+          "0": o,
+          "1": e
+        };
 }
 
 function attr$8(d, a) {
   return /* record */[
           /* pcf_desc */d[/* pcf_desc */0],
           /* pcf_loc */d[/* pcf_loc */1],
-          /* pcf_attributes */Pervasives.$at(d[/* pcf_attributes */2], /* :: */[
-                a,
-                /* [] */0
-              ])
+          /* pcf_attributes */Pervasives.$at(d[/* pcf_attributes */2], /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": a,
+                "1": /* [] */0
+              })
         ];
 }
 
@@ -5695,10 +6834,12 @@ function decl($staropt$star, $staropt$star$1, $staropt$star$2, $staropt$star$3, 
   var args = $staropt$star$4 !== undefined ? $staropt$star$4 : /* [] */0;
   return /* record */[
           /* pext_name */name,
-          /* pext_kind : Pext_decl */Block.__(0, [
-              args,
-              res
-            ]),
+          /* pext_kind : constructor */{
+            tag: 0,
+            name: "Pext_decl",
+            "0": args,
+            "1": res
+          },
           /* pext_loc */loc,
           /* pext_attributes */add_docs_attrs(docs, add_info_attrs(info, attrs))
         ];
@@ -5711,7 +6852,11 @@ function rebind($staropt$star, $staropt$star$1, $staropt$star$2, $staropt$star$3
   var info = $staropt$star$3 !== undefined ? Caml_option.valFromOption($staropt$star$3) : undefined;
   return /* record */[
           /* pext_name */name,
-          /* pext_kind : Pext_rebind */Block.__(1, [lid]),
+          /* pext_kind : constructor */{
+            tag: 1,
+            name: "Pext_rebind",
+            "0": lid
+          },
           /* pext_loc */loc,
           /* pext_attributes */add_docs_attrs(docs, add_info_attrs(info, attrs))
         ];
@@ -5850,128 +6995,200 @@ function prepare_error(param) {
     case /* Unclosed */0 :
         var closing = param[3];
         var opening = param[1];
-        return Curry._1(errorf(param[2], /* :: */[
-                        Curry._1(errorf(param[0], undefined, undefined, /* Format */[
-                                  /* String_literal */Block.__(11, [
-                                      "This '",
-                                      /* String */Block.__(2, [
-                                          /* No_padding */0,
-                                          /* String_literal */Block.__(11, [
-                                              "' might be unmatched",
-                                              /* End_of_format */0
-                                            ])
-                                        ])
-                                    ]),
-                                  "This '%s' might be unmatched"
-                                ]), opening),
-                        /* [] */0
-                      ], Curry._2(Printf.sprintf(/* Format */[
-                                /* String_literal */Block.__(11, [
-                                    "Syntax error: '",
-                                    /* String */Block.__(2, [
-                                        /* No_padding */0,
-                                        /* String_literal */Block.__(11, [
-                                            "' expected, the highlighted '",
-                                            /* String */Block.__(2, [
-                                                /* No_padding */0,
-                                                /* String_literal */Block.__(11, [
-                                                    "' might be unmatched",
-                                                    /* End_of_format */0
-                                                  ])
-                                              ])
-                                          ])
-                                      ])
-                                  ]),
-                                "Syntax error: '%s' expected, the highlighted '%s' might be unmatched"
-                              ]), closing, opening), /* Format */[
-                        /* String_literal */Block.__(11, [
-                            "Syntax error: '",
-                            /* String */Block.__(2, [
-                                /* No_padding */0,
-                                /* String_literal */Block.__(11, [
-                                    "' expected",
-                                    /* End_of_format */0
-                                  ])
-                              ])
-                          ]),
-                        "Syntax error: '%s' expected"
-                      ]), closing);
+        return Curry._1(errorf(param[2], /* constructor */{
+                        tag: 0,
+                        name: "::",
+                        "0": Curry._1(errorf(param[0], undefined, undefined, /* constructor */{
+                                  tag: 0,
+                                  name: "Format",
+                                  "0": /* constructor */{
+                                    tag: 11,
+                                    name: "String_literal",
+                                    "0": "This '",
+                                    "1": /* constructor */{
+                                      tag: 2,
+                                      name: "String",
+                                      "0": /* No_padding */0,
+                                      "1": /* constructor */{
+                                        tag: 11,
+                                        name: "String_literal",
+                                        "0": "' might be unmatched",
+                                        "1": /* End_of_format */0
+                                      }
+                                    }
+                                  },
+                                  "1": "This '%s' might be unmatched"
+                                }), opening),
+                        "1": /* [] */0
+                      }, Curry._2(Printf.sprintf(/* constructor */{
+                                tag: 0,
+                                name: "Format",
+                                "0": /* constructor */{
+                                  tag: 11,
+                                  name: "String_literal",
+                                  "0": "Syntax error: '",
+                                  "1": /* constructor */{
+                                    tag: 2,
+                                    name: "String",
+                                    "0": /* No_padding */0,
+                                    "1": /* constructor */{
+                                      tag: 11,
+                                      name: "String_literal",
+                                      "0": "' expected, the highlighted '",
+                                      "1": /* constructor */{
+                                        tag: 2,
+                                        name: "String",
+                                        "0": /* No_padding */0,
+                                        "1": /* constructor */{
+                                          tag: 11,
+                                          name: "String_literal",
+                                          "0": "' might be unmatched",
+                                          "1": /* End_of_format */0
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "1": "Syntax error: '%s' expected, the highlighted '%s' might be unmatched"
+                              }), closing, opening), /* constructor */{
+                        tag: 0,
+                        name: "Format",
+                        "0": /* constructor */{
+                          tag: 11,
+                          name: "String_literal",
+                          "0": "Syntax error: '",
+                          "1": /* constructor */{
+                            tag: 2,
+                            name: "String",
+                            "0": /* No_padding */0,
+                            "1": /* constructor */{
+                              tag: 11,
+                              name: "String_literal",
+                              "0": "' expected",
+                              "1": /* End_of_format */0
+                            }
+                          }
+                        },
+                        "1": "Syntax error: '%s' expected"
+                      }), closing);
     case /* Expecting */1 :
-        return Curry._1(errorf(param[0], undefined, undefined, /* Format */[
-                        /* String_literal */Block.__(11, [
-                            "Syntax error: ",
-                            /* String */Block.__(2, [
-                                /* No_padding */0,
-                                /* String_literal */Block.__(11, [
-                                    " expected.",
-                                    /* End_of_format */0
-                                  ])
-                              ])
-                          ]),
-                        "Syntax error: %s expected."
-                      ]), param[1]);
+        return Curry._1(errorf(param[0], undefined, undefined, /* constructor */{
+                        tag: 0,
+                        name: "Format",
+                        "0": /* constructor */{
+                          tag: 11,
+                          name: "String_literal",
+                          "0": "Syntax error: ",
+                          "1": /* constructor */{
+                            tag: 2,
+                            name: "String",
+                            "0": /* No_padding */0,
+                            "1": /* constructor */{
+                              tag: 11,
+                              name: "String_literal",
+                              "0": " expected.",
+                              "1": /* End_of_format */0
+                            }
+                          }
+                        },
+                        "1": "Syntax error: %s expected."
+                      }), param[1]);
     case /* Not_expecting */2 :
-        return Curry._1(errorf(param[0], undefined, undefined, /* Format */[
-                        /* String_literal */Block.__(11, [
-                            "Syntax error: ",
-                            /* String */Block.__(2, [
-                                /* No_padding */0,
-                                /* String_literal */Block.__(11, [
-                                    " not expected.",
-                                    /* End_of_format */0
-                                  ])
-                              ])
-                          ]),
-                        "Syntax error: %s not expected."
-                      ]), param[1]);
+        return Curry._1(errorf(param[0], undefined, undefined, /* constructor */{
+                        tag: 0,
+                        name: "Format",
+                        "0": /* constructor */{
+                          tag: 11,
+                          name: "String_literal",
+                          "0": "Syntax error: ",
+                          "1": /* constructor */{
+                            tag: 2,
+                            name: "String",
+                            "0": /* No_padding */0,
+                            "1": /* constructor */{
+                              tag: 11,
+                              name: "String_literal",
+                              "0": " not expected.",
+                              "1": /* End_of_format */0
+                            }
+                          }
+                        },
+                        "1": "Syntax error: %s not expected."
+                      }), param[1]);
     case /* Applicative_path */3 :
-        return errorf(param[0], undefined, undefined, /* Format */[
-                    /* String_literal */Block.__(11, [
-                        "Syntax error: applicative paths of the form F(X).t are not supported when the option -no-app-func is set.",
-                        /* End_of_format */0
-                      ]),
-                    "Syntax error: applicative paths of the form F(X).t are not supported when the option -no-app-func is set."
-                  ]);
+        return errorf(param[0], undefined, undefined, /* constructor */{
+                    tag: 0,
+                    name: "Format",
+                    "0": /* constructor */{
+                      tag: 11,
+                      name: "String_literal",
+                      "0": "Syntax error: applicative paths of the form F(X).t are not supported when the option -no-app-func is set.",
+                      "1": /* End_of_format */0
+                    },
+                    "1": "Syntax error: applicative paths of the form F(X).t are not supported when the option -no-app-func is set."
+                  });
     case /* Variable_in_scope */4 :
         var $$var = param[1];
-        return Curry._2(errorf(param[0], undefined, undefined, /* Format */[
-                        /* String_literal */Block.__(11, [
-                            "In this scoped type, variable '",
-                            /* String */Block.__(2, [
-                                /* No_padding */0,
-                                /* String_literal */Block.__(11, [
-                                    " is reserved for the local type ",
-                                    /* String */Block.__(2, [
-                                        /* No_padding */0,
-                                        /* Char_literal */Block.__(12, [
-                                            /* "." */46,
-                                            /* End_of_format */0
-                                          ])
-                                      ])
-                                  ])
-                              ])
-                          ]),
-                        "In this scoped type, variable '%s is reserved for the local type %s."
-                      ]), $$var, $$var);
+        return Curry._2(errorf(param[0], undefined, undefined, /* constructor */{
+                        tag: 0,
+                        name: "Format",
+                        "0": /* constructor */{
+                          tag: 11,
+                          name: "String_literal",
+                          "0": "In this scoped type, variable '",
+                          "1": /* constructor */{
+                            tag: 2,
+                            name: "String",
+                            "0": /* No_padding */0,
+                            "1": /* constructor */{
+                              tag: 11,
+                              name: "String_literal",
+                              "0": " is reserved for the local type ",
+                              "1": /* constructor */{
+                                tag: 2,
+                                name: "String",
+                                "0": /* No_padding */0,
+                                "1": /* constructor */{
+                                  tag: 12,
+                                  name: "Char_literal",
+                                  "0": /* "." */46,
+                                  "1": /* End_of_format */0
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "1": "In this scoped type, variable '%s is reserved for the local type %s."
+                      }), $$var, $$var);
     case /* Other */5 :
-        return errorf(param[0], undefined, undefined, /* Format */[
-                    /* String_literal */Block.__(11, [
-                        "Syntax error",
-                        /* End_of_format */0
-                      ]),
-                    "Syntax error"
-                  ]);
+        return errorf(param[0], undefined, undefined, /* constructor */{
+                    tag: 0,
+                    name: "Format",
+                    "0": /* constructor */{
+                      tag: 11,
+                      name: "String_literal",
+                      "0": "Syntax error",
+                      "1": /* End_of_format */0
+                    },
+                    "1": "Syntax error"
+                  });
     case /* Ill_formed_ast */6 :
-        return Curry._1(errorf(param[0], undefined, undefined, /* Format */[
-                        /* String_literal */Block.__(11, [
-                            "broken invariant in parsetree: ",
-                            /* String */Block.__(2, [
-                                /* No_padding */0,
-                                /* End_of_format */0
-                              ])
-                          ]),
-                        "broken invariant in parsetree: %s"
-                      ]), param[1]);
+        return Curry._1(errorf(param[0], undefined, undefined, /* constructor */{
+                        tag: 0,
+                        name: "Format",
+                        "0": /* constructor */{
+                          tag: 11,
+                          name: "String_literal",
+                          "0": "broken invariant in parsetree: ",
+                          "1": /* constructor */{
+                            tag: 2,
+                            name: "String",
+                            "0": /* No_padding */0,
+                            "1": /* End_of_format */0
+                          }
+                        },
+                        "1": "broken invariant in parsetree: %s"
+                      }), param[1]);
     
   }
 }
@@ -5994,10 +7211,12 @@ function location_of_error(param) {
 function ill_formed_ast(loc, s) {
   throw [
         $$Error$1,
-        /* Ill_formed_ast */Block.__(6, [
-            loc,
-            s
-          ])
+        /* constructor */{
+          tag: 6,
+          name: "Ill_formed_ast",
+          "0": loc,
+          "1": s
+        }
       ];
 }
 
@@ -6062,19 +7281,29 @@ function mkoption(d) {
     loc_001,
     /* loc_ghost */true
   ];
-  return mk(loc, undefined, /* Ptyp_constr */Block.__(3, [
-                /* record */[
-                  /* txt : Ldot */Block.__(1, [
-                      /* Lident */Block.__(0, ["*predef*"]),
-                      "option"
-                    ]),
-                  /* loc */loc
-                ],
-                /* :: */[
-                  d,
-                  /* [] */0
-                ]
-              ]));
+  return mk(loc, undefined, /* constructor */{
+              tag: 3,
+              name: "Ptyp_constr",
+              "0": /* record */[
+                /* txt : constructor */{
+                  tag: 1,
+                  name: "Ldot",
+                  "0": /* constructor */{
+                    tag: 0,
+                    name: "Lident",
+                    "0": "*predef*"
+                  },
+                  "1": "option"
+                },
+                /* loc */loc
+              ],
+              "1": /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": d,
+                "1": /* [] */0
+              }
+            });
 }
 
 function reloc_pat(x) {
@@ -6095,17 +7324,29 @@ function reloc_exp(x) {
 
 function mkoperator(name, pos) {
   var loc = rhs_loc(pos);
-  return Curry._3(Ast_helper_Exp.mk, loc, undefined, /* Pexp_ident */Block.__(0, [/* record */[
-                  /* txt : Lident */Block.__(0, [name]),
-                  /* loc */loc
-                ]]));
+  return Curry._3(Ast_helper_Exp.mk, loc, undefined, /* constructor */{
+              tag: 0,
+              name: "Pexp_ident",
+              "0": /* record */[
+                /* txt : constructor */{
+                  tag: 0,
+                  name: "Lident",
+                  "0": name
+                },
+                /* loc */loc
+              ]
+            });
 }
 
 function mkpatvar(name, pos) {
-  return mk$1(rhs_loc(pos), undefined, /* Ppat_var */Block.__(0, [/* record */[
-                  /* txt */name,
-                  /* loc */rhs_loc(pos)
-                ]]));
+  return mk$1(rhs_loc(pos), undefined, /* constructor */{
+              tag: 0,
+              name: "Ppat_var",
+              "0": /* record */[
+                /* txt */name,
+                /* loc */rhs_loc(pos)
+              ]
+            });
 }
 
 function ghexp(d) {
@@ -6121,22 +7362,28 @@ function ghtyp(d) {
 }
 
 function mkinfix(arg1, name, arg2) {
-  return mkexp(/* Pexp_apply */Block.__(5, [
-                mkoperator(name, 2),
-                /* :: */[
-                  /* tuple */[
+  return mkexp(/* constructor */{
+              tag: 5,
+              name: "Pexp_apply",
+              "0": mkoperator(name, 2),
+              "1": /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": /* tuple */[
+                  "",
+                  arg1
+                ],
+                "1": /* constructor */{
+                  tag: 0,
+                  name: "::",
+                  "0": /* tuple */[
                     "",
-                    arg1
+                    arg2
                   ],
-                  /* :: */[
-                    /* tuple */[
-                      "",
-                      arg2
-                    ],
-                    /* [] */0
-                  ]
-                ]
-              ]));
+                  "1": /* [] */0
+                }
+              }
+            });
 }
 
 function neg_float_string(f) {
@@ -6148,23 +7395,35 @@ function neg_float_string(f) {
 }
 
 function mkexp_cons(consloc, args, loc) {
-  return Curry._3(Ast_helper_Exp.mk, loc, undefined, /* Pexp_construct */Block.__(9, [
-                /* record */[
-                  /* txt : Lident */Block.__(0, ["::"]),
-                  /* loc */consloc
-                ],
-                args
-              ]));
+  return Curry._3(Ast_helper_Exp.mk, loc, undefined, /* constructor */{
+              tag: 9,
+              name: "Pexp_construct",
+              "0": /* record */[
+                /* txt : constructor */{
+                  tag: 0,
+                  name: "Lident",
+                  "0": "::"
+                },
+                /* loc */consloc
+              ],
+              "1": args
+            });
 }
 
 function mkpat_cons(consloc, args, loc) {
-  return mk$1(loc, undefined, /* Ppat_construct */Block.__(5, [
-                /* record */[
-                  /* txt : Lident */Block.__(0, ["::"]),
-                  /* loc */consloc
-                ],
-                args
-              ]));
+  return mk$1(loc, undefined, /* constructor */{
+              tag: 5,
+              name: "Ppat_construct",
+              "0": /* record */[
+                /* txt : constructor */{
+                  tag: 0,
+                  name: "Lident",
+                  "0": "::"
+                },
+                /* loc */consloc
+              ],
+              "1": args
+            });
 }
 
 function mktailexp(nilloc, param) {
@@ -6178,13 +7437,21 @@ function mktailexp(nilloc, param) {
       loc_001,
       /* loc_ghost */true
     ];
-    var arg = Curry._3(Ast_helper_Exp.mk, loc, undefined, /* Pexp_tuple */Block.__(8, [/* :: */[
-              e1,
-              /* :: */[
-                exp_el,
-                /* [] */0
-              ]
-            ]]));
+    var arg = Curry._3(Ast_helper_Exp.mk, loc, undefined, /* constructor */{
+          tag: 8,
+          name: "Pexp_tuple",
+          "0": /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": e1,
+            "1": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": exp_el,
+              "1": /* [] */0
+            }
+          }
+        });
     return mkexp_cons(/* record */[
                 loc_000,
                 loc_001,
@@ -6198,15 +7465,21 @@ function mktailexp(nilloc, param) {
       loc_001$1,
       /* loc_ghost */true
     ];
-    var nil_000 = /* txt : Lident */Block.__(0, ["[]"]);
+    var nil_000 = /* txt : constructor */{
+      tag: 0,
+      name: "Lident",
+      "0": "[]"
+    };
     var nil = /* record */[
       nil_000,
       /* loc */loc$1
     ];
-    return Curry._3(Ast_helper_Exp.mk, loc$1, undefined, /* Pexp_construct */Block.__(9, [
-                  nil,
-                  undefined
-                ]));
+    return Curry._3(Ast_helper_Exp.mk, loc$1, undefined, /* constructor */{
+                tag: 9,
+                name: "Pexp_construct",
+                "0": nil,
+                "1": undefined
+              });
   }
 }
 
@@ -6221,13 +7494,21 @@ function mktailpat(nilloc, param) {
       loc_001,
       /* loc_ghost */true
     ];
-    var arg = mk$1(loc, undefined, /* Ppat_tuple */Block.__(4, [/* :: */[
-              p1,
-              /* :: */[
-                pat_pl,
-                /* [] */0
-              ]
-            ]]));
+    var arg = mk$1(loc, undefined, /* constructor */{
+          tag: 4,
+          name: "Ppat_tuple",
+          "0": /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": p1,
+            "1": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": pat_pl,
+              "1": /* [] */0
+            }
+          }
+        });
     return mkpat_cons(/* record */[
                 loc_000,
                 loc_001,
@@ -6241,24 +7522,32 @@ function mktailpat(nilloc, param) {
       loc_001$1,
       /* loc_ghost */true
     ];
-    var nil_000 = /* txt : Lident */Block.__(0, ["[]"]);
+    var nil_000 = /* txt : constructor */{
+      tag: 0,
+      name: "Lident",
+      "0": "[]"
+    };
     var nil = /* record */[
       nil_000,
       /* loc */loc$1
     ];
-    return mk$1(loc$1, undefined, /* Ppat_construct */Block.__(5, [
-                  nil,
-                  undefined
-                ]));
+    return mk$1(loc$1, undefined, /* constructor */{
+                tag: 5,
+                name: "Ppat_construct",
+                "0": nil,
+                "1": undefined
+              });
   }
 }
 
 function mkstrexp(e, attrs) {
   return /* record */[
-          /* pstr_desc : Pstr_eval */Block.__(0, [
-              e,
-              attrs
-            ]),
+          /* pstr_desc : constructor */{
+            tag: 0,
+            name: "Pstr_eval",
+            "0": e,
+            "1": attrs
+          },
           /* pstr_loc */e[/* pexp_loc */1]
         ];
 }
@@ -6268,23 +7557,29 @@ function mkexp_constraint(e, param) {
   var t1 = param[0];
   if (t1 !== undefined) {
     if (t2 !== undefined) {
-      return ghexp(/* Pexp_coerce */Block.__(20, [
-                    e,
-                    t1,
-                    t2
-                  ]));
+      return ghexp(/* constructor */{
+                  tag: 20,
+                  name: "Pexp_coerce",
+                  "0": e,
+                  "1": t1,
+                  "2": t2
+                });
     } else {
-      return ghexp(/* Pexp_constraint */Block.__(19, [
-                    e,
-                    t1
-                  ]));
+      return ghexp(/* constructor */{
+                  tag: 19,
+                  name: "Pexp_constraint",
+                  "0": e,
+                  "1": t1
+                });
     }
   } else if (t2 !== undefined) {
-    return ghexp(/* Pexp_coerce */Block.__(20, [
-                  e,
-                  t1,
-                  t2
-                ]));
+    return ghexp(/* constructor */{
+                tag: 20,
+                name: "Pexp_coerce",
+                "0": e,
+                "1": t1,
+                "2": t2
+              });
   } else {
     throw [
           Caml_builtin_exceptions.assert_failure,
@@ -6299,10 +7594,16 @@ function mkexp_constraint(e, param) {
 
 function array_function(str, name) {
   return /* record */[
-          /* txt : Ldot */Block.__(1, [
-              /* Lident */Block.__(0, [str]),
-              fast[0] ? "unsafe_" + name : name
-            ]),
+          /* txt : constructor */{
+            tag: 1,
+            name: "Ldot",
+            "0": /* constructor */{
+              tag: 0,
+              name: "Lident",
+              "0": str
+            },
+            "1": fast[0] ? "unsafe_" + name : name
+          },
           /* loc */symbol_gloc(/* () */0)
         ];
 }
@@ -6310,44 +7611,58 @@ function array_function(str, name) {
 function unclosed(opening_name, opening_num, closing_name, closing_num) {
   throw [
         $$Error$1,
-        /* Unclosed */Block.__(0, [
-            rhs_loc(opening_num),
-            opening_name,
-            rhs_loc(closing_num),
-            closing_name
-          ])
+        /* constructor */{
+          tag: 0,
+          name: "Unclosed",
+          "0": rhs_loc(opening_num),
+          "1": opening_name,
+          "2": rhs_loc(closing_num),
+          "3": closing_name
+        }
       ];
 }
 
 function expecting(pos, nonterm) {
   throw [
         $$Error$1,
-        /* Expecting */Block.__(1, [
-            rhs_loc(pos),
-            nonterm
-          ])
+        /* constructor */{
+          tag: 1,
+          name: "Expecting",
+          "0": rhs_loc(pos),
+          "1": nonterm
+        }
       ];
 }
 
 function not_expecting(pos, nonterm) {
   throw [
         $$Error$1,
-        /* Not_expecting */Block.__(2, [
-            rhs_loc(pos),
-            nonterm
-          ])
+        /* constructor */{
+          tag: 2,
+          name: "Not_expecting",
+          "0": rhs_loc(pos),
+          "1": nonterm
+        }
       ];
 }
 
 function bigarray_function(str, name) {
   return /* record */[
-          /* txt : Ldot */Block.__(1, [
-              /* Ldot */Block.__(1, [
-                  /* Lident */Block.__(0, ["Bigarray"]),
-                  str
-                ]),
-              name
-            ]),
+          /* txt : constructor */{
+            tag: 1,
+            name: "Ldot",
+            "0": /* constructor */{
+              tag: 1,
+              name: "Ldot",
+              "0": /* constructor */{
+                tag: 0,
+                name: "Lident",
+                "0": "Bigarray"
+              },
+              "1": str
+            },
+            "1": name
+          },
           /* loc */symbol_gloc(/* () */0)
         ];
 }
@@ -6357,37 +7672,53 @@ function bigarray_untuplify(exp) {
   if (match.tag === /* Pexp_tuple */8) {
     return match[0];
   } else {
-    return /* :: */[
-            exp,
-            /* [] */0
-          ];
+    return /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": exp,
+            "1": /* [] */0
+          };
   }
 }
 
 function exp_of_label(lbl, pos) {
-  var rhs = /* Lident */Block.__(0, [last(lbl)]);
-  return mkexp(/* Pexp_ident */Block.__(0, [/* record */[
-                  /* txt */rhs,
-                  /* loc */rhs_loc(pos)
-                ]]));
+  var rhs = /* constructor */{
+    tag: 0,
+    name: "Lident",
+    "0": last(lbl)
+  };
+  return mkexp(/* constructor */{
+              tag: 0,
+              name: "Pexp_ident",
+              "0": /* record */[
+                /* txt */rhs,
+                /* loc */rhs_loc(pos)
+              ]
+            });
 }
 
 function pat_of_label(lbl, pos) {
   var rhs = last(lbl);
-  return mkpat(/* Ppat_var */Block.__(0, [/* record */[
-                  /* txt */rhs,
-                  /* loc */rhs_loc(pos)
-                ]]));
+  return mkpat(/* constructor */{
+              tag: 0,
+              name: "Ppat_var",
+              "0": /* record */[
+                /* txt */rhs,
+                /* loc */rhs_loc(pos)
+              ]
+            });
 }
 
 function check_variable(vl, loc, v) {
   if (List.mem(v, vl)) {
     throw [
           $$Error$1,
-          /* Variable_in_scope */Block.__(4, [
-              loc,
-              v
-            ])
+          /* constructor */{
+            tag: 4,
+            name: "Variable_in_scope",
+            "0": loc,
+            "1": v
+          }
         ];
   } else {
     return 0;
@@ -6405,17 +7736,27 @@ function varify_constructors(var_names, t) {
         case /* Ptyp_var */0 :
             var x = match[0];
             check_variable(var_names, t[/* ptyp_loc */1], x);
-            desc = /* Ptyp_var */Block.__(0, [x]);
+            desc = /* constructor */{
+              tag: 0,
+              name: "Ptyp_var",
+              "0": x
+            };
             break;
         case /* Ptyp_arrow */1 :
-            desc = /* Ptyp_arrow */Block.__(1, [
-                match[0],
-                loop(match[1]),
-                loop(match[2])
-              ]);
+            desc = /* constructor */{
+              tag: 1,
+              name: "Ptyp_arrow",
+              "0": match[0],
+              "1": loop(match[1]),
+              "2": loop(match[2])
+            };
             break;
         case /* Ptyp_tuple */2 :
-            desc = /* Ptyp_tuple */Block.__(2, [List.map(loop, match[0])]);
+            desc = /* constructor */{
+              tag: 2,
+              name: "Ptyp_tuple",
+              "0": List.map(loop, match[0])
+            };
             break;
         case /* Ptyp_constr */3 :
             var longident = match[0];
@@ -6428,7 +7769,11 @@ function varify_constructors(var_names, t) {
                   } else {
                     var s = match$1[0];
                     if (List.mem(s, var_names)) {
-                      desc = /* Ptyp_var */Block.__(0, [s]);
+                      desc = /* constructor */{
+                        tag: 0,
+                        name: "Ptyp_var",
+                        "0": s
+                      };
                     } else {
                       exit = 1;
                     }
@@ -6441,44 +7786,54 @@ function varify_constructors(var_names, t) {
               
             }
             if (exit === 1) {
-              desc = /* Ptyp_constr */Block.__(3, [
-                  longident,
-                  List.map(loop, match[1])
-                ]);
+              desc = /* constructor */{
+                tag: 3,
+                name: "Ptyp_constr",
+                "0": longident,
+                "1": List.map(loop, match[1])
+              };
             }
             break;
         case /* Ptyp_object */4 :
-            desc = /* Ptyp_object */Block.__(4, [
-                List.map((function (param) {
-                        return /* tuple */[
-                                param[0],
-                                param[1],
-                                loop(param[2])
-                              ];
-                      }), match[0]),
-                match[1]
-              ]);
+            desc = /* constructor */{
+              tag: 4,
+              name: "Ptyp_object",
+              "0": List.map((function (param) {
+                      return /* tuple */[
+                              param[0],
+                              param[1],
+                              loop(param[2])
+                            ];
+                    }), match[0]),
+              "1": match[1]
+            };
             break;
         case /* Ptyp_class */5 :
-            desc = /* Ptyp_class */Block.__(5, [
-                match[0],
-                List.map(loop, match[1])
-              ]);
+            desc = /* constructor */{
+              tag: 5,
+              name: "Ptyp_class",
+              "0": match[0],
+              "1": List.map(loop, match[1])
+            };
             break;
         case /* Ptyp_alias */6 :
             var string = match[1];
             check_variable(var_names, t[/* ptyp_loc */1], string);
-            desc = /* Ptyp_alias */Block.__(6, [
-                loop(match[0]),
-                string
-              ]);
+            desc = /* constructor */{
+              tag: 6,
+              name: "Ptyp_alias",
+              "0": loop(match[0]),
+              "1": string
+            };
             break;
         case /* Ptyp_variant */7 :
-            desc = /* Ptyp_variant */Block.__(7, [
-                List.map(loop_row_field, match[0]),
-                match[1],
-                match[2]
-              ]);
+            desc = /* constructor */{
+              tag: 7,
+              name: "Ptyp_variant",
+              "0": List.map(loop_row_field, match[0]),
+              "1": match[1],
+              "2": match[2]
+            };
             break;
         case /* Ptyp_poly */8 :
             var string_lst = match[0];
@@ -6486,29 +7841,39 @@ function varify_constructors(var_names, t) {
             List.iter((function (param) {
                     return check_variable(var_names, partial_arg, param);
                   }), string_lst);
-            desc = /* Ptyp_poly */Block.__(8, [
-                string_lst,
-                loop(match[1])
-              ]);
+            desc = /* constructor */{
+              tag: 8,
+              name: "Ptyp_poly",
+              "0": string_lst,
+              "1": loop(match[1])
+            };
             break;
         case /* Ptyp_package */9 :
             var match$2 = match[0];
-            desc = /* Ptyp_package */Block.__(9, [/* tuple */[
-                  match$2[0],
-                  List.map((function (param) {
-                          return /* tuple */[
-                                  param[0],
-                                  loop(param[1])
-                                ];
-                        }), match$2[1])
-                ]]);
+            desc = /* constructor */{
+              tag: 9,
+              name: "Ptyp_package",
+              "0": /* tuple */[
+                match$2[0],
+                List.map((function (param) {
+                        return /* tuple */[
+                                param[0],
+                                loop(param[1])
+                              ];
+                      }), match$2[1])
+              ]
+            };
             break;
         case /* Ptyp_extension */10 :
             var match$3 = match[0];
-            desc = /* Ptyp_extension */Block.__(10, [/* tuple */[
-                  match$3[0],
-                  match$3[1]
-                ]]);
+            desc = /* constructor */{
+              tag: 10,
+              name: "Ptyp_extension",
+              "0": /* tuple */[
+                match$3[0],
+                match$3[1]
+              ]
+            };
             break;
         
       }
@@ -6521,36 +7886,48 @@ function varify_constructors(var_names, t) {
   };
   var loop_row_field = function (param) {
     if (param.tag) {
-      return /* Rinherit */Block.__(1, [loop(param[0])]);
+      return /* constructor */{
+              tag: 1,
+              name: "Rinherit",
+              "0": loop(param[0])
+            };
     } else {
-      return /* Rtag */Block.__(0, [
-                param[0],
-                param[1],
-                param[2],
-                List.map(loop, param[3])
-              ]);
+      return /* constructor */{
+              tag: 0,
+              name: "Rtag",
+              "0": param[0],
+              "1": param[1],
+              "2": param[2],
+              "3": List.map(loop, param[3])
+            };
     }
   };
   return loop(t);
 }
 
 function wrap_type_annotation(newtypes, core_type, body) {
-  var exp = mkexp(/* Pexp_constraint */Block.__(19, [
-          body,
-          core_type
-        ]));
+  var exp = mkexp(/* constructor */{
+        tag: 19,
+        name: "Pexp_constraint",
+        "0": body,
+        "1": core_type
+      });
   var exp$1 = List.fold_right((function (newtype, exp) {
-          return mkexp(/* Pexp_newtype */Block.__(30, [
-                        newtype,
-                        exp
-                      ]));
+          return mkexp(/* constructor */{
+                      tag: 30,
+                      name: "Pexp_newtype",
+                      "0": newtype,
+                      "1": exp
+                    });
         }), newtypes, exp);
   return /* tuple */[
           exp$1,
-          ghtyp(/* Ptyp_poly */Block.__(8, [
-                  newtypes,
-                  varify_constructors(newtypes, core_type)
-                ]))
+          ghtyp(/* constructor */{
+                tag: 8,
+                name: "Ptyp_poly",
+                "0": newtypes,
+                "1": varify_constructors(newtypes, core_type)
+              })
         ];
 }
 
@@ -6565,13 +7942,23 @@ function wrap_exp_attrs(body, param) {
     body_002
   ];
   if (ext !== undefined) {
-    return ghexp(/* Pexp_extension */Block.__(33, [/* tuple */[
-                    ext,
-                    /* PStr */Block.__(0, [/* :: */[
-                          mkstrexp(body$1, /* [] */0),
-                          /* [] */0
-                        ]])
-                  ]]));
+    return ghexp(/* constructor */{
+                tag: 33,
+                name: "Pexp_extension",
+                "0": /* tuple */[
+                  ext,
+                  /* constructor */{
+                    tag: 0,
+                    name: "PStr",
+                    "0": /* constructor */{
+                      tag: 0,
+                      name: "::",
+                      "0": mkstrexp(body$1, /* [] */0),
+                      "1": /* [] */0
+                    }
+                  }
+                ]
+              });
   } else {
     return body$1;
   }
@@ -6586,10 +7973,16 @@ function text_csig(pos) {
 }
 
 function text_def(pos) {
-  return /* :: */[
-          /* Ptop_def */Block.__(0, [text$1(get_text(Parsing.rhs_start_pos(pos)))]),
-          /* [] */0
-        ];
+  return /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": /* constructor */{
+            tag: 0,
+            name: "Ptop_def",
+            "0": text$1(get_text(Parsing.rhs_start_pos(pos)))
+          },
+          "1": /* [] */0
+        };
 }
 
 function extra_text(text, pos, items) {
@@ -6615,13 +8008,19 @@ function add_nonrec(rf, attrs, pos) {
       /* txt */"nonrec",
       name_001
     ];
-    return /* :: */[
-            /* tuple */[
+    return /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": /* tuple */[
               name,
-              /* PStr */Block.__(0, [/* [] */0])
+              /* constructor */{
+                tag: 0,
+                name: "PStr",
+                "0": /* [] */0
+              }
             ],
-            attrs
-          ];
+            "1": attrs
+          };
   }
 }
 
@@ -6782,7 +8181,11 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
-      return /* Ptop_def */Block.__(0, [extra_text(text$1, 1, _1)]);
+      return /* constructor */{
+              tag: 0,
+              name: "Ptop_def",
+              "0": extra_text(text$1, 1, _1)
+            };
     }),
   (function (__caml_parser_env) {
       return Parsing.peek_val(__caml_parser_env, 1);
@@ -6793,10 +8196,12 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return Pervasives.$at(text$1(get_text(Parsing.rhs_start_pos(1))), /* :: */[
-                  mkstrexp(_1, _2),
-                  /* [] */0
-                ]);
+      return Pervasives.$at(text$1(get_text(Parsing.rhs_start_pos(1))), /* constructor */{
+                  tag: 0,
+                  name: "::",
+                  "0": mkstrexp(_1, _2),
+                  "1": /* [] */0
+                });
     }),
   (function (__caml_parser_env) {
       return Parsing.peek_val(__caml_parser_env, 0);
@@ -6807,20 +8212,28 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return Pervasives.$at(text$1(get_text(Parsing.rhs_start_pos(1))), /* :: */[
-                  _1,
-                  _2
-                ]);
+      return Pervasives.$at(text$1(get_text(Parsing.rhs_start_pos(1))), /* constructor */{
+                  tag: 0,
+                  name: "::",
+                  "0": _1,
+                  "1": _2
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
       var pos = 1;
       var items = _1;
       return extra_text((function (txt) {
-                    return /* :: */[
-                            /* Ptop_def */Block.__(0, [text$1(txt)]),
-                            /* [] */0
-                          ];
+                    return /* constructor */{
+                            tag: 0,
+                            name: "::",
+                            "0": /* constructor */{
+                              tag: 0,
+                              name: "Ptop_def",
+                              "0": text$1(txt)
+                            },
+                            "1": /* [] */0
+                          };
                   }), pos, items);
     }),
   (function (__caml_parser_env) {
@@ -6830,13 +8243,21 @@ var yyact = /* array */[
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _2 = Parsing.peek_val(__caml_parser_env, 1);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return Pervasives.$at(text_def(1), /* :: */[
-                  /* Ptop_def */Block.__(0, [/* :: */[
-                        mkstrexp(_1, _2),
-                        /* [] */0
-                      ]]),
-                  _3
-                ]);
+      return Pervasives.$at(text_def(1), /* constructor */{
+                  tag: 0,
+                  name: "::",
+                  "0": /* constructor */{
+                    tag: 0,
+                    name: "Ptop_def",
+                    "0": /* constructor */{
+                      tag: 0,
+                      name: "::",
+                      "0": mkstrexp(_1, _2),
+                      "1": /* [] */0
+                    }
+                  },
+                  "1": _3
+                });
     }),
   (function (__caml_parser_env) {
       return /* [] */0;
@@ -6849,53 +8270,81 @@ var yyact = /* array */[
       var _3 = Parsing.peek_val(__caml_parser_env, 1);
       var _4 = Parsing.peek_val(__caml_parser_env, 0);
       mark_rhs_docs(2, 3);
-      return Pervasives.$at(text_def(1), Pervasives.$at(text_def(2), /* :: */[
-                      /* Ptop_def */Block.__(0, [/* :: */[
-                            mkstrexp(_2, _3),
-                            /* [] */0
-                          ]]),
-                      _4
-                    ]));
+      return Pervasives.$at(text_def(1), Pervasives.$at(text_def(2), /* constructor */{
+                      tag: 0,
+                      name: "::",
+                      "0": /* constructor */{
+                        tag: 0,
+                        name: "Ptop_def",
+                        "0": /* constructor */{
+                          tag: 0,
+                          name: "::",
+                          "0": mkstrexp(_2, _3),
+                          "1": /* [] */0
+                        }
+                      },
+                      "1": _4
+                    }));
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 1);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return Pervasives.$at(text_def(1), Pervasives.$at(text_def(2), /* :: */[
-                      /* Ptop_def */Block.__(0, [/* :: */[
-                            _2,
-                            /* [] */0
-                          ]]),
-                      _3
-                    ]));
+      return Pervasives.$at(text_def(1), Pervasives.$at(text_def(2), /* constructor */{
+                      tag: 0,
+                      name: "::",
+                      "0": /* constructor */{
+                        tag: 0,
+                        name: "Ptop_def",
+                        "0": /* constructor */{
+                          tag: 0,
+                          name: "::",
+                          "0": _2,
+                          "1": /* [] */0
+                        }
+                      },
+                      "1": _3
+                    }));
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 1);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
       mark_rhs_docs(2, 3);
-      return Pervasives.$at(text_def(1), Pervasives.$at(text_def(2), /* :: */[
-                      _2,
-                      _3
-                    ]));
+      return Pervasives.$at(text_def(1), Pervasives.$at(text_def(2), /* constructor */{
+                      tag: 0,
+                      name: "::",
+                      "0": _2,
+                      "1": _3
+                    }));
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return Pervasives.$at(text_def(1), /* :: */[
-                  /* Ptop_def */Block.__(0, [/* :: */[
-                        _1,
-                        /* [] */0
-                      ]]),
-                  _2
-                ]);
+      return Pervasives.$at(text_def(1), /* constructor */{
+                  tag: 0,
+                  name: "::",
+                  "0": /* constructor */{
+                    tag: 0,
+                    name: "Ptop_def",
+                    "0": /* constructor */{
+                      tag: 0,
+                      name: "::",
+                      "0": _1,
+                      "1": /* [] */0
+                    }
+                  },
+                  "1": _2
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
       mark_rhs_docs(1, 1);
-      return Pervasives.$at(text_def(1), /* :: */[
-                  _1,
-                  _2
-                ]);
+      return Pervasives.$at(text_def(1), /* constructor */{
+                  tag: 0,
+                  name: "::",
+                  "0": _1,
+                  "1": _2
+                });
     }),
   (function (__caml_parser_env) {
       return Parsing.peek_val(__caml_parser_env, 1);
@@ -6935,28 +8384,40 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _2,
-              _1
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _2,
+              "1": _1
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _1,
-              /* [] */0
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1,
+              "1": /* [] */0
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkmod(/* Pmod_ident */Block.__(0, [/* record */[
-                      /* txt */_1,
-                      /* loc */rhs_loc(1)
-                    ]]));
+      return mkmod(/* constructor */{
+                  tag: 0,
+                  name: "Pmod_ident",
+                  "0": /* record */[
+                    /* txt */_1,
+                    /* loc */rhs_loc(1)
+                  ]
+                });
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 1);
-      return mkmod(/* Pmod_structure */Block.__(1, [extra_text(text$1, 2, _2)]));
+      return mkmod(/* constructor */{
+                  tag: 1,
+                  name: "Pmod_structure",
+                  "0": extra_text(text$1, 2, _2)
+                });
     }),
   (function (__caml_parser_env) {
       Parsing.peek_val(__caml_parser_env, 1);
@@ -6966,27 +8427,37 @@ var yyact = /* array */[
       var _2 = Parsing.peek_val(__caml_parser_env, 2);
       var _4 = Parsing.peek_val(__caml_parser_env, 0);
       return List.fold_left((function (acc, param) {
-                    return mkmod(/* Pmod_functor */Block.__(2, [
-                                  param[0],
-                                  param[1],
-                                  acc
-                                ]));
+                    return mkmod(/* constructor */{
+                                tag: 2,
+                                name: "Pmod_functor",
+                                "0": param[0],
+                                "1": param[1],
+                                "2": acc
+                              });
                   }), _4, _2);
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 3);
       var _3 = Parsing.peek_val(__caml_parser_env, 1);
-      return mkmod(/* Pmod_apply */Block.__(3, [
-                    _1,
-                    _3
-                  ]));
+      return mkmod(/* constructor */{
+                  tag: 3,
+                  name: "Pmod_apply",
+                  "0": _1,
+                  "1": _3
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
-      return mkmod(/* Pmod_apply */Block.__(3, [
-                    _1,
-                    mkmod(/* Pmod_structure */Block.__(1, [/* [] */0]))
-                  ]));
+      return mkmod(/* constructor */{
+                  tag: 3,
+                  name: "Pmod_apply",
+                  "0": _1,
+                  "1": mkmod(/* constructor */{
+                        tag: 1,
+                        name: "Pmod_structure",
+                        "0": /* [] */0
+                      })
+                });
     }),
   (function (__caml_parser_env) {
       Parsing.peek_val(__caml_parser_env, 3);
@@ -6996,10 +8467,12 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 3);
       var _4 = Parsing.peek_val(__caml_parser_env, 1);
-      return mkmod(/* Pmod_constraint */Block.__(4, [
-                    _2,
-                    _4
-                  ]));
+      return mkmod(/* constructor */{
+                  tag: 4,
+                  name: "Pmod_constraint",
+                  "0": _2,
+                  "1": _4
+                });
     }),
   (function (__caml_parser_env) {
       Parsing.peek_val(__caml_parser_env, 3);
@@ -7015,34 +8488,72 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _3 = Parsing.peek_val(__caml_parser_env, 1);
-      return mkmod(/* Pmod_unpack */Block.__(5, [_3]));
+      return mkmod(/* constructor */{
+                  tag: 5,
+                  name: "Pmod_unpack",
+                  "0": _3
+                });
     }),
   (function (__caml_parser_env) {
       var _3 = Parsing.peek_val(__caml_parser_env, 3);
       var _5 = Parsing.peek_val(__caml_parser_env, 1);
-      return mkmod(/* Pmod_unpack */Block.__(5, [ghexp(/* Pexp_constraint */Block.__(19, [
-                            _3,
-                            ghtyp(/* Ptyp_package */Block.__(9, [_5]))
-                          ]))]));
+      return mkmod(/* constructor */{
+                  tag: 5,
+                  name: "Pmod_unpack",
+                  "0": ghexp(/* constructor */{
+                        tag: 19,
+                        name: "Pexp_constraint",
+                        "0": _3,
+                        "1": ghtyp(/* constructor */{
+                              tag: 9,
+                              name: "Ptyp_package",
+                              "0": _5
+                            })
+                      })
+                });
     }),
   (function (__caml_parser_env) {
       var _3 = Parsing.peek_val(__caml_parser_env, 5);
       var _5 = Parsing.peek_val(__caml_parser_env, 3);
       var _7 = Parsing.peek_val(__caml_parser_env, 1);
-      return mkmod(/* Pmod_unpack */Block.__(5, [ghexp(/* Pexp_coerce */Block.__(20, [
-                            _3,
-                            ghtyp(/* Ptyp_package */Block.__(9, [_5])),
-                            ghtyp(/* Ptyp_package */Block.__(9, [_7]))
-                          ]))]));
+      return mkmod(/* constructor */{
+                  tag: 5,
+                  name: "Pmod_unpack",
+                  "0": ghexp(/* constructor */{
+                        tag: 20,
+                        name: "Pexp_coerce",
+                        "0": _3,
+                        "1": ghtyp(/* constructor */{
+                              tag: 9,
+                              name: "Ptyp_package",
+                              "0": _5
+                            }),
+                        "2": ghtyp(/* constructor */{
+                              tag: 9,
+                              name: "Ptyp_package",
+                              "0": _7
+                            })
+                      })
+                });
     }),
   (function (__caml_parser_env) {
       var _3 = Parsing.peek_val(__caml_parser_env, 3);
       var _5 = Parsing.peek_val(__caml_parser_env, 1);
-      return mkmod(/* Pmod_unpack */Block.__(5, [ghexp(/* Pexp_coerce */Block.__(20, [
-                            _3,
-                            undefined,
-                            ghtyp(/* Ptyp_package */Block.__(9, [_5]))
-                          ]))]));
+      return mkmod(/* constructor */{
+                  tag: 5,
+                  name: "Pmod_unpack",
+                  "0": ghexp(/* constructor */{
+                        tag: 20,
+                        name: "Pexp_coerce",
+                        "0": _3,
+                        "1": undefined,
+                        "2": ghtyp(/* constructor */{
+                              tag: 9,
+                              name: "Ptyp_package",
+                              "0": _5
+                            })
+                      })
+                });
     }),
   (function (__caml_parser_env) {
       Parsing.peek_val(__caml_parser_env, 2);
@@ -7063,17 +8574,23 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkmod(/* Pmod_extension */Block.__(6, [_1]));
+      return mkmod(/* constructor */{
+                  tag: 6,
+                  name: "Pmod_extension",
+                  "0": _1
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _2 = Parsing.peek_val(__caml_parser_env, 1);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
       mark_rhs_docs(1, 2);
-      return Pervasives.$at(text$1(get_text(Parsing.rhs_start_pos(1))), /* :: */[
-                  mkstrexp(_1, _2),
-                  _3
-                ]);
+      return Pervasives.$at(text$1(get_text(Parsing.rhs_start_pos(1))), /* constructor */{
+                  tag: 0,
+                  name: "::",
+                  "0": mkstrexp(_1, _2),
+                  "1": _3
+                });
     }),
   (function (__caml_parser_env) {
       return Parsing.peek_val(__caml_parser_env, 0);
@@ -7088,10 +8605,12 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return Pervasives.$at(text$1(get_text(Parsing.rhs_start_pos(1))), /* :: */[
-                  _1,
-                  _2
-                ]);
+      return Pervasives.$at(text$1(get_text(Parsing.rhs_start_pos(1))), /* constructor */{
+                  tag: 0,
+                  name: "::",
+                  "0": _1,
+                  "1": _2
+                });
     }),
   (function (__caml_parser_env) {
       var lbs = Parsing.peek_val(__caml_parser_env, 0);
@@ -7105,10 +8624,12 @@ var yyact = /* array */[
                 undefined,
                 lbs[/* lbs_attributes */3]
               ]);
-          str = mkstr(/* Pstr_eval */Block.__(0, [
-                  exp,
-                  lb[/* lb_attributes */2]
-                ]));
+          str = mkstr(/* constructor */{
+                tag: 0,
+                name: "Pstr_eval",
+                "0": exp,
+                "1": lb[/* lb_attributes */2]
+              });
         } else {
           exit = 1;
         }
@@ -7119,32 +8640,44 @@ var yyact = /* array */[
         if (lbs[/* lbs_attributes */3] !== /* [] */0) {
           throw [
                 $$Error$1,
-                /* Not_expecting */Block.__(2, [
-                    lbs[/* lbs_loc */4],
-                    "attributes"
-                  ])
+                /* constructor */{
+                  tag: 2,
+                  name: "Not_expecting",
+                  "0": lbs[/* lbs_loc */4],
+                  "1": "attributes"
+                }
               ];
         }
         var bindings$1 = List.map((function (lb) {
                 return mk$17(lb[/* lb_loc */5], lb[/* lb_attributes */2], CamlinternalLazy.force(lb[/* lb_docs */3]), CamlinternalLazy.force(lb[/* lb_text */4]), lb[/* lb_pattern */0], lb[/* lb_expression */1]);
               }), bindings);
-        str = mkstr(/* Pstr_value */Block.__(1, [
-                lbs[/* lbs_rec */1],
-                List.rev(bindings$1)
-              ]));
+        str = mkstr(/* constructor */{
+              tag: 1,
+              name: "Pstr_value",
+              "0": lbs[/* lbs_rec */1],
+              "1": List.rev(bindings$1)
+            });
       }
       var match = lbs[/* lbs_extension */2];
       if (match !== undefined) {
-        var d = /* Pstr_extension */Block.__(14, [
-            /* tuple */[
-              match,
-              /* PStr */Block.__(0, [/* :: */[
-                    str,
-                    /* [] */0
-                  ]])
-            ],
-            /* [] */0
-          ]);
+        var d = /* constructor */{
+          tag: 14,
+          name: "Pstr_extension",
+          "0": /* tuple */[
+            match,
+            /* constructor */{
+              tag: 0,
+              name: "PStr",
+              "0": /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": str,
+                "1": /* [] */0
+              }
+            }
+          ],
+          "1": /* [] */0
+        };
         return mk$6(symbol_gloc(/* () */0), d);
       } else {
         return str;
@@ -7152,60 +8685,110 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkstr(/* Pstr_primitive */Block.__(2, [_1]));
+      return mkstr(/* constructor */{
+                  tag: 2,
+                  name: "Pstr_primitive",
+                  "0": _1
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkstr(/* Pstr_type */Block.__(3, [List.rev(_1)]));
+      return mkstr(/* constructor */{
+                  tag: 3,
+                  name: "Pstr_type",
+                  "0": List.rev(_1)
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkstr(/* Pstr_typext */Block.__(4, [_1]));
+      return mkstr(/* constructor */{
+                  tag: 4,
+                  name: "Pstr_typext",
+                  "0": _1
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkstr(/* Pstr_exception */Block.__(5, [_1]));
+      return mkstr(/* constructor */{
+                  tag: 5,
+                  name: "Pstr_exception",
+                  "0": _1
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkstr(/* Pstr_module */Block.__(6, [_1]));
+      return mkstr(/* constructor */{
+                  tag: 6,
+                  name: "Pstr_module",
+                  "0": _1
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkstr(/* Pstr_recmodule */Block.__(7, [List.rev(_1)]));
+      return mkstr(/* constructor */{
+                  tag: 7,
+                  name: "Pstr_recmodule",
+                  "0": List.rev(_1)
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkstr(/* Pstr_modtype */Block.__(8, [_1]));
+      return mkstr(/* constructor */{
+                  tag: 8,
+                  name: "Pstr_modtype",
+                  "0": _1
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkstr(/* Pstr_open */Block.__(9, [_1]));
+      return mkstr(/* constructor */{
+                  tag: 9,
+                  name: "Pstr_open",
+                  "0": _1
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkstr(/* Pstr_class */Block.__(10, [List.rev(_1)]));
+      return mkstr(/* constructor */{
+                  tag: 10,
+                  name: "Pstr_class",
+                  "0": List.rev(_1)
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkstr(/* Pstr_class_type */Block.__(11, [List.rev(_1)]));
+      return mkstr(/* constructor */{
+                  tag: 11,
+                  name: "Pstr_class_type",
+                  "0": List.rev(_1)
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkstr(/* Pstr_include */Block.__(12, [_1]));
+      return mkstr(/* constructor */{
+                  tag: 12,
+                  name: "Pstr_include",
+                  "0": _1
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkstr(/* Pstr_extension */Block.__(14, [
-                    _1,
-                    add_docs_attrs(symbol_docs(/* () */0), _2)
-                  ]));
+      return mkstr(/* constructor */{
+                  tag: 14,
+                  name: "Pstr_extension",
+                  "0": _1,
+                  "1": add_docs_attrs(symbol_docs(/* () */0), _2)
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
       mark_symbol_docs(/* () */0);
-      return mkstr(/* Pstr_attribute */Block.__(13, [_1]));
+      return mkstr(/* constructor */{
+                  tag: 13,
+                  name: "Pstr_attribute",
+                  "0": _1
+                });
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 1);
@@ -7218,19 +8801,23 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 2);
       var _4 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkmod(/* Pmod_constraint */Block.__(4, [
-                    _4,
-                    _2
-                  ]));
+      return mkmod(/* constructor */{
+                  tag: 4,
+                  name: "Pmod_constraint",
+                  "0": _4,
+                  "1": _2
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkmod(/* Pmod_functor */Block.__(2, [
-                    _1[0],
-                    _1[1],
-                    _2
-                  ]));
+      return mkmod(/* constructor */{
+                  tag: 2,
+                  name: "Pmod_functor",
+                  "0": _1[0],
+                  "1": _1[1],
+                  "2": _2
+                });
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 2);
@@ -7243,18 +8830,22 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _1,
-              /* [] */0
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1,
+              "1": /* [] */0
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _2,
-              _1
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _2,
+              "1": _1
+            };
     }),
   (function (__caml_parser_env) {
       var _3 = Parsing.peek_val(__caml_parser_env, 2);
@@ -7276,14 +8867,22 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkmty(/* Pmty_ident */Block.__(0, [/* record */[
-                      /* txt */_1,
-                      /* loc */rhs_loc(1)
-                    ]]));
+      return mkmty(/* constructor */{
+                  tag: 0,
+                  name: "Pmty_ident",
+                  "0": /* record */[
+                    /* txt */_1,
+                    /* loc */rhs_loc(1)
+                  ]
+                });
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 1);
-      return mkmty(/* Pmty_signature */Block.__(1, [extra_text(text, 2, _2)]));
+      return mkmty(/* constructor */{
+                  tag: 1,
+                  name: "Pmty_signature",
+                  "0": extra_text(text, 2, _2)
+                });
     }),
   (function (__caml_parser_env) {
       Parsing.peek_val(__caml_parser_env, 1);
@@ -7293,24 +8892,32 @@ var yyact = /* array */[
       var _2 = Parsing.peek_val(__caml_parser_env, 2);
       var _4 = Parsing.peek_val(__caml_parser_env, 0);
       return List.fold_left((function (acc, param) {
-                    return mkmty(/* Pmty_functor */Block.__(2, [
-                                  param[0],
-                                  param[1],
-                                  acc
-                                ]));
+                    return mkmty(/* constructor */{
+                                tag: 2,
+                                name: "Pmty_functor",
+                                "0": param[0],
+                                "1": param[1],
+                                "2": acc
+                              });
                   }), _4, _2);
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkmty(/* Pmty_with */Block.__(3, [
-                    _1,
-                    List.rev(_3)
-                  ]));
+      return mkmty(/* constructor */{
+                  tag: 3,
+                  name: "Pmty_with",
+                  "0": _1,
+                  "1": List.rev(_3)
+                });
     }),
   (function (__caml_parser_env) {
       var _4 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkmty(/* Pmty_typeof */Block.__(4, [_4]));
+      return mkmty(/* constructor */{
+                  tag: 4,
+                  name: "Pmty_typeof",
+                  "0": _4
+                });
     }),
   (function (__caml_parser_env) {
       return Parsing.peek_val(__caml_parser_env, 1);
@@ -7321,7 +8928,11 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkmty(/* Pmty_extension */Block.__(5, [_1]));
+      return mkmty(/* constructor */{
+                  tag: 5,
+                  name: "Pmty_extension",
+                  "0": _1
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
@@ -7338,75 +8949,135 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return Pervasives.$at(text(get_text(Parsing.rhs_start_pos(1))), /* :: */[
-                  _1,
-                  _2
-                ]);
+      return Pervasives.$at(text(get_text(Parsing.rhs_start_pos(1))), /* constructor */{
+                  tag: 0,
+                  name: "::",
+                  "0": _1,
+                  "1": _2
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mksig(/* Psig_value */Block.__(0, [_1]));
+      return mksig(/* constructor */{
+                  tag: 0,
+                  name: "Psig_value",
+                  "0": _1
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mksig(/* Psig_value */Block.__(0, [_1]));
+      return mksig(/* constructor */{
+                  tag: 0,
+                  name: "Psig_value",
+                  "0": _1
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mksig(/* Psig_type */Block.__(1, [List.rev(_1)]));
+      return mksig(/* constructor */{
+                  tag: 1,
+                  name: "Psig_type",
+                  "0": List.rev(_1)
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mksig(/* Psig_typext */Block.__(2, [_1]));
+      return mksig(/* constructor */{
+                  tag: 2,
+                  name: "Psig_typext",
+                  "0": _1
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mksig(/* Psig_exception */Block.__(3, [_1]));
+      return mksig(/* constructor */{
+                  tag: 3,
+                  name: "Psig_exception",
+                  "0": _1
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mksig(/* Psig_module */Block.__(4, [_1]));
+      return mksig(/* constructor */{
+                  tag: 4,
+                  name: "Psig_module",
+                  "0": _1
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mksig(/* Psig_module */Block.__(4, [_1]));
+      return mksig(/* constructor */{
+                  tag: 4,
+                  name: "Psig_module",
+                  "0": _1
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mksig(/* Psig_recmodule */Block.__(5, [List.rev(_1)]));
+      return mksig(/* constructor */{
+                  tag: 5,
+                  name: "Psig_recmodule",
+                  "0": List.rev(_1)
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mksig(/* Psig_modtype */Block.__(6, [_1]));
+      return mksig(/* constructor */{
+                  tag: 6,
+                  name: "Psig_modtype",
+                  "0": _1
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mksig(/* Psig_open */Block.__(7, [_1]));
+      return mksig(/* constructor */{
+                  tag: 7,
+                  name: "Psig_open",
+                  "0": _1
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mksig(/* Psig_include */Block.__(8, [_1]));
+      return mksig(/* constructor */{
+                  tag: 8,
+                  name: "Psig_include",
+                  "0": _1
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mksig(/* Psig_class */Block.__(9, [List.rev(_1)]));
+      return mksig(/* constructor */{
+                  tag: 9,
+                  name: "Psig_class",
+                  "0": List.rev(_1)
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mksig(/* Psig_class_type */Block.__(10, [List.rev(_1)]));
+      return mksig(/* constructor */{
+                  tag: 10,
+                  name: "Psig_class_type",
+                  "0": List.rev(_1)
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return mksig(/* Psig_extension */Block.__(12, [
-                    _1,
-                    add_docs_attrs(symbol_docs(/* () */0), _2)
-                  ]));
+      return mksig(/* constructor */{
+                  tag: 12,
+                  name: "Psig_extension",
+                  "0": _1,
+                  "1": add_docs_attrs(symbol_docs(/* () */0), _2)
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
       mark_symbol_docs(/* () */0);
-      return mksig(/* Psig_attribute */Block.__(11, [_1]));
+      return mksig(/* constructor */{
+                  tag: 11,
+                  name: "Psig_attribute",
+                  "0": _1
+                });
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 2);
@@ -7429,25 +9100,29 @@ var yyact = /* array */[
       var _2 = Parsing.peek_val(__caml_parser_env, 4);
       var _4 = Parsing.peek_val(__caml_parser_env, 2);
       var _6 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkmty(/* Pmty_functor */Block.__(2, [
-                    /* record */[
-                      /* txt */_2,
-                      /* loc */rhs_loc(2)
-                    ],
-                    _4,
-                    _6
-                  ]));
+      return mkmty(/* constructor */{
+                  tag: 2,
+                  name: "Pmty_functor",
+                  "0": /* record */[
+                    /* txt */_2,
+                    /* loc */rhs_loc(2)
+                  ],
+                  "1": _4,
+                  "2": _6
+                });
     }),
   (function (__caml_parser_env) {
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkmty(/* Pmty_functor */Block.__(2, [
-                    /* record */[
-                      /* txt */"*",
-                      /* loc */rhs_loc(1)
-                    ],
-                    undefined,
-                    _3
-                  ]));
+      return mkmty(/* constructor */{
+                  tag: 2,
+                  name: "Pmty_functor",
+                  "0": /* record */[
+                    /* txt */"*",
+                    /* loc */rhs_loc(1)
+                  ],
+                  "1": undefined,
+                  "2": _3
+                });
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 2);
@@ -7472,18 +9147,22 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _1,
-              /* [] */0
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1,
+              "1": /* [] */0
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _2,
-              _1
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _2,
+              "1": _1
+            };
     }),
   (function (__caml_parser_env) {
       var _3 = Parsing.peek_val(__caml_parser_env, 3);
@@ -7520,18 +9199,22 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _1,
-              /* [] */0
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1,
+              "1": /* [] */0
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _2,
-              _1
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _2,
+              "1": _1
+            };
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 4);
@@ -7561,20 +9244,24 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 2);
       var _4 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkclass(/* Pcl_constraint */Block.__(5, [
-                    _4,
-                    _2
-                  ]));
+      return mkclass(/* constructor */{
+                  tag: 5,
+                  name: "Pcl_constraint",
+                  "0": _4,
+                  "1": _2
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkclass(/* Pcl_fun */Block.__(2, [
-                    _1[0],
-                    _1[1],
-                    _1[2],
-                    _2
-                  ]));
+      return mkclass(/* constructor */{
+                  tag: 2,
+                  name: "Pcl_fun",
+                  "0": _1[0],
+                  "1": _1[1],
+                  "2": _1[2],
+                  "3": _2
+                });
     }),
   (function (__caml_parser_env) {
       return /* [] */0;
@@ -7585,22 +9272,26 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkclass(/* Pcl_fun */Block.__(2, [
-                    _1[0],
-                    _1[1],
-                    _1[2],
-                    _3
-                  ]));
+      return mkclass(/* constructor */{
+                  tag: 2,
+                  name: "Pcl_fun",
+                  "0": _1[0],
+                  "1": _1[1],
+                  "2": _1[2],
+                  "3": _3
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkclass(/* Pcl_fun */Block.__(2, [
-                    _1[0],
-                    _1[1],
-                    _1[2],
-                    _2
-                  ]));
+      return mkclass(/* constructor */{
+                  tag: 2,
+                  name: "Pcl_fun",
+                  "0": _1[0],
+                  "1": _1[1],
+                  "2": _1[2],
+                  "3": _2
+                });
     }),
   (function (__caml_parser_env) {
       return Parsing.peek_val(__caml_parser_env, 0);
@@ -7611,10 +9302,12 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkclass(/* Pcl_apply */Block.__(3, [
-                    _1,
-                    List.rev(_2)
-                  ]));
+      return mkclass(/* constructor */{
+                  tag: 3,
+                  name: "Pcl_apply",
+                  "0": _1,
+                  "1": List.rev(_2)
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
@@ -7625,10 +9318,12 @@ var yyact = /* array */[
               if (lb[/* lb_attributes */2] !== /* [] */0) {
                 throw [
                       $$Error$1,
-                      /* Not_expecting */Block.__(2, [
-                          lb[/* lb_loc */5],
-                          "item attribute"
-                        ])
+                      /* constructor */{
+                        tag: 2,
+                        name: "Not_expecting",
+                        "0": lb[/* lb_loc */5],
+                        "1": "item attribute"
+                      }
                     ];
               }
               return mk$17(lb[/* lb_loc */5], undefined, undefined, undefined, lb[/* lb_pattern */0], lb[/* lb_expression */1]);
@@ -7636,26 +9331,32 @@ var yyact = /* array */[
       if (lbs[/* lbs_extension */2] !== undefined) {
         throw [
               $$Error$1,
-              /* Not_expecting */Block.__(2, [
-                  lbs[/* lbs_loc */4],
-                  "extension"
-                ])
+              /* constructor */{
+                tag: 2,
+                name: "Not_expecting",
+                "0": lbs[/* lbs_loc */4],
+                "1": "extension"
+              }
             ];
       }
       if (lbs[/* lbs_attributes */3] !== /* [] */0) {
         throw [
               $$Error$1,
-              /* Not_expecting */Block.__(2, [
-                  lbs[/* lbs_loc */4],
-                  "attributes"
-                ])
+              /* constructor */{
+                tag: 2,
+                name: "Not_expecting",
+                "0": lbs[/* lbs_loc */4],
+                "1": "attributes"
+              }
             ];
       }
-      return mkclass(/* Pcl_let */Block.__(4, [
-                    lbs[/* lbs_rec */1],
-                    List.rev(bindings),
-                    body
-                  ]));
+      return mkclass(/* constructor */{
+                  tag: 4,
+                  name: "Pcl_let",
+                  "0": lbs[/* lbs_rec */1],
+                  "1": List.rev(bindings),
+                  "2": body
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
@@ -7664,32 +9365,44 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkclass(/* Pcl_extension */Block.__(6, [_1]));
+      return mkclass(/* constructor */{
+                  tag: 6,
+                  name: "Pcl_extension",
+                  "0": _1
+                });
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 2);
       var _4 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkclass(/* Pcl_constr */Block.__(0, [
-                    /* record */[
-                      /* txt */_4,
-                      /* loc */rhs_loc(4)
-                    ],
-                    List.rev(_2)
-                  ]));
+      return mkclass(/* constructor */{
+                  tag: 0,
+                  name: "Pcl_constr",
+                  "0": /* record */[
+                    /* txt */_4,
+                    /* loc */rhs_loc(4)
+                  ],
+                  "1": List.rev(_2)
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkclass(/* Pcl_constr */Block.__(0, [
-                    /* record */[
-                      /* txt */_1,
-                      /* loc */rhs_loc(1)
-                    ],
-                    /* [] */0
-                  ]));
+      return mkclass(/* constructor */{
+                  tag: 0,
+                  name: "Pcl_constr",
+                  "0": /* record */[
+                    /* txt */_1,
+                    /* loc */rhs_loc(1)
+                  ],
+                  "1": /* [] */0
+                });
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 1);
-      return mkclass(/* Pcl_structure */Block.__(1, [_2]));
+      return mkclass(/* constructor */{
+                  tag: 1,
+                  name: "Pcl_structure",
+                  "0": _2
+                });
     }),
   (function (__caml_parser_env) {
       Parsing.peek_val(__caml_parser_env, 1);
@@ -7698,10 +9411,12 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 3);
       var _4 = Parsing.peek_val(__caml_parser_env, 1);
-      return mkclass(/* Pcl_constraint */Block.__(5, [
-                    _2,
-                    _4
-                  ]));
+      return mkclass(/* constructor */{
+                  tag: 5,
+                  name: "Pcl_constraint",
+                  "0": _2,
+                  "1": _4
+                });
     }),
   (function (__caml_parser_env) {
       Parsing.peek_val(__caml_parser_env, 3);
@@ -7729,10 +9444,12 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 3);
       var _4 = Parsing.peek_val(__caml_parser_env, 1);
-      return mkpat(/* Ppat_constraint */Block.__(10, [
-                    _2,
-                    _4
-                  ]));
+      return mkpat(/* constructor */{
+                  tag: 10,
+                  name: "Ppat_constraint",
+                  "0": _2,
+                  "1": _4
+                });
     }),
   (function (__caml_parser_env) {
       return ghpat(/* Ppat_any */0);
@@ -7743,51 +9460,79 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return Pervasives.$at(/* :: */[
-                  _2,
-                  text_cstr(2)
-                ], _1);
+      return Pervasives.$at(/* constructor */{
+                  tag: 0,
+                  name: "::",
+                  "0": _2,
+                  "1": text_cstr(2)
+                }, _1);
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 3);
       var _3 = Parsing.peek_val(__caml_parser_env, 2);
       var _4 = Parsing.peek_val(__caml_parser_env, 1);
       var _5 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkcf(_5, symbol_docs(/* () */0), /* Pcf_inherit */Block.__(0, [
-                    _2,
-                    _3,
-                    _4
-                  ]));
+      return mkcf(_5, symbol_docs(/* () */0), /* constructor */{
+                  tag: 0,
+                  name: "Pcf_inherit",
+                  "0": _2,
+                  "1": _3,
+                  "2": _4
+                });
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 1);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkcf(_3, symbol_docs(/* () */0), /* Pcf_val */Block.__(1, [_2]));
+      return mkcf(_3, symbol_docs(/* () */0), /* constructor */{
+                  tag: 1,
+                  name: "Pcf_val",
+                  "0": _2
+                });
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 1);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkcf(_3, symbol_docs(/* () */0), /* Pcf_method */Block.__(2, [_2]));
+      return mkcf(_3, symbol_docs(/* () */0), /* constructor */{
+                  tag: 2,
+                  name: "Pcf_method",
+                  "0": _2
+                });
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 1);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkcf(_3, symbol_docs(/* () */0), /* Pcf_constraint */Block.__(3, [_2]));
+      return mkcf(_3, symbol_docs(/* () */0), /* constructor */{
+                  tag: 3,
+                  name: "Pcf_constraint",
+                  "0": _2
+                });
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 1);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkcf(_3, symbol_docs(/* () */0), /* Pcf_initializer */Block.__(4, [_2]));
+      return mkcf(_3, symbol_docs(/* () */0), /* constructor */{
+                  tag: 4,
+                  name: "Pcf_initializer",
+                  "0": _2
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkcf(_2, symbol_docs(/* () */0), /* Pcf_extension */Block.__(6, [_1]));
+      return mkcf(_2, symbol_docs(/* () */0), /* constructor */{
+                  tag: 6,
+                  name: "Pcf_extension",
+                  "0": _1
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
       mark_symbol_docs(/* () */0);
-      return mkcf(undefined, undefined, /* Pcf_attribute */Block.__(5, [_1]));
+      return mkcf(undefined, undefined, /* constructor */{
+                  tag: 5,
+                  name: "Pcf_attribute",
+                  "0": _1
+                });
     }),
   (function (__caml_parser_env) {
       return Parsing.peek_val(__caml_parser_env, 0);
@@ -7808,7 +9553,11 @@ var yyact = /* array */[
                 /* loc */rhs_loc(4)
               ],
               /* Mutable */1,
-              /* Cfk_virtual */Block.__(0, [_6])
+              /* constructor */{
+                tag: 0,
+                name: "Cfk_virtual",
+                "0": _6
+              }
             ];
     }),
   (function (__caml_parser_env) {
@@ -7821,7 +9570,11 @@ var yyact = /* array */[
                 /* loc */rhs_loc(3)
               ],
               _2,
-              /* Cfk_virtual */Block.__(0, [_5])
+              /* constructor */{
+                tag: 0,
+                name: "Cfk_virtual",
+                "0": _5
+              }
             ];
     }),
   (function (__caml_parser_env) {
@@ -7835,10 +9588,12 @@ var yyact = /* array */[
                 /* loc */rhs_loc(3)
               ],
               _2,
-              /* Cfk_concrete */Block.__(1, [
-                  _1,
-                  _5
-                ])
+              /* constructor */{
+                tag: 1,
+                name: "Cfk_concrete",
+                "0": _1,
+                "1": _5
+              }
             ];
     }),
   (function (__caml_parser_env) {
@@ -7854,10 +9609,12 @@ var yyact = /* array */[
                 /* loc */rhs_loc(3)
               ],
               _2,
-              /* Cfk_concrete */Block.__(1, [
-                  _1,
-                  e
-                ])
+              /* constructor */{
+                tag: 1,
+                name: "Cfk_concrete",
+                "0": _1,
+                "1": e
+              }
             ];
     }),
   (function (__caml_parser_env) {
@@ -7873,7 +9630,11 @@ var yyact = /* array */[
                 /* loc */rhs_loc(4)
               ],
               /* Private */0,
-              /* Cfk_virtual */Block.__(0, [_6])
+              /* constructor */{
+                tag: 0,
+                name: "Cfk_virtual",
+                "0": _6
+              }
             ];
     }),
   (function (__caml_parser_env) {
@@ -7890,7 +9651,11 @@ var yyact = /* array */[
                 /* loc */rhs_loc(4)
               ],
               _3,
-              /* Cfk_virtual */Block.__(0, [_6])
+              /* constructor */{
+                tag: 0,
+                name: "Cfk_virtual",
+                "0": _6
+              }
             ];
     }),
   (function (__caml_parser_env) {
@@ -7904,13 +9669,17 @@ var yyact = /* array */[
                 /* loc */rhs_loc(3)
               ],
               _2,
-              /* Cfk_concrete */Block.__(1, [
-                  _1,
-                  ghexp(/* Pexp_poly */Block.__(28, [
-                          _4,
-                          undefined
-                        ]))
-                ])
+              /* constructor */{
+                tag: 1,
+                name: "Cfk_concrete",
+                "0": _1,
+                "1": ghexp(/* constructor */{
+                      tag: 28,
+                      name: "Pexp_poly",
+                      "0": _4,
+                      "1": undefined
+                    })
+              }
             ];
     }),
   (function (__caml_parser_env) {
@@ -7925,13 +9694,17 @@ var yyact = /* array */[
                 /* loc */rhs_loc(3)
               ],
               _2,
-              /* Cfk_concrete */Block.__(1, [
-                  _1,
-                  ghexp(/* Pexp_poly */Block.__(28, [
-                          _7,
-                          _5
-                        ]))
-                ])
+              /* constructor */{
+                tag: 1,
+                name: "Cfk_concrete",
+                "0": _1,
+                "1": ghexp(/* constructor */{
+                      tag: 28,
+                      name: "Pexp_poly",
+                      "0": _7,
+                      "1": _5
+                    })
+              }
             ];
     }),
   (function (__caml_parser_env) {
@@ -7948,13 +9721,17 @@ var yyact = /* array */[
                 /* loc */rhs_loc(3)
               ],
               _2,
-              /* Cfk_concrete */Block.__(1, [
-                  _1,
-                  ghexp(/* Pexp_poly */Block.__(28, [
-                          match[0],
-                          match[1]
-                        ]))
-                ])
+              /* constructor */{
+                tag: 1,
+                name: "Cfk_concrete",
+                "0": _1,
+                "1": ghexp(/* constructor */{
+                      tag: 28,
+                      name: "Pexp_poly",
+                      "0": match[0],
+                      "1": match[1]
+                    })
+              }
             ];
     }),
   (function (__caml_parser_env) {
@@ -7964,65 +9741,81 @@ var yyact = /* array */[
       var _2 = Parsing.peek_val(__caml_parser_env, 4);
       var _4 = Parsing.peek_val(__caml_parser_env, 2);
       var _6 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkcty(/* Pcty_arrow */Block.__(2, [
-                    "?" + _2,
-                    mkoption(_4),
-                    _6
-                  ]));
+      return mkcty(/* constructor */{
+                  tag: 2,
+                  name: "Pcty_arrow",
+                  "0": "?" + _2,
+                  "1": mkoption(_4),
+                  "2": _6
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 3);
       var _2 = Parsing.peek_val(__caml_parser_env, 2);
       var _4 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkcty(/* Pcty_arrow */Block.__(2, [
-                    "?" + _1,
-                    mkoption(_2),
-                    _4
-                  ]));
+      return mkcty(/* constructor */{
+                  tag: 2,
+                  name: "Pcty_arrow",
+                  "0": "?" + _1,
+                  "1": mkoption(_2),
+                  "2": _4
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 4);
       var _3 = Parsing.peek_val(__caml_parser_env, 2);
       var _5 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkcty(/* Pcty_arrow */Block.__(2, [
-                    _1,
-                    _3,
-                    _5
-                  ]));
+      return mkcty(/* constructor */{
+                  tag: 2,
+                  name: "Pcty_arrow",
+                  "0": _1,
+                  "1": _3,
+                  "2": _5
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkcty(/* Pcty_arrow */Block.__(2, [
-                    "",
-                    _1,
-                    _3
-                  ]));
+      return mkcty(/* constructor */{
+                  tag: 2,
+                  name: "Pcty_arrow",
+                  "0": "",
+                  "1": _1,
+                  "2": _3
+                });
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 2);
       var _4 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkcty(/* Pcty_constr */Block.__(0, [
-                    /* record */[
-                      /* txt */_4,
-                      /* loc */rhs_loc(4)
-                    ],
-                    List.rev(_2)
-                  ]));
+      return mkcty(/* constructor */{
+                  tag: 0,
+                  name: "Pcty_constr",
+                  "0": /* record */[
+                    /* txt */_4,
+                    /* loc */rhs_loc(4)
+                  ],
+                  "1": List.rev(_2)
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkcty(/* Pcty_constr */Block.__(0, [
-                    /* record */[
-                      /* txt */_1,
-                      /* loc */rhs_loc(1)
-                    ],
-                    /* [] */0
-                  ]));
+      return mkcty(/* constructor */{
+                  tag: 0,
+                  name: "Pcty_constr",
+                  "0": /* record */[
+                    /* txt */_1,
+                    /* loc */rhs_loc(1)
+                  ],
+                  "1": /* [] */0
+                });
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 1);
-      return mkcty(/* Pcty_signature */Block.__(1, [_2]));
+      return mkcty(/* constructor */{
+                  tag: 1,
+                  name: "Pcty_signature",
+                  "0": _2
+                });
     }),
   (function (__caml_parser_env) {
       Parsing.peek_val(__caml_parser_env, 1);
@@ -8035,7 +9828,11 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkcty(/* Pcty_extension */Block.__(3, [_1]));
+      return mkcty(/* constructor */{
+                  tag: 3,
+                  name: "Pcty_extension",
+                  "0": _1
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
@@ -8057,47 +9854,73 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return Pervasives.$at(/* :: */[
-                  _2,
-                  text_csig(2)
-                ], _1);
+      return Pervasives.$at(/* constructor */{
+                  tag: 0,
+                  name: "::",
+                  "0": _2,
+                  "1": text_csig(2)
+                }, _1);
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 1);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkctf(_3, symbol_docs(/* () */0), /* Pctf_inherit */Block.__(0, [_2]));
+      return mkctf(_3, symbol_docs(/* () */0), /* constructor */{
+                  tag: 0,
+                  name: "Pctf_inherit",
+                  "0": _2
+                });
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 1);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkctf(_3, symbol_docs(/* () */0), /* Pctf_val */Block.__(1, [_2]));
+      return mkctf(_3, symbol_docs(/* () */0), /* constructor */{
+                  tag: 1,
+                  name: "Pctf_val",
+                  "0": _2
+                });
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 4);
       var _3 = Parsing.peek_val(__caml_parser_env, 3);
       var _5 = Parsing.peek_val(__caml_parser_env, 1);
       var _6 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkctf(_6, symbol_docs(/* () */0), /* Pctf_method */Block.__(2, [/* tuple */[
-                      _3,
-                      _2[0],
-                      _2[1],
-                      _5
-                    ]]));
+      return mkctf(_6, symbol_docs(/* () */0), /* constructor */{
+                  tag: 2,
+                  name: "Pctf_method",
+                  "0": /* tuple */[
+                    _3,
+                    _2[0],
+                    _2[1],
+                    _5
+                  ]
+                });
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 1);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkctf(_3, symbol_docs(/* () */0), /* Pctf_constraint */Block.__(3, [_2]));
+      return mkctf(_3, symbol_docs(/* () */0), /* constructor */{
+                  tag: 3,
+                  name: "Pctf_constraint",
+                  "0": _2
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkctf(_2, symbol_docs(/* () */0), /* Pctf_extension */Block.__(5, [_1]));
+      return mkctf(_2, symbol_docs(/* () */0), /* constructor */{
+                  tag: 5,
+                  name: "Pctf_extension",
+                  "0": _1
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
       mark_symbol_docs(/* () */0);
-      return mkctf(undefined, undefined, /* Pctf_attribute */Block.__(4, [_1]));
+      return mkctf(undefined, undefined, /* constructor */{
+                  tag: 4,
+                  name: "Pctf_attribute",
+                  "0": _1
+                });
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 3);
@@ -8150,18 +9973,22 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _1,
-              /* [] */0
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1,
+              "1": /* [] */0
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _2,
-              _1
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _2,
+              "1": _1
+            };
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 5);
@@ -8187,18 +10014,22 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _1,
-              /* [] */0
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1,
+              "1": /* [] */0
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _2,
-              _1
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _2,
+              "1": _1
+            };
     }),
   (function (__caml_parser_env) {
       var _3 = Parsing.peek_val(__caml_parser_env, 5);
@@ -8231,10 +10062,12 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkexp(/* Pexp_sequence */Block.__(16, [
-                    _1,
-                    _3
-                  ]));
+      return mkexp(/* constructor */{
+                  tag: 16,
+                  name: "Pexp_sequence",
+                  "0": _1,
+                  "1": _3
+                });
     }),
   (function (__caml_parser_env) {
       var _3 = Parsing.peek_val(__caml_parser_env, 2);
@@ -8307,10 +10140,14 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkpat(/* Ppat_var */Block.__(0, [/* record */[
-                      /* txt */_1,
-                      /* loc */rhs_loc(1)
-                    ]]));
+      return mkpat(/* constructor */{
+                  tag: 0,
+                  name: "Ppat_var",
+                  "0": /* record */[
+                    /* txt */_1,
+                    /* loc */rhs_loc(1)
+                  ]
+                });
     }),
   (function (__caml_parser_env) {
       return mkpat(/* Ppat_any */0);
@@ -8329,20 +10166,26 @@ var yyact = /* array */[
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
       return /* tuple */[
               _1[0],
-              mkpat(/* Ppat_constraint */Block.__(10, [
-                      _1[1],
-                      _3
-                    ]))
+              mkpat(/* constructor */{
+                    tag: 10,
+                    name: "Ppat_constraint",
+                    "0": _1[1],
+                    "1": _3
+                  })
             ];
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
       return /* tuple */[
               _1,
-              mkpat(/* Ppat_var */Block.__(0, [/* record */[
-                        /* txt */_1,
-                        /* loc */rhs_loc(1)
-                      ]]))
+              mkpat(/* constructor */{
+                    tag: 0,
+                    name: "Ppat_var",
+                    "0": /* record */[
+                      /* txt */_1,
+                      /* loc */rhs_loc(1)
+                    ]
+                  })
             ];
     }),
   (function (__caml_parser_env) {
@@ -8351,10 +10194,12 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkpat(/* Ppat_constraint */Block.__(10, [
-                    _1,
-                    _3
-                  ]));
+      return mkpat(/* constructor */{
+                  tag: 10,
+                  name: "Ppat_constraint",
+                  "0": _1,
+                  "1": _3
+                });
     }),
   (function (__caml_parser_env) {
       return Parsing.peek_val(__caml_parser_env, 0);
@@ -8362,10 +10207,12 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkexp(/* Pexp_apply */Block.__(5, [
-                    _1,
-                    List.rev(_2)
-                  ]));
+      return mkexp(/* constructor */{
+                  tag: 5,
+                  name: "Pexp_apply",
+                  "0": _1,
+                  "1": List.rev(_2)
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
@@ -8376,21 +10223,23 @@ var yyact = /* array */[
               if (lb[/* lb_attributes */2] !== /* [] */0) {
                 throw [
                       $$Error$1,
-                      /* Not_expecting */Block.__(2, [
-                          lb[/* lb_loc */5],
-                          "item attribute"
-                        ])
+                      /* constructor */{
+                        tag: 2,
+                        name: "Not_expecting",
+                        "0": lb[/* lb_loc */5],
+                        "1": "item attribute"
+                      }
                     ];
               }
               return mk$17(lb[/* lb_loc */5], undefined, undefined, undefined, lb[/* lb_pattern */0], lb[/* lb_expression */1]);
             }), lbs[/* lbs_bindings */0]);
-      var d_000 = lbs[/* lbs_rec */1];
-      var d_001 = List.rev(bindings);
-      var d = /* Pexp_let */Block.__(2, [
-          d_000,
-          d_001,
-          body
-        ]);
+      var d = /* constructor */{
+        tag: 2,
+        name: "Pexp_let",
+        "0": lbs[/* lbs_rec */1],
+        "1": List.rev(bindings),
+        "2": body
+      };
       return wrap_exp_attrs(mkexp(d), /* tuple */[
                   lbs[/* lbs_extension */2],
                   lbs[/* lbs_attributes */3]
@@ -8401,15 +10250,16 @@ var yyact = /* array */[
       var _4 = Parsing.peek_val(__caml_parser_env, 3);
       var _5 = Parsing.peek_val(__caml_parser_env, 2);
       var _7 = Parsing.peek_val(__caml_parser_env, 0);
-      var d_000 = /* record */[
-        /* txt */_4,
-        /* loc */rhs_loc(4)
-      ];
-      var d = /* Pexp_letmodule */Block.__(25, [
-          d_000,
-          _5,
-          _7
-        ]);
+      var d = /* constructor */{
+        tag: 25,
+        name: "Pexp_letmodule",
+        "0": /* record */[
+          /* txt */_4,
+          /* loc */rhs_loc(4)
+        ],
+        "1": _5,
+        "2": _7
+      };
       return wrap_exp_attrs(mkexp(d), _3);
     }),
   (function (__caml_parser_env) {
@@ -8417,54 +10267,64 @@ var yyact = /* array */[
       var _4 = Parsing.peek_val(__caml_parser_env, 3);
       var _5 = Parsing.peek_val(__caml_parser_env, 2);
       var _7 = Parsing.peek_val(__caml_parser_env, 0);
-      var d_001 = /* record */[
-        /* txt */_5,
-        /* loc */rhs_loc(5)
-      ];
-      var d = /* Pexp_open */Block.__(32, [
-          _3,
-          d_001,
-          _7
-        ]);
+      var d = /* constructor */{
+        tag: 32,
+        name: "Pexp_open",
+        "0": _3,
+        "1": /* record */[
+          /* txt */_5,
+          /* loc */rhs_loc(5)
+        ],
+        "2": _7
+      };
       return wrap_exp_attrs(mkexp(d), _4);
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 2);
       Parsing.peek_val(__caml_parser_env, 1);
       var _4 = Parsing.peek_val(__caml_parser_env, 0);
-      var d = /* Pexp_function */Block.__(3, [List.rev(_4)]);
+      var d = /* constructor */{
+        tag: 3,
+        name: "Pexp_function",
+        "0": List.rev(_4)
+      };
       return wrap_exp_attrs(mkexp(d), _2);
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 1);
       var _4 = Parsing.peek_val(__caml_parser_env, 0);
-      return wrap_exp_attrs(mkexp(/* Pexp_fun */Block.__(4, [
-                        _3[0],
-                        _3[1],
-                        _3[2],
-                        _4
-                      ])), _2);
+      return wrap_exp_attrs(mkexp(/* constructor */{
+                      tag: 4,
+                      name: "Pexp_fun",
+                      "0": _3[0],
+                      "1": _3[1],
+                      "2": _3[2],
+                      "3": _4
+                    }), _2);
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 5);
       var _5 = Parsing.peek_val(__caml_parser_env, 2);
       var _7 = Parsing.peek_val(__caml_parser_env, 0);
-      return wrap_exp_attrs(mkexp(/* Pexp_newtype */Block.__(30, [
-                        _5,
-                        _7
-                      ])), _2);
+      return wrap_exp_attrs(mkexp(/* constructor */{
+                      tag: 30,
+                      name: "Pexp_newtype",
+                      "0": _5,
+                      "1": _7
+                    }), _2);
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 4);
       var _3 = Parsing.peek_val(__caml_parser_env, 3);
       Parsing.peek_val(__caml_parser_env, 1);
       var _6 = Parsing.peek_val(__caml_parser_env, 0);
-      var d_001 = List.rev(_6);
-      var d = /* Pexp_match */Block.__(6, [
-          _3,
-          d_001
-        ]);
+      var d = /* constructor */{
+        tag: 6,
+        name: "Pexp_match",
+        "0": _3,
+        "1": List.rev(_6)
+      };
       return wrap_exp_attrs(mkexp(d), _2);
     }),
   (function (__caml_parser_env) {
@@ -8472,11 +10332,12 @@ var yyact = /* array */[
       var _3 = Parsing.peek_val(__caml_parser_env, 3);
       Parsing.peek_val(__caml_parser_env, 1);
       var _6 = Parsing.peek_val(__caml_parser_env, 0);
-      var d_001 = List.rev(_6);
-      var d = /* Pexp_try */Block.__(7, [
-          _3,
-          d_001
-        ]);
+      var d = /* constructor */{
+        tag: 7,
+        name: "Pexp_try",
+        "0": _3,
+        "1": List.rev(_6)
+      };
       return wrap_exp_attrs(mkexp(d), _2);
     }),
   (function (__caml_parser_env) {
@@ -8486,56 +10347,70 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkexp(/* Pexp_tuple */Block.__(8, [List.rev(_1)]));
+      return mkexp(/* constructor */{
+                  tag: 8,
+                  name: "Pexp_tuple",
+                  "0": List.rev(_1)
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkexp(/* Pexp_construct */Block.__(9, [
-                    /* record */[
-                      /* txt */_1,
-                      /* loc */rhs_loc(1)
-                    ],
-                    _2
-                  ]));
+      return mkexp(/* constructor */{
+                  tag: 9,
+                  name: "Pexp_construct",
+                  "0": /* record */[
+                    /* txt */_1,
+                    /* loc */rhs_loc(1)
+                  ],
+                  "1": _2
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkexp(/* Pexp_variant */Block.__(10, [
-                    _1,
-                    _2
-                  ]));
+      return mkexp(/* constructor */{
+                  tag: 10,
+                  name: "Pexp_variant",
+                  "0": _1,
+                  "1": _2
+                });
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 5);
       var _3 = Parsing.peek_val(__caml_parser_env, 4);
       var _5 = Parsing.peek_val(__caml_parser_env, 2);
       var _7 = Parsing.peek_val(__caml_parser_env, 0);
-      return wrap_exp_attrs(mkexp(/* Pexp_ifthenelse */Block.__(15, [
-                        _3,
-                        _5,
-                        _7
-                      ])), _2);
+      return wrap_exp_attrs(mkexp(/* constructor */{
+                      tag: 15,
+                      name: "Pexp_ifthenelse",
+                      "0": _3,
+                      "1": _5,
+                      "2": _7
+                    }), _2);
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 3);
       var _3 = Parsing.peek_val(__caml_parser_env, 2);
       var _5 = Parsing.peek_val(__caml_parser_env, 0);
-      return wrap_exp_attrs(mkexp(/* Pexp_ifthenelse */Block.__(15, [
-                        _3,
-                        _5,
-                        undefined
-                      ])), _2);
+      return wrap_exp_attrs(mkexp(/* constructor */{
+                      tag: 15,
+                      name: "Pexp_ifthenelse",
+                      "0": _3,
+                      "1": _5,
+                      "2": undefined
+                    }), _2);
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 4);
       var _3 = Parsing.peek_val(__caml_parser_env, 3);
       var _5 = Parsing.peek_val(__caml_parser_env, 1);
-      return wrap_exp_attrs(mkexp(/* Pexp_while */Block.__(17, [
-                        _3,
-                        _5
-                      ])), _2);
+      return wrap_exp_attrs(mkexp(/* constructor */{
+                      tag: 17,
+                      name: "Pexp_while",
+                      "0": _3,
+                      "1": _5
+                    }), _2);
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 8);
@@ -8544,35 +10419,53 @@ var yyact = /* array */[
       var _6 = Parsing.peek_val(__caml_parser_env, 4);
       var _7 = Parsing.peek_val(__caml_parser_env, 3);
       var _9 = Parsing.peek_val(__caml_parser_env, 1);
-      return wrap_exp_attrs(mkexp(/* Pexp_for */Block.__(18, [
-                        _3,
-                        _5,
-                        _7,
-                        _6,
-                        _9
-                      ])), _2);
+      return wrap_exp_attrs(mkexp(/* constructor */{
+                      tag: 18,
+                      name: "Pexp_for",
+                      "0": _3,
+                      "1": _5,
+                      "2": _7,
+                      "3": _6,
+                      "4": _9
+                    }), _2);
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkexp_cons(rhs_loc(2), ghexp(/* Pexp_tuple */Block.__(8, [/* :: */[
-                          _1,
-                          /* :: */[
-                            _3,
-                            /* [] */0
-                          ]
-                        ]])), symbol_rloc(/* () */0));
+      return mkexp_cons(rhs_loc(2), ghexp(/* constructor */{
+                      tag: 8,
+                      name: "Pexp_tuple",
+                      "0": /* constructor */{
+                        tag: 0,
+                        name: "::",
+                        "0": _1,
+                        "1": /* constructor */{
+                          tag: 0,
+                          name: "::",
+                          "0": _3,
+                          "1": /* [] */0
+                        }
+                      }
+                    }), symbol_rloc(/* () */0));
     }),
   (function (__caml_parser_env) {
       var _5 = Parsing.peek_val(__caml_parser_env, 3);
       var _7 = Parsing.peek_val(__caml_parser_env, 1);
-      return mkexp_cons(rhs_loc(2), ghexp(/* Pexp_tuple */Block.__(8, [/* :: */[
-                          _5,
-                          /* :: */[
-                            _7,
-                            /* [] */0
-                          ]
-                        ]])), symbol_rloc(/* () */0));
+      return mkexp_cons(rhs_loc(2), ghexp(/* constructor */{
+                      tag: 8,
+                      name: "Pexp_tuple",
+                      "0": /* constructor */{
+                        tag: 0,
+                        name: "::",
+                        "0": _5,
+                        "1": /* constructor */{
+                          tag: 0,
+                          name: "::",
+                          "0": _7,
+                          "1": /* [] */0
+                        }
+                      }
+                    }), symbol_rloc(/* () */0));
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
@@ -8692,13 +10585,45 @@ var yyact = /* array */[
               var match$1 = match[0];
               switch (match$1.tag | 0) {
                 case /* Const_int */0 :
-                    return mkexp(/* Pexp_constant */Block.__(1, [/* Const_int */Block.__(0, [-match$1[0] | 0])]));
+                    return mkexp(/* constructor */{
+                                tag: 1,
+                                name: "Pexp_constant",
+                                "0": /* constructor */{
+                                  tag: 0,
+                                  name: "Const_int",
+                                  "0": -match$1[0] | 0
+                                }
+                              });
                 case /* Const_int32 */4 :
-                    return mkexp(/* Pexp_constant */Block.__(1, [/* Const_int32 */Block.__(4, [-match$1[0] | 0])]));
+                    return mkexp(/* constructor */{
+                                tag: 1,
+                                name: "Pexp_constant",
+                                "0": /* constructor */{
+                                  tag: 4,
+                                  name: "Const_int32",
+                                  "0": -match$1[0] | 0
+                                }
+                              });
                 case /* Const_int64 */5 :
-                    return mkexp(/* Pexp_constant */Block.__(1, [/* Const_int64 */Block.__(5, [Caml_int64.neg(match$1[0])])]));
+                    return mkexp(/* constructor */{
+                                tag: 1,
+                                name: "Pexp_constant",
+                                "0": /* constructor */{
+                                  tag: 5,
+                                  name: "Const_int64",
+                                  "0": Caml_int64.neg(match$1[0])
+                                }
+                              });
                 case /* Const_nativeint */6 :
-                    return mkexp(/* Pexp_constant */Block.__(1, [/* Const_nativeint */Block.__(6, [-match$1[0]])]));
+                    return mkexp(/* constructor */{
+                                tag: 1,
+                                name: "Pexp_constant",
+                                "0": /* constructor */{
+                                  tag: 6,
+                                  name: "Const_nativeint",
+                                  "0": -match$1[0]
+                                }
+                              });
                 default:
                   exit = 2;
               }
@@ -8715,20 +10640,32 @@ var yyact = /* array */[
       if (exit === 2 && match.tag === /* Pexp_constant */1) {
         var match$2 = match[0];
         if (match$2.tag === /* Const_float */3) {
-          return mkexp(/* Pexp_constant */Block.__(1, [/* Const_float */Block.__(3, [neg_float_string(match$2[0])])]));
+          return mkexp(/* constructor */{
+                      tag: 1,
+                      name: "Pexp_constant",
+                      "0": /* constructor */{
+                        tag: 3,
+                        name: "Const_float",
+                        "0": neg_float_string(match$2[0])
+                      }
+                    });
         }
         
       }
-      return mkexp(/* Pexp_apply */Block.__(5, [
-                    mkoperator("~" + name, 1),
-                    /* :: */[
-                      /* tuple */[
-                        "",
-                        arg
-                      ],
-                      /* [] */0
-                    ]
-                  ]));
+      return mkexp(/* constructor */{
+                  tag: 5,
+                  name: "Pexp_apply",
+                  "0": mkoperator("~" + name, 1),
+                  "1": /* constructor */{
+                    tag: 0,
+                    name: "::",
+                    "0": /* tuple */[
+                      "",
+                      arg
+                    ],
+                    "1": /* [] */0
+                  }
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
@@ -8762,83 +10699,113 @@ var yyact = /* array */[
       if (exit === 2 && desc.tag === /* Pexp_constant */1 && desc[0].tag === /* Const_float */3) {
         return mkexp(desc);
       }
-      return mkexp(/* Pexp_apply */Block.__(5, [
-                    mkoperator("~" + name, 1),
-                    /* :: */[
-                      /* tuple */[
-                        "",
-                        arg
-                      ],
-                      /* [] */0
-                    ]
-                  ]));
+      return mkexp(/* constructor */{
+                  tag: 5,
+                  name: "Pexp_apply",
+                  "0": mkoperator("~" + name, 1),
+                  "1": /* constructor */{
+                    tag: 0,
+                    name: "::",
+                    "0": /* tuple */[
+                      "",
+                      arg
+                    ],
+                    "1": /* [] */0
+                  }
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 4);
       var _3 = Parsing.peek_val(__caml_parser_env, 2);
       var _5 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkexp(/* Pexp_setfield */Block.__(13, [
-                    _1,
-                    /* record */[
-                      /* txt */_3,
-                      /* loc */rhs_loc(3)
+      return mkexp(/* constructor */{
+                  tag: 13,
+                  name: "Pexp_setfield",
+                  "0": _1,
+                  "1": /* record */[
+                    /* txt */_3,
+                    /* loc */rhs_loc(3)
+                  ],
+                  "2": _5
+                });
+    }),
+  (function (__caml_parser_env) {
+      var _1 = Parsing.peek_val(__caml_parser_env, 6);
+      var _4 = Parsing.peek_val(__caml_parser_env, 3);
+      var _7 = Parsing.peek_val(__caml_parser_env, 0);
+      return mkexp(/* constructor */{
+                  tag: 5,
+                  name: "Pexp_apply",
+                  "0": ghexp(/* constructor */{
+                        tag: 0,
+                        name: "Pexp_ident",
+                        "0": array_function("Array", "set")
+                      }),
+                  "1": /* constructor */{
+                    tag: 0,
+                    name: "::",
+                    "0": /* tuple */[
+                      "",
+                      _1
                     ],
-                    _5
-                  ]));
+                    "1": /* constructor */{
+                      tag: 0,
+                      name: "::",
+                      "0": /* tuple */[
+                        "",
+                        _4
+                      ],
+                      "1": /* constructor */{
+                        tag: 0,
+                        name: "::",
+                        "0": /* tuple */[
+                          "",
+                          _7
+                        ],
+                        "1": /* [] */0
+                      }
+                    }
+                  }
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 6);
       var _4 = Parsing.peek_val(__caml_parser_env, 3);
       var _7 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkexp(/* Pexp_apply */Block.__(5, [
-                    ghexp(/* Pexp_ident */Block.__(0, [array_function("Array", "set")])),
-                    /* :: */[
-                      /* tuple */[
+      return mkexp(/* constructor */{
+                  tag: 5,
+                  name: "Pexp_apply",
+                  "0": ghexp(/* constructor */{
+                        tag: 0,
+                        name: "Pexp_ident",
+                        "0": array_function("String", "set")
+                      }),
+                  "1": /* constructor */{
+                    tag: 0,
+                    name: "::",
+                    "0": /* tuple */[
+                      "",
+                      _1
+                    ],
+                    "1": /* constructor */{
+                      tag: 0,
+                      name: "::",
+                      "0": /* tuple */[
                         "",
-                        _1
+                        _4
                       ],
-                      /* :: */[
-                        /* tuple */[
+                      "1": /* constructor */{
+                        tag: 0,
+                        name: "::",
+                        "0": /* tuple */[
                           "",
-                          _4
+                          _7
                         ],
-                        /* :: */[
-                          /* tuple */[
-                            "",
-                            _7
-                          ],
-                          /* [] */0
-                        ]
-                      ]
-                    ]
-                  ]));
-    }),
-  (function (__caml_parser_env) {
-      var _1 = Parsing.peek_val(__caml_parser_env, 6);
-      var _4 = Parsing.peek_val(__caml_parser_env, 3);
-      var _7 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkexp(/* Pexp_apply */Block.__(5, [
-                    ghexp(/* Pexp_ident */Block.__(0, [array_function("String", "set")])),
-                    /* :: */[
-                      /* tuple */[
-                        "",
-                        _1
-                      ],
-                      /* :: */[
-                        /* tuple */[
-                          "",
-                          _4
-                        ],
-                        /* :: */[
-                          /* tuple */[
-                            "",
-                            _7
-                          ],
-                          /* [] */0
-                        ]
-                      ]
-                    ]
-                  ]));
+                        "1": /* [] */0
+                      }
+                    }
+                  }
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 6);
@@ -8857,145 +10824,217 @@ var yyact = /* array */[
           var c2 = match[0];
           if (match$1) {
             if (!match$1[1]) {
-              return mkexp(/* Pexp_apply */Block.__(5, [
-                            ghexp(/* Pexp_ident */Block.__(0, [bigarray_function("Array3", set)])),
-                            /* :: */[
-                              /* tuple */[
-                                "",
-                                arr
-                              ],
-                              /* :: */[
-                                /* tuple */[
-                                  "",
-                                  c1
-                                ],
-                                /* :: */[
-                                  /* tuple */[
-                                    "",
-                                    c2
-                                  ],
-                                  /* :: */[
-                                    /* tuple */[
-                                      "",
-                                      match$1[0]
-                                    ],
-                                    /* :: */[
-                                      /* tuple */[
-                                        "",
-                                        newval
-                                      ],
-                                      /* [] */0
-                                    ]
-                                  ]
-                                ]
-                              ]
-                            ]
-                          ]));
-            }
-            
-          } else {
-            return mkexp(/* Pexp_apply */Block.__(5, [
-                          ghexp(/* Pexp_ident */Block.__(0, [bigarray_function("Array2", set)])),
-                          /* :: */[
-                            /* tuple */[
+              return mkexp(/* constructor */{
+                          tag: 5,
+                          name: "Pexp_apply",
+                          "0": ghexp(/* constructor */{
+                                tag: 0,
+                                name: "Pexp_ident",
+                                "0": bigarray_function("Array3", set)
+                              }),
+                          "1": /* constructor */{
+                            tag: 0,
+                            name: "::",
+                            "0": /* tuple */[
                               "",
                               arr
                             ],
-                            /* :: */[
-                              /* tuple */[
+                            "1": /* constructor */{
+                              tag: 0,
+                              name: "::",
+                              "0": /* tuple */[
                                 "",
                                 c1
                               ],
-                              /* :: */[
-                                /* tuple */[
+                              "1": /* constructor */{
+                                tag: 0,
+                                name: "::",
+                                "0": /* tuple */[
                                   "",
                                   c2
                                 ],
-                                /* :: */[
-                                  /* tuple */[
+                                "1": /* constructor */{
+                                  tag: 0,
+                                  name: "::",
+                                  "0": /* tuple */[
                                     "",
-                                    newval
+                                    match$1[0]
                                   ],
-                                  /* [] */0
-                                ]
-                              ]
-                            ]
-                          ]
-                        ]));
-          }
-        } else {
-          return mkexp(/* Pexp_apply */Block.__(5, [
-                        ghexp(/* Pexp_ident */Block.__(0, [bigarray_function("Array1", set)])),
-                        /* :: */[
-                          /* tuple */[
+                                  "1": /* constructor */{
+                                    tag: 0,
+                                    name: "::",
+                                    "0": /* tuple */[
+                                      "",
+                                      newval
+                                    ],
+                                    "1": /* [] */0
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        });
+            }
+            
+          } else {
+            return mkexp(/* constructor */{
+                        tag: 5,
+                        name: "Pexp_apply",
+                        "0": ghexp(/* constructor */{
+                              tag: 0,
+                              name: "Pexp_ident",
+                              "0": bigarray_function("Array2", set)
+                            }),
+                        "1": /* constructor */{
+                          tag: 0,
+                          name: "::",
+                          "0": /* tuple */[
                             "",
                             arr
                           ],
-                          /* :: */[
-                            /* tuple */[
+                          "1": /* constructor */{
+                            tag: 0,
+                            name: "::",
+                            "0": /* tuple */[
                               "",
                               c1
                             ],
-                            /* :: */[
-                              /* tuple */[
+                            "1": /* constructor */{
+                              tag: 0,
+                              name: "::",
+                              "0": /* tuple */[
                                 "",
-                                newval
+                                c2
                               ],
-                              /* [] */0
-                            ]
-                          ]
-                        ]
-                      ]));
+                              "1": /* constructor */{
+                                tag: 0,
+                                name: "::",
+                                "0": /* tuple */[
+                                  "",
+                                  newval
+                                ],
+                                "1": /* [] */0
+                              }
+                            }
+                          }
+                        }
+                      });
+          }
+        } else {
+          return mkexp(/* constructor */{
+                      tag: 5,
+                      name: "Pexp_apply",
+                      "0": ghexp(/* constructor */{
+                            tag: 0,
+                            name: "Pexp_ident",
+                            "0": bigarray_function("Array1", set)
+                          }),
+                      "1": /* constructor */{
+                        tag: 0,
+                        name: "::",
+                        "0": /* tuple */[
+                          "",
+                          arr
+                        ],
+                        "1": /* constructor */{
+                          tag: 0,
+                          name: "::",
+                          "0": /* tuple */[
+                            "",
+                            c1
+                          ],
+                          "1": /* constructor */{
+                            tag: 0,
+                            name: "::",
+                            "0": /* tuple */[
+                              "",
+                              newval
+                            ],
+                            "1": /* [] */0
+                          }
+                        }
+                      }
+                    });
         }
       }
-      return mkexp(/* Pexp_apply */Block.__(5, [
-                    ghexp(/* Pexp_ident */Block.__(0, [bigarray_function("Genarray", "set")])),
-                    /* :: */[
-                      /* tuple */[
+      return mkexp(/* constructor */{
+                  tag: 5,
+                  name: "Pexp_apply",
+                  "0": ghexp(/* constructor */{
+                        tag: 0,
+                        name: "Pexp_ident",
+                        "0": bigarray_function("Genarray", "set")
+                      }),
+                  "1": /* constructor */{
+                    tag: 0,
+                    name: "::",
+                    "0": /* tuple */[
+                      "",
+                      arr
+                    ],
+                    "1": /* constructor */{
+                      tag: 0,
+                      name: "::",
+                      "0": /* tuple */[
                         "",
-                        arr
+                        ghexp(/* constructor */{
+                              tag: 14,
+                              name: "Pexp_array",
+                              "0": coords
+                            })
                       ],
-                      /* :: */[
-                        /* tuple */[
+                      "1": /* constructor */{
+                        tag: 0,
+                        name: "::",
+                        "0": /* tuple */[
                           "",
-                          ghexp(/* Pexp_array */Block.__(14, [coords]))
+                          newval
                         ],
-                        /* :: */[
-                          /* tuple */[
-                            "",
-                            newval
-                          ],
-                          /* [] */0
-                        ]
-                      ]
-                    ]
-                  ]));
+                        "1": /* [] */0
+                      }
+                    }
+                  }
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkexp(/* Pexp_setinstvar */Block.__(23, [
-                    /* record */[
-                      /* txt */_1,
-                      /* loc */rhs_loc(1)
-                    ],
-                    _3
-                  ]));
+      return mkexp(/* constructor */{
+                  tag: 23,
+                  name: "Pexp_setinstvar",
+                  "0": /* record */[
+                    /* txt */_1,
+                    /* loc */rhs_loc(1)
+                  ],
+                  "1": _3
+                });
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 1);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return wrap_exp_attrs(mkexp(/* Pexp_assert */Block.__(26, [_3])), _2);
+      return wrap_exp_attrs(mkexp(/* constructor */{
+                      tag: 26,
+                      name: "Pexp_assert",
+                      "0": _3
+                    }), _2);
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 1);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return wrap_exp_attrs(mkexp(/* Pexp_lazy */Block.__(27, [_3])), _2);
+      return wrap_exp_attrs(mkexp(/* constructor */{
+                      tag: 27,
+                      name: "Pexp_lazy",
+                      "0": _3
+                    }), _2);
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 1);
-      return wrap_exp_attrs(mkexp(/* Pexp_object */Block.__(29, [_3])), _2);
+      return wrap_exp_attrs(mkexp(/* constructor */{
+                      tag: 29,
+                      name: "Pexp_object",
+                      "0": _3
+                    }), _2);
     }),
   (function (__caml_parser_env) {
       Parsing.peek_val(__caml_parser_env, 2);
@@ -9009,31 +11048,43 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkexp(/* Pexp_ident */Block.__(0, [/* record */[
-                      /* txt */_1,
-                      /* loc */rhs_loc(1)
-                    ]]));
+      return mkexp(/* constructor */{
+                  tag: 0,
+                  name: "Pexp_ident",
+                  "0": /* record */[
+                    /* txt */_1,
+                    /* loc */rhs_loc(1)
+                  ]
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkexp(/* Pexp_constant */Block.__(1, [_1]));
+      return mkexp(/* constructor */{
+                  tag: 1,
+                  name: "Pexp_constant",
+                  "0": _1
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkexp(/* Pexp_construct */Block.__(9, [
-                    /* record */[
-                      /* txt */_1,
-                      /* loc */rhs_loc(1)
-                    ],
-                    undefined
-                  ]));
+      return mkexp(/* constructor */{
+                  tag: 9,
+                  name: "Pexp_construct",
+                  "0": /* record */[
+                    /* txt */_1,
+                    /* loc */rhs_loc(1)
+                  ],
+                  "1": undefined
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkexp(/* Pexp_variant */Block.__(10, [
-                    _1,
-                    undefined
-                  ]));
+      return mkexp(/* constructor */{
+                  tag: 10,
+                  name: "Pexp_variant",
+                  "0": _1,
+                  "1": undefined
+                });
     }),
   (function (__caml_parser_env) {
       return reloc_exp(Parsing.peek_val(__caml_parser_env, 1));
@@ -9049,14 +11100,19 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 1);
-      var d_000 = /* record */[
-        /* txt : Lident */Block.__(0, ["()"]),
-        /* loc */symbol_rloc(/* () */0)
-      ];
-      var d = /* Pexp_construct */Block.__(9, [
-          d_000,
-          undefined
-        ]);
+      var d = /* constructor */{
+        tag: 9,
+        name: "Pexp_construct",
+        "0": /* record */[
+          /* txt : constructor */{
+            tag: 0,
+            name: "Lident",
+            "0": "()"
+          },
+          /* loc */symbol_rloc(/* () */0)
+        ],
+        "1": undefined
+      };
       return wrap_exp_attrs(mkexp(d), _2);
     }),
   (function (__caml_parser_env) {
@@ -9072,25 +11128,64 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkexp(/* Pexp_field */Block.__(12, [
-                    _1,
-                    /* record */[
-                      /* txt */_3,
-                      /* loc */rhs_loc(3)
-                    ]
-                  ]));
+      return mkexp(/* constructor */{
+                  tag: 12,
+                  name: "Pexp_field",
+                  "0": _1,
+                  "1": /* record */[
+                    /* txt */_3,
+                    /* loc */rhs_loc(3)
+                  ]
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 4);
       var _4 = Parsing.peek_val(__caml_parser_env, 1);
-      return mkexp(/* Pexp_open */Block.__(32, [
-                    /* Fresh */1,
-                    /* record */[
-                      /* txt */_1,
-                      /* loc */rhs_loc(1)
+      return mkexp(/* constructor */{
+                  tag: 32,
+                  name: "Pexp_open",
+                  "0": /* Fresh */1,
+                  "1": /* record */[
+                    /* txt */_1,
+                    /* loc */rhs_loc(1)
+                  ],
+                  "2": _4
+                });
+    }),
+  (function (__caml_parser_env) {
+      Parsing.peek_val(__caml_parser_env, 4);
+      Parsing.peek_val(__caml_parser_env, 1);
+      return unclosed("(", 3, ")", 5);
+    }),
+  (function (__caml_parser_env) {
+      var _1 = Parsing.peek_val(__caml_parser_env, 4);
+      var _4 = Parsing.peek_val(__caml_parser_env, 1);
+      return mkexp(/* constructor */{
+                  tag: 5,
+                  name: "Pexp_apply",
+                  "0": ghexp(/* constructor */{
+                        tag: 0,
+                        name: "Pexp_ident",
+                        "0": array_function("Array", "get")
+                      }),
+                  "1": /* constructor */{
+                    tag: 0,
+                    name: "::",
+                    "0": /* tuple */[
+                      "",
+                      _1
                     ],
-                    _4
-                  ]));
+                    "1": /* constructor */{
+                      tag: 0,
+                      name: "::",
+                      "0": /* tuple */[
+                        "",
+                        _4
+                      ],
+                      "1": /* [] */0
+                    }
+                  }
+                });
     }),
   (function (__caml_parser_env) {
       Parsing.peek_val(__caml_parser_env, 4);
@@ -9100,47 +11195,32 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 4);
       var _4 = Parsing.peek_val(__caml_parser_env, 1);
-      return mkexp(/* Pexp_apply */Block.__(5, [
-                    ghexp(/* Pexp_ident */Block.__(0, [array_function("Array", "get")])),
-                    /* :: */[
-                      /* tuple */[
+      return mkexp(/* constructor */{
+                  tag: 5,
+                  name: "Pexp_apply",
+                  "0": ghexp(/* constructor */{
+                        tag: 0,
+                        name: "Pexp_ident",
+                        "0": array_function("String", "get")
+                      }),
+                  "1": /* constructor */{
+                    tag: 0,
+                    name: "::",
+                    "0": /* tuple */[
+                      "",
+                      _1
+                    ],
+                    "1": /* constructor */{
+                      tag: 0,
+                      name: "::",
+                      "0": /* tuple */[
                         "",
-                        _1
+                        _4
                       ],
-                      /* :: */[
-                        /* tuple */[
-                          "",
-                          _4
-                        ],
-                        /* [] */0
-                      ]
-                    ]
-                  ]));
-    }),
-  (function (__caml_parser_env) {
-      Parsing.peek_val(__caml_parser_env, 4);
-      Parsing.peek_val(__caml_parser_env, 1);
-      return unclosed("(", 3, ")", 5);
-    }),
-  (function (__caml_parser_env) {
-      var _1 = Parsing.peek_val(__caml_parser_env, 4);
-      var _4 = Parsing.peek_val(__caml_parser_env, 1);
-      return mkexp(/* Pexp_apply */Block.__(5, [
-                    ghexp(/* Pexp_ident */Block.__(0, [array_function("String", "get")])),
-                    /* :: */[
-                      /* tuple */[
-                        "",
-                        _1
-                      ],
-                      /* :: */[
-                        /* tuple */[
-                          "",
-                          _4
-                        ],
-                        /* [] */0
-                      ]
-                    ]
-                  ]));
+                      "1": /* [] */0
+                    }
+                  }
+                });
     }),
   (function (__caml_parser_env) {
       Parsing.peek_val(__caml_parser_env, 4);
@@ -9162,95 +11242,145 @@ var yyact = /* array */[
           var c2 = match[0];
           if (match$1) {
             if (!match$1[1]) {
-              return mkexp(/* Pexp_apply */Block.__(5, [
-                            ghexp(/* Pexp_ident */Block.__(0, [bigarray_function("Array3", get)])),
-                            /* :: */[
-                              /* tuple */[
-                                "",
-                                arr
-                              ],
-                              /* :: */[
-                                /* tuple */[
-                                  "",
-                                  c1
-                                ],
-                                /* :: */[
-                                  /* tuple */[
-                                    "",
-                                    c2
-                                  ],
-                                  /* :: */[
-                                    /* tuple */[
-                                      "",
-                                      match$1[0]
-                                    ],
-                                    /* [] */0
-                                  ]
-                                ]
-                              ]
-                            ]
-                          ]));
-            }
-            
-          } else {
-            return mkexp(/* Pexp_apply */Block.__(5, [
-                          ghexp(/* Pexp_ident */Block.__(0, [bigarray_function("Array2", get)])),
-                          /* :: */[
-                            /* tuple */[
+              return mkexp(/* constructor */{
+                          tag: 5,
+                          name: "Pexp_apply",
+                          "0": ghexp(/* constructor */{
+                                tag: 0,
+                                name: "Pexp_ident",
+                                "0": bigarray_function("Array3", get)
+                              }),
+                          "1": /* constructor */{
+                            tag: 0,
+                            name: "::",
+                            "0": /* tuple */[
                               "",
                               arr
                             ],
-                            /* :: */[
-                              /* tuple */[
+                            "1": /* constructor */{
+                              tag: 0,
+                              name: "::",
+                              "0": /* tuple */[
                                 "",
                                 c1
                               ],
-                              /* :: */[
-                                /* tuple */[
+                              "1": /* constructor */{
+                                tag: 0,
+                                name: "::",
+                                "0": /* tuple */[
                                   "",
                                   c2
                                 ],
-                                /* [] */0
-                              ]
-                            ]
-                          ]
-                        ]));
-          }
-        } else {
-          return mkexp(/* Pexp_apply */Block.__(5, [
-                        ghexp(/* Pexp_ident */Block.__(0, [bigarray_function("Array1", get)])),
-                        /* :: */[
-                          /* tuple */[
+                                "1": /* constructor */{
+                                  tag: 0,
+                                  name: "::",
+                                  "0": /* tuple */[
+                                    "",
+                                    match$1[0]
+                                  ],
+                                  "1": /* [] */0
+                                }
+                              }
+                            }
+                          }
+                        });
+            }
+            
+          } else {
+            return mkexp(/* constructor */{
+                        tag: 5,
+                        name: "Pexp_apply",
+                        "0": ghexp(/* constructor */{
+                              tag: 0,
+                              name: "Pexp_ident",
+                              "0": bigarray_function("Array2", get)
+                            }),
+                        "1": /* constructor */{
+                          tag: 0,
+                          name: "::",
+                          "0": /* tuple */[
                             "",
                             arr
                           ],
-                          /* :: */[
-                            /* tuple */[
+                          "1": /* constructor */{
+                            tag: 0,
+                            name: "::",
+                            "0": /* tuple */[
                               "",
                               c1
                             ],
-                            /* [] */0
-                          ]
-                        ]
-                      ]));
+                            "1": /* constructor */{
+                              tag: 0,
+                              name: "::",
+                              "0": /* tuple */[
+                                "",
+                                c2
+                              ],
+                              "1": /* [] */0
+                            }
+                          }
+                        }
+                      });
+          }
+        } else {
+          return mkexp(/* constructor */{
+                      tag: 5,
+                      name: "Pexp_apply",
+                      "0": ghexp(/* constructor */{
+                            tag: 0,
+                            name: "Pexp_ident",
+                            "0": bigarray_function("Array1", get)
+                          }),
+                      "1": /* constructor */{
+                        tag: 0,
+                        name: "::",
+                        "0": /* tuple */[
+                          "",
+                          arr
+                        ],
+                        "1": /* constructor */{
+                          tag: 0,
+                          name: "::",
+                          "0": /* tuple */[
+                            "",
+                            c1
+                          ],
+                          "1": /* [] */0
+                        }
+                      }
+                    });
         }
       }
-      return mkexp(/* Pexp_apply */Block.__(5, [
-                    ghexp(/* Pexp_ident */Block.__(0, [bigarray_function("Genarray", "get")])),
-                    /* :: */[
-                      /* tuple */[
+      return mkexp(/* constructor */{
+                  tag: 5,
+                  name: "Pexp_apply",
+                  "0": ghexp(/* constructor */{
+                        tag: 0,
+                        name: "Pexp_ident",
+                        "0": bigarray_function("Genarray", "get")
+                      }),
+                  "1": /* constructor */{
+                    tag: 0,
+                    name: "::",
+                    "0": /* tuple */[
+                      "",
+                      arr
+                    ],
+                    "1": /* constructor */{
+                      tag: 0,
+                      name: "::",
+                      "0": /* tuple */[
                         "",
-                        arr
+                        ghexp(/* constructor */{
+                              tag: 14,
+                              name: "Pexp_array",
+                              "0": coords
+                            })
                       ],
-                      /* :: */[
-                        /* tuple */[
-                          "",
-                          ghexp(/* Pexp_array */Block.__(14, [coords]))
-                        ],
-                        /* [] */0
-                      ]
-                    ]
-                  ]));
+                      "1": /* [] */0
+                    }
+                  }
+                });
     }),
   (function (__caml_parser_env) {
       Parsing.peek_val(__caml_parser_env, 4);
@@ -9259,10 +11389,12 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 1);
-      return mkexp(/* Pexp_record */Block.__(11, [
-                    _2[1],
-                    _2[0]
-                  ]));
+      return mkexp(/* constructor */{
+                  tag: 11,
+                  name: "Pexp_record",
+                  "0": _2[1],
+                  "1": _2[0]
+                });
     }),
   (function (__caml_parser_env) {
       Parsing.peek_val(__caml_parser_env, 1);
@@ -9271,18 +11403,22 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 4);
       var _4 = Parsing.peek_val(__caml_parser_env, 1);
-      var rec_exp = mkexp(/* Pexp_record */Block.__(11, [
-              _4[1],
-              _4[0]
-            ]));
-      return mkexp(/* Pexp_open */Block.__(32, [
-                    /* Fresh */1,
-                    /* record */[
-                      /* txt */_1,
-                      /* loc */rhs_loc(1)
-                    ],
-                    rec_exp
-                  ]));
+      var rec_exp = mkexp(/* constructor */{
+            tag: 11,
+            name: "Pexp_record",
+            "0": _4[1],
+            "1": _4[0]
+          });
+      return mkexp(/* constructor */{
+                  tag: 32,
+                  name: "Pexp_open",
+                  "0": /* Fresh */1,
+                  "1": /* record */[
+                    /* txt */_1,
+                    /* loc */rhs_loc(1)
+                  ],
+                  "2": rec_exp
+                });
     }),
   (function (__caml_parser_env) {
       Parsing.peek_val(__caml_parser_env, 4);
@@ -9292,7 +11428,11 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 2);
       Parsing.peek_val(__caml_parser_env, 1);
-      return mkexp(/* Pexp_array */Block.__(14, [List.rev(_2)]));
+      return mkexp(/* constructor */{
+                  tag: 14,
+                  name: "Pexp_array",
+                  "0": List.rev(_2)
+                });
     }),
   (function (__caml_parser_env) {
       Parsing.peek_val(__caml_parser_env, 2);
@@ -9300,20 +11440,30 @@ var yyact = /* array */[
       return unclosed("[|", 1, "|]", 4);
     }),
   (function (__caml_parser_env) {
-      return mkexp(/* Pexp_array */Block.__(14, [/* [] */0]));
+      return mkexp(/* constructor */{
+                  tag: 14,
+                  name: "Pexp_array",
+                  "0": /* [] */0
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 5);
       var _4 = Parsing.peek_val(__caml_parser_env, 2);
       Parsing.peek_val(__caml_parser_env, 1);
-      return mkexp(/* Pexp_open */Block.__(32, [
-                    /* Fresh */1,
-                    /* record */[
-                      /* txt */_1,
-                      /* loc */rhs_loc(1)
-                    ],
-                    mkexp(/* Pexp_array */Block.__(14, [List.rev(_4)]))
-                  ]));
+      return mkexp(/* constructor */{
+                  tag: 32,
+                  name: "Pexp_open",
+                  "0": /* Fresh */1,
+                  "1": /* record */[
+                    /* txt */_1,
+                    /* loc */rhs_loc(1)
+                  ],
+                  "2": mkexp(/* constructor */{
+                        tag: 14,
+                        name: "Pexp_array",
+                        "0": List.rev(_4)
+                      })
+                });
     }),
   (function (__caml_parser_env) {
       Parsing.peek_val(__caml_parser_env, 5);
@@ -9336,14 +11486,16 @@ var yyact = /* array */[
       var _4 = Parsing.peek_val(__caml_parser_env, 2);
       Parsing.peek_val(__caml_parser_env, 1);
       var list_exp = reloc_exp(mktailexp(rhs_loc(6), List.rev(_4)));
-      return mkexp(/* Pexp_open */Block.__(32, [
-                    /* Fresh */1,
-                    /* record */[
-                      /* txt */_1,
-                      /* loc */rhs_loc(1)
-                    ],
-                    list_exp
-                  ]));
+      return mkexp(/* constructor */{
+                  tag: 32,
+                  name: "Pexp_open",
+                  "0": /* Fresh */1,
+                  "1": /* record */[
+                    /* txt */_1,
+                    /* loc */rhs_loc(1)
+                  ],
+                  "2": list_exp
+                });
     }),
   (function (__caml_parser_env) {
       Parsing.peek_val(__caml_parser_env, 5);
@@ -9354,43 +11506,59 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkexp(/* Pexp_apply */Block.__(5, [
-                    mkoperator(_1, 1),
-                    /* :: */[
-                      /* tuple */[
-                        "",
-                        _2
-                      ],
-                      /* [] */0
-                    ]
-                  ]));
+      return mkexp(/* constructor */{
+                  tag: 5,
+                  name: "Pexp_apply",
+                  "0": mkoperator(_1, 1),
+                  "1": /* constructor */{
+                    tag: 0,
+                    name: "::",
+                    "0": /* tuple */[
+                      "",
+                      _2
+                    ],
+                    "1": /* [] */0
+                  }
+                });
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkexp(/* Pexp_apply */Block.__(5, [
-                    mkoperator("!", 1),
-                    /* :: */[
-                      /* tuple */[
-                        "",
-                        _2
-                      ],
-                      /* [] */0
-                    ]
-                  ]));
+      return mkexp(/* constructor */{
+                  tag: 5,
+                  name: "Pexp_apply",
+                  "0": mkoperator("!", 1),
+                  "1": /* constructor */{
+                    tag: 0,
+                    name: "::",
+                    "0": /* tuple */[
+                      "",
+                      _2
+                    ],
+                    "1": /* [] */0
+                  }
+                });
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 1);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      var d = /* Pexp_new */Block.__(22, [/* record */[
-            /* txt */_3,
-            /* loc */rhs_loc(3)
-          ]]);
+      var d = /* constructor */{
+        tag: 22,
+        name: "Pexp_new",
+        "0": /* record */[
+          /* txt */_3,
+          /* loc */rhs_loc(3)
+        ]
+      };
       return wrap_exp_attrs(mkexp(d), _2);
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 2);
       Parsing.peek_val(__caml_parser_env, 1);
-      return mkexp(/* Pexp_override */Block.__(24, [List.rev(_2)]));
+      return mkexp(/* constructor */{
+                  tag: 24,
+                  name: "Pexp_override",
+                  "0": List.rev(_2)
+                });
     }),
   (function (__caml_parser_env) {
       Parsing.peek_val(__caml_parser_env, 2);
@@ -9398,20 +11566,30 @@ var yyact = /* array */[
       return unclosed("{<", 1, ">}", 4);
     }),
   (function (__caml_parser_env) {
-      return mkexp(/* Pexp_override */Block.__(24, [/* [] */0]));
+      return mkexp(/* constructor */{
+                  tag: 24,
+                  name: "Pexp_override",
+                  "0": /* [] */0
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 5);
       var _4 = Parsing.peek_val(__caml_parser_env, 2);
       Parsing.peek_val(__caml_parser_env, 1);
-      return mkexp(/* Pexp_open */Block.__(32, [
-                    /* Fresh */1,
-                    /* record */[
-                      /* txt */_1,
-                      /* loc */rhs_loc(1)
-                    ],
-                    mkexp(/* Pexp_override */Block.__(24, [List.rev(_4)]))
-                  ]));
+      return mkexp(/* constructor */{
+                  tag: 32,
+                  name: "Pexp_open",
+                  "0": /* Fresh */1,
+                  "1": /* record */[
+                    /* txt */_1,
+                    /* loc */rhs_loc(1)
+                  ],
+                  "2": mkexp(/* constructor */{
+                        tag: 24,
+                        name: "Pexp_override",
+                        "0": List.rev(_4)
+                      })
+                });
     }),
   (function (__caml_parser_env) {
       Parsing.peek_val(__caml_parser_env, 5);
@@ -9422,10 +11600,12 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkexp(/* Pexp_send */Block.__(21, [
-                    _1,
-                    _3
-                  ]));
+      return mkexp(/* constructor */{
+                  tag: 21,
+                  name: "Pexp_send",
+                  "0": _1,
+                  "1": _3
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
@@ -9435,15 +11615,29 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _3 = Parsing.peek_val(__caml_parser_env, 1);
-      return mkexp(/* Pexp_pack */Block.__(31, [_3]));
+      return mkexp(/* constructor */{
+                  tag: 31,
+                  name: "Pexp_pack",
+                  "0": _3
+                });
     }),
   (function (__caml_parser_env) {
       var _3 = Parsing.peek_val(__caml_parser_env, 3);
       var _5 = Parsing.peek_val(__caml_parser_env, 1);
-      return mkexp(/* Pexp_constraint */Block.__(19, [
-                    ghexp(/* Pexp_pack */Block.__(31, [_3])),
-                    ghtyp(/* Ptyp_package */Block.__(9, [_5]))
-                  ]));
+      return mkexp(/* constructor */{
+                  tag: 19,
+                  name: "Pexp_constraint",
+                  "0": ghexp(/* constructor */{
+                        tag: 31,
+                        name: "Pexp_pack",
+                        "0": _3
+                      }),
+                  "1": ghtyp(/* constructor */{
+                        tag: 9,
+                        name: "Ptyp_package",
+                        "0": _5
+                      })
+                });
     }),
   (function (__caml_parser_env) {
       Parsing.peek_val(__caml_parser_env, 2);
@@ -9453,17 +11647,29 @@ var yyact = /* array */[
       var _1 = Parsing.peek_val(__caml_parser_env, 7);
       var _5 = Parsing.peek_val(__caml_parser_env, 3);
       var _7 = Parsing.peek_val(__caml_parser_env, 1);
-      return mkexp(/* Pexp_open */Block.__(32, [
-                    /* Fresh */1,
-                    /* record */[
-                      /* txt */_1,
-                      /* loc */rhs_loc(1)
-                    ],
-                    mkexp(/* Pexp_constraint */Block.__(19, [
-                            ghexp(/* Pexp_pack */Block.__(31, [_5])),
-                            ghtyp(/* Ptyp_package */Block.__(9, [_7]))
-                          ]))
-                  ]));
+      return mkexp(/* constructor */{
+                  tag: 32,
+                  name: "Pexp_open",
+                  "0": /* Fresh */1,
+                  "1": /* record */[
+                    /* txt */_1,
+                    /* loc */rhs_loc(1)
+                  ],
+                  "2": mkexp(/* constructor */{
+                        tag: 19,
+                        name: "Pexp_constraint",
+                        "0": ghexp(/* constructor */{
+                              tag: 31,
+                              name: "Pexp_pack",
+                              "0": _5
+                            }),
+                        "1": ghtyp(/* constructor */{
+                              tag: 9,
+                              name: "Ptyp_package",
+                              "0": _7
+                            })
+                      })
+                });
     }),
   (function (__caml_parser_env) {
       Parsing.peek_val(__caml_parser_env, 6);
@@ -9472,22 +11678,30 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkexp(/* Pexp_extension */Block.__(33, [_1]));
+      return mkexp(/* constructor */{
+                  tag: 33,
+                  name: "Pexp_extension",
+                  "0": _1
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _1,
-              /* [] */0
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1,
+              "1": /* [] */0
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _2,
-              _1
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _2,
+              "1": _1
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
@@ -9529,26 +11743,38 @@ var yyact = /* array */[
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
       return /* tuple */[
               _1,
-              mkexp(/* Pexp_ident */Block.__(0, [/* record */[
-                        /* txt : Lident */Block.__(0, [_1]),
-                        /* loc */rhs_loc(1)
-                      ]]))
+              mkexp(/* constructor */{
+                    tag: 0,
+                    name: "Pexp_ident",
+                    "0": /* record */[
+                      /* txt : constructor */{
+                        tag: 0,
+                        name: "Lident",
+                        "0": _1
+                      },
+                      /* loc */rhs_loc(1)
+                    ]
+                  })
             ];
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _1,
-              /* [] */0
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1,
+              "1": /* [] */0
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _1,
-              _2
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1,
+              "1": _2
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
@@ -9564,13 +11790,17 @@ var yyact = /* array */[
       var _5 = Parsing.peek_val(__caml_parser_env, 2);
       var _7 = Parsing.peek_val(__caml_parser_env, 0);
       return /* tuple */[
-              ghpat(/* Ppat_constraint */Block.__(10, [
-                      mkpatvar(_1, 1),
-                      ghtyp(/* Ptyp_poly */Block.__(8, [
-                              List.rev(_3),
-                              _5
-                            ]))
-                    ])),
+              ghpat(/* constructor */{
+                    tag: 10,
+                    name: "Ppat_constraint",
+                    "0": mkpatvar(_1, 1),
+                    "1": ghtyp(/* constructor */{
+                          tag: 8,
+                          name: "Ptyp_poly",
+                          "0": List.rev(_3),
+                          "1": _5
+                        })
+                  }),
               _7
             ];
     }),
@@ -9581,10 +11811,12 @@ var yyact = /* array */[
       var _8 = Parsing.peek_val(__caml_parser_env, 0);
       var match = wrap_type_annotation(_4, _6, _8);
       return /* tuple */[
-              ghpat(/* Ppat_constraint */Block.__(10, [
-                      mkpatvar(_1, 1),
-                      match[1]
-                    ])),
+              ghpat(/* constructor */{
+                    tag: 10,
+                    name: "Ppat_constraint",
+                    "0": mkpatvar(_1, 1),
+                    "1": match[1]
+                  }),
               match[0]
             ];
     }),
@@ -9601,10 +11833,12 @@ var yyact = /* array */[
       var _3 = Parsing.peek_val(__caml_parser_env, 2);
       var _5 = Parsing.peek_val(__caml_parser_env, 0);
       return /* tuple */[
-              ghpat(/* Ppat_constraint */Block.__(10, [
-                      _1,
-                      _3
-                    ])),
+              ghpat(/* constructor */{
+                    tag: 10,
+                    name: "Ppat_constraint",
+                    "0": _1,
+                    "1": _3
+                  }),
               _5
             ];
     }),
@@ -9617,10 +11851,12 @@ var yyact = /* array */[
       var lbs = _1;
       var lb = _2;
       return /* record */[
-              /* lbs_bindings : :: */[
-                lb,
-                lbs[/* lbs_bindings */0]
-              ],
+              /* lbs_bindings : constructor */{
+                tag: 0,
+                name: "::",
+                "0": lb,
+                "1": lbs[/* lbs_bindings */0]
+              },
               /* lbs_rec */lbs[/* lbs_rec */1],
               /* lbs_extension */lbs[/* lbs_extension */2],
               /* lbs_attributes */lbs[/* lbs_attributes */3],
@@ -9636,10 +11872,12 @@ var yyact = /* array */[
       var rf = _3;
       var lb = mklb(_4, _5);
       return /* record */[
-              /* lbs_bindings : :: */[
-                lb,
-                /* [] */0
-              ],
+              /* lbs_bindings : constructor */{
+                tag: 0,
+                name: "::",
+                "0": lb,
+                "1": /* [] */0
+              },
               /* lbs_rec */rf,
               /* lbs_extension */param[0],
               /* lbs_attributes */param[1],
@@ -9665,35 +11903,43 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return ghexp(/* Pexp_fun */Block.__(4, [
-                    _1[0],
-                    _1[1],
-                    _1[2],
-                    _2
-                  ]));
+      return ghexp(/* constructor */{
+                  tag: 4,
+                  name: "Pexp_fun",
+                  "0": _1[0],
+                  "1": _1[1],
+                  "2": _1[2],
+                  "3": _2
+                });
     }),
   (function (__caml_parser_env) {
       var _3 = Parsing.peek_val(__caml_parser_env, 2);
       var _5 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkexp(/* Pexp_newtype */Block.__(30, [
-                    _3,
-                    _5
-                  ]));
+      return mkexp(/* constructor */{
+                  tag: 30,
+                  name: "Pexp_newtype",
+                  "0": _3,
+                  "1": _5
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _1,
-              /* [] */0
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1,
+              "1": /* [] */0
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _3,
-              _1
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _3,
+              "1": _1
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
@@ -9712,39 +11958,49 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return ghexp(/* Pexp_fun */Block.__(4, [
-                    _1[0],
-                    _1[1],
-                    _1[2],
-                    _2
-                  ]));
+      return ghexp(/* constructor */{
+                  tag: 4,
+                  name: "Pexp_fun",
+                  "0": _1[0],
+                  "1": _1[1],
+                  "2": _1[2],
+                  "3": _2
+                });
     }),
   (function (__caml_parser_env) {
       var _3 = Parsing.peek_val(__caml_parser_env, 2);
       var _5 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkexp(/* Pexp_newtype */Block.__(30, [
-                    _3,
-                    _5
-                  ]));
+      return mkexp(/* constructor */{
+                  tag: 30,
+                  name: "Pexp_newtype",
+                  "0": _3,
+                  "1": _5
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _3,
-              _1
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _3,
+              "1": _1
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _3,
-              /* :: */[
-                _1,
-                /* [] */0
-              ]
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _3,
+              "1": /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": _1,
+                "1": /* [] */0
+              }
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
@@ -9763,25 +12019,31 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _1,
-              /* [] */0
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1,
+              "1": /* [] */0
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _1,
-              _3
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1,
+              "1": _3
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
-      return /* :: */[
-              _1,
-              /* [] */0
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1,
+              "1": /* [] */0
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
@@ -9807,46 +12069,54 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              /* tuple */[
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": /* tuple */[
                 /* record */[
                   /* txt */_1,
                   /* loc */rhs_loc(1)
                 ],
                 _3
               ],
-              /* [] */0
-            ];
+              "1": /* [] */0
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 4);
       var _3 = Parsing.peek_val(__caml_parser_env, 2);
       var _5 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              /* tuple */[
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": /* tuple */[
                 /* record */[
                   /* txt */_3,
                   /* loc */rhs_loc(3)
                 ],
                 _5
               ],
-              _1
-            ];
+              "1": _1
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _1,
-              /* [] */0
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1,
+              "1": /* [] */0
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _3,
-              _1
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _3,
+              "1": _1
+            };
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
@@ -9882,13 +12152,15 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkpat(/* Ppat_alias */Block.__(1, [
-                    _1,
-                    /* record */[
-                      /* txt */_3,
-                      /* loc */rhs_loc(3)
-                    ]
-                  ]));
+      return mkpat(/* constructor */{
+                  tag: 1,
+                  name: "Ppat_alias",
+                  "0": _1,
+                  "1": /* record */[
+                    /* txt */_3,
+                    /* loc */rhs_loc(3)
+                  ]
+                });
     }),
   (function (__caml_parser_env) {
       Parsing.peek_val(__caml_parser_env, 2);
@@ -9896,37 +12168,53 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkpat(/* Ppat_tuple */Block.__(4, [List.rev(_1)]));
+      return mkpat(/* constructor */{
+                  tag: 4,
+                  name: "Ppat_tuple",
+                  "0": List.rev(_1)
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkpat(/* Ppat_construct */Block.__(5, [
-                    /* record */[
-                      /* txt */_1,
-                      /* loc */rhs_loc(1)
-                    ],
-                    _2
-                  ]));
+      return mkpat(/* constructor */{
+                  tag: 5,
+                  name: "Ppat_construct",
+                  "0": /* record */[
+                    /* txt */_1,
+                    /* loc */rhs_loc(1)
+                  ],
+                  "1": _2
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkpat(/* Ppat_variant */Block.__(6, [
-                    _1,
-                    _2
-                  ]));
+      return mkpat(/* constructor */{
+                  tag: 6,
+                  name: "Ppat_variant",
+                  "0": _1,
+                  "1": _2
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkpat_cons(rhs_loc(2), ghpat(/* Ppat_tuple */Block.__(4, [/* :: */[
-                          _1,
-                          /* :: */[
-                            _3,
-                            /* [] */0
-                          ]
-                        ]])), symbol_rloc(/* () */0));
+      return mkpat_cons(rhs_loc(2), ghpat(/* constructor */{
+                      tag: 4,
+                      name: "Ppat_tuple",
+                      "0": /* constructor */{
+                        tag: 0,
+                        name: "::",
+                        "0": _1,
+                        "1": /* constructor */{
+                          tag: 0,
+                          name: "::",
+                          "0": _3,
+                          "1": /* [] */0
+                        }
+                      }
+                    }), symbol_rloc(/* () */0));
     }),
   (function (__caml_parser_env) {
       Parsing.peek_val(__caml_parser_env, 2);
@@ -9935,13 +12223,21 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _5 = Parsing.peek_val(__caml_parser_env, 3);
       var _7 = Parsing.peek_val(__caml_parser_env, 1);
-      return mkpat_cons(rhs_loc(2), ghpat(/* Ppat_tuple */Block.__(4, [/* :: */[
-                          _5,
-                          /* :: */[
-                            _7,
-                            /* [] */0
-                          ]
-                        ]])), symbol_rloc(/* () */0));
+      return mkpat_cons(rhs_loc(2), ghpat(/* constructor */{
+                      tag: 4,
+                      name: "Ppat_tuple",
+                      "0": /* constructor */{
+                        tag: 0,
+                        name: "::",
+                        "0": _5,
+                        "1": /* constructor */{
+                          tag: 0,
+                          name: "::",
+                          "0": _7,
+                          "1": /* [] */0
+                        }
+                      }
+                    }), symbol_rloc(/* () */0));
     }),
   (function (__caml_parser_env) {
       Parsing.peek_val(__caml_parser_env, 3);
@@ -9951,10 +12247,12 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkpat(/* Ppat_or */Block.__(9, [
-                    _1,
-                    _3
-                  ]));
+      return mkpat(/* constructor */{
+                  tag: 9,
+                  name: "Ppat_or",
+                  "0": _1,
+                  "1": _3
+                });
     }),
   (function (__caml_parser_env) {
       Parsing.peek_val(__caml_parser_env, 2);
@@ -9962,11 +12260,19 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkpat(/* Ppat_lazy */Block.__(12, [_2]));
+      return mkpat(/* constructor */{
+                  tag: 12,
+                  name: "Ppat_lazy",
+                  "0": _2
+                });
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkpat(/* Ppat_exception */Block.__(14, [_2]));
+      return mkpat(/* constructor */{
+                  tag: 14,
+                  name: "Ppat_exception",
+                  "0": _2
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
@@ -9975,10 +12281,14 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkpat(/* Ppat_var */Block.__(0, [/* record */[
-                      /* txt */_1,
-                      /* loc */rhs_loc(1)
-                    ]]));
+      return mkpat(/* constructor */{
+                  tag: 0,
+                  name: "Ppat_var",
+                  "0": /* record */[
+                    /* txt */_1,
+                    /* loc */rhs_loc(1)
+                  ]
+                });
     }),
   (function (__caml_parser_env) {
       return Parsing.peek_val(__caml_parser_env, 0);
@@ -9988,46 +12298,62 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkpat(/* Ppat_constant */Block.__(2, [_1]));
+      return mkpat(/* constructor */{
+                  tag: 2,
+                  name: "Ppat_constant",
+                  "0": _1
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkpat(/* Ppat_interval */Block.__(3, [
-                    _1,
-                    _3
-                  ]));
+      return mkpat(/* constructor */{
+                  tag: 3,
+                  name: "Ppat_interval",
+                  "0": _1,
+                  "1": _3
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkpat(/* Ppat_construct */Block.__(5, [
-                    /* record */[
-                      /* txt */_1,
-                      /* loc */rhs_loc(1)
-                    ],
-                    undefined
-                  ]));
+      return mkpat(/* constructor */{
+                  tag: 5,
+                  name: "Ppat_construct",
+                  "0": /* record */[
+                    /* txt */_1,
+                    /* loc */rhs_loc(1)
+                  ],
+                  "1": undefined
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkpat(/* Ppat_variant */Block.__(6, [
-                    _1,
-                    undefined
-                  ]));
+      return mkpat(/* constructor */{
+                  tag: 6,
+                  name: "Ppat_variant",
+                  "0": _1,
+                  "1": undefined
+                });
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkpat(/* Ppat_type */Block.__(11, [/* record */[
-                      /* txt */_2,
-                      /* loc */rhs_loc(2)
-                    ]]));
+      return mkpat(/* constructor */{
+                  tag: 11,
+                  name: "Ppat_type",
+                  "0": /* record */[
+                    /* txt */_2,
+                    /* loc */rhs_loc(2)
+                  ]
+                });
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 1);
-      return mkpat(/* Ppat_record */Block.__(7, [
-                    _2[0],
-                    _2[1]
-                  ]));
+      return mkpat(/* constructor */{
+                  tag: 7,
+                  name: "Ppat_record",
+                  "0": _2[0],
+                  "1": _2[1]
+                });
     }),
   (function (__caml_parser_env) {
       Parsing.peek_val(__caml_parser_env, 1);
@@ -10046,10 +12372,18 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 2);
       Parsing.peek_val(__caml_parser_env, 1);
-      return mkpat(/* Ppat_array */Block.__(8, [List.rev(_2)]));
+      return mkpat(/* constructor */{
+                  tag: 8,
+                  name: "Ppat_array",
+                  "0": List.rev(_2)
+                });
     }),
   (function (__caml_parser_env) {
-      return mkpat(/* Ppat_array */Block.__(8, [/* [] */0]));
+      return mkpat(/* constructor */{
+                  tag: 8,
+                  name: "Ppat_array",
+                  "0": /* [] */0
+                });
     }),
   (function (__caml_parser_env) {
       Parsing.peek_val(__caml_parser_env, 2);
@@ -10066,10 +12400,12 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 3);
       var _4 = Parsing.peek_val(__caml_parser_env, 1);
-      return mkpat(/* Ppat_constraint */Block.__(10, [
-                    _2,
-                    _4
-                  ]));
+      return mkpat(/* constructor */{
+                  tag: 10,
+                  name: "Ppat_constraint",
+                  "0": _2,
+                  "1": _4
+                });
     }),
   (function (__caml_parser_env) {
       Parsing.peek_val(__caml_parser_env, 3);
@@ -10082,21 +12418,35 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _3 = Parsing.peek_val(__caml_parser_env, 1);
-      return mkpat(/* Ppat_unpack */Block.__(13, [/* record */[
-                      /* txt */_3,
-                      /* loc */rhs_loc(3)
-                    ]]));
+      return mkpat(/* constructor */{
+                  tag: 13,
+                  name: "Ppat_unpack",
+                  "0": /* record */[
+                    /* txt */_3,
+                    /* loc */rhs_loc(3)
+                  ]
+                });
     }),
   (function (__caml_parser_env) {
       var _3 = Parsing.peek_val(__caml_parser_env, 3);
       var _5 = Parsing.peek_val(__caml_parser_env, 1);
-      return mkpat(/* Ppat_constraint */Block.__(10, [
-                    mkpat(/* Ppat_unpack */Block.__(13, [/* record */[
-                              /* txt */_3,
-                              /* loc */rhs_loc(3)
-                            ]])),
-                    ghtyp(/* Ptyp_package */Block.__(9, [_5]))
-                  ]));
+      return mkpat(/* constructor */{
+                  tag: 10,
+                  name: "Ppat_constraint",
+                  "0": mkpat(/* constructor */{
+                        tag: 13,
+                        name: "Ppat_unpack",
+                        "0": /* record */[
+                          /* txt */_3,
+                          /* loc */rhs_loc(3)
+                        ]
+                      }),
+                  "1": ghtyp(/* constructor */{
+                        tag: 9,
+                        name: "Ptyp_package",
+                        "0": _5
+                      })
+                });
     }),
   (function (__caml_parser_env) {
       Parsing.peek_val(__caml_parser_env, 3);
@@ -10105,26 +12455,36 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mkpat(/* Ppat_extension */Block.__(15, [_1]));
+      return mkpat(/* constructor */{
+                  tag: 15,
+                  name: "Ppat_extension",
+                  "0": _1
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _3,
-              _1
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _3,
+              "1": _1
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _3,
-              /* :: */[
-                _1,
-                /* [] */0
-              ]
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _3,
+              "1": /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": _1,
+                "1": /* [] */0
+              }
+            };
     }),
   (function (__caml_parser_env) {
       Parsing.peek_val(__caml_parser_env, 2);
@@ -10132,36 +12492,44 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _1,
-              /* [] */0
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1,
+              "1": /* [] */0
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _3,
-              _1
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _3,
+              "1": _1
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
       return /* tuple */[
-              /* :: */[
-                _1,
-                /* [] */0
-              ],
+              /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": _1,
+                "1": /* [] */0
+              },
               /* Closed */0
             ];
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       return /* tuple */[
-              /* :: */[
-                _1,
-                /* [] */0
-              ],
+              /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": _1,
+                "1": /* [] */0
+              },
               /* Closed */0
             ];
     }),
@@ -10169,10 +12537,12 @@ var yyact = /* array */[
       var _1 = Parsing.peek_val(__caml_parser_env, 3);
       Parsing.peek_val(__caml_parser_env, 0);
       return /* tuple */[
-              /* :: */[
-                _1,
-                /* [] */0
-              ],
+              /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": _1,
+                "1": /* [] */0
+              },
               /* Open */1
             ];
     }),
@@ -10180,10 +12550,12 @@ var yyact = /* array */[
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
       return /* tuple */[
-              /* :: */[
-                _1,
-                _3[0]
-              ],
+              /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": _1,
+                "1": _3[0]
+              },
               _3[1]
             ];
     }),
@@ -10219,18 +12591,22 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _1[0],
-              /* [] */0
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1[0],
+              "1": /* [] */0
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _1[0],
-              _2
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1[0],
+              "1": _2
+            };
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 5);
@@ -10244,18 +12620,22 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _1,
-              /* [] */0
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1,
+              "1": /* [] */0
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _2,
-              _1
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _2,
+              "1": _1
+            };
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 5);
@@ -10283,10 +12663,12 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _3,
-              _1
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _3,
+              "1": _1
+            };
     }),
   (function (__caml_parser_env) {
       return /* [] */0;
@@ -10317,7 +12699,11 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
       return /* tuple */[
-              /* Ptype_variant */Block.__(0, [List.rev(_2)]),
+              /* constructor */{
+                tag: 0,
+                name: "Ptype_variant",
+                "0": List.rev(_2)
+              },
               /* Public */1,
               undefined
             ];
@@ -10325,7 +12711,11 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
       return /* tuple */[
-              /* Ptype_variant */Block.__(0, [List.rev(_3)]),
+              /* constructor */{
+                tag: 0,
+                name: "Ptype_variant",
+                "0": List.rev(_3)
+              },
               /* Private */0,
               undefined
             ];
@@ -10341,7 +12731,11 @@ var yyact = /* array */[
       var _2 = Parsing.peek_val(__caml_parser_env, 3);
       var _4 = Parsing.peek_val(__caml_parser_env, 1);
       return /* tuple */[
-              /* Ptype_record */Block.__(1, [_4]),
+              /* constructor */{
+                tag: 1,
+                name: "Ptype_record",
+                "0": _4
+              },
               _2,
               undefined
             ];
@@ -10351,7 +12745,11 @@ var yyact = /* array */[
       var _4 = Parsing.peek_val(__caml_parser_env, 1);
       var _5 = Parsing.peek_val(__caml_parser_env, 0);
       return /* tuple */[
-              /* Ptype_variant */Block.__(0, [List.rev(_5)]),
+              /* constructor */{
+                tag: 0,
+                name: "Ptype_variant",
+                "0": List.rev(_5)
+              },
               _4,
               _2
             ];
@@ -10369,7 +12767,11 @@ var yyact = /* array */[
       var _4 = Parsing.peek_val(__caml_parser_env, 3);
       var _6 = Parsing.peek_val(__caml_parser_env, 1);
       return /* tuple */[
-              /* Ptype_record */Block.__(1, [_6]),
+              /* constructor */{
+                tag: 1,
+                name: "Ptype_record",
+                "0": _6
+              },
               _4,
               _2
             ];
@@ -10379,10 +12781,12 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _1,
-              /* [] */0
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1,
+              "1": /* [] */0
+            };
     }),
   (function (__caml_parser_env) {
       return List.rev(Parsing.peek_val(__caml_parser_env, 1));
@@ -10397,22 +12801,30 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _1,
-              /* [] */0
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1,
+              "1": /* [] */0
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _3,
-              _1
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _3,
+              "1": _1
+            };
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return mktyp(/* Ptyp_var */Block.__(0, [_2]));
+      return mktyp(/* constructor */{
+                  tag: 0,
+                  name: "Ptyp_var",
+                  "0": _2
+                });
     }),
   (function (__caml_parser_env) {
       return mktyp(/* Ptyp_any */0);
@@ -10422,10 +12834,12 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _1,
-              /* [] */0
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1,
+              "1": /* [] */0
+            };
     }),
   (function (__caml_parser_env) {
       return List.rev(Parsing.peek_val(__caml_parser_env, 1));
@@ -10449,44 +12863,58 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return mktyp(/* Ptyp_var */Block.__(0, [_2]));
+      return mktyp(/* constructor */{
+                  tag: 0,
+                  name: "Ptyp_var",
+                  "0": _2
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _1,
-              /* [] */0
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1,
+              "1": /* [] */0
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _3,
-              _1
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _3,
+              "1": _1
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _1,
-              /* [] */0
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1,
+              "1": /* [] */0
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _1,
-              /* [] */0
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1,
+              "1": /* [] */0
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _2,
-              _1
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _2,
+              "1": _1
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
@@ -10562,25 +12990,31 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _1,
-              /* [] */0
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1,
+              "1": /* [] */0
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _1,
-              /* [] */0
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1,
+              "1": /* [] */0
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _1,
-              _2
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1,
+              "1": _2
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 4);
@@ -10637,69 +13071,87 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _1,
-              /* [] */0
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1,
+              "1": /* [] */0
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _1,
-              /* [] */0
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1,
+              "1": /* [] */0
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _1,
-              /* [] */0
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1,
+              "1": /* [] */0
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _1,
-              /* [] */0
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1,
+              "1": /* [] */0
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _2,
-              _1
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _2,
+              "1": _1
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _2,
-              _1
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _2,
+              "1": _1
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _1,
-              /* [] */0
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1,
+              "1": /* [] */0
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _1,
-              /* [] */0
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1,
+              "1": /* [] */0
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _2,
-              _1
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _2,
+              "1": _1
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
@@ -10745,18 +13197,22 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _1,
-              /* [] */0
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1,
+              "1": /* [] */0
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _3,
-              _1
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _3,
+              "1": _1
+            };
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 4);
@@ -10765,53 +13221,63 @@ var yyact = /* array */[
       var _5 = Parsing.peek_val(__caml_parser_env, 1);
       var _6 = Parsing.peek_val(__caml_parser_env, 0);
       var rhs = last(_3);
-      return /* Pwith_type */Block.__(0, [
-                /* record */[
-                  /* txt */_3,
-                  /* loc */rhs_loc(3)
-                ],
-                mk$19(symbol_rloc(/* () */0), undefined, undefined, undefined, _2, List.rev(_6), undefined, _4, _5, /* record */[
-                      /* txt */rhs,
-                      /* loc */rhs_loc(3)
-                    ])
-              ]);
+      return /* constructor */{
+              tag: 0,
+              name: "Pwith_type",
+              "0": /* record */[
+                /* txt */_3,
+                /* loc */rhs_loc(3)
+              ],
+              "1": mk$19(symbol_rloc(/* () */0), undefined, undefined, undefined, _2, List.rev(_6), undefined, _4, _5, /* record */[
+                    /* txt */rhs,
+                    /* loc */rhs_loc(3)
+                  ])
+            };
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 3);
       var _3 = Parsing.peek_val(__caml_parser_env, 2);
       var _5 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Pwith_typesubst */Block.__(2, [mk$19(symbol_rloc(/* () */0), undefined, undefined, undefined, _2, undefined, undefined, undefined, _5, /* record */[
-                      /* txt */_3,
-                      /* loc */rhs_loc(3)
-                    ])]);
+      return /* constructor */{
+              tag: 2,
+              name: "Pwith_typesubst",
+              "0": mk$19(symbol_rloc(/* () */0), undefined, undefined, undefined, _2, undefined, undefined, undefined, _5, /* record */[
+                    /* txt */_3,
+                    /* loc */rhs_loc(3)
+                  ])
+            };
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 2);
       var _4 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Pwith_module */Block.__(1, [
-                /* record */[
-                  /* txt */_2,
-                  /* loc */rhs_loc(2)
-                ],
-                /* record */[
-                  /* txt */_4,
-                  /* loc */rhs_loc(4)
-                ]
-              ]);
+      return /* constructor */{
+              tag: 1,
+              name: "Pwith_module",
+              "0": /* record */[
+                /* txt */_2,
+                /* loc */rhs_loc(2)
+              ],
+              "1": /* record */[
+                /* txt */_4,
+                /* loc */rhs_loc(4)
+              ]
+            };
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 2);
       var _4 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Pwith_modsubst */Block.__(3, [
-                /* record */[
-                  /* txt */_2,
-                  /* loc */rhs_loc(2)
-                ],
-                /* record */[
-                  /* txt */_4,
-                  /* loc */rhs_loc(4)
-                ]
-              ]);
+      return /* constructor */{
+              tag: 3,
+              name: "Pwith_modsubst",
+              "0": /* record */[
+                /* txt */_2,
+                /* loc */rhs_loc(2)
+              ],
+              "1": /* record */[
+                /* txt */_4,
+                /* loc */rhs_loc(4)
+              ]
+            };
     }),
   (function (__caml_parser_env) {
       return /* Public */1;
@@ -10821,18 +13287,22 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _2,
-              /* [] */0
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _2,
+              "1": /* [] */0
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _3,
-              _1
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _3,
+              "1": _1
+            };
     }),
   (function (__caml_parser_env) {
       return Parsing.peek_val(__caml_parser_env, 0);
@@ -10840,10 +13310,12 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return mktyp(/* Ptyp_poly */Block.__(8, [
-                    List.rev(_1),
-                    _3
-                  ]));
+      return mktyp(/* constructor */{
+                  tag: 8,
+                  name: "Ptyp_poly",
+                  "0": List.rev(_1),
+                  "1": _3
+                });
     }),
   (function (__caml_parser_env) {
       return Parsing.peek_val(__caml_parser_env, 0);
@@ -10851,10 +13323,12 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return mktyp(/* Ptyp_poly */Block.__(8, [
-                    List.rev(_1),
-                    _3
-                  ]));
+      return mktyp(/* constructor */{
+                  tag: 8,
+                  name: "Ptyp_poly",
+                  "0": List.rev(_1),
+                  "1": _3
+                });
     }),
   (function (__caml_parser_env) {
       return Parsing.peek_val(__caml_parser_env, 0);
@@ -10870,10 +13344,12 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 3);
       var _4 = Parsing.peek_val(__caml_parser_env, 0);
-      return mktyp(/* Ptyp_alias */Block.__(6, [
-                    _1,
-                    _4
-                  ]));
+      return mktyp(/* constructor */{
+                  tag: 6,
+                  name: "Ptyp_alias",
+                  "0": _1,
+                  "1": _4
+                });
     }),
   (function (__caml_parser_env) {
       return Parsing.peek_val(__caml_parser_env, 0);
@@ -10882,40 +13358,48 @@ var yyact = /* array */[
       var _2 = Parsing.peek_val(__caml_parser_env, 4);
       var _4 = Parsing.peek_val(__caml_parser_env, 2);
       var _6 = Parsing.peek_val(__caml_parser_env, 0);
-      return mktyp(/* Ptyp_arrow */Block.__(1, [
-                    "?" + _2,
-                    mkoption(_4),
-                    _6
-                  ]));
+      return mktyp(/* constructor */{
+                  tag: 1,
+                  name: "Ptyp_arrow",
+                  "0": "?" + _2,
+                  "1": mkoption(_4),
+                  "2": _6
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 3);
       var _2 = Parsing.peek_val(__caml_parser_env, 2);
       var _4 = Parsing.peek_val(__caml_parser_env, 0);
-      return mktyp(/* Ptyp_arrow */Block.__(1, [
-                    "?" + _1,
-                    mkoption(_2),
-                    _4
-                  ]));
+      return mktyp(/* constructor */{
+                  tag: 1,
+                  name: "Ptyp_arrow",
+                  "0": "?" + _1,
+                  "1": mkoption(_2),
+                  "2": _4
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 4);
       var _3 = Parsing.peek_val(__caml_parser_env, 2);
       var _5 = Parsing.peek_val(__caml_parser_env, 0);
-      return mktyp(/* Ptyp_arrow */Block.__(1, [
-                    _1,
-                    _3,
-                    _5
-                  ]));
+      return mktyp(/* constructor */{
+                  tag: 1,
+                  name: "Ptyp_arrow",
+                  "0": _1,
+                  "1": _3,
+                  "2": _5
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return mktyp(/* Ptyp_arrow */Block.__(1, [
-                    "",
-                    _1,
-                    _3
-                  ]));
+      return mktyp(/* constructor */{
+                  tag: 1,
+                  name: "Ptyp_arrow",
+                  "0": "",
+                  "1": _1,
+                  "2": _3
+                });
     }),
   (function (__caml_parser_env) {
       return Parsing.peek_val(__caml_parser_env, 0);
@@ -10947,167 +13431,217 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return mktyp(/* Ptyp_var */Block.__(0, [_2]));
+      return mktyp(/* constructor */{
+                  tag: 0,
+                  name: "Ptyp_var",
+                  "0": _2
+                });
     }),
   (function (__caml_parser_env) {
       return mktyp(/* Ptyp_any */0);
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mktyp(/* Ptyp_constr */Block.__(3, [
-                    /* record */[
-                      /* txt */_1,
-                      /* loc */rhs_loc(1)
-                    ],
-                    /* [] */0
-                  ]));
+      return mktyp(/* constructor */{
+                  tag: 3,
+                  name: "Ptyp_constr",
+                  "0": /* record */[
+                    /* txt */_1,
+                    /* loc */rhs_loc(1)
+                  ],
+                  "1": /* [] */0
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return mktyp(/* Ptyp_constr */Block.__(3, [
-                    /* record */[
-                      /* txt */_2,
-                      /* loc */rhs_loc(2)
-                    ],
-                    /* :: */[
-                      _1,
-                      /* [] */0
-                    ]
-                  ]));
+      return mktyp(/* constructor */{
+                  tag: 3,
+                  name: "Ptyp_constr",
+                  "0": /* record */[
+                    /* txt */_2,
+                    /* loc */rhs_loc(2)
+                  ],
+                  "1": /* constructor */{
+                    tag: 0,
+                    name: "::",
+                    "0": _1,
+                    "1": /* [] */0
+                  }
+                });
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 2);
       var _4 = Parsing.peek_val(__caml_parser_env, 0);
-      return mktyp(/* Ptyp_constr */Block.__(3, [
-                    /* record */[
-                      /* txt */_4,
-                      /* loc */rhs_loc(4)
-                    ],
-                    List.rev(_2)
-                  ]));
+      return mktyp(/* constructor */{
+                  tag: 3,
+                  name: "Ptyp_constr",
+                  "0": /* record */[
+                    /* txt */_4,
+                    /* loc */rhs_loc(4)
+                  ],
+                  "1": List.rev(_2)
+                });
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 1);
-      return mktyp(/* Ptyp_object */Block.__(4, [
-                    _2[0],
-                    _2[1]
-                  ]));
+      return mktyp(/* constructor */{
+                  tag: 4,
+                  name: "Ptyp_object",
+                  "0": _2[0],
+                  "1": _2[1]
+                });
     }),
   (function (__caml_parser_env) {
-      return mktyp(/* Ptyp_object */Block.__(4, [
-                    /* [] */0,
-                    /* Closed */0
-                  ]));
+      return mktyp(/* constructor */{
+                  tag: 4,
+                  name: "Ptyp_object",
+                  "0": /* [] */0,
+                  "1": /* Closed */0
+                });
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return mktyp(/* Ptyp_class */Block.__(5, [
-                    /* record */[
-                      /* txt */_2,
-                      /* loc */rhs_loc(2)
-                    ],
-                    /* [] */0
-                  ]));
+      return mktyp(/* constructor */{
+                  tag: 5,
+                  name: "Ptyp_class",
+                  "0": /* record */[
+                    /* txt */_2,
+                    /* loc */rhs_loc(2)
+                  ],
+                  "1": /* [] */0
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return mktyp(/* Ptyp_class */Block.__(5, [
-                    /* record */[
-                      /* txt */_3,
-                      /* loc */rhs_loc(3)
-                    ],
-                    /* :: */[
-                      _1,
-                      /* [] */0
-                    ]
-                  ]));
+      return mktyp(/* constructor */{
+                  tag: 5,
+                  name: "Ptyp_class",
+                  "0": /* record */[
+                    /* txt */_3,
+                    /* loc */rhs_loc(3)
+                  ],
+                  "1": /* constructor */{
+                    tag: 0,
+                    name: "::",
+                    "0": _1,
+                    "1": /* [] */0
+                  }
+                });
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 3);
       var _5 = Parsing.peek_val(__caml_parser_env, 0);
-      return mktyp(/* Ptyp_class */Block.__(5, [
-                    /* record */[
-                      /* txt */_5,
-                      /* loc */rhs_loc(5)
-                    ],
-                    List.rev(_2)
-                  ]));
+      return mktyp(/* constructor */{
+                  tag: 5,
+                  name: "Ptyp_class",
+                  "0": /* record */[
+                    /* txt */_5,
+                    /* loc */rhs_loc(5)
+                  ],
+                  "1": List.rev(_2)
+                });
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 1);
-      return mktyp(/* Ptyp_variant */Block.__(7, [
-                    /* :: */[
-                      _2,
-                      /* [] */0
-                    ],
-                    /* Closed */0,
-                    undefined
-                  ]));
+      return mktyp(/* constructor */{
+                  tag: 7,
+                  name: "Ptyp_variant",
+                  "0": /* constructor */{
+                    tag: 0,
+                    name: "::",
+                    "0": _2,
+                    "1": /* [] */0
+                  },
+                  "1": /* Closed */0,
+                  "2": undefined
+                });
     }),
   (function (__caml_parser_env) {
       var _3 = Parsing.peek_val(__caml_parser_env, 1);
-      return mktyp(/* Ptyp_variant */Block.__(7, [
-                    List.rev(_3),
-                    /* Closed */0,
-                    undefined
-                  ]));
+      return mktyp(/* constructor */{
+                  tag: 7,
+                  name: "Ptyp_variant",
+                  "0": List.rev(_3),
+                  "1": /* Closed */0,
+                  "2": undefined
+                });
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 3);
       var _4 = Parsing.peek_val(__caml_parser_env, 1);
-      return mktyp(/* Ptyp_variant */Block.__(7, [
-                    /* :: */[
-                      _2,
-                      List.rev(_4)
-                    ],
-                    /* Closed */0,
-                    undefined
-                  ]));
+      return mktyp(/* constructor */{
+                  tag: 7,
+                  name: "Ptyp_variant",
+                  "0": /* constructor */{
+                    tag: 0,
+                    name: "::",
+                    "0": _2,
+                    "1": List.rev(_4)
+                  },
+                  "1": /* Closed */0,
+                  "2": undefined
+                });
     }),
   (function (__caml_parser_env) {
       Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 1);
-      return mktyp(/* Ptyp_variant */Block.__(7, [
-                    List.rev(_3),
-                    /* Open */1,
-                    undefined
-                  ]));
+      return mktyp(/* constructor */{
+                  tag: 7,
+                  name: "Ptyp_variant",
+                  "0": List.rev(_3),
+                  "1": /* Open */1,
+                  "2": undefined
+                });
     }),
   (function (__caml_parser_env) {
-      return mktyp(/* Ptyp_variant */Block.__(7, [
-                    /* [] */0,
-                    /* Open */1,
-                    undefined
-                  ]));
+      return mktyp(/* constructor */{
+                  tag: 7,
+                  name: "Ptyp_variant",
+                  "0": /* [] */0,
+                  "1": /* Open */1,
+                  "2": undefined
+                });
     }),
   (function (__caml_parser_env) {
       Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 1);
-      return mktyp(/* Ptyp_variant */Block.__(7, [
-                    List.rev(_3),
-                    /* Closed */0,
-                    /* [] */0
-                  ]));
+      return mktyp(/* constructor */{
+                  tag: 7,
+                  name: "Ptyp_variant",
+                  "0": List.rev(_3),
+                  "1": /* Closed */0,
+                  "2": /* [] */0
+                });
     }),
   (function (__caml_parser_env) {
       Parsing.peek_val(__caml_parser_env, 4);
       var _3 = Parsing.peek_val(__caml_parser_env, 3);
       var _5 = Parsing.peek_val(__caml_parser_env, 1);
-      return mktyp(/* Ptyp_variant */Block.__(7, [
-                    List.rev(_3),
-                    /* Closed */0,
-                    List.rev(_5)
-                  ]));
+      return mktyp(/* constructor */{
+                  tag: 7,
+                  name: "Ptyp_variant",
+                  "0": List.rev(_3),
+                  "1": /* Closed */0,
+                  "2": List.rev(_5)
+                });
     }),
   (function (__caml_parser_env) {
       var _3 = Parsing.peek_val(__caml_parser_env, 1);
-      return mktyp(/* Ptyp_package */Block.__(9, [_3]));
+      return mktyp(/* constructor */{
+                  tag: 9,
+                  name: "Ptyp_package",
+                  "0": _3
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return mktyp(/* Ptyp_extension */Block.__(10, [_1]));
+      return mktyp(/* constructor */{
+                  tag: 10,
+                  name: "Ptyp_extension",
+                  "0": _1
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
@@ -11143,62 +13677,78 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _1,
-              /* [] */0
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1,
+              "1": /* [] */0
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _1,
-              _3
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1,
+              "1": _3
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _1,
-              /* [] */0
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1,
+              "1": /* [] */0
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _3,
-              _1
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _3,
+              "1": _1
+            };
     }),
   (function (__caml_parser_env) {
       return Parsing.peek_val(__caml_parser_env, 0);
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Rinherit */Block.__(1, [_1]);
+      return /* constructor */{
+              tag: 1,
+              name: "Rinherit",
+              "0": _1
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 4);
       var _3 = Parsing.peek_val(__caml_parser_env, 2);
       var _4 = Parsing.peek_val(__caml_parser_env, 1);
       var _5 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Rtag */Block.__(0, [
-                _1,
-                _5,
-                _3,
-                List.rev(_4)
-              ]);
+      return /* constructor */{
+              tag: 0,
+              name: "Rtag",
+              "0": _1,
+              "1": _5,
+              "2": _3,
+              "3": List.rev(_4)
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Rtag */Block.__(0, [
-                _1,
-                _2,
-                true,
-                /* [] */0
-              ]);
+      return /* constructor */{
+              tag: 0,
+              name: "Rtag",
+              "0": _1,
+              "1": _2,
+              "2": true,
+              "3": /* [] */0
+            };
     }),
   (function (__caml_parser_env) {
       return true;
@@ -11208,33 +13758,41 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _1,
-              /* [] */0
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1,
+              "1": /* [] */0
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _3,
-              _1
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _3,
+              "1": _1
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _1,
-              /* [] */0
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1,
+              "1": /* [] */0
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _2,
-              _1
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _2,
+              "1": _1
+            };
     }),
   (function (__caml_parser_env) {
       return Parsing.peek_val(__caml_parser_env, 0);
@@ -11242,10 +13800,16 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return mktyp(/* Ptyp_tuple */Block.__(2, [/* :: */[
-                      _1,
-                      List.rev(_3)
-                    ]]));
+      return mktyp(/* constructor */{
+                  tag: 2,
+                  name: "Ptyp_tuple",
+                  "0": /* constructor */{
+                    tag: 0,
+                    name: "::",
+                    "0": _1,
+                    "1": List.rev(_3)
+                  }
+                });
     }),
   (function (__caml_parser_env) {
       return Parsing.peek_val(__caml_parser_env, 0);
@@ -11253,64 +13817,84 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return mktyp(/* Ptyp_tuple */Block.__(2, [/* :: */[
-                      _1,
-                      List.rev(_3)
-                    ]]));
+      return mktyp(/* constructor */{
+                  tag: 2,
+                  name: "Ptyp_tuple",
+                  "0": /* constructor */{
+                    tag: 0,
+                    name: "::",
+                    "0": _1,
+                    "1": List.rev(_3)
+                  }
+                });
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _1,
-              /* [] */0
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1,
+              "1": /* [] */0
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _3,
-              _1
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _3,
+              "1": _1
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _1,
-              /* [] */0
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1,
+              "1": /* [] */0
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _3,
-              _1
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _3,
+              "1": _1
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _1,
-              /* [] */0
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1,
+              "1": /* [] */0
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _3,
-              _1
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _3,
+              "1": _1
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
       return /* tuple */[
-              /* :: */[
-                _1,
-                _3[0]
-              ],
+              /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": _1,
+                "1": _3[0]
+              },
               _3[1]
             ];
     }),
@@ -11318,10 +13902,12 @@ var yyact = /* array */[
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       Parsing.peek_val(__caml_parser_env, 0);
       return /* tuple */[
-              /* :: */[
-                _1,
-                /* [] */0
-              ],
+              /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": _1,
+                "1": /* [] */0
+              },
               /* Closed */0
             ];
     }),
@@ -11346,77 +13932,143 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Const_int */Block.__(0, [_1]);
+      return /* constructor */{
+              tag: 0,
+              name: "Const_int",
+              "0": _1
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Const_char */Block.__(1, [_1]);
+      return /* constructor */{
+              tag: 1,
+              name: "Const_char",
+              "0": _1
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Const_string */Block.__(2, [
-                _1[0],
-                _1[1]
-              ]);
+      return /* constructor */{
+              tag: 2,
+              name: "Const_string",
+              "0": _1[0],
+              "1": _1[1]
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Const_float */Block.__(3, [_1]);
+      return /* constructor */{
+              tag: 3,
+              name: "Const_float",
+              "0": _1
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Const_int32 */Block.__(4, [_1]);
+      return /* constructor */{
+              tag: 4,
+              name: "Const_int32",
+              "0": _1
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Const_int64 */Block.__(5, [_1]);
+      return /* constructor */{
+              tag: 5,
+              name: "Const_int64",
+              "0": _1
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Const_nativeint */Block.__(6, [_1]);
+      return /* constructor */{
+              tag: 6,
+              name: "Const_nativeint",
+              "0": _1
+            };
     }),
   (function (__caml_parser_env) {
       return Parsing.peek_val(__caml_parser_env, 0);
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Const_int */Block.__(0, [-_2 | 0]);
+      return /* constructor */{
+              tag: 0,
+              name: "Const_int",
+              "0": -_2 | 0
+            };
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Const_float */Block.__(3, ["-" + _2]);
+      return /* constructor */{
+              tag: 3,
+              name: "Const_float",
+              "0": "-" + _2
+            };
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Const_int32 */Block.__(4, [-_2 | 0]);
+      return /* constructor */{
+              tag: 4,
+              name: "Const_int32",
+              "0": -_2 | 0
+            };
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Const_int64 */Block.__(5, [Caml_int64.neg(_2)]);
+      return /* constructor */{
+              tag: 5,
+              name: "Const_int64",
+              "0": Caml_int64.neg(_2)
+            };
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Const_nativeint */Block.__(6, [-_2]);
+      return /* constructor */{
+              tag: 6,
+              name: "Const_nativeint",
+              "0": -_2
+            };
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Const_int */Block.__(0, [_2]);
+      return /* constructor */{
+              tag: 0,
+              name: "Const_int",
+              "0": _2
+            };
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Const_float */Block.__(3, [_2]);
+      return /* constructor */{
+              tag: 3,
+              name: "Const_float",
+              "0": _2
+            };
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Const_int32 */Block.__(4, [_2]);
+      return /* constructor */{
+              tag: 4,
+              name: "Const_int32",
+              "0": _2
+            };
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Const_int64 */Block.__(5, [_2]);
+      return /* constructor */{
+              tag: 5,
+              name: "Const_int64",
+              "0": _2
+            };
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Const_nativeint */Block.__(6, [_2]);
+      return /* constructor */{
+              tag: 6,
+              name: "Const_nativeint",
+              "0": _2
+            };
     }),
   (function (__caml_parser_env) {
       return Parsing.peek_val(__caml_parser_env, 0);
@@ -11526,78 +14178,124 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Lident */Block.__(0, [_1]);
+      return /* constructor */{
+              tag: 0,
+              name: "Lident",
+              "0": _1
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Ldot */Block.__(1, [
-                _1,
-                _3
-              ]);
+      return /* constructor */{
+              tag: 1,
+              name: "Ldot",
+              "0": _1,
+              "1": _3
+            };
     }),
   (function (__caml_parser_env) {
       return Parsing.peek_val(__caml_parser_env, 0);
     }),
   (function (__caml_parser_env) {
-      return /* Lident */Block.__(0, ["[]"]);
+      return /* constructor */{
+              tag: 0,
+              name: "Lident",
+              "0": "[]"
+            };
     }),
   (function (__caml_parser_env) {
-      return /* Lident */Block.__(0, ["()"]);
+      return /* constructor */{
+              tag: 0,
+              name: "Lident",
+              "0": "()"
+            };
     }),
   (function (__caml_parser_env) {
-      return /* Lident */Block.__(0, ["false"]);
+      return /* constructor */{
+              tag: 0,
+              name: "Lident",
+              "0": "false"
+            };
     }),
   (function (__caml_parser_env) {
-      return /* Lident */Block.__(0, ["true"]);
+      return /* constructor */{
+              tag: 0,
+              name: "Lident",
+              "0": "true"
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Lident */Block.__(0, [_1]);
+      return /* constructor */{
+              tag: 0,
+              name: "Lident",
+              "0": _1
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Ldot */Block.__(1, [
-                _1,
-                _3
-              ]);
+      return /* constructor */{
+              tag: 1,
+              name: "Ldot",
+              "0": _1,
+              "1": _3
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Lident */Block.__(0, [_1]);
+      return /* constructor */{
+              tag: 0,
+              name: "Lident",
+              "0": _1
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Ldot */Block.__(1, [
-                _1,
-                _3
-              ]);
+      return /* constructor */{
+              tag: 1,
+              name: "Ldot",
+              "0": _1,
+              "1": _3
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Lident */Block.__(0, [_1]);
+      return /* constructor */{
+              tag: 0,
+              name: "Lident",
+              "0": _1
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Ldot */Block.__(1, [
-                _1,
-                _3
-              ]);
+      return /* constructor */{
+              tag: 1,
+              name: "Ldot",
+              "0": _1,
+              "1": _3
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Lident */Block.__(0, [_1]);
+      return /* constructor */{
+              tag: 0,
+              name: "Lident",
+              "0": _1
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Ldot */Block.__(1, [
-                _1,
-                _3
-              ]);
+      return /* constructor */{
+              tag: 1,
+              name: "Ldot",
+              "0": _1,
+              "1": _3
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 3);
@@ -11605,105 +14303,167 @@ var yyact = /* array */[
       var p1 = _1;
       var p2 = _3;
       if (applicative_functors[0]) {
-        return /* Lapply */Block.__(2, [
-                  p1,
-                  p2
-                ]);
+        return /* constructor */{
+                tag: 2,
+                name: "Lapply",
+                "0": p1,
+                "1": p2
+              };
       } else {
         throw [
               $$Error$1,
-              /* Applicative_path */Block.__(3, [symbol_rloc(/* () */0)])
+              /* constructor */{
+                tag: 3,
+                name: "Applicative_path",
+                "0": symbol_rloc(/* () */0)
+              }
             ];
       }
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Lident */Block.__(0, [_1]);
+      return /* constructor */{
+              tag: 0,
+              name: "Lident",
+              "0": _1
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Ldot */Block.__(1, [
-                _1,
-                _3
-              ]);
+      return /* constructor */{
+              tag: 1,
+              name: "Ldot",
+              "0": _1,
+              "1": _3
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Lident */Block.__(0, [_1]);
+      return /* constructor */{
+              tag: 0,
+              name: "Lident",
+              "0": _1
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Ldot */Block.__(1, [
-                _1,
-                _3
-              ]);
+      return /* constructor */{
+              tag: 1,
+              name: "Ldot",
+              "0": _1,
+              "1": _3
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Lident */Block.__(0, [_1]);
+      return /* constructor */{
+              tag: 0,
+              name: "Lident",
+              "0": _1
+            };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Ldot */Block.__(1, [
-                _1,
-                _3
-              ]);
+      return /* constructor */{
+              tag: 1,
+              name: "Ldot",
+              "0": _1,
+              "1": _3
+            };
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Ptop_dir */Block.__(1, [
-                _2,
-                /* Pdir_none */0
-              ]);
+      return /* constructor */{
+              tag: 1,
+              name: "Ptop_dir",
+              "0": _2,
+              "1": /* Pdir_none */0
+            };
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 1);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Ptop_dir */Block.__(1, [
-                _2,
-                /* Pdir_string */Block.__(0, [_3[0]])
-              ]);
+      return /* constructor */{
+              tag: 1,
+              name: "Ptop_dir",
+              "0": _2,
+              "1": /* constructor */{
+                tag: 0,
+                name: "Pdir_string",
+                "0": _3[0]
+              }
+            };
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 1);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Ptop_dir */Block.__(1, [
-                _2,
-                /* Pdir_int */Block.__(1, [_3])
-              ]);
+      return /* constructor */{
+              tag: 1,
+              name: "Ptop_dir",
+              "0": _2,
+              "1": /* constructor */{
+                tag: 1,
+                name: "Pdir_int",
+                "0": _3
+              }
+            };
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 1);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Ptop_dir */Block.__(1, [
-                _2,
-                /* Pdir_ident */Block.__(2, [_3])
-              ]);
+      return /* constructor */{
+              tag: 1,
+              name: "Ptop_dir",
+              "0": _2,
+              "1": /* constructor */{
+                tag: 2,
+                name: "Pdir_ident",
+                "0": _3
+              }
+            };
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 1);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* Ptop_dir */Block.__(1, [
-                _2,
-                /* Pdir_ident */Block.__(2, [_3])
-              ]);
+      return /* constructor */{
+              tag: 1,
+              name: "Ptop_dir",
+              "0": _2,
+              "1": /* constructor */{
+                tag: 2,
+                name: "Pdir_ident",
+                "0": _3
+              }
+            };
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 1);
-      return /* Ptop_dir */Block.__(1, [
-                _2,
-                /* Pdir_bool */Block.__(3, [false])
-              ]);
+      return /* constructor */{
+              tag: 1,
+              name: "Ptop_dir",
+              "0": _2,
+              "1": /* constructor */{
+                tag: 3,
+                name: "Pdir_bool",
+                "0": false
+              }
+            };
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 1);
-      return /* Ptop_dir */Block.__(1, [
-                _2,
-                /* Pdir_bool */Block.__(3, [true])
-              ]);
+      return /* constructor */{
+              tag: 1,
+              name: "Ptop_dir",
+              "0": _2,
+              "1": /* constructor */{
+                tag: 3,
+                name: "Pdir_bool",
+                "0": true
+              }
+            };
     }),
   (function (__caml_parser_env) {
       return Parsing.peek_val(__caml_parser_env, 0);
@@ -11999,10 +14759,12 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _1,
-              _2
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1,
+              "1": _2
+            };
     }),
   (function (__caml_parser_env) {
       return /* [] */0;
@@ -12010,10 +14772,12 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* :: */[
-              _1,
-              _2
-            ];
+      return /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": _1,
+              "1": _2
+            };
     }),
   (function (__caml_parser_env) {
       return /* tuple */[
@@ -12026,10 +14790,12 @@ var yyact = /* array */[
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
       return /* tuple */[
               undefined,
-              /* :: */[
-                _1,
-                _2
-              ]
+              /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": _1,
+                "1": _2
+              }
             ];
     }),
   (function (__caml_parser_env) {
@@ -12058,26 +14824,38 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* PStr */Block.__(0, [_1]);
+      return /* constructor */{
+              tag: 0,
+              name: "PStr",
+              "0": _1
+            };
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* PTyp */Block.__(1, [_2]);
+      return /* constructor */{
+              tag: 1,
+              name: "PTyp",
+              "0": _2
+            };
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* PPat */Block.__(2, [
-                _2,
-                undefined
-              ]);
+      return /* constructor */{
+              tag: 2,
+              name: "PPat",
+              "0": _2,
+              "1": undefined
+            };
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 2);
       var _4 = Parsing.peek_val(__caml_parser_env, 0);
-      return /* PPat */Block.__(2, [
-                _2,
-                _4
-              ]);
+      return /* constructor */{
+              tag: 2,
+              name: "PPat",
+              "0": _2,
+              "1": _4
+            };
     }),
   (function (__caml_parser_env) {
       throw [
@@ -12222,10 +15000,12 @@ function assert_same_type(lexbuf, x, y) {
   if (lhs !== rhs) {
     throw [
           $$Error$2,
-          /* Conditional_expr_expected_type */Block.__(7, [
-              lhs,
-              rhs
-            ]),
+          /* constructor */{
+            tag: 7,
+            name: "Conditional_expr_expected_type",
+            "0": lhs,
+            "1": rhs
+          },
           curr(lexbuf)
         ];
   }
@@ -12239,18 +15019,34 @@ function remove_directive_built_in_value(k) {
 }
 
 function replace_directive_int(k, v) {
-  return Hashtbl.replace(directive_built_in_values, k, /* Dir_int */Block.__(2, [v]));
+  return Hashtbl.replace(directive_built_in_values, k, /* constructor */{
+              tag: 2,
+              name: "Dir_int",
+              "0": v
+            });
 }
 
 function replace_directive_bool(k, v) {
-  return Hashtbl.replace(directive_built_in_values, k, /* Dir_bool */Block.__(0, [v]));
+  return Hashtbl.replace(directive_built_in_values, k, /* constructor */{
+              tag: 0,
+              name: "Dir_bool",
+              "0": v
+            });
 }
 
 function replace_directive_string(k, v) {
-  return Hashtbl.replace(directive_built_in_values, k, /* Dir_string */Block.__(3, [v]));
+  return Hashtbl.replace(directive_built_in_values, k, /* constructor */{
+              tag: 3,
+              name: "Dir_string",
+              "0": v
+            });
 }
 
-Hashtbl.replace(directive_built_in_values, "OCAML_VERSION", /* Dir_string */Block.__(3, [Sys.ocaml_version]));
+Hashtbl.replace(directive_built_in_values, "OCAML_VERSION", /* constructor */{
+      tag: 3,
+      name: "Dir_string",
+      "0": Sys.ocaml_version
+    });
 
 var tmp;
 
@@ -12274,15 +15070,31 @@ if (exit === 1) {
   tmp = $$String.sub(Sys.ocaml_version, i + 1 | 0, (Sys.ocaml_version.length - i | 0) - 1 | 0);
 }
 
-var v = /* Dir_string */Block.__(3, [tmp]);
+var v = /* constructor */{
+  tag: 3,
+  name: "Dir_string",
+  "0": tmp
+};
 
 Hashtbl.replace(directive_built_in_values, "OCAML_PATCH", v);
 
-Hashtbl.replace(directive_built_in_values, "OS_TYPE", /* Dir_string */Block.__(3, ["Unix"]));
+Hashtbl.replace(directive_built_in_values, "OS_TYPE", /* constructor */{
+      tag: 3,
+      name: "Dir_string",
+      "0": "Unix"
+    });
 
-Hashtbl.replace(directive_built_in_values, "BIG_ENDIAN", /* Dir_bool */Block.__(0, [Sys.big_endian]));
+Hashtbl.replace(directive_built_in_values, "BIG_ENDIAN", /* constructor */{
+      tag: 0,
+      name: "Dir_bool",
+      "0": Sys.big_endian
+    });
 
-Hashtbl.replace(directive_built_in_values, "WORD_SIZE", /* Dir_int */Block.__(2, [Sys.word_size]));
+Hashtbl.replace(directive_built_in_values, "WORD_SIZE", /* constructor */{
+      tag: 2,
+      name: "Dir_int",
+      "0": Sys.word_size
+    });
 
 function semantic_version_parse(str, start, last_index) {
   var aux = function (_start, _acc, last_index) {
@@ -12337,7 +15149,11 @@ function semver(loc, lhs, str) {
   if (last_index < 0) {
     throw [
           $$Error$2,
-          /* Illegal_semver */Block.__(6, [str]),
+          /* constructor */{
+            tag: 6,
+            name: "Illegal_semver",
+            "0": str
+          },
           loc
         ];
   }
@@ -12360,7 +15176,11 @@ function semver(loc, lhs, str) {
             if (last_index === 0) {
               throw [
                     $$Error$2,
-                    /* Illegal_semver */Block.__(6, [str]),
+                    /* constructor */{
+                      tag: 6,
+                      name: "Illegal_semver",
+                      "0": str
+                    },
                     loc
                   ];
             }
@@ -12379,7 +15199,11 @@ function semver(loc, lhs, str) {
             if (last_index === 0) {
               throw [
                     $$Error$2,
-                    /* Illegal_semver */Block.__(6, [str]),
+                    /* constructor */{
+                      tag: 6,
+                      name: "Illegal_semver",
+                      "0": str
+                    },
                     loc
                   ];
             }
@@ -12451,13 +15275,17 @@ function pp_directive_value(fmt, x) {
       case /* Dir_int */2 :
           return Format.pp_print_int(fmt, x[0]);
       case /* Dir_string */3 :
-          return Curry._1(Format.fprintf(fmt, /* Format */[
-                          /* Caml_string */Block.__(3, [
-                              /* No_padding */0,
-                              /* End_of_format */0
-                            ]),
-                          "%S"
-                        ]), x[0]);
+          return Curry._1(Format.fprintf(fmt, /* constructor */{
+                          tag: 0,
+                          name: "Format",
+                          "0": /* constructor */{
+                            tag: 3,
+                            name: "Caml_string",
+                            "0": /* No_padding */0,
+                            "1": /* End_of_format */0
+                          },
+                          "1": "%S"
+                        }), x[0]);
       
     }
   }
@@ -12465,32 +15293,56 @@ function pp_directive_value(fmt, x) {
 
 function list_variables(fmt) {
   return Hashtbl.iter((function (s, dir_value) {
-                return Curry._3(Format.fprintf(fmt, /* Format */[
-                                /* Formatting_gen */Block.__(18, [
-                                    /* Open_box */Block.__(1, [/* Format */[
-                                          /* End_of_format */0,
-                                          ""
-                                        ]]),
-                                    /* String */Block.__(2, [
-                                        /* No_padding */0,
-                                        /* Formatting_lit */Block.__(17, [
-                                            /* Break */Block.__(0, [
-                                                "@ ",
-                                                1,
-                                                0
-                                              ]),
-                                            /* Alpha */Block.__(15, [/* Formatting_lit */Block.__(17, [
-                                                    /* Close_box */0,
-                                                    /* Formatting_lit */Block.__(17, [
-                                                        /* Flush_newline */4,
-                                                        /* End_of_format */0
-                                                      ])
-                                                  ])])
-                                          ])
-                                      ])
-                                  ]),
-                                "@[%s@ %a@]@."
-                              ]), s, pp_directive_value, dir_value);
+                return Curry._3(Format.fprintf(fmt, /* constructor */{
+                                tag: 0,
+                                name: "Format",
+                                "0": /* constructor */{
+                                  tag: 18,
+                                  name: "Formatting_gen",
+                                  "0": /* constructor */{
+                                    tag: 1,
+                                    name: "Open_box",
+                                    "0": /* constructor */{
+                                      tag: 0,
+                                      name: "Format",
+                                      "0": /* End_of_format */0,
+                                      "1": ""
+                                    }
+                                  },
+                                  "1": /* constructor */{
+                                    tag: 2,
+                                    name: "String",
+                                    "0": /* No_padding */0,
+                                    "1": /* constructor */{
+                                      tag: 17,
+                                      name: "Formatting_lit",
+                                      "0": /* constructor */{
+                                        tag: 0,
+                                        name: "Break",
+                                        "0": "@ ",
+                                        "1": 1,
+                                        "2": 0
+                                      },
+                                      "1": /* constructor */{
+                                        tag: 15,
+                                        name: "Alpha",
+                                        "0": /* constructor */{
+                                          tag: 17,
+                                          name: "Formatting_lit",
+                                          "0": /* Close_box */0,
+                                          "1": /* constructor */{
+                                            tag: 17,
+                                            name: "Formatting_lit",
+                                            "0": /* Flush_newline */4,
+                                            "1": /* End_of_format */0
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "1": "@[%s@ %a@]@."
+                              }), s, pp_directive_value, dir_value);
               }), directive_built_in_values);
 }
 
@@ -12530,25 +15382,45 @@ function query(loc, str) {
       }
       catch (exn$1){
         if (exn$1 === Caml_builtin_exceptions.not_found) {
-          return /* Dir_bool */Block.__(0, [false]);
+          return /* constructor */{
+                  tag: 0,
+                  name: "Dir_bool",
+                  "0": false
+                };
         } else {
           throw exn$1;
         }
       }
       if (exit === 2) {
         try {
-          return /* Dir_bool */Block.__(0, [Pervasives.bool_of_string(v$1)]);
+          return /* constructor */{
+                  tag: 0,
+                  name: "Dir_bool",
+                  "0": Pervasives.bool_of_string(v$1)
+                };
         }
         catch (exn$2){
           try {
-            return /* Dir_int */Block.__(2, [Caml_format.caml_int_of_string(v$1)]);
+            return /* constructor */{
+                    tag: 2,
+                    name: "Dir_int",
+                    "0": Caml_format.caml_int_of_string(v$1)
+                  };
           }
           catch (exn$3){
             try {
-              return /* Dir_float */Block.__(1, [Caml_format.caml_float_of_string(v$1)]);
+              return /* constructor */{
+                      tag: 1,
+                      name: "Dir_float",
+                      "0": Caml_format.caml_float_of_string(v$1)
+                    };
             }
             catch (exn$4){
-              return /* Dir_string */Block.__(3, [v$1]);
+              return /* constructor */{
+                      tag: 3,
+                      name: "Dir_string",
+                      "0": v$1
+                    };
             }
           }
         }
@@ -12559,7 +15431,11 @@ function query(loc, str) {
     }
   }
   if (typeof v === "number") {
-    return /* Dir_bool */Block.__(0, [false]);
+    return /* constructor */{
+            tag: 0,
+            name: "Dir_bool",
+            "0": false
+          };
   } else {
     return v;
   }
@@ -12569,18 +15445,34 @@ function define_key_value(key, v) {
   if (key.length !== 0 && Char.uppercase(Caml_string.get(key, 0)) === Caml_string.get(key, 0)) {
     var v$1;
     try {
-      v$1 = /* Dir_bool */Block.__(0, [Pervasives.bool_of_string(v)]);
+      v$1 = /* constructor */{
+        tag: 0,
+        name: "Dir_bool",
+        "0": Pervasives.bool_of_string(v)
+      };
     }
     catch (exn){
       try {
-        v$1 = /* Dir_int */Block.__(2, [Caml_format.caml_int_of_string(v)]);
+        v$1 = /* constructor */{
+          tag: 2,
+          name: "Dir_int",
+          "0": Caml_format.caml_int_of_string(v)
+        };
       }
       catch (exn$1){
         try {
-          v$1 = /* Dir_float */Block.__(1, [Caml_format.caml_float_of_string(v)]);
+          v$1 = /* constructor */{
+            tag: 1,
+            name: "Dir_float",
+            "0": Caml_format.caml_float_of_string(v)
+          };
         }
         catch (exn$2){
-          v$1 = /* Dir_string */Block.__(3, [v]);
+          v$1 = /* constructor */{
+            tag: 3,
+            name: "Dir_string",
+            "0": v
+          };
         }
       }
     }
@@ -12595,9 +15487,17 @@ function value_of_token(loc, t) {
   if (typeof t === "number") {
     switch (t) {
       case /* FALSE */29 :
-          return /* Dir_bool */Block.__(0, [false]);
+          return /* constructor */{
+                  tag: 0,
+                  name: "Dir_bool",
+                  "0": false
+                };
       case /* TRUE */91 :
-          return /* Dir_bool */Block.__(0, [true]);
+          return /* constructor */{
+                  tag: 0,
+                  name: "Dir_bool",
+                  "0": true
+                };
       default:
         throw [
               $$Error$2,
@@ -12608,11 +15508,23 @@ function value_of_token(loc, t) {
   } else {
     switch (t.tag | 0) {
       case /* FLOAT */1 :
-          return /* Dir_float */Block.__(1, [Caml_format.caml_float_of_string(t[0])]);
+          return /* constructor */{
+                  tag: 1,
+                  name: "Dir_float",
+                  "0": Caml_format.caml_float_of_string(t[0])
+                };
       case /* INT */7 :
-          return /* Dir_int */Block.__(2, [t[0]]);
+          return /* constructor */{
+                  tag: 2,
+                  name: "Dir_int",
+                  "0": t[0]
+                };
       case /* STRING */16 :
-          return /* Dir_string */Block.__(3, [t[0][0]]);
+          return /* constructor */{
+                  tag: 3,
+                  name: "Dir_string",
+                  "0": t[0][0]
+                };
       case /* UIDENT */17 :
           return query(loc, t[0]);
       default:
@@ -12707,10 +15619,12 @@ function directive_parse(token_with_comments, lexbuf) {
                 if (exit$1 === 3) {
                   throw [
                         $$Error$2,
-                        /* Conditional_expr_expected_type */Block.__(7, [
-                            /* Dir_type_string */3,
-                            type_of_directive(lhs)
-                          ]),
+                        /* constructor */{
+                          tag: 7,
+                          name: "Conditional_expr_expected_type",
+                          "0": /* Dir_type_string */3,
+                          "1": type_of_directive(lhs)
+                        },
                         curr(lexbuf)
                       ];
                 }
@@ -12719,10 +15633,12 @@ function directive_parse(token_with_comments, lexbuf) {
               if (exit === 2) {
                 throw [
                       $$Error$2,
-                      /* Conditional_expr_expected_type */Block.__(7, [
-                          /* Dir_type_string */3,
-                          type_of_directive(lhs)
-                        ]),
+                      /* constructor */{
+                        tag: 7,
+                        name: "Conditional_expr_expected_type",
+                        "0": /* Dir_type_string */3,
+                        "1": type_of_directive(lhs)
+                      },
                       curr(lexbuf)
                     ];
               }
@@ -12830,19 +15746,29 @@ function directive_parse(token_with_comments, lexbuf) {
             return token_op(calc, (function (e) {
                           throw [
                                 $$Error$2,
-                                /* Conditional_expr_expected_type */Block.__(7, [
-                                    /* Dir_type_bool */0,
-                                    /* Dir_type_float */1
-                                  ]),
+                                /* constructor */{
+                                  tag: 7,
+                                  name: "Conditional_expr_expected_type",
+                                  "0": /* Dir_type_bool */0,
+                                  "1": /* Dir_type_float */1
+                                },
                                 curr_loc
                               ];
-                        }), /* Dir_float */Block.__(1, [Caml_format.caml_float_of_string(curr_token[0])]));
+                        }), /* constructor */{
+                        tag: 1,
+                        name: "Dir_float",
+                        "0": Caml_format.caml_float_of_string(curr_token[0])
+                      });
         case /* INT */7 :
             var v$1 = curr_token[0];
             return token_op(calc, (function (e) {
                           push(e);
                           return v$1 !== 0;
-                        }), /* Dir_int */Block.__(2, [v$1]));
+                        }), /* constructor */{
+                        tag: 2,
+                        name: "Dir_int",
+                        "0": v$1
+                      });
         case /* LIDENT */11 :
             var r = curr_token[0];
             switch (r) {
@@ -12887,13 +15813,19 @@ function directive_parse(token_with_comments, lexbuf) {
             return token_op(calc, (function (e) {
                           throw [
                                 $$Error$2,
-                                /* Conditional_expr_expected_type */Block.__(7, [
-                                    /* Dir_type_bool */0,
-                                    /* Dir_type_string */3
-                                  ]),
+                                /* constructor */{
+                                  tag: 7,
+                                  name: "Conditional_expr_expected_type",
+                                  "0": /* Dir_type_bool */0,
+                                  "1": /* Dir_type_string */3
+                                },
                                 curr_loc
                               ];
-                        }), /* Dir_string */Block.__(3, [curr_token[0][0]]));
+                        }), /* constructor */{
+                        tag: 3,
+                        name: "Dir_string",
+                        "0": curr_token[0][0]
+                      });
         case /* UIDENT */17 :
             var value_v = query(curr_loc, curr_token[0]);
             return token_op(calc, (function (e) {
@@ -12904,10 +15836,12 @@ function directive_parse(token_with_comments, lexbuf) {
                           var ty = type_of_directive(value_v);
                           throw [
                                 $$Error$2,
-                                /* Conditional_expr_expected_type */Block.__(7, [
-                                    /* Dir_type_bool */0,
-                                    ty
-                                  ]),
+                                /* constructor */{
+                                  tag: 7,
+                                  name: "Conditional_expr_expected_type",
+                                  "0": /* Dir_type_bool */0,
+                                  "1": ty
+                                },
                                 curr_loc
                               ];
                         }), value_v);
@@ -12978,343 +15912,483 @@ function is_elif(i) {
   }
 }
 
-var keyword_table = create_hashtable(149, /* :: */[
-      /* tuple */[
+var keyword_table = create_hashtable(149, /* constructor */{
+      tag: 0,
+      name: "::",
+      "0": /* tuple */[
         "and",
         /* AND */2
       ],
-      /* :: */[
-        /* tuple */[
+      "1": /* constructor */{
+        tag: 0,
+        name: "::",
+        "0": /* tuple */[
           "as",
           /* AS */3
         ],
-        /* :: */[
-          /* tuple */[
+        "1": /* constructor */{
+          tag: 0,
+          name: "::",
+          "0": /* tuple */[
             "assert",
             /* ASSERT */4
           ],
-          /* :: */[
-            /* tuple */[
+          "1": /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": /* tuple */[
               "begin",
               /* BEGIN */10
             ],
-            /* :: */[
-              /* tuple */[
+            "1": /* constructor */{
+              tag: 0,
+              name: "::",
+              "0": /* tuple */[
                 "class",
                 /* CLASS */11
               ],
-              /* :: */[
-                /* tuple */[
+              "1": /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": /* tuple */[
                   "constraint",
                   /* CONSTRAINT */17
                 ],
-                /* :: */[
-                  /* tuple */[
+                "1": /* constructor */{
+                  tag: 0,
+                  name: "::",
+                  "0": /* tuple */[
                     "do",
                     /* DO */18
                   ],
-                  /* :: */[
-                    /* tuple */[
+                  "1": /* constructor */{
+                    tag: 0,
+                    name: "::",
+                    "0": /* tuple */[
                       "done",
                       /* DONE */19
                     ],
-                    /* :: */[
-                      /* tuple */[
+                    "1": /* constructor */{
+                      tag: 0,
+                      name: "::",
+                      "0": /* tuple */[
                         "downto",
                         /* DOWNTO */22
                       ],
-                      /* :: */[
-                        /* tuple */[
+                      "1": /* constructor */{
+                        tag: 0,
+                        name: "::",
+                        "0": /* tuple */[
                           "else",
                           /* ELSE */23
                         ],
-                        /* :: */[
-                          /* tuple */[
+                        "1": /* constructor */{
+                          tag: 0,
+                          name: "::",
+                          "0": /* tuple */[
                             "end",
                             /* END */24
                           ],
-                          /* :: */[
-                            /* tuple */[
+                          "1": /* constructor */{
+                            tag: 0,
+                            name: "::",
+                            "0": /* tuple */[
                               "exception",
                               /* EXCEPTION */27
                             ],
-                            /* :: */[
-                              /* tuple */[
+                            "1": /* constructor */{
+                              tag: 0,
+                              name: "::",
+                              "0": /* tuple */[
                                 "external",
                                 /* EXTERNAL */28
                               ],
-                              /* :: */[
-                                /* tuple */[
+                              "1": /* constructor */{
+                                tag: 0,
+                                name: "::",
+                                "0": /* tuple */[
                                   "false",
                                   /* FALSE */29
                                 ],
-                                /* :: */[
-                                  /* tuple */[
+                                "1": /* constructor */{
+                                  tag: 0,
+                                  name: "::",
+                                  "0": /* tuple */[
                                     "for",
                                     /* FOR */30
                                   ],
-                                  /* :: */[
-                                    /* tuple */[
+                                  "1": /* constructor */{
+                                    tag: 0,
+                                    name: "::",
+                                    "0": /* tuple */[
                                       "fun",
                                       /* FUN */31
                                     ],
-                                    /* :: */[
-                                      /* tuple */[
+                                    "1": /* constructor */{
+                                      tag: 0,
+                                      name: "::",
+                                      "0": /* tuple */[
                                         "function",
                                         /* FUNCTION */32
                                       ],
-                                      /* :: */[
-                                        /* tuple */[
+                                      "1": /* constructor */{
+                                        tag: 0,
+                                        name: "::",
+                                        "0": /* tuple */[
                                           "functor",
                                           /* FUNCTOR */33
                                         ],
-                                        /* :: */[
-                                          /* tuple */[
+                                        "1": /* constructor */{
+                                          tag: 0,
+                                          name: "::",
+                                          "0": /* tuple */[
                                             "if",
                                             /* IF */37
                                           ],
-                                          /* :: */[
-                                            /* tuple */[
+                                          "1": /* constructor */{
+                                            tag: 0,
+                                            name: "::",
+                                            "0": /* tuple */[
                                               "in",
                                               /* IN */38
                                             ],
-                                            /* :: */[
-                                              /* tuple */[
+                                            "1": /* constructor */{
+                                              tag: 0,
+                                              name: "::",
+                                              "0": /* tuple */[
                                                 "include",
                                                 /* INCLUDE */39
                                               ],
-                                              /* :: */[
-                                                /* tuple */[
+                                              "1": /* constructor */{
+                                                tag: 0,
+                                                name: "::",
+                                                "0": /* tuple */[
                                                   "inherit",
                                                   /* INHERIT */40
                                                 ],
-                                                /* :: */[
-                                                  /* tuple */[
+                                                "1": /* constructor */{
+                                                  tag: 0,
+                                                  name: "::",
+                                                  "0": /* tuple */[
                                                     "initializer",
                                                     /* INITIALIZER */41
                                                   ],
-                                                  /* :: */[
-                                                    /* tuple */[
+                                                  "1": /* constructor */{
+                                                    tag: 0,
+                                                    name: "::",
+                                                    "0": /* tuple */[
                                                       "lazy",
                                                       /* LAZY */42
                                                     ],
-                                                    /* :: */[
-                                                      /* tuple */[
+                                                    "1": /* constructor */{
+                                                      tag: 0,
+                                                      name: "::",
+                                                      "0": /* tuple */[
                                                         "let",
                                                         /* LET */53
                                                       ],
-                                                      /* :: */[
-                                                        /* tuple */[
+                                                      "1": /* constructor */{
+                                                        tag: 0,
+                                                        name: "::",
+                                                        "0": /* tuple */[
                                                           "match",
                                                           /* MATCH */58
                                                         ],
-                                                        /* :: */[
-                                                          /* tuple */[
+                                                        "1": /* constructor */{
+                                                          tag: 0,
+                                                          name: "::",
+                                                          "0": /* tuple */[
                                                             "method",
                                                             /* METHOD */59
                                                           ],
-                                                          /* :: */[
-                                                            /* tuple */[
+                                                          "1": /* constructor */{
+                                                            tag: 0,
+                                                            name: "::",
+                                                            "0": /* tuple */[
                                                               "module",
                                                               /* MODULE */63
                                                             ],
-                                                            /* :: */[
-                                                              /* tuple */[
+                                                            "1": /* constructor */{
+                                                              tag: 0,
+                                                              name: "::",
+                                                              "0": /* tuple */[
                                                                 "mutable",
                                                                 /* MUTABLE */64
                                                               ],
-                                                              /* :: */[
-                                                                /* tuple */[
+                                                              "1": /* constructor */{
+                                                                tag: 0,
+                                                                name: "::",
+                                                                "0": /* tuple */[
                                                                   "new",
                                                                   /* NEW */65
                                                                 ],
-                                                                /* :: */[
-                                                                  /* tuple */[
+                                                                "1": /* constructor */{
+                                                                  tag: 0,
+                                                                  name: "::",
+                                                                  "0": /* tuple */[
                                                                     "nonrec",
                                                                     /* NONREC */66
                                                                   ],
-                                                                  /* :: */[
-                                                                    /* tuple */[
+                                                                  "1": /* constructor */{
+                                                                    tag: 0,
+                                                                    name: "::",
+                                                                    "0": /* tuple */[
                                                                       "object",
                                                                       /* OBJECT */67
                                                                     ],
-                                                                    /* :: */[
-                                                                      /* tuple */[
+                                                                    "1": /* constructor */{
+                                                                      tag: 0,
+                                                                      name: "::",
+                                                                      "0": /* tuple */[
                                                                         "of",
                                                                         /* OF */68
                                                                       ],
-                                                                      /* :: */[
-                                                                        /* tuple */[
+                                                                      "1": /* constructor */{
+                                                                        tag: 0,
+                                                                        name: "::",
+                                                                        "0": /* tuple */[
                                                                           "open",
                                                                           /* OPEN */69
                                                                         ],
-                                                                        /* :: */[
-                                                                          /* tuple */[
+                                                                        "1": /* constructor */{
+                                                                          tag: 0,
+                                                                          name: "::",
+                                                                          "0": /* tuple */[
                                                                             "or",
                                                                             /* OR */70
                                                                           ],
-                                                                          /* :: */[
-                                                                            /* tuple */[
+                                                                          "1": /* constructor */{
+                                                                            tag: 0,
+                                                                            name: "::",
+                                                                            "0": /* tuple */[
                                                                               "private",
                                                                               /* PRIVATE */75
                                                                             ],
-                                                                            /* :: */[
-                                                                              /* tuple */[
+                                                                            "1": /* constructor */{
+                                                                              tag: 0,
+                                                                              name: "::",
+                                                                              "0": /* tuple */[
                                                                                 "rec",
                                                                                 /* REC */80
                                                                               ],
-                                                                              /* :: */[
-                                                                                /* tuple */[
+                                                                              "1": /* constructor */{
+                                                                                tag: 0,
+                                                                                name: "::",
+                                                                                "0": /* tuple */[
                                                                                   "sig",
                                                                                   /* SIG */85
                                                                                 ],
-                                                                                /* :: */[
-                                                                                  /* tuple */[
+                                                                                "1": /* constructor */{
+                                                                                  tag: 0,
+                                                                                  name: "::",
+                                                                                  "0": /* tuple */[
                                                                                     "struct",
                                                                                     /* STRUCT */87
                                                                                   ],
-                                                                                  /* :: */[
-                                                                                    /* tuple */[
+                                                                                  "1": /* constructor */{
+                                                                                    tag: 0,
+                                                                                    name: "::",
+                                                                                    "0": /* tuple */[
                                                                                       "then",
                                                                                       /* THEN */88
                                                                                     ],
-                                                                                    /* :: */[
-                                                                                      /* tuple */[
+                                                                                    "1": /* constructor */{
+                                                                                      tag: 0,
+                                                                                      name: "::",
+                                                                                      "0": /* tuple */[
                                                                                         "to",
                                                                                         /* TO */90
                                                                                       ],
-                                                                                      /* :: */[
-                                                                                        /* tuple */[
+                                                                                      "1": /* constructor */{
+                                                                                        tag: 0,
+                                                                                        name: "::",
+                                                                                        "0": /* tuple */[
                                                                                           "true",
                                                                                           /* TRUE */91
                                                                                         ],
-                                                                                        /* :: */[
-                                                                                          /* tuple */[
+                                                                                        "1": /* constructor */{
+                                                                                          tag: 0,
+                                                                                          name: "::",
+                                                                                          "0": /* tuple */[
                                                                                             "try",
                                                                                             /* TRY */92
                                                                                           ],
-                                                                                          /* :: */[
-                                                                                            /* tuple */[
+                                                                                          "1": /* constructor */{
+                                                                                            tag: 0,
+                                                                                            name: "::",
+                                                                                            "0": /* tuple */[
                                                                                               "type",
                                                                                               /* TYPE */93
                                                                                             ],
-                                                                                            /* :: */[
-                                                                                              /* tuple */[
+                                                                                            "1": /* constructor */{
+                                                                                              tag: 0,
+                                                                                              name: "::",
+                                                                                              "0": /* tuple */[
                                                                                                 "val",
                                                                                                 /* VAL */95
                                                                                               ],
-                                                                                              /* :: */[
-                                                                                                /* tuple */[
+                                                                                              "1": /* constructor */{
+                                                                                                tag: 0,
+                                                                                                name: "::",
+                                                                                                "0": /* tuple */[
                                                                                                   "virtual",
                                                                                                   /* VIRTUAL */96
                                                                                                 ],
-                                                                                                /* :: */[
-                                                                                                  /* tuple */[
+                                                                                                "1": /* constructor */{
+                                                                                                  tag: 0,
+                                                                                                  name: "::",
+                                                                                                  "0": /* tuple */[
                                                                                                     "when",
                                                                                                     /* WHEN */97
                                                                                                   ],
-                                                                                                  /* :: */[
-                                                                                                    /* tuple */[
+                                                                                                  "1": /* constructor */{
+                                                                                                    tag: 0,
+                                                                                                    name: "::",
+                                                                                                    "0": /* tuple */[
                                                                                                       "while",
                                                                                                       /* WHILE */98
                                                                                                     ],
-                                                                                                    /* :: */[
-                                                                                                      /* tuple */[
+                                                                                                    "1": /* constructor */{
+                                                                                                      tag: 0,
+                                                                                                      name: "::",
+                                                                                                      "0": /* tuple */[
                                                                                                         "with",
                                                                                                         /* WITH */99
                                                                                                       ],
-                                                                                                      /* :: */[
-                                                                                                        /* tuple */[
+                                                                                                      "1": /* constructor */{
+                                                                                                        tag: 0,
+                                                                                                        name: "::",
+                                                                                                        "0": /* tuple */[
                                                                                                           "mod",
-                                                                                                          /* INFIXOP3 */Block.__(5, ["mod"])
+                                                                                                          /* constructor */{
+                                                                                                            tag: 5,
+                                                                                                            name: "INFIXOP3",
+                                                                                                            "0": "mod"
+                                                                                                          }
                                                                                                         ],
-                                                                                                        /* :: */[
-                                                                                                          /* tuple */[
+                                                                                                        "1": /* constructor */{
+                                                                                                          tag: 0,
+                                                                                                          name: "::",
+                                                                                                          "0": /* tuple */[
                                                                                                             "land",
-                                                                                                            /* INFIXOP3 */Block.__(5, ["land"])
+                                                                                                            /* constructor */{
+                                                                                                              tag: 5,
+                                                                                                              name: "INFIXOP3",
+                                                                                                              "0": "land"
+                                                                                                            }
                                                                                                           ],
-                                                                                                          /* :: */[
-                                                                                                            /* tuple */[
+                                                                                                          "1": /* constructor */{
+                                                                                                            tag: 0,
+                                                                                                            name: "::",
+                                                                                                            "0": /* tuple */[
                                                                                                               "lor",
-                                                                                                              /* INFIXOP3 */Block.__(5, ["lor"])
+                                                                                                              /* constructor */{
+                                                                                                                tag: 5,
+                                                                                                                name: "INFIXOP3",
+                                                                                                                "0": "lor"
+                                                                                                              }
                                                                                                             ],
-                                                                                                            /* :: */[
-                                                                                                              /* tuple */[
+                                                                                                            "1": /* constructor */{
+                                                                                                              tag: 0,
+                                                                                                              name: "::",
+                                                                                                              "0": /* tuple */[
                                                                                                                 "lxor",
-                                                                                                                /* INFIXOP3 */Block.__(5, ["lxor"])
+                                                                                                                /* constructor */{
+                                                                                                                  tag: 5,
+                                                                                                                  name: "INFIXOP3",
+                                                                                                                  "0": "lxor"
+                                                                                                                }
                                                                                                               ],
-                                                                                                              /* :: */[
-                                                                                                                /* tuple */[
+                                                                                                              "1": /* constructor */{
+                                                                                                                tag: 0,
+                                                                                                                name: "::",
+                                                                                                                "0": /* tuple */[
                                                                                                                   "lsl",
-                                                                                                                  /* INFIXOP4 */Block.__(6, ["lsl"])
+                                                                                                                  /* constructor */{
+                                                                                                                    tag: 6,
+                                                                                                                    name: "INFIXOP4",
+                                                                                                                    "0": "lsl"
+                                                                                                                  }
                                                                                                                 ],
-                                                                                                                /* :: */[
-                                                                                                                  /* tuple */[
+                                                                                                                "1": /* constructor */{
+                                                                                                                  tag: 0,
+                                                                                                                  name: "::",
+                                                                                                                  "0": /* tuple */[
                                                                                                                     "lsr",
-                                                                                                                    /* INFIXOP4 */Block.__(6, ["lsr"])
+                                                                                                                    /* constructor */{
+                                                                                                                      tag: 6,
+                                                                                                                      name: "INFIXOP4",
+                                                                                                                      "0": "lsr"
+                                                                                                                    }
                                                                                                                   ],
-                                                                                                                  /* :: */[
-                                                                                                                    /* tuple */[
+                                                                                                                  "1": /* constructor */{
+                                                                                                                    tag: 0,
+                                                                                                                    name: "::",
+                                                                                                                    "0": /* tuple */[
                                                                                                                       "asr",
-                                                                                                                      /* INFIXOP4 */Block.__(6, ["asr"])
+                                                                                                                      /* constructor */{
+                                                                                                                        tag: 6,
+                                                                                                                        name: "INFIXOP4",
+                                                                                                                        "0": "asr"
+                                                                                                                      }
                                                                                                                     ],
-                                                                                                                    /* [] */0
-                                                                                                                  ]
-                                                                                                                ]
-                                                                                                              ]
-                                                                                                            ]
-                                                                                                          ]
-                                                                                                        ]
-                                                                                                      ]
-                                                                                                    ]
-                                                                                                  ]
-                                                                                                ]
-                                                                                              ]
-                                                                                            ]
-                                                                                          ]
-                                                                                        ]
-                                                                                      ]
-                                                                                    ]
-                                                                                  ]
-                                                                                ]
-                                                                              ]
-                                                                            ]
-                                                                          ]
-                                                                        ]
-                                                                      ]
-                                                                    ]
-                                                                  ]
-                                                                ]
-                                                              ]
-                                                            ]
-                                                          ]
-                                                        ]
-                                                      ]
-                                                    ]
-                                                  ]
-                                                ]
-                                              ]
-                                            ]
-                                          ]
-                                        ]
-                                      ]
-                                    ]
-                                  ]
-                                ]
-                              ]
-                            ]
-                          ]
-                        ]
-                      ]
-                    ]
-                  ]
-                ]
-              ]
-            ]
-          ]
-        ]
-      ]
-    ]);
+                                                                                                                    "1": /* [] */0
+                                                                                                                  }
+                                                                                                                }
+                                                                                                              }
+                                                                                                            }
+                                                                                                          }
+                                                                                                        }
+                                                                                                      }
+                                                                                                    }
+                                                                                                  }
+                                                                                                }
+                                                                                              }
+                                                                                            }
+                                                                                          }
+                                                                                        }
+                                                                                      }
+                                                                                    }
+                                                                                  }
+                                                                                }
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    });
 
 var initial_string_buffer = Caml_bytes.caml_create_bytes(256);
 
@@ -13374,10 +16448,12 @@ var sharp_look_ahead = /* record */[/* contents */undefined];
 
 function with_comment_buffer(comment, lexbuf) {
   var start_loc = curr(lexbuf);
-  comment_start_loc[0] = /* :: */[
-    start_loc,
-    /* [] */0
-  ];
+  comment_start_loc[0] = /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": start_loc,
+    "1": /* [] */0
+  };
   reset_string_buffer(/* () */0);
   var end_loc = Curry._1(comment, lexbuf);
   var s = get_stored_string(/* () */0);
@@ -13431,7 +16507,11 @@ function char_for_decimal_code(lexbuf, i) {
     } else {
       throw [
             $$Error$2,
-            /* Illegal_escape */Block.__(1, [Lexing.lexeme(lexbuf)]),
+            /* constructor */{
+              tag: 1,
+              name: "Illegal_escape",
+              "0": Lexing.lexeme(lexbuf)
+            },
             curr(lexbuf)
           ];
     }
@@ -13503,7 +16583,11 @@ function get_label_name(lexbuf) {
   if (Hashtbl.mem(keyword_table, name)) {
     throw [
           $$Error$2,
-          /* Keyword_as_label */Block.__(4, [name]),
+          /* constructor */{
+            tag: 4,
+            name: "Keyword_as_label",
+            "0": name
+          },
           curr(lexbuf)
         ];
   }
@@ -13529,10 +16613,12 @@ var escaped_newlines = /* record */[/* contents */false];
 var comment_list = /* record */[/* contents : [] */0];
 
 function add_comment(com) {
-  comment_list[0] = /* :: */[
-    com,
-    comment_list[0]
-  ];
+  comment_list[0] = /* constructor */{
+    tag: 0,
+    name: "::",
+    "0": com,
+    "1": comment_list[0]
+  };
   return /* () */0;
 }
 
@@ -13551,171 +16637,263 @@ function report_error$2(ppf, param) {
   if (typeof param === "number") {
     switch (param) {
       case /* Unterminated_string */0 :
-          return Format.fprintf(ppf, /* Format */[
-                      /* String_literal */Block.__(11, [
-                          "String literal not terminated",
-                          /* End_of_format */0
-                        ]),
-                      "String literal not terminated"
-                    ]);
+          return Format.fprintf(ppf, /* constructor */{
+                      tag: 0,
+                      name: "Format",
+                      "0": /* constructor */{
+                        tag: 11,
+                        name: "String_literal",
+                        "0": "String literal not terminated",
+                        "1": /* End_of_format */0
+                      },
+                      "1": "String literal not terminated"
+                    });
       case /* Unterminated_paren_in_conditional */1 :
-          return Format.fprintf(ppf, /* Format */[
-                      /* String_literal */Block.__(11, [
-                          "Unterminated parens in conditional predicate",
-                          /* End_of_format */0
-                        ]),
-                      "Unterminated parens in conditional predicate"
-                    ]);
+          return Format.fprintf(ppf, /* constructor */{
+                      tag: 0,
+                      name: "Format",
+                      "0": /* constructor */{
+                        tag: 11,
+                        name: "String_literal",
+                        "0": "Unterminated parens in conditional predicate",
+                        "1": /* End_of_format */0
+                      },
+                      "1": "Unterminated parens in conditional predicate"
+                    });
       case /* Unterminated_if */2 :
-          return Format.fprintf(ppf, /* Format */[
-                      /* String_literal */Block.__(11, [
-                          "#if not terminated",
-                          /* End_of_format */0
-                        ]),
-                      "#if not terminated"
-                    ]);
+          return Format.fprintf(ppf, /* constructor */{
+                      tag: 0,
+                      name: "Format",
+                      "0": /* constructor */{
+                        tag: 11,
+                        name: "String_literal",
+                        "0": "#if not terminated",
+                        "1": /* End_of_format */0
+                      },
+                      "1": "#if not terminated"
+                    });
       case /* Unterminated_else */3 :
-          return Format.fprintf(ppf, /* Format */[
-                      /* String_literal */Block.__(11, [
-                          "#else not terminated",
-                          /* End_of_format */0
-                        ]),
-                      "#else not terminated"
-                    ]);
+          return Format.fprintf(ppf, /* constructor */{
+                      tag: 0,
+                      name: "Format",
+                      "0": /* constructor */{
+                        tag: 11,
+                        name: "String_literal",
+                        "0": "#else not terminated",
+                        "1": /* End_of_format */0
+                      },
+                      "1": "#else not terminated"
+                    });
       case /* Unexpected_token_in_conditional */4 :
-          return Format.fprintf(ppf, /* Format */[
-                      /* String_literal */Block.__(11, [
-                          "Unexpected token in conditional predicate",
-                          /* End_of_format */0
-                        ]),
-                      "Unexpected token in conditional predicate"
-                    ]);
+          return Format.fprintf(ppf, /* constructor */{
+                      tag: 0,
+                      name: "Format",
+                      "0": /* constructor */{
+                        tag: 11,
+                        name: "String_literal",
+                        "0": "Unexpected token in conditional predicate",
+                        "1": /* End_of_format */0
+                      },
+                      "1": "Unexpected token in conditional predicate"
+                    });
       case /* Expect_hash_then_in_conditional */5 :
-          return Format.fprintf(ppf, /* Format */[
-                      /* String_literal */Block.__(11, [
-                          "Expect `then` after conditional predicate",
-                          /* End_of_format */0
-                        ]),
-                      "Expect `then` after conditional predicate"
-                    ]);
+          return Format.fprintf(ppf, /* constructor */{
+                      tag: 0,
+                      name: "Format",
+                      "0": /* constructor */{
+                        tag: 11,
+                        name: "String_literal",
+                        "0": "Expect `then` after conditional predicate",
+                        "1": /* End_of_format */0
+                      },
+                      "1": "Expect `then` after conditional predicate"
+                    });
       case /* Unexpected_directive */6 :
-          return Format.fprintf(ppf, /* Format */[
-                      /* String_literal */Block.__(11, [
-                          "Unexpected directive",
-                          /* End_of_format */0
-                        ]),
-                      "Unexpected directive"
-                    ]);
+          return Format.fprintf(ppf, /* constructor */{
+                      tag: 0,
+                      name: "Format",
+                      "0": /* constructor */{
+                        tag: 11,
+                        name: "String_literal",
+                        "0": "Unexpected directive",
+                        "1": /* End_of_format */0
+                      },
+                      "1": "Unexpected directive"
+                    });
       
     }
   } else {
     switch (param.tag | 0) {
       case /* Illegal_character */0 :
-          return Curry._1(Format.fprintf(ppf, /* Format */[
-                          /* String_literal */Block.__(11, [
-                              "Illegal character (",
-                              /* String */Block.__(2, [
-                                  /* No_padding */0,
-                                  /* Char_literal */Block.__(12, [
-                                      /* ")" */41,
-                                      /* End_of_format */0
-                                    ])
-                                ])
-                            ]),
-                          "Illegal character (%s)"
-                        ]), Char.escaped(param[0]));
+          return Curry._1(Format.fprintf(ppf, /* constructor */{
+                          tag: 0,
+                          name: "Format",
+                          "0": /* constructor */{
+                            tag: 11,
+                            name: "String_literal",
+                            "0": "Illegal character (",
+                            "1": /* constructor */{
+                              tag: 2,
+                              name: "String",
+                              "0": /* No_padding */0,
+                              "1": /* constructor */{
+                                tag: 12,
+                                name: "Char_literal",
+                                "0": /* ")" */41,
+                                "1": /* End_of_format */0
+                              }
+                            }
+                          },
+                          "1": "Illegal character (%s)"
+                        }), Char.escaped(param[0]));
       case /* Illegal_escape */1 :
-          return Curry._1(Format.fprintf(ppf, /* Format */[
-                          /* String_literal */Block.__(11, [
-                              "Illegal backslash escape in string or character (",
-                              /* String */Block.__(2, [
-                                  /* No_padding */0,
-                                  /* Char_literal */Block.__(12, [
-                                      /* ")" */41,
-                                      /* End_of_format */0
-                                    ])
-                                ])
-                            ]),
-                          "Illegal backslash escape in string or character (%s)"
-                        ]), param[0]);
+          return Curry._1(Format.fprintf(ppf, /* constructor */{
+                          tag: 0,
+                          name: "Format",
+                          "0": /* constructor */{
+                            tag: 11,
+                            name: "String_literal",
+                            "0": "Illegal backslash escape in string or character (",
+                            "1": /* constructor */{
+                              tag: 2,
+                              name: "String",
+                              "0": /* No_padding */0,
+                              "1": /* constructor */{
+                                tag: 12,
+                                name: "Char_literal",
+                                "0": /* ")" */41,
+                                "1": /* End_of_format */0
+                              }
+                            }
+                          },
+                          "1": "Illegal backslash escape in string or character (%s)"
+                        }), param[0]);
       case /* Unterminated_comment */2 :
-          return Format.fprintf(ppf, /* Format */[
-                      /* String_literal */Block.__(11, [
-                          "Comment not terminated",
-                          /* End_of_format */0
-                        ]),
-                      "Comment not terminated"
-                    ]);
+          return Format.fprintf(ppf, /* constructor */{
+                      tag: 0,
+                      name: "Format",
+                      "0": /* constructor */{
+                        tag: 11,
+                        name: "String_literal",
+                        "0": "Comment not terminated",
+                        "1": /* End_of_format */0
+                      },
+                      "1": "Comment not terminated"
+                    });
       case /* Unterminated_string_in_comment */3 :
-          return Curry._2(Format.fprintf(ppf, /* Format */[
-                          /* String_literal */Block.__(11, [
-                              "This comment contains an unterminated string literal",
-                              /* Formatting_lit */Block.__(17, [
-                                  /* Flush_newline */4,
-                                  /* Alpha */Block.__(15, [/* String_literal */Block.__(11, [
-                                          "String literal begins here",
-                                          /* End_of_format */0
-                                        ])])
-                                ])
-                            ]),
-                          "This comment contains an unterminated string literal@.%aString literal begins here"
-                        ]), print_error, param[1]);
+          return Curry._2(Format.fprintf(ppf, /* constructor */{
+                          tag: 0,
+                          name: "Format",
+                          "0": /* constructor */{
+                            tag: 11,
+                            name: "String_literal",
+                            "0": "This comment contains an unterminated string literal",
+                            "1": /* constructor */{
+                              tag: 17,
+                              name: "Formatting_lit",
+                              "0": /* Flush_newline */4,
+                              "1": /* constructor */{
+                                tag: 15,
+                                name: "Alpha",
+                                "0": /* constructor */{
+                                  tag: 11,
+                                  name: "String_literal",
+                                  "0": "String literal begins here",
+                                  "1": /* End_of_format */0
+                                }
+                              }
+                            }
+                          },
+                          "1": "This comment contains an unterminated string literal@.%aString literal begins here"
+                        }), print_error, param[1]);
       case /* Keyword_as_label */4 :
-          return Curry._1(Format.fprintf(ppf, /* Format */[
-                          /* Char_literal */Block.__(12, [
-                              /* "`" */96,
-                              /* String */Block.__(2, [
-                                  /* No_padding */0,
-                                  /* String_literal */Block.__(11, [
-                                      "' is a keyword, it cannot be used as label name",
-                                      /* End_of_format */0
-                                    ])
-                                ])
-                            ]),
-                          "`%s' is a keyword, it cannot be used as label name"
-                        ]), param[0]);
+          return Curry._1(Format.fprintf(ppf, /* constructor */{
+                          tag: 0,
+                          name: "Format",
+                          "0": /* constructor */{
+                            tag: 12,
+                            name: "Char_literal",
+                            "0": /* "`" */96,
+                            "1": /* constructor */{
+                              tag: 2,
+                              name: "String",
+                              "0": /* No_padding */0,
+                              "1": /* constructor */{
+                                tag: 11,
+                                name: "String_literal",
+                                "0": "' is a keyword, it cannot be used as label name",
+                                "1": /* End_of_format */0
+                              }
+                            }
+                          },
+                          "1": "`%s' is a keyword, it cannot be used as label name"
+                        }), param[0]);
       case /* Literal_overflow */5 :
-          return Curry._1(Format.fprintf(ppf, /* Format */[
-                          /* String_literal */Block.__(11, [
-                              "Integer literal exceeds the range of representable integers of type ",
-                              /* String */Block.__(2, [
-                                  /* No_padding */0,
-                                  /* End_of_format */0
-                                ])
-                            ]),
-                          "Integer literal exceeds the range of representable integers of type %s"
-                        ]), param[0]);
+          return Curry._1(Format.fprintf(ppf, /* constructor */{
+                          tag: 0,
+                          name: "Format",
+                          "0": /* constructor */{
+                            tag: 11,
+                            name: "String_literal",
+                            "0": "Integer literal exceeds the range of representable integers of type ",
+                            "1": /* constructor */{
+                              tag: 2,
+                              name: "String",
+                              "0": /* No_padding */0,
+                              "1": /* End_of_format */0
+                            }
+                          },
+                          "1": "Integer literal exceeds the range of representable integers of type %s"
+                        }), param[0]);
       case /* Illegal_semver */6 :
-          return Curry._1(Format.fprintf(ppf, /* Format */[
-                          /* String_literal */Block.__(11, [
-                              "Illegal semantic version string ",
-                              /* String */Block.__(2, [
-                                  /* No_padding */0,
-                                  /* End_of_format */0
-                                ])
-                            ]),
-                          "Illegal semantic version string %s"
-                        ]), param[0]);
+          return Curry._1(Format.fprintf(ppf, /* constructor */{
+                          tag: 0,
+                          name: "Format",
+                          "0": /* constructor */{
+                            tag: 11,
+                            name: "String_literal",
+                            "0": "Illegal semantic version string ",
+                            "1": /* constructor */{
+                              tag: 2,
+                              name: "String",
+                              "0": /* No_padding */0,
+                              "1": /* End_of_format */0
+                            }
+                          },
+                          "1": "Illegal semantic version string %s"
+                        }), param[0]);
       case /* Conditional_expr_expected_type */7 :
-          return Curry._2(Format.fprintf(ppf, /* Format */[
-                          /* String_literal */Block.__(11, [
-                              "Conditional expression type mismatch (",
-                              /* String */Block.__(2, [
-                                  /* No_padding */0,
-                                  /* Char_literal */Block.__(12, [
-                                      /* "," */44,
-                                      /* String */Block.__(2, [
-                                          /* No_padding */0,
-                                          /* Char_literal */Block.__(12, [
-                                              /* ")" */41,
-                                              /* End_of_format */0
-                                            ])
-                                        ])
-                                    ])
-                                ])
-                            ]),
-                          "Conditional expression type mismatch (%s,%s)"
-                        ]), string_of_type_directive(param[0]), string_of_type_directive(param[1]));
+          return Curry._2(Format.fprintf(ppf, /* constructor */{
+                          tag: 0,
+                          name: "Format",
+                          "0": /* constructor */{
+                            tag: 11,
+                            name: "String_literal",
+                            "0": "Conditional expression type mismatch (",
+                            "1": /* constructor */{
+                              tag: 2,
+                              name: "String",
+                              "0": /* No_padding */0,
+                              "1": /* constructor */{
+                                tag: 12,
+                                name: "Char_literal",
+                                "0": /* "," */44,
+                                "1": /* constructor */{
+                                  tag: 2,
+                                  name: "String",
+                                  "0": /* No_padding */0,
+                                  "1": /* constructor */{
+                                    tag: 12,
+                                    name: "Char_literal",
+                                    "0": /* ")" */41,
+                                    "1": /* End_of_format */0
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "1": "Conditional expression type mismatch (%s,%s)"
+                        }), string_of_type_directive(param[0]), string_of_type_directive(param[1]));
       
     }
   }
@@ -13754,7 +16932,11 @@ function token(lexbuf) {
           if (!escaped_newlines[0]) {
             throw [
                   $$Error$2,
-                  /* Illegal_character */Block.__(0, [Lexing.lexeme_char(lexbuf$1, 0)]),
+                  /* constructor */{
+                    tag: 0,
+                    name: "Illegal_character",
+                    "0": Lexing.lexeme_char(lexbuf$1, 0)
+                  },
                   curr(lexbuf$1)
                 ];
           }
@@ -13770,17 +16952,41 @@ function token(lexbuf) {
       case 4 :
           return /* TILDE */89;
       case 5 :
-          return /* LABEL */Block.__(10, [get_label_name(lexbuf$1)]);
+          return /* constructor */{
+                  tag: 10,
+                  name: "LABEL",
+                  "0": get_label_name(lexbuf$1)
+                };
       case 6 :
-          prerr_warning(curr(lexbuf$1), /* Deprecated */Block.__(0, ["ISO-Latin1 characters in identifiers"]));
-          return /* LABEL */Block.__(10, [get_label_name(lexbuf$1)]);
+          prerr_warning(curr(lexbuf$1), /* constructor */{
+                tag: 0,
+                name: "Deprecated",
+                "0": "ISO-Latin1 characters in identifiers"
+              });
+          return /* constructor */{
+                  tag: 10,
+                  name: "LABEL",
+                  "0": get_label_name(lexbuf$1)
+                };
       case 7 :
           return /* QUESTION */76;
       case 8 :
-          return /* OPTLABEL */Block.__(13, [get_label_name(lexbuf$1)]);
+          return /* constructor */{
+                  tag: 13,
+                  name: "OPTLABEL",
+                  "0": get_label_name(lexbuf$1)
+                };
       case 9 :
-          prerr_warning(curr(lexbuf$1), /* Deprecated */Block.__(0, ["ISO-Latin1 characters in identifiers"]));
-          return /* OPTLABEL */Block.__(13, [get_label_name(lexbuf$1)]);
+          prerr_warning(curr(lexbuf$1), /* constructor */{
+                tag: 0,
+                name: "Deprecated",
+                "0": "ISO-Latin1 characters in identifiers"
+              });
+          return /* constructor */{
+                  tag: 13,
+                  name: "OPTLABEL",
+                  "0": get_label_name(lexbuf$1)
+                };
       case 10 :
           var s = Lexing.lexeme(lexbuf$1);
           try {
@@ -13788,46 +16994,90 @@ function token(lexbuf) {
           }
           catch (exn){
             if (exn === Caml_builtin_exceptions.not_found) {
-              return /* LIDENT */Block.__(11, [s]);
+              return /* constructor */{
+                      tag: 11,
+                      name: "LIDENT",
+                      "0": s
+                    };
             } else {
               throw exn;
             }
           }
       case 11 :
-          prerr_warning(curr(lexbuf$1), /* Deprecated */Block.__(0, ["ISO-Latin1 characters in identifiers"]));
-          return /* LIDENT */Block.__(11, [Lexing.lexeme(lexbuf$1)]);
+          prerr_warning(curr(lexbuf$1), /* constructor */{
+                tag: 0,
+                name: "Deprecated",
+                "0": "ISO-Latin1 characters in identifiers"
+              });
+          return /* constructor */{
+                  tag: 11,
+                  name: "LIDENT",
+                  "0": Lexing.lexeme(lexbuf$1)
+                };
       case 12 :
-          return /* UIDENT */Block.__(17, [Lexing.lexeme(lexbuf$1)]);
+          return /* constructor */{
+                  tag: 17,
+                  name: "UIDENT",
+                  "0": Lexing.lexeme(lexbuf$1)
+                };
       case 13 :
-          prerr_warning(curr(lexbuf$1), /* Deprecated */Block.__(0, ["ISO-Latin1 characters in identifiers"]));
-          return /* UIDENT */Block.__(17, [Lexing.lexeme(lexbuf$1)]);
+          prerr_warning(curr(lexbuf$1), /* constructor */{
+                tag: 0,
+                name: "Deprecated",
+                "0": "ISO-Latin1 characters in identifiers"
+              });
+          return /* constructor */{
+                  tag: 17,
+                  name: "UIDENT",
+                  "0": Lexing.lexeme(lexbuf$1)
+                };
       case 14 :
           try {
-            return /* INT */Block.__(7, [cvt_int_literal(Lexing.lexeme(lexbuf$1))]);
+            return /* constructor */{
+                    tag: 7,
+                    name: "INT",
+                    "0": cvt_int_literal(Lexing.lexeme(lexbuf$1))
+                  };
           }
           catch (raw_exn){
             var exn$1 = Caml_js_exceptions.internalToOCamlException(raw_exn);
             if (exn$1[0] === Caml_builtin_exceptions.failure) {
               throw [
                     $$Error$2,
-                    /* Literal_overflow */Block.__(5, ["int"]),
+                    /* constructor */{
+                      tag: 5,
+                      name: "Literal_overflow",
+                      "0": "int"
+                    },
                     curr(lexbuf$1)
                   ];
             }
             throw exn$1;
           }
       case 15 :
-          return /* FLOAT */Block.__(1, [remove_underscores(Lexing.lexeme(lexbuf$1))]);
+          return /* constructor */{
+                  tag: 1,
+                  name: "FLOAT",
+                  "0": remove_underscores(Lexing.lexeme(lexbuf$1))
+                };
       case 16 :
           try {
-            return /* INT32 */Block.__(8, [cvt_int32_literal(Lexing.lexeme(lexbuf$1))]);
+            return /* constructor */{
+                    tag: 8,
+                    name: "INT32",
+                    "0": cvt_int32_literal(Lexing.lexeme(lexbuf$1))
+                  };
           }
           catch (raw_exn$1){
             var exn$2 = Caml_js_exceptions.internalToOCamlException(raw_exn$1);
             if (exn$2[0] === Caml_builtin_exceptions.failure) {
               throw [
                     $$Error$2,
-                    /* Literal_overflow */Block.__(5, ["int32"]),
+                    /* constructor */{
+                      tag: 5,
+                      name: "Literal_overflow",
+                      "0": "int32"
+                    },
                     curr(lexbuf$1)
                   ];
             }
@@ -13835,14 +17085,22 @@ function token(lexbuf) {
           }
       case 17 :
           try {
-            return /* INT64 */Block.__(9, [cvt_int64_literal(Lexing.lexeme(lexbuf$1))]);
+            return /* constructor */{
+                    tag: 9,
+                    name: "INT64",
+                    "0": cvt_int64_literal(Lexing.lexeme(lexbuf$1))
+                  };
           }
           catch (raw_exn$2){
             var exn$3 = Caml_js_exceptions.internalToOCamlException(raw_exn$2);
             if (exn$3[0] === Caml_builtin_exceptions.failure) {
               throw [
                     $$Error$2,
-                    /* Literal_overflow */Block.__(5, ["int64"]),
+                    /* constructor */{
+                      tag: 5,
+                      name: "Literal_overflow",
+                      "0": "int64"
+                    },
                     curr(lexbuf$1)
                   ];
             }
@@ -13850,14 +17108,22 @@ function token(lexbuf) {
           }
       case 18 :
           try {
-            return /* NATIVEINT */Block.__(12, [cvt_nativeint_literal(Lexing.lexeme(lexbuf$1))]);
+            return /* constructor */{
+                    tag: 12,
+                    name: "NATIVEINT",
+                    "0": cvt_nativeint_literal(Lexing.lexeme(lexbuf$1))
+                  };
           }
           catch (raw_exn$3){
             var exn$4 = Caml_js_exceptions.internalToOCamlException(raw_exn$3);
             if (exn$4[0] === Caml_builtin_exceptions.failure) {
               throw [
                     $$Error$2,
-                    /* Literal_overflow */Block.__(5, ["nativeint"]),
+                    /* constructor */{
+                      tag: 5,
+                      name: "Literal_overflow",
+                      "0": "nativeint"
+                    },
                     curr(lexbuf$1)
                   ];
             }
@@ -13871,10 +17137,14 @@ function token(lexbuf) {
           string(lexbuf$1);
           is_in_string[0] = false;
           lexbuf$1[/* lex_start_p */10] = string_start;
-          return /* STRING */Block.__(16, [/* tuple */[
-                      get_stored_string(/* () */0),
-                      undefined
-                    ]]);
+          return /* constructor */{
+                  tag: 16,
+                  name: "STRING",
+                  "0": /* tuple */[
+                    get_stored_string(/* () */0),
+                    undefined
+                  ]
+                };
       case 20 :
           reset_string_buffer(/* () */0);
           var delim = Lexing.lexeme(lexbuf$1);
@@ -13885,38 +17155,74 @@ function token(lexbuf) {
           __ocaml_lex_quoted_string_rec(delim$1, lexbuf$1, 183);
           is_in_string[0] = false;
           lexbuf$1[/* lex_start_p */10] = string_start$1;
-          return /* STRING */Block.__(16, [/* tuple */[
-                      get_stored_string(/* () */0),
-                      delim$1
-                    ]]);
+          return /* constructor */{
+                  tag: 16,
+                  name: "STRING",
+                  "0": /* tuple */[
+                    get_stored_string(/* () */0),
+                    delim$1
+                  ]
+                };
       case 21 :
           update_loc(lexbuf$1, undefined, 1, false, 1);
-          return /* CHAR */Block.__(0, [Lexing.lexeme_char(lexbuf$1, 1)]);
+          return /* constructor */{
+                  tag: 0,
+                  name: "CHAR",
+                  "0": Lexing.lexeme_char(lexbuf$1, 1)
+                };
       case 22 :
-          return /* CHAR */Block.__(0, [Lexing.lexeme_char(lexbuf$1, 1)]);
+          return /* constructor */{
+                  tag: 0,
+                  name: "CHAR",
+                  "0": Lexing.lexeme_char(lexbuf$1, 1)
+                };
       case 23 :
-          return /* CHAR */Block.__(0, [char_for_backslash(Lexing.lexeme_char(lexbuf$1, 2))]);
+          return /* constructor */{
+                  tag: 0,
+                  name: "CHAR",
+                  "0": char_for_backslash(Lexing.lexeme_char(lexbuf$1, 2))
+                };
       case 24 :
-          return /* CHAR */Block.__(0, [char_for_decimal_code(lexbuf$1, 2)]);
+          return /* constructor */{
+                  tag: 0,
+                  name: "CHAR",
+                  "0": char_for_decimal_code(lexbuf$1, 2)
+                };
       case 25 :
-          return /* CHAR */Block.__(0, [char_for_hexadecimal_code(lexbuf$1, 3)]);
+          return /* constructor */{
+                  tag: 0,
+                  name: "CHAR",
+                  "0": char_for_hexadecimal_code(lexbuf$1, 3)
+                };
       case 26 :
           var l = Lexing.lexeme(lexbuf$1);
           var esc = $$String.sub(l, 1, l.length - 1 | 0);
           throw [
                 $$Error$2,
-                /* Illegal_escape */Block.__(1, [esc]),
+                /* constructor */{
+                  tag: 1,
+                  name: "Illegal_escape",
+                  "0": esc
+                },
                 curr(lexbuf$1)
               ];
       case 27 :
           var match = with_comment_buffer(comment, lexbuf$1);
-          return /* COMMENT */Block.__(18, [/* tuple */[
-                      match[0],
-                      match[1]
-                    ]]);
+          return /* constructor */{
+                  tag: 18,
+                  name: "COMMENT",
+                  "0": /* tuple */[
+                    match[0],
+                    match[1]
+                  ]
+                };
       case 28 :
           var match$1 = with_comment_buffer(comment, lexbuf$1);
-          return /* DOCSTRING */Block.__(19, [docstring(match$1[0], match$1[1])]);
+          return /* constructor */{
+                  tag: 19,
+                  name: "DOCSTRING",
+                  "0": docstring(match$1[0], match$1[1])
+                };
       case 29 :
           var stars = Lexing.sub_lexeme(lexbuf$1, lexbuf$1[/* lex_start_pos */4], lexbuf$1[/* lex_curr_pos */5]);
           var match$2 = with_comment_buffer((function(stars){
@@ -13925,25 +17231,37 @@ function token(lexbuf) {
                 return __ocaml_lex_comment_rec(lexbuf, 132);
               }
               }(stars)), lexbuf$1);
-          return /* COMMENT */Block.__(18, [/* tuple */[
-                      match$2[0],
-                      match$2[1]
-                    ]]);
+          return /* constructor */{
+                  tag: 18,
+                  name: "COMMENT",
+                  "0": /* tuple */[
+                    match$2[0],
+                    match$2[1]
+                  ]
+                };
       case 30 :
           if (print_warnings[0]) {
             prerr_warning(curr(lexbuf$1), /* Comment_start */0);
           }
           var match$3 = with_comment_buffer(comment, lexbuf$1);
-          return /* COMMENT */Block.__(18, [/* tuple */[
-                      match$3[0],
-                      match$3[1]
-                    ]]);
+          return /* constructor */{
+                  tag: 18,
+                  name: "COMMENT",
+                  "0": /* tuple */[
+                    match$3[0],
+                    match$3[1]
+                  ]
+                };
       case 31 :
           var stars$1 = Lexing.sub_lexeme(lexbuf$1, lexbuf$1[/* lex_start_pos */4], lexbuf$1[/* lex_curr_pos */5] - 2 | 0);
-          return /* COMMENT */Block.__(18, [/* tuple */[
-                      stars$1,
-                      curr(lexbuf$1)
-                    ]]);
+          return /* constructor */{
+                  tag: 18,
+                  name: "COMMENT",
+                  "0": /* tuple */[
+                    stars$1,
+                    curr(lexbuf$1)
+                  ]
+                };
       case 32 :
           var loc = curr(lexbuf$1);
           prerr_warning(loc, /* Comment_not_end */1);
@@ -14044,7 +17362,11 @@ function token(lexbuf) {
       case 74 :
           return /* BANG */6;
       case 75 :
-          return /* INFIXOP0 */Block.__(2, ["!="]);
+          return /* constructor */{
+                  tag: 2,
+                  name: "INFIXOP0",
+                  "0": "!="
+                };
       case 76 :
           return /* PLUS */72;
       case 77 :
@@ -14057,21 +17379,49 @@ function token(lexbuf) {
           return /* MINUSDOT */61;
       case 81 :
       case 82 :
-          return /* PREFIXOP */Block.__(14, [Lexing.lexeme(lexbuf$1)]);
+          return /* constructor */{
+                  tag: 14,
+                  name: "PREFIXOP",
+                  "0": Lexing.lexeme(lexbuf$1)
+                };
       case 83 :
-          return /* INFIXOP0 */Block.__(2, [Lexing.lexeme(lexbuf$1)]);
+          return /* constructor */{
+                  tag: 2,
+                  name: "INFIXOP0",
+                  "0": Lexing.lexeme(lexbuf$1)
+                };
       case 84 :
-          return /* INFIXOP1 */Block.__(3, [Lexing.lexeme(lexbuf$1)]);
+          return /* constructor */{
+                  tag: 3,
+                  name: "INFIXOP1",
+                  "0": Lexing.lexeme(lexbuf$1)
+                };
       case 85 :
-          return /* INFIXOP2 */Block.__(4, [Lexing.lexeme(lexbuf$1)]);
+          return /* constructor */{
+                  tag: 4,
+                  name: "INFIXOP2",
+                  "0": Lexing.lexeme(lexbuf$1)
+                };
       case 86 :
-          return /* INFIXOP4 */Block.__(6, [Lexing.lexeme(lexbuf$1)]);
+          return /* constructor */{
+                  tag: 6,
+                  name: "INFIXOP4",
+                  "0": Lexing.lexeme(lexbuf$1)
+                };
       case 87 :
           return /* PERCENT */71;
       case 88 :
-          return /* INFIXOP3 */Block.__(5, [Lexing.lexeme(lexbuf$1)]);
+          return /* constructor */{
+                  tag: 5,
+                  name: "INFIXOP3",
+                  "0": Lexing.lexeme(lexbuf$1)
+                };
       case 89 :
-          return /* SHARPOP */Block.__(15, [Lexing.lexeme(lexbuf$1)]);
+          return /* constructor */{
+                  tag: 15,
+                  name: "SHARPOP",
+                  "0": Lexing.lexeme(lexbuf$1)
+                };
       case 90 :
           if (if_then_else[0] !== /* Dir_out */2) {
             if (if_then_else[0] === /* Dir_if_true */0) {
@@ -14092,7 +17442,11 @@ function token(lexbuf) {
       case 91 :
           throw [
                 $$Error$2,
-                /* Illegal_character */Block.__(0, [Lexing.lexeme_char(lexbuf$1, 0)]),
+                /* constructor */{
+                  tag: 0,
+                  name: "Illegal_character",
+                  "0": Lexing.lexeme_char(lexbuf$1, 0)
+                },
                 curr(lexbuf$1)
               ];
       default:
@@ -14109,10 +17463,12 @@ function __ocaml_lex_comment_rec(lexbuf, ___ocaml_lex_state) {
     var __ocaml_lex_state$1 = Lexing.engine(__ocaml_lex_tables, __ocaml_lex_state, lexbuf);
     switch (__ocaml_lex_state$1) {
       case 0 :
-          comment_start_loc[0] = /* :: */[
-            curr(lexbuf),
-            comment_start_loc[0]
-          ];
+          comment_start_loc[0] = /* constructor */{
+            tag: 0,
+            name: "::",
+            "0": curr(lexbuf),
+            "1": comment_start_loc[0]
+          };
           store_string(Lexing.lexeme(lexbuf));
           ___ocaml_lex_state = 132;
           continue ;
@@ -14160,10 +17516,12 @@ function __ocaml_lex_comment_rec(lexbuf, ___ocaml_lex_state) {
                   comment_start_loc[0] = /* [] */0;
                   throw [
                         $$Error$2,
-                        /* Unterminated_string_in_comment */Block.__(3, [
-                            start,
-                            exn[2]
-                          ]),
+                        /* constructor */{
+                          tag: 3,
+                          name: "Unterminated_string_in_comment",
+                          "0": start,
+                          "1": exn[2]
+                        },
                         match$2[0]
                       ];
                 } else {
@@ -14210,10 +17568,12 @@ function __ocaml_lex_comment_rec(lexbuf, ___ocaml_lex_state) {
                   comment_start_loc[0] = /* [] */0;
                   throw [
                         $$Error$2,
-                        /* Unterminated_string_in_comment */Block.__(3, [
-                            start$1,
-                            exn$1[2]
-                          ]),
+                        /* constructor */{
+                          tag: 3,
+                          name: "Unterminated_string_in_comment",
+                          "0": start$1,
+                          "1": exn$1[2]
+                        },
                         match$4[0]
                       ];
                 } else {
@@ -14251,7 +17611,11 @@ function __ocaml_lex_comment_rec(lexbuf, ___ocaml_lex_state) {
             comment_start_loc[0] = /* [] */0;
             throw [
                   $$Error$2,
-                  /* Unterminated_comment */Block.__(2, [start$2]),
+                  /* constructor */{
+                    tag: 2,
+                    name: "Unterminated_comment",
+                    "0": start$2
+                  },
                   match$5[0]
                 ];
           } else {
@@ -14649,49 +18013,77 @@ function token$1(lexbuf) {
               add_docstring_comment(doc);
               var docs$prime;
               if (typeof docs === "number") {
-                docs$prime = lines >= 2 ? /* Before */Block.__(1, [
-                      /* [] */0,
-                      /* [] */0,
-                      /* :: */[
-                        doc,
-                        /* [] */0
-                      ]
-                    ]) : /* After */Block.__(0, [/* :: */[
-                        doc,
-                        /* [] */0
-                      ]]);
+                docs$prime = lines >= 2 ? /* constructor */({
+                      tag: 1,
+                      name: "Before",
+                      "0": /* [] */0,
+                      "1": /* [] */0,
+                      "2": /* constructor */{
+                        tag: 0,
+                        name: "::",
+                        "0": doc,
+                        "1": /* [] */0
+                      }
+                    }) : /* constructor */({
+                      tag: 0,
+                      name: "After",
+                      "0": /* constructor */{
+                        tag: 0,
+                        name: "::",
+                        "0": doc,
+                        "1": /* [] */0
+                      }
+                    });
               } else if (docs.tag) {
                 var b = docs[2];
                 var f = docs[1];
                 var a = docs[0];
-                docs$prime = lines >= 2 ? /* Before */Block.__(1, [
-                      a,
-                      Pervasives.$at(b, f),
-                      /* :: */[
-                        doc,
-                        /* [] */0
-                      ]
-                    ]) : /* Before */Block.__(1, [
-                      a,
-                      f,
-                      /* :: */[
-                        doc,
-                        b
-                      ]
-                    ]);
+                docs$prime = lines >= 2 ? /* constructor */({
+                      tag: 1,
+                      name: "Before",
+                      "0": a,
+                      "1": Pervasives.$at(b, f),
+                      "2": /* constructor */{
+                        tag: 0,
+                        name: "::",
+                        "0": doc,
+                        "1": /* [] */0
+                      }
+                    }) : /* constructor */({
+                      tag: 1,
+                      name: "Before",
+                      "0": a,
+                      "1": f,
+                      "2": /* constructor */{
+                        tag: 0,
+                        name: "::",
+                        "0": doc,
+                        "1": b
+                      }
+                    });
               } else {
                 var a$1 = docs[0];
-                docs$prime = lines >= 2 ? /* Before */Block.__(1, [
-                      a$1,
-                      /* [] */0,
-                      /* :: */[
-                        doc,
-                        /* [] */0
-                      ]
-                    ]) : /* After */Block.__(0, [/* :: */[
-                        doc,
-                        a$1
-                      ]]);
+                docs$prime = lines >= 2 ? /* constructor */({
+                      tag: 1,
+                      name: "Before",
+                      "0": a$1,
+                      "1": /* [] */0,
+                      "2": /* constructor */{
+                        tag: 0,
+                        name: "::",
+                        "0": doc,
+                        "1": /* [] */0
+                      }
+                    }) : /* constructor */({
+                      tag: 0,
+                      name: "After",
+                      "0": /* constructor */{
+                        tag: 0,
+                        name: "::",
+                        "0": doc,
+                        "1": a$1
+                      }
+                    });
               }
               _docs = docs$prime;
               _lines = /* NoLine */0;
@@ -14738,13 +18130,15 @@ function filter_directive(pos, acc, lexbuf) {
           var start_pos = lexbuf[/* lex_start_p */10][/* pos_cnum */3];
           return interpret_directive(lexbuf, (function(start_pos){
                     return function (lexbuf) {
-                      return filter_directive(lexbuf[/* lex_curr_p */11][/* pos_cnum */3], /* :: */[
-                                  /* tuple */[
+                      return filter_directive(lexbuf[/* lex_curr_p */11][/* pos_cnum */3], /* constructor */{
+                                  tag: 0,
+                                  name: "::",
+                                  "0": /* tuple */[
                                     pos,
                                     start_pos
                                   ],
-                                  acc
-                                ], lexbuf);
+                                  "1": acc
+                                }, lexbuf);
                     }
                     }(start_pos)), (function (_token) {
                         return filter_directive(pos, acc, lexbuf);
@@ -14753,13 +18147,15 @@ function filter_directive(pos, acc, lexbuf) {
           continue ;
         }
       } else {
-        return /* :: */[
-                /* tuple */[
+        return /* constructor */{
+                tag: 0,
+                name: "::",
+                "0": /* tuple */[
                   pos,
                   lexbuf[/* lex_curr_p */11][/* pos_cnum */3]
                 ],
-                acc
-              ];
+                "1": acc
+              };
       }
     } else {
       continue ;
@@ -14888,7 +18284,11 @@ function wrap(parsing_fun, lexbuf) {
     }
     throw [
           $$Error$1,
-          /* Other */Block.__(5, [loc])
+          /* constructor */{
+            tag: 5,
+            name: "Other",
+            "0": loc
+          }
         ];
   }
 }

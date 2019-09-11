@@ -1,6 +1,5 @@
 'use strict';
 
-var Block = require("../../lib/js/block.js");
 var Curry = require("../../lib/js/curry.js");
 var Caml_obj = require("../../lib/js/caml_obj.js");
 var Caml_exceptions = require("../../lib/js/caml_exceptions.js");
@@ -140,17 +139,27 @@ var a1 = /* A1 */0;
 
 var a2 = /* A2 */1;
 
-var b = /* B */Block.__(0, [34]);
+var b = /* constructor */{
+  tag: 0,
+  name: "B",
+  "0": 34
+};
 
-var c = /* C */Block.__(1, [
+var c = /* constructor */{
+  tag: 1,
+  name: "C",
+  "0": 4,
+  "1": 2
+};
+
+var d = /* constructor */{
+  tag: 2,
+  name: "D",
+  "0": /* tuple */[
     4,
     2
-  ]);
-
-var d = /* D */Block.__(2, [/* tuple */[
-      4,
-      2
-    ]]);
+  ]
+};
 
 exports.a1 = a1;
 exports.a2 = a2;

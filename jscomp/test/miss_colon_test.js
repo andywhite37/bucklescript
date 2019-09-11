@@ -1,6 +1,5 @@
 'use strict';
 
-var Block = require("../../lib/js/block.js");
 var Caml_int32 = require("../../lib/js/caml_int32.js");
 
 function $plus$colon(_f, _g) {
@@ -15,16 +14,22 @@ function $plus$colon(_f, _g) {
         }
         
       } else {
-        return /* Int */Block.__(0, [n + g[0] | 0]);
+        return /* constructor */{
+                tag: 0,
+                name: "Int",
+                "0": n + g[0] | 0
+              };
       }
     }
     switch (g.tag | 0) {
       case /* Int */0 :
           if (g[0] !== 0) {
-            return /* Add */Block.__(2, [
-                      f,
-                      g
-                    ]);
+            return /* constructor */{
+                    tag: 2,
+                    name: "Add",
+                    "0": f,
+                    "1": g
+                  };
           } else {
             return f;
           }
@@ -34,10 +39,12 @@ function $plus$colon(_f, _g) {
           continue ;
       case /* Var */1 :
       case /* Mul */3 :
-          return /* Add */Block.__(2, [
-                    f,
-                    g
-                  ]);
+          return /* constructor */{
+                  tag: 2,
+                  name: "Add",
+                  "0": f,
+                  "1": g
+                };
       
     }
   };
@@ -57,17 +64,29 @@ function $star$colon(_f, _g) {
         if (n !== 0) {
           exit$1 = 3;
         } else {
-          return /* Int */Block.__(0, [0]);
+          return /* constructor */{
+                  tag: 0,
+                  name: "Int",
+                  "0": 0
+                };
         }
       } else {
-        return /* Int */Block.__(0, [Caml_int32.imul(n, g[0])]);
+        return /* constructor */{
+                tag: 0,
+                name: "Int",
+                "0": Caml_int32.imul(n, g[0])
+              };
       }
     }
     if (exit$1 === 3) {
       if (g.tag || g[0] !== 0) {
         exit = 2;
       } else {
-        return /* Int */Block.__(0, [0]);
+        return /* constructor */{
+                tag: 0,
+                name: "Int",
+                "0": 0
+              };
       }
     }
     if (exit === 2 && !f.tag && f[0] === 1) {
@@ -76,19 +95,23 @@ function $star$colon(_f, _g) {
     switch (g.tag | 0) {
       case /* Int */0 :
           if (g[0] !== 1) {
-            return /* Mul */Block.__(3, [
-                      f,
-                      g
-                    ]);
+            return /* constructor */{
+                    tag: 3,
+                    name: "Mul",
+                    "0": f,
+                    "1": g
+                  };
           } else {
             return f;
           }
       case /* Var */1 :
       case /* Add */2 :
-          return /* Mul */Block.__(3, [
-                    f,
-                    g
-                  ]);
+          return /* constructor */{
+                  tag: 3,
+                  name: "Mul",
+                  "0": f,
+                  "1": g
+                };
       case /* Mul */3 :
           _g = g[1];
           _f = $star$colon(f, g[0]);
