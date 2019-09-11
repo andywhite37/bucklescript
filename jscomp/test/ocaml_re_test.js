@@ -733,7 +733,7 @@ function seq$1(ids, kind, x, y) {
 
 function is_eps(expr) {
   var match = expr[/* def */1];
-  if (typeof match === "number") {
+  if (typeof match === "string") {
     return true;
   } else {
     return false;
@@ -899,7 +899,7 @@ function tseq(kind, x, y, rem) {
     var match = x[0];
     switch (/* XXX */match.tag) {
       case "TExp" :
-          if (typeof match[1][/* def */1] === "number" && !x[1]) {
+          if (typeof match[1][/* def */1] === "string" && !x[1]) {
             return /* constructor */{
                     tag: "::",
                     "0": /* constructor */{
@@ -1096,7 +1096,7 @@ function remove_duplicates(prev, _l, y) {
                   ];
         case "TExp" :
             var x$2 = x[1];
-            if (typeof x$2[/* def */1] === "number") {
+            if (typeof x$2[/* def */1] === "string") {
               var r = l[1];
               if (List.memq(y[/* id */0], prev)) {
                 _l = r;
@@ -1529,7 +1529,7 @@ var unknown_state = /* record */[
 
 function mk_state(ncol, desc) {
   var match = status(desc);
-  var break_state = typeof match === "number" ? match === 0 : true;
+  var break_state = typeof match === "string" ? match === 0 : true;
   return /* record */[
           /* idx */break_state ? -3 : desc[/* idx */0],
           /* real_idx */desc[/* idx */0],
@@ -1982,61 +1982,61 @@ function equal$2(_x1, _x2) {
     if (typeof x1 === "string") {
       switch (x1) {
         case "Beg_of_line" :
-            if (typeof x2 === "number") {
+            if (typeof x2 === "string") {
               return x2 === 0;
             } else {
               return false;
             }
         case "End_of_line" :
-            if (typeof x2 === "number") {
+            if (typeof x2 === "string") {
               return x2 === 1;
             } else {
               return false;
             }
         case "Beg_of_word" :
-            if (typeof x2 === "number") {
+            if (typeof x2 === "string") {
               return x2 === 2;
             } else {
               return false;
             }
         case "End_of_word" :
-            if (typeof x2 === "number") {
+            if (typeof x2 === "string") {
               return x2 === 3;
             } else {
               return false;
             }
         case "Not_bound" :
-            if (typeof x2 === "number") {
+            if (typeof x2 === "string") {
               return x2 === 4;
             } else {
               return false;
             }
         case "Beg_of_str" :
-            if (typeof x2 === "number") {
+            if (typeof x2 === "string") {
               return x2 === 5;
             } else {
               return false;
             }
         case "End_of_str" :
-            if (typeof x2 === "number") {
+            if (typeof x2 === "string") {
               return x2 === 6;
             } else {
               return false;
             }
         case "Last_end_of_line" :
-            if (typeof x2 === "number") {
+            if (typeof x2 === "string") {
               return x2 === 7;
             } else {
               return false;
             }
         case "Start" :
-            if (typeof x2 === "number") {
+            if (typeof x2 === "string") {
               return x2 === 8;
             } else {
               return false;
             }
         case "Stop" :
-            if (typeof x2 === "number") {
+            if (typeof x2 === "string") {
               return x2 >= 9;
             } else {
               return false;
@@ -3332,7 +3332,7 @@ function exec_internal(name, $staropt$star, $staropt$star$1, groups, re, s) {
     }
     res = match[1];
   }
-  if (typeof res === "number") {
+  if (typeof res === "string") {
     if (res !== 0) {
       return "Running";
     } else {
@@ -4261,7 +4261,7 @@ function exec(rex, pos, s) {
   var re = rex;
   var s$1 = s;
   var match = exec_internal("Re.exec", pos$1, len, true, re, s$1);
-  if (typeof match === "number") {
+  if (typeof match === "string") {
     throw Caml_builtin_exceptions.not_found;
   }
   return match[0];

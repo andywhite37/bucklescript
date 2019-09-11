@@ -86,7 +86,7 @@ function btwn_exclusive(loc1, loc2) {
 }
 
 function string_of_filename(param) {
-  if (typeof param === "number") {
+  if (typeof param === "string") {
     return "(global)";
   } else {
     return param[0];
@@ -5231,7 +5231,7 @@ function init_env($staropt$star, $staropt$star$1, source, content) {
   var lb = Lexing.from_string(content);
   if (source !== undefined) {
     var match = source;
-    if (typeof match !== "number") {
+    if (typeof match !== "string") {
       var init = lb[/* lex_curr_p */11];
       lb[/* lex_curr_p */11] = /* record */[
         /* pos_fname */match[0],
@@ -5526,7 +5526,7 @@ function is_line_terminator(env) {
 
 function is_implicit_semicolon(env) {
   var match = token$2(undefined, env);
-  if (typeof match === "number") {
+  if (typeof match === "string") {
     var switcher = match - 3 | 0;
     if (switcher > 101 || switcher < 0) {
       if ((switcher + 1 >>> 0) > 103) {
@@ -5558,7 +5558,7 @@ function is_identifier($staropt$star, env) {
   var match = token$2(i, env);
   if (is_strict_reserved(name) || is_restricted(name) || is_future_reserved(name)) {
     return true;
-  } else if (typeof match === "number") {
+  } else if (typeof match === "string") {
     var switcher = match - 1 | 0;
     if (switcher > 56 || switcher < 0) {
       return switcher < 62;
@@ -5584,7 +5584,7 @@ function is_function($staropt$star, env) {
 function is_class($staropt$star, env) {
   var i = $staropt$star !== undefined ? $staropt$star : 0;
   var match = token$2(i, env);
-  if (typeof match === "number") {
+  if (typeof match === "string") {
     if (match !== 12) {
       return match === 38;
     } else {
@@ -6448,7 +6448,7 @@ function union(env) {
 
 function prefix(env) {
   var match = Curry._2(Parser_env_Peek.token, undefined, env);
-  if (typeof match === "number" && match === 76) {
+  if (typeof match === "string" && match === 76) {
     var loc = Curry._2(Parser_env_Peek.loc, undefined, env);
     token$4(env, "T_PLING");
     var t = prefix(env);
@@ -6467,7 +6467,7 @@ function prefix(env) {
 }
 
 function primitive(param) {
-  if (typeof param === "number") {
+  if (typeof param === "string") {
     if (param !== 27) {
       if (param >= 107) {
         switch (param - 107 | 0) {
@@ -6496,7 +6496,7 @@ function primitive(param) {
 function function_param_or_generic_type(env) {
   var id = Curry._2(Parse.identifier, undefined, env);
   var match = Curry._2(Parser_env_Peek.token, undefined, env);
-  if (typeof match === "number" && (match === 77 || match === 76)) {
+  if (typeof match === "string" && (match === 77 || match === 76)) {
     var param = function_param_with_id(env, id);
     maybe(env, "T_COMMA");
     return /* constructor */{
@@ -6770,7 +6770,7 @@ function param_list_or_type(env) {
   var token$5 = Curry._2(Parser_env_Peek.token, undefined, env);
   var ret;
   var exit = 0;
-  if (typeof token$5 === "number") {
+  if (typeof token$5 === "string") {
     if (token$5 !== 105) {
       if (token$5 >= 12) {
         exit = 1;
@@ -6821,7 +6821,7 @@ function param_list_or_type(env) {
     var match = primitive(token$5);
     if (match !== undefined) {
       var match$1 = Curry._2(Parser_env_Peek.token, 1, env);
-      if (typeof match$1 === "number") {
+      if (typeof match$1 === "string") {
         if (match$1 === 77 || match$1 === 76) {
           var match$2 = Curry._1(Parse.identifier_or_reserved_keyword, env);
           var name = match$2[0];
@@ -6879,7 +6879,7 @@ function params(env, _acc) {
   while(true) {
     var acc = _acc;
     var match = Curry._2(Parser_env_Peek.token, undefined, env);
-    if (typeof match === "number" && !(match !== 90 && match !== 105)) {
+    if (typeof match === "string" && !(match !== 90 && match !== 105)) {
       return List.rev(acc);
     }
     var acc$1 = /* constructor */{
@@ -6923,7 +6923,7 @@ function function_param_list_without_parens(env) {
         var acc = _acc;
         var t = Curry._2(Parser_env_Peek.token, undefined, env$1);
         var exit = 0;
-        if (typeof t === "number") {
+        if (typeof t === "string") {
           var switcher = t - 4 | 0;
           exit = switcher > 7 || switcher < 0 ? (
               switcher !== 101 ? 1 : 2
@@ -6962,7 +6962,7 @@ function params$1(env, allow_default, _require_default, _acc) {
     var acc = _acc;
     var require_default = _require_default;
     var match = Curry._2(Parser_env_Peek.token, undefined, env);
-    var variance = typeof match === "number" ? (
+    var variance = typeof match === "string" ? (
         match !== 94 ? (
             match !== 95 ? undefined : (token$3(env), "Minus")
           ) : (token$3(env), "Plus")
@@ -6974,7 +6974,7 @@ function params$1(env, allow_default, _require_default, _acc) {
     var match$3;
     if (allow_default) {
       var exit = 0;
-      if (typeof match$2 === "number" && match$2 === 75) {
+      if (typeof match$2 === "string" && match$2 === 75) {
         token$3(env);
         match$3 = /* tuple */[
           union(env),
@@ -7018,7 +7018,7 @@ function params$1(env, allow_default, _require_default, _acc) {
       "1": acc
     };
     var match$4 = Curry._2(Parser_env_Peek.token, undefined, env);
-    if (typeof match$4 === "number" && !(match$4 !== 90 && match$4 !== 105)) {
+    if (typeof match$4 === "string" && !(match$4 !== 90 && match$4 !== 105)) {
       return List.rev(acc$1);
     }
     token$4(env, "T_COMMA");
@@ -7061,7 +7061,7 @@ function intersection_with(env, left) {
     while(true) {
       var acc = _acc;
       var match = Curry._2(Parser_env_Peek.token, undefined, env$1);
-      if (typeof match === "number" && match === 82) {
+      if (typeof match === "string" && match === 82) {
         token$4(env$1, "T_BIT_AND");
         _acc = /* constructor */{
           tag: "::",
@@ -7095,7 +7095,7 @@ function union_with(env, left) {
     while(true) {
       var acc = _acc;
       var match = Curry._2(Parser_env_Peek.token, undefined, env$1);
-      if (typeof match === "number" && match === 80) {
+      if (typeof match === "string" && match === 80) {
         token$4(env$1, "T_BIT_OR");
         _acc = /* constructor */{
           tag: "::",
@@ -7122,7 +7122,7 @@ function types(env, _acc) {
   while(true) {
     var acc = _acc;
     var match = Curry._2(Parser_env_Peek.token, undefined, env);
-    if (typeof match === "number" && !(match !== 6 && match !== 105)) {
+    if (typeof match === "string" && !(match !== 6 && match !== 105)) {
       return List.rev(acc);
     }
     var acc$1 = /* constructor */{
@@ -7229,7 +7229,7 @@ function indexer_property(env, start_loc, $$static) {
 
 function semicolon$1(env) {
   var match = Curry._2(Parser_env_Peek.token, undefined, env);
-  if (typeof match === "number") {
+  if (typeof match === "string") {
     if (match >= 7) {
       if (match >= 9) {
         return error_unexpected(env);
@@ -7256,7 +7256,7 @@ function properties(allow_static, env, _param) {
     var $$static = allow_static && maybe(env, "T_STATIC");
     var match = Curry._2(Parser_env_Peek.token, undefined, env);
     var exit = 0;
-    if (typeof match === "number") {
+    if (typeof match === "string") {
       if (match !== 89) {
         if (match !== 105) {
           if (match >= 6) {
@@ -7304,7 +7304,7 @@ function properties(allow_static, env, _param) {
           var match$1 = Curry._2(Parser_env_Peek.token, undefined, env);
           var match$2;
           var exit$1 = 0;
-          if ($$static && typeof match$1 === "number" && match$1 === 77) {
+          if ($$static && typeof match$1 === "string" && match$1 === 77) {
             strict_error_at(env, /* tuple */[
                   start_loc,
                   "StrictReservedWord"
@@ -7343,7 +7343,7 @@ function properties(allow_static, env, _param) {
           var key$1 = match$2[1][1];
           var $$static$1 = match$2[0];
           var match$3 = Curry._2(Parser_env_Peek.token, undefined, env);
-          var property$1 = typeof match$3 === "number" && !(match$3 !== 3 && match$3 !== 89) ? method_property(env, start_loc, $$static$1, key$1) : property(env, start_loc, $$static$1, key$1);
+          var property$1 = typeof match$3 === "string" && !(match$3 !== 3 && match$3 !== 89) ? method_property(env, start_loc, $$static$1, key$1) : property(env, start_loc, $$static$1, key$1);
           semicolon$1(env);
           _param = /* tuple */[
             /* constructor */{
@@ -7487,7 +7487,7 @@ function annotation(env) {
 
 function annotation_opt(env) {
   var match = Curry._2(Parser_env_Peek.token, undefined, env);
-  if (typeof match === "number" && match === 77) {
+  if (typeof match === "string" && match === 77) {
     return annotation(env);
   }
   
@@ -7677,7 +7677,7 @@ function param_list(env, _param) {
     var params = param$2[0];
     var t = Curry._2(Parser_env_Peek.token, undefined, env);
     var exit = 0;
-    if (typeof t === "number") {
+    if (typeof t === "string") {
       var switcher = t - 4 | 0;
       exit = switcher > 7 || switcher < 0 ? (
           switcher !== 101 ? 1 : 2
@@ -7791,7 +7791,7 @@ function _function(env) {
   var match$1 = Curry._2(Parser_env_Peek.token, undefined, env);
   var match$2;
   var exit = 0;
-  if (match && typeof match$1 === "number") {
+  if (match && typeof match$1 === "string") {
     if (match$1 !== 3) {
       if (match$1 !== 89) {
         exit = 1;
@@ -7981,7 +7981,7 @@ function variable(env) {
   var start_loc = Curry._2(Parser_env_Peek.loc, undefined, env);
   var match = Curry._2(Parser_env_Peek.token, undefined, env);
   var match$1;
-  if (typeof match === "number") {
+  if (typeof match === "string") {
     switch (match) {
       case "T_VAR" :
           match$1 = declarations("T_VAR", "Var", env);
@@ -8059,7 +8059,7 @@ function is_assignable_lhs(param) {
 function assignment_op(env) {
   var match = Curry._2(Parser_env_Peek.token, undefined, env);
   var op;
-  if (typeof match === "number") {
+  if (typeof match === "string") {
     switch (match) {
       case "T_RSHIFT3_ASSIGN" :
           op = "RShift3Assign";
@@ -8140,7 +8140,7 @@ function conditional(env) {
 
 function peek_unary_op(env) {
   var match = Curry._2(Parser_env_Peek.token, undefined, env);
-  if (typeof match === "number") {
+  if (typeof match === "string") {
     if (match >= 46) {
       if (match >= 94) {
         if (match >= 102) {
@@ -8216,7 +8216,7 @@ function unary(env) {
           ];
   } else {
     var match = Curry._2(Parser_env_Peek.token, undefined, env);
-    var op$1 = typeof match === "number" ? (
+    var op$1 = typeof match === "string" ? (
         match !== 102 ? (
             match !== 103 ? undefined : "Decrement"
           ) : "Increment"
@@ -8252,7 +8252,7 @@ function unary(env) {
         return argument$2;
       } else {
         var match$2 = Curry._2(Parser_env_Peek.token, undefined, env$1);
-        var op$2 = typeof match$2 === "number" ? (
+        var op$2 = typeof match$2 === "string" ? (
             match$2 !== 102 ? (
                 match$2 !== 103 ? undefined : "Decrement"
               ) : "Increment"
@@ -8293,7 +8293,7 @@ function left_hand_side(env) {
   var match = Curry._2(Parser_env_Peek.token, undefined, env);
   var expr;
   var exit = 0;
-  if (typeof match === "number" && match === 42) {
+  if (typeof match === "string" && match === 42) {
     expr = _new(env, (function (new_expr, _args) {
             return new_expr;
           }));
@@ -8396,7 +8396,7 @@ function _new(env, _finish_fn) {
   while(true) {
     var finish_fn = _finish_fn;
     var match = Curry._2(Parser_env_Peek.token, undefined, env);
-    if (typeof match === "number" && match === 42) {
+    if (typeof match === "string" && match === 42) {
       var start_loc = Curry._2(Parser_env_Peek.loc, undefined, env);
       token$4(env, "T_NEW");
       var finish_fn$prime = (function(finish_fn,start_loc){
@@ -8439,14 +8439,14 @@ function _new(env, _finish_fn) {
     var callee$1;
     callee$1 = typeof match$1 === "string" || /* XXX */match$1.tag !== "T_TEMPLATE_PART" ? callee : tagged_template(env, callee, match$1[0]);
     var match$2 = Curry._2(Parser_env_Peek.token, undefined, env);
-    var args = typeof match$2 === "number" && match$2 === 3 ? Curry._1($$arguments, env) : undefined;
+    var args = typeof match$2 === "string" && match$2 === 3 ? Curry._1($$arguments, env) : undefined;
     return Curry._2(finish_fn, callee$1, args);
   };
 }
 
 function member(env, left) {
   var match = Curry._2(Parser_env_Peek.token, undefined, env);
-  if (typeof match === "number") {
+  if (typeof match === "string") {
     if (match !== 5) {
       if (match !== 9) {
         return left;
@@ -8507,7 +8507,7 @@ function _function$1(env) {
     ];
   } else {
     var match$1 = Curry._2(Parser_env_Peek.token, undefined, env);
-    var id = typeof match$1 === "number" && match$1 === 89 ? undefined : Curry._2(Parse.identifier, "StrictFunctionName", env);
+    var id = typeof match$1 === "string" && match$1 === 89 ? undefined : Curry._2(Parse.identifier, "StrictFunctionName", env);
     match = /* tuple */[
       id,
       Curry._1(type_parameter_declaration$1, env)
@@ -8606,7 +8606,7 @@ function primary$1(env) {
           var expression = Curry._1(assignment, env$2);
           var match$1 = Curry._2(Parser_env_Peek.token, undefined, env$2);
           var ret;
-          if (typeof match$1 === "number") {
+          if (typeof match$1 === "string") {
             if (match$1 !== 8) {
               if (match$1 !== 77) {
                 ret = expression;
@@ -8916,7 +8916,7 @@ function sequence(env, _acc) {
   while(true) {
     var acc = _acc;
     var match = Curry._2(Parser_env_Peek.token, undefined, env);
-    if (typeof match === "number" && match === 8) {
+    if (typeof match === "string" && match === 8) {
       token$4(env, "T_COMMA");
       var expr = Curry._1(assignment, env);
       _acc = /* constructor */{
@@ -8943,7 +8943,7 @@ function identifier_or_reserved_keyword(env) {
   var lex_token = Curry._2(Parser_env_Peek.token, undefined, env);
   var lex_value = Curry._2(Parser_env_Peek.value, undefined, env);
   var lex_loc = Curry._2(Parser_env_Peek.loc, undefined, env);
-  if (typeof lex_token === "number") {
+  if (typeof lex_token === "string") {
     if (lex_token >= 58) {
       if (lex_token < 62) {
         return /* tuple */[
@@ -8962,7 +8962,7 @@ function identifier_or_reserved_keyword(env) {
   }
   var err;
   var exit = 0;
-  if (typeof lex_token === "number") {
+  if (typeof lex_token === "string") {
     var switcher = lex_token - 58 | 0;
     if (switcher > 48 || switcher < 0) {
       if (switcher >= -45) {
@@ -9048,7 +9048,7 @@ function try_assignment_but_not_arrow_function(env) {
   var env$1 = with_error_callback(error_callback, env);
   var ret = assignment_but_not_arrow_function(env$1);
   var match = Curry._2(Parser_env_Peek.token, undefined, env$1);
-  if (typeof match === "number") {
+  if (typeof match === "string") {
     if (match !== 10) {
       if (match === 77) {
         throw Parser_env_Try.Rollback;
@@ -9080,7 +9080,7 @@ function assignment(env) {
   var match = Curry._2(Parser_env_Peek.token, undefined, env);
   var match$1 = Curry._2(Parser_env_Peek.is_identifier, undefined, env);
   var exit = 0;
-  if (typeof match === "number") {
+  if (typeof match === "string") {
     var switcher = match - 4 | 0;
     if (switcher > 84 || switcher < 0) {
       if ((switcher + 1 >>> 0) > 86) {
@@ -9157,7 +9157,7 @@ function logical_and(env, _left, _lloc) {
     var lloc = _lloc;
     var left = _left;
     var match = Curry._2(Parser_env_Peek.token, undefined, env);
-    if (typeof match === "number" && match === 79) {
+    if (typeof match === "string" && match === 79) {
       token$4(env, "T_AND");
       var match$1 = with_loc(binary, env);
       var loc = btwn(lloc, match$1[0]);
@@ -9178,7 +9178,7 @@ function logical_or(env, _left, _lloc) {
     var lloc = _lloc;
     var left = _left;
     var match = Curry._2(Parser_env_Peek.token, undefined, env);
-    if (typeof match === "number" && match === 78) {
+    if (typeof match === "string" && match === 78) {
       token$4(env, "T_OR");
       var match$1 = with_loc(binary, env);
       var match$2 = logical_and(env, match$1[1], match$1[0]);
@@ -9204,7 +9204,7 @@ function logical(env) {
 function binary_op(env) {
   var match = Curry._2(Parser_env_Peek.token, undefined, env);
   var ret;
-  if (typeof match === "number") {
+  if (typeof match === "string") {
     var switcher = match - 15 | 0;
     if (switcher === 0 || switcher === 1) {
       ret = switcher !== 0 ? /* tuple */[
@@ -9544,7 +9544,7 @@ function binary(env) {
 
 function argument(env) {
   var match = Curry._2(Parser_env_Peek.token, undefined, env);
-  if (typeof match === "number") {
+  if (typeof match === "string") {
     if (match !== 11) {
       return /* constructor */{
               tag: "Expression",
@@ -9575,7 +9575,7 @@ function arguments$prime(env, _acc) {
   while(true) {
     var acc = _acc;
     var match = Curry._2(Parser_env_Peek.token, undefined, env);
-    if (typeof match === "number" && !(match !== 4 && match !== 105)) {
+    if (typeof match === "string" && !(match !== 4 && match !== 105)) {
       return List.rev(acc);
     }
     var acc$1 = /* constructor */{
@@ -9614,7 +9614,7 @@ function template_parts(env, _quasis, _expressions) {
       "1": expressions
     };
     var match = Curry._2(Parser_env_Peek.token, undefined, env);
-    if (typeof match === "number" && match === 2) {
+    if (typeof match === "string" && match === 2) {
       push_lex_mode(env, "TEMPLATE");
       var match$1 = Curry._2(Parser_env_Peek.token, undefined, env);
       var match$2;
@@ -9746,7 +9746,7 @@ function elements(env, _acc) {
   while(true) {
     var acc = _acc;
     var match = Curry._2(Parser_env_Peek.token, undefined, env);
-    if (typeof match === "number") {
+    if (typeof match === "string") {
       if (match !== 105) {
         if (match < 12) {
           switch (match) {
@@ -9825,7 +9825,7 @@ function array_initializer(env) {
 }
 
 function error_callback$1(param, param$1) {
-  if (typeof param$1 === "number") {
+  if (typeof param$1 === "string") {
     var switcher = param$1 - 28 | 0;
     if (switcher > 16 || switcher < 0) {
       if (switcher !== 19) {
@@ -9895,7 +9895,7 @@ function try_arrow_function(env) {
           var generator = false;
           var env$1 = with_in_function(true, env);
           var match = Curry._2(Parser_env_Peek.token, undefined, env$1);
-          if (typeof match === "number" && match === 1) {
+          if (typeof match === "string" && match === 1) {
             var match$1 = function_body(env$1, async$1, generator);
             return /* tuple */[
                     match$1[1],
@@ -9944,7 +9944,7 @@ function decorator_list_helper(env, _decorators) {
   while(true) {
     var decorators = _decorators;
     var match = Curry._2(Parser_env_Peek.token, undefined, env);
-    if (typeof match === "number" && match === 12) {
+    if (typeof match === "string" && match === 12) {
       token$3(env);
       _decorators = /* constructor */{
         tag: "::",
@@ -10157,7 +10157,7 @@ function property$1(env) {
             switch (key$1[0][1][/* name */0]) {
               case "get" :
                   var match$2 = Curry._2(Parser_env_Peek.token, undefined, env);
-                  if (typeof match$2 === "number") {
+                  if (typeof match$2 === "string") {
                     var switcher = match$2 - 3 | 0;
                     tmp = switcher > 74 || switcher < 0 ? (
                         switcher !== 86 ? get(env, start_loc) : init(env, start_loc, key$1, false, false)
@@ -10170,7 +10170,7 @@ function property$1(env) {
                   break;
               case "set" :
                   var match$3 = Curry._2(Parser_env_Peek.token, undefined, env);
-                  if (typeof match$3 === "number") {
+                  if (typeof match$3 === "string") {
                     var switcher$1 = match$3 - 3 | 0;
                     tmp = switcher$1 > 74 || switcher$1 < 0 ? (
                         switcher$1 !== 86 ? set(env, start_loc) : init(env, start_loc, key$1, false, false)
@@ -10254,7 +10254,7 @@ function init(env, start_loc, key, async, generator) {
   var match = Curry._2(Parser_env_Peek.token, undefined, env);
   var match$1;
   var exit = 0;
-  if (typeof match === "number") {
+  if (typeof match === "string") {
     if (match !== 89) {
       if (match >= 9) {
         exit = 1;
@@ -10519,7 +10519,7 @@ function properties$1(env, _param) {
     var param = _param;
     var acc = param[1];
     var match = Curry._2(Parser_env_Peek.token, undefined, env);
-    if (typeof match === "number" && !(match !== 2 && match !== 105)) {
+    if (typeof match === "string" && !(match !== 2 && match !== 105)) {
       return List.rev(acc);
     }
     var prop = property$1(env);
@@ -10574,7 +10574,7 @@ function class_implements(env, _acc) {
       "1": acc
     };
     var match = Curry._2(Parser_env_Peek.token, undefined, env);
-    if (typeof match === "number" && match === 8) {
+    if (typeof match === "string" && match === 8) {
       token$4(env, "T_COMMA");
       _acc = acc$1;
       continue ;
@@ -10587,7 +10587,7 @@ function class_implements(env, _acc) {
 function init$1(env, start_loc, decorators, key, async, generator, $$static) {
   var match = Curry._2(Parser_env_Peek.token, undefined, env);
   var exit = 0;
-  if (typeof match === "number") {
+  if (typeof match === "string") {
     var switcher = match - 75 | 0;
     if (switcher > 2 || switcher < 0) {
       if (switcher === -68) {
@@ -10704,7 +10704,7 @@ function class_element(env) {
             case "get" :
                 var match$1 = Curry._2(Parser_env_Peek.token, undefined, env);
                 var exit = 0;
-                exit = typeof match$1 === "number" ? (
+                exit = typeof match$1 === "string" ? (
                     match$1 >= 75 ? (
                         match$1 >= 78 ? (
                             match$1 !== 89 ? 2 : 3
@@ -10744,7 +10744,7 @@ function class_element(env) {
             case "set" :
                 var match$3 = Curry._2(Parser_env_Peek.token, undefined, env);
                 var exit$1 = 0;
-                exit$1 = typeof match$3 === "number" ? (
+                exit$1 = typeof match$3 === "string" ? (
                     match$3 >= 75 ? (
                         match$3 >= 78 ? (
                             match$3 !== 89 ? 2 : 3
@@ -10798,7 +10798,7 @@ function elements$1(env, _acc) {
   while(true) {
     var acc = _acc;
     var match = Curry._2(Parser_env_Peek.token, undefined, env);
-    if (typeof match === "number") {
+    if (typeof match === "string") {
       var switcher = match - 3 | 0;
       if (switcher > 101 || switcher < 0) {
         if ((switcher + 1 >>> 0) <= 103) {
@@ -10904,7 +10904,7 @@ function class_expression(env) {
   var match = Curry._2(Parser_env_Peek.token, undefined, env);
   var match$1;
   var exit = 0;
-  if (typeof match === "number") {
+  if (typeof match === "string") {
     var switcher = match - 1 | 0;
     if (switcher > 38 || switcher < 0) {
       if (switcher !== 88) {
@@ -11052,7 +11052,7 @@ function declare($staropt$star, env) {
   }
   var start_loc = Curry._2(Parser_env_Peek.loc, undefined, env);
   var match = Curry._2(Parser_env_Peek.token, 1, env);
-  if (typeof match === "number") {
+  if (typeof match === "string") {
     if (match >= 22) {
       if (match >= 38) {
         if (match < 62) {
@@ -11232,7 +11232,7 @@ function export_specifiers_and_errs(env, _specifiers, _errs) {
     var errs = _errs;
     var specifiers = _specifiers;
     var match = Curry._2(Parser_env_Peek.token, undefined, env);
-    if (typeof match === "number" && !(match !== 2 && match !== 105)) {
+    if (typeof match === "string" && !(match !== 2 && match !== 105)) {
       return /* tuple */[
               List.rev(specifiers),
               List.rev(errs)
@@ -11425,7 +11425,7 @@ function declare_export_declaration($staropt$star, env) {
   token$4(env$1, "T_EXPORT");
   var match = Curry._2(Parser_env_Peek.token, undefined, env$1);
   var exit = 0;
-  if (typeof match === "number") {
+  if (typeof match === "string") {
     if (match >= 52) {
       if (match !== 59) {
         if (match !== 97) {
@@ -11516,7 +11516,7 @@ function declare_export_declaration($staropt$star, env) {
             var match$4 = Curry._2(Parser_env_Peek.token, undefined, env$1);
             var match$5;
             var exit$1 = 0;
-            if (typeof match$4 === "number") {
+            if (typeof match$4 === "string") {
               if (match$4 !== 13) {
                 if (match$4 !== 38) {
                   exit$1 = 3;
@@ -11608,7 +11608,7 @@ function declare_export_declaration($staropt$star, env) {
   switch (exit) {
     case 1 :
         var match$7 = Curry._2(Parser_env_Peek.token, undefined, env$1);
-        if (typeof match$7 === "number") {
+        if (typeof match$7 === "string") {
           if (match$7 !== 51) {
             if (match$7 !== 59) {
               "()";
@@ -11651,7 +11651,7 @@ function declare_export_declaration($staropt$star, env) {
         var token$5 = Curry._2(Parser_env_Peek.token, undefined, env$1);
         var match$10;
         var exit$2 = 0;
-        if (typeof token$5 === "number") {
+        if (typeof token$5 === "string") {
           if (token$5 >= 23) {
             if (token$5 >= 27) {
               if (token$5 !== 38) {
@@ -11695,7 +11695,7 @@ function declare_export_declaration($staropt$star, env) {
                     ]
                   ];
           case 4 :
-              if (typeof token$5 === "number") {
+              if (typeof token$5 === "string") {
                 if (token$5 !== 25) {
                   if (token$5 !== 26) {
                     "()";
@@ -11743,7 +11743,7 @@ function supers(env, _acc) {
       "1": acc
     };
     var match = Curry._2(Parser_env_Peek.token, undefined, env);
-    if (typeof match === "number" && match === 8) {
+    if (typeof match === "string" && match === 8) {
       token$4(env, "T_COMMA");
       _acc = acc$1;
       continue ;
@@ -11786,7 +11786,7 @@ function supers$1(env, _acc) {
       "1": acc
     };
     var match = Curry._2(Parser_env_Peek.token, undefined, env);
-    if (typeof match === "number" && match === 8) {
+    if (typeof match === "string" && match === 8) {
       token$4(env, "T_COMMA");
       _acc = acc$1;
       continue ;
@@ -11822,7 +11822,7 @@ function module_items(env, _module_kind, _acc) {
     var acc = _acc;
     var module_kind = _module_kind;
     var match = Curry._2(Parser_env_Peek.token, undefined, env);
-    if (typeof match === "number" && !(match !== 2 && match !== 105)) {
+    if (typeof match === "string" && !(match !== 2 && match !== 105)) {
       return /* tuple */[
               module_kind,
               List.rev(acc)
@@ -12023,14 +12023,14 @@ function case_list(env, _param) {
     var acc = param[1];
     var seen_default = param[0];
     var match = Curry._2(Parser_env_Peek.token, undefined, env);
-    if (typeof match === "number" && !(match !== 2 && match !== 105)) {
+    if (typeof match === "string" && !(match !== 2 && match !== 105)) {
       return List.rev(acc);
     }
     var start_loc = Curry._2(Parser_env_Peek.loc, undefined, env);
     var match$1 = Curry._2(Parser_env_Peek.token, undefined, env);
     var test;
     var exit = 0;
-    if (typeof match$1 === "number" && match$1 === 34) {
+    if (typeof match$1 === "string" && match$1 === 34) {
       if (seen_default) {
         error$1(env, "MultipleDefaultsInSwitch");
       }
@@ -12047,7 +12047,7 @@ function case_list(env, _param) {
     var end_loc = Curry._2(Parser_env_Peek.loc, undefined, env);
     token$4(env, "T_COLON");
     var term_fn = function (param) {
-      if (typeof param === "number") {
+      if (typeof param === "string") {
         var switcher = param - 2 | 0;
         if (switcher > 29 || switcher < 0) {
           return switcher === 32;
@@ -12151,7 +12151,7 @@ function specifier_list(env, _acc) {
   while(true) {
     var acc = _acc;
     var match = Curry._2(Parser_env_Peek.token, undefined, env);
-    if (typeof match === "number" && !(match !== 2 && match !== 105)) {
+    if (typeof match === "string" && !(match !== 2 && match !== 105)) {
       return List.rev(acc);
     }
     var match$1 = Curry._1(Parse.identifier_or_reserved_keyword, env);
@@ -12195,7 +12195,7 @@ function specifier_list(env, _acc) {
 function named_or_namespace_specifier(env) {
   var start_loc = Curry._2(Parser_env_Peek.loc, undefined, env);
   var match = Curry._2(Parser_env_Peek.token, undefined, env);
-  if (typeof match === "number" && match === 97) {
+  if (typeof match === "string" && match === 97) {
     token$4(env, "T_MULT");
     contextual(env, "as");
     var id = Curry._2(Parse.identifier, undefined, env);
@@ -12415,7 +12415,7 @@ function _object$2(restricted_error) {
       var match$2 = Curry._2(Parser_env_Peek.token, undefined, env);
       var prop;
       var exit = 0;
-      if (typeof match$2 === "number" && match$2 === 77) {
+      if (typeof match$2 === "string" && match$2 === 77) {
         token$4(env, "T_COLON");
         prop = /* tuple */[
           pattern$1(env, restricted_error),
@@ -12455,7 +12455,7 @@ function _object$2(restricted_error) {
         var pattern$3 = match$3[0];
         var match$4 = Curry._2(Parser_env_Peek.token, undefined, env);
         var pattern$4;
-        if (typeof match$4 === "number" && match$4 === 75) {
+        if (typeof match$4 === "string" && match$4 === 75) {
           token$4(env, "T_ASSIGN");
           var $$default = Curry._1(Parse.assignment, env);
           var loc$1 = btwn(pattern$3[0], $$default[0]);
@@ -12493,7 +12493,7 @@ function _object$2(restricted_error) {
     while(true) {
       var acc = _acc;
       var match = Curry._2(Parser_env_Peek.token, undefined, env);
-      if (typeof match === "number" && !(match !== 2 && match !== 105)) {
+      if (typeof match === "string" && !(match !== 2 && match !== 105)) {
         return List.rev(acc);
       }
       var match$1 = property(env);
@@ -12549,7 +12549,7 @@ function _array(restricted_error) {
     while(true) {
       var acc = _acc;
       var match = Curry._2(Parser_env_Peek.token, undefined, env);
-      if (typeof match === "number") {
+      if (typeof match === "string") {
         if (match !== 105) {
           if (match < 12) {
             switch (match) {
@@ -12602,7 +12602,7 @@ function _array(restricted_error) {
       var pattern$2 = pattern$1(env, restricted_error);
       var match$1 = Curry._2(Parser_env_Peek.token, undefined, env);
       var pattern$3;
-      if (typeof match$1 === "number" && match$1 === 75) {
+      if (typeof match$1 === "string" && match$1 === 75) {
         token$4(env, "T_ASSIGN");
         var $$default = Curry._1(Parse.expression, env);
         var loc$1 = btwn(pattern$2[0], $$default[0]);
@@ -12668,7 +12668,7 @@ function _array(restricted_error) {
 
 function pattern$1(env, restricted_error) {
   var match = Curry._2(Parser_env_Peek.token, undefined, env);
-  if (typeof match === "number") {
+  if (typeof match === "string") {
     if (match !== 1) {
       if (match === 5) {
         return _array(restricted_error)(env);
@@ -12743,7 +12743,7 @@ function member_expression(env, _member) {
   while(true) {
     var member = _member;
     var match = Curry._2(Parser_env_Peek.token, undefined, env);
-    if (typeof match === "number" && match === 9) {
+    if (typeof match === "string" && match === 9) {
       var _object = /* constructor */{
         tag: "MemberExpression",
         "0": member
@@ -12770,7 +12770,7 @@ function member_expression(env, _member) {
 function name(env) {
   var name$1 = identifier$1(env);
   var match = Curry._2(Parser_env_Peek.token, undefined, env);
-  if (typeof match === "number") {
+  if (typeof match === "string") {
     if (match !== 9) {
       if (match !== 77) {
         return /* constructor */{
@@ -12936,7 +12936,7 @@ function attributes(env, _acc) {
   while(true) {
     var acc = _acc;
     var match = Curry._2(Parser_env_Peek.token, undefined, env);
-    if (typeof match === "number") {
+    if (typeof match === "string") {
       if (match >= 91) {
         if (!(match !== 96 && match !== 105)) {
           return List.rev(acc);
@@ -13055,7 +13055,7 @@ function element_or_closing(env) {
   var start_loc = Curry._2(Parser_env_Peek.loc, undefined, env);
   token$4(env, "T_LESS_THAN");
   var match = Curry._2(Parser_env_Peek.token, undefined, env);
-  if (typeof match === "number") {
+  if (typeof match === "string") {
     if (match !== 96) {
       if (match !== 105) {
         return /* constructor */{
@@ -13086,7 +13086,7 @@ function children_and_closing(env, _acc) {
   while(true) {
     var acc = _acc;
     var match = Curry._2(Parser_env_Peek.token, undefined, env);
-    if (typeof match === "number") {
+    if (typeof match === "string") {
       if (match !== 89) {
         if (match !== 105) {
           _acc = /* constructor */{
@@ -13193,7 +13193,7 @@ function element_without_lt(env, start_loc) {
 function module_item(env) {
   var decorators = decorator_list(env);
   var match = Curry._2(Parser_env_Peek.token, undefined, env);
-  if (typeof match === "number") {
+  if (typeof match === "string") {
     switch (match) {
       case "T_EXPORT" :
           var env$1 = env;
@@ -13203,7 +13203,7 @@ function module_item(env) {
           token$4(env$2, "T_EXPORT");
           var match$1 = Curry._2(Parser_env_Peek.token, undefined, env$2);
           var exit = 0;
-          if (typeof match$1 === "number") {
+          if (typeof match$1 === "string") {
             if (match$1 >= 51) {
               if (match$1 !== 97) {
                 if (match$1 >= 62) {
@@ -13349,7 +13349,7 @@ function module_item(env) {
                     var match$5 = Curry._2(Parser_env_Peek.token, undefined, env$2);
                     var match$6;
                     var exit$1 = 0;
-                    if (typeof match$5 === "number" && match$5 === 13) {
+                    if (typeof match$5 === "string" && match$5 === 13) {
                       var fn = _function(env$2);
                       match$6 = /* tuple */[
                         fn[0],
@@ -13438,7 +13438,7 @@ function module_item(env) {
           switch (exit) {
             case 1 :
                 var match$8 = Curry._2(Parser_env_Peek.token, undefined, env$2);
-                var exportKind = typeof match$8 === "number" && match$8 === 59 ? (token$3(env$2), "ExportType") : "ExportValue";
+                var exportKind = typeof match$8 === "string" && match$8 === 59 ? (token$3(env$2), "ExportType") : "ExportValue";
                 token$4(env$2, "T_LCURLY");
                 var match$9 = export_specifiers_and_errs(env$2, "[]", "[]");
                 var specifiers$1 = /* constructor */{
@@ -13567,7 +13567,7 @@ function module_item(env) {
           token$4(env$4, "T_IMPORT");
           var match$14 = Curry._2(Parser_env_Peek.token, undefined, env$4);
           var match$15;
-          if (typeof match$14 === "number") {
+          if (typeof match$14 === "string") {
             if (match$14 !== 44) {
               if (match$14 !== 59) {
                 match$15 = /* tuple */[
@@ -13678,7 +13678,7 @@ function module_item(env) {
           var match$22 = Curry._2(Parser_env_Peek.value, undefined, env$4);
           var match$23;
           var exit$3 = 0;
-          if (type_ident !== undefined && typeof match$21 === "number") {
+          if (type_ident !== undefined && typeof match$21 === "string") {
             var type_ident$1 = type_ident;
             if (match$21 !== 8) {
               if (match$21 !== 0 || match$22 !== "from") {
@@ -13714,7 +13714,7 @@ function module_item(env) {
             ];
           }
           var match$24 = Curry._2(Parser_env_Peek.token, undefined, env$4);
-          var additional_specifiers = typeof match$24 === "number" && match$24 === 8 ? (token$4(env$4, "T_COMMA"), named_or_namespace_specifier(env$4)) : "[]";
+          var additional_specifiers = typeof match$24 === "string" && match$24 === 8 ? (token$4(env$4, "T_COMMA"), named_or_namespace_specifier(env$4)) : "[]";
           var source$6 = source(env$4);
           var match$25 = Curry._2(Parser_env_Peek.semicolon_loc, undefined, env$4);
           var end_loc$8 = match$25 !== undefined ? match$25 : source$6[0];
@@ -13763,7 +13763,7 @@ function statement(env) {
   while(true) {
     var match = Curry._2(Parser_env_Peek.token, undefined, env);
     var exit = 0;
-    if (typeof match === "number") {
+    if (typeof match === "string") {
       if (match !== 105) {
         if (match >= 58) {
           exit = 2;
@@ -13862,7 +13862,7 @@ function statement(env) {
                 var block = Curry._1(Parse.block_body, env$6);
                 var match$4 = Curry._2(Parser_env_Peek.token, undefined, env$6);
                 var handler;
-                if (typeof match$4 === "number" && match$4 === 32) {
+                if (typeof match$4 === "string" && match$4 === 32) {
                   var start_loc$4 = Curry._2(Parser_env_Peek.loc, undefined, env$6);
                   token$4(env$6, "T_CATCH");
                   token$4(env$6, "T_LPAREN");
@@ -13891,7 +13891,7 @@ function statement(env) {
                   handler = undefined;
                 }
                 var match$5 = Curry._2(Parser_env_Peek.token, undefined, env$6);
-                var finalizer = typeof match$5 === "number" && match$5 === 36 ? (token$4(env$6, "T_FINALLY"), Curry._1(Parse.block_body, env$6)) : undefined;
+                var finalizer = typeof match$5 === "string" && match$5 === 36 ? (token$4(env$6, "T_FINALLY"), Curry._1(Parse.block_body, env$6)) : undefined;
                 var end_loc$3 = finalizer !== undefined ? finalizer[0] : (
                     handler !== undefined ? handler[0] : (error_at(env$6, /* tuple */[
                               block[0],
@@ -14060,7 +14060,7 @@ function statement(env) {
                 var match$9 = Curry._2(Parser_env_Peek.token, undefined, env$12);
                 var match$10;
                 var exit$1 = 0;
-                if (typeof match$9 === "number") {
+                if (typeof match$9 === "string") {
                   if (match$9 >= 22) {
                     if (match$9 >= 27) {
                       exit$1 = 1;
@@ -14126,7 +14126,7 @@ function statement(env) {
                 }
                 var init = match$10[0];
                 var match$14 = Curry._2(Parser_env_Peek.token, undefined, env$12);
-                if (typeof match$14 === "number") {
+                if (typeof match$14 === "string") {
                   if (match$14 !== 15) {
                     if (match$14 === 60) {
                       assert_can_be_forin_or_forof(env$12, "InvalidLHSInForOf", init);
@@ -14214,10 +14214,10 @@ function statement(env) {
                     }(env$12)), match$10[1]);
                 token$4(env$12, "T_SEMICOLON");
                 var match$17 = Curry._2(Parser_env_Peek.token, undefined, env$12);
-                var test$2 = typeof match$17 === "number" && match$17 === 7 ? undefined : Curry._1(Parse.expression, env$12);
+                var test$2 = typeof match$17 === "string" && match$17 === 7 ? undefined : Curry._1(Parse.expression, env$12);
                 token$4(env$12, "T_SEMICOLON");
                 var match$18 = Curry._2(Parser_env_Peek.token, undefined, env$12);
-                var update = typeof match$18 === "number" && match$18 === 4 ? undefined : Curry._1(Parse.expression, env$12);
+                var update = typeof match$18 === "string" && match$18 === 4 ? undefined : Curry._1(Parse.expression, env$12);
                 token$4(env$12, "T_RPAREN");
                 var body$6 = Curry._1(Parse.statement, with_in_loop(true, env$12));
                 return /* tuple */[
@@ -14308,7 +14308,7 @@ function statement(env) {
         var match$20 = Curry._2(Parser_env_Peek.token, undefined, env$14);
         var match$21 = expr$1[1];
         var loc$5 = expr$1[0];
-        if (typeof match$21 !== "string" && /* XXX */match$21.tag === "Identifier" && typeof match$20 === "number" && match$20 === 77) {
+        if (typeof match$21 !== "string" && /* XXX */match$21.tag === "Identifier" && typeof match$20 === "string" && match$20 === 77) {
           var label$4 = match$21[0];
           var match$22 = label$4[1];
           var name$2 = match$22[/* name */0];
@@ -14346,7 +14346,7 @@ function statement(env) {
                   "0": /* record */[/* expression */expr$1]
                 }
               ];
-      } else if (typeof match === "number") {
+      } else if (typeof match === "string") {
         if (match >= 31) {
           if (match >= 49) {
             if (match !== 77) {
@@ -14415,7 +14415,7 @@ function statement_list_item($staropt$star, env) {
     error_on_decorators(env)(decorators);
   }
   var match = Curry._2(Parser_env_Peek.token, undefined, env);
-  if (typeof match === "number") {
+  if (typeof match === "string") {
     if (match !== 25) {
       if (match === 26) {
         var env$1 = env;
@@ -14479,7 +14479,7 @@ function statement_list_item($staropt$star, env) {
     return _function(env);
   } else if (Curry._2(Parser_env_Peek.is_class, undefined, env)) {
     return class_declaration$1(env, decorators);
-  } else if (typeof match === "number") {
+  } else if (typeof match === "string") {
     switch (match) {
       case "T_INTERFACE" :
           return $$interface(env);
@@ -14511,7 +14511,7 @@ function module_body(term_fn, env) {
   while(true) {
     var acc = _acc;
     var t = Curry._2(Parser_env_Peek.token, undefined, env$1);
-    if (typeof t === "number" && t === 105) {
+    if (typeof t === "string" && t === 105) {
       return List.rev(acc);
     }
     if (Curry._1(term_fn$1, t)) {
@@ -14534,7 +14534,7 @@ function statement_list(_env, term_fn, item_fn, _param) {
     var stmts = param[1];
     var string_tokens = param[0];
     var t = Curry._2(Parser_env_Peek.token, undefined, env);
-    if (typeof t === "number" && t === 105) {
+    if (typeof t === "string" && t === 105) {
       return /* tuple */[
               env,
               string_tokens,
@@ -14645,7 +14645,7 @@ function statement_list$1(term_fn, env) {
   while(true) {
     var acc = _acc;
     var t = Curry._2(Parser_env_Peek.token, undefined, env$1);
-    if (typeof t === "number" && t === 105) {
+    if (typeof t === "string" && t === 105) {
       return List.rev(acc);
     }
     if (Curry._1(term_fn$1, t)) {
@@ -14666,7 +14666,7 @@ function identifier$2(restricted_error, env) {
   var name = Curry._2(Parser_env_Peek.value, undefined, env);
   var t = Curry._2(Parser_env_Peek.token, undefined, env);
   var exit = 0;
-  if (typeof t === "number" && t === 26) {
+  if (typeof t === "string" && t === 26) {
     if (env[/* in_strict_mode */5]) {
       strict_error(env, "StrictReservedWord");
     } else if (env[/* no_let */12]) {
@@ -14683,7 +14683,7 @@ function identifier$2(restricted_error, env) {
     if (is_strict_reserved(name)) {
       strict_error(env, "StrictReservedWord");
       token$3(env);
-    } else if (typeof t === "number" && !(t > 62 || t < 58)) {
+    } else if (typeof t === "string" && !(t > 62 || t < 58)) {
       token$4(env, t);
     } else {
       token$4(env, "T_IDENTIFIER");
@@ -14758,7 +14758,7 @@ function program(env) {
 function expression$1(env) {
   var expr = Curry._1(assignment, env);
   var match = Curry._2(Parser_env_Peek.token, undefined, env);
-  if (typeof match === "number" && match === 8) {
+  if (typeof match === "string" && match === 8) {
     return sequence(env, /* constructor */{
                 tag: "::",
                 "0": expr,
@@ -15083,7 +15083,7 @@ function parse(content, options) {
       var source;
       if (match !== undefined) {
         var match$1 = match;
-        source = typeof match$1 === "number" ? Curry._1(string, "(global)") : Curry._1(string, match$1[0]);
+        source = typeof match$1 === "string" ? Curry._1(string, "(global)") : Curry._1(string, match$1[0]);
       } else {
         source = $$null;
       }

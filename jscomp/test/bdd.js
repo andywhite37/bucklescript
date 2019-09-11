@@ -7,7 +7,7 @@ var Caml_builtin_exceptions = require("../../lib/js/caml_builtin_exceptions.js")
 function $$eval(_bdd, vars) {
   while(true) {
     var bdd = _bdd;
-    if (typeof bdd === "number") {
+    if (typeof bdd === "string") {
       return bdd === 0;
     } else if (Caml_array.caml_array_get(vars, bdd[1])) {
       _bdd = bdd[3];
@@ -20,7 +20,7 @@ function $$eval(_bdd, vars) {
 }
 
 function getId(bdd) {
-  if (typeof bdd === "number") {
+  if (typeof bdd === "string") {
     if (bdd !== 0) {
       return 0;
     } else {
@@ -52,7 +52,7 @@ function resize(newSize) {
       var bucket = _bucket;
       if (bucket) {
         var n = bucket[0];
-        if (typeof n === "number") {
+        if (typeof n === "string") {
           throw [
                 Caml_builtin_exceptions.assert_failure,
                 /* tuple */[
@@ -124,7 +124,7 @@ function mkNode(low, v, high) {
       var b = _b;
       if (b) {
         var n = b[0];
-        if (typeof n === "number") {
+        if (typeof n === "string") {
           throw [
                 Caml_builtin_exceptions.assert_failure,
                 /* tuple */[
@@ -190,7 +190,7 @@ function hash(x, y) {
 }
 
 function not(n) {
-  if (typeof n === "number") {
+  if (typeof n === "string") {
     if (n !== 0) {
       return "One";
     } else {
@@ -211,7 +211,7 @@ function not(n) {
 }
 
 function and2(n1, n2) {
-  if (typeof n1 === "number") {
+  if (typeof n1 === "string") {
     if (n1 !== 0) {
       return "Zero";
     } else {
@@ -222,7 +222,7 @@ function and2(n1, n2) {
     var i1 = n1[2];
     var v1 = n1[1];
     var l1 = n1[0];
-    if (typeof n2 === "number") {
+    if (typeof n2 === "string") {
       if (n2 !== 0) {
         return "Zero";
       } else {
@@ -261,7 +261,7 @@ function and2(n1, n2) {
 }
 
 function xor(n1, n2) {
-  if (typeof n1 === "number") {
+  if (typeof n1 === "string") {
     if (n1 !== 0) {
       return n2;
     } else {
@@ -272,7 +272,7 @@ function xor(n1, n2) {
     var i1 = n1[2];
     var v1 = n1[1];
     var l1 = n1[0];
-    if (typeof n2 === "number") {
+    if (typeof n2 === "string") {
       if (n2 !== 0) {
         return n1;
       } else {

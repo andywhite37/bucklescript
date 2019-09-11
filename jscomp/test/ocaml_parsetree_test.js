@@ -1519,7 +1519,7 @@ function highlight_dumb(ppf, lb, loc) {
 function highlight_locations(ppf, locs) {
   while(true) {
     var match = status[0];
-    if (typeof match === "number") {
+    if (typeof match === "string") {
       if (match !== 0) {
         var match$1 = input_lexbuf[0];
         if (match$1 !== undefined) {
@@ -5060,7 +5060,7 @@ var yyact = /* array */[
       var exit = 0;
       if (bindings) {
         var lb = bindings[0];
-        if (typeof lb[/* lb_pattern */0][/* ppat_desc */0] === "number" && !bindings[1]) {
+        if (typeof lb[/* lb_pattern */0][/* ppat_desc */0] === "string" && !bindings[1]) {
           var exp = wrap_exp_attrs(lb[/* lb_expression */1], /* tuple */[
                 undefined,
                 lbs[/* lbs_attributes */3]
@@ -11065,7 +11065,7 @@ function defined(str) {
       return false;
     }
   }
-  if (typeof val === "number") {
+  if (typeof val === "string") {
     return false;
   } else {
     return true;
@@ -11130,7 +11130,7 @@ function query(loc, str) {
       throw exn;
     }
   }
-  if (typeof v === "number") {
+  if (typeof v === "string") {
     return /* constructor */{
             tag: "Dir_bool",
             "0": false
@@ -11480,7 +11480,7 @@ function directive_parse(token_with_comments, lexbuf) {
         case "LPAREN" :
             var v = parse_or_aux(calc, parse_and_aux(calc, parse_relation(calc)));
             var match = token("()");
-            if (typeof match === "number") {
+            if (typeof match === "string") {
               if (match !== 81) {
                 throw [
                       $$Error$2,
@@ -11615,7 +11615,7 @@ function directive_parse(token_with_comments, lexbuf) {
   };
   var parse_and_aux = function (calc, v) {
     var e = token("()");
-    if (typeof e === "number" && e === 0) {
+    if (typeof e === "string" && e === 0) {
       var calc$1 = calc && v;
       var b = parse_and_aux(calc$1, parse_relation(calc$1));
       if (v) {
@@ -11630,7 +11630,7 @@ function directive_parse(token_with_comments, lexbuf) {
   };
   var parse_or_aux = function (calc, v) {
     var e = token("()");
-    if (typeof e === "number" && e === 8) {
+    if (typeof e === "string" && e === 8) {
       var calc$1 = calc && !v;
       var b = parse_or_aux(calc$1, parse_and_aux(calc$1, parse_relation(calc$1)));
       if (v) {
@@ -11645,7 +11645,7 @@ function directive_parse(token_with_comments, lexbuf) {
   };
   var v = parse_or_aux(true, parse_and_aux(true, parse_relation(true)));
   var match = token("()");
-  if (typeof match === "number") {
+  if (typeof match === "string") {
     if (match !== 88) {
       throw [
             $$Error$2,
@@ -13193,7 +13193,7 @@ function __ocaml_lex_comment_rec(lexbuf, ___ocaml_lex_state) {
             var exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
             if (exn[0] === $$Error$2) {
               var match$1 = exn[1];
-              if (typeof match$1 === "number") {
+              if (typeof match$1 === "string") {
                 if (match$1 !== 0) {
                   throw exn;
                 }
@@ -13244,7 +13244,7 @@ function __ocaml_lex_comment_rec(lexbuf, ___ocaml_lex_state) {
             var exn$1 = Caml_js_exceptions.internalToOCamlException(raw_exn$1);
             if (exn$1[0] === $$Error$2) {
               var match$3 = exn$1[1];
-              if (typeof match$3 === "number") {
+              if (typeof match$3 === "string") {
                 if (match$3 !== 0) {
                   throw exn$1;
                 }
@@ -13444,7 +13444,7 @@ function token$1(lexbuf) {
                               }
                               if (token === "SHARP" && at_bol(lexbuf$1)) {
                                 var token$1 = token_with_comments(lexbuf$1);
-                                if (typeof token$1 === "number") {
+                                if (typeof token$1 === "string") {
                                   var switcher = token$1 - 23 | 0;
                                   if (switcher === 0 || switcher === 1) {
                                     if (switcher !== 0) {
@@ -13514,7 +13514,7 @@ function token$1(lexbuf) {
                     }
                     if (token$2 === "SHARP" && at_bol(lexbuf$1)) {
                       var token$3 = token_with_comments(lexbuf$1);
-                      if (typeof token$3 === "number") {
+                      if (typeof token$3 === "string") {
                         var switcher$1 = token$3 - 23 | 0;
                         if (switcher$1 === 0 || switcher$1 === 1) {
                           if (switcher$1 !== 0) {
@@ -13676,7 +13676,7 @@ function skip_phrase(lexbuf) {
   while(true) {
     try {
       var match = token$1(lexbuf);
-      if (typeof match === "number" && !(match !== 25 && match !== 83)) {
+      if (typeof match === "string" && !(match !== 25 && match !== 83)) {
         return "()";
       } else {
         return skip_phrase(lexbuf);

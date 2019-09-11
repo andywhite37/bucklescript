@@ -1766,7 +1766,7 @@ function highlight_dumb(ppf, lb, loc) {
 function highlight_locations(ppf, locs) {
   while(true) {
     var match = status[0];
-    if (typeof match === "number") {
+    if (typeof match === "string") {
       if (match !== 0) {
         var match$1 = input_lexbuf[0];
         if (match$1 !== undefined) {
@@ -4284,7 +4284,7 @@ function default_mty(param) {
 function field_kind_repr(_kind) {
   while(true) {
     var kind = _kind;
-    if (typeof kind === "number") {
+    if (typeof kind === "string") {
       return kind;
     } else {
       var match = kind[0][/* contents */0];
@@ -4326,7 +4326,7 @@ function repr(_t) {
 function commu_repr(_c) {
   while(true) {
     var c = _c;
-    if (typeof c === "number") {
+    if (typeof c === "string") {
       return c;
     } else {
       var r = c[0];
@@ -4941,7 +4941,7 @@ function copy_row(f, fixed, row, keep, more) {
 function copy_kind(_param) {
   while(true) {
     var param = _param;
-    if (typeof param === "number") {
+    if (typeof param === "string") {
       if (param !== 0) {
         throw [
               Caml_builtin_exceptions.assert_failure,
@@ -5591,7 +5591,7 @@ function rev_log(_accu, _param) {
   while(true) {
     var param = _param;
     var accu = _accu;
-    if (typeof param === "number") {
+    if (typeof param === "string") {
       if (param !== 0) {
         throw [
               Caml_builtin_exceptions.assert_failure,
@@ -5622,7 +5622,7 @@ function backtrack(param) {
   var old = param[1];
   var changes = param[0];
   var change = changes[0];
-  if (typeof change === "number") {
+  if (typeof change === "string") {
     if (change !== 0) {
       throw [
             Caml_builtin_exceptions.failure,
@@ -16283,7 +16283,7 @@ var yyact = /* array */[
       var exit = 0;
       if (bindings) {
         var lb = bindings[0];
-        if (typeof lb[/* lb_pattern */0][/* ppat_desc */0] === "number" && !bindings[1]) {
+        if (typeof lb[/* lb_pattern */0][/* ppat_desc */0] === "string" && !bindings[1]) {
           var exp = wrap_exp_attrs(lb[/* lb_expression */1], /* tuple */[
                 undefined,
                 lbs[/* lbs_attributes */3]
@@ -22288,7 +22288,7 @@ function defined(str) {
       return false;
     }
   }
-  if (typeof val === "number") {
+  if (typeof val === "string") {
     return false;
   } else {
     return true;
@@ -22353,7 +22353,7 @@ function query(loc, str) {
       throw exn;
     }
   }
-  if (typeof v === "number") {
+  if (typeof v === "string") {
     return /* constructor */{
             tag: "Dir_bool",
             "0": false
@@ -22695,7 +22695,7 @@ function directive_parse(token_with_comments, lexbuf) {
   };
   var parse_and_aux = function (calc, v) {
     var e = token("()");
-    if (typeof e === "number" && e === 0) {
+    if (typeof e === "string" && e === 0) {
       var calc$1 = calc && v;
       var b = parse_and_aux(calc$1, parse_relation(calc$1));
       if (v) {
@@ -22718,7 +22718,7 @@ function directive_parse(token_with_comments, lexbuf) {
         case "LPAREN" :
             var v = parse_or_aux(calc, parse_and_aux(calc, parse_relation(calc)));
             var match = token("()");
-            if (typeof match === "number") {
+            if (typeof match === "string") {
               if (match !== 81) {
                 throw [
                       $$Error$4,
@@ -22859,7 +22859,7 @@ function directive_parse(token_with_comments, lexbuf) {
   };
   var parse_or_aux = function (calc, v) {
     var e = token("()");
-    if (typeof e === "number" && e === 8) {
+    if (typeof e === "string" && e === 8) {
       var calc$1 = calc && !v;
       var b = parse_or_aux(calc$1, parse_and_aux(calc$1, parse_relation(calc$1)));
       if (v) {
@@ -22874,7 +22874,7 @@ function directive_parse(token_with_comments, lexbuf) {
   };
   var v = parse_or_aux(true, parse_and_aux(true, parse_relation(true)));
   var match = token("()");
-  if (typeof match === "number") {
+  if (typeof match === "string") {
     if (match !== 88) {
       throw [
             $$Error$4,
@@ -24426,7 +24426,7 @@ function __ocaml_lex_comment_rec(lexbuf, ___ocaml_lex_state) {
             var exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
             if (exn[0] === $$Error$4) {
               var match$1 = exn[1];
-              if (typeof match$1 === "number") {
+              if (typeof match$1 === "string") {
                 if (match$1 !== 0) {
                   throw exn;
                 }
@@ -24477,7 +24477,7 @@ function __ocaml_lex_comment_rec(lexbuf, ___ocaml_lex_state) {
             var exn$1 = Caml_js_exceptions.internalToOCamlException(raw_exn$1);
             if (exn$1[0] === $$Error$4) {
               var match$3 = exn$1[1];
-              if (typeof match$3 === "number") {
+              if (typeof match$3 === "string") {
                 if (match$3 !== 0) {
                   throw exn$1;
                 }
@@ -24673,7 +24673,7 @@ function token$1(lexbuf) {
                               }
                               if (token === "SHARP" && at_bol(lexbuf$1)) {
                                 var token$1 = token_with_comments(lexbuf$1);
-                                if (typeof token$1 === "number") {
+                                if (typeof token$1 === "string") {
                                   var switcher = token$1 - 23 | 0;
                                   if (switcher === 0 || switcher === 1) {
                                     if (switcher !== 0) {
@@ -24743,7 +24743,7 @@ function token$1(lexbuf) {
                     }
                     if (token$2 === "SHARP" && at_bol(lexbuf$1)) {
                       var token$3 = token_with_comments(lexbuf$1);
-                      if (typeof token$3 === "number") {
+                      if (typeof token$3 === "string") {
                         var switcher$1 = token$3 - 23 | 0;
                         if (switcher$1 === 0 || switcher$1 === 1) {
                           if (switcher$1 !== 0) {
@@ -24905,7 +24905,7 @@ function skip_phrase(lexbuf) {
   while(true) {
     try {
       var match = token$1(lexbuf);
-      if (typeof match === "number" && !(match !== 25 && match !== 83)) {
+      if (typeof match === "string" && !(match !== 25 && match !== 83)) {
         return "()";
       } else {
         return skip_phrase(lexbuf);
@@ -27511,7 +27511,7 @@ function in_pervasives(p) {
 
 function is_datatype(decl) {
   var match = decl[/* type_kind */2];
-  if (typeof match === "number") {
+  if (typeof match === "string") {
     return match !== 0;
   } else {
     return true;
@@ -27897,7 +27897,7 @@ function hide_private_methods(ty) {
     var match$1 = flatten_fields(match[0]);
     return List.iter((function (param) {
                   var match = field_kind_repr(param[1]);
-                  if (typeof match === "number") {
+                  if (typeof match === "string") {
                     return "()";
                   } else {
                     return set_kind(match[0], "Fabsent");
@@ -29101,7 +29101,7 @@ function copy(env, partial, keep_names, ty) {
               break;
           case "Tfield" :
               var match$4 = field_kind_repr(desc[1]);
-              if (typeof match$4 === "number") {
+              if (typeof match$4 === "string") {
                 tmp = match$4 !== 0 ? /* constructor */({
                       tag: "Tlink",
                       "0": copy$1(desc[3])
@@ -30250,7 +30250,7 @@ function generic_private_abbrev(env, path) {
   try {
     var match = find_type_full(path, env)[0];
     var match$1 = match[/* type_kind */2];
-    if (typeof match$1 === "number" && !(match$1 !== 0 || match[/* type_private */3])) {
+    if (typeof match$1 === "string" && !(match$1 !== 0 || match[/* type_private */3])) {
       var match$2 = match[/* type_manifest */4];
       if (match$2 !== undefined) {
         return repr(match$2)[/* level */1] === 100000000;
@@ -31262,7 +31262,7 @@ function mcomp(type_pairs, env, _t1, _t2) {
                             if (typeof match$4 === "string") {
                               if (match$4 === "Type_abstract") {
                                 var exit$3 = 0;
-                                if (typeof match$5 === "number" && match$5 === 0) {
+                                if (typeof match$5 === "string" && match$5 === 0) {
                                   return "()";
                                 } else {
                                   exit$3 = 2;
@@ -31275,7 +31275,7 @@ function mcomp(type_pairs, env, _t1, _t2) {
                                   }
                                 }
                                 
-                              } else if (typeof match$5 === "number") {
+                              } else if (typeof match$5 === "string") {
                                 if (match$5 !== 0) {
                                   return mcomp_list(type_pairs$1, env$1, tl1, tl2);
                                 } else {
@@ -31371,7 +31371,7 @@ function mcomp(type_pairs, env, _t1, _t2) {
                               };
                             }
                             if (exit$2 === 1) {
-                              if (typeof match$5 === "number") {
+                              if (typeof match$5 === "string") {
                                 if (match$5 !== 0) {
                                   throw [
                                         Unify,
@@ -31574,7 +31574,7 @@ function mcomp(type_pairs, env, _t1, _t2) {
                                             }
                                             
                                           }
-                                          if (typeof match !== "number" && !match[0]) {
+                                          if (typeof match !== "string" && !match[0]) {
                                             return "()";
                                           }
                                           if (typeof match$1 === "string" || !(/* XXX */match$1.tag === "Rpresent" && match$1[0] !== undefined)) {
@@ -31781,14 +31781,14 @@ function mcomp_fields(type_pairs, env, ty1, ty2) {
 function mcomp_kind(k1, k2) {
   var k1$1 = field_kind_repr(k1);
   var k2$1 = field_kind_repr(k2);
-  if (typeof k1$1 === "number") {
+  if (typeof k1$1 === "string") {
     if (k1$1 !== 0) {
       throw [
             Unify,
             "[]"
           ];
     }
-    if (typeof k2$1 === "number") {
+    if (typeof k2$1 === "string") {
       if (k2$1 !== 0) {
         throw [
               Unify,
@@ -31804,7 +31804,7 @@ function mcomp_kind(k1, k2) {
           ];
     }
   } else {
-    if (typeof k2$1 === "number") {
+    if (typeof k2$1 === "string") {
       throw [
             Unify,
             "[]"
@@ -32058,7 +32058,7 @@ function complete_type_list($staropt$star, env, nl1, lv2, mty2, nl2, tl2) {
             throw Pervasives.Exit;
           }
           var match$1 = decl[/* type_kind */2];
-          if (typeof match$1 === "number") {
+          if (typeof match$1 === "string") {
             if (match$1 !== 0) {
               throw Pervasives.Exit;
             }
@@ -32384,8 +32384,8 @@ function unify3(env, t1, t1$prime, t2, t2$prime) {
                       unify(env, d1[2], d2[2]);
                       var match$1 = commu_repr(d1[3]);
                       var match$2 = commu_repr(d2[3]);
-                      if (typeof match$1 === "number") {
-                        if (typeof match$2 === "number") {
+                      if (typeof match$1 === "string") {
+                        if (typeof match$2 === "string") {
                           "()";
                         } else {
                           set_commu(match$2[0], match$1);
@@ -32839,7 +32839,7 @@ function unify3(env, t1, t1$prime, t2, t2$prime) {
           break;
       case 2 :
           var match$8 = field_kind_repr(kind);
-          if (typeof match$8 === "number") {
+          if (typeof match$8 === "string") {
             throw [
                   Unify,
                   "[]"
@@ -32970,9 +32970,9 @@ function unify_kind(k1, k2) {
   if (k1$1 === k2$1) {
     return "()";
   } else {
-    if (typeof k1$1 === "number") {
+    if (typeof k1$1 === "string") {
       if (k1$1 === 0) {
-        if (typeof k2$1 === "number") {
+        if (typeof k2$1 === "string") {
           if (k2$1 === 0) {
             return "()";
           }
@@ -32984,7 +32984,7 @@ function unify_kind(k1, k2) {
       
     } else {
       var r = k1$1[0];
-      if (!(typeof k2$1 === "number" && k2$1 !== 0)) {
+      if (!(typeof k2$1 === "string" && k2$1 !== 0)) {
         return set_kind(r, k2$1);
       }
       
@@ -34015,7 +34015,7 @@ function moregen(inst_nongen, type_pairs, env, t1, t2) {
                 var match$2 = t1$prime$1[/* desc */0];
                 var match$3 = t2$prime$1[/* desc */0];
                 if (typeof match$2 === "string") {
-                  if (typeof match$3 === "number") {
+                  if (typeof match$3 === "string") {
                     return "()";
                   } else {
                     throw [
@@ -34241,7 +34241,7 @@ function moregen(inst_nongen, type_pairs, env, t1, t2) {
                                           if (f1 === f2) {
                                             return "()";
                                           } else if (typeof f1 === "string") {
-                                            if (typeof f2 === "number") {
+                                            if (typeof f2 === "string") {
                                               return "()";
                                             } else {
                                               throw [
@@ -34584,14 +34584,14 @@ function moregen_kind(k1, k2) {
   var k2$1 = field_kind_repr(k2);
   if (k1$1 === k2$1) {
     return "()";
-  } else if (typeof k1$1 === "number") {
+  } else if (typeof k1$1 === "string") {
     if (k1$1 !== 0) {
       throw [
             Unify,
             "[]"
           ];
     }
-    if (typeof k2$1 === "number") {
+    if (typeof k2$1 === "string") {
       if (k2$1 !== 0) {
         throw [
               Unify,
@@ -34608,7 +34608,7 @@ function moregen_kind(k1, k2) {
     }
   } else {
     var r = k1$1[0];
-    if (typeof k2$1 === "number") {
+    if (typeof k2$1 === "string") {
       if (k2$1 !== 0) {
         throw [
               Unify,
@@ -34881,7 +34881,7 @@ function eqtype(rename, type_pairs, subst, env, t1, t2) {
                 var match$2 = t1$prime$1[/* desc */0];
                 var match$3 = t2$prime$1[/* desc */0];
                 if (typeof match$2 === "string") {
-                  if (typeof match$3 === "number") {
+                  if (typeof match$3 === "string") {
                     return "()";
                   } else {
                     throw [
@@ -35077,7 +35077,7 @@ function eqtype(rename, type_pairs, subst, env, t1, t2) {
                                           var match = row_field_repr_aux("[]", param[1]);
                                           var match$1 = row_field_repr_aux("[]", param[2]);
                                           if (typeof match === "string") {
-                                            if (typeof match$1 === "number") {
+                                            if (typeof match$1 === "string") {
                                               return "()";
                                             } else {
                                               throw [
@@ -35427,14 +35427,14 @@ function eqtype_fields(rename, type_pairs, subst, env, ty1, _ty2) {
 function eqtype_kind(k1, k2) {
   var k1$1 = field_kind_repr(k1);
   var k2$1 = field_kind_repr(k2);
-  if (typeof k1$1 === "number") {
+  if (typeof k1$1 === "string") {
     if (k1$1 !== 0) {
       throw [
             Unify,
             "[]"
           ];
     }
-    if (typeof k2$1 === "number") {
+    if (typeof k2$1 === "string") {
       if (k2$1 !== 0) {
         throw [
               Unify,
@@ -35450,7 +35450,7 @@ function eqtype_kind(k1, k2) {
           ];
     }
   } else {
-    if (typeof k2$1 === "number") {
+    if (typeof k2$1 === "string") {
       throw [
             Unify,
             "[]"
@@ -35659,7 +35659,7 @@ function match_class_types($staropt$star, env, pat_sch, subj_sch) {
   var error = List.fold_right((function (param, err) {
           var lab = param[0];
           var k = field_kind_repr(param[1]);
-          var err$1 = typeof k === "number" ? /* constructor */({
+          var err$1 = typeof k === "string" ? /* constructor */({
                 tag: "::",
                 "0": /* constructor */{
                   tag: "CM_Hide_public",
@@ -36002,7 +36002,7 @@ function match_class_declarations(env, patt_params, patt_type, subj_params, subj
   var error = List.fold_right((function (param, err) {
           var lab = param[0];
           var k = field_kind_repr(param[1]);
-          var err$1 = typeof k === "number" ? /* constructor */({
+          var err$1 = typeof k === "string" ? /* constructor */({
                 tag: "::",
                 "0": /* constructor */{
                   tag: "CM_Hide_public",
@@ -36038,9 +36038,9 @@ function match_class_declarations(env, patt_params, patt_type, subj_params, subj
           var lab = param[0];
           var k1 = field_kind_repr(param[1]);
           var k2 = field_kind_repr(param[3]);
-          if (typeof k1 === "number") {
+          if (typeof k1 === "string") {
             if (k1 === 0) {
-              if (typeof k2 === "number") {
+              if (typeof k2 === "string") {
                 if (k2 === 0) {
                   return err;
                 }
@@ -36057,7 +36057,7 @@ function match_class_declarations(env, patt_params, patt_type, subj_params, subj
               }
             }
             
-          } else if (typeof k2 === "number") {
+          } else if (typeof k2 === "string") {
             if (k2 === 0) {
               return /* constructor */{
                       tag: "::",
@@ -37156,7 +37156,7 @@ function subtype_rec(env, _trace, _t1, _t2, _cstrs) {
                                                     var t1;
                                                     var t2;
                                                     if (typeof match === "string") {
-                                                      if (typeof match$1 === "number") {
+                                                      if (typeof match$1 === "string") {
                                                         return cstrs;
                                                       } else {
                                                         throw Pervasives.Exit;
@@ -41361,7 +41361,7 @@ function print_out_sig_item(ppf, param) {
     case "Osig_modtype" :
         var mty = param[1];
         var name = param[0];
-        if (typeof mty === "number") {
+        if (typeof mty === "string") {
           return Curry._1(Format.fprintf(ppf, /* constructor */{
                           tag: "Format",
                           "0": /* constructor */{
@@ -42698,7 +42698,7 @@ function safe_kind_repr(_v, _param) {
   while(true) {
     var param = _param;
     var v = _v;
-    if (typeof param === "number") {
+    if (typeof param === "string") {
       if (param !== 0) {
         return "Fabsent";
       } else {
@@ -42730,7 +42730,7 @@ function safe_commu_repr(_v, _param) {
   while(true) {
     var param = _param;
     var v = _v;
-    if (typeof param === "number") {
+    if (typeof param === "string") {
       if (param !== 0) {
         return "Cunknown";
       } else {
@@ -45437,7 +45437,7 @@ function tree_of_typobject(sch, fi, nm) {
       var match = flatten_fields(fi);
       var present_fields = List.fold_right((function (param, l) {
               var match = field_kind_repr(param[1]);
-              if (typeof match === "number" && match === 0) {
+              if (typeof match === "string" && match === 0) {
                 return /* constructor */{
                         tag: "::",
                         "0": /* tuple */[
@@ -45882,7 +45882,7 @@ function value_description$1(id, ppf, decl) {
 function method_type(param) {
   var match = field_kind_repr(param[1]);
   var match$1 = repr(param[2]);
-  if (typeof match === "number" && match === 0) {
+  if (typeof match === "string" && match === 0) {
     var match$2 = match$1[/* desc */0];
     if (typeof match$2 === "string" || /* XXX */match$2.tag !== "Tpoly") {
       return /* tuple */[
@@ -47047,7 +47047,7 @@ function has_explanation(unif, t3, t4) {
       case "Tfield" :
           var match$2 = match[3][/* desc */0];
           var exit$2 = 0;
-          if (typeof match$2 === "number" && typeof match$1 !== "string") {
+          if (typeof match$2 === "string" && typeof match$1 !== "string") {
             switch (/* XXX */match$1.tag) {
               case "Tvar" :
                   exit$1 = 3;
@@ -47057,7 +47057,7 @@ function has_explanation(unif, t3, t4) {
                   break;
               case "Tfield" :
                   var match$3 = match$1[3][/* desc */0];
-                  if (typeof match$3 === "number") {
+                  if (typeof match$3 === "string") {
                     return match[0] === match$1[0];
                   } else {
                     return false;
@@ -47871,14 +47871,14 @@ function explanation(unif, mis, ppf) {
                   var l = match$1[0];
                   var match$8 = match$1[3][/* desc */0];
                   var exit$6 = 0;
-                  if (typeof match$8 === "number" && typeof match$2 !== "string") {
+                  if (typeof match$8 === "string" && typeof match$2 !== "string") {
                     switch (/* XXX */match$2.tag) {
                       case "Tconstr" :
                           exit$6 = 4;
                           break;
                       case "Tfield" :
                           var match$9 = match$2[3][/* desc */0];
-                          if (typeof match$9 === "number" && l === match$2[0]) {
+                          if (typeof match$9 === "string" && l === match$2[0]) {
                             return Curry._1(Format.fprintf(ppf$1, /* constructor */{
                                             tag: "Format",
                                             "0": /* constructor */{
@@ -49606,7 +49606,7 @@ function type_declarations$1($staropt$star, env, name, decl1, id, decl2) {
     var match$1 = decl2[/* type_kind */2];
     var err;
     var exit = 0;
-    if (typeof match$1 === "number" && match$1 === 0) {
+    if (typeof match$1 === "string" && match$1 === 0) {
       err = "[]";
     } else {
       exit = 1;
@@ -49618,7 +49618,7 @@ function type_declarations$1($staropt$star, env, name, decl1, id, decl2) {
               "0": "Kind",
               "1": "[]"
             }) : (
-            typeof match$1 === "number" ? "[]" : /* constructor */({
+            typeof match$1 === "string" ? "[]" : /* constructor */({
                   tag: "::",
                   "0": "Kind",
                   "1": "[]"
@@ -49912,7 +49912,7 @@ function strengthen_sig(env, sg, p) {
           var match$2 = decl[/* type_kind */2];
           var newdecl;
           var exit = 0;
-          if (match !== undefined && (match$1 || typeof match$2 !== "number")) {
+          if (match !== undefined && (match$1 || typeof match$2 !== "string")) {
             newdecl = decl;
           } else {
             exit = 1;
@@ -50413,7 +50413,7 @@ function contains_type_sig(env) {
                           var match = param$1[1];
                           var match$1 = match[/* type_kind */2];
                           if (match[/* type_manifest */4] !== undefined) {
-                            if (typeof match$1 === "number" && !(match$1 !== 0 || match[/* type_private */3])) {
+                            if (typeof match$1 === "string" && !(match$1 !== 0 || match[/* type_private */3])) {
                               throw Pervasives.Exit;
                             } else {
                               return "()";
@@ -51741,8 +51741,8 @@ function try_modtypes(env, cxt, subst, _mty1, mty2) {
                               tag: "Pident",
                               "0": param1
                             }, subst), mty1[2], mty2[2]);
-                    if (typeof cc_arg === "number") {
-                      if (typeof cc_res === "number") {
+                    if (typeof cc_arg === "string") {
+                      if (typeof cc_res === "string") {
                         return "Tcoerce_none";
                       } else {
                         return /* constructor */{
@@ -51782,7 +51782,7 @@ function try_modtypes(env, cxt, subst, _mty1, mty2) {
                         },
                         "1": cxt
                       }, subst, mty1[2], mty2[2]);
-                  if (typeof cc === "number") {
+                  if (typeof cc === "string") {
                     return "Tcoerce_none";
                   } else {
                     return /* constructor */{
@@ -52306,7 +52306,7 @@ function modtype_infos(env, cxt, subst, id, info1, info2) {
 function check_modtype_equiv(env, cxt, mty1, mty2) {
   var match = modtypes(env, cxt, identity, mty1, mty2);
   var match$1 = modtypes(env, cxt, identity, mty2, mty1);
-  if (typeof match === "number" && typeof match$1 === "number") {
+  if (typeof match === "string" && typeof match$1 === "string") {
     return "()";
   }
   throw [
@@ -54876,7 +54876,7 @@ function pretty_val(ppf, v) {
                             },
                             "1": "@[{%a}@]"
                           }), pretty_lvals, List.filter((function (param) {
-                                if (typeof param[2][/* pat_desc */0] === "number") {
+                                if (typeof param[2][/* pat_desc */0] === "string") {
                                   return false;
                                 } else {
                                   return true;
@@ -58058,7 +58058,7 @@ function every_satisfiables(_pss, _qs) {
       var match$2 = qs[/* ors */1];
       if (match$2) {
         return List.fold_right2((function (pss, qs, r) {
-                      if (typeof r === "number" && r !== 0) {
+                      if (typeof r === "string" && r !== 0) {
                         return "Unused";
                       }
                       var match = qs[/* active */2];
@@ -58077,12 +58077,12 @@ function every_satisfiables(_pss, _qs) {
                         var r_loc = every_both(pss, qs, match$1[0], match$1[1]);
                         var r1 = r;
                         var r2 = r_loc;
-                        if (typeof r1 === "number") {
+                        if (typeof r1 === "string") {
                           if (r1 !== 0) {
                             return "Unused";
                           }
                           
-                        } else if (typeof r2 === "number") {
+                        } else if (typeof r2 === "string") {
                           if (r2 === 0) {
                             return r1;
                           }
@@ -58093,7 +58093,7 @@ function every_satisfiables(_pss, _qs) {
                                   "0": Pervasives.$at(r1[0], r2[0])
                                 };
                         }
-                        if (typeof r2 === "number" && r2 !== 0) {
+                        if (typeof r2 === "string" && r2 !== 0) {
                           return "Unused";
                         } else {
                           return r2;
@@ -58149,9 +58149,9 @@ function every_both(pss, qs, q1, q2) {
             "0": qs1,
             "1": pss
           }) : pss, qs2);
-  if (typeof r1 === "number") {
+  if (typeof r1 === "string") {
     if (r1 !== 0) {
-      if (typeof r2 === "number") {
+      if (typeof r2 === "string") {
         if (r2 !== 0) {
           return "Unused";
         } else {
@@ -58174,7 +58174,7 @@ function every_both(pss, qs, q1, q2) {
                 }
               };
       }
-    } else if (typeof r2 === "number" && r2 !== 0) {
+    } else if (typeof r2 === "string" && r2 !== 0) {
       return /* constructor */{
               tag: "Upartial",
               "0": /* constructor */{
@@ -58188,7 +58188,7 @@ function every_both(pss, qs, q1, q2) {
     }
   } else {
     var u1 = r1[0];
-    if (typeof r2 === "number") {
+    if (typeof r2 === "string") {
       if (r2 !== 0) {
         return /* constructor */{
                 tag: "Upartial",
@@ -60001,7 +60001,7 @@ function transl_type(env, policy, styp) {
           var stl$2;
           if (stl$1) {
             var t = stl$1[0];
-            stl$2 = typeof t[/* ptyp_desc */0] === "number" && !(stl$1[1] || decl[/* type_arity */1] <= 1) ? List.map((function (param) {
+            stl$2 = typeof t[/* ptyp_desc */0] === "string" && !(stl$1[1] || decl[/* type_arity */1] <= 1) ? List.map((function (param) {
                       return t;
                     }), decl[/* type_params */0]) : stl$1;
           } else {
@@ -69740,7 +69740,7 @@ function type_cases(in_function, env, ty_arg, ty_res, partial_flag, loc, caselis
                         /* ors */"[]",
                         /* active */qs
                       ]);
-                  if (typeof r === "number") {
+                  if (typeof r === "string") {
                     if (r !== 0) {
                       prerr_warning(q[/* pat_loc */1], "Unused_match");
                     } else {
@@ -72785,7 +72785,7 @@ function find$6(x, _param) {
 
 function check_coherence(env, loc, id, decl) {
   var match = decl[/* type_kind */2];
-  if (typeof match === "number" && match === 0) {
+  if (typeof match === "string" && match === 0) {
     return "()";
   }
   var match$1 = decl[/* type_manifest */4];
@@ -73871,7 +73871,7 @@ function check_duplicates(sdecl_list) {
 
 function name_recursion(sdecl, id, decl) {
   var match = decl[/* type_kind */2];
-  if (typeof match === "number" && !(match !== 0 || decl[/* type_private */3])) {
+  if (typeof match === "string" && !(match !== 0 || decl[/* type_private */3])) {
     var match$1 = decl[/* type_manifest */4];
     if (match$1 !== undefined && is_fixed_type(sdecl)) {
       var ty = repr(match$1);
@@ -74782,7 +74782,7 @@ function transl_type_extension(check_open, env, loc, styext) {
   var type_decl = match[1];
   var type_path = match[0];
   var match$1 = type_decl[/* type_kind */2];
-  if (typeof match$1 === "number") {
+  if (typeof match$1 === "string") {
     if (match$1 === 0 && check_open) {
       try {
         var match$2 = List.find((function (param) {
@@ -78447,7 +78447,7 @@ function class_structure(cl_num, $$final, val_env, met_env, loc, param) {
             var lab = param[0];
             if (lab === dummy_method) {
               var match = field_kind_repr(kind);
-              if (typeof match === "number") {
+              if (typeof match === "string") {
                 return rem;
               } else {
                 set_kind(match[0], "Fabsent");
@@ -81867,7 +81867,7 @@ function merge_constraint(initial_env, loc, sg, constr) {
                       var sdecl = constr[1];
                       var match = sdecl[/* ptype_kind */3];
                       var exit$1 = 0;
-                      if (typeof match === "number" && !(match !== 0 || !(id[/* name */1] === s && is_fixed_type(sdecl)))) {
+                      if (typeof match === "string" && !(match !== 0 || !(id[/* name */1] === s && is_fixed_type(sdecl)))) {
                         var decl_row_000 = /* type_params */List.map((function (param) {
                                 return newty2(100000000, /* constructor */{
                                             tag: "Tvar",
@@ -84891,7 +84891,7 @@ function type_structure($staropt$star, funct_body, anchor, env, sstr, scope) {
                       switch (/* XXX */it.tag) {
                         case "Sig_value" :
                             var match = it[1][/* val_kind */1];
-                            if (typeof match === "number" && match === 0) {
+                            if (typeof match === "string" && match === 0) {
                               pos[0] = pos[0] + 1 | 0;
                               return it;
                             } else {
@@ -86272,14 +86272,14 @@ if (match$1) {
                   eq("File \"ocaml_typed_tree_main.ml\", line 221, characters 12-19", true, false);
                 } else {
                   var match$13 = match$12[/* type_kind */2];
-                  if (typeof match$13 === "number" && !(match$13 !== 0 || !(match$12[/* type_private */3] && !(match$12[/* type_manifest */4] !== undefined || match$12[/* type_variance */5] || match$12[/* type_newtype_level */6] !== undefined)))) {
+                  if (typeof match$13 === "string" && !(match$13 !== 0 || !(match$12[/* type_private */3] && !(match$12[/* type_manifest */4] !== undefined || match$12[/* type_variance */5] || match$12[/* type_newtype_level */6] !== undefined)))) {
                     var match$14 = match$12[/* type_loc */7];
                     var match$15 = match$14[/* loc_start */0];
                     if (match$15[/* pos_fname */0] === "" && !(match$15[/* pos_lnum */1] !== 2 || match$15[/* pos_bol */2] !== 1 || match$15[/* pos_cnum */3] !== 1)) {
                       var match$16 = match$14[/* loc_end */1];
                       if (match$16[/* pos_fname */0] === "" && !(match$16[/* pos_lnum */1] !== 2 || match$16[/* pos_bol */2] !== 1 || match$16[/* pos_cnum */3] !== 9 || match$14[/* loc_ghost */2] || match$12[/* type_attributes */8] || match$5[/* typ_cstrs */4])) {
                         var match$17 = match$5[/* typ_kind */5];
-                        if (typeof match$17 === "number" && !(match$17 !== 0 || !(match$5[/* typ_private */6] && match$5[/* typ_manifest */7] === undefined))) {
+                        if (typeof match$17 === "string" && !(match$17 !== 0 || !(match$5[/* typ_private */6] && match$5[/* typ_manifest */7] === undefined))) {
                           var match$18 = match$5[/* typ_loc */8];
                           var match$19 = match$18[/* loc_start */0];
                           if (match$19[/* pos_fname */0] === "" && !(match$19[/* pos_lnum */1] !== 2 || match$19[/* pos_bol */2] !== 1 || match$19[/* pos_cnum */3] !== 1)) {
@@ -86352,7 +86352,7 @@ if (match$1) {
                                                                                       eq("File \"ocaml_typed_tree_main.ml\", line 221, characters 12-19", true, false);
                                                                                     } else {
                                                                                       var match$50 = match$46[2][/* contents */0];
-                                                                                      if (typeof match$50 === "number") {
+                                                                                      if (typeof match$50 === "string") {
                                                                                         var match$51 = match$35[/* ctyp_loc */3];
                                                                                         var match$52 = match$51[/* loc_start */0];
                                                                                         if (match$52[/* pos_fname */0] === "" && !(match$52[/* pos_lnum */1] !== 3 || match$52[/* pos_bol */2] !== 10 || match$52[/* pos_cnum */3] !== 28)) {
@@ -86397,7 +86397,7 @@ if (match$1) {
                                                                                                                                 eq("File \"ocaml_typed_tree_main.ml\", line 221, characters 12-19", true, false);
                                                                                                                               } else {
                                                                                                                                 var match$69 = match$65[2][/* contents */0];
-                                                                                                                                if (typeof match$69 === "number") {
+                                                                                                                                if (typeof match$69 === "string") {
                                                                                                                                   var match$70 = match$54[/* ctyp_loc */3];
                                                                                                                                   var match$71 = match$70[/* loc_start */0];
                                                                                                                                   if (match$71[/* pos_fname */0] === "" && !(match$71[/* pos_lnum */1] !== 3 || match$71[/* pos_bol */2] !== 10 || match$71[/* pos_cnum */3] !== 35)) {
@@ -86422,7 +86422,7 @@ if (match$1) {
                                                                                                                                                     eq("File \"ocaml_typed_tree_main.ml\", line 221, characters 12-19", true, false);
                                                                                                                                                   } else {
                                                                                                                                                     var match$79 = match$75[2][/* contents */0];
-                                                                                                                                                    if (typeof match$79 === "number") {
+                                                                                                                                                    if (typeof match$79 === "string") {
                                                                                                                                                       var match$80 = match$74[2][/* desc */0];
                                                                                                                                                       if (typeof match$80 === "string" || /* XXX */match$80.tag !== "Tconstr") {
                                                                                                                                                         eq("File \"ocaml_typed_tree_main.ml\", line 221, characters 12-19", true, false);
@@ -86437,9 +86437,9 @@ if (match$1) {
                                                                                                                                                                   eq("File \"ocaml_typed_tree_main.ml\", line 221, characters 12-19", true, false);
                                                                                                                                                                 } else {
                                                                                                                                                                   var match$84 = match$80[2][/* contents */0];
-                                                                                                                                                                  if (typeof match$84 === "number") {
+                                                                                                                                                                  if (typeof match$84 === "string") {
                                                                                                                                                                     var match$85 = match$74[3];
-                                                                                                                                                                    if (typeof match$85 === "number" && match$85 === 0) {
+                                                                                                                                                                    if (typeof match$85 === "string" && match$85 === 0) {
                                                                                                                                                                       var match$86 = match$33[/* ctyp_loc */3];
                                                                                                                                                                       var match$87 = match$86[/* loc_start */0];
                                                                                                                                                                       if (match$87[/* pos_fname */0] === "" && !(match$87[/* pos_lnum */1] !== 3 || match$87[/* pos_bol */2] !== 10 || match$87[/* pos_cnum */3] !== 28)) {
@@ -86464,7 +86464,7 @@ if (match$1) {
                                                                                                                                                                                         eq("File \"ocaml_typed_tree_main.ml\", line 221, characters 12-19", true, false);
                                                                                                                                                                                       } else {
                                                                                                                                                                                         var match$95 = match$91[2][/* contents */0];
-                                                                                                                                                                                        if (typeof match$95 === "number") {
+                                                                                                                                                                                        if (typeof match$95 === "string") {
                                                                                                                                                                                           var match$96 = match$90[2][/* desc */0];
                                                                                                                                                                                           if (typeof match$96 === "string" || /* XXX */match$96.tag !== "Tconstr") {
                                                                                                                                                                                             eq("File \"ocaml_typed_tree_main.ml\", line 221, characters 12-19", true, false);
@@ -86479,9 +86479,9 @@ if (match$1) {
                                                                                                                                                                                                       eq("File \"ocaml_typed_tree_main.ml\", line 221, characters 12-19", true, false);
                                                                                                                                                                                                     } else {
                                                                                                                                                                                                       var match$100 = match$96[2][/* contents */0];
-                                                                                                                                                                                                      if (typeof match$100 === "number") {
+                                                                                                                                                                                                      if (typeof match$100 === "string") {
                                                                                                                                                                                                         var match$101 = match$90[3];
-                                                                                                                                                                                                        if (typeof match$101 === "number" && match$101 === 0) {
+                                                                                                                                                                                                        if (typeof match$101 === "string" && match$101 === 0) {
                                                                                                                                                                                                           var match$102 = match$89[/* val_kind */1];
                                                                                                                                                                                                           if (typeof match$102 === "string" || /* XXX */match$102.tag !== "Val_prim") {
                                                                                                                                                                                                             eq("File \"ocaml_typed_tree_main.ml\", line 221, characters 12-19", true, false);

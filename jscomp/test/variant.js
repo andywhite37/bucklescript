@@ -29,7 +29,7 @@ function foo(param) {
 }
 
 function fooA1(param) {
-  if (typeof param === "number" && param === 0) {
+  if (typeof param === "string" && param === 0) {
     return 1;
   } else {
     return 42;
@@ -177,21 +177,21 @@ function switchList(param) {
 }
 
 function switchMYList(param) {
-  if (typeof param === "number") {
+  if (typeof param === "string") {
     if (param === 0) {
       return 0;
     }
     
   } else {
     var match = param[1];
-    if (typeof match === "number") {
+    if (typeof match === "string") {
       if (match === 0) {
         return 1;
       }
       
     } else {
       var match$1 = match[1];
-      if (typeof match$1 === "number" && match$1 === 0) {
+      if (typeof match$1 === "string" && match$1 === 0) {
         return 2;
       }
       

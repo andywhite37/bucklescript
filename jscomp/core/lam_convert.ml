@@ -318,6 +318,7 @@ let lam_prim ~primitive:( p : Lambda.primitive) ~args loc : Lam.t =
   | Pbytesrefs -> prim ~primitive:Pbytesrefs ~args loc
   | Pbytessets -> prim ~primitive:Pbytessets ~args loc
   | Pisint -> prim ~primitive:Pisint ~args loc
+  | Pisstring -> prim ~primitive:Pisstring ~args loc
   | Pisout -> prim ~primitive:Pisout ~args loc
   | Pbittest -> prim ~primitive:Pbittest ~args loc
   | Pintoffloat -> prim ~primitive:Pintoffloat ~args loc

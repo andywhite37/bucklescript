@@ -137,6 +137,7 @@ let rec no_side_effects (lam : Lam.t) : bool =
       | Parrayrefs  
       (* Test if the argument is a block or an immediate integer *)
       | Pisint
+      | Pisstring
       (* Test if the (integer) argument is outside an interval *)
       | Pisout
       | Pbintofint _

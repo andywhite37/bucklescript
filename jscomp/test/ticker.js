@@ -71,7 +71,7 @@ var Util = {
 };
 
 function string_of_rank(param) {
-  if (typeof param === "number") {
+  if (typeof param === "string") {
     if (param !== 0) {
       return "Visited";
     } else {
@@ -772,7 +772,7 @@ function compute_update_sequences(all_tickers) {
   List.fold_left((function (counter, ticker) {
           var loop = function (counter, ticker) {
             var rank = ticker[/* rank */1];
-            if (typeof rank === "number" && rank === 0) {
+            if (typeof rank === "string" && rank === 0) {
               ticker[/* rank */1] = "Visited";
               var match = ticker[/* type_ */3];
               if (match) {
@@ -841,14 +841,14 @@ function compute_update_sequences(all_tickers) {
   return fold((function (k, l, map) {
                 var l$1 = List.sort_uniq((function (lhs, rhs) {
                         var match = lhs[/* rank */1];
-                        if (typeof match === "number") {
+                        if (typeof match === "string") {
                           throw [
                                 Caml_builtin_exceptions.failure,
                                 "All nodes should be ranked"
                               ];
                         }
                         var match$1 = rhs[/* rank */1];
-                        if (typeof match$1 === "number") {
+                        if (typeof match$1 === "string") {
                           throw [
                                 Caml_builtin_exceptions.failure,
                                 "All nodes should be ranked"

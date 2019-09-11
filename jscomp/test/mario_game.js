@@ -558,7 +558,7 @@ function make_type(typ, dir) {
         }
     case "SBlock" :
         var param$3 = typ[0];
-        if (typeof param$3 === "number") {
+        if (typeof param$3 === "string") {
           switch (param$3) {
             case "QBlockUsed" :
                 return setup_sprite(undefined, undefined, undefined, "blocks.png", 1, 0, /* tuple */[
@@ -1362,7 +1362,7 @@ function kill(collid, ctx) {
     case "Block" :
         var o$2 = collid[2];
         var t = collid[0];
-        if (typeof t === "number" && t === 1) {
+        if (typeof t === "string" && t === 1) {
           var pos_000$1 = o$2[/* pos */1][/* x */0];
           var pos_001$1 = o$2[/* pos */1][/* y */1];
           var pos$1 = /* tuple */[
@@ -1687,7 +1687,7 @@ function process_collision(dir, c1, c2, state) {
               var o2$4 = c2[2];
               var t = c2[0];
               if (dir !== 0) {
-                if (typeof t === "number" && t === 4) {
+                if (typeof t === "string" && t === 4) {
                   game_win(state[/* ctx */1]);
                   return /* tuple */[
                           undefined,
@@ -1708,7 +1708,7 @@ function process_collision(dir, c1, c2, state) {
                           undefined
                         ];
                 }
-              } else if (typeof t === "number") {
+              } else if (typeof t === "string") {
                 if (t !== 1) {
                   if (t !== 4) {
                     collide_block(undefined, dir, o1$3);
@@ -1851,7 +1851,7 @@ function process_collision(dir, c1, c2, state) {
               var t2$3 = c2[0];
               if (dir >= 2) {
                 if (t1 >= 3) {
-                  if (typeof t2$3 === "number") {
+                  if (typeof t2$3 === "string") {
                     if (t2$3 !== 1) {
                       rev_dir(o1$4, t1, s1$3);
                       return /* tuple */[

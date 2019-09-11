@@ -127,7 +127,7 @@ var json = JSON.parse(JSON.stringify(null));
 
 var ty = Js_json.classify(json);
 
-if (typeof ty === "number") {
+if (typeof ty === "string") {
   if (ty >= 2) {
     add_test("File \"js_json_test.ml\", line 54, characters 30-37", (function (param) {
             return /* constructor */{
@@ -221,7 +221,7 @@ if (exit$1 === 1) {
 function test(v) {
   var json = JSON.parse(JSON.stringify(v));
   var ty = Js_json.classify(json);
-  if (typeof ty === "number") {
+  if (typeof ty === "string") {
     switch (ty) {
       case "JSONFalse" :
           return eq("File \"js_json_test.ml\", line 95, characters 31-38", false, v);
@@ -429,7 +429,7 @@ function eq_at_i(loc, json, i, kind, expected) {
                         }));
           }
       case "Boolean" :
-          if (typeof ty$1 === "number") {
+          if (typeof ty$1 === "string") {
             switch (ty$1) {
               case "JSONFalse" :
                   return eq(loc, false, expected);
@@ -453,7 +453,7 @@ function eq_at_i(loc, json, i, kind, expected) {
                         }));
           }
       case "Null" :
-          if (typeof ty$1 === "number") {
+          if (typeof ty$1 === "string") {
             if (ty$1 >= 2) {
               return add_test(loc, (function (param) {
                             return /* constructor */{

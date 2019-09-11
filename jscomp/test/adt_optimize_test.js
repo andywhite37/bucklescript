@@ -50,7 +50,7 @@ function f5(param) {
 }
 
 function f6(param) {
-  if (typeof param === "number") {
+  if (typeof param === "string") {
     if (param >= 2) {
       return 2;
     } else {

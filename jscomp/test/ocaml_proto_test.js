@@ -2065,7 +2065,7 @@ function function_name_of_user_defined(prefix, param) {
 
 function string_of_payload_kind(capitalize, payload_kind, packed) {
   var s;
-  if (typeof payload_kind === "number") {
+  if (typeof payload_kind === "string") {
     switch (payload_kind) {
       case "Pk_bits32" :
           s = packed ? "bytes" : "bits32";
@@ -2179,7 +2179,7 @@ function runtime_function(param) {
           ];
     }
     var match$1 = param[1];
-    if (typeof match$1 === "number") {
+    if (typeof match$1 === "string") {
       switch (match$1) {
         case "Pk_bits32" :
             switch (param[2]) {
@@ -2273,7 +2273,7 @@ function runtime_function(param) {
     }
   } else {
     var match$3 = param[1];
-    if (typeof match$3 === "number") {
+    if (typeof match$3 === "string") {
       switch (match$3) {
         case "Pk_bits32" :
             switch (param[2]) {
@@ -4629,7 +4629,7 @@ function compile_default_p2(all_types, field) {
   if (field_default$1 !== undefined) {
     var constant = field_default$1;
     var exit = 0;
-    if (typeof field_type$1 === "number") {
+    if (typeof field_type$1 === "string") {
       switch (field_type$1) {
         case "Field_type_double" :
         case "Field_type_float" :
@@ -5076,9 +5076,9 @@ function compile_message_p2(types, param, message) {
               },
               "1": "[pbtt] field_name: %s\n"
             }), field_name);
-    if (typeof field_type === "number") {
+    if (typeof field_type === "string") {
       var param = field_type;
-      if (typeof param === "number") {
+      if (typeof param === "string") {
         return param;
       } else {
         throw [
@@ -5293,7 +5293,7 @@ function node_of_proto_type(param) {
                 switch (/* XXX */param.tag) {
                   case "Message_field" :
                       var field_type = param[0][/* field_type */1];
-                      if (typeof field_type === "number") {
+                      if (typeof field_type === "string") {
                         return "[]";
                       } else {
                         return /* constructor */{
@@ -5305,7 +5305,7 @@ function node_of_proto_type(param) {
                   case "Message_oneof_field" :
                       return List.flatten(List.map((function (param) {
                                         var field_type = param[/* field_type */1];
-                                        if (typeof field_type === "number") {
+                                        if (typeof field_type === "string") {
                                           return "[]";
                                         } else {
                                           return /* constructor */{
@@ -5317,7 +5317,7 @@ function node_of_proto_type(param) {
                                       }), param[0][/* oneof_fields */1]));
                   case "Message_map_field" :
                       var map_value_type = param[0][/* map_value_type */3];
-                      if (typeof map_value_type === "number") {
+                      if (typeof map_value_type === "string") {
                         return "[]";
                       } else {
                         return /* constructor */{
@@ -7338,7 +7338,7 @@ function type_name(message_scope, name) {
 }
 
 function encoding_info_of_field_type(all_types, field_type) {
-  if (typeof field_type === "number") {
+  if (typeof field_type === "string") {
     switch (field_type) {
       case "Field_type_sint32" :
       case "Field_type_sint64" :
@@ -7463,7 +7463,7 @@ function compile_field_type(field_name, all_types, file_options, field_options, 
       "0": "Bt_int64"
     };
   }
-  if (typeof field_type === "number") {
+  if (typeof field_type === "string") {
     switch (field_type) {
       case "Field_type_double" :
       case "Field_type_float" :
@@ -7609,7 +7609,7 @@ function variant_of_oneof(include_oneof_name, outer_message_names, all_types, fi
           var vc_constructor = constructor_name(field_name(field));
           return /* record */[
                   /* vc_constructor */vc_constructor,
-                  /* vc_field_type */typeof field_type$1 === "number" ? "Vct_nullary" : /* constructor */({
+                  /* vc_field_type */typeof field_type$1 === "string" ? "Vct_nullary" : /* constructor */({
                         tag: "Vct_non_nullary_constructor",
                         "0": field_type$1
                       }),

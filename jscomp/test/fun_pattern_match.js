@@ -15,7 +15,7 @@ function f2(param, param$1) {
 function f3(param, param$1) {
   var lhs = param[/* rank */0];
   var rhs = param$1[/* rank */0];
-  if (typeof lhs === "number") {
+  if (typeof lhs === "string") {
     throw [
           Caml_builtin_exceptions.assert_failure,
           /* tuple */[
@@ -25,7 +25,7 @@ function f3(param, param$1) {
           ]
         ];
   }
-  if (typeof rhs === "number") {
+  if (typeof rhs === "string") {
     throw [
           Caml_builtin_exceptions.assert_failure,
           /* tuple */[
@@ -41,7 +41,7 @@ function f3(param, param$1) {
 function f4(param, param$1) {
   var lhs = param[/* rank */0];
   var rhs = param$1[/* rank */0];
-  if (typeof lhs === "number") {
+  if (typeof lhs === "string") {
     throw [
           Caml_builtin_exceptions.assert_failure,
           /* tuple */[
@@ -51,7 +51,7 @@ function f4(param, param$1) {
           ]
         ];
   }
-  if (typeof rhs === "number") {
+  if (typeof rhs === "string") {
     throw [
           Caml_builtin_exceptions.assert_failure,
           /* tuple */[
