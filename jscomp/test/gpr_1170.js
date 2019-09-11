@@ -4,7 +4,7 @@
 function f(resp) {
   resp.statusCode = 200;
   resp.hi = "hi";
-  return /* () */0;
+  return "()";
 }
 
 exports.f = f;

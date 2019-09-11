@@ -6,46 +6,41 @@ var u = {
 };
 
 var v_ice_cream3 = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": {
     flavor: "vanilla",
     num: 3
   },
   "1": /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": {
       flavor: "x",
       num: 3
     },
     "1": /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": {
         flavor: "vanilla",
         num: 3
       },
-      "1": /* [] */0
+      "1": "[]"
     }
   }
 };
 
 var v_ice_cream4 = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": {
     flavor: "vanilla",
     num: 3
   },
   "1": /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": {
       flavor: "x",
       num: 3
     },
-    "1": /* [] */0
+    "1": "[]"
   }
 };
 
@@ -62,22 +57,19 @@ var int_expect2 = {
 };
 
 var int_expects = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": { },
   "1": /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": {
       x: 2
     },
     "1": /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": {
         x: 3
       },
-      "1": /* [] */0
+      "1": "[]"
     }
   }
 };
@@ -101,7 +93,7 @@ var v_mk4 = {
 };
 
 var v_mk5 = {
-  x: /* () */0,
+  x: "()",
   y: 3
 };
 
@@ -110,7 +102,7 @@ var v_mk6 = {
 };
 
 var v_mk6_1 = {
-  x: /* () */0,
+  x: "()",
   y: 3
 };
 
@@ -119,24 +111,21 @@ var mk_u = {
 };
 
 var v_mk7 = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": {
     y: 3
   },
   "1": /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": {
       y: 2
     },
     "1": /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": {
         y: 2
       },
-      "1": /* [] */0
+      "1": "[]"
     }
   }
 };
@@ -157,23 +146,23 @@ again3(2);
 
 var side_effect = /* record */[/* contents */0];
 
-again4(undefined, /* () */0, 166);
+again4(undefined, "()", 166);
 
-again4(undefined, /* () */0, 167);
+again4(undefined, "()", 167);
 
-again4(/* () */0, /* () */0, 168);
+again4("()", "()", 168);
 
-again4(/* () */0, /* () */0, 169);
+again4("()", "()", 169);
 
-again4(undefined, /* () */0, 170);
+again4(undefined, "()", 170);
 
-again4((side_effect[0] = side_effect[0] + 1 | 0, /* () */0), /* () */0, 171);
+again4((side_effect[0] = side_effect[0] + 1 | 0, "()"), "()", 171);
 
-again4((side_effect[0] = side_effect[0] + 1 | 0, /* () */0), (side_effect[0] = side_effect[0] - 1 | 0, /* () */0), 172);
+again4((side_effect[0] = side_effect[0] + 1 | 0, "()"), (side_effect[0] = side_effect[0] - 1 | 0, "()"), 172);
 
-again4(undefined, (side_effect[0] = side_effect[0] - 1 | 0, /* () */0), 173);
+again4(undefined, (side_effect[0] = side_effect[0] - 1 | 0, "()"), 173);
 
-again4((side_effect[0] = side_effect[0] + 1 | 0, /* () */0), /* () */0, 174);
+again4((side_effect[0] = side_effect[0] + 1 | 0, /* () */0), "()", 174);
 
 exports.u = u;
 exports.v_ice_cream3 = v_ice_cream3;

@@ -4,14 +4,12 @@ var Mt = require("./mt.js");
 var Complex = require("../../lib/js/complex.js");
 
 var suites = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": /* tuple */[
     "basic_add",
     (function (param) {
         return /* constructor */{
-                tag: 0,
-                name: "Eq",
+                tag: "Eq",
                 "0": /* record */[
                   /* re */2,
                   /* im */2
@@ -20,7 +18,7 @@ var suites = /* constructor */{
               };
       })
   ],
-  "1": /* [] */0
+  "1": "[]"
 };
 
 Mt.from_pair_suites("Complex_test", suites);

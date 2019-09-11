@@ -7,21 +7,19 @@ var Format = require("../../lib/js/format.js");
 var Pervasives = require("../../lib/js/pervasives.js");
 var Caml_format = require("../../lib/js/caml_format.js");
 
-var suites = /* record */[/* contents : [] */0];
+var suites = /* record */[/* contents */"[]"];
 
 var test_id = /* record */[/* contents */0];
 
 function eq(loc, x, y) {
   test_id[0] = test_id[0] + 1 | 0;
   suites[0] = /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
-                  tag: 0,
-                  name: "Eq",
+                  tag: "Eq",
                   "0": x,
                   "1": y
                 };
@@ -40,28 +38,23 @@ function eq3(loc, a, b, c) {
 
 function u(param) {
   return Pervasives.$caret$caret(/* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 11,
-                name: "String_literal",
+                tag: "String_literal",
                 "0": "xx ",
                 "1": /* constructor */{
-                  tag: 2,
-                  name: "String",
-                  "0": /* No_padding */0,
-                  "1": /* End_of_format */0
+                  tag: "String",
+                  "0": "No_padding",
+                  "1": "End_of_format"
                 }
               },
               "1": "xx %s"
             }, /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 11,
-                name: "String_literal",
+                tag: "String_literal",
                 "0": "yy",
-                "1": /* End_of_format */0
+                "1": "End_of_format"
               },
               "1": "yy"
             });
@@ -69,7 +62,7 @@ function u(param) {
 
 var M = { };
 
-eq("File \"format_test.ml\", line 26, characters 5-12", Curry._1(Format.asprintf(u(/* () */0)), "x"), "xx xyy");
+eq("File \"format_test.ml\", line 26, characters 5-12", Curry._1(Format.asprintf(u("()")), "x"), "xx xyy");
 
 function f(loc, ls) {
   return List.iter((function (param) {

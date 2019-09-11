@@ -2,7 +2,7 @@
 
 var Mt = require("./mt.js");
 
-var suites = /* record */[/* contents : [] */0];
+var suites = /* record */[/* contents */"[]"];
 
 var counter = /* record */[/* contents */0];
 
@@ -10,8 +10,7 @@ function add_test(loc, test) {
   counter[0] = counter[0] + 1 | 0;
   var id = loc + (" id " + String(counter[0]));
   suites[0] = /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       id,
       test
@@ -24,8 +23,7 @@ function add_test(loc, test) {
 function eq(loc, x, y) {
   return add_test(loc, (function (param) {
                 return /* constructor */{
-                        tag: 0,
-                        name: "Eq",
+                        tag: "Eq",
                         "0": x,
                         "1": y
                       };

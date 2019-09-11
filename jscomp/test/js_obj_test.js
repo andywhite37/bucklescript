@@ -20,8 +20,7 @@ var class_tables = [
 ];
 
 var suites = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": /* tuple */[
     "caml_obj",
     (function (param) {
@@ -41,22 +40,19 @@ var suites = /* constructor */{
           class_tables[0] = env_init;
         }
         return /* constructor */{
-                tag: 0,
-                name: "Eq",
+                tag: "Eq",
                 "0": 33,
                 "1": f(Curry._1(class_tables[0], 0))
               };
       })
   ],
   "1": /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       "js_obj",
       (function (param) {
           return /* constructor */{
-                  tag: 0,
-                  name: "Eq",
+                  tag: "Eq",
                   "0": 34,
                   "1": ({
                         say: (function (x) {
@@ -67,14 +63,12 @@ var suites = /* constructor */{
         })
     ],
     "1": /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": /* tuple */[
         "js_obj2",
         (function (param) {
             return /* constructor */{
-                    tag: 0,
-                    name: "Eq",
+                    tag: "Eq",
                     "0": 34,
                     "1": ({
                           say: (function (x) {
@@ -85,28 +79,24 @@ var suites = /* constructor */{
           })
       ],
       "1": /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": /* tuple */[
           "empty",
           (function (param) {
               return /* constructor */{
-                      tag: 0,
-                      name: "Eq",
+                      tag: "Eq",
                       "0": 0,
                       "1": Object.keys({ }).length
                     };
             })
         ],
         "1": /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": /* tuple */[
             "assign",
             (function (param) {
                 return /* constructor */{
-                        tag: 0,
-                        name: "Eq",
+                        tag: "Eq",
                         "0": {
                           a: 1
                         },
@@ -116,7 +106,7 @@ var suites = /* constructor */{
                       };
               })
           ],
-          "1": /* [] */0
+          "1": "[]"
         }
       }
     }

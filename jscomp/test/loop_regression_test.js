@@ -18,20 +18,18 @@ function f(param) {
 }
 
 var suites = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": /* tuple */[
     "sum",
     (function (param) {
         return /* constructor */{
-                tag: 0,
-                name: "Eq",
+                tag: "Eq",
                 "0": 55,
-                "1": f(/* () */0)
+                "1": f("()")
               };
       })
   ],
-  "1": /* [] */0
+  "1": "[]"
 };
 
 Mt.from_pair_suites("Loop_regression_test", suites);

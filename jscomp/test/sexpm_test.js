@@ -5,7 +5,7 @@ var Curry = require("../../lib/js/curry.js");
 var Sexpm = require("./sexpm.js");
 var Format = require("../../lib/js/format.js");
 
-var suites = /* record */[/* contents : [] */0];
+var suites = /* record */[/* contents */"[]"];
 
 var test_id = /* record */[/* contents */0];
 
@@ -14,14 +14,12 @@ function eq(loc, param) {
   var x = param[0];
   test_id[0] = test_id[0] + 1 | 0;
   suites[0] = /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
-                  tag: 0,
-                  name: "Eq",
+                  tag: "Eq",
                   "0": x,
                   "1": y
                 };
@@ -35,38 +33,30 @@ function eq(loc, param) {
 function print_or_error(fmt, x) {
   if (x[0] >= 106380200) {
     return Curry._1(Format.fprintf(fmt, /* constructor */{
-                    tag: 0,
-                    name: "Format",
+                    tag: "Format",
                     "0": /* constructor */{
-                      tag: 18,
-                      name: "Formatting_gen",
+                      tag: "Formatting_gen",
                       "0": /* constructor */{
-                        tag: 1,
-                        name: "Open_box",
+                        tag: "Open_box",
                         "0": /* constructor */{
-                          tag: 0,
-                          name: "Format",
-                          "0": /* End_of_format */0,
+                          tag: "Format",
+                          "0": "End_of_format",
                           "1": ""
                         }
                       },
                       "1": /* constructor */{
-                        tag: 11,
-                        name: "String_literal",
+                        tag: "String_literal",
                         "0": "Error:",
                         "1": /* constructor */{
-                          tag: 2,
-                          name: "String",
-                          "0": /* No_padding */0,
+                          tag: "String",
+                          "0": "No_padding",
                           "1": /* constructor */{
-                            tag: 17,
-                            name: "Formatting_lit",
-                            "0": /* Close_box */0,
+                            tag: "Formatting_lit",
+                            "0": "Close_box",
                             "1": /* constructor */{
-                              tag: 17,
-                              name: "Formatting_lit",
-                              "0": /* Flush_newline */4,
-                              "1": /* End_of_format */0
+                              tag: "Formatting_lit",
+                              "0": "Flush_newline",
+                              "1": "End_of_format"
                             }
                           }
                         }
@@ -76,37 +66,29 @@ function print_or_error(fmt, x) {
                   }), x[1]);
   } else {
     return Curry._2(Format.fprintf(fmt, /* constructor */{
-                    tag: 0,
-                    name: "Format",
+                    tag: "Format",
                     "0": /* constructor */{
-                      tag: 18,
-                      name: "Formatting_gen",
+                      tag: "Formatting_gen",
                       "0": /* constructor */{
-                        tag: 1,
-                        name: "Open_box",
+                        tag: "Open_box",
                         "0": /* constructor */{
-                          tag: 0,
-                          name: "Format",
-                          "0": /* End_of_format */0,
+                          tag: "Format",
+                          "0": "End_of_format",
                           "1": ""
                         }
                       },
                       "1": /* constructor */{
-                        tag: 11,
-                        name: "String_literal",
+                        tag: "String_literal",
                         "0": "Ok:",
                         "1": /* constructor */{
-                          tag: 15,
-                          name: "Alpha",
+                          tag: "Alpha",
                           "0": /* constructor */{
-                            tag: 17,
-                            name: "Formatting_lit",
-                            "0": /* Close_box */0,
+                            tag: "Formatting_lit",
+                            "0": "Close_box",
                             "1": /* constructor */{
-                              tag: 17,
-                              name: "Formatting_lit",
-                              "0": /* Flush_newline */4,
-                              "1": /* End_of_format */0
+                              tag: "Formatting_lit",
+                              "0": "Flush_newline",
+                              "1": "End_of_format"
                             }
                           }
                         }
@@ -125,41 +107,36 @@ eq("File \"sexpm_test.ml\", line 17, characters 7-14", /* tuple */[
         /* `List */[
           848054398,
           /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": /* `Atom */[
               726615281,
               "x"
             ],
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": /* `Atom */[
                 726615281,
                 "x"
               ],
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": /* `Atom */[
                   726615281,
                   "gh"
                 ],
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": /* `Atom */[
                     726615281,
                     "3"
                   ],
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": /* `Atom */[
                       726615281,
                       "3"
                     ],
-                    "1": /* [] */0
+                    "1": "[]"
                   }
                 }
               }
@@ -172,12 +149,10 @@ eq("File \"sexpm_test.ml\", line 17, characters 7-14", /* tuple */[
 
 eq("File \"sexpm_test.ml\", line 21, characters 7-14", /* tuple */[
       Curry._2(Format.asprintf(/* constructor */{
-                  tag: 0,
-                  name: "Format",
+                  tag: "Format",
                   "0": /* constructor */{
-                    tag: 15,
-                    name: "Alpha",
-                    "0": /* End_of_format */0
+                    tag: "Alpha",
+                    "0": "End_of_format"
                   },
                   "1": "%a"
                 }), print_or_error, a).trim(),

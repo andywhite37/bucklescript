@@ -10,8 +10,7 @@ function insert(queue, prio, elt) {
     var p = queue[0];
     if (prio <= p) {
       return /* constructor */{
-              tag: 0,
-              name: "Node",
+              tag: "Node",
               "0": prio,
               "1": elt,
               "2": insert(right, p, e),
@@ -19,8 +18,7 @@ function insert(queue, prio, elt) {
             };
     } else {
       return /* constructor */{
-              tag: 0,
-              name: "Node",
+              tag: "Node",
               "0": p,
               "1": e,
               "2": insert(right, prio, elt),
@@ -29,12 +27,11 @@ function insert(queue, prio, elt) {
     }
   } else {
     return /* constructor */{
-            tag: 0,
-            name: "Node",
+            tag: "Node",
             "0": prio,
             "1": elt,
-            "2": /* Empty */0,
-            "3": /* Empty */0
+            "2": "Empty",
+            "3": "Empty"
           };
   }
 }
@@ -51,8 +48,7 @@ function remove_top(param) {
         var lprio = left[0];
         if (lprio <= rprio) {
           return /* constructor */{
-                  tag: 0,
-                  name: "Node",
+                  tag: "Node",
                   "0": lprio,
                   "1": left[1],
                   "2": remove_top(left),
@@ -60,8 +56,7 @@ function remove_top(param) {
                 };
         } else {
           return /* constructor */{
-                  tag: 0,
-                  name: "Node",
+                  tag: "Node",
                   "0": rprio,
                   "1": right[1],
                   "2": left,
@@ -92,7 +87,7 @@ function extract(queue) {
 }
 
 var PrioQueue = {
-  empty: /* Empty */0,
+  empty: "Empty",
   insert: insert,
   Queue_is_empty: Queue_is_empty,
   remove_top: remove_top,

@@ -16,7 +16,7 @@ function test(n) {
   }
   catch (exn){
     if (exn === Foo) {
-      return /* () */0;
+      return "()";
     } else {
       throw exn;
     }
@@ -26,7 +26,7 @@ function test(n) {
 test(100);
 
 function read_lines(inc) {
-  var _acc = /* [] */0;
+  var _acc = "[]";
   while(true) {
     var acc = _acc;
     var match;
@@ -42,8 +42,7 @@ function read_lines(inc) {
     }
     if (match !== undefined) {
       _acc = /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": match,
         "1": acc
       };
@@ -55,7 +54,7 @@ function read_lines(inc) {
 }
 
 function read_lines2(inc) {
-  var _acc = /* [] */0;
+  var _acc = "[]";
   while(true) {
     var acc = _acc;
     var l;
@@ -70,8 +69,7 @@ function read_lines2(inc) {
       }
     }
     _acc = /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": l,
       "1": acc
     };
@@ -84,8 +82,7 @@ function read_lines3(inc) {
     try {
       var l = Pervasives.input_line(inc);
       return loop(/* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": l,
                   "1": acc
                 });
@@ -98,7 +95,7 @@ function read_lines3(inc) {
       }
     }
   };
-  return loop(/* [] */0);
+  return loop("[]");
 }
 
 function fff(f, x) {

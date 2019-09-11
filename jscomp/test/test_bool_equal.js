@@ -109,7 +109,7 @@ function f5(x) {
 }
 
 function f6(x) {
-  if (x === /* [] */0) {
+  if (x === "[]") {
     return 1;
   } else {
     return 2;

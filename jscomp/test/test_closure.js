@@ -9,7 +9,7 @@ var v = /* record */[/* contents */0];
 
 function f(param) {
   var arr = Caml_array.caml_make_vect(10, (function (param) {
-          return /* () */0;
+          return "()";
         }));
   for(var i = 0; i <= 9; ++i){
     Caml_array.caml_array_set(arr, i, (function(i){
@@ -22,10 +22,10 @@ function f(param) {
   return arr;
 }
 
-var u = f(/* () */0);
+var u = f("()");
 
 $$Array.iter((function (x) {
-        return Curry._1(x, /* () */0);
+        return Curry._1(x, "()");
       }), u);
 
 if (v[0] !== 45) {

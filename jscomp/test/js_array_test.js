@@ -5,8 +5,7 @@ var Js_vector = require("../../lib/js/js_vector.js");
 var Caml_option = require("../../lib/js/caml_option.js");
 
 var suites = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": /* tuple */[
     "File \"js_array_test.ml\", line 3, characters 4-11",
     (function (param) {
@@ -18,8 +17,7 @@ var suites = /* constructor */{
           5
         ];
         return /* constructor */{
-                tag: 0,
-                name: "Eq",
+                tag: "Eq",
                 "0": /* array */[
                   2,
                   4
@@ -31,8 +29,7 @@ var suites = /* constructor */{
       })
   ],
   "1": /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       "File \"js_array_test.ml\", line 11, characters 4-11",
       (function (param) {
@@ -44,8 +41,7 @@ var suites = /* constructor */{
             5
           ];
           return /* constructor */{
-                  tag: 0,
-                  name: "Eq",
+                  tag: "Eq",
                   "0": true,
                   "1": (Js_vector.filterInPlace((function (x) {
                             return x > 10;
@@ -54,42 +50,36 @@ var suites = /* constructor */{
         })
     ],
     "1": /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": /* tuple */[
         "isArray_array",
         (function (param) {
             return /* constructor */{
-                    tag: 0,
-                    name: "Eq",
+                    tag: "Eq",
                     "0": true,
                     "1": Array.isArray(/* array */[])
                   };
           })
       ],
       "1": /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": /* tuple */[
           "isArray_int",
           (function (param) {
               return /* constructor */{
-                      tag: 0,
-                      name: "Eq",
+                      tag: "Eq",
                       "0": false,
                       "1": Array.isArray(34)
                     };
             })
         ],
         "1": /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": /* tuple */[
             "length",
             (function (param) {
                 return /* constructor */{
-                        tag: 0,
-                        name: "Eq",
+                        tag: "Eq",
                         "0": 3,
                         "1": /* array */[
                           1,
@@ -100,14 +90,12 @@ var suites = /* constructor */{
               })
           ],
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": /* tuple */[
               "copyWithin",
               (function (param) {
                   return /* constructor */{
-                          tag: 0,
-                          name: "Eq",
+                          tag: "Eq",
                           "0": /* array */[
                             1,
                             2,
@@ -126,14 +114,12 @@ var suites = /* constructor */{
                 })
             ],
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": /* tuple */[
                 "copyWithinFrom",
                 (function (param) {
                     return /* constructor */{
-                            tag: 0,
-                            name: "Eq",
+                            tag: "Eq",
                             "0": /* array */[
                               4,
                               5,
@@ -152,14 +138,12 @@ var suites = /* constructor */{
                   })
               ],
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": /* tuple */[
                   "copyWithinFromRange",
                   (function (param) {
                       return /* constructor */{
-                              tag: 0,
-                              name: "Eq",
+                              tag: "Eq",
                               "0": /* array */[
                                 4,
                                 2,
@@ -178,14 +162,12 @@ var suites = /* constructor */{
                     })
                 ],
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": /* tuple */[
                     "fillInPlace",
                     (function (param) {
                         return /* constructor */{
-                                tag: 0,
-                                name: "Eq",
+                                tag: "Eq",
                                 "0": /* array */[
                                   4,
                                   4,
@@ -200,14 +182,12 @@ var suites = /* constructor */{
                       })
                   ],
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": /* tuple */[
                       "fillFromInPlace",
                       (function (param) {
                           return /* constructor */{
-                                  tag: 0,
-                                  name: "Eq",
+                                  tag: "Eq",
                                   "0": /* array */[
                                     1,
                                     4,
@@ -222,14 +202,12 @@ var suites = /* constructor */{
                         })
                     ],
                     "1": /* constructor */{
-                      tag: 0,
-                      name: "::",
+                      tag: "::",
                       "0": /* tuple */[
                         "fillRangeInPlace",
                         (function (param) {
                             return /* constructor */{
-                                    tag: 0,
-                                    name: "Eq",
+                                    tag: "Eq",
                                     "0": /* array */[
                                       1,
                                       4,
@@ -244,14 +222,12 @@ var suites = /* constructor */{
                           })
                       ],
                       "1": /* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": /* tuple */[
                           "pop",
                           (function (param) {
                               return /* constructor */{
-                                      tag: 0,
-                                      name: "Eq",
+                                      tag: "Eq",
                                       "0": 3,
                                       "1": Caml_option.undefined_to_opt(/* array */[
                                               1,
@@ -262,28 +238,24 @@ var suites = /* constructor */{
                             })
                         ],
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": /* tuple */[
                             "pop - empty array",
                             (function (param) {
                                 return /* constructor */{
-                                        tag: 0,
-                                        name: "Eq",
+                                        tag: "Eq",
                                         "0": undefined,
                                         "1": Caml_option.undefined_to_opt(/* array */[].pop())
                                       };
                               })
                           ],
                           "1": /* constructor */{
-                            tag: 0,
-                            name: "::",
+                            tag: "::",
                             "0": /* tuple */[
                               "push",
                               (function (param) {
                                   return /* constructor */{
-                                          tag: 0,
-                                          name: "Eq",
+                                          tag: "Eq",
                                           "0": 4,
                                           "1": /* array */[
                                               1,
@@ -294,14 +266,12 @@ var suites = /* constructor */{
                                 })
                             ],
                             "1": /* constructor */{
-                              tag: 0,
-                              name: "::",
+                              tag: "::",
                               "0": /* tuple */[
                                 "pushMany",
                                 (function (param) {
                                     return /* constructor */{
-                                            tag: 0,
-                                            name: "Eq",
+                                            tag: "Eq",
                                             "0": 5,
                                             "1": /* array */[
                                                 1,
@@ -312,14 +282,12 @@ var suites = /* constructor */{
                                   })
                               ],
                               "1": /* constructor */{
-                                tag: 0,
-                                name: "::",
+                                tag: "::",
                                 "0": /* tuple */[
                                   "reverseInPlace",
                                   (function (param) {
                                       return /* constructor */{
-                                              tag: 0,
-                                              name: "Eq",
+                                              tag: "Eq",
                                               "0": /* array */[
                                                 3,
                                                 2,
@@ -334,14 +302,12 @@ var suites = /* constructor */{
                                     })
                                 ],
                                 "1": /* constructor */{
-                                  tag: 0,
-                                  name: "::",
+                                  tag: "::",
                                   "0": /* tuple */[
                                     "shift",
                                     (function (param) {
                                         return /* constructor */{
-                                                tag: 0,
-                                                name: "Eq",
+                                                tag: "Eq",
                                                 "0": 1,
                                                 "1": Caml_option.undefined_to_opt(/* array */[
                                                         1,
@@ -352,28 +318,24 @@ var suites = /* constructor */{
                                       })
                                   ],
                                   "1": /* constructor */{
-                                    tag: 0,
-                                    name: "::",
+                                    tag: "::",
                                     "0": /* tuple */[
                                       "shift - empty array",
                                       (function (param) {
                                           return /* constructor */{
-                                                  tag: 0,
-                                                  name: "Eq",
+                                                  tag: "Eq",
                                                   "0": undefined,
                                                   "1": Caml_option.undefined_to_opt(/* array */[].shift())
                                                 };
                                         })
                                     ],
                                     "1": /* constructor */{
-                                      tag: 0,
-                                      name: "::",
+                                      tag: "::",
                                       "0": /* tuple */[
                                         "sortInPlace",
                                         (function (param) {
                                             return /* constructor */{
-                                                    tag: 0,
-                                                    name: "Eq",
+                                                    tag: "Eq",
                                                     "0": /* array */[
                                                       1,
                                                       2,
@@ -388,14 +350,12 @@ var suites = /* constructor */{
                                           })
                                       ],
                                       "1": /* constructor */{
-                                        tag: 0,
-                                        name: "::",
+                                        tag: "::",
                                         "0": /* tuple */[
                                           "sortInPlaceWith",
                                           (function (param) {
                                               return /* constructor */{
-                                                      tag: 0,
-                                                      name: "Eq",
+                                                      tag: "Eq",
                                                       "0": /* array */[
                                                         3,
                                                         2,
@@ -412,8 +372,7 @@ var suites = /* constructor */{
                                             })
                                         ],
                                         "1": /* constructor */{
-                                          tag: 0,
-                                          name: "::",
+                                          tag: "::",
                                           "0": /* tuple */[
                                             "spliceInPlace",
                                             (function (param) {
@@ -425,8 +384,7 @@ var suites = /* constructor */{
                                                 ];
                                                 var removed = arr.splice(2, 0, 5);
                                                 return /* constructor */{
-                                                        tag: 0,
-                                                        name: "Eq",
+                                                        tag: "Eq",
                                                         "0": /* tuple */[
                                                           /* array */[
                                                             1,
@@ -445,8 +403,7 @@ var suites = /* constructor */{
                                               })
                                           ],
                                           "1": /* constructor */{
-                                            tag: 0,
-                                            name: "::",
+                                            tag: "::",
                                             "0": /* tuple */[
                                               "removeFromInPlace",
                                               (function (param) {
@@ -458,8 +415,7 @@ var suites = /* constructor */{
                                                   ];
                                                   var removed = arr.splice(2);
                                                   return /* constructor */{
-                                                          tag: 0,
-                                                          name: "Eq",
+                                                          tag: "Eq",
                                                           "0": /* tuple */[
                                                             /* array */[
                                                               1,
@@ -478,8 +434,7 @@ var suites = /* constructor */{
                                                 })
                                             ],
                                             "1": /* constructor */{
-                                              tag: 0,
-                                              name: "::",
+                                              tag: "::",
                                               "0": /* tuple */[
                                                 "removeCountInPlace",
                                                 (function (param) {
@@ -491,8 +446,7 @@ var suites = /* constructor */{
                                                     ];
                                                     var removed = arr.splice(2, 1);
                                                     return /* constructor */{
-                                                            tag: 0,
-                                                            name: "Eq",
+                                                            tag: "Eq",
                                                             "0": /* tuple */[
                                                               /* array */[
                                                                 1,
@@ -509,14 +463,12 @@ var suites = /* constructor */{
                                                   })
                                               ],
                                               "1": /* constructor */{
-                                                tag: 0,
-                                                name: "::",
+                                                tag: "::",
                                                 "0": /* tuple */[
                                                   "unshift",
                                                   (function (param) {
                                                       return /* constructor */{
-                                                              tag: 0,
-                                                              name: "Eq",
+                                                              tag: "Eq",
                                                               "0": 4,
                                                               "1": /* array */[
                                                                   1,
@@ -527,14 +479,12 @@ var suites = /* constructor */{
                                                     })
                                                 ],
                                                 "1": /* constructor */{
-                                                  tag: 0,
-                                                  name: "::",
+                                                  tag: "::",
                                                   "0": /* tuple */[
                                                     "unshiftMany",
                                                     (function (param) {
                                                         return /* constructor */{
-                                                                tag: 0,
-                                                                name: "Eq",
+                                                                tag: "Eq",
                                                                 "0": 5,
                                                                 "1": /* array */[
                                                                     1,
@@ -545,14 +495,12 @@ var suites = /* constructor */{
                                                       })
                                                   ],
                                                   "1": /* constructor */{
-                                                    tag: 0,
-                                                    name: "::",
+                                                    tag: "::",
                                                     "0": /* tuple */[
                                                       "append",
                                                       (function (param) {
                                                           return /* constructor */{
-                                                                  tag: 0,
-                                                                  name: "Eq",
+                                                                  tag: "Eq",
                                                                   "0": /* array */[
                                                                     1,
                                                                     2,
@@ -568,14 +516,12 @@ var suites = /* constructor */{
                                                         })
                                                     ],
                                                     "1": /* constructor */{
-                                                      tag: 0,
-                                                      name: "::",
+                                                      tag: "::",
                                                       "0": /* tuple */[
                                                         "concat",
                                                         (function (param) {
                                                             return /* constructor */{
-                                                                    tag: 0,
-                                                                    name: "Eq",
+                                                                    tag: "Eq",
                                                                     "0": /* array */[
                                                                       1,
                                                                       2,
@@ -595,14 +541,12 @@ var suites = /* constructor */{
                                                           })
                                                       ],
                                                       "1": /* constructor */{
-                                                        tag: 0,
-                                                        name: "::",
+                                                        tag: "::",
                                                         "0": /* tuple */[
                                                           "concatMany",
                                                           (function (param) {
                                                               return /* constructor */{
-                                                                      tag: 0,
-                                                                      name: "Eq",
+                                                                      tag: "Eq",
                                                                       "0": /* array */[
                                                                         1,
                                                                         2,
@@ -627,14 +571,12 @@ var suites = /* constructor */{
                                                             })
                                                         ],
                                                         "1": /* constructor */{
-                                                          tag: 0,
-                                                          name: "::",
+                                                          tag: "::",
                                                           "0": /* tuple */[
                                                             "includes",
                                                             (function (param) {
                                                                 return /* constructor */{
-                                                                        tag: 0,
-                                                                        name: "Eq",
+                                                                        tag: "Eq",
                                                                         "0": true,
                                                                         "1": /* array */[
                                                                             1,
@@ -645,14 +587,12 @@ var suites = /* constructor */{
                                                               })
                                                           ],
                                                           "1": /* constructor */{
-                                                            tag: 0,
-                                                            name: "::",
+                                                            tag: "::",
                                                             "0": /* tuple */[
                                                               "indexOf",
                                                               (function (param) {
                                                                   return /* constructor */{
-                                                                          tag: 0,
-                                                                          name: "Eq",
+                                                                          tag: "Eq",
                                                                           "0": 1,
                                                                           "1": /* array */[
                                                                               1,
@@ -663,14 +603,12 @@ var suites = /* constructor */{
                                                                 })
                                                             ],
                                                             "1": /* constructor */{
-                                                              tag: 0,
-                                                              name: "::",
+                                                              tag: "::",
                                                               "0": /* tuple */[
                                                                 "indexOfFrom",
                                                                 (function (param) {
                                                                     return /* constructor */{
-                                                                            tag: 0,
-                                                                            name: "Eq",
+                                                                            tag: "Eq",
                                                                             "0": 3,
                                                                             "1": /* array */[
                                                                                 1,
@@ -682,14 +620,12 @@ var suites = /* constructor */{
                                                                   })
                                                               ],
                                                               "1": /* constructor */{
-                                                                tag: 0,
-                                                                name: "::",
+                                                                tag: "::",
                                                                 "0": /* tuple */[
                                                                   "join",
                                                                   (function (param) {
                                                                       return /* constructor */{
-                                                                              tag: 0,
-                                                                              name: "Eq",
+                                                                              tag: "Eq",
                                                                               "0": "1,2,3",
                                                                               "1": /* array */[
                                                                                   1,
@@ -700,14 +636,12 @@ var suites = /* constructor */{
                                                                     })
                                                                 ],
                                                                 "1": /* constructor */{
-                                                                  tag: 0,
-                                                                  name: "::",
+                                                                  tag: "::",
                                                                   "0": /* tuple */[
                                                                     "joinWith",
                                                                     (function (param) {
                                                                         return /* constructor */{
-                                                                                tag: 0,
-                                                                                name: "Eq",
+                                                                                tag: "Eq",
                                                                                 "0": "1;2;3",
                                                                                 "1": /* array */[
                                                                                     1,
@@ -718,14 +652,12 @@ var suites = /* constructor */{
                                                                       })
                                                                   ],
                                                                   "1": /* constructor */{
-                                                                    tag: 0,
-                                                                    name: "::",
+                                                                    tag: "::",
                                                                     "0": /* tuple */[
                                                                       "lastIndexOf",
                                                                       (function (param) {
                                                                           return /* constructor */{
-                                                                                  tag: 0,
-                                                                                  name: "Eq",
+                                                                                  tag: "Eq",
                                                                                   "0": 1,
                                                                                   "1": /* array */[
                                                                                       1,
@@ -736,14 +668,12 @@ var suites = /* constructor */{
                                                                         })
                                                                     ],
                                                                     "1": /* constructor */{
-                                                                      tag: 0,
-                                                                      name: "::",
+                                                                      tag: "::",
                                                                       "0": /* tuple */[
                                                                         "lastIndexOfFrom",
                                                                         (function (param) {
                                                                             return /* constructor */{
-                                                                                    tag: 0,
-                                                                                    name: "Eq",
+                                                                                    tag: "Eq",
                                                                                     "0": 1,
                                                                                     "1": /* array */[
                                                                                         1,
@@ -755,14 +685,12 @@ var suites = /* constructor */{
                                                                           })
                                                                       ],
                                                                       "1": /* constructor */{
-                                                                        tag: 0,
-                                                                        name: "::",
+                                                                        tag: "::",
                                                                         "0": /* tuple */[
                                                                           "slice",
                                                                           (function (param) {
                                                                               return /* constructor */{
-                                                                                      tag: 0,
-                                                                                      name: "Eq",
+                                                                                      tag: "Eq",
                                                                                       "0": /* array */[
                                                                                         2,
                                                                                         3
@@ -778,14 +706,12 @@ var suites = /* constructor */{
                                                                             })
                                                                         ],
                                                                         "1": /* constructor */{
-                                                                          tag: 0,
-                                                                          name: "::",
+                                                                          tag: "::",
                                                                           "0": /* tuple */[
                                                                             "copy",
                                                                             (function (param) {
                                                                                 return /* constructor */{
-                                                                                        tag: 0,
-                                                                                        name: "Eq",
+                                                                                        tag: "Eq",
                                                                                         "0": /* array */[
                                                                                           1,
                                                                                           2,
@@ -804,14 +730,12 @@ var suites = /* constructor */{
                                                                               })
                                                                           ],
                                                                           "1": /* constructor */{
-                                                                            tag: 0,
-                                                                            name: "::",
+                                                                            tag: "::",
                                                                             "0": /* tuple */[
                                                                               "sliceFrom",
                                                                               (function (param) {
                                                                                   return /* constructor */{
-                                                                                          tag: 0,
-                                                                                          name: "Eq",
+                                                                                          tag: "Eq",
                                                                                           "0": /* array */[
                                                                                             3,
                                                                                             4,
@@ -828,14 +752,12 @@ var suites = /* constructor */{
                                                                                 })
                                                                             ],
                                                                             "1": /* constructor */{
-                                                                              tag: 0,
-                                                                              name: "::",
+                                                                              tag: "::",
                                                                               "0": /* tuple */[
                                                                                 "toString",
                                                                                 (function (param) {
                                                                                     return /* constructor */{
-                                                                                            tag: 0,
-                                                                                            name: "Eq",
+                                                                                            tag: "Eq",
                                                                                             "0": "1,2,3",
                                                                                             "1": /* array */[
                                                                                                 1,
@@ -846,14 +768,12 @@ var suites = /* constructor */{
                                                                                   })
                                                                               ],
                                                                               "1": /* constructor */{
-                                                                                tag: 0,
-                                                                                name: "::",
+                                                                                tag: "::",
                                                                                 "0": /* tuple */[
                                                                                   "toLocaleString",
                                                                                   (function (param) {
                                                                                       return /* constructor */{
-                                                                                              tag: 0,
-                                                                                              name: "Eq",
+                                                                                              tag: "Eq",
                                                                                               "0": "1,2,3",
                                                                                               "1": /* array */[
                                                                                                   1,
@@ -864,14 +784,12 @@ var suites = /* constructor */{
                                                                                     })
                                                                                 ],
                                                                                 "1": /* constructor */{
-                                                                                  tag: 0,
-                                                                                  name: "::",
+                                                                                  tag: "::",
                                                                                   "0": /* tuple */[
                                                                                     "every",
                                                                                     (function (param) {
                                                                                         return /* constructor */{
-                                                                                                tag: 0,
-                                                                                                name: "Eq",
+                                                                                                tag: "Eq",
                                                                                                 "0": true,
                                                                                                 "1": /* array */[
                                                                                                     1,
@@ -884,14 +802,12 @@ var suites = /* constructor */{
                                                                                       })
                                                                                   ],
                                                                                   "1": /* constructor */{
-                                                                                    tag: 0,
-                                                                                    name: "::",
+                                                                                    tag: "::",
                                                                                     "0": /* tuple */[
                                                                                       "everyi",
                                                                                       (function (param) {
                                                                                           return /* constructor */{
-                                                                                                  tag: 0,
-                                                                                                  name: "Eq",
+                                                                                                  tag: "Eq",
                                                                                                   "0": false,
                                                                                                   "1": /* array */[
                                                                                                       1,
@@ -904,14 +820,12 @@ var suites = /* constructor */{
                                                                                         })
                                                                                     ],
                                                                                     "1": /* constructor */{
-                                                                                      tag: 0,
-                                                                                      name: "::",
+                                                                                      tag: "::",
                                                                                       "0": /* tuple */[
                                                                                         "filter",
                                                                                         (function (param) {
                                                                                             return /* constructor */{
-                                                                                                    tag: 0,
-                                                                                                    name: "Eq",
+                                                                                                    tag: "Eq",
                                                                                                     "0": /* array */[
                                                                                                       2,
                                                                                                       4
@@ -928,14 +842,12 @@ var suites = /* constructor */{
                                                                                           })
                                                                                       ],
                                                                                       "1": /* constructor */{
-                                                                                        tag: 0,
-                                                                                        name: "::",
+                                                                                        tag: "::",
                                                                                         "0": /* tuple */[
                                                                                           "filteri",
                                                                                           (function (param) {
                                                                                               return /* constructor */{
-                                                                                                      tag: 0,
-                                                                                                      name: "Eq",
+                                                                                                      tag: "Eq",
                                                                                                       "0": /* array */[
                                                                                                         1,
                                                                                                         3
@@ -952,14 +864,12 @@ var suites = /* constructor */{
                                                                                             })
                                                                                         ],
                                                                                         "1": /* constructor */{
-                                                                                          tag: 0,
-                                                                                          name: "::",
+                                                                                          tag: "::",
                                                                                           "0": /* tuple */[
                                                                                             "find",
                                                                                             (function (param) {
                                                                                                 return /* constructor */{
-                                                                                                        tag: 0,
-                                                                                                        name: "Eq",
+                                                                                                        tag: "Eq",
                                                                                                         "0": 2,
                                                                                                         "1": Caml_option.undefined_to_opt(/* array */[
                                                                                                                 1,
@@ -973,14 +883,12 @@ var suites = /* constructor */{
                                                                                               })
                                                                                           ],
                                                                                           "1": /* constructor */{
-                                                                                            tag: 0,
-                                                                                            name: "::",
+                                                                                            tag: "::",
                                                                                             "0": /* tuple */[
                                                                                               "find - no match",
                                                                                               (function (param) {
                                                                                                   return /* constructor */{
-                                                                                                          tag: 0,
-                                                                                                          name: "Eq",
+                                                                                                          tag: "Eq",
                                                                                                           "0": undefined,
                                                                                                           "1": Caml_option.undefined_to_opt(/* array */[
                                                                                                                   1,
@@ -994,14 +902,12 @@ var suites = /* constructor */{
                                                                                                 })
                                                                                             ],
                                                                                             "1": /* constructor */{
-                                                                                              tag: 0,
-                                                                                              name: "::",
+                                                                                              tag: "::",
                                                                                               "0": /* tuple */[
                                                                                                 "findi",
                                                                                                 (function (param) {
                                                                                                     return /* constructor */{
-                                                                                                            tag: 0,
-                                                                                                            name: "Eq",
+                                                                                                            tag: "Eq",
                                                                                                             "0": 1,
                                                                                                             "1": Caml_option.undefined_to_opt(/* array */[
                                                                                                                     1,
@@ -1015,14 +921,12 @@ var suites = /* constructor */{
                                                                                                   })
                                                                                               ],
                                                                                               "1": /* constructor */{
-                                                                                                tag: 0,
-                                                                                                name: "::",
+                                                                                                tag: "::",
                                                                                                 "0": /* tuple */[
                                                                                                   "findi - no match",
                                                                                                   (function (param) {
                                                                                                       return /* constructor */{
-                                                                                                              tag: 0,
-                                                                                                              name: "Eq",
+                                                                                                              tag: "Eq",
                                                                                                               "0": undefined,
                                                                                                               "1": Caml_option.undefined_to_opt(/* array */[
                                                                                                                       1,
@@ -1036,14 +940,12 @@ var suites = /* constructor */{
                                                                                                     })
                                                                                                 ],
                                                                                                 "1": /* constructor */{
-                                                                                                  tag: 0,
-                                                                                                  name: "::",
+                                                                                                  tag: "::",
                                                                                                   "0": /* tuple */[
                                                                                                     "findIndex",
                                                                                                     (function (param) {
                                                                                                         return /* constructor */{
-                                                                                                                tag: 0,
-                                                                                                                name: "Eq",
+                                                                                                                tag: "Eq",
                                                                                                                 "0": 1,
                                                                                                                 "1": /* array */[
                                                                                                                     1,
@@ -1057,14 +959,12 @@ var suites = /* constructor */{
                                                                                                       })
                                                                                                   ],
                                                                                                   "1": /* constructor */{
-                                                                                                    tag: 0,
-                                                                                                    name: "::",
+                                                                                                    tag: "::",
                                                                                                     "0": /* tuple */[
                                                                                                       "findIndexi",
                                                                                                       (function (param) {
                                                                                                           return /* constructor */{
-                                                                                                                  tag: 0,
-                                                                                                                  name: "Eq",
+                                                                                                                  tag: "Eq",
                                                                                                                   "0": 0,
                                                                                                                   "1": /* array */[
                                                                                                                       1,
@@ -1078,8 +978,7 @@ var suites = /* constructor */{
                                                                                                         })
                                                                                                     ],
                                                                                                     "1": /* constructor */{
-                                                                                                      tag: 0,
-                                                                                                      name: "::",
+                                                                                                      tag: "::",
                                                                                                       "0": /* tuple */[
                                                                                                         "forEach",
                                                                                                         (function (param) {
@@ -1093,16 +992,14 @@ var suites = /* constructor */{
                                                                                                                     return /* () */0;
                                                                                                                   }));
                                                                                                             return /* constructor */{
-                                                                                                                    tag: 0,
-                                                                                                                    name: "Eq",
+                                                                                                                    tag: "Eq",
                                                                                                                     "0": 6,
                                                                                                                     "1": sum[0]
                                                                                                                   };
                                                                                                           })
                                                                                                       ],
                                                                                                       "1": /* constructor */{
-                                                                                                        tag: 0,
-                                                                                                        name: "::",
+                                                                                                        tag: "::",
                                                                                                         "0": /* tuple */[
                                                                                                           "forEachi",
                                                                                                           (function (param) {
@@ -1116,22 +1013,19 @@ var suites = /* constructor */{
                                                                                                                       return /* () */0;
                                                                                                                     }));
                                                                                                               return /* constructor */{
-                                                                                                                      tag: 0,
-                                                                                                                      name: "Eq",
+                                                                                                                      tag: "Eq",
                                                                                                                       "0": 3,
                                                                                                                       "1": sum[0]
                                                                                                                     };
                                                                                                             })
                                                                                                         ],
                                                                                                         "1": /* constructor */{
-                                                                                                          tag: 0,
-                                                                                                          name: "::",
+                                                                                                          tag: "::",
                                                                                                           "0": /* tuple */[
                                                                                                             "map",
                                                                                                             (function (param) {
                                                                                                                 return /* constructor */{
-                                                                                                                        tag: 0,
-                                                                                                                        name: "Eq",
+                                                                                                                        tag: "Eq",
                                                                                                                         "0": /* array */[
                                                                                                                           2,
                                                                                                                           4,
@@ -1150,14 +1044,12 @@ var suites = /* constructor */{
                                                                                                               })
                                                                                                           ],
                                                                                                           "1": /* constructor */{
-                                                                                                            tag: 0,
-                                                                                                            name: "::",
+                                                                                                            tag: "::",
                                                                                                             "0": /* tuple */[
                                                                                                               "map",
                                                                                                               (function (param) {
                                                                                                                   return /* constructor */{
-                                                                                                                          tag: 0,
-                                                                                                                          name: "Eq",
+                                                                                                                          tag: "Eq",
                                                                                                                           "0": /* array */[
                                                                                                                             0,
                                                                                                                             2,
@@ -1176,14 +1068,12 @@ var suites = /* constructor */{
                                                                                                                 })
                                                                                                             ],
                                                                                                             "1": /* constructor */{
-                                                                                                              tag: 0,
-                                                                                                              name: "::",
+                                                                                                              tag: "::",
                                                                                                               "0": /* tuple */[
                                                                                                                 "reduce",
                                                                                                                 (function (param) {
                                                                                                                     return /* constructor */{
-                                                                                                                            tag: 0,
-                                                                                                                            name: "Eq",
+                                                                                                                            tag: "Eq",
                                                                                                                             "0": -10,
                                                                                                                             "1": /* array */[
                                                                                                                                 1,
@@ -1197,14 +1087,12 @@ var suites = /* constructor */{
                                                                                                                   })
                                                                                                               ],
                                                                                                               "1": /* constructor */{
-                                                                                                                tag: 0,
-                                                                                                                name: "::",
+                                                                                                                tag: "::",
                                                                                                                 "0": /* tuple */[
                                                                                                                   "reducei",
                                                                                                                   (function (param) {
                                                                                                                       return /* constructor */{
-                                                                                                                              tag: 0,
-                                                                                                                              name: "Eq",
+                                                                                                                              tag: "Eq",
                                                                                                                               "0": -6,
                                                                                                                               "1": /* array */[
                                                                                                                                   1,
@@ -1218,14 +1106,12 @@ var suites = /* constructor */{
                                                                                                                     })
                                                                                                                 ],
                                                                                                                 "1": /* constructor */{
-                                                                                                                  tag: 0,
-                                                                                                                  name: "::",
+                                                                                                                  tag: "::",
                                                                                                                   "0": /* tuple */[
                                                                                                                     "reduceRight",
                                                                                                                     (function (param) {
                                                                                                                         return /* constructor */{
-                                                                                                                                tag: 0,
-                                                                                                                                name: "Eq",
+                                                                                                                                tag: "Eq",
                                                                                                                                 "0": -10,
                                                                                                                                 "1": /* array */[
                                                                                                                                     1,
@@ -1239,14 +1125,12 @@ var suites = /* constructor */{
                                                                                                                       })
                                                                                                                   ],
                                                                                                                   "1": /* constructor */{
-                                                                                                                    tag: 0,
-                                                                                                                    name: "::",
+                                                                                                                    tag: "::",
                                                                                                                     "0": /* tuple */[
                                                                                                                       "reduceRighti",
                                                                                                                       (function (param) {
                                                                                                                           return /* constructor */{
-                                                                                                                                  tag: 0,
-                                                                                                                                  name: "Eq",
+                                                                                                                                  tag: "Eq",
                                                                                                                                   "0": -6,
                                                                                                                                   "1": /* array */[
                                                                                                                                       1,
@@ -1260,14 +1144,12 @@ var suites = /* constructor */{
                                                                                                                         })
                                                                                                                     ],
                                                                                                                     "1": /* constructor */{
-                                                                                                                      tag: 0,
-                                                                                                                      name: "::",
+                                                                                                                      tag: "::",
                                                                                                                       "0": /* tuple */[
                                                                                                                         "some",
                                                                                                                         (function (param) {
                                                                                                                             return /* constructor */{
-                                                                                                                                    tag: 0,
-                                                                                                                                    name: "Eq",
+                                                                                                                                    tag: "Eq",
                                                                                                                                     "0": false,
                                                                                                                                     "1": /* array */[
                                                                                                                                         1,
@@ -1281,14 +1163,12 @@ var suites = /* constructor */{
                                                                                                                           })
                                                                                                                       ],
                                                                                                                       "1": /* constructor */{
-                                                                                                                        tag: 0,
-                                                                                                                        name: "::",
+                                                                                                                        tag: "::",
                                                                                                                         "0": /* tuple */[
                                                                                                                           "somei",
                                                                                                                           (function (param) {
                                                                                                                               return /* constructor */{
-                                                                                                                                      tag: 0,
-                                                                                                                                      name: "Eq",
+                                                                                                                                      tag: "Eq",
                                                                                                                                       "0": true,
                                                                                                                                       "1": /* array */[
                                                                                                                                           1,
@@ -1301,7 +1181,7 @@ var suites = /* constructor */{
                                                                                                                                     };
                                                                                                                             })
                                                                                                                         ],
-                                                                                                                        "1": /* [] */0
+                                                                                                                        "1": "[]"
                                                                                                                       }
                                                                                                                     }
                                                                                                                   }

@@ -12,16 +12,15 @@ var Caml_builtin_exceptions = require("../../lib/js/caml_builtin_exceptions.js")
 
 function get_tokens(lex, str) {
   var buf = Lexing.from_string(str);
-  var _acc = /* [] */0;
+  var _acc = "[]";
   while(true) {
     var acc = _acc;
     var v = Curry._1(lex, buf);
-    if (v === /* EOF */7) {
+    if (v === "EOF") {
       return List.rev(acc);
     } else {
       _acc = /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": v,
         "1": acc
       };
@@ -48,60 +47,47 @@ function from_tokens(lst) {
 }
 
 var lexer_suites = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": /* tuple */[
     "arith_token",
     (function (param) {
         return /* constructor */{
-                tag: 0,
-                name: "Eq",
+                tag: "Eq",
                 "0": get_tokens(Arith_lexer.lexeme, "x + 3 + 4 + y"),
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": /* constructor */{
-                    tag: 1,
-                    name: "IDENT",
+                    tag: "IDENT",
                     "0": "x"
                   },
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
-                    "0": /* PLUS */0,
+                    tag: "::",
+                    "0": "PLUS",
                     "1": /* constructor */{
-                      tag: 0,
-                      name: "::",
+                      tag: "::",
                       "0": /* constructor */{
-                        tag: 0,
-                        name: "NUMERAL",
+                        tag: "NUMERAL",
                         "0": 3
                       },
                       "1": /* constructor */{
-                        tag: 0,
-                        name: "::",
-                        "0": /* PLUS */0,
+                        tag: "::",
+                        "0": "PLUS",
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": /* constructor */{
-                            tag: 0,
-                            name: "NUMERAL",
+                            tag: "NUMERAL",
                             "0": 4
                           },
                           "1": /* constructor */{
-                            tag: 0,
-                            name: "::",
-                            "0": /* PLUS */0,
+                            tag: "::",
+                            "0": "PLUS",
                             "1": /* constructor */{
-                              tag: 0,
-                              name: "::",
+                              tag: "::",
                               "0": /* constructor */{
-                                tag: 1,
-                                name: "IDENT",
+                                tag: "IDENT",
                                 "0": "y"
                               },
-                              "1": /* [] */0
+                              "1": "[]"
                             }
                           }
                         }
@@ -113,34 +99,29 @@ var lexer_suites = /* constructor */{
       })
   ],
   "1": /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       "simple token",
       (function (param) {
           return /* constructor */{
-                  tag: 0,
-                  name: "Eq",
+                  tag: "Eq",
                   "0": Arith_lexer.lexeme(Lexing.from_string("10")),
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "NUMERAL",
+                    tag: "NUMERAL",
                     "0": 10
                   }
                 };
         })
     ],
     "1": /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": /* tuple */[
         "number_lexer",
         (function (param) {
-            var v = /* record */[/* contents : [] */0];
+            var v = /* record */[/* contents */"[]"];
             var add = function (t) {
               v[0] = /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": t,
                 "1": v[0]
               };
@@ -148,78 +129,60 @@ var lexer_suites = /* constructor */{
             };
             Number_lexer.token(add, Lexing.from_string("32 + 32 ( ) * / "));
             return /* constructor */{
-                    tag: 0,
-                    name: "Eq",
+                    tag: "Eq",
                     "0": List.rev(v[0]),
                     "1": /* constructor */{
-                      tag: 0,
-                      name: "::",
+                      tag: "::",
                       "0": "number",
                       "1": /* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": "32",
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": "new line",
                           "1": /* constructor */{
-                            tag: 0,
-                            name: "::",
+                            tag: "::",
                             "0": "+",
                             "1": /* constructor */{
-                              tag: 0,
-                              name: "::",
+                              tag: "::",
                               "0": "new line",
                               "1": /* constructor */{
-                                tag: 0,
-                                name: "::",
+                                tag: "::",
                                 "0": "number",
                                 "1": /* constructor */{
-                                  tag: 0,
-                                  name: "::",
+                                  tag: "::",
                                   "0": "32",
                                   "1": /* constructor */{
-                                    tag: 0,
-                                    name: "::",
+                                    tag: "::",
                                     "0": "new line",
                                     "1": /* constructor */{
-                                      tag: 0,
-                                      name: "::",
+                                      tag: "::",
                                       "0": "(",
                                       "1": /* constructor */{
-                                        tag: 0,
-                                        name: "::",
+                                        tag: "::",
                                         "0": "new line",
                                         "1": /* constructor */{
-                                          tag: 0,
-                                          name: "::",
+                                          tag: "::",
                                           "0": ")",
                                           "1": /* constructor */{
-                                            tag: 0,
-                                            name: "::",
+                                            tag: "::",
                                             "0": "new line",
                                             "1": /* constructor */{
-                                              tag: 0,
-                                              name: "::",
+                                              tag: "::",
                                               "0": "*",
                                               "1": /* constructor */{
-                                                tag: 0,
-                                                name: "::",
+                                                tag: "::",
                                                 "0": "new line",
                                                 "1": /* constructor */{
-                                                  tag: 0,
-                                                  name: "::",
+                                                  tag: "::",
                                                   "0": "/",
                                                   "1": /* constructor */{
-                                                    tag: 0,
-                                                    name: "::",
+                                                    tag: "::",
                                                     "0": "new line",
                                                     "1": /* constructor */{
-                                                      tag: 0,
-                                                      name: "::",
+                                                      tag: "::",
                                                       "0": "eof",
-                                                      "1": /* [] */0
+                                                      "1": "[]"
                                                     }
                                                   }
                                                 }
@@ -241,34 +204,30 @@ var lexer_suites = /* constructor */{
           })
       ],
       "1": /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": /* tuple */[
           "simple number",
           (function (param) {
               return /* constructor */{
-                      tag: 0,
-                      name: "Eq",
+                      tag: "Eq",
                       "0": Arith_syntax.str(Arith_parser.toplevel(Arith_lexer.lexeme, Lexing.from_string("10"))),
                       "1": "10."
                     };
             })
         ],
         "1": /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": /* tuple */[
             "arith",
             (function (param) {
                 return /* constructor */{
-                        tag: 0,
-                        name: "Eq",
+                        tag: "Eq",
                         "0": Arith_syntax.str(Arith_parser.toplevel(Arith_lexer.lexeme, Lexing.from_string("x + 3 + 4 + y"))),
                         "1": "x+3.+4.+y"
                       };
               })
           ],
-          "1": /* [] */0
+          "1": "[]"
         }
       }
     }

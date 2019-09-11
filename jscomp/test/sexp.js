@@ -61,14 +61,12 @@ function of_pair(param) {
   return /* `List */[
           848054398,
           /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": param[0],
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": param[1],
-              "1": /* [] */0
+              "1": "[]"
             }
           }
         ];
@@ -78,18 +76,15 @@ function of_triple(param) {
   return /* `List */[
           848054398,
           /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": param[0],
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": param[1],
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": param[2],
-                "1": /* [] */0
+                "1": "[]"
               }
             }
           }
@@ -100,22 +95,18 @@ function of_quad(param) {
   return /* `List */[
           848054398,
           /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": param[0],
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": param[1],
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": param[2],
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": param[3],
-                  "1": /* [] */0
+                  "1": "[]"
                 }
               }
             }
@@ -127,8 +118,7 @@ function of_variant(name, args) {
   return /* `List */[
           848054398,
           /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": /* `Atom */[
               726615281,
               name
@@ -142,17 +132,15 @@ function of_field(name, t) {
   return /* `List */[
           848054398,
           /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": /* `Atom */[
               726615281,
               name
             ],
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": t,
-              "1": /* [] */0
+              "1": "[]"
             }
           }
         ];
@@ -186,7 +174,7 @@ function $great$great$eq(e, f) {
 }
 
 function map_opt(f, l) {
-  var _acc = /* [] */0;
+  var _acc = "[]";
   var _l = l;
   while(true) {
     var l$1 = _l;
@@ -196,8 +184,7 @@ function map_opt(f, l) {
       if (match !== undefined) {
         _l = l$1[1];
         _acc = /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": Caml_option.valFromOption(match),
           "1": acc
         };
@@ -236,7 +223,7 @@ function list_any(f, e) {
 function list_all(f, e) {
   if (e[0] >= 848054398) {
     var f$1 = f;
-    var _acc = /* [] */0;
+    var _acc = "[]";
     var _l = e[1];
     while(true) {
       var l = _l;
@@ -247,8 +234,7 @@ function list_all(f, e) {
         _l = tl;
         if (match !== undefined) {
           _acc = /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": Caml_option.valFromOption(match),
             "1": acc
           };
@@ -261,7 +247,7 @@ function list_all(f, e) {
       }
     };
   } else {
-    return /* [] */0;
+    return "[]";
   }
 }
 
@@ -524,7 +510,7 @@ function get_variant(l, e) {
       return ;
     }
   } else {
-    return _get_variant(e[1], /* [] */0, l);
+    return _get_variant(e[1], "[]", l);
   }
 }
 
@@ -541,7 +527,7 @@ function get_exn(e) {
 
 var of_unit = /* `List */[
   848054398,
-  /* [] */0
+  "[]"
 ];
 
 var Traverse = {

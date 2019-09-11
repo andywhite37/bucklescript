@@ -5,21 +5,19 @@ var Curry = require("../../lib/js/curry.js");
 var Caml_oo_curry = require("../../lib/js/caml_oo_curry.js");
 var CamlinternalOO = require("../../lib/js/camlinternalOO.js");
 
-var suites = /* record */[/* contents : [] */0];
+var suites = /* record */[/* contents */"[]"];
 
 var test_id = /* record */[/* contents */0];
 
 function eq(loc, x, y) {
   test_id[0] = test_id[0] + 1 | 0;
   suites[0] = /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
-                  tag: 0,
-                  name: "Eq",
+                  tag: "Eq",
                   "0": x,
                   "1": y
                 };
@@ -73,21 +71,21 @@ function create(param) {
   return Curry._1(class_tables[0], 0);
 }
 
-var cxt1 = create(/* () */0);
+var cxt1 = create("()");
 
-var tmp = Caml_oo_curry.js2(4846113, 1, cxt1, /* () */0);
+var tmp = Caml_oo_curry.js2(4846113, 1, cxt1, "()");
 
-var result = Caml_oo_curry.js2(5144726, 2, tmp, /* () */0);
+var result = Caml_oo_curry.js2(5144726, 2, tmp, "()");
 
 eq("File \"gpr_2250_test.ml\", line 26, characters 5-12", result, 1);
 
-var cxt2 = create(/* () */0);
+var cxt2 = create("()");
 
-var tmp$1 = Caml_oo_curry.js2(4846113, 3, cxt2, /* () */0);
+var tmp$1 = Caml_oo_curry.js2(4846113, 3, cxt2, "()");
 
-var tmp$2 = Caml_oo_curry.js2(4846113, 4, tmp$1, /* () */0);
+var tmp$2 = Caml_oo_curry.js2(4846113, 4, tmp$1, "()");
 
-var result2 = Caml_oo_curry.js2(5144726, 5, tmp$2, /* () */0);
+var result2 = Caml_oo_curry.js2(5144726, 5, tmp$2, "()");
 
 eq("File \"gpr_2250_test.ml\", line 37, characters 5-12", result2, 2);
 

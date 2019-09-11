@@ -17,8 +17,7 @@ function create(l, x, d, r) {
   var hl = height(l);
   var hr = height(r);
   return /* constructor */{
-          tag: 0,
-          name: "Node",
+          tag: "Node",
           "0": l,
           "1": x,
           "2": d,
@@ -76,8 +75,7 @@ function bal(l, x, d, r) {
     }
   } else {
     return /* constructor */{
-            tag: 0,
-            name: "Node",
+            tag: "Node",
             "0": l,
             "1": x,
             "2": d,
@@ -96,8 +94,7 @@ function add(x, data, param) {
     var c = Caml_primitive.caml_int_compare(x, v);
     if (c === 0) {
       return /* constructor */{
-              tag: 0,
-              name: "Node",
+              tag: "Node",
               "0": l,
               "1": x,
               "2": data,
@@ -111,12 +108,11 @@ function add(x, data, param) {
     }
   } else {
     return /* constructor */{
-            tag: 0,
-            name: "Node",
-            "0": /* Empty */0,
+            tag: "Node",
+            "0": "Empty",
             "1": x,
             "2": data,
-            "3": /* Empty */0,
+            "3": "Empty",
             "4": 1
           };
   }
@@ -141,55 +137,49 @@ function find(x, _param) {
 
 var m = List.fold_left((function (acc, param) {
         return add(param[0], param[1], acc);
-      }), /* Empty */0, /* constructor */{
-      tag: 0,
-      name: "::",
+      }), "Empty", /* constructor */{
+      tag: "::",
       "0": /* tuple */[
         10,
         /* "a" */97
       ],
       "1": /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": /* tuple */[
           3,
           /* "b" */98
         ],
         "1": /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": /* tuple */[
             7,
             /* "c" */99
           ],
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": /* tuple */[
               20,
               /* "d" */100
             ],
-            "1": /* [] */0
+            "1": "[]"
           }
         }
       }
     });
 
 Mt.from_pair_suites("Inline_map_test", /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": /* tuple */[
         "find",
         (function (param) {
             return /* constructor */{
-                    tag: 0,
-                    name: "Eq",
+                    tag: "Eq",
                     "0": find(10, m),
                     "1": /* "a" */97
                   };
           })
       ],
-      "1": /* [] */0
+      "1": "[]"
     });
 
 /* m Not a pure module */

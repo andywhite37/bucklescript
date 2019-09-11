@@ -19,8 +19,7 @@ function create(l, x, d, r) {
   var hl = height(l);
   var hr = height(r);
   return /* constructor */{
-          tag: 0,
-          name: "Node",
+          tag: "Node",
           "0": l,
           "1": x,
           "2": d,
@@ -78,8 +77,7 @@ function bal(l, x, d, r) {
     }
   } else {
     return /* constructor */{
-            tag: 0,
-            name: "Node",
+            tag: "Node",
             "0": l,
             "1": x,
             "2": d,
@@ -98,8 +96,7 @@ function add(x, data, param) {
     var c = Caml_primitive.caml_int_compare(x, v);
     if (c === 0) {
       return /* constructor */{
-              tag: 0,
-              name: "Node",
+              tag: "Node",
               "0": l,
               "1": x,
               "2": data,
@@ -113,12 +110,11 @@ function add(x, data, param) {
     }
   } else {
     return /* constructor */{
-            tag: 0,
-            name: "Node",
-            "0": /* Empty */0,
+            tag: "Node",
+            "0": "Empty",
             "1": x,
             "2": data,
-            "3": /* Empty */0,
+            "3": "Empty",
             "4": 1
           };
   }
@@ -130,8 +126,7 @@ function cons_enum(_m, _e) {
     var m = _m;
     if (m) {
       _e = /* constructor */{
-        tag: 0,
-        name: "More",
+        tag: "More",
         "0": m[1],
         "1": m[2],
         "2": m[3],
@@ -146,8 +141,8 @@ function cons_enum(_m, _e) {
 }
 
 function compare(cmp, m1, m2) {
-  var _e1 = cons_enum(m1, /* End */0);
-  var _e2 = cons_enum(m2, /* End */0);
+  var _e1 = cons_enum(m1, "End");
+  var _e2 = cons_enum(m2, "End");
   while(true) {
     var e2 = _e2;
     var e1 = _e1;
@@ -178,8 +173,8 @@ function compare(cmp, m1, m2) {
 }
 
 function equal(cmp, m1, m2) {
-  var _e1 = cons_enum(m1, /* End */0);
-  var _e2 = cons_enum(m2, /* End */0);
+  var _e1 = cons_enum(m1, "End");
+  var _e2 = cons_enum(m2, "End");
   while(true) {
     var e2 = _e2;
     var e1 = _e1;
@@ -219,8 +214,7 @@ function create$1(l, x, d, r) {
   var hl = height$1(l);
   var hr = height$1(r);
   return /* constructor */{
-          tag: 0,
-          name: "Node",
+          tag: "Node",
           "0": l,
           "1": x,
           "2": d,
@@ -278,8 +272,7 @@ function bal$1(l, x, d, r) {
     }
   } else {
     return /* constructor */{
-            tag: 0,
-            name: "Node",
+            tag: "Node",
             "0": l,
             "1": x,
             "2": d,
@@ -298,8 +291,7 @@ function add$1(x, data, param) {
     var c = Caml_primitive.caml_string_compare(x, v);
     if (c === 0) {
       return /* constructor */{
-              tag: 0,
-              name: "Node",
+              tag: "Node",
               "0": l,
               "1": x,
               "2": data,
@@ -313,12 +305,11 @@ function add$1(x, data, param) {
     }
   } else {
     return /* constructor */{
-            tag: 0,
-            name: "Node",
-            "0": /* Empty */0,
+            tag: "Node",
+            "0": "Empty",
             "1": x,
             "2": data,
-            "3": /* Empty */0,
+            "3": "Empty",
             "4": 1
           };
   }
@@ -344,171 +335,150 @@ function find(x, _param) {
 function of_list(kvs) {
   return List.fold_left((function (acc, param) {
                 return add(param[0], param[1], acc);
-              }), /* Empty */0, kvs);
+              }), "Empty", kvs);
 }
 
 var int_map_suites = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": /* tuple */[
     "add",
     (function (param) {
         var v = of_list(/* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": /* tuple */[
                 1,
                 /* "1" */49
               ],
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": /* tuple */[
                   2,
                   /* "3" */51
                 ],
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": /* tuple */[
                     3,
                     /* "4" */52
                   ],
-                  "1": /* [] */0
+                  "1": "[]"
                 }
               }
             });
         return /* constructor */{
-                tag: 0,
-                name: "Eq",
+                tag: "Eq",
                 "0": cardinal(v),
                 "1": 3
               };
       })
   ],
   "1": /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       "equal",
       (function (param) {
           var v = of_list(/* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": /* tuple */[
                   1,
                   /* "1" */49
                 ],
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": /* tuple */[
                     2,
                     /* "3" */51
                   ],
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": /* tuple */[
                       3,
                       /* "4" */52
                     ],
-                    "1": /* [] */0
+                    "1": "[]"
                   }
                 }
               });
           var u = of_list(/* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": /* tuple */[
                   2,
                   /* "3" */51
                 ],
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": /* tuple */[
                     3,
                     /* "4" */52
                   ],
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": /* tuple */[
                       1,
                       /* "1" */49
                     ],
-                    "1": /* [] */0
+                    "1": "[]"
                   }
                 }
               });
           return /* constructor */{
-                  tag: 0,
-                  name: "Eq",
+                  tag: "Eq",
                   "0": compare(Caml_obj.caml_compare, u, v),
                   "1": 0
                 };
         })
     ],
     "1": /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": /* tuple */[
         "equal2",
         (function (param) {
             var v = of_list(/* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": /* tuple */[
                     1,
                     /* "1" */49
                   ],
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": /* tuple */[
                       2,
                       /* "3" */51
                     ],
                     "1": /* constructor */{
-                      tag: 0,
-                      name: "::",
+                      tag: "::",
                       "0": /* tuple */[
                         3,
                         /* "4" */52
                       ],
-                      "1": /* [] */0
+                      "1": "[]"
                     }
                   }
                 });
             var u = of_list(/* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": /* tuple */[
                     2,
                     /* "3" */51
                   ],
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": /* tuple */[
                       3,
                       /* "4" */52
                     ],
                     "1": /* constructor */{
-                      tag: 0,
-                      name: "::",
+                      tag: "::",
                       "0": /* tuple */[
                         1,
                         /* "1" */49
                       ],
-                      "1": /* [] */0
+                      "1": "[]"
                     }
                   }
                 });
             return /* constructor */{
-                    tag: 0,
-                    name: "Eq",
+                    tag: "Eq",
                     "0": true,
                     "1": equal((function (x, y) {
                             return x === y;
@@ -517,12 +487,11 @@ var int_map_suites = /* constructor */{
           })
       ],
       "1": /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": /* tuple */[
           "iteration",
           (function (param) {
-              var m = /* Empty */0;
+              var m = "Empty";
               for(var i = 0; i <= 10000; ++i){
                 m = add$1(String(i), String(i), m);
               }
@@ -534,14 +503,13 @@ var int_map_suites = /* constructor */{
                 
               }
               return /* constructor */{
-                      tag: 0,
-                      name: "Eq",
+                      tag: "Eq",
                       "0": v,
                       "1": -1
                     };
             })
         ],
-        "1": /* [] */0
+        "1": "[]"
       }
     }
   }

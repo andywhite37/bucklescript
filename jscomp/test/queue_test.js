@@ -26,8 +26,7 @@ function queue_1(x) {
 }
 
 var suites = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": /* tuple */[
     "simple push",
     (function (param) {
@@ -38,14 +37,13 @@ var suites = /* constructor */{
           2
         ];
         return /* constructor */{
-                tag: 0,
-                name: "Eq",
+                tag: "Eq",
                 "0": x,
                 "1": queue_1(x)
               };
       })
   ],
-  "1": /* [] */0
+  "1": "[]"
 };
 
 Mt.from_pair_suites("Queue_test", suites);

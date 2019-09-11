@@ -3,21 +3,19 @@
 var Mt = require("./mt.js");
 var Js_mapperRt = require("../../lib/js/js_mapperRt.js");
 
-var suites = /* record */[/* contents : [] */0];
+var suites = /* record */[/* contents */"[]"];
 
 var test_id = /* record */[/* contents */0];
 
 function $$throw(loc, x) {
   test_id[0] = test_id[0] + 1 | 0;
   suites[0] = /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
-                  tag: 7,
-                  name: "ThrowAny",
+                  tag: "ThrowAny",
                   "0": x
                 };
         })
@@ -77,17 +75,17 @@ function cFromJs(param) {
 
 $$throw("File \"ast_mapper_defensive_test.ml\", line 28, characters 16-23", (function (param) {
         aFromJs(3);
-        return /* () */0;
+        return "()";
       }));
 
 $$throw("File \"ast_mapper_defensive_test.ml\", line 29, characters 15-22", (function (param) {
         bFromJs(2);
-        return /* () */0;
+        return "()";
       }));
 
 $$throw("File \"ast_mapper_defensive_test.ml\", line 30, characters 15-22", (function (param) {
         cFromJs(33);
-        return /* () */0;
+        return "()";
       }));
 
 Mt.from_pair_suites("Ast_mapper_defensive_test", suites[0]);

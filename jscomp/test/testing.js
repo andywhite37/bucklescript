@@ -15,10 +15,10 @@ function finish(param) {
   var match = all_tests_ok[0];
   if (match) {
     console.log("\nAll tests succeeded.");
-    return /* () */0;
+    return "()";
   } else {
     console.log("\n\n********* Test suite failed. ***********\n");
-    return /* () */0;
+    return "()";
   }
 }
 
@@ -35,23 +35,19 @@ function print_test_number(param) {
 function print_failure_test_fail(param) {
   all_tests_ok[0] = false;
   return Pervasives.print_string(Curry._1(Printf.sprintf(/* constructor */{
-                      tag: 0,
-                      name: "Format",
+                      tag: "Format",
                       "0": /* constructor */{
-                        tag: 11,
-                        name: "String_literal",
+                        tag: "String_literal",
                         "0": "\n********* Failure Test number ",
                         "1": /* constructor */{
-                          tag: 4,
-                          name: "Int",
-                          "0": /* Int_i */3,
-                          "1": /* No_padding */0,
-                          "2": /* No_precision */0,
+                          tag: "Int",
+                          "0": "Int_i",
+                          "1": "No_padding",
+                          "2": "No_precision",
                           "3": /* constructor */{
-                            tag: 11,
-                            name: "String_literal",
+                            tag: "String_literal",
                             "0": " incorrectly failed ***********\n",
-                            "1": /* End_of_format */0
+                            "1": "End_of_format"
                           }
                         }
                       },
@@ -62,23 +58,19 @@ function print_failure_test_fail(param) {
 function print_failure_test_succeed(param) {
   all_tests_ok[0] = false;
   return Pervasives.print_string(Curry._1(Printf.sprintf(/* constructor */{
-                      tag: 0,
-                      name: "Format",
+                      tag: "Format",
                       "0": /* constructor */{
-                        tag: 11,
-                        name: "String_literal",
+                        tag: "String_literal",
                         "0": "\n********* Failure Test number ",
                         "1": /* constructor */{
-                          tag: 4,
-                          name: "Int",
-                          "0": /* Int_i */3,
-                          "1": /* No_padding */0,
-                          "2": /* No_precision */0,
+                          tag: "Int",
+                          "0": "Int_i",
+                          "1": "No_padding",
+                          "2": "No_precision",
                           "3": /* constructor */{
-                            tag: 11,
-                            name: "String_literal",
+                            tag: "String_literal",
                             "0": " failed to fail ***********\n",
-                            "1": /* End_of_format */0
+                            "1": "End_of_format"
                           }
                         }
                       },
@@ -88,29 +80,25 @@ function print_failure_test_succeed(param) {
 
 function test(b) {
   test_num[0] = test_num[0] + 1 | 0;
-  print_test_number(/* () */0);
+  print_test_number("()");
   if (b) {
     return 0;
   } else {
     all_tests_ok[0] = false;
     return Pervasives.print_string(Curry._1(Printf.sprintf(/* constructor */{
-                        tag: 0,
-                        name: "Format",
+                        tag: "Format",
                         "0": /* constructor */{
-                          tag: 11,
-                          name: "String_literal",
+                          tag: "String_literal",
                           "0": "\n********* Test number ",
                           "1": /* constructor */{
-                            tag: 4,
-                            name: "Int",
-                            "0": /* Int_i */3,
-                            "1": /* No_padding */0,
-                            "2": /* No_precision */0,
+                            tag: "Int",
+                            "0": "Int_i",
+                            "1": "No_padding",
+                            "2": "No_precision",
                             "3": /* constructor */{
-                              tag: 11,
-                              name: "String_literal",
+                              tag: "String_literal",
                               "0": " failed ***********\n",
-                              "1": /* End_of_format */0
+                              "1": "End_of_format"
                             }
                           }
                         },
@@ -121,10 +109,10 @@ function test(b) {
 
 function test_raises_exc_p(pred, f, x) {
   test_num[0] = test_num[0] + 1 | 0;
-  print_test_number(/* () */0);
+  print_test_number("()");
   try {
     Curry._1(f, x);
-    print_failure_test_succeed(/* () */0);
+    print_failure_test_succeed("()");
     return false;
   }
   catch (raw_x){
@@ -132,7 +120,7 @@ function test_raises_exc_p(pred, f, x) {
     if (Curry._1(pred, x$1)) {
       return true;
     } else {
-      print_failure_test_fail(/* () */0);
+      print_failure_test_fail("()");
       return false;
     }
   }

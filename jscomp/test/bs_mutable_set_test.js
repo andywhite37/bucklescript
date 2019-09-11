@@ -11,7 +11,7 @@ var Belt_MutableSetInt = require("../../lib/js/belt_MutableSetInt.js");
 var Belt_internalAVLset = require("../../lib/js/belt_internalAVLset.js");
 var Belt_internalSetInt = require("../../lib/js/belt_internalSetInt.js");
 
-var suites = /* record */[/* contents : [] */0];
+var suites = /* record */[/* contents */"[]"];
 
 var test_id = /* record */[/* contents */0];
 
@@ -389,26 +389,21 @@ b("File \"bs_mutable_set_test.ml\", line 164, characters 4-11", Belt_MutableSetI
 b("File \"bs_mutable_set_test.ml\", line 165, characters 4-11", Belt_MutableSetInt.eq(a2, a4));
 
 Belt_List.forEach(/* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": a0,
       "1": /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": a1,
         "1": /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": a2,
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": a3,
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": a4,
-              "1": /* [] */0
+              "1": "[]"
             }
           }
         }

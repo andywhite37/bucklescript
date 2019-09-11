@@ -17,8 +17,7 @@ function create(l, x, d, r) {
   var hl = height(l);
   var hr = height(r);
   return /* constructor */{
-          tag: 0,
-          name: "Node",
+          tag: "Node",
           "0": l,
           "1": x,
           "2": d,
@@ -29,12 +28,11 @@ function create(l, x, d, r) {
 
 function singleton(x, d) {
   return /* constructor */{
-          tag: 0,
-          name: "Node",
-          "0": /* Empty */0,
+          tag: "Node",
+          "0": "Empty",
           "1": x,
           "2": d,
-          "3": /* Empty */0,
+          "3": "Empty",
           "4": 1
         };
 }
@@ -88,8 +86,7 @@ function bal(l, x, d, r) {
     }
   } else {
     return /* constructor */{
-            tag: 0,
-            name: "Node",
+            tag: "Node",
             "0": l,
             "1": x,
             "2": d,
@@ -116,8 +113,7 @@ function add(x, data, param) {
     var c = Caml_primitive.caml_int_compare(x, v);
     if (c === 0) {
       return /* constructor */{
-              tag: 0,
-              name: "Node",
+              tag: "Node",
               "0": l,
               "1": x,
               "2": data,
@@ -131,12 +127,11 @@ function add(x, data, param) {
     }
   } else {
     return /* constructor */{
-            tag: 0,
-            name: "Node",
-            "0": /* Empty */0,
+            tag: "Node",
+            "0": "Empty",
             "1": x,
             "2": data,
-            "3": /* Empty */0,
+            "3": "Empty",
             "4": 1
           };
   }
@@ -258,7 +253,7 @@ function remove(x, param) {
       return bal(l, v, d, remove(x, r));
     }
   } else {
-    return /* Empty */0;
+    return "Empty";
   }
 }
 
@@ -271,7 +266,7 @@ function iter(f, _param) {
       _param = param[3];
       continue ;
     } else {
-      return /* () */0;
+      return "()";
     }
   };
 }
@@ -282,8 +277,7 @@ function map(f, param) {
     var d$prime = Curry._1(f, param[2]);
     var r$prime = map(f, param[3]);
     return /* constructor */{
-            tag: 0,
-            name: "Node",
+            tag: "Node",
             "0": l$prime,
             "1": param[1],
             "2": d$prime,
@@ -291,7 +285,7 @@ function map(f, param) {
             "4": param[4]
           };
   } else {
-    return /* Empty */0;
+    return "Empty";
   }
 }
 
@@ -302,8 +296,7 @@ function mapi(f, param) {
     var d$prime = Curry._2(f, v, param[2]);
     var r$prime = mapi(f, param[3]);
     return /* constructor */{
-            tag: 0,
-            name: "Node",
+            tag: "Node",
             "0": l$prime,
             "1": v,
             "2": d$prime,
@@ -311,7 +304,7 @@ function mapi(f, param) {
             "4": param[4]
           };
   } else {
-    return /* Empty */0;
+    return "Empty";
   }
 }
 
@@ -448,9 +441,9 @@ function split(x, param) {
     }
   } else {
     return /* tuple */[
-            /* Empty */0,
+            "Empty",
             undefined,
-            /* Empty */0
+            "Empty"
           ];
   }
 }
@@ -464,7 +457,7 @@ function merge(f, s1, s2) {
     }
     
   } else if (!s2) {
-    return /* Empty */0;
+    return "Empty";
   }
   if (s2) {
     var v2 = s2[1];
@@ -495,7 +488,7 @@ function filter(p, param) {
       return concat(l$prime, r$prime);
     }
   } else {
-    return /* Empty */0;
+    return "Empty";
   }
 }
 
@@ -523,8 +516,8 @@ function partition(p, param) {
     }
   } else {
     return /* tuple */[
-            /* Empty */0,
-            /* Empty */0
+            "Empty",
+            "Empty"
           ];
   }
 }
@@ -535,8 +528,7 @@ function cons_enum(_m, _e) {
     var m = _m;
     if (m) {
       _e = /* constructor */{
-        tag: 0,
-        name: "More",
+        tag: "More",
         "0": m[1],
         "1": m[2],
         "2": m[3],
@@ -551,8 +543,8 @@ function cons_enum(_m, _e) {
 }
 
 function compare(cmp, m1, m2) {
-  var _e1 = cons_enum(m1, /* End */0);
-  var _e2 = cons_enum(m2, /* End */0);
+  var _e1 = cons_enum(m1, "End");
+  var _e2 = cons_enum(m2, "End");
   while(true) {
     var e2 = _e2;
     var e1 = _e1;
@@ -583,8 +575,8 @@ function compare(cmp, m1, m2) {
 }
 
 function equal(cmp, m1, m2) {
-  var _e1 = cons_enum(m1, /* End */0);
-  var _e2 = cons_enum(m2, /* End */0);
+  var _e1 = cons_enum(m1, "End");
+  var _e2 = cons_enum(m2, "End");
   while(true) {
     var e2 = _e2;
     var e1 = _e1;
@@ -619,8 +611,7 @@ function bindings_aux(_accu, _param) {
     if (param) {
       _param = param[0];
       _accu = /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": /* tuple */[
           param[1],
           param[2]
@@ -635,11 +626,11 @@ function bindings_aux(_accu, _param) {
 }
 
 function bindings(s) {
-  return bindings_aux(/* [] */0, s);
+  return bindings_aux("[]", s);
 }
 
 var IntMap = {
-  empty: /* Empty */0,
+  empty: "Empty",
   is_empty: is_empty,
   mem: mem,
   add: add,
@@ -666,7 +657,7 @@ var IntMap = {
 };
 
 function assertion_test(param) {
-  var m = /* Empty */0;
+  var m = "Empty";
   for(var i = 0; i <= 1000000; ++i){
     m = add(i, i, m);
   }

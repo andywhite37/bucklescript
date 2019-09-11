@@ -26,7 +26,7 @@ var node_parent = "..";
 var node_current = ".";
 
 var cwd = Caml_obj.caml_lazy_make((function (param) {
-        return Caml_sys.caml_sys_getcwd(/* () */0);
+        return Caml_sys.caml_sys_getcwd("()");
       }));
 
 function path_as_directory(x) {
@@ -69,29 +69,23 @@ function chop_extension($staropt$star, name) {
     var exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
     if (exn[0] === Caml_builtin_exceptions.invalid_argument) {
       return Curry._2(Format.ksprintf(Pervasives.invalid_arg, /* constructor */{
-                      tag: 0,
-                      name: "Format",
+                      tag: "Format",
                       "0": /* constructor */{
-                        tag: 11,
-                        name: "String_literal",
+                        tag: "String_literal",
                         "0": "Filename.chop_extension ( ",
                         "1": /* constructor */{
-                          tag: 2,
-                          name: "String",
-                          "0": /* No_padding */0,
+                          tag: "String",
+                          "0": "No_padding",
                           "1": /* constructor */{
-                            tag: 11,
-                            name: "String_literal",
+                            tag: "String_literal",
                             "0": " : ",
                             "1": /* constructor */{
-                              tag: 2,
-                              name: "String",
-                              "0": /* No_padding */0,
+                              tag: "String",
+                              "0": "No_padding",
                               "1": /* constructor */{
-                                tag: 11,
-                                name: "String_literal",
+                                tag: "String_literal",
                                 "0": " )",
-                                "1": /* End_of_format */0
+                                "1": "End_of_format"
                               }
                             }
                           }
@@ -146,16 +140,14 @@ function relative_path(file_or_dir_1, file_or_dir_2) {
       return $$String.concat(node_sep, ys);
     } else {
       return $$String.concat(node_sep, /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": node_current,
                   "1": ys
                 });
     }
   } else {
     return $$String.concat(node_sep, /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": node_current,
                 "1": ys
               });
@@ -172,17 +164,14 @@ function node_relative_path(node_modules_shorten, file1, dep_file) {
         var i = _i;
         if (i >= len) {
           return Curry._1(Ext_pervasives_test.failwithf("File \"ext_filename_test.ml\", line 162, characters 43-50", /* constructor */{
-                          tag: 0,
-                          name: "Format",
+                          tag: "Format",
                           "0": /* constructor */{
-                            tag: 11,
-                            name: "String_literal",
+                            tag: "String_literal",
                             "0": "invalid path: ",
                             "1": /* constructor */{
-                              tag: 2,
-                              name: "String",
-                              "0": /* No_padding */0,
-                              "1": /* End_of_format */0
+                              tag: "String",
+                              "0": "No_padding",
+                              "1": "End_of_format"
                             }
                           },
                           "1": "invalid path: %s"
@@ -228,21 +217,17 @@ function find_root_filename(_cwd, filename) {
         continue ;
       } else {
         return Curry._2(Ext_pervasives_test.failwithf("File \"ext_filename_test.ml\", line 205, characters 13-20", /* constructor */{
-                        tag: 0,
-                        name: "Format",
+                        tag: "Format",
                         "0": /* constructor */{
-                          tag: 2,
-                          name: "String",
-                          "0": /* No_padding */0,
+                          tag: "String",
+                          "0": "No_padding",
                           "1": /* constructor */{
-                            tag: 11,
-                            name: "String_literal",
+                            tag: "String_literal",
                             "0": " not found from ",
                             "1": /* constructor */{
-                              tag: 2,
-                              name: "String",
-                              "0": /* No_padding */0,
-                              "1": /* End_of_format */0
+                              tag: "String",
+                              "0": "No_padding",
+                              "1": "End_of_format"
                             }
                           }
                         },
@@ -286,7 +271,7 @@ function combine(p1, p2) {
 
 function split_aux(p) {
   var _p = p;
-  var _acc = /* [] */0;
+  var _acc = "[]";
   while(true) {
     var acc = _acc;
     var p$1 = _p;
@@ -303,8 +288,7 @@ function split_aux(p) {
         continue ;
       } else {
         _acc = /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": new_path,
           "1": acc
         };
@@ -359,7 +343,7 @@ function normalize_absolute_path(x) {
     if (xs) {
       return xs[1];
     } else {
-      return /* [] */0;
+      return "[]";
     }
   };
   var normalize_list = function (_acc, _paths) {
@@ -377,8 +361,7 @@ function normalize_absolute_path(x) {
           continue ;
         } else {
           _acc = /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": x,
             "1": acc
           };
@@ -391,7 +374,7 @@ function normalize_absolute_path(x) {
   };
   var match = split_aux(x);
   var root = match[0];
-  var rev_paths = normalize_list(/* [] */0, match[1]);
+  var rev_paths = normalize_list("[]", match[1]);
   if (rev_paths) {
     var _acc = rev_paths[0];
     var _rev_paths = rev_paths[1];

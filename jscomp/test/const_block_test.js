@@ -34,10 +34,9 @@ function h(param) {
 }
 
 function g(param) {
-  f(/* () */0);
+  f("()");
   return /* constructor */{
-          tag: 0,
-          name: "Eq",
+          tag: "Eq",
           "0": /* tuple */[
             Caml_array.caml_array_get(a, 0),
             Caml_array.caml_array_get(b, 0)
@@ -50,23 +49,20 @@ function g(param) {
 }
 
 var suites = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": /* tuple */[
     "const_block_test",
     g
   ],
   "1": /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       "avoid_mutable_inline_test",
       (function (param) {
           Caml_array.caml_array_set(c, 0, 3);
           Caml_array.caml_array_set(c, 1, 4);
           return /* constructor */{
-                  tag: 0,
-                  name: "Eq",
+                  tag: "Eq",
                   "0": /* array */[
                     3,
                     4,
@@ -79,7 +75,7 @@ var suites = /* constructor */{
                 };
         })
     ],
-    "1": /* [] */0
+    "1": "[]"
   }
 };
 

@@ -37,20 +37,18 @@ function f(g, h) {
 }
 
 var suites = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": /* tuple */[
     "eq_with",
     (function (param) {
         return /* constructor */{
-                tag: 0,
-                name: "Eq",
+                tag: "Eq",
                 "0": v,
                 "1": u_v
               };
       })
   ],
-  "1": /* [] */0
+  "1": "[]"
 };
 
 Mt.from_pair_suites("Record_with_test", suites);

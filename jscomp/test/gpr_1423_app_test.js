@@ -4,21 +4,19 @@ var Mt = require("./mt.js");
 var Curry = require("../../lib/js/curry.js");
 var Gpr_1423_nav = require("./gpr_1423_nav.js");
 
-var suites = /* record */[/* contents : [] */0];
+var suites = /* record */[/* contents */"[]"];
 
 var test_id = /* record */[/* contents */0];
 
 function eq(loc, x, y) {
   test_id[0] = test_id[0] + 1 | 0;
   suites[0] = /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
-                  tag: 0,
-                  name: "Eq",
+                  tag: "Eq",
                   "0": x,
                   "1": y
                 };
@@ -30,8 +28,8 @@ function eq(loc, x, y) {
 }
 
 function foo(f) {
-  console.log(Curry._2(f, "a1", /* () */0));
-  return /* () */0;
+  console.log(Curry._2(f, "a1", "()"));
+  return "()";
 }
 
 foo((function (param) {
@@ -41,14 +39,14 @@ foo((function (param) {
       }));
 
 function foo2(f) {
-  return Curry._2(f, "a1", /* () */0);
+  return Curry._2(f, "a1", "()");
 }
 
 eq("File \"gpr_1423_app_test.ml\", line 18, characters 7-14", Curry._1((function (param) {
               return (function (param$1) {
                   return Gpr_1423_nav.busted(param, "a2", param$1);
                 });
-            })("a1"), /* () */0), "a1a2");
+            })("a1"), "()"), "a1a2");
 
 Mt.from_pair_suites("Gpr_1423_app_test", suites[0]);
 

@@ -7,21 +7,19 @@ var Printexc = require("../../lib/js/printexc.js");
 var Exception_def = require("./exception_def.js");
 var Caml_exceptions = require("../../lib/js/caml_exceptions.js");
 
-var suites = /* record */[/* contents : [] */0];
+var suites = /* record */[/* contents */"[]"];
 
 var test_id = /* record */[/* contents */0];
 
 function eq(loc, x, y) {
   test_id[0] = test_id[0] + 1 | 0;
   suites[0] = /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
-                  tag: 0,
-                  name: "Eq",
+                  tag: "Eq",
                   "0": x,
                   "1": y
                 };
@@ -43,23 +41,19 @@ Printexc.register_printer((function (param) {
           return "hey";
         } else if (param[0] === A) {
           return Curry._1(Format.asprintf(/* constructor */{
-                          tag: 0,
-                          name: "Format",
+                          tag: "Format",
                           "0": /* constructor */{
-                            tag: 11,
-                            name: "String_literal",
+                            tag: "String_literal",
                             "0": "A(",
                             "1": /* constructor */{
-                              tag: 4,
-                              name: "Int",
-                              "0": /* Int_d */0,
-                              "1": /* No_padding */0,
-                              "2": /* No_precision */0,
+                              tag: "Int",
+                              "0": "Int_d",
+                              "1": "No_padding",
+                              "2": "No_precision",
                               "3": /* constructor */{
-                                tag: 12,
-                                name: "Char_literal",
+                                tag: "Char_literal",
                                 "0": /* ")" */41,
-                                "1": /* End_of_format */0
+                                "1": "End_of_format"
                               }
                             }
                           },

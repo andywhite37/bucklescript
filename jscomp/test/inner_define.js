@@ -10,15 +10,15 @@ var N = {
 };
 
 function f1(param) {
-  return /* () */0;
+  return "()";
 }
 
 function f2(param, param$1) {
-  return /* () */0;
+  return "()";
 }
 
 function f3(param, param$1, param$2) {
-  return /* () */0;
+  return "()";
 }
 
 var N0 = {
@@ -28,11 +28,11 @@ var N0 = {
 };
 
 function f2$1(param, param$1) {
-  return /* () */0;
+  return "()";
 }
 
 function f3$1(param, param$1, param$2) {
-  return /* () */0;
+  return "()";
 }
 
 var N1 = {

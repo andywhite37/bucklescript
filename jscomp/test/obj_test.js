@@ -160,14 +160,12 @@ CamlinternalOO.init_class($$class$5);
 var vvvv = CamlinternalOO.create_object_opt(0, $$class$5);
 
 var suites = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": /* tuple */[
     "single_obj",
     (function (param) {
         return /* constructor */{
-                tag: 0,
-                name: "Eq",
+                tag: "Eq",
                 "0": /* array */[
                   3,
                   32
@@ -180,14 +178,12 @@ var suites = /* constructor */{
       })
   ],
   "1": /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       "single_obj_cache",
       (function (param) {
           return /* constructor */{
-                  tag: 0,
-                  name: "Eq",
+                  tag: "Eq",
                   "0": /* array */[
                     3,
                     32
@@ -200,160 +196,138 @@ var suites = /* constructor */{
         })
     ],
     "1": /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": /* tuple */[
         "self_obj",
         (function (param) {
             return /* constructor */{
-                    tag: 0,
-                    name: "Eq",
+                    tag: "Eq",
                     "0": 13,
                     "1": Caml_oo_curry.js2(616641298, 5, vv, 3)
                   };
           })
       ],
       "1": /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": /* tuple */[
           "uu_id",
           (function (param) {
               return /* constructor */{
-                      tag: 0,
-                      name: "Eq",
+                      tag: "Eq",
                       "0": "uu",
                       "1": Caml_oo_curry.js1(23515, 6, uu)
                     };
             })
         ],
         "1": /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": /* tuple */[
             "uu_add",
             (function (param) {
                 return /* constructor */{
-                        tag: 0,
-                        name: "Eq",
+                        tag: "Eq",
                         "0": Caml_oo_curry.js3(4846113, 7, uuu, 1, 20),
                         "1": 21
                       };
               })
           ],
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": /* tuple */[
               "v_add",
               (function (param) {
                   return /* constructor */{
-                          tag: 0,
-                          name: "Eq",
+                          tag: "Eq",
                           "0": Caml_oo_curry.js3(4846113, 8, vvvv, 3, 7),
                           "1": 10
                         };
                 })
             ],
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": /* tuple */[
                 "u_id1",
                 (function (param) {
                     return /* constructor */{
-                            tag: 0,
-                            name: "Eq",
+                            tag: "Eq",
                             "0": Caml_oo_curry.js1(5243894, 9, u),
                             "1": 3
                           };
                   })
               ],
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": /* tuple */[
                   "u_id2",
                   (function (param) {
                       return /* constructor */{
-                              tag: 0,
-                              name: "Eq",
+                              tag: "Eq",
                               "0": Caml_oo_curry.js1(5243895, 10, u),
                               "1": 4
                             };
                     })
                 ],
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": /* tuple */[
                     "u hi",
                     (function (param) {
                         return /* constructor */{
-                                tag: 0,
-                                name: "Eq",
+                                tag: "Eq",
                                 "0": Caml_oo_curry.js3(23297, 11, u, 1, 2),
                                 "1": 3
                               };
                       })
                   ],
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": /* tuple */[
                       "u hello",
                       (function (param) {
                           return /* constructor */{
-                                  tag: 0,
-                                  name: "Eq",
+                                  tag: "Eq",
                                   "0": Caml_oo_curry.js2(616641298, 12, u, 32),
                                   "1": 32
                                 };
                         })
                     ],
                     "1": /* constructor */{
-                      tag: 0,
-                      name: "::",
+                      tag: "::",
                       "0": /* tuple */[
                         "v hi",
                         (function (param) {
                             return /* constructor */{
-                                    tag: 0,
-                                    name: "Eq",
+                                    tag: "Eq",
                                     "0": Caml_oo_curry.js2(23297, 13, vvvv, 31),
                                     "1": 63
                                   };
                           })
                       ],
                       "1": /* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": /* tuple */[
                           "uuu add",
                           (function (param) {
                               return /* constructor */{
-                                      tag: 0,
-                                      name: "Eq",
+                                      tag: "Eq",
                                       "0": Caml_oo_curry.js3(4846113, 14, uuu, 3, 4),
                                       "1": 7
                                     };
                             })
                         ],
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": /* tuple */[
                             "v x",
                             (function (param) {
                                 return /* constructor */{
-                                        tag: 0,
-                                        name: "Eq",
+                                        tag: "Eq",
                                         "0": Caml_oo_curry.js1(120, 15, v),
                                         "1": 3
                                       };
                               })
                           ],
-                          "1": /* [] */0
+                          "1": "[]"
                         }
                       }
                     }

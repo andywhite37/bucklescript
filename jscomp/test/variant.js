@@ -7,19 +7,19 @@ var Caml_js_exceptions = require("../../lib/js/caml_js_exceptions.js");
 var Caml_builtin_exceptions = require("../../lib/js/caml_builtin_exceptions.js");
 
 function foo(param) {
-  if (typeof param === "number") {
-    if (param === /* A1 */0) {
+  if (typeof param === "string") {
+    if (param === "A1") {
       return 1;
     } else {
       return 2;
     }
   } else {
-    switch (param.tag | 0) {
-      case /* B */0 :
+    switch (/* XXX */param.tag) {
+      case "B" :
           return param[0];
-      case /* C */1 :
+      case "C" :
           return param[0] + param[1] | 0;
-      case /* D */2 :
+      case "D" :
           var match = param[0];
           return match[0] + match[1] | 0;
       
@@ -36,7 +36,7 @@ function fooA1(param) {
 }
 
 function fooC(param) {
-  if (typeof param === "number" || param.tag !== /* C */1) {
+  if (typeof param === "string" || /* XXX */param.tag !== "C") {
     return 42;
   } else {
     return param[0] + param[1] | 0;
@@ -67,7 +67,7 @@ var Path = {
 
 function Make(M) {
   var find = function (x) {
-    return /* () */0;
+    return "()";
   };
   return {
           find: find
@@ -75,7 +75,7 @@ function Make(M) {
 }
 
 function find(x) {
-  return /* () */0;
+  return "()";
 }
 
 var M = {
@@ -88,11 +88,11 @@ function rollback_path(subst, p) {
   }
   catch (exn){
     if (exn === Caml_builtin_exceptions.not_found) {
-      switch (p.tag | 0) {
-        case /* Pdot */1 :
+      switch (/* XXX */p.tag) {
+        case "Pdot" :
             return "Pdot";
-        case /* Pident */0 :
-        case /* Papply */2 :
+        case "Pident" :
+        case "Papply" :
             return "Pident | Papply";
         
       }
@@ -114,7 +114,7 @@ var ED = Caml_exceptions.create("Variant.ED");
 
 function fooExn(f) {
   try {
-    return Curry._1(f, /* () */0);
+    return Curry._1(f, "()");
   }
   catch (raw_exn){
     var exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
@@ -135,26 +135,23 @@ function fooExn(f) {
   }
 }
 
-var a1 = /* A1 */0;
+var a1 = "A1";
 
-var a2 = /* A2 */1;
+var a2 = "A2";
 
 var b = /* constructor */{
-  tag: 0,
-  name: "B",
+  tag: "B",
   "0": 34
 };
 
 var c = /* constructor */{
-  tag: 1,
-  name: "C",
+  tag: "C",
   "0": 4,
   "1": 2
 };
 
 var d = /* constructor */{
-  tag: 2,
-  name: "D",
+  tag: "D",
   "0": /* tuple */[
     4,
     2

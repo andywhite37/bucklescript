@@ -31,48 +31,42 @@ var u = ( 1);
 var v = ( true);
 
 var suites = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": /* tuple */[
     "caml_bool_eq_caml_bool",
     (function (param) {
         return /* constructor */{
-                tag: 0,
-                name: "Eq",
+                tag: "Eq",
                 "0": u,
                 "1": true
               };
       })
   ],
   "1": /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       "js_bool_eq_js_bool",
       (function (param) {
           return /* constructor */{
-                  tag: 0,
-                  name: "Eq",
+                  tag: "Eq",
                   "0": v,
                   "1": true
                 };
         })
     ],
     "1": /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": /* tuple */[
         "js_bool_neq_acml_bool",
         (function (param) {
             return /* constructor */{
-                    tag: 0,
-                    name: "Eq",
+                    tag: "Eq",
                     "0": true,
                     "1": true === true
                   };
           })
       ],
-      "1": /* [] */0
+      "1": "[]"
     }
   }
 };

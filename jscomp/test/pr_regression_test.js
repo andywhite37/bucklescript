@@ -80,14 +80,12 @@ f$3((function (prim, prim$1) {
 var d = v$3[0];
 
 Mt.from_pair_suites("Pr_regression_test", /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": /* tuple */[
         "partial",
         (function (param) {
             return /* constructor */{
-                    tag: 0,
-                    name: "Eq",
+                    tag: "Eq",
                     "0": /* tuple */[
                       5,
                       5,
@@ -103,7 +101,7 @@ Mt.from_pair_suites("Pr_regression_test", /* constructor */{
                   };
           })
       ],
-      "1": /* [] */0
+      "1": "[]"
     });
 
 exports.a = a;

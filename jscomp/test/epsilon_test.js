@@ -6,34 +6,30 @@ var Pervasives = require("../../lib/js/pervasives.js");
 var v = (Number.EPSILON?Number.EPSILON:2.220446049250313e-16);
 
 var suites = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": /* tuple */[
     "epsilon",
     (function (param) {
         return /* constructor */{
-                tag: 0,
-                name: "Eq",
+                tag: "Eq",
                 "0": Pervasives.epsilon_float,
                 "1": v
               };
       })
   ],
   "1": /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       "raw_epsilon",
       (function (param) {
           return /* constructor */{
-                  tag: 0,
-                  name: "Eq",
+                  tag: "Eq",
                   "0": 2.220446049250313e-16,
                   "1": v
                 };
         })
     ],
-    "1": /* [] */0
+    "1": "[]"
   }
 };
 

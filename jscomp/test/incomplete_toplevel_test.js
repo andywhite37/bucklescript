@@ -10,7 +10,7 @@ function f(param) {
         ];
 }
 
-var match = f(/* () */0);
+var match = f("()");
 
 var a = match[0];
 

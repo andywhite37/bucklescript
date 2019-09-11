@@ -3,15 +3,14 @@
 
 function t_error3(param_0) {
   return /* constructor */{
-          tag: 0,
-          name: "T_error3",
+          tag: "T_error3",
           "0": param_0
         };
 }
 
-var t_error = /* T_error */0;
+var t_error = "T_error";
 
-var t_error2 = /* T_error2 */0;
+var t_error2 = "T_error2";
 
 exports.t_error = t_error;
 exports.t_error2 = t_error2;

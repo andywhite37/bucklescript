@@ -12,12 +12,12 @@ function test(param) {
       var acc = _acc;
       var n = _n;
       if (n === 0) {
-        return Curry._1(acc, /* () */0);
+        return Curry._1(acc, "()");
       } else {
         _acc = (function(n,acc){
         return function (param) {
           v[0] = v[0] + n | 0;
-          return Curry._1(acc, /* () */0);
+          return Curry._1(acc, "()");
         }
         }(n,acc));
         _n = n - 1 | 0;
@@ -26,7 +26,7 @@ function test(param) {
     };
   };
   f(10, (function (param) {
-          return /* () */0;
+          return "()";
         }));
   return v[0];
 }
@@ -71,48 +71,42 @@ function test_closure2(param) {
 }
 
 Mt.from_pair_suites("Cps_test", /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": /* tuple */[
         "cps_test_sum",
         (function (param) {
             return /* constructor */{
-                    tag: 0,
-                    name: "Eq",
+                    tag: "Eq",
                     "0": 55,
-                    "1": test(/* () */0)
+                    "1": test("()")
                   };
           })
       ],
       "1": /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": /* tuple */[
           "cps_test_closure",
           (function (param) {
               return /* constructor */{
-                      tag: 0,
-                      name: "Eq",
+                      tag: "Eq",
                       "0": 15,
-                      "1": test_closure(/* () */0)
+                      "1": test_closure("()")
                     };
             })
         ],
         "1": /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": /* tuple */[
             "cps_test_closure2",
             (function (param) {
                 return /* constructor */{
-                        tag: 0,
-                        name: "Eq",
+                        tag: "Eq",
                         "0": 30,
-                        "1": test_closure2(/* () */0)
+                        "1": test_closure2("()")
                       };
               })
           ],
-          "1": /* [] */0
+          "1": "[]"
         }
       }
     });

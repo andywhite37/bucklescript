@@ -11,62 +11,54 @@ var Caml_js_exceptions = require("../../lib/js/caml_js_exceptions.js");
 var Caml_builtin_exceptions = require("../../lib/js/caml_builtin_exceptions.js");
 
 var graph = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": /* tuple */[
     "a",
     "b"
   ],
   "1": /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       "a",
       "c"
     ],
     "1": /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": /* tuple */[
         "a",
         "d"
       ],
       "1": /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": /* tuple */[
           "b",
           "e"
         ],
         "1": /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": /* tuple */[
             "c",
             "f"
           ],
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": /* tuple */[
               "d",
               "e"
             ],
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": /* tuple */[
                 "e",
                 "f"
               ],
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": /* tuple */[
                   "e",
                   "g"
                 ],
-                "1": /* [] */0
+                "1": "[]"
               }
             }
           }
@@ -80,15 +72,14 @@ function nexts(x, g) {
   return List.fold_left((function (acc, param) {
                 if (param[0] === x) {
                   return /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": param[1],
                           "1": acc
                         };
                 } else {
                   return acc;
                 }
-              }), /* [] */0, g);
+              }), "[]", g);
 }
 
 function dfs1(_nodes, graph, _visited) {
@@ -104,8 +95,7 @@ function dfs1(_nodes, graph, _visited) {
       } else {
         console.log(x);
         _visited = /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": x,
           "1": visited
         };
@@ -119,39 +109,31 @@ function dfs1(_nodes, graph, _visited) {
 }
 
 if (!Caml_obj.caml_equal(dfs1(/* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": "a",
-            "1": /* [] */0
-          }, graph, /* [] */0), /* constructor */{
-        tag: 0,
-        name: "::",
+            "1": "[]"
+          }, graph, "[]"), /* constructor */{
+        tag: "::",
         "0": "a",
         "1": /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": "d",
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": "e",
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": "g",
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": "f",
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": "c",
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": "b",
-                    "1": /* [] */0
+                    "1": "[]"
                   }
                 }
               }
@@ -169,42 +151,35 @@ if (!Caml_obj.caml_equal(dfs1(/* constructor */{
       ];
 }
 
-Pervasives.print_newline(/* () */0);
+Pervasives.print_newline("()");
 
 if (!Caml_obj.caml_equal(dfs1(/* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": "b",
-            "1": /* [] */0
+            "1": "[]"
           }, /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": /* tuple */[
               "f",
               "d"
             ],
             "1": graph
-          }, /* [] */0), /* constructor */{
-        tag: 0,
-        name: "::",
+          }, "[]"), /* constructor */{
+        tag: "::",
         "0": "b",
         "1": /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": "e",
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": "g",
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": "f",
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": "d",
-                "1": /* [] */0
+                "1": "[]"
               }
             }
           }
@@ -233,8 +208,7 @@ function dfs2(nodes, graph, visited) {
           continue ;
         } else {
           _visited = aux(nexts(x, graph), graph, /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": x,
                 "1": visited
               });
@@ -250,39 +224,31 @@ function dfs2(nodes, graph, visited) {
 }
 
 if (!Caml_obj.caml_equal(dfs2(/* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": "a",
-            "1": /* [] */0
-          }, graph, /* [] */0), /* constructor */{
-        tag: 0,
-        name: "::",
+            "1": "[]"
+          }, graph, "[]"), /* constructor */{
+        tag: "::",
         "0": "a",
         "1": /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": "d",
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": "e",
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": "g",
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": "f",
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": "c",
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": "b",
-                    "1": /* [] */0
+                    "1": "[]"
                   }
                 }
               }
@@ -301,39 +267,32 @@ if (!Caml_obj.caml_equal(dfs2(/* constructor */{
 }
 
 if (!Caml_obj.caml_equal(dfs2(/* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": "b",
-            "1": /* [] */0
+            "1": "[]"
           }, /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": /* tuple */[
               "f",
               "d"
             ],
             "1": graph
-          }, /* [] */0), /* constructor */{
-        tag: 0,
-        name: "::",
+          }, "[]"), /* constructor */{
+        tag: "::",
         "0": "b",
         "1": /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": "e",
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": "g",
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": "f",
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": "d",
-                "1": /* [] */0
+                "1": "[]"
               }
             }
           }
@@ -350,14 +309,13 @@ if (!Caml_obj.caml_equal(dfs2(/* constructor */{
 }
 
 function dfs3(nodes, graph) {
-  var visited = /* record */[/* contents : [] */0];
+  var visited = /* record */[/* contents */"[]"];
   var aux = function (node, graph) {
     if (List.mem(node, visited[0])) {
       return 0;
     } else {
       visited[0] = /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": node,
         "1": visited[0]
       };
@@ -373,39 +331,31 @@ function dfs3(nodes, graph) {
 }
 
 if (!Caml_obj.caml_equal(dfs3(/* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": "a",
-            "1": /* [] */0
+            "1": "[]"
           }, graph), /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": "a",
         "1": /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": "d",
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": "e",
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": "g",
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": "f",
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": "c",
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": "b",
-                    "1": /* [] */0
+                    "1": "[]"
                   }
                 }
               }
@@ -424,39 +374,32 @@ if (!Caml_obj.caml_equal(dfs3(/* constructor */{
 }
 
 if (!Caml_obj.caml_equal(dfs3(/* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": "b",
-            "1": /* [] */0
+            "1": "[]"
           }, /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": /* tuple */[
               "f",
               "d"
             ],
             "1": graph
           }), /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": "b",
         "1": /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": "e",
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": "g",
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": "f",
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": "d",
-                "1": /* [] */0
+                "1": "[]"
               }
             }
           }
@@ -473,48 +416,42 @@ if (!Caml_obj.caml_equal(dfs3(/* constructor */{
 }
 
 var grwork = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": /* tuple */[
     "wake",
     "shower"
   ],
   "1": /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       "shower",
       "dress"
     ],
     "1": /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": /* tuple */[
         "dress",
         "go"
       ],
       "1": /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": /* tuple */[
           "wake",
           "eat"
         ],
         "1": /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": /* tuple */[
             "eat",
             "washup"
           ],
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": /* tuple */[
               "washup",
               "go"
             ],
-            "1": /* [] */0
+            "1": "[]"
           }
         }
       }
@@ -523,7 +460,7 @@ var grwork = /* constructor */{
 };
 
 function unsafe_topsort(graph) {
-  var visited = /* record */[/* contents : [] */0];
+  var visited = /* record */[/* contents */"[]"];
   var sort_node = function (node) {
     if (List.mem(node, visited[0])) {
       return 0;
@@ -531,8 +468,7 @@ function unsafe_topsort(graph) {
       var nodes = nexts(node, graph);
       List.iter(sort_node, nodes);
       visited[0] = /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": node,
         "1": visited[0]
       };
@@ -546,30 +482,24 @@ function unsafe_topsort(graph) {
 }
 
 if (!Caml_obj.caml_equal(unsafe_topsort(grwork), /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": "wake",
         "1": /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": "shower",
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": "dress",
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": "eat",
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": "washup",
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": "go",
-                  "1": /* [] */0
+                  "1": "[]"
                 }
               }
             }
@@ -598,8 +528,7 @@ function create(l, v, r) {
   var hl = l ? l[3] : 0;
   var hr = r ? r[3] : 0;
   return /* constructor */{
-          tag: 0,
-          name: "Node",
+          tag: "Node",
           "0": l,
           "1": v,
           "2": r,
@@ -654,8 +583,7 @@ function bal(l, v, r) {
     }
   } else {
     return /* constructor */{
-            tag: 0,
-            name: "Node",
+            tag: "Node",
             "0": l,
             "1": v,
             "2": r,
@@ -679,11 +607,10 @@ function add(x, t) {
     }
   } else {
     return /* constructor */{
-            tag: 0,
-            name: "Node",
-            "0": /* Empty */0,
+            tag: "Node",
+            "0": "Empty",
             "1": x,
-            "2": /* Empty */0,
+            "2": "Empty",
             "3": 1
           };
   }
@@ -691,11 +618,10 @@ function add(x, t) {
 
 function singleton(x) {
   return /* constructor */{
-          tag: 0,
-          name: "Node",
-          "0": /* Empty */0,
+          tag: "Node",
+          "0": "Empty",
           "1": x,
-          "2": /* Empty */0,
+          "2": "Empty",
           "3": 1
         };
 }
@@ -827,9 +753,9 @@ function split(x, param) {
     }
   } else {
     return /* tuple */[
-            /* Empty */0,
+            "Empty",
             false,
-            /* Empty */0
+            "Empty"
           ];
   }
 }
@@ -883,7 +809,7 @@ function remove(x, param) {
       return bal(l, v, remove(x, r));
     }
   } else {
-    return /* Empty */0;
+    return "Empty";
   }
 }
 
@@ -928,7 +854,7 @@ function inter(s1, s2) {
       return concat(inter(l1, l2), inter(r1, match[2]));
     }
   } else {
-    return /* Empty */0;
+    return "Empty";
   }
 }
 
@@ -949,7 +875,7 @@ function diff(s1, s2) {
       return s1;
     }
   } else {
-    return /* Empty */0;
+    return "Empty";
   }
 }
 
@@ -959,8 +885,7 @@ function cons_enum(_s, _e) {
     var s = _s;
     if (s) {
       _e = /* constructor */{
-        tag: 0,
-        name: "More",
+        tag: "More",
         "0": s[1],
         "1": s[2],
         "2": e
@@ -974,8 +899,8 @@ function cons_enum(_s, _e) {
 }
 
 function compare(s1, s2) {
-  var _e1 = cons_enum(s1, /* End */0);
-  var _e2 = cons_enum(s2, /* End */0);
+  var _e1 = cons_enum(s1, "End");
+  var _e2 = cons_enum(s2, "End");
   while(true) {
     var e2 = _e2;
     var e1 = _e1;
@@ -1026,11 +951,10 @@ function subset(_s1, _s2) {
           }
         } else if (c < 0) {
           if (subset(/* constructor */{
-                  tag: 0,
-                  name: "Node",
+                  tag: "Node",
                   "0": l1,
                   "1": v1,
-                  "2": /* Empty */0,
+                  "2": "Empty",
                   "3": 0
                 }, l2)) {
             _s1 = r1;
@@ -1039,9 +963,8 @@ function subset(_s1, _s2) {
             return false;
           }
         } else if (subset(/* constructor */{
-                tag: 0,
-                name: "Node",
-                "0": /* Empty */0,
+                tag: "Node",
+                "0": "Empty",
                 "1": v1,
                 "2": r1,
                 "3": 0
@@ -1069,7 +992,7 @@ function iter(f, _param) {
       _param = param[2];
       continue ;
     } else {
-      return /* () */0;
+      return "()";
     }
   };
 }
@@ -1132,7 +1055,7 @@ function filter(p, param) {
       return concat(l$prime, r$prime);
     }
   } else {
-    return /* Empty */0;
+    return "Empty";
   }
 }
 
@@ -1159,8 +1082,8 @@ function partition(p, param) {
     }
   } else {
     return /* tuple */[
-            /* Empty */0,
-            /* Empty */0
+            "Empty",
+            "Empty"
           ];
   }
 }
@@ -1180,8 +1103,7 @@ function elements_aux(_accu, _param) {
     if (param) {
       _param = param[0];
       _accu = /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": param[1],
         "1": elements_aux(accu, param[2])
       };
@@ -1193,7 +1115,7 @@ function elements_aux(_accu, _param) {
 }
 
 function elements(s) {
-  return elements_aux(/* [] */0, s);
+  return elements_aux("[]", s);
 }
 
 function find(x, _param) {
@@ -1234,18 +1156,17 @@ function of_list(l) {
                 switch (n) {
                   case 0 :
                       return /* tuple */[
-                              /* Empty */0,
+                              "Empty",
                               l
                             ];
                   case 1 :
                       if (l) {
                         return /* tuple */[
                                 /* constructor */{
-                                  tag: 0,
-                                  name: "Node",
-                                  "0": /* Empty */0,
+                                  tag: "Node",
+                                  "0": "Empty",
                                   "1": l[0],
-                                  "2": /* Empty */0,
+                                  "2": "Empty",
                                   "3": 1
                                 },
                                 l[1]
@@ -1258,18 +1179,16 @@ function of_list(l) {
                         if (match) {
                           return /* tuple */[
                                   /* constructor */{
-                                    tag: 0,
-                                    name: "Node",
+                                    tag: "Node",
                                     "0": /* constructor */{
-                                      tag: 0,
-                                      name: "Node",
-                                      "0": /* Empty */0,
+                                      tag: "Node",
+                                      "0": "Empty",
                                       "1": l[0],
-                                      "2": /* Empty */0,
+                                      "2": "Empty",
                                       "3": 1
                                     },
                                     "1": match[0],
-                                    "2": /* Empty */0,
+                                    "2": "Empty",
                                     "3": 2
                                   },
                                   match[1]
@@ -1286,23 +1205,20 @@ function of_list(l) {
                           if (match$2) {
                             return /* tuple */[
                                     /* constructor */{
-                                      tag: 0,
-                                      name: "Node",
+                                      tag: "Node",
                                       "0": /* constructor */{
-                                        tag: 0,
-                                        name: "Node",
-                                        "0": /* Empty */0,
+                                        tag: "Node",
+                                        "0": "Empty",
                                         "1": l[0],
-                                        "2": /* Empty */0,
+                                        "2": "Empty",
                                         "3": 1
                                       },
                                       "1": match$1[0],
                                       "2": /* constructor */{
-                                        tag: 0,
-                                        name: "Node",
-                                        "0": /* Empty */0,
+                                        tag: "Node",
+                                        "0": "Empty",
                                         "1": match$2[0],
-                                        "2": /* Empty */0,
+                                        "2": "Empty",
                                         "3": 1
                                       },
                                       "3": 2
@@ -1355,12 +1271,12 @@ function of_list(l) {
       return singleton(x0);
     }
   } else {
-    return /* Empty */0;
+    return "Empty";
   }
 }
 
 var String_set = {
-  empty: /* Empty */0,
+  empty: "Empty",
   is_empty: is_empty,
   mem: mem,
   add: add,
@@ -1391,10 +1307,10 @@ var String_set = {
 var Cycle = Caml_exceptions.create("Topsort_test.Cycle");
 
 function pathsort(graph) {
-  var visited = /* record */[/* contents : [] */0];
+  var visited = /* record */[/* contents */"[]"];
   var empty_path = /* tuple */[
-    /* Empty */0,
-    /* [] */0
+    "Empty",
+    "[]"
   ];
   var $plus$great = function (node, param) {
     var stack = param[1];
@@ -1403,8 +1319,7 @@ function pathsort(graph) {
       throw [
             Cycle,
             /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": node,
               "1": stack
             }
@@ -1413,8 +1328,7 @@ function pathsort(graph) {
     return /* tuple */[
             add(node, set),
             /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": node,
               "1": stack
             }
@@ -1431,8 +1345,7 @@ function pathsort(graph) {
     } else {
       sort_nodes($plus$great(node, path), nexts(node, graph));
       visited[0] = /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": node,
         "1": visited[0]
       };
@@ -1446,30 +1359,24 @@ function pathsort(graph) {
 }
 
 if (!Caml_obj.caml_equal(pathsort(grwork), /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": "wake",
         "1": /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": "shower",
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": "dress",
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": "eat",
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": "washup",
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": "go",
-                  "1": /* [] */0
+                  "1": "[]"
                 }
               }
             }
@@ -1488,8 +1395,7 @@ if (!Caml_obj.caml_equal(pathsort(grwork), /* constructor */{
 
 try {
   pathsort(/* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": /* tuple */[
           "go",
           "eat"

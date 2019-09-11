@@ -56,16 +56,14 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
       return /* constructor */{
-              tag: 0,
-              name: "Numeral",
+              tag: "Numeral",
               "0": _1
             };
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
       return /* constructor */{
-              tag: 6,
-              name: "Variable",
+              tag: "Variable",
               "0": _1
             };
     }),
@@ -73,8 +71,7 @@ var yyact = /* array */[
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
       return /* constructor */{
-              tag: 1,
-              name: "Plus",
+              tag: "Plus",
               "0": _1,
               "1": _3
             };
@@ -83,8 +80,7 @@ var yyact = /* array */[
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
       return /* constructor */{
-              tag: 2,
-              name: "Minus",
+              tag: "Minus",
               "0": _1,
               "1": _3
             };
@@ -93,8 +89,7 @@ var yyact = /* array */[
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
       return /* constructor */{
-              tag: 3,
-              name: "Times",
+              tag: "Times",
               "0": _1,
               "1": _3
             };
@@ -103,8 +98,7 @@ var yyact = /* array */[
       var _1 = Parsing.peek_val(__caml_parser_env, 2);
       var _3 = Parsing.peek_val(__caml_parser_env, 0);
       return /* constructor */{
-              tag: 4,
-              name: "Divide",
+              tag: "Divide",
               "0": _1,
               "1": _3
             };
@@ -112,8 +106,7 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
       return /* constructor */{
-              tag: 5,
-              name: "Negate",
+              tag: "Negate",
               "0": _2
             };
     }),

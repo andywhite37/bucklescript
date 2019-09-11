@@ -36,7 +36,7 @@ function with_file_as_pp(filename, f) {
   return $$finally(Pervasives.open_out_bin(filename), Pervasives.close_out, (function (chan) {
                 var fmt = Format.formatter_of_out_channel(chan);
                 var v = Curry._1(f, fmt);
-                Format.pp_print_flush(fmt, /* () */0);
+                Format.pp_print_flush(fmt, "()");
                 return v;
               }));
 }
@@ -106,8 +106,7 @@ function dump(r) {
           var n$1 = n - 1 | 0;
           _n = n$1;
           _acc = /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": r[n$1],
             "1": acc
           };
@@ -124,7 +123,7 @@ function dump(r) {
           return Caml_obj.caml_equal(r, 0);
         } else {
           var s = r.length;
-          var t = r.tag | 0;
+          var t = /* XXX */r.tag;
           if (t === 0 && s === 2) {
             _r = r[1];
             continue ;
@@ -136,20 +135,19 @@ function dump(r) {
     };
     var get_list = function (r) {
       if (typeof r === "number") {
-        return /* [] */0;
+        return "[]";
       } else {
         var h = r[0];
         var t = get_list(r[1]);
         return /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": h,
                 "1": t
               };
       }
     };
     var s = r.length;
-    var t = r.tag | 0;
+    var t = /* XXX */r.tag;
     if (is_list(r)) {
       var fields = get_list(r);
       return "[" + ($$String.concat("; ", List.map(dump, fields)) + "]");
@@ -159,7 +157,7 @@ function dump(r) {
       } else if (t === Obj.closure_tag) {
         return "<closure>";
       } else if (t === Obj.object_tag) {
-        var fields$1 = get_fields(/* [] */0, s);
+        var fields$1 = get_fields("[]", s);
         var match;
         if (fields$1) {
           var match$1 = fields$1[1];
@@ -195,7 +193,7 @@ function dump(r) {
       } else if (t === Obj.forward_tag) {
         return "<forward>";
       } else if (t < Obj.no_scan_tag) {
-        var fields$2 = get_fields(/* [] */0, s);
+        var fields$2 = get_fields("[]", s);
         return "Tag" + (String(t) + (" (" + ($$String.concat(", ", List.map(dump, fields$2)) + ")")));
       } else if (t === Obj.string_tag) {
         return "\"" + ($$String.escaped(r) + "\"");
@@ -211,29 +209,24 @@ function dump(r) {
         return "[|" + ($$String.concat(";", $$Array.to_list($$Array.map(Pervasives.string_of_float, r))) + "|]");
       } else {
         var name = Curry._2(Printf.sprintf(/* constructor */{
-                  tag: 0,
-                  name: "Format",
+                  tag: "Format",
                   "0": /* constructor */{
-                    tag: 11,
-                    name: "String_literal",
+                    tag: "String_literal",
                     "0": "unknown: tag ",
                     "1": /* constructor */{
-                      tag: 4,
-                      name: "Int",
-                      "0": /* Int_d */0,
-                      "1": /* No_padding */0,
-                      "2": /* No_precision */0,
+                      tag: "Int",
+                      "0": "Int_d",
+                      "1": "No_padding",
+                      "2": "No_precision",
                       "3": /* constructor */{
-                        tag: 11,
-                        name: "String_literal",
+                        tag: "String_literal",
                         "0": " size ",
                         "1": /* constructor */{
-                          tag: 4,
-                          name: "Int",
-                          "0": /* Int_d */0,
-                          "1": /* No_padding */0,
-                          "2": /* No_precision */0,
-                          "3": /* End_of_format */0
+                          tag: "Int",
+                          "0": "Int_d",
+                          "1": "No_padding",
+                          "2": "No_precision",
+                          "3": "End_of_format"
                         }
                       }
                     }
@@ -243,7 +236,7 @@ function dump(r) {
         return "<" + (name + ">");
       }
     } else {
-      var fields$3 = get_fields(/* [] */0, s);
+      var fields$3 = get_fields("[]", s);
       return "(" + ($$String.concat(", ", List.map(dump, fields$3)) + ")");
     }
   }
@@ -253,30 +246,24 @@ var dump$1 = dump;
 
 function pp_any(fmt, v) {
   return Curry._1(Format.fprintf(fmt, /* constructor */{
-                  tag: 0,
-                  name: "Format",
+                  tag: "Format",
                   "0": /* constructor */{
-                    tag: 18,
-                    name: "Formatting_gen",
+                    tag: "Formatting_gen",
                     "0": /* constructor */{
-                      tag: 1,
-                      name: "Open_box",
+                      tag: "Open_box",
                       "0": /* constructor */{
-                        tag: 0,
-                        name: "Format",
-                        "0": /* End_of_format */0,
+                        tag: "Format",
+                        "0": "End_of_format",
                         "1": ""
                       }
                     },
                     "1": /* constructor */{
-                      tag: 2,
-                      name: "String",
-                      "0": /* No_padding */0,
+                      tag: "String",
+                      "0": "No_padding",
                       "1": /* constructor */{
-                        tag: 17,
-                        name: "Formatting_lit",
-                        "0": /* Close_box */0,
-                        "1": /* End_of_format */0
+                        tag: "Formatting_lit",
+                        "0": "Close_box",
+                        "1": "End_of_format"
                       }
                     }
                   },

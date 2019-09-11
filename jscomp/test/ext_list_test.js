@@ -15,8 +15,7 @@ function filter_map(f, _xs) {
       var match = Curry._1(f, xs[0]);
       if (match !== undefined) {
         return /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": Caml_option.valFromOption(match),
                 "1": filter_map(f, ys)
               };
@@ -25,7 +24,7 @@ function filter_map(f, _xs) {
         continue ;
       }
     } else {
-      return /* [] */0;
+      return "[]";
     }
   };
 }
@@ -46,8 +45,7 @@ function excludes(p, l) {
         } else {
           _param = l;
           _accu = /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": x,
             "1": accu
           };
@@ -58,7 +56,7 @@ function excludes(p, l) {
       }
     };
   };
-  var v = aux(/* [] */0, l);
+  var v = aux("[]", l);
   if (excluded[0]) {
     return /* tuple */[
             true,
@@ -88,8 +86,7 @@ function exclude_with_fact(p, l) {
         } else {
           _param = l;
           _accu = /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": x,
             "1": accu
           };
@@ -100,7 +97,7 @@ function exclude_with_fact(p, l) {
       }
     };
   };
-  var v = aux(/* [] */0, l);
+  var v = aux("[]", l);
   return /* tuple */[
           excluded[0],
           excluded[0] !== undefined ? v : l
@@ -128,8 +125,7 @@ function exclude_with_fact2(p1, p2, l) {
         } else {
           _param = l;
           _accu = /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": x,
             "1": accu
           };
@@ -140,7 +136,7 @@ function exclude_with_fact2(p1, p2, l) {
       }
     };
   };
-  var v = aux(/* [] */0, l);
+  var v = aux("[]", l);
   return /* tuple */[
           excluded1[0],
           excluded2[0],
@@ -178,8 +174,7 @@ function filter_mapi(f, xs) {
         var match = Curry._2(f, i, xs[0]);
         if (match !== undefined) {
           return /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": Caml_option.valFromOption(match),
                   "1": aux(i + 1 | 0, ys)
                 };
@@ -189,7 +184,7 @@ function filter_mapi(f, xs) {
           continue ;
         }
       } else {
-        return /* [] */0;
+        return "[]";
       }
     };
   };
@@ -207,8 +202,7 @@ function filter_map2(f, _xs, _ys) {
         var match = Curry._2(f, xs[0], ys[0]);
         if (match !== undefined) {
           return /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": Caml_option.valFromOption(match),
                   "1": filter_map2(f, us, vs)
                 };
@@ -229,7 +223,7 @@ function filter_map2(f, _xs, _ys) {
             "Ext_list_test.filter_map2"
           ];
     } else {
-      return /* [] */0;
+      return "[]";
     }
   };
 }
@@ -247,8 +241,7 @@ function filter_map2i(f, xs, ys) {
           var match = Curry._3(f, i, xs[0], ys[0]);
           if (match !== undefined) {
             return /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": Caml_option.valFromOption(match),
                     "1": aux(i + 1 | 0, us, vs)
                   };
@@ -270,7 +263,7 @@ function filter_map2i(f, xs, ys) {
               "Ext_list_test.filter_map2i"
             ];
       } else {
-        return /* [] */0;
+        return "[]";
       }
     };
   };
@@ -283,8 +276,7 @@ function rev_map_append(f, _l1, _l2) {
     var l1 = _l1;
     if (l1) {
       _l2 = /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": Curry._1(f, l1[0]),
         "1": l2
       };
@@ -297,7 +289,7 @@ function rev_map_append(f, _l1, _l2) {
 }
 
 function flat_map2(f, lx, ly) {
-  var _acc = /* [] */0;
+  var _acc = "[]";
   var _lx = lx;
   var _ly = ly;
   while(true) {
@@ -343,11 +335,11 @@ function flat_map_aux(f, _acc, append, _lx) {
 }
 
 function flat_map(f, lx) {
-  return flat_map_aux(f, /* [] */0, /* [] */0, lx);
+  return flat_map_aux(f, "[]", "[]", lx);
 }
 
 function flat_map_acc(f, append, lx) {
-  return flat_map_aux(f, /* [] */0, append, lx);
+  return flat_map_aux(f, "[]", append, lx);
 }
 
 function map2_last(f, l1, l2) {
@@ -358,10 +350,9 @@ function map2_last(f, l1, l2) {
       if (l2) {
         if (!l2[1]) {
           return /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": Curry._3(f, true, u, l2[0]),
-                  "1": /* [] */0
+                  "1": "[]"
                 };
         }
         
@@ -375,8 +366,7 @@ function map2_last(f, l1, l2) {
     if (l2) {
       var r = Curry._3(f, false, u, l2[0]);
       return /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": r,
               "1": map2_last(f, l1$1, l2[1])
             };
@@ -392,7 +382,7 @@ function map2_last(f, l1, l2) {
           "List.map2_last"
         ];
   } else {
-    return /* [] */0;
+    return "[]";
   }
 }
 
@@ -403,21 +393,19 @@ function map_last(f, l1) {
     if (l1$1) {
       var r = Curry._2(f, false, u);
       return /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": r,
               "1": map_last(f, l1$1)
             };
     } else {
       return /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": Curry._2(f, true, u),
-              "1": /* [] */0
+              "1": "[]"
             };
     }
   } else {
-    return /* [] */0;
+    return "[]";
   }
 }
 
@@ -483,7 +471,7 @@ function try_take(n, l) {
     return /* tuple */[
             l,
             arr_length,
-            /* [] */0
+            "[]"
           ];
   } else {
     return /* tuple */[
@@ -531,7 +519,7 @@ function length_larger_than_n(n, _xs, _ys) {
 }
 
 function exclude_tail(x) {
-  var _acc = /* [] */0;
+  var _acc = "[]";
   var _x = x;
   while(true) {
     var x$1 = _x;
@@ -542,8 +530,7 @@ function exclude_tail(x) {
       if (ys) {
         _x = ys;
         _acc = /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": x$2,
           "1": acc
         };
@@ -567,7 +554,7 @@ function group(cmp, lst) {
   if (lst) {
     return aux(cmp, lst[0], group(cmp, lst[1]));
   } else {
-    return /* [] */0;
+    return "[]";
   }
 }
 
@@ -577,11 +564,9 @@ function aux(cmp, x, xss) {
     var y = xss[0];
     if (Curry._2(cmp, x, List.hd(y))) {
       return /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": x,
                 "1": y
               },
@@ -589,23 +574,20 @@ function aux(cmp, x, xss) {
             };
     } else {
       return /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": y,
               "1": aux(cmp, x, ys)
             };
     }
   } else {
     return /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": x,
-              "1": /* [] */0
+              "1": "[]"
             },
-            "1": /* [] */0
+            "1": "[]"
           };
   }
 }
@@ -627,7 +609,7 @@ function drop(_n, _h) {
     if (n === 0) {
       return h;
     } else {
-      if (h === /* [] */0) {
+      if (h === "[]") {
         throw [
               Caml_builtin_exceptions.invalid_argument,
               "Ext_list_test.drop"
@@ -689,8 +671,7 @@ function rev_map_acc(acc, f, l) {
     if (param) {
       _param = param[1];
       _accu = /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": Curry._1(f, param[0]),
         "1": accu
       };
@@ -704,8 +685,7 @@ function rev_map_acc(acc, f, l) {
 function map_acc(acc, f, l) {
   if (l) {
     return /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": Curry._1(f, l[0]),
             "1": map_acc(acc, f, l[1])
           };
@@ -719,7 +699,7 @@ function rev_iter(f, xs) {
     rev_iter(f, xs[1]);
     return Curry._1(f, xs[0]);
   } else {
-    return /* () */0;
+    return "()";
   }
 }
 
@@ -778,8 +758,8 @@ function find_opt(p, _param) {
 }
 
 function split_map(f, xs) {
-  var _bs = /* [] */0;
-  var _cs = /* [] */0;
+  var _bs = "[]";
+  var _cs = "[]";
   var _xs = xs;
   while(true) {
     var xs$1 = _xs;
@@ -789,14 +769,12 @@ function split_map(f, xs) {
       var match = Curry._1(f, xs$1[0]);
       _xs = xs$1[1];
       _cs = /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": match[1],
         "1": cs
       };
       _bs = /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": match[0],
         "1": bs
       };
@@ -836,7 +814,7 @@ function reduce_from_left(fn, lst) {
 }
 
 function create_ref_empty(param) {
-  return /* record */[/* contents : [] */0];
+  return /* record */[/* contents */"[]"];
 }
 
 function ref_top(x) {
@@ -862,8 +840,7 @@ function ref_empty(x) {
 
 function ref_push(x, refs) {
   refs[0] = /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": x,
     "1": refs[0]
   };
@@ -884,7 +861,7 @@ function ref_pop(refs) {
 }
 
 function rev_except_last(xs) {
-  var _acc = /* [] */0;
+  var _acc = "[]";
   var _xs = xs;
   while(true) {
     var xs$1 = _xs;
@@ -895,8 +872,7 @@ function rev_except_last(xs) {
       if (xs$2) {
         _xs = xs$2;
         _acc = /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": x,
           "1": acc
         };

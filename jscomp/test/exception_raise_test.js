@@ -127,14 +127,12 @@ catch (raw_e$1){
 }
 
 var suites = /* record */[/* contents : constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       "File \"exception_raise_test.ml\", line 114, characters 4-11",
       (function (param) {
           return /* constructor */{
-                  tag: 0,
-                  name: "Eq",
+                  tag: "Eq",
                   "0": /* tuple */[
                     f,
                     ff,
@@ -151,15 +149,13 @@ var suites = /* record */[/* contents : constructor */{
         })
     ],
     "1": /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": /* tuple */[
         "File \"exception_raise_test.ml\", line 116, characters 4-11",
         (function (param) {
             if (a1[0] === Js_exn.$$Error) {
               return /* constructor */{
-                      tag: 0,
-                      name: "Eq",
+                      tag: "Eq",
                       "0": a1[1],
                       "1": 2
                     };
@@ -175,7 +171,7 @@ var suites = /* record */[/* contents : constructor */{
             }
           })
       ],
-      "1": /* [] */0
+      "1": "[]"
     }
   }];
 
@@ -186,7 +182,7 @@ function eq(loc, x, y) {
 }
 
 try {
-  (function (_){throw 2}(/* () */0));
+  (function (_){throw 2}("()"));
 }
 catch (raw_e$2){
   var e = Caml_js_exceptions.internalToOCamlException(raw_e$2);
@@ -204,12 +200,12 @@ catch (raw_e$3){
 function fff0(x, g) {
   var val;
   try {
-    val = Curry._1(x, /* () */0);
+    val = Curry._1(x, "()");
   }
   catch (exn){
     return 1;
   }
-  return Curry._1(g, /* () */0);
+  return Curry._1(g, "()");
 }
 
 function input_lines(ic, _acc) {
@@ -223,8 +219,7 @@ function input_lines(ic, _acc) {
       return List.rev(acc);
     }
     _acc = /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": line,
       "1": acc
     };

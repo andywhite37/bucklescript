@@ -6,28 +6,23 @@ var Pervasives = require("../../lib/js/pervasives.js");
 
 function err(str, f) {
   return Curry._1(Format.fprintf(Format.err_formatter, Pervasives.$caret$caret(/* constructor */{
-                      tag: 0,
-                      name: "Format",
+                      tag: "Format",
                       "0": /* constructor */{
-                        tag: 2,
-                        name: "String",
-                        "0": /* No_padding */0,
+                        tag: "String",
+                        "0": "No_padding",
                         "1": /* constructor */{
-                          tag: 12,
-                          name: "Char_literal",
+                          tag: "Char_literal",
                           "0": /* " " */32,
-                          "1": /* End_of_format */0
+                          "1": "End_of_format"
                         }
                       },
                       "1": "%s "
                     }, Pervasives.$caret$caret(f, /* constructor */{
-                          tag: 0,
-                          name: "Format",
+                          tag: "Format",
                           "0": /* constructor */{
-                            tag: 17,
-                            name: "Formatting_lit",
-                            "0": /* Flush_newline */4,
-                            "1": /* End_of_format */0
+                            tag: "Formatting_lit",
+                            "0": "Flush_newline",
+                            "1": "End_of_format"
                           },
                           "1": "@."
                         }))), str);
@@ -36,34 +31,28 @@ function err(str, f) {
 function ierr(b, str, f) {
   if (b) {
     return Curry._1(Format.fprintf(Format.err_formatter, Pervasives.$caret$caret(/* constructor */{
-                        tag: 0,
-                        name: "Format",
+                        tag: "Format",
                         "0": /* constructor */{
-                          tag: 2,
-                          name: "String",
-                          "0": /* No_padding */0,
+                          tag: "String",
+                          "0": "No_padding",
                           "1": /* constructor */{
-                            tag: 12,
-                            name: "Char_literal",
+                            tag: "Char_literal",
                             "0": /* " " */32,
-                            "1": /* End_of_format */0
+                            "1": "End_of_format"
                           }
                         },
                         "1": "%s "
                       }, f)), str);
   } else {
     return Curry._1(Format.ifprintf(Format.err_formatter, Pervasives.$caret$caret(/* constructor */{
-                        tag: 0,
-                        name: "Format",
+                        tag: "Format",
                         "0": /* constructor */{
-                          tag: 2,
-                          name: "String",
-                          "0": /* No_padding */0,
+                          tag: "String",
+                          "0": "No_padding",
                           "1": /* constructor */{
-                            tag: 12,
-                            name: "Char_literal",
+                            tag: "Char_literal",
                             "0": /* " " */32,
-                            "1": /* End_of_format */0
+                            "1": "End_of_format"
                           }
                         },
                         "1": "%s "
@@ -73,33 +62,27 @@ function ierr(b, str, f) {
 
 function warn(str, f) {
   return Curry._1(Format.fprintf(Format.err_formatter, Pervasives.$caret$caret(/* constructor */{
-                      tag: 0,
-                      name: "Format",
+                      tag: "Format",
                       "0": /* constructor */{
-                        tag: 11,
-                        name: "String_literal",
+                        tag: "String_literal",
                         "0": "WARN: ",
                         "1": /* constructor */{
-                          tag: 2,
-                          name: "String",
-                          "0": /* No_padding */0,
+                          tag: "String",
+                          "0": "No_padding",
                           "1": /* constructor */{
-                            tag: 12,
-                            name: "Char_literal",
+                            tag: "Char_literal",
                             "0": /* " " */32,
-                            "1": /* End_of_format */0
+                            "1": "End_of_format"
                           }
                         }
                       },
                       "1": "WARN: %s "
                     }, Pervasives.$caret$caret(f, /* constructor */{
-                          tag: 0,
-                          name: "Format",
+                          tag: "Format",
                           "0": /* constructor */{
-                            tag: 17,
-                            name: "Formatting_lit",
-                            "0": /* Flush_newline */4,
-                            "1": /* End_of_format */0
+                            tag: "Formatting_lit",
+                            "0": "Flush_newline",
+                            "1": "End_of_format"
                           },
                           "1": "@."
                         }))), str);
@@ -108,21 +91,17 @@ function warn(str, f) {
 function iwarn(b, str, f) {
   if (b) {
     return Curry._1(Format.fprintf(Format.err_formatter, Pervasives.$caret$caret(/* constructor */{
-                        tag: 0,
-                        name: "Format",
+                        tag: "Format",
                         "0": /* constructor */{
-                          tag: 11,
-                          name: "String_literal",
+                          tag: "String_literal",
                           "0": "WARN: ",
                           "1": /* constructor */{
-                            tag: 2,
-                            name: "String",
-                            "0": /* No_padding */0,
+                            tag: "String",
+                            "0": "No_padding",
                             "1": /* constructor */{
-                              tag: 12,
-                              name: "Char_literal",
+                              tag: "Char_literal",
                               "0": /* " " */32,
-                              "1": /* End_of_format */0
+                              "1": "End_of_format"
                             }
                           }
                         },
@@ -130,21 +109,17 @@ function iwarn(b, str, f) {
                       }, f)), str);
   } else {
     return Curry._1(Format.ifprintf(Format.err_formatter, Pervasives.$caret$caret(/* constructor */{
-                        tag: 0,
-                        name: "Format",
+                        tag: "Format",
                         "0": /* constructor */{
-                          tag: 11,
-                          name: "String_literal",
+                          tag: "String_literal",
                           "0": "WARN: ",
                           "1": /* constructor */{
-                            tag: 2,
-                            name: "String",
-                            "0": /* No_padding */0,
+                            tag: "String",
+                            "0": "No_padding",
                             "1": /* constructor */{
-                              tag: 12,
-                              name: "Char_literal",
+                              tag: "Char_literal",
                               "0": /* " " */32,
-                              "1": /* End_of_format */0
+                              "1": "End_of_format"
                             }
                           }
                         },
@@ -155,21 +130,17 @@ function iwarn(b, str, f) {
 
 function info(str, f) {
   return Curry._1(Format.fprintf(Format.err_formatter, Pervasives.$caret$caret(/* constructor */{
-                      tag: 0,
-                      name: "Format",
+                      tag: "Format",
                       "0": /* constructor */{
-                        tag: 11,
-                        name: "String_literal",
+                        tag: "String_literal",
                         "0": "INFO: ",
                         "1": /* constructor */{
-                          tag: 2,
-                          name: "String",
-                          "0": /* No_padding */0,
+                          tag: "String",
+                          "0": "No_padding",
                           "1": /* constructor */{
-                            tag: 12,
-                            name: "Char_literal",
+                            tag: "Char_literal",
                             "0": /* " " */32,
-                            "1": /* End_of_format */0
+                            "1": "End_of_format"
                           }
                         }
                       },
@@ -180,21 +151,17 @@ function info(str, f) {
 function iinfo(b, str, f) {
   if (b) {
     return Curry._1(Format.fprintf(Format.err_formatter, Pervasives.$caret$caret(/* constructor */{
-                        tag: 0,
-                        name: "Format",
+                        tag: "Format",
                         "0": /* constructor */{
-                          tag: 11,
-                          name: "String_literal",
+                          tag: "String_literal",
                           "0": "INFO: ",
                           "1": /* constructor */{
-                            tag: 2,
-                            name: "String",
-                            "0": /* No_padding */0,
+                            tag: "String",
+                            "0": "No_padding",
                             "1": /* constructor */{
-                              tag: 12,
-                              name: "Char_literal",
+                              tag: "Char_literal",
                               "0": /* " " */32,
-                              "1": /* End_of_format */0
+                              "1": "End_of_format"
                             }
                           }
                         },
@@ -202,21 +169,17 @@ function iinfo(b, str, f) {
                       }, f)), str);
   } else {
     return Curry._1(Format.fprintf(Format.err_formatter, Pervasives.$caret$caret(/* constructor */{
-                        tag: 0,
-                        name: "Format",
+                        tag: "Format",
                         "0": /* constructor */{
-                          tag: 11,
-                          name: "String_literal",
+                          tag: "String_literal",
                           "0": "INFO: ",
                           "1": /* constructor */{
-                            tag: 2,
-                            name: "String",
-                            "0": /* No_padding */0,
+                            tag: "String",
+                            "0": "No_padding",
                             "1": /* constructor */{
-                              tag: 12,
-                              name: "Char_literal",
+                              tag: "Char_literal",
                               "0": /* " " */32,
-                              "1": /* End_of_format */0
+                              "1": "End_of_format"
                             }
                           }
                         },

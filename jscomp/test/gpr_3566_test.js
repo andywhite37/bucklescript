@@ -5,24 +5,22 @@ var Caml_obj = require("../../lib/js/caml_obj.js");
 var Caml_option = require("../../lib/js/caml_option.js");
 
 function eq_A(x, y) {
-  if (x.tag || y.tag) {
-    return false;
-  } else {
+  if (/* XXX */x.tag === "A" && /* XXX */y.tag === "A") {
     return x[0] === y[0];
+  } else {
+    return false;
   }
 }
 
 function Test($star) {
   console.log("no inline");
   var u = /* constructor */{
-    tag: 0,
-    name: "A",
+    tag: "A",
     "0": 3
   };
   var Block = { };
   var b = eq_A(/* constructor */{
-        tag: 0,
-        name: "A",
+        tag: "A",
         "0": 3
       }, u);
   return {
@@ -37,12 +35,10 @@ function Test2($star) {
   console.log("no inline");
   var Block = { };
   var b = eq_A(/* constructor */{
-        tag: 0,
-        name: "A",
+        tag: "A",
         "0": 3
       }, /* constructor */{
-        tag: 0,
-        name: "A",
+        tag: "A",
         "0": 3
       });
   return {
@@ -54,8 +50,7 @@ function Test2($star) {
 
 function f(i, y) {
   var x = /* constructor */{
-    tag: 0,
-    name: "A",
+    tag: "A",
     "0": i
   };
   return eq_A(x, y);

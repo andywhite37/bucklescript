@@ -5,21 +5,19 @@ var Curry = require("../../lib/js/curry.js");
 var Caml_int32 = require("../../lib/js/caml_int32.js");
 var Caml_module = require("../../lib/js/caml_module.js");
 
-var suites = /* record */[/* contents : [] */0];
+var suites = /* record */[/* contents */"[]"];
 
 var test_id = /* record */[/* contents */0];
 
 function eq(loc, x, y) {
   test_id[0] = test_id[0] + 1 | 0;
   suites[0] = /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
-                  tag: 0,
-                  name: "Eq",
+                  tag: "Eq",
                   "0": x,
                   "1": y
                 };
@@ -32,8 +30,7 @@ function eq(loc, x, y) {
 
 function add(suite) {
   suites[0] = /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": suite,
     "1": suites[0]
   };
@@ -91,11 +88,10 @@ add(/* tuple */[
       "File \"recursive_module_test.ml\", line 34, characters 7-14",
       (function (param) {
           return /* constructor */{
-                  tag: 7,
-                  name: "ThrowAny",
+                  tag: "ThrowAny",
                   "0": (function (param) {
                       Curry._1(Int3.u, 3);
-                      return /* () */0;
+                      return "()";
                     })
                 };
         })

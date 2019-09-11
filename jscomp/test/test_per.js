@@ -167,8 +167,7 @@ function string_of_float(f) {
 function $at(l1, l2) {
   if (l1) {
     return /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": l1[0],
             "1": $at(l1[1], l2)
           };
@@ -189,22 +188,18 @@ function open_out_gen(mode, perm, name) {
 
 function open_out(name) {
   return open_out_gen(/* constructor */{
-              tag: 0,
-              name: "::",
-              "0": /* Open_wronly */1,
+              tag: "::",
+              "0": "Open_wronly",
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
-                "0": /* Open_creat */3,
+                tag: "::",
+                "0": "Open_creat",
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "::",
-                  "0": /* Open_trunc */4,
+                  tag: "::",
+                  "0": "Open_trunc",
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
-                    "0": /* Open_text */7,
-                    "1": /* [] */0
+                    tag: "::",
+                    "0": "Open_text",
+                    "1": "[]"
                   }
                 }
               }
@@ -213,22 +208,18 @@ function open_out(name) {
 
 function open_out_bin(name) {
   return open_out_gen(/* constructor */{
-              tag: 0,
-              name: "::",
-              "0": /* Open_wronly */1,
+              tag: "::",
+              "0": "Open_wronly",
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
-                "0": /* Open_creat */3,
+                tag: "::",
+                "0": "Open_creat",
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "::",
-                  "0": /* Open_trunc */4,
+                  tag: "::",
+                  "0": "Open_trunc",
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
-                    "0": /* Open_binary */6,
-                    "1": /* [] */0
+                    tag: "::",
+                    "0": "Open_binary",
+                    "1": "[]"
                   }
                 }
               }
@@ -236,7 +227,7 @@ function open_out_bin(name) {
 }
 
 function flush_all(param) {
-  var _param = Caml_io.caml_ml_out_channels_list(/* () */0);
+  var _param = Caml_io.caml_ml_out_channels_list("()");
   while(true) {
     var param$1 = _param;
     if (param$1) {
@@ -249,7 +240,7 @@ function flush_all(param) {
       _param = param$1[1];
       continue ;
     } else {
-      return /* () */0;
+      return "()";
     }
   };
 }
@@ -283,7 +274,7 @@ function output_substring(oc, s, ofs, len) {
 }
 
 function output_value(chan, v) {
-  return Caml_external_polyfill.resolve("caml_output_value")(chan, v, /* [] */0);
+  return Caml_external_polyfill.resolve("caml_output_value")(chan, v, "[]");
 }
 
 function close_out(oc) {
@@ -302,7 +293,7 @@ function close_out_noerr(oc) {
     return Caml_external_polyfill.resolve("caml_ml_close_channel")(oc);
   }
   catch (exn$1){
-    return /* () */0;
+    return "()";
   }
 }
 
@@ -312,28 +303,24 @@ function open_in_gen(mode, perm, name) {
 
 function open_in(name) {
   return open_in_gen(/* constructor */{
-              tag: 0,
-              name: "::",
-              "0": /* Open_rdonly */0,
+              tag: "::",
+              "0": "Open_rdonly",
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
-                "0": /* Open_text */7,
-                "1": /* [] */0
+                tag: "::",
+                "0": "Open_text",
+                "1": "[]"
               }
             }, 0, name);
 }
 
 function open_in_bin(name) {
   return open_in_gen(/* constructor */{
-              tag: 0,
-              name: "::",
-              "0": /* Open_rdonly */0,
+              tag: "::",
+              "0": "Open_rdonly",
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
-                "0": /* Open_binary */6,
-                "1": /* [] */0
+                tag: "::",
+                "0": "Open_binary",
+                "1": "[]"
               }
             }, 0, name);
 }
@@ -353,7 +340,7 @@ function unsafe_really_input(ic, s, _ofs, _len) {
     var len = _len;
     var ofs = _ofs;
     if (len <= 0) {
-      return /* () */0;
+      return "()";
     } else {
       var r = Caml_external_polyfill.resolve("caml_ml_input")(ic, s, ofs, len);
       if (r === 0) {
@@ -399,7 +386,7 @@ function input_line(chan) {
       }
     };
   };
-  var _accu = /* [] */0;
+  var _accu = "[]";
   var _len = 0;
   while(true) {
     var len = _len;
@@ -418,8 +405,7 @@ function input_line(chan) {
       if (accu) {
         var len$1 = (len + n | 0) - 1 | 0;
         return build_result(Caml_bytes.caml_create_bytes(len$1), len$1, /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": res,
                     "1": accu
                   });
@@ -431,8 +417,7 @@ function input_line(chan) {
       Caml_external_polyfill.resolve("caml_ml_input")(chan, beg, 0, -n | 0);
       _len = len - n | 0;
       _accu = /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": beg,
         "1": accu
       };
@@ -446,7 +431,7 @@ function close_in_noerr(ic) {
     return Caml_external_polyfill.resolve("caml_ml_close_channel")(ic);
   }
   catch (exn){
-    return /* () */0;
+    return "()";
   }
 }
 
@@ -533,8 +518,7 @@ function string_of_format(param) {
 
 function $caret$caret(param, param$1) {
   return /* constructor */{
-          tag: 0,
-          name: "Format",
+          tag: "Format",
           "0": CamlinternalFormatBasics.concat_fmt(param[0], param$1[0]),
           "1": $caret(param[1], $caret("%,", param$1[1]))
         };
@@ -545,18 +529,18 @@ var exit_function = /* record */[/* contents */flush_all];
 function at_exit(f) {
   var g = exit_function[0];
   exit_function[0] = (function (param) {
-      Curry._1(f, /* () */0);
-      return Curry._1(g, /* () */0);
+      Curry._1(f, "()");
+      return Curry._1(g, "()");
     });
   return /* () */0;
 }
 
 function do_at_exit(param) {
-  return Curry._1(exit_function[0], /* () */0);
+  return Curry._1(exit_function[0], "()");
 }
 
 function exit(retcode) {
-  Curry._1(exit_function[0], /* () */0);
+  Curry._1(exit_function[0], "()");
   return Caml_sys.caml_sys_exit(retcode);
 }
 

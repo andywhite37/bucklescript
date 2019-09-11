@@ -4,10 +4,10 @@
 function u(rl) {
   return rl.on("line", (function (x) {
                   console.log(x);
-                  return /* () */0;
+                  return "()";
                 })).on("close", (function () {
                 console.log("finished");
-                return /* () */0;
+                return "()";
               }));
 }
 

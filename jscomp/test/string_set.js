@@ -36,9 +36,9 @@ function split(x, tree) {
     }
   } else {
     return /* tuple */[
-            /* Empty */0,
+            "Empty",
             false,
-            /* Empty */0
+            "Empty"
           ];
   }
 }
@@ -58,11 +58,10 @@ function add(x, tree) {
     }
   } else {
     return /* constructor */{
-            tag: 0,
-            name: "Node",
-            "0": /* Empty */0,
+            tag: "Node",
+            "0": "Empty",
             "1": x,
-            "2": /* Empty */0,
+            "2": "Empty",
             "3": 1
           };
   }
@@ -109,7 +108,7 @@ function inter(s1, s2) {
       return Set_gen.internal_concat(inter(l1, l2), inter(r1, match[2]));
     }
   } else {
-    return /* Empty */0;
+    return "Empty";
   }
 }
 
@@ -130,7 +129,7 @@ function diff(s1, s2) {
       return s1;
     }
   } else {
-    return /* Empty */0;
+    return "Empty";
   }
 }
 
@@ -165,7 +164,7 @@ function remove(x, tree) {
       return Set_gen.internal_bal(l, v, remove(x, r));
     }
   } else {
-    return /* Empty */0;
+    return "Empty";
   }
 }
 
@@ -199,11 +198,10 @@ function subset(_s1, _s2) {
           }
         } else if (c < 0) {
           if (subset(/* constructor */{
-                  tag: 0,
-                  name: "Node",
+                  tag: "Node",
                   "0": l1,
                   "1": v1,
-                  "2": /* Empty */0,
+                  "2": "Empty",
                   "3": 0
                 }, l2)) {
             _s1 = r1;
@@ -212,9 +210,8 @@ function subset(_s1, _s2) {
             return false;
           }
         } else if (subset(/* constructor */{
-                tag: 0,
-                name: "Node",
-                "0": /* Empty */0,
+                tag: "Node",
+                "0": "Empty",
                 "1": v1,
                 "2": r1,
                 "3": 0
@@ -283,14 +280,14 @@ function of_list(l) {
       return Set_gen.singleton(x0);
     }
   } else {
-    return /* Empty */0;
+    return "Empty";
   }
 }
 
 function of_array(l) {
   return $$Array.fold_left((function (acc, x) {
                 return add(x, acc);
-              }), /* Empty */0, l);
+              }), "Empty", l);
 }
 
 function invariant(t) {
@@ -300,7 +297,7 @@ function invariant(t) {
 
 var compare_elt = $$String.compare;
 
-var empty = /* Empty */0;
+var empty = "Empty";
 
 var is_empty = Set_gen.is_empty;
 

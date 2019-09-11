@@ -54,8 +54,7 @@ function create(l, x, d, r) {
   var hl = height(l);
   var hr = height(r);
   return /* constructor */{
-          tag: 0,
-          name: "Node",
+          tag: "Node",
           "0": l,
           "1": x,
           "2": d,
@@ -66,12 +65,11 @@ function create(l, x, d, r) {
 
 function singleton(x, d) {
   return /* constructor */{
-          tag: 0,
-          name: "Node",
-          "0": /* Empty */0,
+          tag: "Node",
+          "0": "Empty",
           "1": x,
           "2": d,
-          "3": /* Empty */0,
+          "3": "Empty",
           "4": 1
         };
 }
@@ -125,8 +123,7 @@ function bal(l, x, d, r) {
     }
   } else {
     return /* constructor */{
-            tag: 0,
-            name: "Node",
+            tag: "Node",
             "0": l,
             "1": x,
             "2": d,
@@ -153,8 +150,7 @@ function add(x, data, param) {
     var c = Caml_primitive.caml_string_compare(x, v);
     if (c === 0) {
       return /* constructor */{
-              tag: 0,
-              name: "Node",
+              tag: "Node",
               "0": l,
               "1": x,
               "2": data,
@@ -168,12 +164,11 @@ function add(x, data, param) {
     }
   } else {
     return /* constructor */{
-            tag: 0,
-            name: "Node",
-            "0": /* Empty */0,
+            tag: "Node",
+            "0": "Empty",
             "1": x,
             "2": data,
-            "3": /* Empty */0,
+            "3": "Empty",
             "4": 1
           };
   }
@@ -295,7 +290,7 @@ function remove(x, param) {
       return bal(l, v, d, remove(x, r));
     }
   } else {
-    return /* Empty */0;
+    return "Empty";
   }
 }
 
@@ -308,7 +303,7 @@ function iter(f, _param) {
       _param = param[3];
       continue ;
     } else {
-      return /* () */0;
+      return "()";
     }
   };
 }
@@ -319,8 +314,7 @@ function map(f, param) {
     var d$prime = Curry._1(f, param[2]);
     var r$prime = map(f, param[3]);
     return /* constructor */{
-            tag: 0,
-            name: "Node",
+            tag: "Node",
             "0": l$prime,
             "1": param[1],
             "2": d$prime,
@@ -328,7 +322,7 @@ function map(f, param) {
             "4": param[4]
           };
   } else {
-    return /* Empty */0;
+    return "Empty";
   }
 }
 
@@ -339,8 +333,7 @@ function mapi(f, param) {
     var d$prime = Curry._2(f, v, param[2]);
     var r$prime = mapi(f, param[3]);
     return /* constructor */{
-            tag: 0,
-            name: "Node",
+            tag: "Node",
             "0": l$prime,
             "1": v,
             "2": d$prime,
@@ -348,7 +341,7 @@ function mapi(f, param) {
             "4": param[4]
           };
   } else {
-    return /* Empty */0;
+    return "Empty";
   }
 }
 
@@ -485,9 +478,9 @@ function split(x, param) {
     }
   } else {
     return /* tuple */[
-            /* Empty */0,
+            "Empty",
             undefined,
-            /* Empty */0
+            "Empty"
           ];
   }
 }
@@ -501,7 +494,7 @@ function merge(f, s1, s2) {
     }
     
   } else if (!s2) {
-    return /* Empty */0;
+    return "Empty";
   }
   if (s2) {
     var v2 = s2[1];
@@ -532,7 +525,7 @@ function filter(p, param) {
       return concat(l$prime, r$prime);
     }
   } else {
-    return /* Empty */0;
+    return "Empty";
   }
 }
 
@@ -560,8 +553,8 @@ function partition(p, param) {
     }
   } else {
     return /* tuple */[
-            /* Empty */0,
-            /* Empty */0
+            "Empty",
+            "Empty"
           ];
   }
 }
@@ -572,8 +565,7 @@ function cons_enum(_m, _e) {
     var m = _m;
     if (m) {
       _e = /* constructor */{
-        tag: 0,
-        name: "More",
+        tag: "More",
         "0": m[1],
         "1": m[2],
         "2": m[3],
@@ -588,8 +580,8 @@ function cons_enum(_m, _e) {
 }
 
 function compare(cmp, m1, m2) {
-  var _e1 = cons_enum(m1, /* End */0);
-  var _e2 = cons_enum(m2, /* End */0);
+  var _e1 = cons_enum(m1, "End");
+  var _e2 = cons_enum(m2, "End");
   while(true) {
     var e2 = _e2;
     var e1 = _e1;
@@ -620,8 +612,8 @@ function compare(cmp, m1, m2) {
 }
 
 function equal(cmp, m1, m2) {
-  var _e1 = cons_enum(m1, /* End */0);
-  var _e2 = cons_enum(m2, /* End */0);
+  var _e1 = cons_enum(m1, "End");
+  var _e2 = cons_enum(m2, "End");
   while(true) {
     var e2 = _e2;
     var e1 = _e1;
@@ -656,8 +648,7 @@ function bindings_aux(_accu, _param) {
     if (param) {
       _param = param[0];
       _accu = /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": /* tuple */[
           param[1],
           param[2]
@@ -672,11 +663,11 @@ function bindings_aux(_accu, _param) {
 }
 
 function bindings(s) {
-  return bindings_aux(/* [] */0, s);
+  return bindings_aux("[]", s);
 }
 
 var Vars = {
-  empty: /* Empty */0,
+  empty: "Empty",
   is_empty: is_empty,
   mem: mem,
   add: add,
@@ -714,8 +705,7 @@ function create$1(l, x, d, r) {
   var hl = height$1(l);
   var hr = height$1(r);
   return /* constructor */{
-          tag: 0,
-          name: "Node",
+          tag: "Node",
           "0": l,
           "1": x,
           "2": d,
@@ -726,12 +716,11 @@ function create$1(l, x, d, r) {
 
 function singleton$1(x, d) {
   return /* constructor */{
-          tag: 0,
-          name: "Node",
-          "0": /* Empty */0,
+          tag: "Node",
+          "0": "Empty",
           "1": x,
           "2": d,
-          "3": /* Empty */0,
+          "3": "Empty",
           "4": 1
         };
 }
@@ -785,8 +774,7 @@ function bal$1(l, x, d, r) {
     }
   } else {
     return /* constructor */{
-            tag: 0,
-            name: "Node",
+            tag: "Node",
             "0": l,
             "1": x,
             "2": d,
@@ -813,8 +801,7 @@ function add$1(x, data, param) {
     var c = Caml_primitive.caml_string_compare(x, v);
     if (c === 0) {
       return /* constructor */{
-              tag: 0,
-              name: "Node",
+              tag: "Node",
               "0": l,
               "1": x,
               "2": data,
@@ -828,12 +815,11 @@ function add$1(x, data, param) {
     }
   } else {
     return /* constructor */{
-            tag: 0,
-            name: "Node",
-            "0": /* Empty */0,
+            tag: "Node",
+            "0": "Empty",
             "1": x,
             "2": data,
-            "3": /* Empty */0,
+            "3": "Empty",
             "4": 1
           };
   }
@@ -955,7 +941,7 @@ function remove$1(x, param) {
       return bal$1(l, v, d, remove$1(x, r));
     }
   } else {
-    return /* Empty */0;
+    return "Empty";
   }
 }
 
@@ -968,7 +954,7 @@ function iter$1(f, _param) {
       _param = param[3];
       continue ;
     } else {
-      return /* () */0;
+      return "()";
     }
   };
 }
@@ -979,8 +965,7 @@ function map$1(f, param) {
     var d$prime = Curry._1(f, param[2]);
     var r$prime = map$1(f, param[3]);
     return /* constructor */{
-            tag: 0,
-            name: "Node",
+            tag: "Node",
             "0": l$prime,
             "1": param[1],
             "2": d$prime,
@@ -988,7 +973,7 @@ function map$1(f, param) {
             "4": param[4]
           };
   } else {
-    return /* Empty */0;
+    return "Empty";
   }
 }
 
@@ -999,8 +984,7 @@ function mapi$1(f, param) {
     var d$prime = Curry._2(f, v, param[2]);
     var r$prime = mapi$1(f, param[3]);
     return /* constructor */{
-            tag: 0,
-            name: "Node",
+            tag: "Node",
             "0": l$prime,
             "1": v,
             "2": d$prime,
@@ -1008,7 +992,7 @@ function mapi$1(f, param) {
             "4": param[4]
           };
   } else {
-    return /* Empty */0;
+    return "Empty";
   }
 }
 
@@ -1145,9 +1129,9 @@ function split$1(x, param) {
     }
   } else {
     return /* tuple */[
-            /* Empty */0,
+            "Empty",
             undefined,
-            /* Empty */0
+            "Empty"
           ];
   }
 }
@@ -1161,7 +1145,7 @@ function merge$1(f, s1, s2) {
     }
     
   } else if (!s2) {
-    return /* Empty */0;
+    return "Empty";
   }
   if (s2) {
     var v2 = s2[1];
@@ -1192,7 +1176,7 @@ function filter$1(p, param) {
       return concat$1(l$prime, r$prime);
     }
   } else {
-    return /* Empty */0;
+    return "Empty";
   }
 }
 
@@ -1220,8 +1204,8 @@ function partition$1(p, param) {
     }
   } else {
     return /* tuple */[
-            /* Empty */0,
-            /* Empty */0
+            "Empty",
+            "Empty"
           ];
   }
 }
@@ -1232,8 +1216,7 @@ function cons_enum$1(_m, _e) {
     var m = _m;
     if (m) {
       _e = /* constructor */{
-        tag: 0,
-        name: "More",
+        tag: "More",
         "0": m[1],
         "1": m[2],
         "2": m[3],
@@ -1248,8 +1231,8 @@ function cons_enum$1(_m, _e) {
 }
 
 function compare$1(cmp, m1, m2) {
-  var _e1 = cons_enum$1(m1, /* End */0);
-  var _e2 = cons_enum$1(m2, /* End */0);
+  var _e1 = cons_enum$1(m1, "End");
+  var _e2 = cons_enum$1(m2, "End");
   while(true) {
     var e2 = _e2;
     var e1 = _e1;
@@ -1280,8 +1263,8 @@ function compare$1(cmp, m1, m2) {
 }
 
 function equal$1(cmp, m1, m2) {
-  var _e1 = cons_enum$1(m1, /* End */0);
-  var _e2 = cons_enum$1(m2, /* End */0);
+  var _e1 = cons_enum$1(m1, "End");
+  var _e2 = cons_enum$1(m2, "End");
   while(true) {
     var e2 = _e2;
     var e1 = _e1;
@@ -1316,8 +1299,7 @@ function bindings_aux$1(_accu, _param) {
     if (param) {
       _param = param[0];
       _accu = /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": /* tuple */[
           param[1],
           param[2]
@@ -1332,11 +1314,11 @@ function bindings_aux$1(_accu, _param) {
 }
 
 function bindings$1(s) {
-  return bindings_aux$1(/* [] */0, s);
+  return bindings_aux$1("[]", s);
 }
 
 var Meths = {
-  empty: /* Empty */0,
+  empty: "Empty",
   is_empty: is_empty$1,
   mem: mem$1,
   add: add$1,
@@ -1374,8 +1356,7 @@ function create$2(l, x, d, r) {
   var hl = height$2(l);
   var hr = height$2(r);
   return /* constructor */{
-          tag: 0,
-          name: "Node",
+          tag: "Node",
           "0": l,
           "1": x,
           "2": d,
@@ -1386,12 +1367,11 @@ function create$2(l, x, d, r) {
 
 function singleton$2(x, d) {
   return /* constructor */{
-          tag: 0,
-          name: "Node",
-          "0": /* Empty */0,
+          tag: "Node",
+          "0": "Empty",
           "1": x,
           "2": d,
-          "3": /* Empty */0,
+          "3": "Empty",
           "4": 1
         };
 }
@@ -1445,8 +1425,7 @@ function bal$2(l, x, d, r) {
     }
   } else {
     return /* constructor */{
-            tag: 0,
-            name: "Node",
+            tag: "Node",
             "0": l,
             "1": x,
             "2": d,
@@ -1473,8 +1452,7 @@ function add$2(x, data, param) {
     var c = Caml_primitive.caml_int_compare(x, v);
     if (c === 0) {
       return /* constructor */{
-              tag: 0,
-              name: "Node",
+              tag: "Node",
               "0": l,
               "1": x,
               "2": data,
@@ -1488,12 +1466,11 @@ function add$2(x, data, param) {
     }
   } else {
     return /* constructor */{
-            tag: 0,
-            name: "Node",
-            "0": /* Empty */0,
+            tag: "Node",
+            "0": "Empty",
             "1": x,
             "2": data,
-            "3": /* Empty */0,
+            "3": "Empty",
             "4": 1
           };
   }
@@ -1615,7 +1592,7 @@ function remove$2(x, param) {
       return bal$2(l, v, d, remove$2(x, r));
     }
   } else {
-    return /* Empty */0;
+    return "Empty";
   }
 }
 
@@ -1628,7 +1605,7 @@ function iter$2(f, _param) {
       _param = param[3];
       continue ;
     } else {
-      return /* () */0;
+      return "()";
     }
   };
 }
@@ -1639,8 +1616,7 @@ function map$2(f, param) {
     var d$prime = Curry._1(f, param[2]);
     var r$prime = map$2(f, param[3]);
     return /* constructor */{
-            tag: 0,
-            name: "Node",
+            tag: "Node",
             "0": l$prime,
             "1": param[1],
             "2": d$prime,
@@ -1648,7 +1624,7 @@ function map$2(f, param) {
             "4": param[4]
           };
   } else {
-    return /* Empty */0;
+    return "Empty";
   }
 }
 
@@ -1659,8 +1635,7 @@ function mapi$2(f, param) {
     var d$prime = Curry._2(f, v, param[2]);
     var r$prime = mapi$2(f, param[3]);
     return /* constructor */{
-            tag: 0,
-            name: "Node",
+            tag: "Node",
             "0": l$prime,
             "1": v,
             "2": d$prime,
@@ -1668,7 +1643,7 @@ function mapi$2(f, param) {
             "4": param[4]
           };
   } else {
-    return /* Empty */0;
+    return "Empty";
   }
 }
 
@@ -1805,9 +1780,9 @@ function split$2(x, param) {
     }
   } else {
     return /* tuple */[
-            /* Empty */0,
+            "Empty",
             undefined,
-            /* Empty */0
+            "Empty"
           ];
   }
 }
@@ -1821,7 +1796,7 @@ function merge$2(f, s1, s2) {
     }
     
   } else if (!s2) {
-    return /* Empty */0;
+    return "Empty";
   }
   if (s2) {
     var v2 = s2[1];
@@ -1852,7 +1827,7 @@ function filter$2(p, param) {
       return concat$2(l$prime, r$prime);
     }
   } else {
-    return /* Empty */0;
+    return "Empty";
   }
 }
 
@@ -1880,8 +1855,8 @@ function partition$2(p, param) {
     }
   } else {
     return /* tuple */[
-            /* Empty */0,
-            /* Empty */0
+            "Empty",
+            "Empty"
           ];
   }
 }
@@ -1892,8 +1867,7 @@ function cons_enum$2(_m, _e) {
     var m = _m;
     if (m) {
       _e = /* constructor */{
-        tag: 0,
-        name: "More",
+        tag: "More",
         "0": m[1],
         "1": m[2],
         "2": m[3],
@@ -1908,8 +1882,8 @@ function cons_enum$2(_m, _e) {
 }
 
 function compare$2(cmp, m1, m2) {
-  var _e1 = cons_enum$2(m1, /* End */0);
-  var _e2 = cons_enum$2(m2, /* End */0);
+  var _e1 = cons_enum$2(m1, "End");
+  var _e2 = cons_enum$2(m2, "End");
   while(true) {
     var e2 = _e2;
     var e1 = _e1;
@@ -1940,8 +1914,8 @@ function compare$2(cmp, m1, m2) {
 }
 
 function equal$2(cmp, m1, m2) {
-  var _e1 = cons_enum$2(m1, /* End */0);
-  var _e2 = cons_enum$2(m2, /* End */0);
+  var _e1 = cons_enum$2(m1, "End");
+  var _e2 = cons_enum$2(m2, "End");
   while(true) {
     var e2 = _e2;
     var e1 = _e1;
@@ -1976,8 +1950,7 @@ function bindings_aux$2(_accu, _param) {
     if (param) {
       _param = param[0];
       _accu = /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": /* tuple */[
           param[1],
           param[2]
@@ -1992,11 +1965,11 @@ function bindings_aux$2(_accu, _param) {
 }
 
 function bindings$2(s) {
-  return bindings_aux$2(/* [] */0, s);
+  return bindings_aux$2("[]", s);
 }
 
 var Labs = {
-  empty: /* Empty */0,
+  empty: "Empty",
   is_empty: is_empty$2,
   mem: mem$2,
   add: add$2,
@@ -2024,13 +1997,13 @@ var Labs = {
 
 var dummy_table = /* record */[
   /* size */0,
-  /* methods : array */[/* () */0],
-  /* methods_by_name : Empty */0,
-  /* methods_by_label : Empty */0,
-  /* previous_states : [] */0,
-  /* hidden_meths : [] */0,
-  /* vars : Empty */0,
-  /* initializers : [] */0
+  /* methods : array */["()"],
+  /* methods_by_name */"Empty",
+  /* methods_by_label */"Empty",
+  /* previous_states */"[]",
+  /* hidden_meths */"[]",
+  /* vars */"Empty",
+  /* initializers */"[]"
 ];
 
 var table_count = /* record */[/* contents */0];
@@ -2057,12 +2030,12 @@ function new_table(pub_labels) {
   return /* record */[
           /* size */2,
           /* methods */methods,
-          /* methods_by_name : Empty */0,
-          /* methods_by_label : Empty */0,
-          /* previous_states : [] */0,
-          /* hidden_meths : [] */0,
-          /* vars : Empty */0,
-          /* initializers : [] */0
+          /* methods_by_name */"Empty",
+          /* methods_by_label */"Empty",
+          /* previous_states */"[]",
+          /* hidden_meths */"[]",
+          /* vars */"Empty",
+          /* initializers */"[]"
         ];
 }
 
@@ -2121,8 +2094,7 @@ function set_method(table, label, element) {
     return put(table, label, element);
   } else {
     table[/* hidden_meths */5] = /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": /* tuple */[
         label,
         element
@@ -2148,7 +2120,7 @@ function get_method(table, label) {
 
 function to_list(arr) {
   if (arr === 0) {
-    return /* [] */0;
+    return "[]";
   } else {
     return $$Array.to_list(arr);
   }
@@ -2165,8 +2137,7 @@ function narrow(table, vars, virt_meths, concr_meths) {
           return get_method_label(table, param);
         }), concr_meths$1);
   table[/* previous_states */4] = /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       table[/* methods_by_name */2],
       table[/* methods_by_label */3],
@@ -2183,9 +2154,9 @@ function narrow(table, vars, virt_meths, concr_meths) {
           } else {
             return tvars;
           }
-        }), table[/* vars */6], /* Empty */0);
-  var by_name = /* record */[/* contents : Empty */0];
-  var by_label = /* record */[/* contents : Empty */0];
+        }), table[/* vars */6], "Empty");
+  var by_name = /* record */[/* contents */"Empty"];
+  var by_label = /* record */[/* contents */"Empty"];
   List.iter2((function (met, label) {
           by_name[0] = add$1(met, label, by_name[0]);
           var tmp;
@@ -2214,13 +2185,12 @@ function narrow(table, vars, virt_meths, concr_meths) {
             return hm;
           } else {
             return /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": met,
                     "1": hm
                   };
           }
-        }), table[/* hidden_meths */5], /* [] */0);
+        }), table[/* hidden_meths */5], "[]");
   return /* () */0;
 }
 
@@ -2238,8 +2208,7 @@ function widen(table) {
             return hm;
           } else {
             return /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": met,
                     "1": hm
                   };
@@ -2320,8 +2289,7 @@ function get_variables(table, names) {
 
 function add_initializer(table, f) {
   table[/* initializers */7] = /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": f,
     "1": table[/* initializers */7]
   };
@@ -2356,22 +2324,19 @@ function inherits(cla, vals, virt_meths, concr_meths, param, top) {
   var init = top ? Curry._2($$super, cla, param[3]) : Curry._1($$super, cla);
   widen(cla);
   return Caml_array.caml_array_concat(/* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": /* array */[init],
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": $$Array.map((function (param) {
                         return get_variable(cla, param);
                       }), to_array(vals)),
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": $$Array.map((function (nm) {
                           return get_method(cla, get_method_label(cla, nm));
                         }), to_array(concr_meths)),
-                  "1": /* [] */0
+                  "1": "[]"
                 }
               }
             });
@@ -2437,14 +2402,14 @@ function iter_f(obj, _param) {
       _param = param[1];
       continue ;
     } else {
-      return /* () */0;
+      return "()";
     }
   };
 }
 
 function run_initializers(obj, table) {
   var inits = table[/* initializers */7];
-  if (inits !== /* [] */0) {
+  if (inits !== "[]") {
     return iter_f(obj, inits);
   } else {
     return 0;
@@ -2456,7 +2421,7 @@ function run_initializers_opt(obj_0, obj, table) {
     return obj;
   } else {
     var inits = table[/* initializers */7];
-    if (inits !== /* [] */0) {
+    if (inits !== "[]") {
       iter_f(obj, inits);
     }
     return obj;
@@ -2476,17 +2441,16 @@ function create_object_and_run_initializers(obj_0, table) {
 function build_path(n, keys, tables) {
   var res = /* record */[
     /* key */0,
-    /* data : Empty */0,
-    /* next : Empty */0
+    /* data */"Empty",
+    /* next */"Empty"
   ];
   var r = res;
   for(var i = 0; i <= n; ++i){
     r = /* constructor */{
-      tag: 0,
-      name: "Cons",
+      tag: "Cons",
       "0": Caml_array.caml_array_get(keys, i),
       "1": r,
-      "2": /* Empty */0
+      "2": "Empty"
     };
   }
   tables[/* data */1] = r;
@@ -2503,16 +2467,15 @@ function lookup_keys(i, keys, tables) {
       var tables$1 = _tables;
       if (tables$1[/* key */0] === key) {
         return lookup_keys(i - 1 | 0, keys, tables$1[/* data */1]);
-      } else if (tables$1[/* next */2] !== /* Empty */0) {
+      } else if (tables$1[/* next */2] !== "Empty") {
         _tables = tables$1[/* next */2];
         continue ;
       } else {
         var next = /* constructor */{
-          tag: 0,
-          name: "Cons",
+          tag: "Cons",
           "0": key,
-          "1": /* Empty */0,
-          "2": /* Empty */0
+          "1": "Empty",
+          "2": "Empty"
         };
         tables$1[/* next */2] = next;
         return build_path(i - 1 | 0, keys, next);
@@ -2522,7 +2485,7 @@ function lookup_keys(i, keys, tables) {
 }
 
 function lookup_tables(root, keys) {
-  if (root[/* data */1] !== /* Empty */0) {
+  if (root[/* data */1] !== "Empty") {
     return lookup_keys(keys.length - 1 | 0, keys, root[/* data */1]);
   } else {
     return build_path(keys.length - 1 | 0, keys, root);
@@ -2689,124 +2652,124 @@ function method_impl(table, i, arr) {
     i[0] = i[0] + 1 | 0;
     return Caml_array.caml_array_get(arr, i[0]);
   };
-  var clo = next(/* () */0);
+  var clo = next("()");
   if (typeof clo === "number") {
     switch (clo) {
-      case /* GetConst */0 :
-          var x = next(/* () */0);
+      case "GetConst" :
+          var x = next("()");
           return (function (obj) {
               return x;
             });
-      case /* GetVar */1 :
-          var n = next(/* () */0);
+      case "GetVar" :
+          var n = next("()");
           return (function (obj) {
               return obj[n];
             });
-      case /* GetEnv */2 :
-          var e = next(/* () */0);
-          var n$1 = next(/* () */0);
+      case "GetEnv" :
+          var e = next("()");
+          var n$1 = next("()");
           return get_env(e, n$1);
-      case /* GetMeth */3 :
-          return get_meth(next(/* () */0));
-      case /* SetVar */4 :
-          var n$2 = next(/* () */0);
+      case "GetMeth" :
+          return get_meth(next("()"));
+      case "SetVar" :
+          var n$2 = next("()");
           return (function (obj, x) {
               obj[n$2] = x;
               return /* () */0;
             });
-      case /* AppConst */5 :
-          var f = next(/* () */0);
-          var x$1 = next(/* () */0);
+      case "AppConst" :
+          var f = next("()");
+          var x$1 = next("()");
           return (function (obj) {
               return Curry._1(f, x$1);
             });
-      case /* AppVar */6 :
-          var f$1 = next(/* () */0);
-          var n$3 = next(/* () */0);
+      case "AppVar" :
+          var f$1 = next("()");
+          var n$3 = next("()");
           return (function (obj) {
               return Curry._1(f$1, obj[n$3]);
             });
-      case /* AppEnv */7 :
-          var f$2 = next(/* () */0);
-          var e$1 = next(/* () */0);
-          var n$4 = next(/* () */0);
+      case "AppEnv" :
+          var f$2 = next("()");
+          var e$1 = next("()");
+          var n$4 = next("()");
           return app_env(f$2, e$1, n$4);
-      case /* AppMeth */8 :
-          var f$3 = next(/* () */0);
-          var n$5 = next(/* () */0);
+      case "AppMeth" :
+          var f$3 = next("()");
+          var n$5 = next("()");
           return app_meth(f$3, n$5);
-      case /* AppConstConst */9 :
-          var f$4 = next(/* () */0);
-          var x$2 = next(/* () */0);
-          var y = next(/* () */0);
+      case "AppConstConst" :
+          var f$4 = next("()");
+          var x$2 = next("()");
+          var y = next("()");
           return (function (obj) {
               return Curry._2(f$4, x$2, y);
             });
-      case /* AppConstVar */10 :
-          var f$5 = next(/* () */0);
-          var x$3 = next(/* () */0);
-          var n$6 = next(/* () */0);
+      case "AppConstVar" :
+          var f$5 = next("()");
+          var x$3 = next("()");
+          var n$6 = next("()");
           return app_const_var(f$5, x$3, n$6);
-      case /* AppConstEnv */11 :
-          var f$6 = next(/* () */0);
-          var x$4 = next(/* () */0);
-          var e$2 = next(/* () */0);
-          var n$7 = next(/* () */0);
+      case "AppConstEnv" :
+          var f$6 = next("()");
+          var x$4 = next("()");
+          var e$2 = next("()");
+          var n$7 = next("()");
           return app_const_env(f$6, x$4, e$2, n$7);
-      case /* AppConstMeth */12 :
-          var f$7 = next(/* () */0);
-          var x$5 = next(/* () */0);
-          var n$8 = next(/* () */0);
+      case "AppConstMeth" :
+          var f$7 = next("()");
+          var x$5 = next("()");
+          var n$8 = next("()");
           return app_const_meth(f$7, x$5, n$8);
-      case /* AppVarConst */13 :
-          var f$8 = next(/* () */0);
-          var n$9 = next(/* () */0);
-          var x$6 = next(/* () */0);
+      case "AppVarConst" :
+          var f$8 = next("()");
+          var n$9 = next("()");
+          var x$6 = next("()");
           return app_var_const(f$8, n$9, x$6);
-      case /* AppEnvConst */14 :
-          var f$9 = next(/* () */0);
-          var e$3 = next(/* () */0);
-          var n$10 = next(/* () */0);
-          var x$7 = next(/* () */0);
+      case "AppEnvConst" :
+          var f$9 = next("()");
+          var e$3 = next("()");
+          var n$10 = next("()");
+          var x$7 = next("()");
           return app_env_const(f$9, e$3, n$10, x$7);
-      case /* AppMethConst */15 :
-          var f$10 = next(/* () */0);
-          var n$11 = next(/* () */0);
-          var x$8 = next(/* () */0);
+      case "AppMethConst" :
+          var f$10 = next("()");
+          var n$11 = next("()");
+          var x$8 = next("()");
           return app_meth_const(f$10, n$11, x$8);
-      case /* MethAppConst */16 :
-          var n$12 = next(/* () */0);
-          var x$9 = next(/* () */0);
+      case "MethAppConst" :
+          var n$12 = next("()");
+          var x$9 = next("()");
           return meth_app_const(n$12, x$9);
-      case /* MethAppVar */17 :
-          var n$13 = next(/* () */0);
-          var m = next(/* () */0);
+      case "MethAppVar" :
+          var n$13 = next("()");
+          var m = next("()");
           return meth_app_var(n$13, m);
-      case /* MethAppEnv */18 :
-          var n$14 = next(/* () */0);
-          var e$4 = next(/* () */0);
-          var m$1 = next(/* () */0);
+      case "MethAppEnv" :
+          var n$14 = next("()");
+          var e$4 = next("()");
+          var m$1 = next("()");
           return meth_app_env(n$14, e$4, m$1);
-      case /* MethAppMeth */19 :
-          var n$15 = next(/* () */0);
-          var m$2 = next(/* () */0);
+      case "MethAppMeth" :
+          var n$15 = next("()");
+          var m$2 = next("()");
           return meth_app_meth(n$15, m$2);
-      case /* SendConst */20 :
-          var m$3 = next(/* () */0);
-          var x$10 = next(/* () */0);
+      case "SendConst" :
+          var m$3 = next("()");
+          var x$10 = next("()");
           return send_const(m$3, x$10, new_cache(table));
-      case /* SendVar */21 :
-          var m$4 = next(/* () */0);
-          var n$16 = next(/* () */0);
+      case "SendVar" :
+          var m$4 = next("()");
+          var n$16 = next("()");
           return send_var(m$4, n$16, new_cache(table));
-      case /* SendEnv */22 :
-          var m$5 = next(/* () */0);
-          var e$5 = next(/* () */0);
-          var n$17 = next(/* () */0);
+      case "SendEnv" :
+          var m$5 = next("()");
+          var e$5 = next("()");
+          var n$17 = next("()");
           return send_env(m$5, e$5, n$17, new_cache(table));
-      case /* SendMeth */23 :
-          var m$6 = next(/* () */0);
-          var n$18 = next(/* () */0);
+      case "SendMeth" :
+          var m$6 = next("()");
+          var n$18 = next("()");
           return send_meth(m$6, n$18, new_cache(table));
       
     }
@@ -2837,7 +2800,7 @@ function stats(param) {
 
 var initial_object_size = 2;
 
-var dummy_item = /* () */0;
+var dummy_item = "()";
 
 exports.copy = copy;
 exports.params = params;

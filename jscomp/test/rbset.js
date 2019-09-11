@@ -6,9 +6,8 @@ function blackify(s) {
   if (s && s[0]) {
     return /* tuple */[
             /* constructor */{
-              tag: 0,
-              name: "Node",
-              "0": /* Black */0,
+              tag: "Node",
+              "0": "Black",
               "1": s[1],
               "2": s[2],
               "3": s[3]
@@ -91,31 +90,27 @@ function balance_left(l, x, r) {
   switch (exit) {
     case 1 :
         return /* constructor */{
-                tag: 0,
-                name: "Node",
-                "0": /* Black */0,
+                tag: "Node",
+                "0": "Black",
                 "1": l,
                 "2": x,
                 "3": r
               };
     case 2 :
         return /* constructor */{
-                tag: 0,
-                name: "Node",
-                "0": /* Red */1,
+                tag: "Node",
+                "0": "Red",
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "Node",
-                  "0": /* Black */0,
+                  tag: "Node",
+                  "0": "Black",
                   "1": a,
                   "2": x$1,
                   "3": b
                 },
                 "2": y,
                 "3": /* constructor */{
-                  tag: 0,
-                  name: "Node",
-                  "0": /* Black */0,
+                  tag: "Node",
+                  "0": "Black",
                   "1": c,
                   "2": z,
                   "3": d
@@ -165,31 +160,27 @@ function balance_right(l, x, r) {
   switch (exit) {
     case 1 :
         return /* constructor */{
-                tag: 0,
-                name: "Node",
-                "0": /* Black */0,
+                tag: "Node",
+                "0": "Black",
                 "1": l,
                 "2": x,
                 "3": r
               };
     case 2 :
         return /* constructor */{
-                tag: 0,
-                name: "Node",
-                "0": /* Red */1,
+                tag: "Node",
+                "0": "Red",
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "Node",
-                  "0": /* Black */0,
+                  tag: "Node",
+                  "0": "Black",
                   "1": a,
                   "2": x$1,
                   "3": b
                 },
                 "2": y,
                 "3": /* constructor */{
-                  tag: 0,
-                  name: "Node",
-                  "0": /* Black */0,
+                  tag: "Node",
+                  "0": "Black",
                   "1": c,
                   "2": z,
                   "3": d
@@ -201,12 +192,11 @@ function balance_right(l, x, r) {
 
 function singleton(x) {
   return /* constructor */{
-          tag: 0,
-          name: "Node",
-          "0": /* Black */0,
-          "1": /* Empty */0,
+          tag: "Node",
+          "0": "Black",
+          "1": "Empty",
           "2": x,
-          "3": /* Empty */0
+          "3": "Empty"
         };
 }
 
@@ -217,9 +207,8 @@ function unbalanced_left(param) {
       if (match && !match[0]) {
         return /* tuple */[
                 balance_left(/* constructor */{
-                      tag: 0,
-                      name: "Node",
-                      "0": /* Red */1,
+                      tag: "Node",
+                      "0": "Red",
                       "1": match[1],
                       "2": match[2],
                       "3": match[3]
@@ -236,15 +225,13 @@ function unbalanced_left(param) {
           if (match$2 && !match$2[0]) {
             return /* tuple */[
                     /* constructor */{
-                      tag: 0,
-                      name: "Node",
-                      "0": /* Black */0,
+                      tag: "Node",
+                      "0": "Black",
                       "1": match$1[1],
                       "2": match$1[2],
                       "3": balance_left(/* constructor */{
-                            tag: 0,
-                            name: "Node",
-                            "0": /* Red */1,
+                            tag: "Node",
+                            "0": "Red",
                             "1": match$2[1],
                             "2": match$2[2],
                             "3": match$2[3]
@@ -257,9 +244,8 @@ function unbalanced_left(param) {
         } else {
           return /* tuple */[
                   balance_left(/* constructor */{
-                        tag: 0,
-                        name: "Node",
-                        "0": /* Red */1,
+                        tag: "Node",
+                        "0": "Red",
                         "1": match$1[1],
                         "2": match$1[2],
                         "3": match$1[3]
@@ -288,9 +274,8 @@ function unbalanced_right(param) {
       if (match && !match[0]) {
         return /* tuple */[
                 balance_right(param[1], param[2], /* constructor */{
-                      tag: 0,
-                      name: "Node",
-                      "0": /* Red */1,
+                      tag: "Node",
+                      "0": "Red",
                       "1": match[1],
                       "2": match[2],
                       "3": match[3]
@@ -309,13 +294,11 @@ function unbalanced_right(param) {
           if (match$2 && !match$2[0]) {
             return /* tuple */[
                     /* constructor */{
-                      tag: 0,
-                      name: "Node",
-                      "0": /* Black */0,
+                      tag: "Node",
+                      "0": "Black",
                       "1": balance_right(a, x, /* constructor */{
-                            tag: 0,
-                            name: "Node",
-                            "0": /* Red */1,
+                            tag: "Node",
+                            "0": "Red",
                             "1": match$2[1],
                             "2": match$2[2],
                             "3": match$2[3]
@@ -330,9 +313,8 @@ function unbalanced_right(param) {
         } else {
           return /* tuple */[
                   balance_right(a, x, /* constructor */{
-                        tag: 0,
-                        name: "Node",
-                        "0": /* Red */1,
+                        tag: "Node",
+                        "0": "Red",
                         "1": match$1[1],
                         "2": match$1[2],
                         "3": match$1[3]
@@ -361,22 +343,19 @@ function lbalance(x1, x2, x3) {
       var l = x1[1];
       if (l && l[0]) {
         return /* constructor */{
-                tag: 0,
-                name: "Node",
-                "0": /* Red */1,
+                tag: "Node",
+                "0": "Red",
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "Node",
-                  "0": /* Black */0,
+                  tag: "Node",
+                  "0": "Black",
                   "1": l[1],
                   "2": l[2],
                   "3": l[3]
                 },
                 "2": x1[2],
                 "3": /* constructor */{
-                  tag: 0,
-                  name: "Node",
-                  "0": /* Black */0,
+                  tag: "Node",
+                  "0": "Black",
                   "1": r,
                   "2": x2,
                   "3": x3
@@ -387,22 +366,19 @@ function lbalance(x1, x2, x3) {
         if (r[0]) {
           var y = r[2];
           return /* constructor */{
-                  tag: 0,
-                  name: "Node",
-                  "0": /* Red */1,
+                  tag: "Node",
+                  "0": "Red",
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "Node",
-                    "0": /* Black */0,
+                    tag: "Node",
+                    "0": "Black",
                     "1": l,
                     "2": y,
                     "3": r[1]
                   },
                   "2": y,
                   "3": /* constructor */{
-                    tag: 0,
-                    name: "Node",
-                    "0": /* Black */0,
+                    tag: "Node",
+                    "0": "Black",
                     "1": r[3],
                     "2": x2,
                     "3": x3
@@ -410,9 +386,8 @@ function lbalance(x1, x2, x3) {
                 };
         } else {
           return /* constructor */{
-                  tag: 0,
-                  name: "Node",
-                  "0": /* Black */0,
+                  tag: "Node",
+                  "0": "Black",
                   "1": x1,
                   "2": x2,
                   "3": x3
@@ -420,9 +395,8 @@ function lbalance(x1, x2, x3) {
         }
       } else {
         return /* constructor */{
-                tag: 0,
-                name: "Node",
-                "0": /* Black */0,
+                tag: "Node",
+                "0": "Black",
                 "1": x1,
                 "2": x2,
                 "3": x3
@@ -430,9 +404,8 @@ function lbalance(x1, x2, x3) {
       }
     } else {
       return /* constructor */{
-              tag: 0,
-              name: "Node",
-              "0": /* Black */0,
+              tag: "Node",
+              "0": "Black",
               "1": x1,
               "2": x2,
               "3": x3
@@ -440,9 +413,8 @@ function lbalance(x1, x2, x3) {
     }
   } else {
     return /* constructor */{
-            tag: 0,
-            name: "Node",
-            "0": /* Black */0,
+            tag: "Node",
+            "0": "Black",
             "1": x1,
             "2": x2,
             "3": x3
@@ -456,22 +428,19 @@ function rbalance(x1, x2, x3) {
     var exit = 0;
     if (b && b[0]) {
       return /* constructor */{
-              tag: 0,
-              name: "Node",
-              "0": /* Red */1,
+              tag: "Node",
+              "0": "Red",
               "1": /* constructor */{
-                tag: 0,
-                name: "Node",
-                "0": /* Black */0,
+                tag: "Node",
+                "0": "Black",
                 "1": x1,
                 "2": x2,
                 "3": b[1]
               },
               "2": b[2],
               "3": /* constructor */{
-                tag: 0,
-                name: "Node",
-                "0": /* Black */0,
+                tag: "Node",
+                "0": "Black",
                 "1": b[3],
                 "2": x3[2],
                 "3": x3[3]
@@ -484,22 +453,19 @@ function rbalance(x1, x2, x3) {
       var match = x3[3];
       if (match && match[0]) {
         return /* constructor */{
-                tag: 0,
-                name: "Node",
-                "0": /* Red */1,
+                tag: "Node",
+                "0": "Red",
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "Node",
-                  "0": /* Black */0,
+                  tag: "Node",
+                  "0": "Black",
                   "1": x1,
                   "2": x2,
                   "3": b
                 },
                 "2": x3[2],
                 "3": /* constructor */{
-                  tag: 0,
-                  name: "Node",
-                  "0": /* Black */0,
+                  tag: "Node",
+                  "0": "Black",
                   "1": match[1],
                   "2": match[2],
                   "3": match[3]
@@ -511,9 +477,8 @@ function rbalance(x1, x2, x3) {
     
   }
   return /* constructor */{
-          tag: 0,
-          name: "Node",
-          "0": /* Black */0,
+          tag: "Node",
+          "0": "Black",
           "1": x1,
           "2": x2,
           "3": x3
@@ -531,18 +496,16 @@ function ins(x, s) {
         var a = s[1];
         if (x < y) {
           return /* constructor */{
-                  tag: 0,
-                  name: "Node",
-                  "0": /* Red */1,
+                  tag: "Node",
+                  "0": "Red",
                   "1": ins(x, a),
                   "2": y,
                   "3": b
                 };
         } else {
           return /* constructor */{
-                  tag: 0,
-                  name: "Node",
-                  "0": /* Red */1,
+                  tag: "Node",
+                  "0": "Red",
                   "1": a,
                   "2": y,
                   "3": ins(x, b)
@@ -565,12 +528,11 @@ function ins(x, s) {
     }
   } else {
     return /* constructor */{
-            tag: 0,
-            name: "Node",
-            "0": /* Red */1,
-            "1": /* Empty */0,
+            tag: "Node",
+            "0": "Red",
+            "1": "Empty",
             "2": x,
-            "3": /* Empty */0
+            "3": "Empty"
           };
   }
 }
@@ -579,9 +541,8 @@ function add(x, s) {
   var s$1 = ins(x, s);
   if (s$1 && s$1[0]) {
     return /* constructor */{
-            tag: 0,
-            name: "Node",
-            "0": /* Black */0,
+            tag: "Node",
+            "0": "Black",
             "1": s$1[1],
             "2": s$1[2],
             "3": s$1[3]
@@ -610,9 +571,8 @@ function remove_min(param) {
         if (match[0]) {
           return /* tuple */[
                   /* constructor */{
-                    tag: 0,
-                    name: "Node",
-                    "0": /* Black */0,
+                    tag: "Node",
+                    "0": "Black",
                     "1": match[1],
                     "2": match[2],
                     "3": match[3]
@@ -632,7 +592,7 @@ function remove_min(param) {
         }
       } else {
         return /* tuple */[
-                /* Empty */0,
+                "Empty",
                 x,
                 true
               ];
@@ -641,8 +601,7 @@ function remove_min(param) {
     var match$1 = remove_min(param[1]);
     var y = match$1[1];
     var s = /* constructor */{
-      tag: 0,
-      name: "Node",
+      tag: "Node",
       "0": c,
       "1": match$1[0],
       "2": param[2],
@@ -684,8 +643,7 @@ function remove_aux(x, n) {
       if (r) {
         var match = remove_min(r);
         var n$1 = /* constructor */{
-          tag: 0,
-          name: "Node",
+          tag: "Node",
           "0": c,
           "1": l,
           "2": match[1],
@@ -699,7 +657,7 @@ function remove_aux(x, n) {
                   false
                 ];
         }
-      } else if (c === /* Red */1) {
+      } else if (c === "Red") {
         return /* tuple */[
                 l,
                 false
@@ -710,8 +668,7 @@ function remove_aux(x, n) {
     } else if (x < y) {
       var match$1 = remove_aux(x, l);
       var n$2 = /* constructor */{
-        tag: 0,
-        name: "Node",
+        tag: "Node",
         "0": c,
         "1": match$1[0],
         "2": y,
@@ -728,8 +685,7 @@ function remove_aux(x, n) {
     } else {
       var match$2 = remove_aux(x, r);
       var n$3 = /* constructor */{
-        tag: 0,
-        name: "Node",
+        tag: "Node",
         "0": c,
         "1": l,
         "2": y,
@@ -746,7 +702,7 @@ function remove_aux(x, n) {
     }
   } else {
     return /* tuple */[
-            /* Empty */0,
+            "Empty",
             false
           ];
   }
@@ -764,7 +720,7 @@ function cardinal(param) {
   }
 }
 
-var empty = /* Empty */0;
+var empty = "Empty";
 
 exports.blackify = blackify;
 exports.empty = empty;

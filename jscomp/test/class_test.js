@@ -82,62 +82,54 @@ var tmp$1 = Curry._1(point2[0], 0);
 var two = Caml_oo_curry.js1(291546447, 5, tmp$1);
 
 Mt.from_pair_suites("Class_test", /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": /* tuple */[
         "File \"class_test.ml\", line 33, characters 4-11",
         (function (param) {
             return /* constructor */{
-                    tag: 0,
-                    name: "Eq",
+                    tag: "Eq",
                     "0": zero,
                     "1": 0
                   };
           })
       ],
       "1": /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": /* tuple */[
           "File \"class_test.ml\", line 34, characters 4-11",
           (function (param) {
               return /* constructor */{
-                      tag: 0,
-                      name: "Eq",
+                      tag: "Eq",
                       "0": three,
                       "1": 3
                     };
             })
         ],
         "1": /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": /* tuple */[
             "File \"class_test.ml\", line 35, characters 4-11",
             (function (param) {
                 return /* constructor */{
-                        tag: 0,
-                        name: "Eq",
+                        tag: "Eq",
                         "0": one,
                         "1": 1
                       };
               })
           ],
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": /* tuple */[
               "File \"class_test.ml\", line 36, characters 4-11",
               (function (param) {
                   return /* constructor */{
-                          tag: 0,
-                          name: "Eq",
+                          tag: "Eq",
                           "0": two,
                           "1": 2
                         };
                 })
             ],
-            "1": /* [] */0
+            "1": "[]"
           }
         }
       }

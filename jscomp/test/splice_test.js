@@ -4,7 +4,7 @@ var Mt = require("./mt.js");
 var Caml_array = require("../../lib/js/caml_array.js");
 var Caml_splice_call = require("../../lib/js/caml_splice_call.js");
 
-var suites = /* record */[/* contents : [] */0];
+var suites = /* record */[/* contents */"[]"];
 
 var test_id = /* record */[/* contents */0];
 
@@ -38,14 +38,12 @@ function dynamic(arr) {
         arr
       ]);
   return eq("File \"splice_test.ml\", line 34, characters 5-12", a, Caml_array.caml_array_concat(/* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": /* array */[1],
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": arr,
-                    "1": /* [] */0
+                    "1": "[]"
                   }
                 }));
 }
@@ -82,14 +80,12 @@ function dynamic$1(arr) {
         arr
       ]);
   return eq("File \"splice_test.ml\", line 56, characters 7-14", a, Caml_array.caml_array_concat(/* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": /* array */[1],
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": arr,
-                    "1": /* [] */0
+                    "1": "[]"
                   }
                 }));
 }

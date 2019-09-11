@@ -28,7 +28,7 @@ function Make(funarg) {
     var l_labels = Curry._1(H.create, 97);
     var already_processed = Curry._1(H.create, 97);
     var on_the_stack = Curry._1(H.create, 97);
-    var cut_set = /* record */[/* contents : [] */0];
+    var cut_set = /* record */[/* contents */"[]"];
     var counter = /* record */[/* contents */1];
     var step2 = function (top, rest_of_stack) {
       if (find_default(already_processed, top)) {
@@ -72,8 +72,7 @@ function Make(funarg) {
             continue ;
           } else {
             return step2(successor, /* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": /* tuple */[
                           top$1,
                           successors
@@ -84,8 +83,7 @@ function Make(funarg) {
         } else {
           if (Curry._2(H.find, l_labels, top$1) === Curry._2(H.find, n_labels, top$1)) {
             cut_set[0] = /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": top$1,
               "1": cut_set[0]
             };
@@ -112,7 +110,7 @@ function Make(funarg) {
         }
       };
     };
-    return step2(first_node, /* [] */0);
+    return step2(first_node, "[]");
   };
   return {
           min_cutset: min_cutset

@@ -26,8 +26,7 @@ var a = /* int64 */[
 
 function commutative_add(result, a, b) {
   return /* constructor */{
-          tag: 0,
-          name: "Eq",
+          tag: "Eq",
           "0": /* tuple */[
             result,
             result
@@ -885,14 +884,12 @@ function fac(_n, _acc) {
 }
 
 var suites = Pervasives.$at(/* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": /* tuple */[
         "add_one",
         (function (param) {
             return /* constructor */{
-                    tag: 0,
-                    name: "Eq",
+                    tag: "Eq",
                     "0": v,
                     "1": /* int64 */[
                       /* hi */0,
@@ -902,14 +899,12 @@ var suites = Pervasives.$at(/* constructor */{
           })
       ],
       "1": /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": /* tuple */[
           "add_2",
           (function (param) {
               return /* constructor */{
-                      tag: 0,
-                      name: "Eq",
+                      tag: "Eq",
                       "0": /* int64 */[
                         /* hi */0,
                         /* lo */4294967294
@@ -919,14 +914,12 @@ var suites = Pervasives.$at(/* constructor */{
             })
         ],
         "1": /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": /* tuple */[
             "add_3",
             (function (param) {
                 return /* constructor */{
-                        tag: 0,
-                        name: "Eq",
+                        tag: "Eq",
                         "0": /* int64 */[
                           /* hi */0,
                           /* lo */0
@@ -939,8 +932,7 @@ var suites = Pervasives.$at(/* constructor */{
               })
           ],
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": /* tuple */[
               "add_4",
               (function (param) {
@@ -957,8 +949,7 @@ var suites = Pervasives.$at(/* constructor */{
                 })
             ],
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": /* tuple */[
                 "add_5",
                 (function (param) {
@@ -975,8 +966,7 @@ var suites = Pervasives.$at(/* constructor */{
                   })
               ],
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": /* tuple */[
                   "add_6",
                   (function (param) {
@@ -993,8 +983,7 @@ var suites = Pervasives.$at(/* constructor */{
                     })
                 ],
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": /* tuple */[
                     "add_7",
                     (function (param) {
@@ -1011,8 +1000,7 @@ var suites = Pervasives.$at(/* constructor */{
                       })
                   ],
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": /* tuple */[
                       "add_8",
                       (function (param) {
@@ -1029,8 +1017,7 @@ var suites = Pervasives.$at(/* constructor */{
                         })
                     ],
                     "1": /* constructor */{
-                      tag: 0,
-                      name: "::",
+                      tag: "::",
                       "0": /* tuple */[
                         "add_9",
                         (function (param) {
@@ -1047,8 +1034,7 @@ var suites = Pervasives.$at(/* constructor */{
                           })
                       ],
                       "1": /* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": /* tuple */[
                           "add_10",
                           (function (param) {
@@ -1065,8 +1051,7 @@ var suites = Pervasives.$at(/* constructor */{
                             })
                         ],
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": /* tuple */[
                             "add_11",
                             (function (param) {
@@ -1083,42 +1068,36 @@ var suites = Pervasives.$at(/* constructor */{
                               })
                           ],
                           "1": /* constructor */{
-                            tag: 0,
-                            name: "::",
+                            tag: "::",
                             "0": /* tuple */[
                               "to_int32",
                               (function (param) {
                                   return /* constructor */{
-                                          tag: 0,
-                                          name: "Eq",
+                                          tag: "Eq",
                                           "0": 3,
                                           "1": 3
                                         };
                                 })
                             ],
                             "1": /* constructor */{
-                              tag: 0,
-                              name: "::",
+                              tag: "::",
                               "0": /* tuple */[
                                 "to_int",
                                 (function (param) {
                                     return /* constructor */{
-                                            tag: 0,
-                                            name: "Eq",
+                                            tag: "Eq",
                                             "0": 3,
                                             "1": 3
                                           };
                                   })
                               ],
                               "1": /* constructor */{
-                                tag: 0,
-                                name: "::",
+                                tag: "::",
                                 "0": /* tuple */[
                                   "of_int",
                                   (function (param) {
                                       return /* constructor */{
-                                              tag: 0,
-                                              name: "Eq",
+                                              tag: "Eq",
                                               "0": /* int64 */[
                                                 /* hi */0,
                                                 /* lo */3
@@ -1131,14 +1110,12 @@ var suites = Pervasives.$at(/* constructor */{
                                     })
                                 ],
                                 "1": /* constructor */{
-                                  tag: 0,
-                                  name: "::",
+                                  tag: "::",
                                   "0": /* tuple */[
                                     "lognot",
                                     (function (param) {
                                         return /* constructor */{
-                                                tag: 0,
-                                                name: "Eq",
+                                                tag: "Eq",
                                                 "0": /* int64 */[
                                                   /* hi */-1,
                                                   /* lo */4294967293
@@ -1151,14 +1128,12 @@ var suites = Pervasives.$at(/* constructor */{
                                       })
                                   ],
                                   "1": /* constructor */{
-                                    tag: 0,
-                                    name: "::",
+                                    tag: "::",
                                     "0": /* tuple */[
                                       "neg",
                                       (function (param) {
                                           return /* constructor */{
-                                                  tag: 0,
-                                                  name: "Eq",
+                                                  tag: "Eq",
                                                   "0": /* int64 */[
                                                     /* hi */-1,
                                                     /* lo */4294967294
@@ -1171,14 +1146,12 @@ var suites = Pervasives.$at(/* constructor */{
                                         })
                                     ],
                                     "1": /* constructor */{
-                                      tag: 0,
-                                      name: "::",
+                                      tag: "::",
                                       "0": /* tuple */[
                                         "sub1",
                                         (function (param) {
                                             return /* constructor */{
-                                                    tag: 0,
-                                                    name: "Eq",
+                                                    tag: "Eq",
                                                     "0": /* int64 */[
                                                       /* hi */0,
                                                       /* lo */2
@@ -1191,14 +1164,12 @@ var suites = Pervasives.$at(/* constructor */{
                                           })
                                       ],
                                       "1": /* constructor */{
-                                        tag: 0,
-                                        name: "::",
+                                        tag: "::",
                                         "0": /* tuple */[
                                           "xor1",
                                           (function (param) {
                                               return /* constructor */{
-                                                      tag: 0,
-                                                      name: "Eq",
+                                                      tag: "Eq",
                                                       "0": /* tuple */[
                                                         /* int64 */[
                                                           /* hi */0,
@@ -1223,14 +1194,12 @@ var suites = Pervasives.$at(/* constructor */{
                                             })
                                         ],
                                         "1": /* constructor */{
-                                          tag: 0,
-                                          name: "::",
+                                          tag: "::",
                                           "0": /* tuple */[
                                             "or",
                                             (function (param) {
                                                 return /* constructor */{
-                                                        tag: 0,
-                                                        name: "Eq",
+                                                        tag: "Eq",
                                                         "0": /* int64 */[
                                                           /* hi */0,
                                                           /* lo */4294967295
@@ -1243,14 +1212,12 @@ var suites = Pervasives.$at(/* constructor */{
                                               })
                                           ],
                                           "1": /* constructor */{
-                                            tag: 0,
-                                            name: "::",
+                                            tag: "::",
                                             "0": /* tuple */[
                                               "and",
                                               (function (param) {
                                                   return /* constructor */{
-                                                          tag: 0,
-                                                          name: "Eq",
+                                                          tag: "Eq",
                                                           "0": /* int64 */[
                                                             /* hi */0,
                                                             /* lo */4008636142
@@ -1263,14 +1230,12 @@ var suites = Pervasives.$at(/* constructor */{
                                                 })
                                             ],
                                             "1": /* constructor */{
-                                              tag: 0,
-                                              name: "::",
+                                              tag: "::",
                                               "0": /* tuple */[
                                                 "lsl",
                                                 (function (param) {
                                                     return /* constructor */{
-                                                            tag: 0,
-                                                            name: "Eq",
+                                                            tag: "Eq",
                                                             "0": $$Array.map((function (x) {
                                                                     return Caml_int64.lsl_(/* int64 */[
                                                                                 /* hi */0,
@@ -1541,14 +1506,12 @@ var suites = Pervasives.$at(/* constructor */{
                                                   })
                                               ],
                                               "1": /* constructor */{
-                                                tag: 0,
-                                                name: "::",
+                                                tag: "::",
                                                 "0": /* tuple */[
                                                   "lsr",
                                                   (function (param) {
                                                       return /* constructor */{
-                                                              tag: 0,
-                                                              name: "Eq",
+                                                              tag: "Eq",
                                                               "0": $$Array.map((function (x) {
                                                                       return Caml_int64.lsr_(/* int64 */[
                                                                                   /* hi */-1,
@@ -1819,14 +1782,12 @@ var suites = Pervasives.$at(/* constructor */{
                                                     })
                                                 ],
                                                 "1": /* constructor */{
-                                                  tag: 0,
-                                                  name: "::",
+                                                  tag: "::",
                                                   "0": /* tuple */[
                                                     "asr",
                                                     (function (param) {
                                                         return /* constructor */{
-                                                                tag: 0,
-                                                                name: "Eq",
+                                                                tag: "Eq",
                                                                 "0": $$Array.map((function (x) {
                                                                         return Caml_int64.asr_(/* int64 */[
                                                                                     /* hi */-1,
@@ -2097,14 +2058,12 @@ var suites = Pervasives.$at(/* constructor */{
                                                       })
                                                   ],
                                                   "1": /* constructor */{
-                                                    tag: 0,
-                                                    name: "::",
+                                                    tag: "::",
                                                     "0": /* tuple */[
                                                       "mul simple",
                                                       (function (param) {
                                                           return /* constructor */{
-                                                                  tag: 0,
-                                                                  name: "Eq",
+                                                                  tag: "Eq",
                                                                   "0": /* int64 */[
                                                                     /* hi */0,
                                                                     /* lo */6
@@ -2117,14 +2076,12 @@ var suites = Pervasives.$at(/* constructor */{
                                                         })
                                                     ],
                                                     "1": /* constructor */{
-                                                      tag: 0,
-                                                      name: "::",
+                                                      tag: "::",
                                                       "0": /* tuple */[
                                                         "of_int32",
                                                         (function (param) {
                                                             return /* constructor */{
-                                                                    tag: 0,
-                                                                    name: "Eq",
+                                                                    tag: "Eq",
                                                                     "0": $$Array.map(Caml_int64.of_int32, /* array */[
                                                                           0,
                                                                           -2147483648
@@ -2143,14 +2100,12 @@ var suites = Pervasives.$at(/* constructor */{
                                                           })
                                                       ],
                                                       "1": /* constructor */{
-                                                        tag: 0,
-                                                        name: "::",
+                                                        tag: "::",
                                                         "0": /* tuple */[
                                                           "to_int32",
                                                           (function (param) {
                                                               return /* constructor */{
-                                                                      tag: 0,
-                                                                      name: "Eq",
+                                                                      tag: "Eq",
                                                                       "0": $$Array.map((function (prim) {
                                                                               return prim[1] | 0;
                                                                             }), /* array */[
@@ -2171,14 +2126,12 @@ var suites = Pervasives.$at(/* constructor */{
                                                             })
                                                         ],
                                                         "1": /* constructor */{
-                                                          tag: 0,
-                                                          name: "::",
+                                                          tag: "::",
                                                           "0": /* tuple */[
                                                             "discard_sign",
                                                             (function (param) {
                                                                 return /* constructor */{
-                                                                        tag: 0,
-                                                                        name: "Eq",
+                                                                        tag: "Eq",
                                                                         "0": Caml_int64.discard_sign(/* int64 */[
                                                                               /* hi */-1,
                                                                               /* lo */4294967295
@@ -2191,14 +2144,12 @@ var suites = Pervasives.$at(/* constructor */{
                                                               })
                                                           ],
                                                           "1": /* constructor */{
-                                                            tag: 0,
-                                                            name: "::",
+                                                            tag: "::",
                                                             "0": /* tuple */[
                                                               "div_mod",
                                                               (function (param) {
                                                                   return /* constructor */{
-                                                                          tag: 0,
-                                                                          name: "Eq",
+                                                                          tag: "Eq",
                                                                           "0": Caml_int64.div_mod(/* int64 */[
                                                                                 /* hi */0,
                                                                                 /* lo */7
@@ -2220,14 +2171,12 @@ var suites = Pervasives.$at(/* constructor */{
                                                                 })
                                                             ],
                                                             "1": /* constructor */{
-                                                              tag: 0,
-                                                              name: "::",
+                                                              tag: "::",
                                                               "0": /* tuple */[
                                                                 "to_hex",
                                                                 (function (param) {
                                                                     return /* constructor */{
-                                                                            tag: 0,
-                                                                            name: "Eq",
+                                                                            tag: "Eq",
                                                                             "0": Caml_int64.to_hex(/* int64 */[
                                                                                   /* hi */-1,
                                                                                   /* lo */4294967295
@@ -2237,14 +2186,12 @@ var suites = Pervasives.$at(/* constructor */{
                                                                   })
                                                               ],
                                                               "1": /* constructor */{
-                                                                tag: 0,
-                                                                name: "::",
+                                                                tag: "::",
                                                                 "0": /* tuple */[
                                                                   "generic_compare",
                                                                   (function (param) {
                                                                       return /* constructor */{
-                                                                              tag: 0,
-                                                                              name: "Eq",
+                                                                              tag: "Eq",
                                                                               "0": Caml_obj.caml_compare(/* int64 */[
                                                                                     /* hi */1,
                                                                                     /* lo */0
@@ -2257,14 +2204,12 @@ var suites = Pervasives.$at(/* constructor */{
                                                                     })
                                                                 ],
                                                                 "1": /* constructor */{
-                                                                  tag: 0,
-                                                                  name: "::",
+                                                                  tag: "::",
                                                                   "0": /* tuple */[
                                                                     "test_compier_literal",
                                                                     (function (param) {
                                                                         return /* constructor */{
-                                                                                tag: 0,
-                                                                                name: "Eq",
+                                                                                tag: "Eq",
                                                                                 "0": /* int64 */[
                                                                                   /* hi */0,
                                                                                   /* lo */4294967295
@@ -2277,14 +2222,12 @@ var suites = Pervasives.$at(/* constructor */{
                                                                       })
                                                                   ],
                                                                   "1": /* constructor */{
-                                                                    tag: 0,
-                                                                    name: "::",
+                                                                    tag: "::",
                                                                     "0": /* tuple */[
                                                                       "generic_compare2",
                                                                       (function (param) {
                                                                           return /* constructor */{
-                                                                                  tag: 0,
-                                                                                  name: "Eq",
+                                                                                  tag: "Eq",
                                                                                   "0": Caml_obj.caml_compare(/* int64 */[
                                                                                         /* hi */0,
                                                                                         /* lo */2147483648
@@ -2297,14 +2240,12 @@ var suites = Pervasives.$at(/* constructor */{
                                                                         })
                                                                     ],
                                                                     "1": /* constructor */{
-                                                                      tag: 0,
-                                                                      name: "::",
+                                                                      tag: "::",
                                                                       "0": /* tuple */[
                                                                         "shift_left",
                                                                         (function (param) {
                                                                             return /* constructor */{
-                                                                                    tag: 0,
-                                                                                    name: "Eq",
+                                                                                    tag: "Eq",
                                                                                     "0": /* int64 */[
                                                                                       /* hi */0,
                                                                                       /* lo */4294967040
@@ -2317,28 +2258,24 @@ var suites = Pervasives.$at(/* constructor */{
                                                                           })
                                                                       ],
                                                                       "1": /* constructor */{
-                                                                        tag: 0,
-                                                                        name: "::",
+                                                                        tag: "::",
                                                                         "0": /* tuple */[
                                                                           "shift_right",
                                                                           (function (param) {
                                                                               return /* constructor */{
-                                                                                      tag: 0,
-                                                                                      name: "Eq",
+                                                                                      tag: "Eq",
                                                                                       "0": 4294967295,
                                                                                       "1": 4294967295
                                                                                     };
                                                                             })
                                                                         ],
                                                                         "1": /* constructor */{
-                                                                          tag: 0,
-                                                                          name: "::",
+                                                                          tag: "::",
                                                                           "0": /* tuple */[
                                                                             "fib_int64",
                                                                             (function (param) {
                                                                                 return /* constructor */{
-                                                                                        tag: 0,
-                                                                                        name: "Eq",
+                                                                                        tag: "Eq",
                                                                                         "0": fib(1000, /* int64 */[
                                                                                               /* hi */0,
                                                                                               /* lo */1
@@ -2354,14 +2291,12 @@ var suites = Pervasives.$at(/* constructor */{
                                                                               })
                                                                           ],
                                                                           "1": /* constructor */{
-                                                                            tag: 0,
-                                                                            name: "::",
+                                                                            tag: "::",
                                                                             "0": /* tuple */[
                                                                               "fac_int64",
                                                                               (function (param) {
                                                                                   return /* constructor */{
-                                                                                          tag: 0,
-                                                                                          name: "Eq",
+                                                                                          tag: "Eq",
                                                                                           "0": fac(30, /* int64 */[
                                                                                                 /* hi */0,
                                                                                                 /* lo */1
@@ -2373,7 +2308,7 @@ var suites = Pervasives.$at(/* constructor */{
                                                                                         };
                                                                                 })
                                                                             ],
-                                                                            "1": /* [] */0
+                                                                            "1": "[]"
                                                                           }
                                                                         }
                                                                       }
@@ -2412,27 +2347,23 @@ var suites = Pervasives.$at(/* constructor */{
     }, Pervasives.$at($$Array.to_list(Ext_array_test.map2i((function (i, a, b) {
                     return /* tuple */[
                             Curry._1(Format.asprintf(/* constructor */{
-                                      tag: 0,
-                                      name: "Format",
+                                      tag: "Format",
                                       "0": /* constructor */{
-                                        tag: 11,
-                                        name: "String_literal",
+                                        tag: "String_literal",
                                         "0": "shift_left_cases ",
                                         "1": /* constructor */{
-                                          tag: 4,
-                                          name: "Int",
-                                          "0": /* Int_d */0,
-                                          "1": /* No_padding */0,
-                                          "2": /* No_precision */0,
-                                          "3": /* End_of_format */0
+                                          tag: "Int",
+                                          "0": "Int_d",
+                                          "1": "No_padding",
+                                          "2": "No_precision",
+                                          "3": "End_of_format"
                                         }
                                       },
                                       "1": "shift_left_cases %d"
                                     }), i),
                             (function (param) {
                                 return /* constructor */{
-                                        tag: 0,
-                                        name: "Eq",
+                                        tag: "Eq",
                                         "0": a,
                                         "1": b
                                       };
@@ -2441,27 +2372,23 @@ var suites = Pervasives.$at(/* constructor */{
                   }), shift_left_tests_000, shift_left_tests_001)), Pervasives.$at($$Array.to_list(Ext_array_test.map2i((function (i, a, b) {
                         return /* tuple */[
                                 Curry._1(Format.asprintf(/* constructor */{
-                                          tag: 0,
-                                          name: "Format",
+                                          tag: "Format",
                                           "0": /* constructor */{
-                                            tag: 11,
-                                            name: "String_literal",
+                                            tag: "String_literal",
                                             "0": "shift_right_cases ",
                                             "1": /* constructor */{
-                                              tag: 4,
-                                              name: "Int",
-                                              "0": /* Int_d */0,
-                                              "1": /* No_padding */0,
-                                              "2": /* No_precision */0,
-                                              "3": /* End_of_format */0
+                                              tag: "Int",
+                                              "0": "Int_d",
+                                              "1": "No_padding",
+                                              "2": "No_precision",
+                                              "3": "End_of_format"
                                             }
                                           },
                                           "1": "shift_right_cases %d"
                                         }), i),
                                 (function (param) {
                                     return /* constructor */{
-                                            tag: 0,
-                                            name: "Eq",
+                                            tag: "Eq",
                                             "0": a,
                                             "1": b
                                           };
@@ -2470,27 +2397,23 @@ var suites = Pervasives.$at(/* constructor */{
                       }), shift_right_tests_000, shift_right_tests_001)), $$Array.to_list(Ext_array_test.map2i((function (i, a, b) {
                         return /* tuple */[
                                 Curry._1(Format.asprintf(/* constructor */{
-                                          tag: 0,
-                                          name: "Format",
+                                          tag: "Format",
                                           "0": /* constructor */{
-                                            tag: 11,
-                                            name: "String_literal",
+                                            tag: "String_literal",
                                             "0": "shift_right_logical_cases ",
                                             "1": /* constructor */{
-                                              tag: 4,
-                                              name: "Int",
-                                              "0": /* Int_d */0,
-                                              "1": /* No_padding */0,
-                                              "2": /* No_precision */0,
-                                              "3": /* End_of_format */0
+                                              tag: "Int",
+                                              "0": "Int_d",
+                                              "1": "No_padding",
+                                              "2": "No_precision",
+                                              "3": "End_of_format"
                                             }
                                           },
                                           "1": "shift_right_logical_cases %d"
                                         }), i),
                                 (function (param) {
                                     return /* constructor */{
-                                            tag: 0,
-                                            name: "Eq",
+                                            tag: "Eq",
                                             "0": a,
                                             "1": b
                                           };

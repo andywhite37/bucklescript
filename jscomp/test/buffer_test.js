@@ -8,14 +8,12 @@ var Caml_bytes = require("../../lib/js/caml_bytes.js");
 var v = "gso";
 
 var suites = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": /* tuple */[
     "equal",
     (function (param) {
         return /* constructor */{
-                tag: 0,
-                name: "Eq",
+                tag: "Eq",
                 "0": /* tuple */[
                   Caml_bytes.get(Bytes.make(3, /* "a" */97), 0),
                   Bytes.make(3, /* "a" */97)[0]
@@ -28,16 +26,14 @@ var suites = /* constructor */{
       })
   ],
   "1": /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       "equal2",
       (function (param) {
           var u = Bytes.make(3, /* "a" */97);
           u[0] = /* "b" */98;
           return /* constructor */{
-                  tag: 0,
-                  name: "Eq",
+                  tag: "Eq",
                   "0": /* tuple */[
                     u[0],
                     /* "g" */103
@@ -50,8 +46,7 @@ var suites = /* constructor */{
         })
     ],
     "1": /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": /* tuple */[
         "buffer",
         (function (param) {
@@ -60,14 +55,13 @@ var suites = /* constructor */{
               $$Buffer.add_string(v, String(i));
             }
             return /* constructor */{
-                    tag: 0,
-                    name: "Eq",
+                    tag: "Eq",
                     "0": $$Buffer.contents(v),
                     "1": "012345678910"
                   };
           })
       ],
-      "1": /* [] */0
+      "1": "[]"
     }
   }
 };

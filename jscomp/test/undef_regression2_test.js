@@ -3,21 +3,19 @@
 var Mt = require("./mt.js");
 var Caml_option = require("../../lib/js/caml_option.js");
 
-var suites = /* record */[/* contents : [] */0];
+var suites = /* record */[/* contents */"[]"];
 
 var test_id = /* record */[/* contents */0];
 
 function eq(loc, x, y) {
   test_id[0] = test_id[0] + 1 | 0;
   suites[0] = /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
-                  tag: 0,
-                  name: "Eq",
+                  tag: "Eq",
                   "0": x,
                   "1": y
                 };
@@ -31,14 +29,12 @@ function eq(loc, x, y) {
 function ok(loc, x) {
   test_id[0] = test_id[0] + 1 | 0;
   suites[0] = /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
-                  tag: 4,
-                  name: "Ok",
+                  tag: "Ok",
                   "0": x
                 };
         })
@@ -56,10 +52,10 @@ function test(param) {
   var match = typeof __DEV__ === "undefined" ? undefined : __DEV__;
   if (match !== undefined) {
     console.log("dev mode");
-    return /* () */0;
+    return "()";
   } else {
     console.log("producton mode");
-    return /* () */0;
+    return "()";
   }
 }
 
@@ -67,17 +63,17 @@ function test2(param) {
   var match = typeof __filename === "undefined" ? undefined : __filename;
   if (match !== undefined) {
     console.log(match);
-    return /* () */0;
+    return "()";
   } else {
     console.log("non node environment");
-    return /* () */0;
+    return "()";
   }
 }
 
 function test3(param) {
   if (Caml_option.undefined_to_opt(typeof __DEV__ === "undefined" ? undefined : __DEV__) === undefined) {
     console.log("production mode");
-    return /* () */0;
+    return "()";
   } else {
     return 0;
   }

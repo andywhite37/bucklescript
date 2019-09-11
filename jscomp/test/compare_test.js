@@ -3,23 +3,23 @@
 
 function compare(x, y) {
   switch (x) {
-    case /* A */0 :
-        return y === /* A */0;
-    case /* B */1 :
-        return y === /* B */1;
-    case /* C */2 :
-        return y === /* C */2;
+    case "A" :
+        return y === "A";
+    case "B" :
+        return y === "B";
+    case "C" :
+        return y === "C";
     
   }
 }
 
 function compare2(x, y) {
   switch (x) {
-    case /* A */0 :
+    case "A" :
         return y === 0;
-    case /* B */1 :
+    case "B" :
         return y === 1;
-    case /* C */2 :
+    case "C" :
         return y >= 2;
     
   }

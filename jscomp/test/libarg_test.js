@@ -9,13 +9,12 @@ var Caml_obj = require("../../lib/js/caml_obj.js");
 
 var current = /* record */[/* contents */0];
 
-var accum = /* record */[/* contents : [] */0];
+var accum = /* record */[/* contents */"[]"];
 
 function record(fmt) {
   return Printf.kprintf((function (s) {
                 accum[0] = /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": s,
                   "1": accum[0]
                 };
@@ -25,13 +24,11 @@ function record(fmt) {
 
 function f_unit(param) {
   return record(/* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 11,
-                name: "String_literal",
+                tag: "String_literal",
                 "0": "unit()",
-                "1": /* End_of_format */0
+                "1": "End_of_format"
               },
               "1": "unit()"
             });
@@ -39,20 +36,16 @@ function f_unit(param) {
 
 function f_bool(b) {
   return Curry._1(record(/* constructor */{
-                  tag: 0,
-                  name: "Format",
+                  tag: "Format",
                   "0": /* constructor */{
-                    tag: 11,
-                    name: "String_literal",
+                    tag: "String_literal",
                     "0": "bool(",
                     "1": /* constructor */{
-                      tag: 9,
-                      name: "Bool",
+                      tag: "Bool",
                       "0": /* constructor */{
-                        tag: 12,
-                        name: "Char_literal",
+                        tag: "Char_literal",
                         "0": /* ")" */41,
-                        "1": /* End_of_format */0
+                        "1": "End_of_format"
                       }
                     }
                   },
@@ -66,21 +59,17 @@ var r_clear = /* record */[/* contents */true];
 
 function f_string(s) {
   return Curry._1(record(/* constructor */{
-                  tag: 0,
-                  name: "Format",
+                  tag: "Format",
                   "0": /* constructor */{
-                    tag: 11,
-                    name: "String_literal",
+                    tag: "String_literal",
                     "0": "string(",
                     "1": /* constructor */{
-                      tag: 2,
-                      name: "String",
-                      "0": /* No_padding */0,
+                      tag: "String",
+                      "0": "No_padding",
                       "1": /* constructor */{
-                        tag: 12,
-                        name: "Char_literal",
+                        tag: "Char_literal",
                         "0": /* ")" */41,
-                        "1": /* End_of_format */0
+                        "1": "End_of_format"
                       }
                     }
                   },
@@ -92,23 +81,19 @@ var r_string = /* record */[/* contents */""];
 
 function f_int(i) {
   return Curry._1(record(/* constructor */{
-                  tag: 0,
-                  name: "Format",
+                  tag: "Format",
                   "0": /* constructor */{
-                    tag: 11,
-                    name: "String_literal",
+                    tag: "String_literal",
                     "0": "int(",
                     "1": /* constructor */{
-                      tag: 4,
-                      name: "Int",
-                      "0": /* Int_d */0,
-                      "1": /* No_padding */0,
-                      "2": /* No_precision */0,
+                      tag: "Int",
+                      "0": "Int_d",
+                      "1": "No_padding",
+                      "2": "No_precision",
                       "3": /* constructor */{
-                        tag: 12,
-                        name: "Char_literal",
+                        tag: "Char_literal",
                         "0": /* ")" */41,
-                        "1": /* End_of_format */0
+                        "1": "End_of_format"
                       }
                     }
                   },
@@ -120,23 +105,19 @@ var r_int = /* record */[/* contents */0];
 
 function f_float(f) {
   return Curry._1(record(/* constructor */{
-                  tag: 0,
-                  name: "Format",
+                  tag: "Format",
                   "0": /* constructor */{
-                    tag: 11,
-                    name: "String_literal",
+                    tag: "String_literal",
                     "0": "float(",
                     "1": /* constructor */{
-                      tag: 8,
-                      name: "Float",
-                      "0": /* Float_g */9,
-                      "1": /* No_padding */0,
-                      "2": /* No_precision */0,
+                      tag: "Float",
+                      "0": "Float_g",
+                      "1": "No_padding",
+                      "2": "No_precision",
                       "3": /* constructor */{
-                        tag: 12,
-                        name: "Char_literal",
+                        tag: "Char_literal",
                         "0": /* ")" */41,
-                        "1": /* End_of_format */0
+                        "1": "End_of_format"
                       }
                     }
                   },
@@ -148,21 +129,17 @@ var r_float = /* record */[/* contents */0.0];
 
 function f_symbol(s) {
   return Curry._1(record(/* constructor */{
-                  tag: 0,
-                  name: "Format",
+                  tag: "Format",
                   "0": /* constructor */{
-                    tag: 11,
-                    name: "String_literal",
+                    tag: "String_literal",
                     "0": "symbol(",
                     "1": /* constructor */{
-                      tag: 2,
-                      name: "String",
-                      "0": /* No_padding */0,
+                      tag: "String",
+                      "0": "No_padding",
                       "1": /* constructor */{
-                        tag: 12,
-                        name: "Char_literal",
+                        tag: "Char_literal",
                         "0": /* ")" */41,
-                        "1": /* End_of_format */0
+                        "1": "End_of_format"
                       }
                     }
                   },
@@ -172,21 +149,17 @@ function f_symbol(s) {
 
 function f_rest(s) {
   return Curry._1(record(/* constructor */{
-                  tag: 0,
-                  name: "Format",
+                  tag: "Format",
                   "0": /* constructor */{
-                    tag: 11,
-                    name: "String_literal",
+                    tag: "String_literal",
                     "0": "rest(",
                     "1": /* constructor */{
-                      tag: 2,
-                      name: "String",
-                      "0": /* No_padding */0,
+                      tag: "String",
+                      "0": "No_padding",
                       "1": /* constructor */{
-                        tag: 12,
-                        name: "Char_literal",
+                        tag: "Char_literal",
                         "0": /* ")" */41,
-                        "1": /* End_of_format */0
+                        "1": "End_of_format"
                       }
                     }
                   },
@@ -196,21 +169,17 @@ function f_rest(s) {
 
 function f_anon(s) {
   return Curry._1(record(/* constructor */{
-                  tag: 0,
-                  name: "Format",
+                  tag: "Format",
                   "0": /* constructor */{
-                    tag: 11,
-                    name: "String_literal",
+                    tag: "String_literal",
                     "0": "anon(",
                     "1": /* constructor */{
-                      tag: 2,
-                      name: "String",
-                      "0": /* No_padding */0,
+                      tag: "String",
+                      "0": "No_padding",
                       "1": /* constructor */{
-                        tag: 12,
-                        name: "Char_literal",
+                        tag: "Char_literal",
                         "0": /* ")" */41,
-                        "1": /* End_of_format */0
+                        "1": "End_of_format"
                       }
                     }
                   },
@@ -219,158 +188,130 @@ function f_anon(s) {
 }
 
 var spec = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": /* tuple */[
     "-u",
     /* constructor */{
-      tag: 0,
-      name: "Unit",
+      tag: "Unit",
       "0": f_unit
     },
     "Unit (0)"
   ],
   "1": /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       "-b",
       /* constructor */{
-        tag: 1,
-        name: "Bool",
+        tag: "Bool",
         "0": f_bool
       },
       "Bool (1)"
     ],
     "1": /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": /* tuple */[
         "-s",
         /* constructor */{
-          tag: 2,
-          name: "Set",
+          tag: "Set",
           "0": r_set
         },
         "Set (0)"
       ],
       "1": /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": /* tuple */[
           "-c",
           /* constructor */{
-            tag: 3,
-            name: "Clear",
+            tag: "Clear",
             "0": r_clear
           },
           "Clear (0)"
         ],
         "1": /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": /* tuple */[
             "-str",
             /* constructor */{
-              tag: 4,
-              name: "String",
+              tag: "String",
               "0": f_string
             },
             "String (1)"
           ],
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": /* tuple */[
               "-sstr",
               /* constructor */{
-                tag: 5,
-                name: "Set_string",
+                tag: "Set_string",
                 "0": r_string
               },
               "Set_string (1)"
             ],
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": /* tuple */[
                 "-i",
                 /* constructor */{
-                  tag: 6,
-                  name: "Int",
+                  tag: "Int",
                   "0": f_int
                 },
                 "Int (1)"
               ],
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": /* tuple */[
                   "-si",
                   /* constructor */{
-                    tag: 7,
-                    name: "Set_int",
+                    tag: "Set_int",
                     "0": r_int
                   },
                   "Set_int (1)"
                 ],
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": /* tuple */[
                     "-f",
                     /* constructor */{
-                      tag: 8,
-                      name: "Float",
+                      tag: "Float",
                       "0": f_float
                     },
                     "Float (1)"
                   ],
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": /* tuple */[
                       "-sf",
                       /* constructor */{
-                        tag: 9,
-                        name: "Set_float",
+                        tag: "Set_float",
                         "0": r_float
                       },
                       "Set_float (1)"
                     ],
                     "1": /* constructor */{
-                      tag: 0,
-                      name: "::",
+                      tag: "::",
                       "0": /* tuple */[
                         "-t",
                         /* constructor */{
-                          tag: 10,
-                          name: "Tuple",
+                          tag: "Tuple",
                           "0": /* constructor */{
-                            tag: 0,
-                            name: "::",
+                            tag: "::",
                             "0": /* constructor */{
-                              tag: 1,
-                              name: "Bool",
+                              tag: "Bool",
                               "0": f_bool
                             },
                             "1": /* constructor */{
-                              tag: 0,
-                              name: "::",
+                              tag: "::",
                               "0": /* constructor */{
-                                tag: 4,
-                                name: "String",
+                                tag: "String",
                                 "0": f_string
                               },
                               "1": /* constructor */{
-                                tag: 0,
-                                name: "::",
+                                tag: "::",
                                 "0": /* constructor */{
-                                  tag: 6,
-                                  name: "Int",
+                                  tag: "Int",
                                   "0": f_int
                                 },
-                                "1": /* [] */0
+                                "1": "[]"
                               }
                             }
                           }
@@ -378,26 +319,21 @@ var spec = /* constructor */{
                         "Tuple (3)"
                       ],
                       "1": /* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": /* tuple */[
                           "-sym",
                           /* constructor */{
-                            tag: 11,
-                            name: "Symbol",
+                            tag: "Symbol",
                             "0": /* constructor */{
-                              tag: 0,
-                              name: "::",
+                              tag: "::",
                               "0": "a",
                               "1": /* constructor */{
-                                tag: 0,
-                                name: "::",
+                                tag: "::",
                                 "0": "b",
                                 "1": /* constructor */{
-                                  tag: 0,
-                                  name: "::",
+                                  tag: "::",
                                   "0": "c",
-                                  "1": /* [] */0
+                                  "1": "[]"
                                 }
                               }
                             },
@@ -406,18 +342,16 @@ var spec = /* constructor */{
                           "Symbol (1)"
                         ],
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": /* tuple */[
                             "-rest",
                             /* constructor */{
-                              tag: 12,
-                              name: "Rest",
+                              tag: "Rest",
                               "0": f_rest
                             },
                             "Rest (*)"
                           ],
-                          "1": /* [] */0
+                          "1": "[]"
                         }
                       }
                     }
@@ -494,21 +428,17 @@ var args2 = /* array */[
 
 function error(s) {
   return Curry._1(Printf.printf(/* constructor */{
-                  tag: 0,
-                  name: "Format",
+                  tag: "Format",
                   "0": /* constructor */{
-                    tag: 11,
-                    name: "String_literal",
+                    tag: "String_literal",
                     "0": "error (",
                     "1": /* constructor */{
-                      tag: 2,
-                      name: "String",
-                      "0": /* No_padding */0,
+                      tag: "String",
+                      "0": "No_padding",
                       "1": /* constructor */{
-                        tag: 11,
-                        name: "String_literal",
+                        tag: "String_literal",
                         "0": ")\n",
-                        "1": /* End_of_format */0
+                        "1": "End_of_format"
                       }
                     }
                   },
@@ -531,70 +461,55 @@ function test(argv) {
   r_string[0] = "";
   r_int[0] = 0;
   r_float[0] = 0.0;
-  accum[0] = /* [] */0;
+  accum[0] = "[]";
   Arg.parse_argv(current, argv, spec, f_anon, "usage");
   var result = List.rev(accum[0]);
   var reference = /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": "anon(anon1)",
     "1": /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": "unit()",
       "1": /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": "bool(true)",
         "1": /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": "anon(anon2)",
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": "string(foo)",
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": "int(19)",
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": "float(3.14)",
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": "anon(anon3)",
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": "bool(false)",
                     "1": /* constructor */{
-                      tag: 0,
-                      name: "::",
+                      tag: "::",
                       "0": "string(gee)",
                       "1": /* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": "int(1436)",
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": "symbol(c)",
                           "1": /* constructor */{
-                            tag: 0,
-                            name: "::",
+                            tag: "::",
                             "0": "anon(anon4)",
                             "1": /* constructor */{
-                              tag: 0,
-                              name: "::",
+                              tag: "::",
                               "0": "rest(r1)",
                               "1": /* constructor */{
-                                tag: 0,
-                                name: "::",
+                                tag: "::",
                                 "0": "rest(r2)",
-                                "1": /* [] */0
+                                "1": "[]"
                               }
                             }
                           }
@@ -613,45 +528,35 @@ function test(argv) {
   if (Caml_obj.caml_notequal(result, reference)) {
     var f = function (x, y) {
       return Curry._3(Printf.printf(/* constructor */{
-                      tag: 0,
-                      name: "Format",
+                      tag: "Format",
                       "0": /* constructor */{
-                        tag: 2,
-                        name: "String",
+                        tag: "String",
                         "0": /* constructor */{
-                          tag: 0,
-                          name: "Lit_padding",
-                          "0": /* Right */1,
+                          tag: "Lit_padding",
+                          "0": "Right",
                           "1": 20
                         },
                         "1": /* constructor */{
-                          tag: 12,
-                          name: "Char_literal",
+                          tag: "Char_literal",
                           "0": /* " " */32,
                           "1": /* constructor */{
-                            tag: 0,
-                            name: "Char",
+                            tag: "Char",
                             "0": /* constructor */{
-                              tag: 12,
-                              name: "Char_literal",
+                              tag: "Char_literal",
                               "0": /* " " */32,
                               "1": /* constructor */{
-                                tag: 2,
-                                name: "String",
+                                tag: "String",
                                 "0": /* constructor */{
-                                  tag: 0,
-                                  name: "Lit_padding",
-                                  "0": /* Left */0,
+                                  tag: "Lit_padding",
+                                  "0": "Left",
                                   "1": 20
                                 },
                                 "1": /* constructor */{
-                                  tag: 12,
-                                  name: "Char_literal",
+                                  tag: "Char_literal",
                                   "0": /* "\n" */10,
                                   "1": /* constructor */{
-                                    tag: 10,
-                                    name: "Flush",
-                                    "0": /* End_of_format */0
+                                    tag: "Flush",
+                                    "0": "End_of_format"
                                   }
                                 }
                               }
@@ -674,21 +579,19 @@ function test(argv) {
 test(args1);
 
 var suites = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": /* tuple */[
     "should raise",
     (function (param) {
         return /* constructor */{
-                tag: 7,
-                name: "ThrowAny",
+                tag: "ThrowAny",
                 "0": (function (param) {
                     return test(args2);
                   })
               };
       })
   ],
-  "1": /* [] */0
+  "1": "[]"
 };
 
 Mt.from_pair_suites("Libarg_test", suites);

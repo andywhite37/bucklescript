@@ -13,31 +13,27 @@ function d2(param) {
     });
 }
 
-var d3 = d2(2016)(1, /* () */0);
+var d3 = d2(2016)(1, "()");
 
 var suites = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": /* tuple */[
     "getMonth",
     (function (param) {
         return /* constructor */{
-                tag: 0,
-                name: "Eq",
+                tag: "Eq",
                 "0": 2,
                 "1": d.getMonth()
               };
       })
   ],
   "1": /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       "getYear",
       (function (param) {
           return /* constructor */{
-                  tag: 0,
-                  name: "Eq",
+                  tag: "Eq",
                   "0": /* tuple */[
                     2016,
                     2,
@@ -51,7 +47,7 @@ var suites = /* constructor */{
                 };
         })
     ],
-    "1": /* [] */0
+    "1": "[]"
   }
 };
 

@@ -18,12 +18,11 @@ function parse(token) {
   var token$1 = function (param) {
     if (look_ahead[/* length */0] === 0) {
       try {
-        return Curry._1(token, /* () */0);
+        return Curry._1(token, "()");
       }
       catch (exn){
         return /* constructor */{
-                tag: 0,
-                name: "Kwd",
+                tag: "Kwd",
                 "0": "=="
               };
       }
@@ -32,19 +31,21 @@ function parse(token) {
     }
   };
   var parse_atom = function (param) {
-    var e = token$1(/* () */0);
-    switch (e.tag | 0) {
-      case /* Kwd */0 :
+    var e = token$1("()");
+    switch (/* XXX */e.tag) {
+      case "Kwd" :
           if (e[0] === "(") {
-            var v = parse_expr_aux(parse_term_aux(parse_atom(/* () */0)));
-            var match = token$1(/* () */0);
-            if (match.tag) {
-              throw [
-                    Parse_error,
-                    "Unbalanced parens"
-                  ];
-            } else if (match[0] === ")") {
-              return v;
+            var v = parse_expr_aux(parse_term_aux(parse_atom("()")));
+            var match = token$1("()");
+            if (/* XXX */match.tag === "Kwd") {
+              if (match[0] === ")") {
+                return v;
+              } else {
+                throw [
+                      Parse_error,
+                      "Unbalanced parens"
+                    ];
+              }
             } else {
               throw [
                     Parse_error,
@@ -58,7 +59,7 @@ function parse(token) {
                   "unexpected token"
                 ];
           }
-      case /* Int */2 :
+      case "Int" :
           return e[0];
       default:
         Queue.push(e, look_ahead);
@@ -69,78 +70,71 @@ function parse(token) {
     }
   };
   var parse_term_aux = function (e1) {
-    var e = token$1(/* () */0);
-    if (e.tag) {
-      Queue.push(e, look_ahead);
-      return e1;
-    } else {
+    var e = token$1("()");
+    if (/* XXX */e.tag === "Kwd") {
       switch (e[0]) {
         case "*" :
-            return Caml_int32.imul(e1, parse_term_aux(parse_atom(/* () */0)));
+            return Caml_int32.imul(e1, parse_term_aux(parse_atom("()")));
         case "/" :
-            return Caml_int32.div(e1, parse_term_aux(parse_atom(/* () */0)));
+            return Caml_int32.div(e1, parse_term_aux(parse_atom("()")));
         default:
           Queue.push(e, look_ahead);
           return e1;
       }
+    } else {
+      Queue.push(e, look_ahead);
+      return e1;
     }
   };
   var parse_expr_aux = function (e1) {
-    var e = token$1(/* () */0);
-    if (e.tag) {
-      Queue.push(e, look_ahead);
-      return e1;
-    } else {
+    var e = token$1("()");
+    if (/* XXX */e.tag === "Kwd") {
       switch (e[0]) {
         case "+" :
-            return e1 + parse_expr_aux(parse_term_aux(parse_atom(/* () */0))) | 0;
+            return e1 + parse_expr_aux(parse_term_aux(parse_atom("()"))) | 0;
         case "-" :
-            return e1 - parse_expr_aux(parse_term_aux(parse_atom(/* () */0))) | 0;
+            return e1 - parse_expr_aux(parse_term_aux(parse_atom("()"))) | 0;
         default:
           Queue.push(e, look_ahead);
           return e1;
       }
+    } else {
+      Queue.push(e, look_ahead);
+      return e1;
     }
   };
-  var r = parse_expr_aux(parse_term_aux(parse_atom(/* () */0)));
+  var r = parse_expr_aux(parse_term_aux(parse_atom("()")));
   return /* tuple */[
           r,
           Queue.fold((function (acc, x) {
                   return /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": x,
                           "1": acc
                         };
-                }), /* [] */0, look_ahead)
+                }), "[]", look_ahead)
         ];
 }
 
 var lexer = Genlex.make_lexer(/* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": "(",
       "1": /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": "*",
         "1": /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": "/",
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": "+",
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": "-",
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": ")",
-                "1": /* [] */0
+                "1": "[]"
               }
             }
           }
@@ -163,12 +157,11 @@ function l_parse(token) {
   var token$1 = function (param) {
     if (look_ahead[/* length */0] === 0) {
       try {
-        return Curry._1(token, /* () */0);
+        return Curry._1(token, "()");
       }
       catch (exn){
         return /* constructor */{
-                tag: 0,
-                name: "Kwd",
+                tag: "Kwd",
                 "0": "=="
               };
       }
@@ -177,19 +170,21 @@ function l_parse(token) {
     }
   };
   var parse_f = function (param) {
-    var t = token$1(/* () */0);
-    switch (t.tag | 0) {
-      case /* Kwd */0 :
+    var t = token$1("()");
+    switch (/* XXX */t.tag) {
+      case "Kwd" :
           if (t[0] === "(") {
-            var v = parse_t_aux(parse_f_aux(parse_f(/* () */0)));
-            var t$1 = token$1(/* () */0);
-            if (t$1.tag) {
-              throw [
-                    Parse_error,
-                    "Unbalanced )"
-                  ];
-            } else if (t$1[0] === ")") {
-              return v;
+            var v = parse_t_aux(parse_f_aux(parse_f("()")));
+            var t$1 = token$1("()");
+            if (/* XXX */t$1.tag === "Kwd") {
+              if (t$1[0] === ")") {
+                return v;
+              } else {
+                throw [
+                      Parse_error,
+                      "Unbalanced )"
+                    ];
+              }
             } else {
               throw [
                     Parse_error,
@@ -202,7 +197,7 @@ function l_parse(token) {
                   "Unexpected token"
                 ];
           }
-      case /* Int */2 :
+      case "Int" :
           return t[0];
       default:
         throw [
@@ -214,76 +209,73 @@ function l_parse(token) {
   var parse_f_aux = function (_a) {
     while(true) {
       var a = _a;
-      var t = token$1(/* () */0);
-      if (t.tag) {
-        Queue.push(t, look_ahead);
-        return a;
-      } else {
+      var t = token$1("()");
+      if (/* XXX */t.tag === "Kwd") {
         switch (t[0]) {
           case "*" :
-              _a = Caml_int32.imul(a, parse_f(/* () */0));
+              _a = Caml_int32.imul(a, parse_f("()"));
               continue ;
           case "/" :
-              _a = Caml_int32.div(a, parse_f(/* () */0));
+              _a = Caml_int32.div(a, parse_f("()"));
               continue ;
           default:
             Queue.push(t, look_ahead);
             return a;
         }
+      } else {
+        Queue.push(t, look_ahead);
+        return a;
       }
     };
   };
   var parse_t_aux = function (_a) {
     while(true) {
       var a = _a;
-      var t = token$1(/* () */0);
-      if (t.tag) {
-        Queue.push(t, look_ahead);
-        return a;
-      } else {
+      var t = token$1("()");
+      if (/* XXX */t.tag === "Kwd") {
         switch (t[0]) {
           case "+" :
-              _a = a + parse_f_aux(parse_f(/* () */0)) | 0;
+              _a = a + parse_f_aux(parse_f("()")) | 0;
               continue ;
           case "-" :
-              _a = a - parse_f_aux(parse_f(/* () */0)) | 0;
+              _a = a - parse_f_aux(parse_f("()")) | 0;
               continue ;
           default:
             Queue.push(t, look_ahead);
             return a;
         }
+      } else {
+        Queue.push(t, look_ahead);
+        return a;
       }
     };
   };
-  var r = parse_t_aux(parse_f_aux(parse_f(/* () */0)));
+  var r = parse_t_aux(parse_f_aux(parse_f("()")));
   return /* tuple */[
           r,
           Queue.fold((function (acc, x) {
                   return /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": x,
                           "1": acc
                         };
-                }), /* [] */0, look_ahead)
+                }), "[]", look_ahead)
         ];
 }
 
-var suites = /* record */[/* contents : [] */0];
+var suites = /* record */[/* contents */"[]"];
 
 var test_id = /* record */[/* contents */0];
 
 function eq(loc, x, y) {
   test_id[0] = test_id[0] + 1 | 0;
   suites[0] = /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
-                  tag: 0,
-                  name: "Eq",
+                  tag: "Eq",
                   "0": x,
                   "1": y
                 };
@@ -302,42 +294,36 @@ eq("File \"stream_parser_test.ml\", line 132, characters 5-12", /* tuple */[
     ], /* tuple */[
       10,
       /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": /* constructor */{
-          tag: 1,
-          name: "Ident",
+          tag: "Ident",
           "0": "a"
         },
-        "1": /* [] */0
+        "1": "[]"
       }
     ]);
 
 eq("File \"stream_parser_test.ml\", line 133, characters 5-12", /* tuple */[
       2,
       /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": /* constructor */{
-          tag: 0,
-          name: "Kwd",
+          tag: "Kwd",
           "0": "=="
         },
-        "1": /* [] */0
+        "1": "[]"
       }
     ], parse(token(Stream.of_string("3 - 2  - 1"))));
 
 eq("File \"stream_parser_test.ml\", line 134, characters 5-12", /* tuple */[
       0,
       /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": /* constructor */{
-          tag: 0,
-          name: "Kwd",
+          tag: "Kwd",
           "0": "=="
         },
-        "1": /* [] */0
+        "1": "[]"
       }
     ], l_parse(token(Stream.of_string("3 - 2  - 1"))));
 

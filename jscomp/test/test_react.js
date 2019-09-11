@@ -31,10 +31,10 @@ function f(param) {
   C$1.y();
   C.x();
   C.y();
-  return /* () */0;
+  return "()";
 }
 
-var v = /* () */0;
+var v = "()";
 
 var u = 33;
 

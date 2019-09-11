@@ -4,7 +4,7 @@ var Mt = require("./mt.js");
 var List = require("../../lib/js/list.js");
 var Caml_obj = require("../../lib/js/caml_obj.js");
 
-var suites = /* record */[/* contents : [] */0];
+var suites = /* record */[/* contents */"[]"];
 
 var test_id = /* record */[/* contents */0];
 
@@ -19,8 +19,7 @@ function b(loc, x) {
 var Block = { };
 
 var v0 = /* constructor */{
-  tag: 1,
-  name: "A",
+  tag: "A",
   "0": 0,
   "1": 1
 };
@@ -28,8 +27,7 @@ var v0 = /* constructor */{
 var Block$1 = { };
 
 var v1 = /* constructor */{
-  tag: 1,
-  name: "A",
+  tag: "A",
   "0": 0,
   "1": 1
 };
@@ -50,20 +48,17 @@ var V = {
 var f = Caml_obj.caml_equal;
 
 eq("File \"block_alias_test.ml\", line 32, characters 6-13", List.length(/* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": 1,
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": 2,
-            "1": /* [] */0
+            "1": "[]"
           }
         }), 2);
 
 b("File \"block_alias_test.ml\", line 33, characters 5-12", Caml_obj.caml_equal(v0, /* constructor */{
-          tag: 1,
-          name: "A",
+          tag: "A",
           "0": 0,
           "1": 1
         }));

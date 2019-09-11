@@ -12,7 +12,7 @@ var Caml_primitive = require("../../lib/js/caml_primitive.js");
 
 var test_id = /* record */[/* contents */0];
 
-var suites = /* record */[/* contents : [] */0];
+var suites = /* record */[/* contents */"[]"];
 
 function eq(loc) {
   return (function (param, param$1) {
@@ -123,27 +123,23 @@ function from_pairs(ps) {
                     var a = param[0];
                     return /* tuple */[
                             Curry._1(Printf.sprintf(/* constructor */{
-                                      tag: 0,
-                                      name: "Format",
+                                      tag: "Format",
                                       "0": /* constructor */{
-                                        tag: 11,
-                                        name: "String_literal",
+                                        tag: "String_literal",
                                         "0": "pair ",
                                         "1": /* constructor */{
-                                          tag: 4,
-                                          name: "Int",
-                                          "0": /* Int_d */0,
-                                          "1": /* No_padding */0,
-                                          "2": /* No_precision */0,
-                                          "3": /* End_of_format */0
+                                          tag: "Int",
+                                          "0": "Int_d",
+                                          "1": "No_padding",
+                                          "2": "No_precision",
+                                          "3": "End_of_format"
                                         }
                                       },
                                       "1": "pair %d"
                                     }), i),
                             (function (param) {
                                 return /* constructor */{
-                                        tag: 5,
-                                        name: "Approx",
+                                        tag: "Approx",
                                         "0": a,
                                         "1": b
                                       };
@@ -156,7 +152,7 @@ var float_compare = Caml_primitive.caml_float_compare;
 
 var param = Pervasives.classify_float(3);
 
-Mt_global.collect_eq(test_id, suites, "File \"float_test.ml\", line 47, characters 5-12", param, /* FP_normal */0);
+Mt_global.collect_eq(test_id, suites, "File \"float_test.ml\", line 47, characters 5-12", param, "FP_normal");
 
 var param$1 = Caml_float.caml_modf_float(-3.125);
 
@@ -245,62 +241,54 @@ var b = match$4[1];
 var a = match$4[0];
 
 Mt.from_pair_suites("Float_test", Pervasives.$at(/* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": /* tuple */[
             "mod_float",
             (function (param) {
                 return /* constructor */{
-                        tag: 5,
-                        name: "Approx",
+                        tag: "Approx",
                         "0": 3.2 % 0.5,
                         "1": 0.200000000000000178
                       };
               })
           ],
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": /* tuple */[
               "modf_float1",
               (function (param) {
                   return /* constructor */{
-                          tag: 5,
-                          name: "Approx",
+                          tag: "Approx",
                           "0": a,
                           "1": 0.299999999999997158
                         };
                 })
             ],
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": /* tuple */[
                 "modf_float2",
                 (function (param) {
                     return /* constructor */{
-                            tag: 5,
-                            name: "Approx",
+                            tag: "Approx",
                             "0": b,
                             "1": 32
                           };
                   })
               ],
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": /* tuple */[
                   "int_of_float",
                   (function (param) {
                       return /* constructor */{
-                              tag: 0,
-                              name: "Eq",
+                              tag: "Eq",
                               "0": 3,
                               "1": 3
                             };
                     })
                 ],
-                "1": /* [] */0
+                "1": "[]"
               }
             }
           }

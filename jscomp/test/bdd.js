@@ -35,7 +35,7 @@ var nodeC = /* record */[/* contents */1];
 
 var sz_1 = /* record */[/* contents */8191];
 
-var htab = /* record */[/* contents */Caml_array.caml_make_vect(sz_1[0] + 1 | 0, /* [] */0)];
+var htab = /* record */[/* contents */Caml_array.caml_make_vect(sz_1[0] + 1 | 0, "[]")];
 
 var n_items = /* record */[/* contents */0];
 
@@ -46,7 +46,7 @@ function hashVal(x, y, v) {
 function resize(newSize) {
   var arr = htab[0];
   var newSz_1 = newSize - 1 | 0;
-  var newArr = Caml_array.caml_make_vect(newSize, /* [] */0);
+  var newArr = Caml_array.caml_make_vect(newSize, "[]");
   var copyBucket = function (_bucket) {
     while(true) {
       var bucket = _bucket;
@@ -64,15 +64,14 @@ function resize(newSize) {
         }
         var ind = hashVal(getId(n[0]), getId(n[3]), n[1]) & newSz_1;
         Caml_array.caml_array_set(newArr, ind, /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": n,
               "1": Caml_array.caml_array_get(newArr, ind)
             });
         _bucket = bucket[1];
         continue ;
       } else {
-        return /* () */0;
+        return "()";
       }
     };
   };
@@ -87,8 +86,7 @@ function resize(newSize) {
 function insert(idl, idh, v, ind, bucket, newNode) {
   if (n_items[0] <= sz_1[0]) {
     Caml_array.caml_array_set(htab[0], ind, /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": newNode,
           "1": bucket
         });
@@ -98,8 +96,7 @@ function insert(idl, idh, v, ind, bucket, newNode) {
     resize((sz_1[0] + sz_1[0] | 0) + 2 | 0);
     var ind$1 = hashVal(idl, idh, v) & sz_1[0];
     return Caml_array.caml_array_set(htab[0], ind$1, /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": newNode,
                 "1": Caml_array.caml_array_get(htab[0], ind$1)
               });
@@ -108,7 +105,7 @@ function insert(idl, idh, v, ind, bucket, newNode) {
 
 function resetUnique(param) {
   sz_1[0] = 8191;
-  htab[0] = Caml_array.caml_make_vect(sz_1[0] + 1 | 0, /* [] */0);
+  htab[0] = Caml_array.caml_make_vect(sz_1[0] + 1 | 0, "[]");
   n_items[0] = 0;
   nodeC[0] = 1;
   return /* () */0;
@@ -145,8 +142,7 @@ function mkNode(low, v, high) {
         }
       } else {
         var n$1 = /* constructor */{
-          tag: 0,
-          name: "Node",
+          tag: "Node",
           "0": low,
           "1": v,
           "2": (nodeC[0] = nodeC[0] + 1 | 0, nodeC[0]),
@@ -161,33 +157,33 @@ function mkNode(low, v, high) {
 
 function cmpVar(x, y) {
   if (x < y) {
-    return /* LESS */0;
+    return "LESS";
   } else if (x > y) {
-    return /* GREATER */2;
+    return "GREATER";
   } else {
-    return /* EQUAL */1;
+    return "EQUAL";
   }
 }
 
 function mkVar(x) {
-  return mkNode(/* Zero */1, x, /* One */0);
+  return mkNode("Zero", x, "One");
 }
 
 var andslot1 = Caml_array.caml_make_vect(1999, 0);
 
 var andslot2 = Caml_array.caml_make_vect(1999, 0);
 
-var andslot3 = Caml_array.caml_make_vect(1999, /* Zero */1);
+var andslot3 = Caml_array.caml_make_vect(1999, "Zero");
 
 var xorslot1 = Caml_array.caml_make_vect(1999, 0);
 
 var xorslot2 = Caml_array.caml_make_vect(1999, 0);
 
-var xorslot3 = Caml_array.caml_make_vect(1999, /* Zero */1);
+var xorslot3 = Caml_array.caml_make_vect(1999, "Zero");
 
 var notslot1 = Caml_array.caml_make_vect(1999, 0);
 
-var notslot2 = Caml_array.caml_make_vect(1999, /* One */0);
+var notslot2 = Caml_array.caml_make_vect(1999, "One");
 
 function hash(x, y) {
   return ((x << 1) + y | 0) % 1999;
@@ -196,9 +192,9 @@ function hash(x, y) {
 function not(n) {
   if (typeof n === "number") {
     if (n !== 0) {
-      return /* One */0;
+      return "One";
     } else {
-      return /* Zero */1;
+      return "Zero";
     }
   } else {
     var id = n[2];
@@ -217,7 +213,7 @@ function not(n) {
 function and2(n1, n2) {
   if (typeof n1 === "number") {
     if (n1 !== 0) {
-      return /* Zero */1;
+      return "Zero";
     } else {
       return n2;
     }
@@ -228,7 +224,7 @@ function and2(n1, n2) {
     var l1 = n1[0];
     if (typeof n2 === "number") {
       if (n2 !== 0) {
-        return /* Zero */1;
+        return "Zero";
       } else {
         return n1;
       }
@@ -244,13 +240,13 @@ function and2(n1, n2) {
         var match = cmpVar(v1, v2);
         var f;
         switch (match) {
-          case /* LESS */0 :
+          case "LESS" :
               f = mkNode(and2(l1, n2), v1, and2(r1, n2));
               break;
-          case /* EQUAL */1 :
+          case "EQUAL" :
               f = mkNode(and2(l1, l2), v1, and2(r1, r2));
               break;
-          case /* GREATER */2 :
+          case "GREATER" :
               f = mkNode(and2(n1, l2), v2, and2(n1, r2));
               break;
           
@@ -294,13 +290,13 @@ function xor(n1, n2) {
         var match = cmpVar(v1, v2);
         var f;
         switch (match) {
-          case /* LESS */0 :
+          case "LESS" :
               f = mkNode(xor(l1, n2), v1, xor(r1, n2));
               break;
-          case /* EQUAL */1 :
+          case "EQUAL" :
               f = mkNode(xor(l1, l2), v1, xor(r1, r2));
               break;
-          case /* GREATER */2 :
+          case "GREATER" :
               f = mkNode(xor(n1, l2), v2, xor(n1, r2));
               break;
           
@@ -317,16 +313,16 @@ function xor(n1, n2) {
 function hwb(n) {
   var h = function (i, j) {
     if (i === j) {
-      return mkNode(/* Zero */1, i, /* One */0);
+      return mkNode("Zero", i, "One");
     } else {
-      return xor(and2(not(mkNode(/* Zero */1, j, /* One */0)), h(i, j - 1 | 0)), and2(mkNode(/* Zero */1, j, /* One */0), g(i, j - 1 | 0)));
+      return xor(and2(not(mkNode("Zero", j, "One")), h(i, j - 1 | 0)), and2(mkNode("Zero", j, "One"), g(i, j - 1 | 0)));
     }
   };
   var g = function (i, j) {
     if (i === j) {
-      return mkNode(/* Zero */1, i, /* One */0);
+      return mkNode("Zero", i, "One");
     } else {
-      return xor(and2(not(mkNode(/* Zero */1, i, /* One */0)), h(i + 1 | 0, j)), and2(mkNode(/* Zero */1, i, /* One */0), g(i + 1 | 0, j)));
+      return xor(and2(not(mkNode("Zero", i, "One")), h(i + 1 | 0, j)), and2(mkNode("Zero", i, "One"), g(i + 1 | 0, j)));
     }
   };
   return h(0, n - 1 | 0);
@@ -342,7 +338,7 @@ function random(param) {
 function random_vars(n) {
   var vars = Caml_array.caml_make_vect(n, false);
   for(var i = 0 ,i_finish = n - 1 | 0; i <= i_finish; ++i){
-    Caml_array.caml_array_set(vars, i, random(/* () */0));
+    Caml_array.caml_array_set(vars, i, random("()"));
   }
   return vars;
 }
@@ -392,13 +388,13 @@ function main(param) {
   }
 }
 
-main(/* () */0);
+main("()");
 
 var initSize_1 = 8191;
 
-var zero = /* Zero */1;
+var zero = "Zero";
 
-var one = /* One */0;
+var one = "One";
 
 var cacheSize = 1999;
 

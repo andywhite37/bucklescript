@@ -9,7 +9,7 @@ var Caml_builtin_exceptions = require("../../lib/js/caml_builtin_exceptions.js")
 
 function reverse_range(a, i, len) {
   if (len === 0) {
-    return /* () */0;
+    return "()";
   } else {
     for(var k = 0 ,k_finish = (len - 1 | 0) / 2 | 0; k <= k_finish; ++k){
       var t = a[i + k | 0];
@@ -62,7 +62,7 @@ function reverse_of_list(l) {
 
 function filter(f, a) {
   var arr_len = a.length;
-  var _acc = /* [] */0;
+  var _acc = "[]";
   var _i = 0;
   while(true) {
     var i = _i;
@@ -74,8 +74,7 @@ function filter(f, a) {
       if (Curry._1(f, v)) {
         _i = i + 1 | 0;
         _acc = /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": v,
           "1": acc
         };
@@ -90,7 +89,7 @@ function filter(f, a) {
 
 function filter_map(f, a) {
   var arr_len = a.length;
-  var _acc = /* [] */0;
+  var _acc = "[]";
   var _i = 0;
   while(true) {
     var i = _i;
@@ -103,8 +102,7 @@ function filter_map(f, a) {
       _i = i + 1 | 0;
       if (match !== undefined) {
         _acc = /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": Caml_option.valFromOption(match),
           "1": acc
         };
@@ -151,8 +149,7 @@ function tolist_aux(a, f, _i, _res) {
       var v = a[i];
       var match = Curry._1(f, v);
       _res = match !== undefined ? /* constructor */({
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": Caml_option.valFromOption(match),
             "1": res
           }) : res;
@@ -163,7 +160,7 @@ function tolist_aux(a, f, _i, _res) {
 }
 
 function to_list_map(f, a) {
-  return tolist_aux(a, f, a.length - 1 | 0, /* [] */0);
+  return tolist_aux(a, f, a.length - 1 | 0, "[]");
 }
 
 function to_list_map_acc(f, a, acc) {

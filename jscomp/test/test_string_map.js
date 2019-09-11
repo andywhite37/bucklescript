@@ -16,8 +16,7 @@ function create(l, x, d, r) {
   var hl = height(l);
   var hr = height(r);
   return /* constructor */{
-          tag: 0,
-          name: "Node",
+          tag: "Node",
           "0": l,
           "1": x,
           "2": d,
@@ -75,8 +74,7 @@ function bal(l, x, d, r) {
     }
   } else {
     return /* constructor */{
-            tag: 0,
-            name: "Node",
+            tag: "Node",
             "0": l,
             "1": x,
             "2": d,
@@ -95,8 +93,7 @@ function add(x, data, param) {
     var c = Caml_primitive.caml_string_compare(x, v);
     if (c === 0) {
       return /* constructor */{
-              tag: 0,
-              name: "Node",
+              tag: "Node",
               "0": l,
               "1": x,
               "2": data,
@@ -110,12 +107,11 @@ function add(x, data, param) {
     }
   } else {
     return /* constructor */{
-            tag: 0,
-            name: "Node",
-            "0": /* Empty */0,
+            tag: "Node",
+            "0": "Empty",
             "1": x,
             "2": data,
-            "3": /* Empty */0,
+            "3": "Empty",
             "4": 1
           };
   }
@@ -140,13 +136,13 @@ function find(x, _param) {
 
 function timing(label, f) {
   console.time(label);
-  Curry._1(f, /* () */0);
+  Curry._1(f, "()");
   console.timeEnd(label);
-  return /* () */0;
+  return "()";
 }
 
 function assertion_test(param) {
-  var m = /* record */[/* contents : Empty */0];
+  var m = /* record */[/* contents */"Empty"];
   timing("building", (function (param) {
           for(var i = 0; i <= 1000000; ++i){
             m[0] = add(String(i), String(i), m[0]);

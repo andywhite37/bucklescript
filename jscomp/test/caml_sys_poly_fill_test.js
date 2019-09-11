@@ -6,21 +6,19 @@ var Caml_sys = require("../../lib/js/caml_sys.js");
 var Node_process = require("../../lib/js/node_process.js");
 var Caml_builtin_exceptions = require("../../lib/js/caml_builtin_exceptions.js");
 
-var suites = /* record */[/* contents : [] */0];
+var suites = /* record */[/* contents */"[]"];
 
 var test_id = /* record */[/* contents */0];
 
 function eq(loc, x, y) {
   test_id[0] = test_id[0] + 1 | 0;
   suites[0] = /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
-                  tag: 0,
-                  name: "Eq",
+                  tag: "Eq",
                   "0": x,
                   "1": y
                 };
@@ -61,8 +59,8 @@ catch (exn){
 eq("File \"caml_sys_poly_fill_test.ml\", line 23, characters 5-12", "Z", tmp);
 
 console.log(/* tuple */[
-      Caml_sys.caml_sys_getcwd(/* () */0),
-      Caml_sys.caml_sys_time(/* () */0),
+      Caml_sys.caml_sys_getcwd("()"),
+      Caml_sys.caml_sys_time("()"),
       Sys.argv,
       Sys.executable_name
     ]);

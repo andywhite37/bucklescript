@@ -19,7 +19,7 @@ var Caml_string = require("../../lib/js/caml_string.js");
 var Caml_js_exceptions = require("../../lib/js/caml_js_exceptions.js");
 var Caml_builtin_exceptions = require("../../lib/js/caml_builtin_exceptions.js");
 
-var suites = /* record */[/* contents : [] */0];
+var suites = /* record */[/* contents */"[]"];
 
 var test_id = /* record */[/* contents */0];
 
@@ -40,154 +40,127 @@ function id(x) {
 
 function test0(param) {
   return ((((Curry._2(Scanf.sscanf("", /* constructor */{
-                          tag: 0,
-                          name: "Format",
-                          "0": /* End_of_format */0,
+                          tag: "Format",
+                          "0": "End_of_format",
                           "1": ""
                         }), id, 1) + Curry._2(Scanf.sscanf("", /* constructor */{
-                          tag: 0,
-                          name: "Format",
+                          tag: "Format",
                           "0": /* constructor */{
-                            tag: 12,
-                            name: "Char_literal",
+                            tag: "Char_literal",
                             "0": /* " " */32,
-                            "1": /* End_of_format */0
+                            "1": "End_of_format"
                           },
                           "1": " "
                         }), id, 2) | 0) + Curry._2(Scanf.sscanf(" ", /* constructor */{
-                        tag: 0,
-                        name: "Format",
+                        tag: "Format",
                         "0": /* constructor */{
-                          tag: 12,
-                          name: "Char_literal",
+                          tag: "Char_literal",
                           "0": /* " " */32,
-                          "1": /* End_of_format */0
+                          "1": "End_of_format"
                         },
                         "1": " "
                       }), id, 3) | 0) + Curry._2(Scanf.sscanf("\t", /* constructor */{
-                      tag: 0,
-                      name: "Format",
+                      tag: "Format",
                       "0": /* constructor */{
-                        tag: 12,
-                        name: "Char_literal",
+                        tag: "Char_literal",
                         "0": /* " " */32,
-                        "1": /* End_of_format */0
+                        "1": "End_of_format"
                       },
                       "1": " "
                     }), id, 4) | 0) + Curry._2(Scanf.sscanf("\n", /* constructor */{
-                    tag: 0,
-                    name: "Format",
+                    tag: "Format",
                     "0": /* constructor */{
-                      tag: 12,
-                      name: "Char_literal",
+                      tag: "Char_literal",
                       "0": /* " " */32,
-                      "1": /* End_of_format */0
+                      "1": "End_of_format"
                     },
                     "1": " "
                   }), id, 5) | 0) + Curry._1(Scanf.sscanf("\n\t 6", /* constructor */{
-                  tag: 0,
-                  name: "Format",
+                  tag: "Format",
                   "0": /* constructor */{
-                    tag: 12,
-                    name: "Char_literal",
+                    tag: "Char_literal",
                     "0": /* " " */32,
                     "1": /* constructor */{
-                      tag: 4,
-                      name: "Int",
-                      "0": /* Int_d */0,
-                      "1": /* No_padding */0,
-                      "2": /* No_precision */0,
-                      "3": /* End_of_format */0
+                      tag: "Int",
+                      "0": "Int_d",
+                      "1": "No_padding",
+                      "2": "No_precision",
+                      "3": "End_of_format"
                     }
                   },
                   "1": " %d"
                 }), id) | 0;
 }
 
-test("File \"tscanf_test.ml\", line 42, characters 5-12", test0(/* () */0) === 21);
+test("File \"tscanf_test.ml\", line 42, characters 5-12", test0("()") === 21);
 
 function test1(param) {
   return (((Curry._1(Scanf.sscanf("1", /* constructor */{
-                        tag: 0,
-                        name: "Format",
+                        tag: "Format",
                         "0": /* constructor */{
-                          tag: 4,
-                          name: "Int",
-                          "0": /* Int_d */0,
-                          "1": /* No_padding */0,
-                          "2": /* No_precision */0,
-                          "3": /* End_of_format */0
+                          tag: "Int",
+                          "0": "Int_d",
+                          "1": "No_padding",
+                          "2": "No_precision",
+                          "3": "End_of_format"
                         },
                         "1": "%d"
                       }), id) + Curry._1(Scanf.sscanf(" 2", /* constructor */{
-                        tag: 0,
-                        name: "Format",
+                        tag: "Format",
                         "0": /* constructor */{
-                          tag: 12,
-                          name: "Char_literal",
+                          tag: "Char_literal",
                           "0": /* " " */32,
                           "1": /* constructor */{
-                            tag: 4,
-                            name: "Int",
-                            "0": /* Int_d */0,
-                            "1": /* No_padding */0,
-                            "2": /* No_precision */0,
-                            "3": /* End_of_format */0
+                            tag: "Int",
+                            "0": "Int_d",
+                            "1": "No_padding",
+                            "2": "No_precision",
+                            "3": "End_of_format"
                           }
                         },
                         "1": " %d"
                       }), id) | 0) + Curry._1(Scanf.sscanf(" -2", /* constructor */{
-                      tag: 0,
-                      name: "Format",
+                      tag: "Format",
                       "0": /* constructor */{
-                        tag: 12,
-                        name: "Char_literal",
+                        tag: "Char_literal",
                         "0": /* " " */32,
                         "1": /* constructor */{
-                          tag: 4,
-                          name: "Int",
-                          "0": /* Int_d */0,
-                          "1": /* No_padding */0,
-                          "2": /* No_precision */0,
-                          "3": /* End_of_format */0
+                          tag: "Int",
+                          "0": "Int_d",
+                          "1": "No_padding",
+                          "2": "No_precision",
+                          "3": "End_of_format"
                         }
                       },
                       "1": " %d"
                     }), id) | 0) + Curry._1(Scanf.sscanf(" +2", /* constructor */{
-                    tag: 0,
-                    name: "Format",
+                    tag: "Format",
                     "0": /* constructor */{
-                      tag: 12,
-                      name: "Char_literal",
+                      tag: "Char_literal",
                       "0": /* " " */32,
                       "1": /* constructor */{
-                        tag: 4,
-                        name: "Int",
-                        "0": /* Int_d */0,
-                        "1": /* No_padding */0,
-                        "2": /* No_precision */0,
-                        "3": /* End_of_format */0
+                        tag: "Int",
+                        "0": "Int_d",
+                        "1": "No_padding",
+                        "2": "No_precision",
+                        "3": "End_of_format"
                       }
                     },
                     "1": " %d"
                   }), id) | 0) + Curry._1(Scanf.sscanf(" 2a ", /* constructor */{
-                  tag: 0,
-                  name: "Format",
+                  tag: "Format",
                   "0": /* constructor */{
-                    tag: 12,
-                    name: "Char_literal",
+                    tag: "Char_literal",
                     "0": /* " " */32,
                     "1": /* constructor */{
-                      tag: 4,
-                      name: "Int",
-                      "0": /* Int_d */0,
-                      "1": /* No_padding */0,
-                      "2": /* No_precision */0,
+                      tag: "Int",
+                      "0": "Int_d",
+                      "1": "No_padding",
+                      "2": "No_precision",
                       "3": /* constructor */{
-                        tag: 12,
-                        name: "Char_literal",
+                        tag: "Char_literal",
                         "0": /* "a" */97,
-                        "1": /* End_of_format */0
+                        "1": "End_of_format"
                       }
                     }
                   },
@@ -195,61 +168,51 @@ function test1(param) {
                 }), id) | 0;
 }
 
-test("File \"tscanf_test.ml\", line 54, characters 5-12", test1(/* () */0) === 5);
+test("File \"tscanf_test.ml\", line 54, characters 5-12", test1("()") === 5);
 
 function test2(param) {
   return (Curry._1(Scanf.sscanf("123", /* constructor */{
-                    tag: 0,
-                    name: "Format",
+                    tag: "Format",
                     "0": /* constructor */{
-                      tag: 4,
-                      name: "Int",
-                      "0": /* Int_i */3,
+                      tag: "Int",
+                      "0": "Int_i",
                       "1": /* constructor */{
-                        tag: 0,
-                        name: "Lit_padding",
-                        "0": /* Right */1,
+                        tag: "Lit_padding",
+                        "0": "Right",
                         "1": 2
                       },
-                      "2": /* No_precision */0,
-                      "3": /* End_of_format */0
+                      "2": "No_precision",
+                      "3": "End_of_format"
                     },
                     "1": "%2i"
                   }), id) + Curry._1(Scanf.sscanf("245", /* constructor */{
-                    tag: 0,
-                    name: "Format",
+                    tag: "Format",
                     "0": /* constructor */{
-                      tag: 4,
-                      name: "Int",
-                      "0": /* Int_d */0,
-                      "1": /* No_padding */0,
-                      "2": /* No_precision */0,
-                      "3": /* End_of_format */0
+                      tag: "Int",
+                      "0": "Int_d",
+                      "1": "No_padding",
+                      "2": "No_precision",
+                      "3": "End_of_format"
                     },
                     "1": "%d"
                   }), id) | 0) + Curry._1(Scanf.sscanf(" 2a ", /* constructor */{
-                  tag: 0,
-                  name: "Format",
+                  tag: "Format",
                   "0": /* constructor */{
-                    tag: 12,
-                    name: "Char_literal",
+                    tag: "Char_literal",
                     "0": /* " " */32,
                     "1": /* constructor */{
-                      tag: 4,
-                      name: "Int",
-                      "0": /* Int_d */0,
+                      tag: "Int",
+                      "0": "Int_d",
                       "1": /* constructor */{
-                        tag: 0,
-                        name: "Lit_padding",
-                        "0": /* Right */1,
+                        tag: "Lit_padding",
+                        "0": "Right",
                         "1": 1
                       },
-                      "2": /* No_precision */0,
+                      "2": "No_precision",
                       "3": /* constructor */{
-                        tag: 12,
-                        name: "Char_literal",
+                        tag: "Char_literal",
                         "0": /* "a" */97,
-                        "1": /* End_of_format */0
+                        "1": "End_of_format"
                       }
                     }
                   },
@@ -257,83 +220,69 @@ function test2(param) {
                 }), id) | 0;
 }
 
-test("File \"tscanf_test.ml\", line 63, characters 5-12", test2(/* () */0) === 259);
+test("File \"tscanf_test.ml\", line 63, characters 5-12", test2("()") === 259);
 
 function test3(param) {
   return ((Curry._1(Scanf.sscanf("0xff", /* constructor */{
-                      tag: 0,
-                      name: "Format",
+                      tag: "Format",
                       "0": /* constructor */{
-                        tag: 4,
-                        name: "Int",
-                        "0": /* Int_i */3,
+                        tag: "Int",
+                        "0": "Int_i",
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "Lit_padding",
-                          "0": /* Right */1,
+                          tag: "Lit_padding",
+                          "0": "Right",
                           "1": 3
                         },
-                        "2": /* No_precision */0,
-                        "3": /* End_of_format */0
+                        "2": "No_precision",
+                        "3": "End_of_format"
                       },
                       "1": "%3i"
                     }), id) + Curry._1(Scanf.sscanf("0XEF", /* constructor */{
-                      tag: 0,
-                      name: "Format",
+                      tag: "Format",
                       "0": /* constructor */{
-                        tag: 4,
-                        name: "Int",
-                        "0": /* Int_i */3,
+                        tag: "Int",
+                        "0": "Int_i",
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "Lit_padding",
-                          "0": /* Right */1,
+                          tag: "Lit_padding",
+                          "0": "Right",
                           "1": 3
                         },
-                        "2": /* No_precision */0,
-                        "3": /* End_of_format */0
+                        "2": "No_precision",
+                        "3": "End_of_format"
                       },
                       "1": "%3i"
                     }), id) | 0) + Curry._1(Scanf.sscanf("x=-245", /* constructor */{
-                    tag: 0,
-                    name: "Format",
+                    tag: "Format",
                     "0": /* constructor */{
-                      tag: 11,
-                      name: "String_literal",
+                      tag: "String_literal",
                       "0": " x = ",
                       "1": /* constructor */{
-                        tag: 4,
-                        name: "Int",
-                        "0": /* Int_d */0,
-                        "1": /* No_padding */0,
-                        "2": /* No_precision */0,
-                        "3": /* End_of_format */0
+                        tag: "Int",
+                        "0": "Int_d",
+                        "1": "No_padding",
+                        "2": "No_precision",
+                        "3": "End_of_format"
                       }
                     },
                     "1": " x = %d"
                   }), id) | 0) + Curry._1(Scanf.sscanf(" 2a ", /* constructor */{
-                  tag: 0,
-                  name: "Format",
+                  tag: "Format",
                   "0": /* constructor */{
-                    tag: 12,
-                    name: "Char_literal",
+                    tag: "Char_literal",
                     "0": /* " " */32,
                     "1": /* constructor */{
-                      tag: 4,
-                      name: "Int",
-                      "0": /* Int_d */0,
+                      tag: "Int",
+                      "0": "Int_d",
                       "1": /* constructor */{
-                        tag: 0,
-                        name: "Lit_padding",
-                        "0": /* Right */1,
+                        tag: "Lit_padding",
+                        "0": "Right",
                         "1": 1
                       },
-                      "2": /* No_precision */0,
+                      "2": "No_precision",
                       "3": /* constructor */{
-                        tag: 12,
-                        name: "Char_literal",
+                        tag: "Char_literal",
                         "0": /* "a" */97,
-                        "1": /* End_of_format */0
+                        "1": "End_of_format"
                       }
                     }
                   },
@@ -341,165 +290,141 @@ function test3(param) {
                 }), id) | 0;
 }
 
-test("File \"tscanf_test.ml\", line 73, characters 5-12", test3(/* () */0) === -214);
+test("File \"tscanf_test.ml\", line 73, characters 5-12", test3("()") === -214);
 
 function test4(param) {
   if (Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("1"), /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 8,
-                name: "Float",
-                "0": /* Float_f */0,
-                "1": /* No_padding */0,
-                "2": /* No_precision */0,
-                "3": /* End_of_format */0
+                tag: "Float",
+                "0": "Float_f",
+                "1": "No_padding",
+                "2": "No_precision",
+                "3": "End_of_format"
               },
               "1": "%f"
             }), (function (b0) {
             return b0 === 1.0;
           })) && Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("-1"), /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 8,
-                name: "Float",
-                "0": /* Float_f */0,
-                "1": /* No_padding */0,
-                "2": /* No_precision */0,
-                "3": /* End_of_format */0
+                tag: "Float",
+                "0": "Float_f",
+                "1": "No_padding",
+                "2": "No_precision",
+                "3": "End_of_format"
               },
               "1": "%f"
             }), (function (b0) {
             return b0 === -1.0;
           })) && Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("+1"), /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 8,
-                name: "Float",
-                "0": /* Float_f */0,
-                "1": /* No_padding */0,
-                "2": /* No_precision */0,
-                "3": /* End_of_format */0
+                tag: "Float",
+                "0": "Float_f",
+                "1": "No_padding",
+                "2": "No_precision",
+                "3": "End_of_format"
               },
               "1": "%f"
             }), (function (b0) {
             return b0 === 1.0;
           })) && Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("1."), /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 8,
-                name: "Float",
-                "0": /* Float_f */0,
-                "1": /* No_padding */0,
-                "2": /* No_precision */0,
-                "3": /* End_of_format */0
+                tag: "Float",
+                "0": "Float_f",
+                "1": "No_padding",
+                "2": "No_precision",
+                "3": "End_of_format"
               },
               "1": "%f"
             }), (function (b0) {
             return b0 === 1.0;
           })) && Curry._1(Scanf.bscanf(Scanf.Scanning.from_string(".1"), /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 8,
-                name: "Float",
-                "0": /* Float_f */0,
-                "1": /* No_padding */0,
-                "2": /* No_precision */0,
-                "3": /* End_of_format */0
+                tag: "Float",
+                "0": "Float_f",
+                "1": "No_padding",
+                "2": "No_precision",
+                "3": "End_of_format"
               },
               "1": "%f"
             }), (function (b0) {
             return b0 === 0.1;
           })) && Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("-.1"), /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 8,
-                name: "Float",
-                "0": /* Float_f */0,
-                "1": /* No_padding */0,
-                "2": /* No_precision */0,
-                "3": /* End_of_format */0
+                tag: "Float",
+                "0": "Float_f",
+                "1": "No_padding",
+                "2": "No_precision",
+                "3": "End_of_format"
               },
               "1": "%f"
             }), (function (b0) {
             return b0 === -0.1;
           })) && Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("+.1"), /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 8,
-                name: "Float",
-                "0": /* Float_f */0,
-                "1": /* No_padding */0,
-                "2": /* No_precision */0,
-                "3": /* End_of_format */0
+                tag: "Float",
+                "0": "Float_f",
+                "1": "No_padding",
+                "2": "No_precision",
+                "3": "End_of_format"
               },
               "1": "%f"
             }), (function (b0) {
             return b0 === 0.1;
           })) && Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("+1."), /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 8,
-                name: "Float",
-                "0": /* Float_f */0,
-                "1": /* No_padding */0,
-                "2": /* No_precision */0,
-                "3": /* End_of_format */0
+                tag: "Float",
+                "0": "Float_f",
+                "1": "No_padding",
+                "2": "No_precision",
+                "3": "End_of_format"
               },
               "1": "%f"
             }), (function (b0) {
             return b0 === 1.0;
           })) && Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("-1."), /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 8,
-                name: "Float",
-                "0": /* Float_f */0,
-                "1": /* No_padding */0,
-                "2": /* No_precision */0,
-                "3": /* End_of_format */0
+                tag: "Float",
+                "0": "Float_f",
+                "1": "No_padding",
+                "2": "No_precision",
+                "3": "End_of_format"
               },
               "1": "%f"
             }), (function (b0) {
             return b0 === -1.0;
           })) && Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("0 1. 1.3"), /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 8,
-                name: "Float",
-                "0": /* Float_f */0,
-                "1": /* No_padding */0,
-                "2": /* No_precision */0,
+                tag: "Float",
+                "0": "Float_f",
+                "1": "No_padding",
+                "2": "No_precision",
                 "3": /* constructor */{
-                  tag: 12,
-                  name: "Char_literal",
+                  tag: "Char_literal",
                   "0": /* " " */32,
                   "1": /* constructor */{
-                    tag: 8,
-                    name: "Float",
-                    "0": /* Float_f */0,
-                    "1": /* No_padding */0,
-                    "2": /* No_precision */0,
+                    tag: "Float",
+                    "0": "Float_f",
+                    "1": "No_padding",
+                    "2": "No_precision",
                     "3": /* constructor */{
-                      tag: 12,
-                      name: "Char_literal",
+                      tag: "Char_literal",
                       "0": /* " " */32,
                       "1": /* constructor */{
-                        tag: 8,
-                        name: "Float",
-                        "0": /* Float_f */0,
-                        "1": /* No_padding */0,
-                        "2": /* No_precision */0,
-                        "3": /* End_of_format */0
+                        tag: "Float",
+                        "0": "Float_f",
+                        "1": "No_padding",
+                        "2": "No_precision",
+                        "3": "End_of_format"
                       }
                     }
                   }
@@ -509,97 +434,82 @@ function test4(param) {
             }), (function (b0, b1, b2) {
             return b0 === 0.0 && b1 === 1.0 ? b2 === 1.3 : false;
           })) && Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("0.113"), /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 8,
-                name: "Float",
-                "0": /* Float_f */0,
+                tag: "Float",
+                "0": "Float_f",
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "Lit_padding",
-                  "0": /* Right */1,
+                  tag: "Lit_padding",
+                  "0": "Right",
                   "1": 4
                 },
-                "2": /* No_precision */0,
-                "3": /* End_of_format */0
+                "2": "No_precision",
+                "3": "End_of_format"
               },
               "1": "%4f"
             }), (function (b0) {
             return b0 === 0.11;
           })) && Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("0.113"), /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 8,
-                name: "Float",
-                "0": /* Float_f */0,
+                tag: "Float",
+                "0": "Float_f",
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "Lit_padding",
-                  "0": /* Right */1,
+                  tag: "Lit_padding",
+                  "0": "Right",
                   "1": 5
                 },
-                "2": /* No_precision */0,
-                "3": /* End_of_format */0
+                "2": "No_precision",
+                "3": "End_of_format"
               },
               "1": "%5f"
             }), (function (b0) {
             return b0 === 0.113;
           })) && Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("000.113"), /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 8,
-                name: "Float",
-                "0": /* Float_f */0,
+                tag: "Float",
+                "0": "Float_f",
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "Lit_padding",
-                  "0": /* Right */1,
+                  tag: "Lit_padding",
+                  "0": "Right",
                   "1": 15
                 },
-                "2": /* No_precision */0,
-                "3": /* End_of_format */0
+                "2": "No_precision",
+                "3": "End_of_format"
               },
               "1": "%15f"
             }), (function (b0) {
             return b0 === 0.113;
           })) && Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("+000.113"), /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 8,
-                name: "Float",
-                "0": /* Float_f */0,
+                tag: "Float",
+                "0": "Float_f",
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "Lit_padding",
-                  "0": /* Right */1,
+                  tag: "Lit_padding",
+                  "0": "Right",
                   "1": 15
                 },
-                "2": /* No_precision */0,
-                "3": /* End_of_format */0
+                "2": "No_precision",
+                "3": "End_of_format"
               },
               "1": "%15f"
             }), (function (b0) {
             return b0 === 0.113;
           }))) {
     return Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("-000.113"), /* constructor */{
-                    tag: 0,
-                    name: "Format",
+                    tag: "Format",
                     "0": /* constructor */{
-                      tag: 8,
-                      name: "Float",
-                      "0": /* Float_f */0,
+                      tag: "Float",
+                      "0": "Float_f",
                       "1": /* constructor */{
-                        tag: 0,
-                        name: "Lit_padding",
-                        "0": /* Right */1,
+                        tag: "Lit_padding",
+                        "0": "Right",
                         "1": 15
                       },
-                      "2": /* No_precision */0,
-                      "3": /* End_of_format */0
+                      "2": "No_precision",
+                      "3": "End_of_format"
                     },
                     "1": "%15f"
                   }), (function (b0) {
@@ -610,95 +520,81 @@ function test4(param) {
   }
 }
 
-test("File \"tscanf_test.ml\", line 110, characters 5-12", test4(/* () */0));
+test("File \"tscanf_test.ml\", line 110, characters 5-12", test4("()"));
 
 function test5(param) {
   if (Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("1e1"), /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 8,
-                name: "Float",
-                "0": /* Float_e */3,
-                "1": /* No_padding */0,
-                "2": /* No_precision */0,
-                "3": /* End_of_format */0
+                tag: "Float",
+                "0": "Float_e",
+                "1": "No_padding",
+                "2": "No_precision",
+                "3": "End_of_format"
               },
               "1": "%e"
             }), (function (b) {
             return b === 10.0;
           })) && Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("1e+1"), /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 8,
-                name: "Float",
-                "0": /* Float_e */3,
-                "1": /* No_padding */0,
-                "2": /* No_precision */0,
-                "3": /* End_of_format */0
+                tag: "Float",
+                "0": "Float_e",
+                "1": "No_padding",
+                "2": "No_precision",
+                "3": "End_of_format"
               },
               "1": "%e"
             }), (function (b) {
             return b === 10.0;
           })) && Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("10e-1"), /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 8,
-                name: "Float",
-                "0": /* Float_e */3,
-                "1": /* No_padding */0,
-                "2": /* No_precision */0,
-                "3": /* End_of_format */0
+                tag: "Float",
+                "0": "Float_e",
+                "1": "No_padding",
+                "2": "No_precision",
+                "3": "End_of_format"
               },
               "1": "%e"
             }), (function (b) {
             return b === 1.0;
           })) && Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("10.e-1"), /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 8,
-                name: "Float",
-                "0": /* Float_e */3,
-                "1": /* No_padding */0,
-                "2": /* No_precision */0,
-                "3": /* End_of_format */0
+                tag: "Float",
+                "0": "Float_e",
+                "1": "No_padding",
+                "2": "No_precision",
+                "3": "End_of_format"
               },
               "1": "%e"
             }), (function (b) {
             return b === 1.0;
           })) && Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("1e1 1.e+1 1.3e-1"), /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 8,
-                name: "Float",
-                "0": /* Float_e */3,
-                "1": /* No_padding */0,
-                "2": /* No_precision */0,
+                tag: "Float",
+                "0": "Float_e",
+                "1": "No_padding",
+                "2": "No_precision",
                 "3": /* constructor */{
-                  tag: 12,
-                  name: "Char_literal",
+                  tag: "Char_literal",
                   "0": /* " " */32,
                   "1": /* constructor */{
-                    tag: 8,
-                    name: "Float",
-                    "0": /* Float_e */3,
-                    "1": /* No_padding */0,
-                    "2": /* No_precision */0,
+                    tag: "Float",
+                    "0": "Float_e",
+                    "1": "No_padding",
+                    "2": "No_precision",
                     "3": /* constructor */{
-                      tag: 12,
-                      name: "Char_literal",
+                      tag: "Char_literal",
                       "0": /* " " */32,
                       "1": /* constructor */{
-                        tag: 8,
-                        name: "Float",
-                        "0": /* Float_e */3,
-                        "1": /* No_padding */0,
-                        "2": /* No_precision */0,
-                        "3": /* End_of_format */0
+                        tag: "Float",
+                        "0": "Float_e",
+                        "1": "No_padding",
+                        "2": "No_precision",
+                        "3": "End_of_format"
                       }
                     }
                   }
@@ -709,45 +605,37 @@ function test5(param) {
             return b1 === 10.0 && b2 === b1 ? b3 === 0.13 : false;
           }))) {
     return Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("1 1.1 0e+1 1.3e-1"), /* constructor */{
-                    tag: 0,
-                    name: "Format",
+                    tag: "Format",
                     "0": /* constructor */{
-                      tag: 8,
-                      name: "Float",
-                      "0": /* Float_g */9,
-                      "1": /* No_padding */0,
-                      "2": /* No_precision */0,
+                      tag: "Float",
+                      "0": "Float_g",
+                      "1": "No_padding",
+                      "2": "No_precision",
                       "3": /* constructor */{
-                        tag: 12,
-                        name: "Char_literal",
+                        tag: "Char_literal",
                         "0": /* " " */32,
                         "1": /* constructor */{
-                          tag: 8,
-                          name: "Float",
-                          "0": /* Float_g */9,
-                          "1": /* No_padding */0,
-                          "2": /* No_precision */0,
+                          tag: "Float",
+                          "0": "Float_g",
+                          "1": "No_padding",
+                          "2": "No_precision",
                           "3": /* constructor */{
-                            tag: 12,
-                            name: "Char_literal",
+                            tag: "Char_literal",
                             "0": /* " " */32,
                             "1": /* constructor */{
-                              tag: 8,
-                              name: "Float",
-                              "0": /* Float_g */9,
-                              "1": /* No_padding */0,
-                              "2": /* No_precision */0,
+                              tag: "Float",
+                              "0": "Float_g",
+                              "1": "No_padding",
+                              "2": "No_precision",
                               "3": /* constructor */{
-                                tag: 12,
-                                name: "Char_literal",
+                                tag: "Char_literal",
                                 "0": /* " " */32,
                                 "1": /* constructor */{
-                                  tag: 8,
-                                  name: "Float",
-                                  "0": /* Float_g */9,
-                                  "1": /* No_padding */0,
-                                  "2": /* No_precision */0,
-                                  "3": /* End_of_format */0
+                                  tag: "Float",
+                                  "0": "Float_g",
+                                  "1": "No_padding",
+                                  "2": "No_precision",
+                                  "3": "End_of_format"
                                 }
                               }
                             }
@@ -768,19 +656,16 @@ function test5(param) {
   }
 }
 
-test("File \"tscanf_test.ml\", line 133, characters 5-12", test5(/* () */0));
+test("File \"tscanf_test.ml\", line 133, characters 5-12", test5("()"));
 
 function test6(param) {
   if (Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("truetrue"), /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 9,
-                name: "Bool",
+                tag: "Bool",
                 "0": /* constructor */{
-                  tag: 9,
-                  name: "Bool",
-                  "0": /* End_of_format */0
+                  tag: "Bool",
+                  "0": "End_of_format"
                 }
               },
               "1": "%B%B"
@@ -793,15 +678,12 @@ function test6(param) {
                         true
                       ]);
           })) && Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("truefalse"), /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 9,
-                name: "Bool",
+                tag: "Bool",
                 "0": /* constructor */{
-                  tag: 9,
-                  name: "Bool",
-                  "0": /* End_of_format */0
+                  tag: "Bool",
+                  "0": "End_of_format"
                 }
               },
               "1": "%B%B"
@@ -814,15 +696,12 @@ function test6(param) {
                         false
                       ]);
           })) && Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("falsetrue"), /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 9,
-                name: "Bool",
+                tag: "Bool",
                 "0": /* constructor */{
-                  tag: 9,
-                  name: "Bool",
-                  "0": /* End_of_format */0
+                  tag: "Bool",
+                  "0": "End_of_format"
                 }
               },
               "1": "%B%B"
@@ -835,15 +714,12 @@ function test6(param) {
                         true
                       ]);
           })) && Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("falsefalse"), /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 9,
-                name: "Bool",
+                tag: "Bool",
                 "0": /* constructor */{
-                  tag: 9,
-                  name: "Bool",
-                  "0": /* End_of_format */0
+                  tag: "Bool",
+                  "0": "End_of_format"
                 }
               },
               "1": "%B%B"
@@ -857,19 +733,15 @@ function test6(param) {
                       ]);
           }))) {
     return Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("true false"), /* constructor */{
-                    tag: 0,
-                    name: "Format",
+                    tag: "Format",
                     "0": /* constructor */{
-                      tag: 9,
-                      name: "Bool",
+                      tag: "Bool",
                       "0": /* constructor */{
-                        tag: 12,
-                        name: "Char_literal",
+                        tag: "Char_literal",
                         "0": /* " " */32,
                         "1": /* constructor */{
-                          tag: 9,
-                          name: "Bool",
-                          "0": /* End_of_format */0
+                          tag: "Bool",
+                          "0": "End_of_format"
                         }
                       }
                     },
@@ -888,44 +760,34 @@ function test6(param) {
   }
 }
 
-test("File \"tscanf_test.ml\", line 150, characters 5-12", test6(/* () */0));
+test("File \"tscanf_test.ml\", line 150, characters 5-12", test6("()"));
 
 function test7(param) {
   if (Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("'a' '\n' '\t' '\0' ' '"), /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 1,
-                name: "Caml_char",
+                tag: "Caml_char",
                 "0": /* constructor */{
-                  tag: 12,
-                  name: "Char_literal",
+                  tag: "Char_literal",
                   "0": /* " " */32,
                   "1": /* constructor */{
-                    tag: 1,
-                    name: "Caml_char",
+                    tag: "Caml_char",
                     "0": /* constructor */{
-                      tag: 12,
-                      name: "Char_literal",
+                      tag: "Char_literal",
                       "0": /* " " */32,
                       "1": /* constructor */{
-                        tag: 1,
-                        name: "Caml_char",
+                        tag: "Caml_char",
                         "0": /* constructor */{
-                          tag: 12,
-                          name: "Char_literal",
+                          tag: "Char_literal",
                           "0": /* " " */32,
                           "1": /* constructor */{
-                            tag: 1,
-                            name: "Caml_char",
+                            tag: "Caml_char",
                             "0": /* constructor */{
-                              tag: 12,
-                              name: "Char_literal",
+                              tag: "Char_literal",
                               "0": /* " " */32,
                               "1": /* constructor */{
-                                tag: 1,
-                                name: "Caml_char",
-                                "0": /* End_of_format */0
+                                tag: "Caml_char",
+                                "0": "End_of_format"
                               }
                             }
                           }
@@ -940,30 +802,23 @@ function test7(param) {
             return c1 === /* "a" */97 && c2 === /* "\n" */10 && c3 === /* "\t" */9 && c4 === /* "\000" */0 ? c5 === /* " " */32 : false;
           }))) {
     return Curry._1(Scanf.bscanf(Scanf.Scanning.from_string("a \n \t \0  b"), /* constructor */{
-                    tag: 0,
-                    name: "Format",
+                    tag: "Format",
                     "0": /* constructor */{
-                      tag: 0,
-                      name: "Char",
+                      tag: "Char",
                       "0": /* constructor */{
-                        tag: 12,
-                        name: "Char_literal",
+                        tag: "Char_literal",
                         "0": /* " " */32,
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "Char",
+                          tag: "Char",
                           "0": /* constructor */{
-                            tag: 12,
-                            name: "Char_literal",
+                            tag: "Char_literal",
                             "0": /* " " */32,
                             "1": /* constructor */{
-                              tag: 0,
-                              name: "Char",
+                              tag: "Char",
                               "0": /* constructor */{
-                                tag: 12,
-                                name: "Char_literal",
+                                tag: "Char_literal",
                                 "0": /* " " */32,
-                                "1": /* End_of_format */0
+                                "1": "End_of_format"
                               }
                             }
                           }
@@ -983,27 +838,23 @@ function test7(param) {
   }
 }
 
-test("File \"tscanf_test.ml\", line 168, characters 5-12", test7(/* () */0));
+test("File \"tscanf_test.ml\", line 168, characters 5-12", test7("()"));
 
 function verify_read(c) {
   var s = Curry._1(Printf.sprintf(/* constructor */{
-            tag: 0,
-            name: "Format",
+            tag: "Format",
             "0": /* constructor */{
-              tag: 1,
-              name: "Caml_char",
-              "0": /* End_of_format */0
+              tag: "Caml_char",
+              "0": "End_of_format"
             },
             "1": "%C"
           }), c);
   var ib = Scanf.Scanning.from_string(s);
   if (Curry._1(Scanf.bscanf(ib, /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 1,
-                name: "Caml_char",
-                "0": /* End_of_format */0
+                tag: "Caml_char",
+                "0": "End_of_format"
               },
               "1": "%C"
             }), id) === c) {
@@ -1028,20 +879,18 @@ function verify_scan_Chars(param) {
 }
 
 function test8(param) {
-  return verify_scan_Chars(/* () */0) === /* () */0;
+  return verify_scan_Chars("()") === "()";
 }
 
-test("File \"tscanf_test.ml\", line 183, characters 5-12", verify_scan_Chars(/* () */0) === /* () */0);
+test("File \"tscanf_test.ml\", line 183, characters 5-12", verify_scan_Chars("()") === "()");
 
 function unit(fmt, s) {
   var ib = Scanf.Scanning.from_string(Curry._1(Printf.sprintf(/* constructor */{
-                tag: 0,
-                name: "Format",
+                tag: "Format",
                 "0": /* constructor */{
-                  tag: 3,
-                  name: "Caml_string",
-                  "0": /* No_padding */0,
-                  "1": /* End_of_format */0
+                  tag: "Caml_string",
+                  "0": "No_padding",
+                  "1": "End_of_format"
                 },
                 "1": "%S"
               }), s));
@@ -1055,13 +904,11 @@ function test_fmt(fmt, s) {
 var test9_string = "\xef\xbb\xbf";
 
 var partial_arg = /* constructor */{
-  tag: 0,
-  name: "Format",
+  tag: "Format",
   "0": /* constructor */{
-    tag: 3,
-    name: "Caml_string",
-    "0": /* No_padding */0,
-    "1": /* End_of_format */0
+    tag: "Caml_string",
+    "0": "No_padding",
+    "1": "End_of_format"
   },
   "1": "%S"
 };
@@ -1072,74 +919,62 @@ function test_S(param) {
 
 function test9(param) {
   if (test_S("poi") && test_S("a\"b") && test_S("a\nb") && test_S("a\nb") && test_S("a\\\nb \\\nc\n\\\nb") && test_S("a\\\n\\\n\\\nb \\\nc\n\\\nb") && test_S("\xef") && test_S("\\xef") && Curry._1(Scanf.sscanf("\"\\xef\"", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 3,
-                name: "Caml_string",
-                "0": /* No_padding */0,
-                "1": /* End_of_format */0
+                tag: "Caml_string",
+                "0": "No_padding",
+                "1": "End_of_format"
               },
               "1": "%S"
             }), (function (s) {
             return s;
           })) === "\xef" && Curry._1(Scanf.sscanf("\"\\xef\\xbb\\xbf\"", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 3,
-                name: "Caml_string",
-                "0": /* No_padding */0,
-                "1": /* End_of_format */0
+                tag: "Caml_string",
+                "0": "No_padding",
+                "1": "End_of_format"
               },
               "1": "%S"
             }), (function (s) {
             return s;
           })) === test9_string && Curry._1(Scanf.sscanf("\"\\xef\\xbb\\xbf\"", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 3,
-                name: "Caml_string",
-                "0": /* No_padding */0,
-                "1": /* End_of_format */0
+                tag: "Caml_string",
+                "0": "No_padding",
+                "1": "End_of_format"
               },
               "1": "%S"
             }), (function (s) {
             return s;
           })) === "\xef\xbb\xbf" && Curry._1(Scanf.sscanf("\"\xef\xbb\xbf\"", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 3,
-                name: "Caml_string",
-                "0": /* No_padding */0,
-                "1": /* End_of_format */0
+                tag: "Caml_string",
+                "0": "No_padding",
+                "1": "End_of_format"
               },
               "1": "%S"
             }), (function (s) {
             return s;
           })) === test9_string && Curry._1(Scanf.sscanf("\"\\\\xef\\\\xbb\\\\xbf\"", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 3,
-                name: "Caml_string",
-                "0": /* No_padding */0,
-                "1": /* End_of_format */0
+                tag: "Caml_string",
+                "0": "No_padding",
+                "1": "End_of_format"
               },
               "1": "%S"
             }), (function (s) {
             return s;
           })) === "\\xef\\xbb\\xbf") {
     return Curry._1(Scanf.sscanf("\" \"", /* constructor */{
-                    tag: 0,
-                    name: "Format",
+                    tag: "Format",
                     "0": /* constructor */{
-                      tag: 3,
-                      name: "Caml_string",
-                      "0": /* No_padding */0,
-                      "1": /* End_of_format */0
+                      tag: "Caml_string",
+                      "0": "No_padding",
+                      "1": "End_of_format"
                     },
                     "1": "%S"
                   }), (function (s) {
@@ -1150,71 +985,57 @@ function test9(param) {
   }
 }
 
-test("File \"tscanf_test.ml\", line 230, characters 5-12", test9(/* () */0));
+test("File \"tscanf_test.ml\", line 230, characters 5-12", test9("()"));
 
 function test10(param) {
   var unit = function (s) {
     var ib = Scanf.Scanning.from_string(s);
     return Curry._1(Scanf.bscanf(ib, /* constructor */{
-                    tag: 0,
-                    name: "Format",
+                    tag: "Format",
                     "0": /* constructor */{
-                      tag: 3,
-                      name: "Caml_string",
-                      "0": /* No_padding */0,
-                      "1": /* End_of_format */0
+                      tag: "Caml_string",
+                      "0": "No_padding",
+                      "1": "End_of_format"
                     },
                     "1": "%S"
                   }), id);
   };
   var res = Curry._1(Scanf.sscanf("Une chaine: \"celle-ci\" et \"celle-la\"!", /* constructor */{
-            tag: 0,
-            name: "Format",
+            tag: "Format",
             "0": /* constructor */{
-              tag: 2,
-              name: "String",
-              "0": /* No_padding */0,
+              tag: "String",
+              "0": "No_padding",
               "1": /* constructor */{
-                tag: 12,
-                name: "Char_literal",
+                tag: "Char_literal",
                 "0": /* " " */32,
                 "1": /* constructor */{
-                  tag: 2,
-                  name: "String",
-                  "0": /* No_padding */0,
+                  tag: "String",
+                  "0": "No_padding",
                   "1": /* constructor */{
-                    tag: 12,
-                    name: "Char_literal",
+                    tag: "Char_literal",
                     "0": /* " " */32,
                     "1": /* constructor */{
-                      tag: 3,
-                      name: "Caml_string",
-                      "0": /* No_padding */0,
+                      tag: "Caml_string",
+                      "0": "No_padding",
                       "1": /* constructor */{
-                        tag: 12,
-                        name: "Char_literal",
+                        tag: "Char_literal",
                         "0": /* " " */32,
                         "1": /* constructor */{
-                          tag: 2,
-                          name: "String",
-                          "0": /* No_padding */0,
+                          tag: "String",
+                          "0": "No_padding",
                           "1": /* constructor */{
-                            tag: 12,
-                            name: "Char_literal",
+                            tag: "Char_literal",
                             "0": /* " " */32,
                             "1": /* constructor */{
-                              tag: 3,
-                              name: "Caml_string",
-                              "0": /* No_padding */0,
+                              tag: "Caml_string",
+                              "0": "No_padding",
                               "1": /* constructor */{
-                                tag: 12,
-                                name: "Char_literal",
+                                tag: "Char_literal",
                                 "0": /* " " */32,
                                 "1": /* constructor */{
-                                  tag: 2,
-                                  name: "String",
-                                  "0": /* No_padding */0,
-                                  "1": /* End_of_format */0
+                                  tag: "String",
+                                  "0": "No_padding",
+                                  "1": "End_of_format"
                                 }
                               }
                             }
@@ -1237,33 +1058,27 @@ function test10(param) {
   }
 }
 
-test("File \"tscanf_test.ml\", line 254, characters 5-12", test10(/* () */0));
+test("File \"tscanf_test.ml\", line 254, characters 5-12", test10("()"));
 
 function test11(param) {
   if (Curry._1(Scanf.sscanf("Pierre\tWeis\t70", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 2,
-                name: "String",
-                "0": /* No_padding */0,
+                tag: "String",
+                "0": "No_padding",
                 "1": /* constructor */{
-                  tag: 12,
-                  name: "Char_literal",
+                  tag: "Char_literal",
                   "0": /* " " */32,
                   "1": /* constructor */{
-                    tag: 2,
-                    name: "String",
-                    "0": /* No_padding */0,
+                    tag: "String",
+                    "0": "No_padding",
                     "1": /* constructor */{
-                      tag: 12,
-                      name: "Char_literal",
+                      tag: "Char_literal",
                       "0": /* " " */32,
                       "1": /* constructor */{
-                        tag: 2,
-                        name: "String",
-                        "0": /* No_padding */0,
-                        "1": /* End_of_format */0
+                        tag: "String",
+                        "0": "No_padding",
+                        "1": "End_of_format"
                       }
                     }
                   }
@@ -1273,33 +1088,27 @@ function test11(param) {
             }), (function (prenom, nom, poids) {
             return prenom === "Pierre" && nom === "Weis" ? Caml_format.caml_int_of_string(poids) === 70 : false;
           })) && Curry._1(Scanf.sscanf("Jean-Luc\tde Leage\t68", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 20,
-                name: "Scan_char_set",
+                tag: "Scan_char_set",
                 "0": undefined,
                 "1": "\xff\xfd\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff",
                 "2": /* constructor */{
-                  tag: 12,
-                  name: "Char_literal",
+                  tag: "Char_literal",
                   "0": /* " " */32,
                   "1": /* constructor */{
-                    tag: 20,
-                    name: "Scan_char_set",
+                    tag: "Scan_char_set",
                     "0": undefined,
                     "1": "\xff\xfd\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff",
                     "2": /* constructor */{
-                      tag: 12,
-                      name: "Char_literal",
+                      tag: "Char_literal",
                       "0": /* " " */32,
                       "1": /* constructor */{
-                        tag: 4,
-                        name: "Int",
-                        "0": /* Int_d */0,
-                        "1": /* No_padding */0,
-                        "2": /* No_precision */0,
-                        "3": /* End_of_format */0
+                        tag: "Int",
+                        "0": "Int_d",
+                        "1": "No_padding",
+                        "2": "No_precision",
+                        "3": "End_of_format"
                       }
                     }
                   }
@@ -1310,47 +1119,37 @@ function test11(param) {
             return prenom === "Jean-Luc" && nom === "de Leage" ? poids === 68 : false;
           }))) {
     return Curry._1(Scanf.sscanf("Daniel\tde Rauglaudre\t66", /* constructor */{
-                    tag: 0,
-                    name: "Format",
+                    tag: "Format",
                     "0": /* constructor */{
-                      tag: 2,
-                      name: "String",
-                      "0": /* No_padding */0,
+                      tag: "String",
+                      "0": "No_padding",
                       "1": /* constructor */{
-                        tag: 17,
-                        name: "Formatting_lit",
+                        tag: "Formatting_lit",
                         "0": /* constructor */{
-                          tag: 2,
-                          name: "Scan_indic",
+                          tag: "Scan_indic",
                           "0": /* "\t" */9
                         },
                         "1": /* constructor */{
-                          tag: 12,
-                          name: "Char_literal",
+                          tag: "Char_literal",
                           "0": /* " " */32,
                           "1": /* constructor */{
-                            tag: 2,
-                            name: "String",
-                            "0": /* No_padding */0,
+                            tag: "String",
+                            "0": "No_padding",
                             "1": /* constructor */{
-                              tag: 17,
-                              name: "Formatting_lit",
+                              tag: "Formatting_lit",
                               "0": /* constructor */{
-                                tag: 2,
-                                name: "Scan_indic",
+                                tag: "Scan_indic",
                                 "0": /* "\t" */9
                               },
                               "1": /* constructor */{
-                                tag: 12,
-                                name: "Char_literal",
+                                tag: "Char_literal",
                                 "0": /* " " */32,
                                 "1": /* constructor */{
-                                  tag: 4,
-                                  name: "Int",
-                                  "0": /* Int_d */0,
-                                  "1": /* No_padding */0,
-                                  "2": /* No_precision */0,
-                                  "3": /* End_of_format */0
+                                  tag: "Int",
+                                  "0": "Int_d",
+                                  "1": "No_padding",
+                                  "2": "No_precision",
+                                  "3": "End_of_format"
                                 }
                               }
                             }
@@ -1373,96 +1172,79 @@ function test11(param) {
 
 function test110(param) {
   if (Curry._2(Scanf.sscanf("", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 12,
-                name: "Char_literal",
+                tag: "Char_literal",
                 "0": /* " " */32,
-                "1": /* End_of_format */0
+                "1": "End_of_format"
               },
               "1": " "
             }), (function (x) {
             return x;
           }), "") === "" && Curry._1(Scanf.sscanf("", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 2,
-                name: "String",
-                "0": /* No_padding */0,
-                "1": /* End_of_format */0
+                tag: "String",
+                "0": "No_padding",
+                "1": "End_of_format"
               },
               "1": "%s"
             }), (function (x) {
             return x === "";
           })) && Curry._1(Scanf.sscanf("", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 2,
-                name: "String",
-                "0": /* No_padding */0,
+                tag: "String",
+                "0": "No_padding",
                 "1": /* constructor */{
-                  tag: 2,
-                  name: "String",
-                  "0": /* No_padding */0,
-                  "1": /* End_of_format */0
+                  tag: "String",
+                  "0": "No_padding",
+                  "1": "End_of_format"
                 }
               },
               "1": "%s%s"
             }), (function (x, y) {
             return x === "" ? y === "" : false;
           })) && Curry._1(Scanf.sscanf("", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 2,
-                name: "String",
-                "0": /* No_padding */0,
+                tag: "String",
+                "0": "No_padding",
                 "1": /* constructor */{
-                  tag: 12,
-                  name: "Char_literal",
+                  tag: "Char_literal",
                   "0": /* " " */32,
-                  "1": /* End_of_format */0
+                  "1": "End_of_format"
                 }
               },
               "1": "%s "
             }), (function (x) {
             return x === "";
           })) && Curry._1(Scanf.sscanf("", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 12,
-                name: "Char_literal",
+                tag: "Char_literal",
                 "0": /* " " */32,
                 "1": /* constructor */{
-                  tag: 2,
-                  name: "String",
-                  "0": /* No_padding */0,
-                  "1": /* End_of_format */0
+                  tag: "String",
+                  "0": "No_padding",
+                  "1": "End_of_format"
                 }
               },
               "1": " %s"
             }), (function (x) {
             return x === "";
           })) && Curry._1(Scanf.sscanf("", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 12,
-                name: "Char_literal",
+                tag: "Char_literal",
                 "0": /* " " */32,
                 "1": /* constructor */{
-                  tag: 2,
-                  name: "String",
-                  "0": /* No_padding */0,
+                  tag: "String",
+                  "0": "No_padding",
                   "1": /* constructor */{
-                    tag: 12,
-                    name: "Char_literal",
+                    tag: "Char_literal",
                     "0": /* " " */32,
-                    "1": /* End_of_format */0
+                    "1": "End_of_format"
                   }
                 }
               },
@@ -1470,81 +1252,67 @@ function test110(param) {
             }), (function (x) {
             return x === "";
           })) && Curry._1(Scanf.sscanf("", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 20,
-                name: "Scan_char_set",
+                tag: "Scan_char_set",
                 "0": undefined,
                 "1": "\xff\xfb\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff",
-                "2": /* End_of_format */0
+                "2": "End_of_format"
               },
               "1": "%[^\n]"
             }), (function (x) {
             return x === "";
           })) && Curry._1(Scanf.sscanf("", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 20,
-                name: "Scan_char_set",
+                tag: "Scan_char_set",
                 "0": undefined,
                 "1": "\xff\xfb\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff",
                 "2": /* constructor */{
-                  tag: 12,
-                  name: "Char_literal",
+                  tag: "Char_literal",
                   "0": /* " " */32,
-                  "1": /* End_of_format */0
+                  "1": "End_of_format"
                 }
               },
               "1": "%[^\n] "
             }), (function (x) {
             return x === "";
           })) && Curry._1(Scanf.sscanf(" ", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 2,
-                name: "String",
-                "0": /* No_padding */0,
-                "1": /* End_of_format */0
+                tag: "String",
+                "0": "No_padding",
+                "1": "End_of_format"
               },
               "1": "%s"
             }), (function (x) {
             return x === "";
           })) && Curry._1(Scanf.sscanf(" ", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 2,
-                name: "String",
-                "0": /* No_padding */0,
+                tag: "String",
+                "0": "No_padding",
                 "1": /* constructor */{
-                  tag: 2,
-                  name: "String",
-                  "0": /* No_padding */0,
-                  "1": /* End_of_format */0
+                  tag: "String",
+                  "0": "No_padding",
+                  "1": "End_of_format"
                 }
               },
               "1": "%s%s"
             }), (function (x, y) {
             return x === "" ? y === "" : false;
           })) && Curry._1(Scanf.sscanf(" ", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 12,
-                name: "Char_literal",
+                tag: "Char_literal",
                 "0": /* " " */32,
                 "1": /* constructor */{
-                  tag: 2,
-                  name: "String",
-                  "0": /* No_padding */0,
+                  tag: "String",
+                  "0": "No_padding",
                   "1": /* constructor */{
-                    tag: 12,
-                    name: "Char_literal",
+                    tag: "Char_literal",
                     "0": /* " " */32,
-                    "1": /* End_of_format */0
+                    "1": "End_of_format"
                   }
                 }
               },
@@ -1552,25 +1320,20 @@ function test110(param) {
             }), (function (x) {
             return x === "";
           })) && Curry._1(Scanf.sscanf(" ", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 12,
-                name: "Char_literal",
+                tag: "Char_literal",
                 "0": /* " " */32,
                 "1": /* constructor */{
-                  tag: 2,
-                  name: "String",
-                  "0": /* No_padding */0,
+                  tag: "String",
+                  "0": "No_padding",
                   "1": /* constructor */{
-                    tag: 12,
-                    name: "Char_literal",
+                    tag: "Char_literal",
                     "0": /* " " */32,
                     "1": /* constructor */{
-                      tag: 2,
-                      name: "String",
-                      "0": /* No_padding */0,
-                      "1": /* End_of_format */0
+                      tag: "String",
+                      "0": "No_padding",
+                      "1": "End_of_format"
                     }
                   }
                 }
@@ -1579,31 +1342,25 @@ function test110(param) {
             }), (function (x, y) {
             return x === "" ? x === y : false;
           })) && Curry._1(Scanf.sscanf(" ", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 12,
-                name: "Char_literal",
+                tag: "Char_literal",
                 "0": /* " " */32,
                 "1": /* constructor */{
-                  tag: 2,
-                  name: "String",
-                  "0": /* No_padding */0,
+                  tag: "String",
+                  "0": "No_padding",
                   "1": /* constructor */{
-                    tag: 17,
-                    name: "Formatting_lit",
+                    tag: "Formatting_lit",
                     "0": /* constructor */{
-                      tag: 0,
-                      name: "Break",
+                      tag: "Break",
                       "0": "@ ",
                       "1": 1,
                       "2": 0
                     },
                     "1": /* constructor */{
-                      tag: 2,
-                      name: "String",
-                      "0": /* No_padding */0,
-                      "1": /* End_of_format */0
+                      tag: "String",
+                      "0": "No_padding",
+                      "1": "End_of_format"
                     }
                   }
                 }
@@ -1612,35 +1369,28 @@ function test110(param) {
             }), (function (x, y) {
             return x === "" ? x === y : false;
           })) && Curry._1(Scanf.sscanf(" poi !", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 12,
-                name: "Char_literal",
+                tag: "Char_literal",
                 "0": /* " " */32,
                 "1": /* constructor */{
-                  tag: 2,
-                  name: "String",
-                  "0": /* No_padding */0,
+                  tag: "String",
+                  "0": "No_padding",
                   "1": /* constructor */{
-                    tag: 17,
-                    name: "Formatting_lit",
+                    tag: "Formatting_lit",
                     "0": /* constructor */{
-                      tag: 0,
-                      name: "Break",
+                      tag: "Break",
                       "0": "@ ",
                       "1": 1,
                       "2": 0
                     },
                     "1": /* constructor */{
-                      tag: 2,
-                      name: "String",
-                      "0": /* No_padding */0,
+                      tag: "String",
+                      "0": "No_padding",
                       "1": /* constructor */{
-                        tag: 17,
-                        name: "Formatting_lit",
-                        "0": /* Flush_newline */4,
-                        "1": /* End_of_format */0
+                        tag: "Formatting_lit",
+                        "0": "Flush_newline",
+                        "1": "End_of_format"
                       }
                     }
                   }
@@ -1651,31 +1401,25 @@ function test110(param) {
             return x === "poi" ? y === "!" : false;
           }))) {
     return Curry._1(Scanf.sscanf(" poi !", /* constructor */{
-                    tag: 0,
-                    name: "Format",
+                    tag: "Format",
                     "0": /* constructor */{
-                      tag: 2,
-                      name: "String",
-                      "0": /* No_padding */0,
+                      tag: "String",
+                      "0": "No_padding",
                       "1": /* constructor */{
-                        tag: 17,
-                        name: "Formatting_lit",
+                        tag: "Formatting_lit",
                         "0": /* constructor */{
-                          tag: 0,
-                          name: "Break",
+                          tag: "Break",
                           "0": "@ ",
                           "1": 1,
                           "2": 0
                         },
                         "1": /* constructor */{
-                          tag: 2,
-                          name: "String",
-                          "0": /* No_padding */0,
+                          tag: "String",
+                          "0": "No_padding",
                           "1": /* constructor */{
-                            tag: 17,
-                            name: "Formatting_lit",
-                            "0": /* Flush_newline */4,
-                            "1": /* End_of_format */0
+                            tag: "Formatting_lit",
+                            "0": "Flush_newline",
+                            "1": "End_of_format"
                           }
                         }
                       }
@@ -1695,18 +1439,15 @@ function test110(param) {
 
 function test111(param) {
   return Curry._1(Scanf.sscanf("", /* constructor */{
-                  tag: 0,
-                  name: "Format",
+                  tag: "Format",
                   "0": /* constructor */{
-                    tag: 20,
-                    name: "Scan_char_set",
+                    tag: "Scan_char_set",
                     "0": undefined,
                     "1": "\xff\xfb\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff",
                     "2": /* constructor */{
-                      tag: 17,
-                      name: "Formatting_lit",
-                      "0": /* Force_newline */3,
-                      "1": /* End_of_format */0
+                      tag: "Formatting_lit",
+                      "0": "Force_newline",
+                      "1": "End_of_format"
                     }
                   },
                   "1": "%[^\n]@\n"
@@ -1715,7 +1456,7 @@ function test111(param) {
               }));
 }
 
-test("File \"tscanf_test.ml\", line 293, characters 5-12", test11(/* () */0) && test110(/* () */0) && test111(/* () */0));
+test("File \"tscanf_test.ml\", line 293, characters 5-12", test11("()") && test110("()") && test111("()"));
 
 function ib(param) {
   return Scanf.Scanning.from_string("[1;2;3;4; ]");
@@ -1723,136 +1464,112 @@ function ib(param) {
 
 function f(ib) {
   Curry._1(Scanf.bscanf(ib, /* constructor */{
-            tag: 0,
-            name: "Format",
+            tag: "Format",
             "0": /* constructor */{
-              tag: 11,
-              name: "String_literal",
+              tag: "String_literal",
               "0": " [",
-              "1": /* End_of_format */0
+              "1": "End_of_format"
             },
             "1": " ["
-          }), /* () */0);
+          }), "()");
   return Curry._1(Scanf.bscanf(ib, /* constructor */{
-                  tag: 0,
-                  name: "Format",
+                  tag: "Format",
                   "0": /* constructor */{
-                    tag: 12,
-                    name: "Char_literal",
+                    tag: "Char_literal",
                     "0": /* " " */32,
                     "1": /* constructor */{
-                      tag: 4,
-                      name: "Int",
-                      "0": /* Int_i */3,
-                      "1": /* No_padding */0,
-                      "2": /* No_precision */0,
+                      tag: "Int",
+                      "0": "Int_i",
+                      "1": "No_padding",
+                      "2": "No_precision",
                       "3": /* constructor */{
-                        tag: 12,
-                        name: "Char_literal",
+                        tag: "Char_literal",
                         "0": /* ";" */59,
-                        "1": /* End_of_format */0
+                        "1": "End_of_format"
                       }
                     }
                   },
                   "1": " %i;"
                 }), (function (i) {
                 return Curry._1(Scanf.bscanf(ib, /* constructor */{
-                                tag: 0,
-                                name: "Format",
+                                tag: "Format",
                                 "0": /* constructor */{
-                                  tag: 12,
-                                  name: "Char_literal",
+                                  tag: "Char_literal",
                                   "0": /* " " */32,
                                   "1": /* constructor */{
-                                    tag: 4,
-                                    name: "Int",
-                                    "0": /* Int_i */3,
-                                    "1": /* No_padding */0,
-                                    "2": /* No_precision */0,
+                                    tag: "Int",
+                                    "0": "Int_i",
+                                    "1": "No_padding",
+                                    "2": "No_precision",
                                     "3": /* constructor */{
-                                      tag: 12,
-                                      name: "Char_literal",
+                                      tag: "Char_literal",
                                       "0": /* ";" */59,
-                                      "1": /* End_of_format */0
+                                      "1": "End_of_format"
                                     }
                                   }
                                 },
                                 "1": " %i;"
                               }), (function (j) {
                               return Curry._1(Scanf.bscanf(ib, /* constructor */{
-                                              tag: 0,
-                                              name: "Format",
+                                              tag: "Format",
                                               "0": /* constructor */{
-                                                tag: 12,
-                                                name: "Char_literal",
+                                                tag: "Char_literal",
                                                 "0": /* " " */32,
                                                 "1": /* constructor */{
-                                                  tag: 4,
-                                                  name: "Int",
-                                                  "0": /* Int_i */3,
-                                                  "1": /* No_padding */0,
-                                                  "2": /* No_precision */0,
+                                                  tag: "Int",
+                                                  "0": "Int_i",
+                                                  "1": "No_padding",
+                                                  "2": "No_precision",
                                                   "3": /* constructor */{
-                                                    tag: 12,
-                                                    name: "Char_literal",
+                                                    tag: "Char_literal",
                                                     "0": /* ";" */59,
-                                                    "1": /* End_of_format */0
+                                                    "1": "End_of_format"
                                                   }
                                                 }
                                               },
                                               "1": " %i;"
                                             }), (function (k) {
                                             return Curry._1(Scanf.bscanf(ib, /* constructor */{
-                                                            tag: 0,
-                                                            name: "Format",
+                                                            tag: "Format",
                                                             "0": /* constructor */{
-                                                              tag: 12,
-                                                              name: "Char_literal",
+                                                              tag: "Char_literal",
                                                               "0": /* " " */32,
                                                               "1": /* constructor */{
-                                                                tag: 4,
-                                                                name: "Int",
-                                                                "0": /* Int_i */3,
-                                                                "1": /* No_padding */0,
-                                                                "2": /* No_precision */0,
+                                                                tag: "Int",
+                                                                "0": "Int_i",
+                                                                "1": "No_padding",
+                                                                "2": "No_precision",
                                                                 "3": /* constructor */{
-                                                                  tag: 12,
-                                                                  name: "Char_literal",
+                                                                  tag: "Char_literal",
                                                                   "0": /* ";" */59,
-                                                                  "1": /* End_of_format */0
+                                                                  "1": "End_of_format"
                                                                 }
                                                               }
                                                             },
                                                             "1": " %i;"
                                                           }), (function (l) {
                                                           Curry._1(Scanf.bscanf(ib, /* constructor */{
-                                                                    tag: 0,
-                                                                    name: "Format",
+                                                                    tag: "Format",
                                                                     "0": /* constructor */{
-                                                                      tag: 11,
-                                                                      name: "String_literal",
+                                                                      tag: "String_literal",
                                                                       "0": " ]",
-                                                                      "1": /* End_of_format */0
+                                                                      "1": "End_of_format"
                                                                     },
                                                                     "1": " ]"
-                                                                  }), /* () */0);
+                                                                  }), "()");
                                                           return /* constructor */{
-                                                                  tag: 0,
-                                                                  name: "::",
+                                                                  tag: "::",
                                                                   "0": i,
                                                                   "1": /* constructor */{
-                                                                    tag: 0,
-                                                                    name: "::",
+                                                                    tag: "::",
                                                                     "0": j,
                                                                     "1": /* constructor */{
-                                                                      tag: 0,
-                                                                      name: "::",
+                                                                      tag: "::",
                                                                       "0": k,
                                                                       "1": /* constructor */{
-                                                                        tag: 0,
-                                                                        name: "::",
+                                                                        tag: "::",
                                                                         "0": l,
-                                                                        "1": /* [] */0
+                                                                        "1": "[]"
                                                                       }
                                                                     }
                                                                   }
@@ -1865,58 +1582,49 @@ function f(ib) {
 
 function test12(param) {
   return Caml_obj.caml_equal(f(Scanf.Scanning.from_string("[1;2;3;4; ]")), /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": 1,
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": 2,
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": 3,
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": 4,
-                    "1": /* [] */0
+                    "1": "[]"
                   }
                 }
               }
             });
 }
 
-test("File \"tscanf_test.ml\", line 311, characters 5-12", test12(/* () */0));
+test("File \"tscanf_test.ml\", line 311, characters 5-12", test12("()"));
 
 function scan_elems(ib, accu) {
   try {
     return Curry._1(Scanf.bscanf(ib, /* constructor */{
-                    tag: 0,
-                    name: "Format",
+                    tag: "Format",
                     "0": /* constructor */{
-                      tag: 12,
-                      name: "Char_literal",
+                      tag: "Char_literal",
                       "0": /* " " */32,
                       "1": /* constructor */{
-                        tag: 4,
-                        name: "Int",
-                        "0": /* Int_i */3,
-                        "1": /* No_padding */0,
-                        "2": /* No_precision */0,
+                        tag: "Int",
+                        "0": "Int_i",
+                        "1": "No_padding",
+                        "2": "No_precision",
                         "3": /* constructor */{
-                          tag: 12,
-                          name: "Char_literal",
+                          tag: "Char_literal",
                           "0": /* ";" */59,
-                          "1": /* End_of_format */0
+                          "1": "End_of_format"
                         }
                       }
                     },
                     "1": " %i;"
                   }), (function (i) {
                   return scan_elems(ib, /* constructor */{
-                              tag: 0,
-                              name: "::",
+                              tag: "::",
                               "0": i,
                               "1": accu
                             });
@@ -1929,120 +1637,101 @@ function scan_elems(ib, accu) {
 
 function g(ib) {
   Curry._1(Scanf.bscanf(ib, /* constructor */{
-            tag: 0,
-            name: "Format",
+            tag: "Format",
             "0": /* constructor */{
-              tag: 11,
-              name: "String_literal",
+              tag: "String_literal",
               "0": "[ ",
-              "1": /* End_of_format */0
+              "1": "End_of_format"
             },
             "1": "[ "
-          }), /* () */0);
-  return List.rev(scan_elems(ib, /* [] */0));
+          }), "()");
+  return List.rev(scan_elems(ib, "[]"));
 }
 
 function test13(param) {
   return Caml_obj.caml_equal(g(Scanf.Scanning.from_string("[1;2;3;4; ]")), /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": 1,
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": 2,
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": 3,
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": 4,
-                    "1": /* [] */0
+                    "1": "[]"
                   }
                 }
               }
             });
 }
 
-test("File \"tscanf_test.ml\", line 324, characters 5-12", test13(/* () */0));
+test("File \"tscanf_test.ml\", line 324, characters 5-12", test13("()"));
 
 function scan_int_list(ib) {
   Curry._1(Scanf.bscanf(ib, /* constructor */{
-            tag: 0,
-            name: "Format",
+            tag: "Format",
             "0": /* constructor */{
-              tag: 11,
-              name: "String_literal",
+              tag: "String_literal",
               "0": "[ ",
-              "1": /* End_of_format */0
+              "1": "End_of_format"
             },
             "1": "[ "
-          }), /* () */0);
-  var accu = scan_elems(ib, /* [] */0);
+          }), "()");
+  var accu = scan_elems(ib, "[]");
   Curry._1(Scanf.bscanf(ib, /* constructor */{
-            tag: 0,
-            name: "Format",
+            tag: "Format",
             "0": /* constructor */{
-              tag: 11,
-              name: "String_literal",
+              tag: "String_literal",
               "0": " ]",
-              "1": /* End_of_format */0
+              "1": "End_of_format"
             },
             "1": " ]"
-          }), /* () */0);
+          }), "()");
   return List.rev(accu);
 }
 
 function test14(param) {
   return Caml_obj.caml_equal(scan_int_list(Scanf.Scanning.from_string("[1;2;3;4; ]")), /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": 1,
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": 2,
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": 3,
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": 4,
-                    "1": /* [] */0
+                    "1": "[]"
                   }
                 }
               }
             });
 }
 
-test("File \"tscanf_test.ml\", line 337, characters 5-12", test14(/* () */0));
+test("File \"tscanf_test.ml\", line 337, characters 5-12", test14("()"));
 
 function scan_elems$1(ib, accu) {
   return Curry._1(Scanf.bscanf(ib, /* constructor */{
-                  tag: 0,
-                  name: "Format",
+                  tag: "Format",
                   "0": /* constructor */{
-                    tag: 12,
-                    name: "Char_literal",
+                    tag: "Char_literal",
                     "0": /* " " */32,
                     "1": /* constructor */{
-                      tag: 4,
-                      name: "Int",
-                      "0": /* Int_i */3,
-                      "1": /* No_padding */0,
-                      "2": /* No_precision */0,
+                      tag: "Int",
+                      "0": "Int_i",
+                      "1": "No_padding",
+                      "2": "No_precision",
                       "3": /* constructor */{
-                        tag: 12,
-                        name: "Char_literal",
+                        tag: "Char_literal",
                         "0": /* " " */32,
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "Char",
-                          "0": /* End_of_format */0
+                          tag: "Char",
+                          "0": "End_of_format"
                         }
                       }
                     }
@@ -2057,15 +1746,13 @@ function scan_elems$1(ib, accu) {
                         ];
                   }
                   return List.rev(/* constructor */{
-                              tag: 0,
-                              name: "::",
+                              tag: "::",
                               "0": i,
                               "1": accu
                             });
                 } else {
                   return scan_elems$1(ib, /* constructor */{
-                              tag: 0,
-                              name: "::",
+                              tag: "::",
                               "0": i,
                               "1": accu
                             });
@@ -2075,64 +1762,54 @@ function scan_elems$1(ib, accu) {
 
 function scan_int_list$1(ib) {
   Curry._1(Scanf.bscanf(ib, /* constructor */{
-            tag: 0,
-            name: "Format",
+            tag: "Format",
             "0": /* constructor */{
-              tag: 11,
-              name: "String_literal",
+              tag: "String_literal",
               "0": "[ ",
-              "1": /* End_of_format */0
+              "1": "End_of_format"
             },
             "1": "[ "
-          }), /* () */0);
-  return scan_elems$1(ib, /* [] */0);
+          }), "()");
+  return scan_elems$1(ib, "[]");
 }
 
 function test15(param) {
   return Caml_obj.caml_equal(scan_int_list$1(Scanf.Scanning.from_string("[1;2;3;4]")), /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": 1,
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": 2,
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": 3,
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": 4,
-                    "1": /* [] */0
+                    "1": "[]"
                   }
                 }
               }
             });
 }
 
-test("File \"tscanf_test.ml\", line 357, characters 5-12", test15(/* () */0));
+test("File \"tscanf_test.ml\", line 357, characters 5-12", test15("()"));
 
 function scan_elems$2(ib, accu) {
   try {
     return Curry._1(Scanf.bscanf(ib, /* constructor */{
-                    tag: 0,
-                    name: "Format",
+                    tag: "Format",
                     "0": /* constructor */{
-                      tag: 0,
-                      name: "Char",
+                      tag: "Char",
                       "0": /* constructor */{
-                        tag: 12,
-                        name: "Char_literal",
+                        tag: "Char_literal",
                         "0": /* " " */32,
                         "1": /* constructor */{
-                          tag: 4,
-                          name: "Int",
-                          "0": /* Int_i */3,
-                          "1": /* No_padding */0,
-                          "2": /* No_precision */0,
-                          "3": /* End_of_format */0
+                          tag: "Int",
+                          "0": "Int_i",
+                          "1": "No_padding",
+                          "2": "No_precision",
+                          "3": "End_of_format"
                         }
                       }
                     },
@@ -2142,10 +1819,9 @@ function scan_elems$2(ib, accu) {
                     if (c < 94) {
                       switch (c - 91 | 0) {
                         case 0 :
-                            if (accu === /* [] */0) {
+                            if (accu === "[]") {
                               return scan_elems$2(ib, /* constructor */{
-                                          tag: 0,
-                                          name: "::",
+                                          tag: "::",
                                           "0": i,
                                           "1": accu
                                         });
@@ -2155,8 +1831,7 @@ function scan_elems$2(ib, accu) {
                             break;
                         case 2 :
                             return List.rev(/* constructor */{
-                                        tag: 0,
-                                        name: "::",
+                                        tag: "::",
                                         "0": i,
                                         "1": accu
                                       });
@@ -2166,8 +1841,7 @@ function scan_elems$2(ib, accu) {
                     
                   } else if (c === 59) {
                     return scan_elems$2(ib, /* constructor */{
-                                tag: 0,
-                                name: "::",
+                                tag: "::",
                                 "0": i,
                                 "1": accu
                               });
@@ -2183,16 +1857,14 @@ function scan_elems$2(ib, accu) {
     var exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
     if (exn[0] === Scanf.Scan_failure) {
       Curry._1(Scanf.bscanf(ib, /* constructor */{
-                tag: 0,
-                name: "Format",
+                tag: "Format",
                 "0": /* constructor */{
-                  tag: 12,
-                  name: "Char_literal",
+                  tag: "Char_literal",
                   "0": /* "]" */93,
-                  "1": /* End_of_format */0
+                  "1": "End_of_format"
                 },
                 "1": "]"
-              }), /* () */0);
+              }), "()");
       return accu;
     } else if (exn === Caml_builtin_exceptions.end_of_file) {
       return accu;
@@ -2203,64 +1875,52 @@ function scan_elems$2(ib, accu) {
 }
 
 function test16(param) {
-  if (Caml_obj.caml_equal(scan_elems$2(Scanf.Scanning.from_string("[]"), /* [] */0), List.rev(/* [] */0)) && Caml_obj.caml_equal(scan_elems$2(Scanf.Scanning.from_string("[1;2;3;4]"), /* [] */0), List.rev(/* constructor */{
-              tag: 0,
-              name: "::",
+  if (Caml_obj.caml_equal(scan_elems$2(Scanf.Scanning.from_string("[]"), "[]"), List.rev("[]")) && Caml_obj.caml_equal(scan_elems$2(Scanf.Scanning.from_string("[1;2;3;4]"), "[]"), List.rev(/* constructor */{
+              tag: "::",
               "0": 1,
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": 2,
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": 3,
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": 4,
-                    "1": /* [] */0
+                    "1": "[]"
                   }
                 }
               }
-            })) && Caml_obj.caml_equal(scan_elems$2(Scanf.Scanning.from_string("[1;2;3;4; ]"), /* [] */0), List.rev(/* constructor */{
-              tag: 0,
-              name: "::",
+            })) && Caml_obj.caml_equal(scan_elems$2(Scanf.Scanning.from_string("[1;2;3;4; ]"), "[]"), List.rev(/* constructor */{
+              tag: "::",
               "0": 1,
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": 2,
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": 3,
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": 4,
-                    "1": /* [] */0
+                    "1": "[]"
                   }
                 }
               }
             }))) {
-    return Caml_obj.caml_equal(scan_elems$2(Scanf.Scanning.from_string("[1;2;3;4"), /* [] */0), List.rev(/* constructor */{
-                    tag: 0,
-                    name: "::",
+    return Caml_obj.caml_equal(scan_elems$2(Scanf.Scanning.from_string("[1;2;3;4"), "[]"), List.rev(/* constructor */{
+                    tag: "::",
                     "0": 1,
                     "1": /* constructor */{
-                      tag: 0,
-                      name: "::",
+                      tag: "::",
                       "0": 2,
                       "1": /* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": 3,
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": 4,
-                          "1": /* [] */0
+                          "1": "[]"
                         }
                       }
                     }
@@ -2270,28 +1930,24 @@ function test16(param) {
   }
 }
 
-test("File \"tscanf_test.ml\", line 383, characters 5-12", test16(/* () */0));
+test("File \"tscanf_test.ml\", line 383, characters 5-12", test16("()"));
 
 function scan_elems$3(ib, accu) {
   return Curry._1(Scanf.bscanf(ib, /* constructor */{
-                  tag: 0,
-                  name: "Format",
+                  tag: "Format",
                   "0": /* constructor */{
-                    tag: 12,
-                    name: "Char_literal",
+                    tag: "Char_literal",
                     "0": /* " " */32,
                     "1": /* constructor */{
-                      tag: 4,
-                      name: "Int",
-                      "0": /* Int_i */3,
-                      "1": /* No_padding */0,
-                      "2": /* No_precision */0,
+                      tag: "Int",
+                      "0": "Int_i",
+                      "1": "No_padding",
+                      "2": "No_precision",
                       "3": /* constructor */{
-                        tag: 20,
-                        name: "Scan_char_set",
+                        tag: "Scan_char_set",
                         "0": undefined,
                         "1": "\0&\0\0\x01\0\0\b\0\0\0 \0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
-                        "2": /* End_of_format */0
+                        "2": "End_of_format"
                       }
                     }
                   },
@@ -2300,22 +1956,19 @@ function scan_elems$3(ib, accu) {
                 switch (s) {
                   case ";" :
                       return scan_elems$3(ib, /* constructor */{
-                                  tag: 0,
-                                  name: "::",
+                                  tag: "::",
                                   "0": i,
                                   "1": accu
                                 });
                   case "]" :
                       return List.rev(/* constructor */{
-                                  tag: 0,
-                                  name: "::",
+                                  tag: "::",
                                   "0": i,
                                   "1": accu
                                 });
                   default:
                     return List.rev(/* constructor */{
-                                tag: 0,
-                                name: "::",
+                                tag: "::",
                                 "0": i,
                                 "1": accu
                               });
@@ -2325,78 +1978,64 @@ function scan_elems$3(ib, accu) {
 
 function scan_int_list$2(ib) {
   Curry._1(Scanf.bscanf(ib, /* constructor */{
-            tag: 0,
-            name: "Format",
+            tag: "Format",
             "0": /* constructor */{
-              tag: 11,
-              name: "String_literal",
+              tag: "String_literal",
               "0": " [",
-              "1": /* End_of_format */0
+              "1": "End_of_format"
             },
             "1": " ["
-          }), /* () */0);
-  return scan_elems$3(ib, /* [] */0);
+          }), "()");
+  return scan_elems$3(ib, "[]");
 }
 
 function test17(param) {
   if (Caml_obj.caml_equal(scan_int_list$2(Scanf.Scanning.from_string("[1;2;3;4]")), /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": 1,
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": 2,
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": 3,
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": 4,
-                "1": /* [] */0
+                "1": "[]"
               }
             }
           }
         }) && Caml_obj.caml_equal(scan_int_list$2(Scanf.Scanning.from_string("[1;2;3;4; ]")), /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": 1,
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": 2,
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": 3,
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": 4,
-                "1": /* [] */0
+                "1": "[]"
               }
             }
           }
         })) {
     return Caml_obj.caml_equal(scan_int_list$2(Scanf.Scanning.from_string("[1;2;3;4 5]")), /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": 1,
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": 2,
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": 3,
                     "1": /* constructor */{
-                      tag: 0,
-                      name: "::",
+                      tag: "::",
                       "0": 4,
-                      "1": /* [] */0
+                      "1": "[]"
                     }
                   }
                 }
@@ -2406,24 +2045,20 @@ function test17(param) {
   }
 }
 
-test("File \"tscanf_test.ml\", line 406, characters 5-12", test17(/* () */0));
+test("File \"tscanf_test.ml\", line 406, characters 5-12", test17("()"));
 
 function scan_rest(ib, accu) {
   return Curry._1(Scanf.bscanf(ib, /* constructor */{
-                  tag: 0,
-                  name: "Format",
+                  tag: "Format",
                   "0": /* constructor */{
-                    tag: 12,
-                    name: "Char_literal",
+                    tag: "Char_literal",
                     "0": /* " " */32,
                     "1": /* constructor */{
-                      tag: 0,
-                      name: "Char",
+                      tag: "Char",
                       "0": /* constructor */{
-                        tag: 12,
-                        name: "Char_literal",
+                        tag: "Char_literal",
                         "0": /* " " */32,
-                        "1": /* End_of_format */0
+                        "1": "End_of_format"
                       }
                     }
                   },
@@ -2439,14 +2074,12 @@ function scan_rest(ib, accu) {
                   return accu;
                 } else {
                   return Curry._1(Scanf.bscanf(ib, /* constructor */{
-                                  tag: 0,
-                                  name: "Format",
+                                  tag: "Format",
                                   "0": /* constructor */{
-                                    tag: 20,
-                                    name: "Scan_char_set",
+                                    tag: "Scan_char_set",
                                     "0": undefined,
                                     "1": "\0\0\0\0\0\0\0\0\0\0\0 \0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
-                                    "2": /* End_of_format */0
+                                    "2": "End_of_format"
                                   },
                                   "1": "%[]]"
                                 }), (function (param) {
@@ -2454,31 +2087,26 @@ function scan_rest(ib, accu) {
                                   return accu;
                                 } else {
                                   return Curry._1(Scanf.bscanf(ib, /* constructor */{
-                                                  tag: 0,
-                                                  name: "Format",
+                                                  tag: "Format",
                                                   "0": /* constructor */{
-                                                    tag: 12,
-                                                    name: "Char_literal",
+                                                    tag: "Char_literal",
                                                     "0": /* " " */32,
                                                     "1": /* constructor */{
-                                                      tag: 4,
-                                                      name: "Int",
-                                                      "0": /* Int_i */3,
-                                                      "1": /* No_padding */0,
-                                                      "2": /* No_precision */0,
+                                                      tag: "Int",
+                                                      "0": "Int_i",
+                                                      "1": "No_padding",
+                                                      "2": "No_precision",
                                                       "3": /* constructor */{
-                                                        tag: 12,
-                                                        name: "Char_literal",
+                                                        tag: "Char_literal",
                                                         "0": /* " " */32,
-                                                        "1": /* End_of_format */0
+                                                        "1": "End_of_format"
                                                       }
                                                     }
                                                   },
                                                   "1": " %i "
                                                 }), (function (i) {
                                                 return scan_rest(ib, /* constructor */{
-                                                            tag: 0,
-                                                            name: "::",
+                                                            tag: "::",
                                                             "0": i,
                                                             "1": accu
                                                           });
@@ -2491,20 +2119,16 @@ function scan_rest(ib, accu) {
 
 function scan_elems$4(ib, accu) {
   return Curry._1(Scanf.bscanf(ib, /* constructor */{
-                  tag: 0,
-                  name: "Format",
+                  tag: "Format",
                   "0": /* constructor */{
-                    tag: 12,
-                    name: "Char_literal",
+                    tag: "Char_literal",
                     "0": /* " " */32,
                     "1": /* constructor */{
-                      tag: 0,
-                      name: "Char",
+                      tag: "Char",
                       "0": /* constructor */{
-                        tag: 12,
-                        name: "Char_literal",
+                        tag: "Char_literal",
                         "0": /* " " */32,
-                        "1": /* End_of_format */0
+                        "1": "End_of_format"
                       }
                     }
                   },
@@ -2516,16 +2140,14 @@ function scan_elems$4(ib, accu) {
                         "scan_elems"
                       ];
                 }
-                if (accu === /* [] */0) {
+                if (accu === "[]") {
                   return Curry._1(Scanf.bscanf(ib, /* constructor */{
-                                  tag: 0,
-                                  name: "Format",
+                                  tag: "Format",
                                   "0": /* constructor */{
-                                    tag: 20,
-                                    name: "Scan_char_set",
+                                    tag: "Scan_char_set",
                                     "0": undefined,
                                     "1": "\0\0\0\0\0\0\0\0\0\0\0 \0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
-                                    "2": /* End_of_format */0
+                                    "2": "End_of_format"
                                   },
                                   "1": "%[]]"
                                 }), (function (param) {
@@ -2533,31 +2155,26 @@ function scan_elems$4(ib, accu) {
                                   return accu;
                                 } else {
                                   return Curry._1(Scanf.bscanf(ib, /* constructor */{
-                                                  tag: 0,
-                                                  name: "Format",
+                                                  tag: "Format",
                                                   "0": /* constructor */{
-                                                    tag: 12,
-                                                    name: "Char_literal",
+                                                    tag: "Char_literal",
                                                     "0": /* " " */32,
                                                     "1": /* constructor */{
-                                                      tag: 4,
-                                                      name: "Int",
-                                                      "0": /* Int_i */3,
-                                                      "1": /* No_padding */0,
-                                                      "2": /* No_precision */0,
+                                                      tag: "Int",
+                                                      "0": "Int_i",
+                                                      "1": "No_padding",
+                                                      "2": "No_precision",
                                                       "3": /* constructor */{
-                                                        tag: 12,
-                                                        name: "Char_literal",
+                                                        tag: "Char_literal",
                                                         "0": /* " " */32,
-                                                        "1": /* End_of_format */0
+                                                        "1": "End_of_format"
                                                       }
                                                     }
                                                   },
                                                   "1": " %i "
                                                 }), (function (i) {
                                                 return scan_rest(ib, /* constructor */{
-                                                            tag: 0,
-                                                            name: "::",
+                                                            tag: "::",
                                                             "0": i,
                                                             "1": accu
                                                           });
@@ -2574,54 +2191,46 @@ function scan_elems$4(ib, accu) {
 }
 
 function scan_int_list$3(ib) {
-  return List.rev(scan_elems$4(ib, /* [] */0));
+  return List.rev(scan_elems$4(ib, "[]"));
 }
 
 function test18(param) {
   var ib = Scanf.Scanning.from_string("[]");
-  if (List.rev(scan_elems$4(ib, /* [] */0)) === /* [] */0) {
+  if (List.rev(scan_elems$4(ib, "[]")) === "[]") {
     var ib$1 = Scanf.Scanning.from_string("[ ]");
-    if (List.rev(scan_elems$4(ib$1, /* [] */0)) === /* [] */0) {
+    if (List.rev(scan_elems$4(ib$1, "[]")) === "[]") {
       var ib$2 = Scanf.Scanning.from_string("[1;2;3;4]");
-      if (Caml_obj.caml_equal(List.rev(scan_elems$4(ib$2, /* [] */0)), /* constructor */{
-              tag: 0,
-              name: "::",
+      if (Caml_obj.caml_equal(List.rev(scan_elems$4(ib$2, "[]")), /* constructor */{
+              tag: "::",
               "0": 1,
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": 2,
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": 3,
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": 4,
-                    "1": /* [] */0
+                    "1": "[]"
                   }
                 }
               }
             })) {
         var ib$3 = Scanf.Scanning.from_string("[1;2;3;4; ]");
-        return Caml_obj.caml_equal(List.rev(scan_elems$4(ib$3, /* [] */0)), /* constructor */{
-                    tag: 0,
-                    name: "::",
+        return Caml_obj.caml_equal(List.rev(scan_elems$4(ib$3, "[]")), /* constructor */{
+                    tag: "::",
                     "0": 1,
                     "1": /* constructor */{
-                      tag: 0,
-                      name: "::",
+                      tag: "::",
                       "0": 2,
                       "1": /* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": 3,
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": 4,
-                          "1": /* [] */0
+                          "1": "[]"
                         }
                       }
                     }
@@ -2637,36 +2246,34 @@ function test18(param) {
   }
 }
 
-test("File \"tscanf_test.ml\", line 446, characters 5-12", test18(/* () */0));
+test("File \"tscanf_test.ml\", line 446, characters 5-12", test18("()"));
 
 function test19(param) {
   return Testing.failure_test(scan_int_list$3, Scanf.Scanning.from_string("[1;2;3;4 5]"), "scan_rest");
 }
 
-test19(/* () */0);
+test19("()");
 
 function test20(param) {
   return Testing.scan_failure_test(scan_int_list$3, Scanf.Scanning.from_string("[1;2;3;4;; 5]"));
 }
 
-test20(/* () */0);
+test20("()");
 
 function test21(param) {
   return Testing.scan_failure_test(scan_int_list$3, Scanf.Scanning.from_string("[1;2;3;4;;"));
 }
 
-test21(/* () */0);
+test21("()");
 
 function scan_rest$1(ib, accu) {
   return Curry._1(Scanf.bscanf(ib, /* constructor */{
-                  tag: 0,
-                  name: "Format",
+                  tag: "Format",
                   "0": /* constructor */{
-                    tag: 20,
-                    name: "Scan_char_set",
+                    tag: "Scan_char_set",
                     "0": undefined,
                     "1": "\0\0\0\0\0\0\0\0\0\0\0 \0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
-                    "2": /* End_of_format */0
+                    "2": "End_of_format"
                   },
                   "1": "%[]]"
                 }), (function (param) {
@@ -2676,23 +2283,19 @@ function scan_rest$1(ib, accu) {
                   var ib$1 = ib;
                   var accu$1 = accu;
                   return Curry._1(Scanf.bscanf(ib$1, /* constructor */{
-                                  tag: 0,
-                                  name: "Format",
+                                  tag: "Format",
                                   "0": /* constructor */{
-                                    tag: 12,
-                                    name: "Char_literal",
+                                    tag: "Char_literal",
                                     "0": /* " " */32,
                                     "1": /* constructor */{
-                                      tag: 4,
-                                      name: "Int",
-                                      "0": /* Int_i */3,
-                                      "1": /* No_padding */0,
-                                      "2": /* No_precision */0,
+                                      tag: "Int",
+                                      "0": "Int_i",
+                                      "1": "No_padding",
+                                      "2": "No_precision",
                                       "3": /* constructor */{
-                                        tag: 12,
-                                        name: "Char_literal",
+                                        tag: "Char_literal",
                                         "0": /* " " */32,
-                                        "1": /* End_of_format */0
+                                        "1": "End_of_format"
                                       }
                                     }
                                   },
@@ -2700,20 +2303,17 @@ function scan_rest$1(ib, accu) {
                                 }), (function (i) {
                                 var ib$2 = ib$1;
                                 var accu$2 = /* constructor */{
-                                  tag: 0,
-                                  name: "::",
+                                  tag: "::",
                                   "0": i,
                                   "1": accu$1
                                 };
                                 return Curry._1(Scanf.bscanf(ib$2, /* constructor */{
-                                                tag: 0,
-                                                name: "Format",
+                                                tag: "Format",
                                                 "0": /* constructor */{
-                                                  tag: 20,
-                                                  name: "Scan_char_set",
+                                                  tag: "Scan_char_set",
                                                   "0": 1,
                                                   "1": "\0\0\0\0\0\0\0\b\0\0\0 \0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
-                                                  "2": /* End_of_format */0
+                                                  "2": "End_of_format"
                                                 },
                                                 "1": "%1[];]"
                                               }), (function (param) {
@@ -2724,13 +2324,11 @@ function scan_rest$1(ib, accu) {
                                                     return accu$2;
                                                 default:
                                                   var s = Printf.sprintf(/* constructor */{
-                                                        tag: 0,
-                                                        name: "Format",
+                                                        tag: "Format",
                                                         "0": /* constructor */{
-                                                          tag: 11,
-                                                          name: "String_literal",
+                                                          tag: "String_literal",
                                                           "0": "scan_int_list",
-                                                          "1": /* End_of_format */0
+                                                          "1": "End_of_format"
                                                         },
                                                         "1": "scan_int_list"
                                                       });
@@ -2747,63 +2345,52 @@ function scan_rest$1(ib, accu) {
 
 function scan_int_list$4(ib) {
   Curry._1(Scanf.bscanf(ib, /* constructor */{
-            tag: 0,
-            name: "Format",
+            tag: "Format",
             "0": /* constructor */{
-              tag: 11,
-              name: "String_literal",
+              tag: "String_literal",
               "0": " [ ",
-              "1": /* End_of_format */0
+              "1": "End_of_format"
             },
             "1": " [ "
-          }), /* () */0);
-  return List.rev(scan_rest$1(ib, /* [] */0));
+          }), "()");
+  return List.rev(scan_rest$1(ib, "[]"));
 }
 
 function test22(param) {
-  if (scan_int_list$4(Scanf.Scanning.from_string("[]")) === /* [] */0 && scan_int_list$4(Scanf.Scanning.from_string("[ ]")) === /* [] */0 && Caml_obj.caml_equal(scan_int_list$4(Scanf.Scanning.from_string("[1]")), /* constructor */{
-          tag: 0,
-          name: "::",
+  if (scan_int_list$4(Scanf.Scanning.from_string("[]")) === "[]" && scan_int_list$4(Scanf.Scanning.from_string("[ ]")) === "[]" && Caml_obj.caml_equal(scan_int_list$4(Scanf.Scanning.from_string("[1]")), /* constructor */{
+          tag: "::",
           "0": 1,
-          "1": /* [] */0
+          "1": "[]"
         }) && Caml_obj.caml_equal(scan_int_list$4(Scanf.Scanning.from_string("[1;2;3;4]")), /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": 1,
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": 2,
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": 3,
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": 4,
-                "1": /* [] */0
+                "1": "[]"
               }
             }
           }
         })) {
     return Caml_obj.caml_equal(scan_int_list$4(Scanf.Scanning.from_string("[1;2;3;4;]")), /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": 1,
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": 2,
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": 3,
                     "1": /* constructor */{
-                      tag: 0,
-                      name: "::",
+                      tag: "::",
                       "0": 4,
-                      "1": /* [] */0
+                      "1": "[]"
                     }
                   }
                 }
@@ -2813,14 +2400,13 @@ function test22(param) {
   }
 }
 
-test("File \"tscanf_test.ml\", line 506, characters 5-12", test22(/* () */0));
+test("File \"tscanf_test.ml\", line 506, characters 5-12", test22("()"));
 
 function scan_elems$5(ib, scan_elem, accu) {
   try {
     return Curry._2(scan_elem, ib, (function (i, s) {
                   var accu$1 = /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": i,
                     "1": accu
                   };
@@ -2843,55 +2429,46 @@ function scan_elems$5(ib, scan_elem, accu) {
 
 function scan_list(scan_elem, ib) {
   Curry._1(Scanf.bscanf(ib, /* constructor */{
-            tag: 0,
-            name: "Format",
+            tag: "Format",
             "0": /* constructor */{
-              tag: 11,
-              name: "String_literal",
+              tag: "String_literal",
               "0": "[ ",
-              "1": /* End_of_format */0
+              "1": "End_of_format"
             },
             "1": "[ "
-          }), /* () */0);
-  var accu = scan_elems$5(ib, scan_elem, /* [] */0);
+          }), "()");
+  var accu = scan_elems$5(ib, scan_elem, "[]");
   Curry._1(Scanf.bscanf(ib, /* constructor */{
-            tag: 0,
-            name: "Format",
+            tag: "Format",
             "0": /* constructor */{
-              tag: 11,
-              name: "String_literal",
+              tag: "String_literal",
               "0": " ]",
-              "1": /* End_of_format */0
+              "1": "End_of_format"
             },
             "1": " ]"
-          }), /* () */0);
+          }), "()");
   return List.rev(accu);
 }
 
 function scan_int_elem(ib) {
   return Scanf.bscanf(ib, /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 12,
-                name: "Char_literal",
+                tag: "Char_literal",
                 "0": /* " " */32,
                 "1": /* constructor */{
-                  tag: 4,
-                  name: "Int",
-                  "0": /* Int_i */3,
-                  "1": /* No_padding */0,
-                  "2": /* No_precision */0,
+                  tag: "Int",
+                  "0": "Int_i",
+                  "1": "No_padding",
+                  "2": "No_precision",
                   "3": /* constructor */{
-                    tag: 12,
-                    name: "Char_literal",
+                    tag: "Char_literal",
                     "0": /* " " */32,
                     "1": /* constructor */{
-                      tag: 20,
-                      name: "Scan_char_set",
+                      tag: "Scan_char_set",
                       "0": 1,
                       "1": "\0\0\0\0\0\0\0\b\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
-                      "2": /* End_of_format */0
+                      "2": "End_of_format"
                     }
                   }
                 }
@@ -2905,49 +2482,40 @@ function scan_int_list$5(param) {
 }
 
 function test23(param) {
-  if (scan_list(scan_int_elem, Scanf.Scanning.from_string("[]")) === /* [] */0 && scan_list(scan_int_elem, Scanf.Scanning.from_string("[ ]")) === /* [] */0 && Caml_obj.caml_equal(scan_list(scan_int_elem, Scanf.Scanning.from_string("[1]")), /* constructor */{
-          tag: 0,
-          name: "::",
+  if (scan_list(scan_int_elem, Scanf.Scanning.from_string("[]")) === "[]" && scan_list(scan_int_elem, Scanf.Scanning.from_string("[ ]")) === "[]" && Caml_obj.caml_equal(scan_list(scan_int_elem, Scanf.Scanning.from_string("[1]")), /* constructor */{
+          tag: "::",
           "0": 1,
-          "1": /* [] */0
+          "1": "[]"
         }) && Caml_obj.caml_equal(scan_list(scan_int_elem, Scanf.Scanning.from_string("[1;2;3;4]")), /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": 1,
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": 2,
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": 3,
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": 4,
-                "1": /* [] */0
+                "1": "[]"
               }
             }
           }
         })) {
     return Caml_obj.caml_equal(scan_list(scan_int_elem, Scanf.Scanning.from_string("[1;2;3;4;]")), /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": 1,
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": 2,
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": 3,
                     "1": /* constructor */{
-                      tag: 0,
-                      name: "::",
+                      tag: "::",
                       "0": 4,
-                      "1": /* [] */0
+                      "1": "[]"
                     }
                   }
                 }
@@ -2957,7 +2525,7 @@ function test23(param) {
   }
 }
 
-test("File \"tscanf_test.ml\", line 562, characters 5-12", test23(/* () */0));
+test("File \"tscanf_test.ml\", line 562, characters 5-12", test23("()"));
 
 function test24(param) {
   return Testing.scan_failure_test(scan_int_list$5, Scanf.Scanning.from_string("[1;2;3;4 5]"));
@@ -2975,38 +2543,31 @@ function test27(param) {
   return Testing.scan_failure_test(scan_int_list$5, Scanf.Scanning.from_string("[1;2;3;4;; 23]"));
 }
 
-test24(/* () */0) && test25(/* () */0) && test26(/* () */0) && test27(/* () */0);
+test24("()") && test25("()") && test26("()") && test27("()");
 
 function scan_string_elem(ib) {
   return Scanf.bscanf(ib, /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 11,
-                name: "String_literal",
+                tag: "String_literal",
                 "0": " \"",
                 "1": /* constructor */{
-                  tag: 2,
-                  name: "String",
-                  "0": /* No_padding */0,
+                  tag: "String",
+                  "0": "No_padding",
                   "1": /* constructor */{
-                    tag: 17,
-                    name: "Formatting_lit",
+                    tag: "Formatting_lit",
                     "0": /* constructor */{
-                      tag: 2,
-                      name: "Scan_indic",
+                      tag: "Scan_indic",
                       "0": /* "\"" */34
                     },
                     "1": /* constructor */{
-                      tag: 12,
-                      name: "Char_literal",
+                      tag: "Char_literal",
                       "0": /* " " */32,
                       "1": /* constructor */{
-                        tag: 20,
-                        name: "Scan_char_set",
+                        tag: "Scan_char_set",
                         "0": 1,
                         "1": "\0\0\0\0\0\0\0\b\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
-                        "2": /* End_of_format */0
+                        "2": "End_of_format"
                       }
                     }
                   }
@@ -3018,26 +2579,21 @@ function scan_string_elem(ib) {
 
 function scan_String_elem(ib) {
   return Scanf.bscanf(ib, /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 12,
-                name: "Char_literal",
+                tag: "Char_literal",
                 "0": /* " " */32,
                 "1": /* constructor */{
-                  tag: 3,
-                  name: "Caml_string",
-                  "0": /* No_padding */0,
+                  tag: "Caml_string",
+                  "0": "No_padding",
                   "1": /* constructor */{
-                    tag: 12,
-                    name: "Char_literal",
+                    tag: "Char_literal",
                     "0": /* " " */32,
                     "1": /* constructor */{
-                      tag: 20,
-                      name: "Scan_char_set",
+                      tag: "Scan_char_set",
                       "0": 1,
                       "1": "\0\0\0\0\0\0\0\b\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
-                      "2": /* End_of_format */0
+                      "2": "End_of_format"
                     }
                   }
                 }
@@ -3051,94 +2607,76 @@ function scan_String_list(param) {
 }
 
 function test28(param) {
-  if (scan_list(scan_string_elem, Scanf.Scanning.from_string("[]")) === /* [] */0 && Caml_obj.caml_equal(scan_list(scan_string_elem, Scanf.Scanning.from_string("[\"Le\"]")), /* constructor */{
-          tag: 0,
-          name: "::",
+  if (scan_list(scan_string_elem, Scanf.Scanning.from_string("[]")) === "[]" && Caml_obj.caml_equal(scan_list(scan_string_elem, Scanf.Scanning.from_string("[\"Le\"]")), /* constructor */{
+          tag: "::",
           "0": "Le",
-          "1": /* [] */0
+          "1": "[]"
         }) && Caml_obj.caml_equal(scan_list(scan_string_elem, Scanf.Scanning.from_string("[\"Le\";\"langage\";\"Objective\";\"Caml\"]")), /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": "Le",
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": "langage",
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": "Objective",
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": "Caml",
-                "1": /* [] */0
+                "1": "[]"
               }
             }
           }
         }) && Caml_obj.caml_equal(scan_list(scan_string_elem, Scanf.Scanning.from_string("[\"Le\";\"langage\";\"Objective\";\"Caml\"; ]")), /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": "Le",
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": "langage",
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": "Objective",
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": "Caml",
-                "1": /* [] */0
+                "1": "[]"
               }
             }
           }
-        }) && scan_String_list(Scanf.Scanning.from_string("[]")) === /* [] */0 && Caml_obj.caml_equal(scan_String_list(Scanf.Scanning.from_string("[\"Le\"]")), /* constructor */{
-          tag: 0,
-          name: "::",
+        }) && scan_String_list(Scanf.Scanning.from_string("[]")) === "[]" && Caml_obj.caml_equal(scan_String_list(Scanf.Scanning.from_string("[\"Le\"]")), /* constructor */{
+          tag: "::",
           "0": "Le",
-          "1": /* [] */0
+          "1": "[]"
         }) && Caml_obj.caml_equal(scan_String_list(Scanf.Scanning.from_string("[\"Le\";\"langage\";\"Objective\";\"Caml\"]")), /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": "Le",
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": "langage",
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": "Objective",
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": "Caml",
-                "1": /* [] */0
+                "1": "[]"
               }
             }
           }
         })) {
     return Caml_obj.caml_equal(scan_String_list(Scanf.Scanning.from_string("[\"Le\";\"langage\";\"Objective\";\"Caml\"; ]")), /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": "Le",
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": "langage",
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": "Objective",
                     "1": /* constructor */{
-                      tag: 0,
-                      name: "::",
+                      tag: "::",
                       "0": "Caml",
-                      "1": /* [] */0
+                      "1": "[]"
                     }
                   }
                 }
@@ -3148,13 +2686,12 @@ function test28(param) {
   }
 }
 
-test("File \"tscanf_test.ml\", line 609, characters 5-12", test28(/* () */0));
+test("File \"tscanf_test.ml\", line 609, characters 5-12", test28("()"));
 
 function scan_elems$6(ib, scan_elem, accu) {
   return Curry._3(scan_elem, ib, (function (i, s) {
                 var accu$1 = /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": i,
                   "1": accu
                 };
@@ -3170,55 +2707,46 @@ function scan_elems$6(ib, scan_elem, accu) {
 
 function scan_list$1(scan_elem, ib) {
   Curry._1(Scanf.bscanf(ib, /* constructor */{
-            tag: 0,
-            name: "Format",
+            tag: "Format",
             "0": /* constructor */{
-              tag: 11,
-              name: "String_literal",
+              tag: "String_literal",
               "0": "[ ",
-              "1": /* End_of_format */0
+              "1": "End_of_format"
             },
             "1": "[ "
-          }), /* () */0);
-  var accu = scan_elems$6(ib, scan_elem, /* [] */0);
+          }), "()");
+  var accu = scan_elems$6(ib, scan_elem, "[]");
   Curry._1(Scanf.bscanf(ib, /* constructor */{
-            tag: 0,
-            name: "Format",
+            tag: "Format",
             "0": /* constructor */{
-              tag: 11,
-              name: "String_literal",
+              tag: "String_literal",
               "0": " ]",
-              "1": /* End_of_format */0
+              "1": "End_of_format"
             },
             "1": " ]"
-          }), /* () */0);
+          }), "()");
   return List.rev(accu);
 }
 
 function scan_int_elem$1(ib, f, ek) {
   return Curry._1(Scanf.kscanf(ib, ek, /* constructor */{
-                  tag: 0,
-                  name: "Format",
+                  tag: "Format",
                   "0": /* constructor */{
-                    tag: 12,
-                    name: "Char_literal",
+                    tag: "Char_literal",
                     "0": /* " " */32,
                     "1": /* constructor */{
-                      tag: 4,
-                      name: "Int",
-                      "0": /* Int_i */3,
-                      "1": /* No_padding */0,
-                      "2": /* No_precision */0,
+                      tag: "Int",
+                      "0": "Int_i",
+                      "1": "No_padding",
+                      "2": "No_precision",
                       "3": /* constructor */{
-                        tag: 12,
-                        name: "Char_literal",
+                        tag: "Char_literal",
                         "0": /* " " */32,
                         "1": /* constructor */{
-                          tag: 20,
-                          name: "Scan_char_set",
+                          tag: "Scan_char_set",
                           "0": 1,
                           "1": "\0\0\0\0\0\0\0\b\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
-                          "2": /* End_of_format */0
+                          "2": "End_of_format"
                         }
                       }
                     }
@@ -3228,49 +2756,40 @@ function scan_int_elem$1(ib, f, ek) {
 }
 
 function test29(param) {
-  if (scan_list$1(scan_int_elem$1, Scanf.Scanning.from_string("[]")) === /* [] */0 && scan_list$1(scan_int_elem$1, Scanf.Scanning.from_string("[ ]")) === /* [] */0 && Caml_obj.caml_equal(scan_list$1(scan_int_elem$1, Scanf.Scanning.from_string("[1]")), /* constructor */{
-          tag: 0,
-          name: "::",
+  if (scan_list$1(scan_int_elem$1, Scanf.Scanning.from_string("[]")) === "[]" && scan_list$1(scan_int_elem$1, Scanf.Scanning.from_string("[ ]")) === "[]" && Caml_obj.caml_equal(scan_list$1(scan_int_elem$1, Scanf.Scanning.from_string("[1]")), /* constructor */{
+          tag: "::",
           "0": 1,
-          "1": /* [] */0
+          "1": "[]"
         }) && Caml_obj.caml_equal(scan_list$1(scan_int_elem$1, Scanf.Scanning.from_string("[1;2;3;4]")), /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": 1,
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": 2,
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": 3,
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": 4,
-                "1": /* [] */0
+                "1": "[]"
               }
             }
           }
         })) {
     return Caml_obj.caml_equal(scan_list$1(scan_int_elem$1, Scanf.Scanning.from_string("[1;2;3;4;]")), /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": 1,
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": 2,
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": 3,
                     "1": /* constructor */{
-                      tag: 0,
-                      name: "::",
+                      tag: "::",
                       "0": 4,
-                      "1": /* [] */0
+                      "1": "[]"
                     }
                   }
                 }
@@ -3280,30 +2799,25 @@ function test29(param) {
   }
 }
 
-test("File \"tscanf_test.ml\", line 639, characters 5-12", test29(/* () */0));
+test("File \"tscanf_test.ml\", line 639, characters 5-12", test29("()"));
 
 function scan_string_elem$1(ib, f, ek) {
   return Curry._1(Scanf.kscanf(ib, ek, /* constructor */{
-                  tag: 0,
-                  name: "Format",
+                  tag: "Format",
                   "0": /* constructor */{
-                    tag: 12,
-                    name: "Char_literal",
+                    tag: "Char_literal",
                     "0": /* " " */32,
                     "1": /* constructor */{
-                      tag: 3,
-                      name: "Caml_string",
-                      "0": /* No_padding */0,
+                      tag: "Caml_string",
+                      "0": "No_padding",
                       "1": /* constructor */{
-                        tag: 12,
-                        name: "Char_literal",
+                        tag: "Char_literal",
                         "0": /* " " */32,
                         "1": /* constructor */{
-                          tag: 20,
-                          name: "Scan_char_set",
+                          tag: "Scan_char_set",
                           "0": 1,
                           "1": "\0\0\0\0\0\0\0\b\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
-                          "2": /* End_of_format */0
+                          "2": "End_of_format"
                         }
                       }
                     }
@@ -3313,49 +2827,40 @@ function scan_string_elem$1(ib, f, ek) {
 }
 
 function test30(param) {
-  if (scan_list$1(scan_string_elem$1, Scanf.Scanning.from_string("[]")) === /* [] */0 && scan_list$1(scan_string_elem$1, Scanf.Scanning.from_string("[ ]")) === /* [] */0 && Caml_obj.caml_equal(scan_list$1(scan_string_elem$1, Scanf.Scanning.from_string("[ \"1\" ]")), /* constructor */{
-          tag: 0,
-          name: "::",
+  if (scan_list$1(scan_string_elem$1, Scanf.Scanning.from_string("[]")) === "[]" && scan_list$1(scan_string_elem$1, Scanf.Scanning.from_string("[ ]")) === "[]" && Caml_obj.caml_equal(scan_list$1(scan_string_elem$1, Scanf.Scanning.from_string("[ \"1\" ]")), /* constructor */{
+          tag: "::",
           "0": "1",
-          "1": /* [] */0
+          "1": "[]"
         }) && Caml_obj.caml_equal(scan_list$1(scan_string_elem$1, Scanf.Scanning.from_string("[\"1\"; \"2\"; \"3\"; \"4\"]")), /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": "1",
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": "2",
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": "3",
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": "4",
-                "1": /* [] */0
+                "1": "[]"
               }
             }
           }
         })) {
     return Caml_obj.caml_equal(scan_list$1(scan_string_elem$1, Scanf.Scanning.from_string("[\"1\"; \"2\"; \"3\"; \"4\";]")), /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": "1",
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": "2",
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": "3",
                     "1": /* constructor */{
-                      tag: 0,
-                      name: "::",
+                      tag: "::",
                       "0": "4",
-                      "1": /* [] */0
+                      "1": "[]"
                     }
                   }
                 }
@@ -3365,7 +2870,7 @@ function test30(param) {
   }
 }
 
-test("File \"tscanf_test.ml\", line 656, characters 5-12", test30(/* () */0));
+test("File \"tscanf_test.ml\", line 656, characters 5-12", test30("()"));
 
 function scan_elem(fmt, ib, f, ek) {
   return Curry._1(Scanf.kscanf(ib, ek, fmt), f);
@@ -3374,26 +2879,22 @@ function scan_elem(fmt, ib, f, ek) {
 function scan_elems$7(ib, scan_elem, accu) {
   return Curry._3(scan_elem, ib, (function (i) {
                 var accu$1 = /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": i,
                   "1": accu
                 };
                 return Curry._1(Scanf.kscanf(ib, (function (ib, exc) {
                                   return accu$1;
                                 }), /* constructor */{
-                                tag: 0,
-                                name: "Format",
+                                tag: "Format",
                                 "0": /* constructor */{
-                                  tag: 12,
-                                  name: "Char_literal",
+                                  tag: "Char_literal",
                                   "0": /* " " */32,
                                   "1": /* constructor */{
-                                    tag: 20,
-                                    name: "Scan_char_set",
+                                    tag: "Scan_char_set",
                                     "0": 1,
                                     "1": "\0\0\0\0\0\0\0\b\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
-                                    "2": /* End_of_format */0
+                                    "2": "End_of_format"
                                   }
                                 },
                                 "1": " %1[;]"
@@ -3411,45 +2912,38 @@ function scan_elems$7(ib, scan_elem, accu) {
 
 function scan_list$2(scan_elem, ib) {
   Curry._1(Scanf.bscanf(ib, /* constructor */{
-            tag: 0,
-            name: "Format",
+            tag: "Format",
             "0": /* constructor */{
-              tag: 11,
-              name: "String_literal",
+              tag: "String_literal",
               "0": "[ ",
-              "1": /* End_of_format */0
+              "1": "End_of_format"
             },
             "1": "[ "
-          }), /* () */0);
-  var accu = scan_elems$7(ib, scan_elem, /* [] */0);
+          }), "()");
+  var accu = scan_elems$7(ib, scan_elem, "[]");
   Curry._1(Scanf.bscanf(ib, /* constructor */{
-            tag: 0,
-            name: "Format",
+            tag: "Format",
             "0": /* constructor */{
-              tag: 11,
-              name: "String_literal",
+              tag: "String_literal",
               "0": " ]",
-              "1": /* End_of_format */0
+              "1": "End_of_format"
             },
             "1": " ]"
-          }), /* () */0);
+          }), "()");
   return List.rev(accu);
 }
 
 var partial_arg$1 = /* constructor */{
-  tag: 0,
-  name: "Format",
+  tag: "Format",
   "0": /* constructor */{
-    tag: 12,
-    name: "Char_literal",
+    tag: "Char_literal",
     "0": /* " " */32,
     "1": /* constructor */{
-      tag: 4,
-      name: "Int",
-      "0": /* Int_i */3,
-      "1": /* No_padding */0,
-      "2": /* No_precision */0,
-      "3": /* End_of_format */0
+      tag: "Int",
+      "0": "Int_i",
+      "1": "No_padding",
+      "2": "No_precision",
+      "3": "End_of_format"
     }
   },
   "1": " %i"
@@ -3464,17 +2958,14 @@ function scan_int_list$6(param) {
 }
 
 var partial_arg$3 = /* constructor */{
-  tag: 0,
-  name: "Format",
+  tag: "Format",
   "0": /* constructor */{
-    tag: 12,
-    name: "Char_literal",
+    tag: "Char_literal",
     "0": /* " " */32,
     "1": /* constructor */{
-      tag: 3,
-      name: "Caml_string",
-      "0": /* No_padding */0,
-      "1": /* End_of_format */0
+      tag: "Caml_string",
+      "0": "No_padding",
+      "1": "End_of_format"
     }
   },
   "1": " %S"
@@ -3489,49 +2980,40 @@ function scan_string_list(param) {
 }
 
 function test31(param) {
-  if (Curry._1(scan_int_list$6, Scanf.Scanning.from_string("[]")) === /* [] */0 && Curry._1(scan_int_list$6, Scanf.Scanning.from_string("[ ]")) === /* [] */0 && Caml_obj.caml_equal(Curry._1(scan_int_list$6, Scanf.Scanning.from_string("[1]")), /* constructor */{
-          tag: 0,
-          name: "::",
+  if (Curry._1(scan_int_list$6, Scanf.Scanning.from_string("[]")) === "[]" && Curry._1(scan_int_list$6, Scanf.Scanning.from_string("[ ]")) === "[]" && Caml_obj.caml_equal(Curry._1(scan_int_list$6, Scanf.Scanning.from_string("[1]")), /* constructor */{
+          tag: "::",
           "0": 1,
-          "1": /* [] */0
+          "1": "[]"
         }) && Caml_obj.caml_equal(Curry._1(scan_int_list$6, Scanf.Scanning.from_string("[1;2;3;4]")), /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": 1,
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": 2,
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": 3,
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": 4,
-                "1": /* [] */0
+                "1": "[]"
               }
             }
           }
         })) {
     return Caml_obj.caml_equal(Curry._1(scan_int_list$6, Scanf.Scanning.from_string("[1;2;3;4;]")), /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": 1,
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": 2,
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": 3,
                     "1": /* constructor */{
-                      tag: 0,
-                      name: "::",
+                      tag: "::",
                       "0": 4,
-                      "1": /* [] */0
+                      "1": "[]"
                     }
                   }
                 }
@@ -3541,52 +3023,43 @@ function test31(param) {
   }
 }
 
-test("File \"tscanf_test.ml\", line 714, characters 5-12", test31(/* () */0));
+test("File \"tscanf_test.ml\", line 714, characters 5-12", test31("()"));
 
 function test32(param) {
-  if (Curry._1(scan_string_list, Scanf.Scanning.from_string("[]")) === /* [] */0 && Curry._1(scan_string_list, Scanf.Scanning.from_string("[ ]")) === /* [] */0 && Caml_obj.caml_equal(Curry._1(scan_string_list, Scanf.Scanning.from_string("[ \"1\" ]")), /* constructor */{
-          tag: 0,
-          name: "::",
+  if (Curry._1(scan_string_list, Scanf.Scanning.from_string("[]")) === "[]" && Curry._1(scan_string_list, Scanf.Scanning.from_string("[ ]")) === "[]" && Caml_obj.caml_equal(Curry._1(scan_string_list, Scanf.Scanning.from_string("[ \"1\" ]")), /* constructor */{
+          tag: "::",
           "0": "1",
-          "1": /* [] */0
+          "1": "[]"
         }) && Caml_obj.caml_equal(Curry._1(scan_string_list, Scanf.Scanning.from_string("[\"1\"; \"2\"; \"3\"; \"4\"]")), /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": "1",
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": "2",
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": "3",
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": "4",
-                "1": /* [] */0
+                "1": "[]"
               }
             }
           }
         })) {
     return Caml_obj.caml_equal(Curry._1(scan_string_list, Scanf.Scanning.from_string("[\"1\"; \"2\"; \"3\"; \"4\";]")), /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": "1",
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": "2",
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": "3",
                     "1": /* constructor */{
-                      tag: 0,
-                      name: "::",
+                      tag: "::",
                       "0": "4",
-                      "1": /* [] */0
+                      "1": "[]"
                     }
                   }
                 }
@@ -3596,35 +3069,30 @@ function test32(param) {
   }
 }
 
-test("File \"tscanf_test.ml\", line 728, characters 5-12", test32(/* () */0));
+test("File \"tscanf_test.ml\", line 728, characters 5-12", test32("()"));
 
 function scan_elems$8(ib, scan_elem_fmt, accu) {
   return Curry._1(Scanf.kscanf(ib, (function (ib, exc) {
                     return accu;
                   }), scan_elem_fmt), (function (i) {
                 var accu$1 = /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": i,
                   "1": accu
                 };
                 return Curry._1(Scanf.bscanf(ib, /* constructor */{
-                                tag: 0,
-                                name: "Format",
+                                tag: "Format",
                                 "0": /* constructor */{
-                                  tag: 12,
-                                  name: "Char_literal",
+                                  tag: "Char_literal",
                                   "0": /* " " */32,
                                   "1": /* constructor */{
-                                    tag: 20,
-                                    name: "Scan_char_set",
+                                    tag: "Scan_char_set",
                                     "0": 1,
                                     "1": "\0\0\0\0\0\0\0\b\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                                     "2": /* constructor */{
-                                      tag: 12,
-                                      name: "Char_literal",
+                                      tag: "Char_literal",
                                       "0": /* " " */32,
-                                      "1": /* End_of_format */0
+                                      "1": "End_of_format"
                                     }
                                   }
                                 },
@@ -3641,41 +3109,35 @@ function scan_elems$8(ib, scan_elem_fmt, accu) {
 
 function scan_list$3(scan_elem_fmt, ib) {
   Curry._1(Scanf.bscanf(ib, /* constructor */{
-            tag: 0,
-            name: "Format",
+            tag: "Format",
             "0": /* constructor */{
-              tag: 11,
-              name: "String_literal",
+              tag: "String_literal",
               "0": "[ ",
-              "1": /* End_of_format */0
+              "1": "End_of_format"
             },
             "1": "[ "
-          }), /* () */0);
-  var accu = scan_elems$8(ib, scan_elem_fmt, /* [] */0);
+          }), "()");
+  var accu = scan_elems$8(ib, scan_elem_fmt, "[]");
   Curry._1(Scanf.bscanf(ib, /* constructor */{
-            tag: 0,
-            name: "Format",
+            tag: "Format",
             "0": /* constructor */{
-              tag: 11,
-              name: "String_literal",
+              tag: "String_literal",
               "0": " ]",
-              "1": /* End_of_format */0
+              "1": "End_of_format"
             },
             "1": " ]"
-          }), /* () */0);
+          }), "()");
   return List.rev(accu);
 }
 
 var partial_arg$5 = /* constructor */{
-  tag: 0,
-  name: "Format",
+  tag: "Format",
   "0": /* constructor */{
-    tag: 4,
-    name: "Int",
-    "0": /* Int_i */3,
-    "1": /* No_padding */0,
-    "2": /* No_precision */0,
-    "3": /* End_of_format */0
+    tag: "Int",
+    "0": "Int_i",
+    "1": "No_padding",
+    "2": "No_precision",
+    "3": "End_of_format"
   },
   "1": "%i"
 };
@@ -3685,13 +3147,11 @@ function scan_int_list$7(param) {
 }
 
 var partial_arg$6 = /* constructor */{
-  tag: 0,
-  name: "Format",
+  tag: "Format",
   "0": /* constructor */{
-    tag: 3,
-    name: "Caml_string",
-    "0": /* No_padding */0,
-    "1": /* End_of_format */0
+    tag: "Caml_string",
+    "0": "No_padding",
+    "1": "End_of_format"
   },
   "1": "%S"
 };
@@ -3701,49 +3161,40 @@ function scan_string_list$1(param) {
 }
 
 function test33(param) {
-  if (Curry._1(scan_int_list$7, Scanf.Scanning.from_string("[]")) === /* [] */0 && Curry._1(scan_int_list$7, Scanf.Scanning.from_string("[ ]")) === /* [] */0 && Caml_obj.caml_equal(Curry._1(scan_int_list$7, Scanf.Scanning.from_string("[ 1 ]")), /* constructor */{
-          tag: 0,
-          name: "::",
+  if (Curry._1(scan_int_list$7, Scanf.Scanning.from_string("[]")) === "[]" && Curry._1(scan_int_list$7, Scanf.Scanning.from_string("[ ]")) === "[]" && Caml_obj.caml_equal(Curry._1(scan_int_list$7, Scanf.Scanning.from_string("[ 1 ]")), /* constructor */{
+          tag: "::",
           "0": 1,
-          "1": /* [] */0
+          "1": "[]"
         }) && Caml_obj.caml_equal(Curry._1(scan_int_list$7, Scanf.Scanning.from_string("[ 1; 2; 3; 4 ]")), /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": 1,
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": 2,
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": 3,
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": 4,
-                "1": /* [] */0
+                "1": "[]"
               }
             }
           }
         })) {
     return Caml_obj.caml_equal(Curry._1(scan_int_list$7, Scanf.Scanning.from_string("[1;2;3;4;]")), /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": 1,
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": 2,
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": 3,
                     "1": /* constructor */{
-                      tag: 0,
-                      name: "::",
+                      tag: "::",
                       "0": 4,
-                      "1": /* [] */0
+                      "1": "[]"
                     }
                   }
                 }
@@ -3753,52 +3204,43 @@ function test33(param) {
   }
 }
 
-test("File \"tscanf_test.ml\", line 773, characters 5-12", test33(/* () */0));
+test("File \"tscanf_test.ml\", line 773, characters 5-12", test33("()"));
 
 function test34(param) {
-  if (Curry._1(scan_string_list$1, Scanf.Scanning.from_string("[]")) === /* [] */0 && Curry._1(scan_string_list$1, Scanf.Scanning.from_string("[ ]")) === /* [] */0 && Caml_obj.caml_equal(Curry._1(scan_string_list$1, Scanf.Scanning.from_string("[ \"1\" ]")), /* constructor */{
-          tag: 0,
-          name: "::",
+  if (Curry._1(scan_string_list$1, Scanf.Scanning.from_string("[]")) === "[]" && Curry._1(scan_string_list$1, Scanf.Scanning.from_string("[ ]")) === "[]" && Caml_obj.caml_equal(Curry._1(scan_string_list$1, Scanf.Scanning.from_string("[ \"1\" ]")), /* constructor */{
+          tag: "::",
           "0": "1",
-          "1": /* [] */0
+          "1": "[]"
         }) && Caml_obj.caml_equal(Curry._1(scan_string_list$1, Scanf.Scanning.from_string("[\"1\"; \"2\"; \"3\"; \"4\"]")), /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": "1",
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": "2",
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": "3",
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": "4",
-                "1": /* [] */0
+                "1": "[]"
               }
             }
           }
         })) {
     return Caml_obj.caml_equal(Curry._1(scan_string_list$1, Scanf.Scanning.from_string("[\"1\"; \"2\"; \"3\"; \"4\";]")), /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": "1",
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": "2",
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": "3",
                     "1": /* constructor */{
-                      tag: 0,
-                      name: "::",
+                      tag: "::",
                       "0": "4",
-                      "1": /* [] */0
+                      "1": "[]"
                     }
                   }
                 }
@@ -3808,45 +3250,38 @@ function test34(param) {
   }
 }
 
-test("File \"tscanf_test.ml\", line 787, characters 5-12", test34(/* () */0));
+test("File \"tscanf_test.ml\", line 787, characters 5-12", test34("()"));
 
 function scan_elems$9(scan_elem, accu, ib) {
   return Curry._2(Scanf.kscanf(ib, (function (ib, exc) {
                     return accu;
                   }), /* constructor */{
-                  tag: 0,
-                  name: "Format",
+                  tag: "Format",
                   "0": /* constructor */{
-                    tag: 19,
-                    name: "Reader",
-                    "0": /* End_of_format */0
+                    tag: "Reader",
+                    "0": "End_of_format"
                   },
                   "1": "%r"
                 }), (function (ib) {
                 return Curry._2(scan_elem, ib, (function (elem) {
                               var accu$1 = /* constructor */{
-                                tag: 0,
-                                name: "::",
+                                tag: "::",
                                 "0": elem,
                                 "1": accu
                               };
                               return Curry._1(Scanf.bscanf(ib, /* constructor */{
-                                              tag: 0,
-                                              name: "Format",
+                                              tag: "Format",
                                               "0": /* constructor */{
-                                                tag: 12,
-                                                name: "Char_literal",
+                                                tag: "Char_literal",
                                                 "0": /* " " */32,
                                                 "1": /* constructor */{
-                                                  tag: 20,
-                                                  name: "Scan_char_set",
+                                                  tag: "Scan_char_set",
                                                   "0": 1,
                                                   "1": "\0\0\0\0\0\0\0\b\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                                                   "2": /* constructor */{
-                                                    tag: 12,
-                                                    name: "Char_literal",
+                                                    tag: "Char_literal",
                                                     "0": /* " " */32,
-                                                    "1": /* End_of_format */0
+                                                    "1": "End_of_format"
                                                   }
                                                 }
                                               },
@@ -3866,42 +3301,36 @@ function scan_elems$9(scan_elem, accu, ib) {
 
 function scan_list$4(scan_elem, ib) {
   Curry._1(Scanf.bscanf(ib, /* constructor */{
-            tag: 0,
-            name: "Format",
+            tag: "Format",
             "0": /* constructor */{
-              tag: 11,
-              name: "String_literal",
+              tag: "String_literal",
               "0": "[ ",
-              "1": /* End_of_format */0
+              "1": "End_of_format"
             },
             "1": "[ "
-          }), /* () */0);
-  var accu = scan_elems$9(scan_elem, /* [] */0, ib);
+          }), "()");
+  var accu = scan_elems$9(scan_elem, "[]", ib);
   Curry._1(Scanf.bscanf(ib, /* constructor */{
-            tag: 0,
-            name: "Format",
+            tag: "Format",
             "0": /* constructor */{
-              tag: 11,
-              name: "String_literal",
+              tag: "String_literal",
               "0": " ]",
-              "1": /* End_of_format */0
+              "1": "End_of_format"
             },
             "1": " ]"
-          }), /* () */0);
+          }), "()");
   return List.rev(accu);
 }
 
 function scan_float(ib) {
   return Scanf.bscanf(ib, /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 8,
-                name: "Float",
-                "0": /* Float_f */0,
-                "1": /* No_padding */0,
-                "2": /* No_precision */0,
-                "3": /* End_of_format */0
+                tag: "Float",
+                "0": "Float_f",
+                "1": "No_padding",
+                "2": "No_precision",
+                "3": "End_of_format"
               },
               "1": "%f"
             });
@@ -3910,15 +3339,13 @@ function scan_float(ib) {
 function scan_int_list$8(param) {
   return scan_list$4((function (ib) {
                 return Scanf.bscanf(ib, /* constructor */{
-                            tag: 0,
-                            name: "Format",
+                            tag: "Format",
                             "0": /* constructor */{
-                              tag: 4,
-                              name: "Int",
-                              "0": /* Int_i */3,
-                              "1": /* No_padding */0,
-                              "2": /* No_precision */0,
-                              "3": /* End_of_format */0
+                              tag: "Int",
+                              "0": "Int_i",
+                              "1": "No_padding",
+                              "2": "No_precision",
+                              "3": "End_of_format"
                             },
                             "1": "%i"
                           });
@@ -3928,13 +3355,11 @@ function scan_int_list$8(param) {
 function scan_string_list$2(param) {
   return scan_list$4((function (ib) {
                 return Scanf.bscanf(ib, /* constructor */{
-                            tag: 0,
-                            name: "Format",
+                            tag: "Format",
                             "0": /* constructor */{
-                              tag: 3,
-                              name: "Caml_string",
-                              "0": /* No_padding */0,
-                              "1": /* End_of_format */0
+                              tag: "Caml_string",
+                              "0": "No_padding",
+                              "1": "End_of_format"
                             },
                             "1": "%S"
                           });
@@ -3944,12 +3369,10 @@ function scan_string_list$2(param) {
 function scan_bool_list(param) {
   return scan_list$4((function (ib) {
                 return Scanf.bscanf(ib, /* constructor */{
-                            tag: 0,
-                            name: "Format",
+                            tag: "Format",
                             "0": /* constructor */{
-                              tag: 9,
-                              name: "Bool",
-                              "0": /* End_of_format */0
+                              tag: "Bool",
+                              "0": "End_of_format"
                             },
                             "1": "%B"
                           });
@@ -3959,12 +3382,10 @@ function scan_bool_list(param) {
 function scan_char_list(param) {
   return scan_list$4((function (ib) {
                 return Scanf.bscanf(ib, /* constructor */{
-                            tag: 0,
-                            name: "Format",
+                            tag: "Format",
                             "0": /* constructor */{
-                              tag: 1,
-                              name: "Caml_char",
-                              "0": /* End_of_format */0
+                              tag: "Caml_char",
+                              "0": "End_of_format"
                             },
                             "1": "%C"
                           });
@@ -3979,43 +3400,35 @@ function scan_float_list_list(param) {
 
 function test340(param) {
   return Caml_obj.caml_equal(scan_float_list_list(Scanf.Scanning.from_string("[[1.0] ; []; [2.0; 3; 5.0; 6.];]")), /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": 1,
-                "1": /* [] */0
+                "1": "[]"
               },
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
-                "0": /* [] */0,
+                tag: "::",
+                "0": "[]",
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": 2,
                     "1": /* constructor */{
-                      tag: 0,
-                      name: "::",
+                      tag: "::",
                       "0": 3,
                       "1": /* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": 5,
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": 6,
-                          "1": /* [] */0
+                          "1": "[]"
                         }
                       }
                     }
                   },
-                  "1": /* [] */0
+                  "1": "[]"
                 }
               }
             });
@@ -4043,43 +3456,36 @@ function scan_float_list_list$1(ib, k) {
 
 function test35(param) {
   if (Curry._1(Scanf.sscanf("", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 21,
-                name: "Scan_get_counter",
-                "0": /* Token_counter */2,
-                "1": /* End_of_format */0
+                tag: "Scan_get_counter",
+                "0": "Token_counter",
+                "1": "End_of_format"
               },
               "1": "%N"
             }), (function (x) {
             return x;
           })) === 0 && Curry._1(Scanf.sscanf("456", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 21,
-                name: "Scan_get_counter",
-                "0": /* Token_counter */2,
-                "1": /* End_of_format */0
+                tag: "Scan_get_counter",
+                "0": "Token_counter",
+                "1": "End_of_format"
               },
               "1": "%N"
             }), (function (x) {
             return x;
           })) === 0 && Caml_obj.caml_equal(Curry._1(Scanf.sscanf("456", /* constructor */{
-                  tag: 0,
-                  name: "Format",
+                  tag: "Format",
                   "0": /* constructor */{
-                    tag: 4,
-                    name: "Int",
-                    "0": /* Int_d */0,
-                    "1": /* No_padding */0,
-                    "2": /* No_precision */0,
+                    tag: "Int",
+                    "0": "Int_d",
+                    "1": "No_padding",
+                    "2": "No_precision",
                     "3": /* constructor */{
-                      tag: 21,
-                      name: "Scan_get_counter",
-                      "0": /* Token_counter */2,
-                      "1": /* End_of_format */0
+                      tag: "Scan_get_counter",
+                      "0": "Token_counter",
+                      "1": "End_of_format"
                     }
                   },
                   "1": "%d%N"
@@ -4093,21 +3499,17 @@ function test35(param) {
           1
         ])) {
     return Caml_obj.caml_equal(Curry._1(Scanf.sscanf(" ", /* constructor */{
-                        tag: 0,
-                        name: "Format",
+                        tag: "Format",
                         "0": /* constructor */{
-                          tag: 21,
-                          name: "Scan_get_counter",
-                          "0": /* Token_counter */2,
+                          tag: "Scan_get_counter",
+                          "0": "Token_counter",
                           "1": /* constructor */{
-                            tag: 2,
-                            name: "String",
-                            "0": /* No_padding */0,
+                            tag: "String",
+                            "0": "No_padding",
                             "1": /* constructor */{
-                              tag: 21,
-                              name: "Scan_get_counter",
-                              "0": /* Token_counter */2,
-                              "1": /* End_of_format */0
+                              tag: "Scan_get_counter",
+                              "0": "Token_counter",
+                              "1": "End_of_format"
                             }
                           }
                         },
@@ -4128,31 +3530,26 @@ function test35(param) {
   }
 }
 
-test("File \"tscanf_test.ml\", line 940, characters 5-12", test340(/* () */0) && test35(/* () */0));
+test("File \"tscanf_test.ml\", line 940, characters 5-12", test340("()") && test35("()"));
 
 function read_elems(read_elem, accu, ib) {
   return Curry._2(Scanf.kscanf(ib, (function (ib, exc) {
                     return accu;
                   }), /* constructor */{
-                  tag: 0,
-                  name: "Format",
+                  tag: "Format",
                   "0": /* constructor */{
-                    tag: 19,
-                    name: "Reader",
+                    tag: "Reader",
                     "0": /* constructor */{
-                      tag: 12,
-                      name: "Char_literal",
+                      tag: "Char_literal",
                       "0": /* " " */32,
                       "1": /* constructor */{
-                        tag: 20,
-                        name: "Scan_char_set",
+                        tag: "Scan_char_set",
                         "0": 1,
                         "1": "\0\0\0\0\0\0\0\b\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                         "2": /* constructor */{
-                          tag: 12,
-                          name: "Char_literal",
+                          tag: "Char_literal",
                           "0": /* " " */32,
-                          "1": /* End_of_format */0
+                          "1": "End_of_format"
                         }
                       }
                     }
@@ -4160,8 +3557,7 @@ function read_elems(read_elem, accu, ib) {
                   "1": "%r %1[;] "
                 }), Curry._1(read_elem, (function (elem) {
                     return /* constructor */{
-                            tag: 0,
-                            name: "::",
+                            tag: "::",
                             "0": elem,
                             "1": accu
                           };
@@ -4176,26 +3572,22 @@ function read_elems(read_elem, accu, ib) {
 
 function read_list(read_elem, ib) {
   return Curry._2(Scanf.bscanf(ib, /* constructor */{
-                  tag: 0,
-                  name: "Format",
+                  tag: "Format",
                   "0": /* constructor */{
-                    tag: 11,
-                    name: "String_literal",
+                    tag: "String_literal",
                     "0": "[ ",
                     "1": /* constructor */{
-                      tag: 19,
-                      name: "Reader",
+                      tag: "Reader",
                       "0": /* constructor */{
-                        tag: 11,
-                        name: "String_literal",
+                        tag: "String_literal",
                         "0": " ]",
-                        "1": /* End_of_format */0
+                        "1": "End_of_format"
                       }
                     }
                   },
                   "1": "[ %r ]"
                 }), (function (param) {
-                return read_elems(read_elem, /* [] */0, param);
+                return read_elems(read_elem, "[]", param);
               }), List.rev);
 }
 
@@ -4213,43 +3605,36 @@ function scan_List(fmt) {
 
 function test36(param) {
   if (Curry._1(Scanf.sscanf("", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 21,
-                name: "Scan_get_counter",
-                "0": /* Char_counter */1,
-                "1": /* End_of_format */0
+                tag: "Scan_get_counter",
+                "0": "Char_counter",
+                "1": "End_of_format"
               },
               "1": "%n"
             }), (function (x) {
             return x;
           })) === 0 && Curry._1(Scanf.sscanf("456", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 21,
-                name: "Scan_get_counter",
-                "0": /* Char_counter */1,
-                "1": /* End_of_format */0
+                tag: "Scan_get_counter",
+                "0": "Char_counter",
+                "1": "End_of_format"
               },
               "1": "%n"
             }), (function (x) {
             return x;
           })) === 0 && Caml_obj.caml_equal(Curry._1(Scanf.sscanf("456", /* constructor */{
-                  tag: 0,
-                  name: "Format",
+                  tag: "Format",
                   "0": /* constructor */{
-                    tag: 4,
-                    name: "Int",
-                    "0": /* Int_d */0,
-                    "1": /* No_padding */0,
-                    "2": /* No_precision */0,
+                    tag: "Int",
+                    "0": "Int_d",
+                    "1": "No_padding",
+                    "2": "No_precision",
                     "3": /* constructor */{
-                      tag: 21,
-                      name: "Scan_get_counter",
-                      "0": /* Char_counter */1,
-                      "1": /* End_of_format */0
+                      tag: "Scan_get_counter",
+                      "0": "Char_counter",
+                      "1": "End_of_format"
                     }
                   },
                   "1": "%d%n"
@@ -4263,21 +3648,17 @@ function test36(param) {
           3
         ])) {
     return Caml_obj.caml_equal(Curry._1(Scanf.sscanf(" ", /* constructor */{
-                        tag: 0,
-                        name: "Format",
+                        tag: "Format",
                         "0": /* constructor */{
-                          tag: 21,
-                          name: "Scan_get_counter",
-                          "0": /* Char_counter */1,
+                          tag: "Scan_get_counter",
+                          "0": "Char_counter",
                           "1": /* constructor */{
-                            tag: 2,
-                            name: "String",
-                            "0": /* No_padding */0,
+                            tag: "String",
+                            "0": "No_padding",
                             "1": /* constructor */{
-                              tag: 21,
-                              name: "Scan_get_counter",
-                              "0": /* Char_counter */1,
-                              "1": /* End_of_format */0
+                              tag: "Scan_get_counter",
+                              "0": "Char_counter",
+                              "1": "End_of_format"
                             }
                           }
                         },
@@ -4298,26 +3679,23 @@ function test36(param) {
   }
 }
 
-test("File \"tscanf_test.ml\", line 995, characters 5-12", test36(/* () */0));
+test("File \"tscanf_test.ml\", line 995, characters 5-12", test36("()"));
 
 function test37(param) {
   if (Curry._1(Scanf.sscanf("", /* constructor */{
-              tag: 0,
-              name: "Format",
-              "0": /* End_of_format */0,
+              tag: "Format",
+              "0": "End_of_format",
               "1": ""
             }), true) && Curry._2(Scanf.sscanf("", /* constructor */{
-              tag: 0,
-              name: "Format",
-              "0": /* End_of_format */0,
+              tag: "Format",
+              "0": "End_of_format",
               "1": ""
             }), (function (x) {
             return x;
           }), 1) === 1) {
     return Curry._2(Scanf.sscanf("123", /* constructor */{
-                    tag: 0,
-                    name: "Format",
-                    "0": /* End_of_format */0,
+                    tag: "Format",
+                    "0": "End_of_format",
                     "1": ""
                   }), (function (x) {
                   return x;
@@ -4327,121 +3705,96 @@ function test37(param) {
   }
 }
 
-test("File \"tscanf_test.ml\", line 1005, characters 5-12", test37(/* () */0));
+test("File \"tscanf_test.ml\", line 1005, characters 5-12", test37("()"));
 
 function test38(param) {
   if (Curry._1(Scanf.sscanf("a", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 12,
-                name: "Char_literal",
+                tag: "Char_literal",
                 "0": /* "a" */97,
                 "1": /* constructor */{
-                  tag: 10,
-                  name: "Flush",
-                  "0": /* End_of_format */0
+                  tag: "Flush",
+                  "0": "End_of_format"
                 }
               },
               "1": "a%!"
             }), true) && Curry._1(Scanf.sscanf("a", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 12,
-                name: "Char_literal",
+                tag: "Char_literal",
                 "0": /* "a" */97,
                 "1": /* constructor */{
-                  tag: 10,
-                  name: "Flush",
+                  tag: "Flush",
                   "0": /* constructor */{
-                    tag: 10,
-                    name: "Flush",
-                    "0": /* End_of_format */0
+                    tag: "Flush",
+                    "0": "End_of_format"
                   }
                 }
               },
               "1": "a%!%!"
             }), true) && Curry._1(Scanf.sscanf(" a", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 11,
-                name: "String_literal",
+                tag: "String_literal",
                 "0": " a",
                 "1": /* constructor */{
-                  tag: 10,
-                  name: "Flush",
-                  "0": /* End_of_format */0
+                  tag: "Flush",
+                  "0": "End_of_format"
                 }
               },
               "1": " a%!"
             }), true) && Curry._1(Scanf.sscanf("a ", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 11,
-                name: "String_literal",
+                tag: "String_literal",
                 "0": "a ",
                 "1": /* constructor */{
-                  tag: 10,
-                  name: "Flush",
-                  "0": /* End_of_format */0
+                  tag: "Flush",
+                  "0": "End_of_format"
                 }
               },
               "1": "a %!"
             }), true) && Curry._1(Scanf.sscanf("", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 10,
-                name: "Flush",
-                "0": /* End_of_format */0
+                tag: "Flush",
+                "0": "End_of_format"
               },
               "1": "%!"
             }), true) && Curry._1(Scanf.sscanf(" ", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 12,
-                name: "Char_literal",
+                tag: "Char_literal",
                 "0": /* " " */32,
                 "1": /* constructor */{
-                  tag: 10,
-                  name: "Flush",
-                  "0": /* End_of_format */0
+                  tag: "Flush",
+                  "0": "End_of_format"
                 }
               },
               "1": " %!"
             }), true) && Curry._1(Scanf.sscanf("", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 12,
-                name: "Char_literal",
+                tag: "Char_literal",
                 "0": /* " " */32,
                 "1": /* constructor */{
-                  tag: 10,
-                  name: "Flush",
-                  "0": /* End_of_format */0
+                  tag: "Flush",
+                  "0": "End_of_format"
                 }
               },
               "1": " %!"
             }), true)) {
     return Curry._1(Scanf.sscanf("", /* constructor */{
-                    tag: 0,
-                    name: "Format",
+                    tag: "Format",
                     "0": /* constructor */{
-                      tag: 12,
-                      name: "Char_literal",
+                      tag: "Char_literal",
                       "0": /* " " */32,
                       "1": /* constructor */{
-                        tag: 10,
-                        name: "Flush",
+                        tag: "Flush",
                         "0": /* constructor */{
-                          tag: 10,
-                          name: "Flush",
-                          "0": /* End_of_format */0
+                          tag: "Flush",
+                          "0": "End_of_format"
                         }
                       }
                     },
@@ -4452,7 +3805,7 @@ function test38(param) {
   }
 }
 
-test("File \"tscanf_test.ml\", line 1020, characters 5-12", test38(/* () */0));
+test("File \"tscanf_test.ml\", line 1020, characters 5-12", test38("()"));
 
 function test39(param) {
   var is_empty_buff = function (ib) {
@@ -4470,26 +3823,22 @@ function test39(param) {
   }
 }
 
-test("File \"tscanf_test.ml\", line 1036, characters 5-12", test39(/* () */0));
+test("File \"tscanf_test.ml\", line 1036, characters 5-12", test39("()"));
 
 function test40(param) {
   var ib = Scanf.Scanning.from_string("cba");
   return Curry._1(Scanf.bscanf(ib, /* constructor */{
-                  tag: 0,
-                  name: "Format",
+                  tag: "Format",
                   "0": /* constructor */{
-                    tag: 20,
-                    name: "Scan_char_set",
+                    tag: "Scan_char_set",
                     "0": undefined,
                     "1": "\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xf9\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff",
                     "2": /* constructor */{
-                      tag: 2,
-                      name: "String",
-                      "0": /* No_padding */0,
+                      tag: "String",
+                      "0": "No_padding",
                       "1": /* constructor */{
-                        tag: 10,
-                        name: "Flush",
-                        "0": /* End_of_format */0
+                        tag: "Flush",
+                        "0": "End_of_format"
                       }
                     }
                   },
@@ -4503,27 +3852,23 @@ function test40(param) {
               }));
 }
 
-test("File \"tscanf_test.ml\", line 1046, characters 5-12", test40(/* () */0));
+test("File \"tscanf_test.ml\", line 1046, characters 5-12", test40("()"));
 
 function test41(param) {
   var ib = Scanf.Scanning.from_string("cba");
   return Curry._1(Scanf.bscanf(ib, /* constructor */{
-                  tag: 0,
-                  name: "Format",
+                  tag: "Format",
                   "0": /* constructor */{
-                    tag: 20,
-                    name: "Scan_char_set",
+                    tag: "Scan_char_set",
                     "0": undefined,
                     "1": "\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xf1\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff",
                     "2": /* constructor */{
-                      tag: 20,
-                      name: "Scan_char_set",
+                      tag: "Scan_char_set",
                       "0": undefined,
                       "1": "\0\0\0\0\0\0\0\0\0\0\0\0\x0e\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                       "2": /* constructor */{
-                        tag: 10,
-                        name: "Flush",
-                        "0": /* End_of_format */0
+                        tag: "Flush",
+                        "0": "End_of_format"
                       }
                     }
                   },
@@ -4537,32 +3882,27 @@ function test41(param) {
               }));
 }
 
-test("File \"tscanf_test.ml\", line 1055, characters 5-12", test41(/* () */0));
+test("File \"tscanf_test.ml\", line 1055, characters 5-12", test41("()"));
 
 function test42(param) {
   var s = "defcbaaghi";
   var ib = Scanf.Scanning.from_string(s);
   if (Curry._1(Scanf.bscanf(ib, /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 20,
-                name: "Scan_char_set",
+                tag: "Scan_char_set",
                 "0": undefined,
                 "1": "\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xf1\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff",
                 "2": /* constructor */{
-                  tag: 20,
-                  name: "Scan_char_set",
+                  tag: "Scan_char_set",
                   "0": undefined,
                   "1": "\0\0\0\0\0\0\0\0\0\0\0\0\x0e\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                   "2": /* constructor */{
-                    tag: 2,
-                    name: "String",
-                    "0": /* No_padding */0,
+                    tag: "String",
+                    "0": "No_padding",
                     "1": /* constructor */{
-                      tag: 10,
-                      name: "Flush",
-                      "0": /* End_of_format */0
+                      tag: "Flush",
+                      "0": "End_of_format"
                     }
                   }
                 }
@@ -4577,21 +3917,17 @@ function test42(param) {
           }))) {
     var ib$1 = Scanf.Scanning.from_string(s);
     return Curry._1(Scanf.bscanf(ib$1, /* constructor */{
-                    tag: 0,
-                    name: "Format",
+                    tag: "Format",
                     "0": /* constructor */{
-                      tag: 2,
-                      name: "String",
-                      "0": /* No_padding */0,
+                      tag: "String",
+                      "0": "No_padding",
                       "1": /* constructor */{
-                        tag: 17,
-                        name: "Formatting_lit",
+                        tag: "Formatting_lit",
                         "0": /* constructor */{
-                          tag: 2,
-                          name: "Scan_indic",
+                          tag: "Scan_indic",
                           "0": /* "\t" */9
                         },
-                        "1": /* End_of_format */0
+                        "1": "End_of_format"
                       }
                     },
                     "1": "%s@\t"
@@ -4603,24 +3939,21 @@ function test42(param) {
   }
 }
 
-test("File \"tscanf_test.ml\", line 1067, characters 5-12", test42(/* () */0));
+test("File \"tscanf_test.ml\", line 1067, characters 5-12", test42("()"));
 
 var ib$1 = Scanf.Scanning.from_string("");
 
 function test43(param) {
   return Curry._1(Scanf.bscanf(ib$1, /* constructor */{
-                  tag: 0,
-                  name: "Format",
+                  tag: "Format",
                   "0": /* constructor */{
-                    tag: 4,
-                    name: "Int",
-                    "0": /* Int_i */3,
-                    "1": /* No_padding */0,
-                    "2": /* No_precision */0,
+                    tag: "Int",
+                    "0": "Int_i",
+                    "1": "No_padding",
+                    "2": "No_precision",
                     "3": /* constructor */{
-                      tag: 10,
-                      name: "Flush",
-                      "0": /* End_of_format */0
+                      tag: "Flush",
+                      "0": "End_of_format"
                     }
                   },
                   "1": "%i%!"
@@ -4631,18 +3964,15 @@ function test43(param) {
 
 function test44(param) {
   return Curry._1(Scanf.bscanf(ib$1, /* constructor */{
-                  tag: 0,
-                  name: "Format",
+                  tag: "Format",
                   "0": /* constructor */{
-                    tag: 10,
-                    name: "Flush",
+                    tag: "Flush",
                     "0": /* constructor */{
-                      tag: 4,
-                      name: "Int",
-                      "0": /* Int_i */3,
-                      "1": /* No_padding */0,
-                      "2": /* No_precision */0,
-                      "3": /* End_of_format */0
+                      tag: "Int",
+                      "0": "Int_i",
+                      "1": "No_padding",
+                      "2": "No_precision",
+                      "3": "End_of_format"
                     }
                   },
                   "1": "%!%i"
@@ -4651,35 +3981,29 @@ function test44(param) {
               }));
 }
 
-Testing.test_raises_this_exc(Caml_builtin_exceptions.end_of_file)(test43, /* () */0) && Testing.test_raises_this_exc(Caml_builtin_exceptions.end_of_file)(test44, /* () */0);
+Testing.test_raises_this_exc(Caml_builtin_exceptions.end_of_file)(test43, "()") && Testing.test_raises_this_exc(Caml_builtin_exceptions.end_of_file)(test44, "()");
 
 function test45(param) {
   var ib = Scanf.Scanning.from_string("12.2");
   return Curry._1(Scanf.bscanf(ib, /* constructor */{
-                  tag: 0,
-                  name: "Format",
+                  tag: "Format",
                   "0": /* constructor */{
-                    tag: 20,
-                    name: "Scan_char_set",
+                    tag: "Scan_char_set",
                     "0": undefined,
                     "1": "\0\0\0\0\0\0\xff\x03\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                     "2": /* constructor */{
-                      tag: 12,
-                      name: "Char_literal",
+                      tag: "Char_literal",
                       "0": /* "." */46,
                       "1": /* constructor */{
-                        tag: 20,
-                        name: "Scan_char_set",
+                        tag: "Scan_char_set",
                         "0": undefined,
                         "1": "\0\0\0\0\0\0\xff\x03\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                         "2": /* constructor */{
-                          tag: 2,
-                          name: "String",
-                          "0": /* No_padding */0,
+                          tag: "String",
+                          "0": "No_padding",
                           "1": /* constructor */{
-                            tag: 10,
-                            name: "Flush",
-                            "0": /* End_of_format */0
+                            tag: "Flush",
+                            "0": "End_of_format"
                           }
                         }
                       }
@@ -4695,53 +4019,44 @@ function test45(param) {
               }));
 }
 
-test("File \"tscanf_test.ml\", line 1090, characters 5-12", test45(/* () */0));
+test("File \"tscanf_test.ml\", line 1090, characters 5-12", test45("()"));
 
 function test46(param) {
   return Curry._3(Printf.sprintf(/* constructor */{
-                  tag: 0,
-                  name: "Format",
+                  tag: "Format",
                   "0": /* constructor */{
-                    tag: 4,
-                    name: "Int",
-                    "0": /* Int_i */3,
-                    "1": /* No_padding */0,
-                    "2": /* No_precision */0,
+                    tag: "Int",
+                    "0": "Int_i",
+                    "1": "No_padding",
+                    "2": "No_precision",
                     "3": /* constructor */{
-                      tag: 12,
-                      name: "Char_literal",
+                      tag: "Char_literal",
                       "0": /* " " */32,
                       "1": /* constructor */{
-                        tag: 14,
-                        name: "Format_subst",
+                        tag: "Format_subst",
                         "0": undefined,
                         "1": /* constructor */{
-                          tag: 1,
-                          name: "String_ty",
-                          "0": /* End_of_fmtty */0
+                          tag: "String_ty",
+                          "0": "End_of_fmtty"
                         },
                         "2": /* constructor */{
-                          tag: 12,
-                          name: "Char_literal",
+                          tag: "Char_literal",
                           "0": /* "." */46,
-                          "1": /* End_of_format */0
+                          "1": "End_of_format"
                         }
                       }
                     }
                   },
                   "1": "%i %(%s%)."
                 }), 1, /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 11,
-                name: "String_literal",
+                tag: "String_literal",
                 "0": "spells one, ",
                 "1": /* constructor */{
-                  tag: 2,
-                  name: "String",
-                  "0": /* No_padding */0,
-                  "1": /* End_of_format */0
+                  tag: "String",
+                  "0": "No_padding",
+                  "1": "End_of_format"
                 }
               },
               "1": "spells one, %s"
@@ -4750,40 +4065,32 @@ function test46(param) {
 
 function test47(param) {
   return Curry._3(Printf.sprintf(/* constructor */{
-                  tag: 0,
-                  name: "Format",
+                  tag: "Format",
                   "0": /* constructor */{
-                    tag: 4,
-                    name: "Int",
-                    "0": /* Int_i */3,
-                    "1": /* No_padding */0,
-                    "2": /* No_precision */0,
+                    tag: "Int",
+                    "0": "Int_i",
+                    "1": "No_padding",
+                    "2": "No_precision",
                     "3": /* constructor */{
-                      tag: 12,
-                      name: "Char_literal",
+                      tag: "Char_literal",
                       "0": /* " " */32,
                       "1": /* constructor */{
-                        tag: 13,
-                        name: "Format_arg",
+                        tag: "Format_arg",
                         "0": undefined,
                         "1": /* constructor */{
-                          tag: 1,
-                          name: "String_ty",
-                          "0": /* End_of_fmtty */0
+                          tag: "String_ty",
+                          "0": "End_of_fmtty"
                         },
                         "2": /* constructor */{
-                          tag: 11,
-                          name: "String_literal",
+                          tag: "String_literal",
                           "0": ", ",
                           "1": /* constructor */{
-                            tag: 2,
-                            name: "String",
-                            "0": /* No_padding */0,
+                            tag: "String",
+                            "0": "No_padding",
                             "1": /* constructor */{
-                              tag: 12,
-                              name: "Char_literal",
+                              tag: "Char_literal",
                               "0": /* "." */46,
-                              "1": /* End_of_format */0
+                              "1": "End_of_format"
                             }
                           }
                         }
@@ -4792,102 +4099,85 @@ function test47(param) {
                   },
                   "1": "%i %{%s%}, %s."
                 }), 1, /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 11,
-                name: "String_literal",
+                tag: "String_literal",
                 "0": "spells one ",
                 "1": /* constructor */{
-                  tag: 2,
-                  name: "String",
-                  "0": /* No_padding */0,
-                  "1": /* End_of_format */0
+                  tag: "String",
+                  "0": "No_padding",
+                  "1": "End_of_format"
                 }
               },
               "1": "spells one %s"
             }, "in english");
 }
 
-test("File \"tscanf_test.ml\", line 1104, characters 5-12", test46(/* () */0) === "1 spells one, in english.");
+test("File \"tscanf_test.ml\", line 1104, characters 5-12", test46("()") === "1 spells one, in english.");
 
-test("File \"tscanf_test.ml\", line 1106, characters 5-12", test47(/* () */0) === "1 %s, in english.");
+test("File \"tscanf_test.ml\", line 1106, characters 5-12", test47("()") === "1 %s, in english.");
 
 function test48(param) {
   var test_meta_read = function (s, fmt, efmt) {
     return Caml_obj.caml_equal(Scanf.format_from_string(s, fmt), efmt);
   };
   var fmt = /* constructor */{
-    tag: 0,
-    name: "Format",
+    tag: "Format",
     "0": /* constructor */{
-      tag: 4,
-      name: "Int",
-      "0": /* Int_i */3,
-      "1": /* No_padding */0,
-      "2": /* No_precision */0,
-      "3": /* End_of_format */0
+      tag: "Int",
+      "0": "Int_i",
+      "1": "No_padding",
+      "2": "No_precision",
+      "3": "End_of_format"
     },
     "1": "%i"
   };
   if (test_meta_read("%i", fmt, fmt) && test_meta_read("%i", /* constructor */{
-          tag: 0,
-          name: "Format",
+          tag: "Format",
           "0": /* constructor */{
-            tag: 4,
-            name: "Int",
-            "0": /* Int_d */0,
-            "1": /* No_padding */0,
-            "2": /* No_precision */0,
-            "3": /* End_of_format */0
+            tag: "Int",
+            "0": "Int_d",
+            "1": "No_padding",
+            "2": "No_precision",
+            "3": "End_of_format"
           },
           "1": "%d"
         }, /* constructor */{
-          tag: 0,
-          name: "Format",
+          tag: "Format",
           "0": /* constructor */{
-            tag: 4,
-            name: "Int",
-            "0": /* Int_i */3,
-            "1": /* No_padding */0,
-            "2": /* No_precision */0,
-            "3": /* End_of_format */0
+            tag: "Int",
+            "0": "Int_i",
+            "1": "No_padding",
+            "2": "No_precision",
+            "3": "End_of_format"
           },
           "1": "%i"
         }) && Curry._1(Scanf.sscanf("12 \"%i\"89 ", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 4,
-                name: "Int",
-                "0": /* Int_i */3,
-                "1": /* No_padding */0,
-                "2": /* No_precision */0,
+                tag: "Int",
+                "0": "Int_i",
+                "1": "No_padding",
+                "2": "No_precision",
                 "3": /* constructor */{
-                  tag: 12,
-                  name: "Char_literal",
+                  tag: "Char_literal",
                   "0": /* " " */32,
                   "1": /* constructor */{
-                    tag: 13,
-                    name: "Format_arg",
+                    tag: "Format_arg",
                     "0": undefined,
                     "1": /* constructor */{
-                      tag: 2,
-                      name: "Int_ty",
-                      "0": /* End_of_fmtty */0
+                      tag: "Int_ty",
+                      "0": "End_of_fmtty"
                     },
                     "2": /* constructor */{
-                      tag: 2,
-                      name: "String",
-                      "0": /* No_padding */0,
+                      tag: "String",
+                      "0": "No_padding",
                       "1": /* constructor */{
-                        tag: 12,
-                        name: "Char_literal",
+                        tag: "Char_literal",
                         "0": /* " " */32,
                         "1": /* constructor */{
-                          tag: 10,
-                          name: "Flush",
-                          "0": /* End_of_format */0
+                          tag: "Flush",
+                          "0": "End_of_format"
                         }
                       }
                     }
@@ -4897,15 +4187,13 @@ function test48(param) {
               "1": "%i %{%d%}%s %!"
             }), (function (i, f, s) {
             if (i === 12 && Caml_obj.caml_equal(f, /* constructor */{
-                    tag: 0,
-                    name: "Format",
+                    tag: "Format",
                     "0": /* constructor */{
-                      tag: 4,
-                      name: "Int",
-                      "0": /* Int_i */3,
-                      "1": /* No_padding */0,
-                      "2": /* No_precision */0,
-                      "3": /* End_of_format */0
+                      tag: "Int",
+                      "0": "Int_i",
+                      "1": "No_padding",
+                      "2": "No_precision",
+                      "3": "End_of_format"
                     },
                     "1": "%i"
                   })) {
@@ -4916,18 +4204,15 @@ function test48(param) {
           }))) {
     var k = function (s) {
       return Curry._1(Scanf.sscanf(s, /* constructor */{
-                      tag: 0,
-                      name: "Format",
+                      tag: "Format",
                       "0": /* constructor */{
-                        tag: 14,
-                        name: "Format_subst",
+                        tag: "Format_subst",
                         "0": undefined,
                         "1": /* constructor */{
-                          tag: 6,
-                          name: "Float_ty",
-                          "0": /* End_of_fmtty */0
+                          tag: "Float_ty",
+                          "0": "End_of_fmtty"
                         },
-                        "2": /* End_of_format */0
+                        "2": "End_of_format"
                       },
                       "1": "%(%f%)"
                     }), (function (_fmt, i) {
@@ -4937,22 +4222,18 @@ function test48(param) {
     if (k("\" : %1f\": 987654321") === 9.0 && k("\" : %2f\": 987654321") === 98.0 && k("\" : %3f\": 9.87654321") === 9.8 && k("\" : %4f\": 9.87654321") === 9.87) {
       var h = function (s) {
         return Curry._1(Scanf.sscanf(s, /* constructor */{
-                        tag: 0,
-                        name: "Format",
+                        tag: "Format",
                         "0": /* constructor */{
-                          tag: 11,
-                          name: "String_literal",
+                          tag: "String_literal",
                           "0": "Read integers with ",
                           "1": /* constructor */{
-                            tag: 14,
-                            name: "Format_subst",
+                            tag: "Format_subst",
                             "0": undefined,
                             "1": /* constructor */{
-                              tag: 2,
-                              name: "Int_ty",
-                              "0": /* End_of_fmtty */0
+                              tag: "Int_ty",
+                              "0": "End_of_fmtty"
                             },
-                            "2": /* End_of_format */0
+                            "2": "End_of_format"
                           }
                         },
                         "1": "Read integers with %(%i%)"
@@ -4963,26 +4244,21 @@ function test48(param) {
       if (h("Read integers with \"%1d\"987654321") === 9 && h("Read integers with \"%2d\"987654321") === 98 && h("Read integers with \"%3u\"987654321") === 987 && h("Read integers with \"%4x\"987654321") === 39030) {
         var i = function (s) {
           return Curry._1(Scanf.sscanf(s, /* constructor */{
-                          tag: 0,
-                          name: "Format",
+                          tag: "Format",
                           "0": /* constructor */{
-                            tag: 11,
-                            name: "String_literal",
+                            tag: "String_literal",
                             "0": "with ",
                             "1": /* constructor */{
-                              tag: 14,
-                              name: "Format_subst",
+                              tag: "Format_subst",
                               "0": undefined,
                               "1": /* constructor */{
-                                tag: 2,
-                                name: "Int_ty",
+                                tag: "Int_ty",
                                 "0": /* constructor */{
-                                  tag: 1,
-                                  name: "String_ty",
-                                  "0": /* End_of_fmtty */0
+                                  tag: "String_ty",
+                                  "0": "End_of_fmtty"
                                 }
                               },
-                              "2": /* End_of_format */0
+                              "2": "End_of_format"
                             }
                           },
                           "1": "with %(%i %s%)"
@@ -5008,26 +4284,21 @@ function test48(param) {
               ])) {
           var j = function (s) {
             return Curry._1(Scanf.sscanf(s, /* constructor */{
-                            tag: 0,
-                            name: "Format",
+                            tag: "Format",
                             "0": /* constructor */{
-                              tag: 11,
-                              name: "String_literal",
+                              tag: "String_literal",
                               "0": "with ",
                               "1": /* constructor */{
-                                tag: 14,
-                                name: "Format_subst",
+                                tag: "Format_subst",
                                 "0": undefined,
                                 "1": /* constructor */{
-                                  tag: 2,
-                                  name: "Int_ty",
+                                  tag: "Int_ty",
                                   "0": /* constructor */{
-                                    tag: 1,
-                                    name: "String_ty",
-                                    "0": /* End_of_fmtty */0
+                                    tag: "String_ty",
+                                    "0": "End_of_fmtty"
                                   }
                                 },
-                                "2": /* End_of_format */0
+                                "2": "End_of_format"
                               }
                             },
                             "1": "with %(%i %_s %s%)"
@@ -5069,56 +4340,47 @@ function test48(param) {
   }
 }
 
-test("File \"tscanf_test.ml\", line 1157, characters 5-12", test48(/* () */0));
+test("File \"tscanf_test.ml\", line 1157, characters 5-12", test48("()"));
 
 function test49(param) {
   if (Curry._1(Scanf.sscanf("as", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 20,
-                name: "Scan_char_set",
+                tag: "Scan_char_set",
                 "0": undefined,
                 "1": "\0\0\0\0\0\0\0\0\0\0\0\x10\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
-                "2": /* End_of_format */0
+                "2": "End_of_format"
               },
               "1": "%[\\]"
             }), (function (s) {
             return s === "";
           })) && Curry._1(Scanf.sscanf("as", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 20,
-                name: "Scan_char_set",
+                tag: "Scan_char_set",
                 "0": undefined,
                 "1": "\0\0\0\0\0\0\0\0\0\0\0\x10\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                 "2": /* constructor */{
-                  tag: 2,
-                  name: "String",
-                  "0": /* No_padding */0,
-                  "1": /* End_of_format */0
+                  tag: "String",
+                  "0": "No_padding",
+                  "1": "End_of_format"
                 }
               },
               "1": "%[\\]%s"
             }), (function (s, t) {
             return s === "" ? t === "as" : false;
           })) && Curry._1(Scanf.sscanf("as", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 20,
-                name: "Scan_char_set",
+                tag: "Scan_char_set",
                 "0": undefined,
                 "1": "\0\0\0\0\0\0\0\0\0\0\0\x10\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                 "2": /* constructor */{
-                  tag: 2,
-                  name: "String",
-                  "0": /* No_padding */0,
+                  tag: "String",
+                  "0": "No_padding",
                   "1": /* constructor */{
-                    tag: 10,
-                    name: "Flush",
-                    "0": /* End_of_format */0
+                    tag: "Flush",
+                    "0": "End_of_format"
                   }
                 }
               },
@@ -5126,123 +4388,102 @@ function test49(param) {
             }), (function (s, t) {
             return s === "" ? t === "as" : false;
           })) && Curry._1(Scanf.sscanf("as", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 20,
-                name: "Scan_char_set",
+                tag: "Scan_char_set",
                 "0": undefined,
                 "1": "\0\0\0\0\0@\0\0\0\0\0\0\x02\0\0\x04\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
-                "2": /* End_of_format */0
+                "2": "End_of_format"
               },
               "1": "%[a..z]"
             }), (function (s) {
             return s === "a";
           })) && Curry._1(Scanf.sscanf("as", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 20,
-                name: "Scan_char_set",
+                tag: "Scan_char_set",
                 "0": undefined,
                 "1": "\0\0\0\0\0\0\0\0\0\0\0\0\xfe\xff\xff\x07\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
-                "2": /* End_of_format */0
+                "2": "End_of_format"
               },
               "1": "%[a-z]"
             }), (function (s) {
             return s === "as";
           })) && Curry._1(Scanf.sscanf("as", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 20,
-                name: "Scan_char_set",
+                tag: "Scan_char_set",
                 "0": undefined,
                 "1": "\0\0\0\0\0@\0\0\0\0\0\0\x02\0\0\x04\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                 "2": /* constructor */{
-                  tag: 2,
-                  name: "String",
-                  "0": /* No_padding */0,
-                  "1": /* End_of_format */0
+                  tag: "String",
+                  "0": "No_padding",
+                  "1": "End_of_format"
                 }
               },
               "1": "%[a..z]%s"
             }), (function (s, t) {
             return s === "a" ? t === "s" : false;
           })) && Curry._1(Scanf.sscanf("as", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 20,
-                name: "Scan_char_set",
+                tag: "Scan_char_set",
                 "0": undefined,
                 "1": "\0\0\0\0\0\0\0\0\0\0\0\0\xfe\xff\xff\x07\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                 "2": /* constructor */{
-                  tag: 2,
-                  name: "String",
-                  "0": /* No_padding */0,
-                  "1": /* End_of_format */0
+                  tag: "String",
+                  "0": "No_padding",
+                  "1": "End_of_format"
                 }
               },
               "1": "%[a-z]%s"
             }), (function (s, t) {
             return s === "as" ? t === "" : false;
           })) && Curry._1(Scanf.sscanf("-as", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 20,
-                name: "Scan_char_set",
+                tag: "Scan_char_set",
                 "0": undefined,
                 "1": "\0\0\0\0\0 \0\0\0\0\0\0\xfe\xff\xff\x07\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
-                "2": /* End_of_format */0
+                "2": "End_of_format"
               },
               "1": "%[-a-z]"
             }), (function (s) {
             return s === "-as";
           })) && Curry._1(Scanf.sscanf("-as", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 20,
-                name: "Scan_char_set",
+                tag: "Scan_char_set",
                 "0": undefined,
                 "1": "\0\0\0\0\0 \0\0\0\0\0\0\xfe\xff\xff\x07\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                 "2": /* constructor */{
-                  tag: 17,
-                  name: "Formatting_lit",
+                  tag: "Formatting_lit",
                   "0": /* constructor */{
-                    tag: 2,
-                    name: "Scan_indic",
+                    tag: "Scan_indic",
                     "0": /* "s" */115
                   },
-                  "1": /* End_of_format */0
+                  "1": "End_of_format"
                 }
               },
               "1": "%[-a-z]@s"
             }), (function (s) {
             return s === "-a";
           })) && Curry._1(Scanf.sscanf("-as", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 12,
-                name: "Char_literal",
+                tag: "Char_literal",
                 "0": /* "-" */45,
                 "1": /* constructor */{
-                  tag: 20,
-                  name: "Scan_char_set",
+                  tag: "Scan_char_set",
                   "0": undefined,
                   "1": "\0\0\0\0\0\0\0\0\0\0\0\0\x02\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                   "2": /* constructor */{
-                    tag: 17,
-                    name: "Formatting_lit",
+                    tag: "Formatting_lit",
                     "0": /* constructor */{
-                      tag: 2,
-                      name: "Scan_indic",
+                      tag: "Scan_indic",
                       "0": /* "s" */115
                     },
-                    "1": /* End_of_format */0
+                    "1": "End_of_format"
                   }
                 }
               },
@@ -5250,33 +4491,26 @@ function test49(param) {
             }), (function (s) {
             return s === "a";
           })) && Curry._1(Scanf.sscanf("-asb", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 12,
-                name: "Char_literal",
+                tag: "Char_literal",
                 "0": /* "-" */45,
                 "1": /* constructor */{
-                  tag: 20,
-                  name: "Scan_char_set",
+                  tag: "Scan_char_set",
                   "0": undefined,
                   "1": "\0\0\0\0\0\0\0\0\0\0\0\0\x02\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                   "2": /* constructor */{
-                    tag: 17,
-                    name: "Formatting_lit",
+                    tag: "Formatting_lit",
                     "0": /* constructor */{
-                      tag: 2,
-                      name: "Scan_indic",
+                      tag: "Scan_indic",
                       "0": /* "s" */115
                     },
                     "1": /* constructor */{
-                      tag: 12,
-                      name: "Char_literal",
+                      tag: "Char_literal",
                       "0": /* "b" */98,
                       "1": /* constructor */{
-                        tag: 10,
-                        name: "Flush",
-                        "0": /* End_of_format */0
+                        tag: "Flush",
+                        "0": "End_of_format"
                       }
                     }
                   }
@@ -5287,30 +4521,24 @@ function test49(param) {
             return s === "a";
           }))) {
     return Curry._1(Scanf.sscanf("-asb", /* constructor */{
-                    tag: 0,
-                    name: "Format",
+                    tag: "Format",
                     "0": /* constructor */{
-                      tag: 12,
-                      name: "Char_literal",
+                      tag: "Char_literal",
                       "0": /* "-" */45,
                       "1": /* constructor */{
-                        tag: 20,
-                        name: "Scan_char_set",
+                        tag: "Scan_char_set",
                         "0": undefined,
                         "1": "\0\0\0\0\0\0\0\0\0\0\0\0\x02\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                         "2": /* constructor */{
-                          tag: 17,
-                          name: "Formatting_lit",
+                          tag: "Formatting_lit",
                           "0": /* constructor */{
-                            tag: 2,
-                            name: "Scan_indic",
+                            tag: "Scan_indic",
                             "0": /* "s" */115
                           },
                           "1": /* constructor */{
-                            tag: 2,
-                            name: "String",
-                            "0": /* No_padding */0,
-                            "1": /* End_of_format */0
+                            tag: "String",
+                            "0": "No_padding",
+                            "1": "End_of_format"
                           }
                         }
                       }
@@ -5328,7 +4556,7 @@ function test49(param) {
   }
 }
 
-test("File \"tscanf_test.ml\", line 1176, characters 5-12", test49(/* () */0));
+test("File \"tscanf_test.ml\", line 1176, characters 5-12", test49("()"));
 
 function next_char(ob, param) {
   var s = $$Buffer.contents(ob);
@@ -5353,17 +4581,14 @@ function send_int(ob, i) {
 
 function writer(ib, ob) {
   return Curry._1(Scanf.bscanf(ib, /* constructor */{
-                  tag: 0,
-                  name: "Format",
+                  tag: "Format",
                   "0": /* constructor */{
-                    tag: 2,
-                    name: "String",
-                    "0": /* No_padding */0,
+                    tag: "String",
+                    "0": "No_padding",
                     "1": /* constructor */{
-                      tag: 12,
-                      name: "Char_literal",
+                      tag: "Char_literal",
                       "0": /* "\n" */10,
-                      "1": /* End_of_format */0
+                      "1": "End_of_format"
                     }
                   },
                   "1": "%s\n"
@@ -5374,15 +4599,13 @@ function writer(ib, ob) {
                       return reader(ib, ob);
                   case "stop" :
                       return Curry._1(Scanf.bscanf(ib, /* constructor */{
-                                      tag: 0,
-                                      name: "Format",
+                                      tag: "Format",
                                       "0": /* constructor */{
-                                        tag: 4,
-                                        name: "Int",
-                                        "0": /* Int_i */3,
-                                        "1": /* No_padding */0,
-                                        "2": /* No_precision */0,
-                                        "3": /* End_of_format */0
+                                        tag: "Int",
+                                        "0": "Int_i",
+                                        "1": "No_padding",
+                                        "2": "No_precision",
+                                        "3": "End_of_format"
                                       },
                                       "1": "%i"
                                     }), (function (i) {
@@ -5405,18 +4628,15 @@ function reader(ib, ob) {
     return writer(ib, ob);
   } else {
     return Curry._1(Scanf.bscanf(ib, /* constructor */{
-                    tag: 0,
-                    name: "Format",
+                    tag: "Format",
                     "0": /* constructor */{
-                      tag: 20,
-                      name: "Scan_char_set",
+                      tag: "Scan_char_set",
                       "0": undefined,
                       "1": "\xff\xfb\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff",
                       "2": /* constructor */{
-                        tag: 12,
-                        name: "Char_literal",
+                        tag: "Char_literal",
                         "0": /* "\n" */10,
-                        "1": /* End_of_format */0
+                        "1": "End_of_format"
                       }
                     },
                     "1": "%[^\n]\n"
@@ -5448,53 +4668,44 @@ function go(param) {
 }
 
 function test50(param) {
-  return go(/* () */0) === 100;
+  return go("()") === 100;
 }
 
-test("File \"tscanf_test.ml\", line 1228, characters 5-12", go(/* () */0) === 100);
+test("File \"tscanf_test.ml\", line 1228, characters 5-12", go("()") === 100);
 
 function test51(param) {
   if (Curry._1(Scanf.sscanf("Hello", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 2,
-                name: "String",
-                "0": /* No_padding */0,
-                "1": /* End_of_format */0
+                tag: "String",
+                "0": "No_padding",
+                "1": "End_of_format"
               },
               "1": "%s"
             }), id) === "Hello" && Curry._1(Scanf.sscanf("Hello\n", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 2,
-                name: "String",
-                "0": /* No_padding */0,
+                tag: "String",
+                "0": "No_padding",
                 "1": /* constructor */{
-                  tag: 12,
-                  name: "Char_literal",
+                  tag: "Char_literal",
                   "0": /* "\n" */10,
-                  "1": /* End_of_format */0
+                  "1": "End_of_format"
                 }
               },
               "1": "%s\n"
             }), id) === "Hello" && Curry._1(Scanf.sscanf("Hello\n", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 2,
-                name: "String",
-                "0": /* No_padding */0,
+                tag: "String",
+                "0": "No_padding",
                 "1": /* constructor */{
-                  tag: 2,
-                  name: "String",
-                  "0": /* No_padding */0,
+                  tag: "String",
+                  "0": "No_padding",
                   "1": /* constructor */{
-                    tag: 12,
-                    name: "Char_literal",
+                    tag: "Char_literal",
                     "0": /* "\n" */10,
-                    "1": /* End_of_format */0
+                    "1": "End_of_format"
                   }
                 }
               },
@@ -5502,24 +4713,19 @@ function test51(param) {
             }), (function (s1, s2) {
             return s1 === "Hello" ? s2 === "" : false;
           })) && Curry._1(Scanf.sscanf("Hello\nWorld", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 2,
-                name: "String",
-                "0": /* No_padding */0,
+                tag: "String",
+                "0": "No_padding",
                 "1": /* constructor */{
-                  tag: 12,
-                  name: "Char_literal",
+                  tag: "Char_literal",
                   "0": /* "\n" */10,
                   "1": /* constructor */{
-                    tag: 2,
-                    name: "String",
-                    "0": /* No_padding */0,
+                    tag: "String",
+                    "0": "No_padding",
                     "1": /* constructor */{
-                      tag: 10,
-                      name: "Flush",
-                      "0": /* End_of_format */0
+                      tag: "Flush",
+                      "0": "End_of_format"
                     }
                   }
                 }
@@ -5528,21 +4734,17 @@ function test51(param) {
             }), (function (s1, s2) {
             return s1 === "Hello" ? s2 === "World" : false;
           })) && Curry._1(Scanf.sscanf("Hello\nWorld!", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 2,
-                name: "String",
-                "0": /* No_padding */0,
+                tag: "String",
+                "0": "No_padding",
                 "1": /* constructor */{
-                  tag: 12,
-                  name: "Char_literal",
+                  tag: "Char_literal",
                   "0": /* "\n" */10,
                   "1": /* constructor */{
-                    tag: 2,
-                    name: "String",
-                    "0": /* No_padding */0,
-                    "1": /* End_of_format */0
+                    tag: "String",
+                    "0": "No_padding",
+                    "1": "End_of_format"
                   }
                 }
               },
@@ -5550,21 +4752,17 @@ function test51(param) {
             }), (function (s1, s2) {
             return s1 === "Hello" ? s2 === "World!" : false;
           })) && Curry._1(Scanf.sscanf("Hello\n", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 2,
-                name: "String",
-                "0": /* No_padding */0,
+                tag: "String",
+                "0": "No_padding",
                 "1": /* constructor */{
-                  tag: 17,
-                  name: "Formatting_lit",
-                  "0": /* Force_newline */3,
+                  tag: "Formatting_lit",
+                  "0": "Force_newline",
                   "1": /* constructor */{
-                    tag: 2,
-                    name: "String",
-                    "0": /* No_padding */0,
-                    "1": /* End_of_format */0
+                    tag: "String",
+                    "0": "No_padding",
+                    "1": "End_of_format"
                   }
                 }
               },
@@ -5573,21 +4771,17 @@ function test51(param) {
             return s1 === "Hello" ? s2 === "" : false;
           }))) {
     return Curry._1(Scanf.sscanf("Hello \n", /* constructor */{
-                    tag: 0,
-                    name: "Format",
+                    tag: "Format",
                     "0": /* constructor */{
-                      tag: 2,
-                      name: "String",
-                      "0": /* No_padding */0,
+                      tag: "String",
+                      "0": "No_padding",
                       "1": /* constructor */{
-                        tag: 17,
-                        name: "Formatting_lit",
-                        "0": /* Force_newline */3,
+                        tag: "Formatting_lit",
+                        "0": "Force_newline",
                         "1": /* constructor */{
-                          tag: 2,
-                          name: "String",
-                          "0": /* No_padding */0,
-                          "1": /* End_of_format */0
+                          tag: "String",
+                          "0": "No_padding",
+                          "1": "End_of_format"
                         }
                       }
                     },
@@ -5604,55 +4798,45 @@ function test51(param) {
   }
 }
 
-test("File \"tscanf_test.ml\", line 1248, characters 5-12", test51(/* () */0));
+test("File \"tscanf_test.ml\", line 1248, characters 5-12", test51("()"));
 
 function test52(param) {
   if (Curry._1(Scanf.sscanf("Hello\n", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 2,
-                name: "String",
-                "0": /* No_padding */0,
+                tag: "String",
+                "0": "No_padding",
                 "1": /* constructor */{
-                  tag: 17,
-                  name: "Formatting_lit",
-                  "0": /* Force_newline */3,
-                  "1": /* End_of_format */0
+                  tag: "Formatting_lit",
+                  "0": "Force_newline",
+                  "1": "End_of_format"
                 }
               },
               "1": "%s@\n"
             }), id) === "Hello" && Curry._1(Scanf.sscanf("Hello", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 2,
-                name: "String",
-                "0": /* No_padding */0,
+                tag: "String",
+                "0": "No_padding",
                 "1": /* constructor */{
-                  tag: 17,
-                  name: "Formatting_lit",
-                  "0": /* Force_newline */3,
-                  "1": /* End_of_format */0
+                  tag: "Formatting_lit",
+                  "0": "Force_newline",
+                  "1": "End_of_format"
                 }
               },
               "1": "%s@\n"
             }), id) === "Hello" && Curry._1(Scanf.sscanf("Hello", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 2,
-                name: "String",
-                "0": /* No_padding */0,
+                tag: "String",
+                "0": "No_padding",
                 "1": /* constructor */{
-                  tag: 2,
-                  name: "String",
-                  "0": /* No_padding */0,
+                  tag: "String",
+                  "0": "No_padding",
                   "1": /* constructor */{
-                    tag: 17,
-                    name: "Formatting_lit",
-                    "0": /* Force_newline */3,
-                    "1": /* End_of_format */0
+                    tag: "Formatting_lit",
+                    "0": "Force_newline",
+                    "1": "End_of_format"
                   }
                 }
               },
@@ -5660,24 +4844,19 @@ function test52(param) {
             }), (function (s1, s2) {
             return s1 === "Hello" ? s2 === "" : false;
           })) && Curry._1(Scanf.sscanf("Hello\nWorld", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 2,
-                name: "String",
-                "0": /* No_padding */0,
+                tag: "String",
+                "0": "No_padding",
                 "1": /* constructor */{
-                  tag: 17,
-                  name: "Formatting_lit",
-                  "0": /* Force_newline */3,
+                  tag: "Formatting_lit",
+                  "0": "Force_newline",
                   "1": /* constructor */{
-                    tag: 2,
-                    name: "String",
-                    "0": /* No_padding */0,
+                    tag: "String",
+                    "0": "No_padding",
                     "1": /* constructor */{
-                      tag: 10,
-                      name: "Flush",
-                      "0": /* End_of_format */0
+                      tag: "Flush",
+                      "0": "End_of_format"
                     }
                   }
                 }
@@ -5686,25 +4865,20 @@ function test52(param) {
             }), (function (s1, s2) {
             return s1 === "Hello" ? s2 === "World" : false;
           })) && Curry._1(Scanf.sscanf("Hello\nWorld!", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 2,
-                name: "String",
-                "0": /* No_padding */0,
+                tag: "String",
+                "0": "No_padding",
                 "1": /* constructor */{
-                  tag: 17,
-                  name: "Formatting_lit",
-                  "0": /* Force_newline */3,
+                  tag: "Formatting_lit",
+                  "0": "Force_newline",
                   "1": /* constructor */{
-                    tag: 2,
-                    name: "String",
-                    "0": /* No_padding */0,
+                    tag: "String",
+                    "0": "No_padding",
                     "1": /* constructor */{
-                      tag: 17,
-                      name: "Formatting_lit",
-                      "0": /* Force_newline */3,
-                      "1": /* End_of_format */0
+                      tag: "Formatting_lit",
+                      "0": "Force_newline",
+                      "1": "End_of_format"
                     }
                   }
                 }
@@ -5713,21 +4887,17 @@ function test52(param) {
             }), (function (s1, s2) {
             return s1 === "Hello" ? s2 === "World!" : false;
           })) && Curry._1(Scanf.sscanf("Hello\n", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 2,
-                name: "String",
-                "0": /* No_padding */0,
+                tag: "String",
+                "0": "No_padding",
                 "1": /* constructor */{
-                  tag: 17,
-                  name: "Formatting_lit",
-                  "0": /* Force_newline */3,
+                  tag: "Formatting_lit",
+                  "0": "Force_newline",
                   "1": /* constructor */{
-                    tag: 2,
-                    name: "String",
-                    "0": /* No_padding */0,
-                    "1": /* End_of_format */0
+                    tag: "String",
+                    "0": "No_padding",
+                    "1": "End_of_format"
                   }
                 }
               },
@@ -5735,21 +4905,17 @@ function test52(param) {
             }), (function (s1, s2) {
             return s1 === "Hello" ? s2 === "" : false;
           })) && Curry._1(Scanf.sscanf("Hello \n", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 2,
-                name: "String",
-                "0": /* No_padding */0,
+                tag: "String",
+                "0": "No_padding",
                 "1": /* constructor */{
-                  tag: 2,
-                  name: "String",
-                  "0": /* No_padding */0,
+                  tag: "String",
+                  "0": "No_padding",
                   "1": /* constructor */{
-                    tag: 17,
-                    name: "Formatting_lit",
-                    "0": /* Force_newline */3,
-                    "1": /* End_of_format */0
+                    tag: "Formatting_lit",
+                    "0": "Force_newline",
+                    "1": "End_of_format"
                   }
                 }
               },
@@ -5757,30 +4923,24 @@ function test52(param) {
             }), (function (s1, s2) {
             return s1 === "Hello" ? s2 === " " : false;
           })) && Curry._1(Scanf.sscanf("Hello \n", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 2,
-                name: "String",
-                "0": /* No_padding */0,
+                tag: "String",
+                "0": "No_padding",
                 "1": /* constructor */{
-                  tag: 2,
-                  name: "String",
-                  "0": /* No_padding */0,
+                  tag: "String",
+                  "0": "No_padding",
                   "1": /* constructor */{
-                    tag: 23,
-                    name: "Ignored_param",
+                    tag: "Ignored_param",
                     "0": /* constructor */{
-                      tag: 9,
-                      name: "Ignored_scan_char_set",
+                      tag: "Ignored_scan_char_set",
                       "0": 1,
                       "1": "\0\0\0\0\x01\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
                     },
                     "1": /* constructor */{
-                      tag: 12,
-                      name: "Char_literal",
+                      tag: "Char_literal",
                       "0": /* "\n" */10,
-                      "1": /* End_of_format */0
+                      "1": "End_of_format"
                     }
                   }
                 }
@@ -5789,30 +4949,24 @@ function test52(param) {
             }), (function (s1, s2) {
             return s1 === "Hello" ? s2 === "" : false;
           })) && Curry._1(Scanf.sscanf("Hello \n", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 2,
-                name: "String",
-                "0": /* No_padding */0,
+                tag: "String",
+                "0": "No_padding",
                 "1": /* constructor */{
-                  tag: 23,
-                  name: "Ignored_param",
+                  tag: "Ignored_param",
                   "0": /* constructor */{
-                    tag: 9,
-                    name: "Ignored_scan_char_set",
+                    tag: "Ignored_scan_char_set",
                     "0": 1,
                     "1": "\0\0\0\0\x01\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
                   },
                   "1": /* constructor */{
-                    tag: 2,
-                    name: "String",
-                    "0": /* No_padding */0,
+                    tag: "String",
+                    "0": "No_padding",
                     "1": /* constructor */{
-                      tag: 12,
-                      name: "Char_literal",
+                      tag: "Char_literal",
                       "0": /* "\n" */10,
-                      "1": /* End_of_format */0
+                      "1": "End_of_format"
                     }
                   }
                 }
@@ -5821,24 +4975,19 @@ function test52(param) {
             }), (function (s1, s2) {
             return s1 === "Hello" ? s2 === "" : false;
           })) && Curry._1(Scanf.sscanf("Hello\nWorld", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 2,
-                name: "String",
-                "0": /* No_padding */0,
+                tag: "String",
+                "0": "No_padding",
                 "1": /* constructor */{
-                  tag: 12,
-                  name: "Char_literal",
+                  tag: "Char_literal",
                   "0": /* "\n" */10,
                   "1": /* constructor */{
-                    tag: 2,
-                    name: "String",
-                    "0": /* No_padding */0,
+                    tag: "String",
+                    "0": "No_padding",
                     "1": /* constructor */{
-                      tag: 10,
-                      name: "Flush",
-                      "0": /* End_of_format */0
+                      tag: "Flush",
+                      "0": "End_of_format"
                     }
                   }
                 }
@@ -5847,24 +4996,19 @@ function test52(param) {
             }), (function (s1, s2) {
             return s1 === "Hello" ? s2 === "World" : false;
           })) && Curry._1(Scanf.sscanf("Hello\nWorld!", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 2,
-                name: "String",
-                "0": /* No_padding */0,
+                tag: "String",
+                "0": "No_padding",
                 "1": /* constructor */{
-                  tag: 12,
-                  name: "Char_literal",
+                  tag: "Char_literal",
                   "0": /* "\n" */10,
                   "1": /* constructor */{
-                    tag: 2,
-                    name: "String",
-                    "0": /* No_padding */0,
+                    tag: "String",
+                    "0": "No_padding",
                     "1": /* constructor */{
-                      tag: 10,
-                      name: "Flush",
-                      "0": /* End_of_format */0
+                      tag: "Flush",
+                      "0": "End_of_format"
                     }
                   }
                 }
@@ -5873,32 +5017,25 @@ function test52(param) {
             }), (function (s1, s2) {
             return s1 === "Hello" ? s2 === "World!" : false;
           })) && Curry._1(Scanf.sscanf("Hello\nWorld!", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 2,
-                name: "String",
-                "0": /* No_padding */0,
+                tag: "String",
+                "0": "No_padding",
                 "1": /* constructor */{
-                  tag: 12,
-                  name: "Char_literal",
+                  tag: "Char_literal",
                   "0": /* "\n" */10,
                   "1": /* constructor */{
-                    tag: 2,
-                    name: "String",
-                    "0": /* No_padding */0,
+                    tag: "String",
+                    "0": "No_padding",
                     "1": /* constructor */{
-                      tag: 17,
-                      name: "Formatting_lit",
+                      tag: "Formatting_lit",
                       "0": /* constructor */{
-                        tag: 2,
-                        name: "Scan_indic",
+                        tag: "Scan_indic",
                         "0": /* "!" */33
                       },
                       "1": /* constructor */{
-                        tag: 10,
-                        name: "Flush",
-                        "0": /* End_of_format */0
+                        tag: "Flush",
+                        "0": "End_of_format"
                       }
                     }
                   }
@@ -5908,30 +5045,24 @@ function test52(param) {
             }), (function (s1, s2) {
             return s1 === "Hello" ? s2 === "World" : false;
           })) && Curry._1(Scanf.sscanf("Hello{foo}", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 2,
-                name: "String",
-                "0": /* No_padding */0,
+                tag: "String",
+                "0": "No_padding",
                 "1": /* constructor */{
-                  tag: 18,
-                  name: "Formatting_gen",
+                  tag: "Formatting_gen",
                   "0": /* constructor */{
-                    tag: 0,
-                    name: "Open_tag",
+                    tag: "Open_tag",
                     "0": /* constructor */{
-                      tag: 0,
-                      name: "Format",
-                      "0": /* End_of_format */0,
+                      tag: "Format",
+                      "0": "End_of_format",
                       "1": ""
                     }
                   },
                   "1": /* constructor */{
-                    tag: 2,
-                    name: "String",
-                    "0": /* No_padding */0,
-                    "1": /* End_of_format */0
+                    tag: "String",
+                    "0": "No_padding",
+                    "1": "End_of_format"
                   }
                 }
               },
@@ -5940,30 +5071,24 @@ function test52(param) {
             return s1 === "Hello" ? s2 === "foo}" : false;
           }))) {
     return Curry._1(Scanf.sscanf("Hello[foo]", /* constructor */{
-                    tag: 0,
-                    name: "Format",
+                    tag: "Format",
                     "0": /* constructor */{
-                      tag: 2,
-                      name: "String",
-                      "0": /* No_padding */0,
+                      tag: "String",
+                      "0": "No_padding",
                       "1": /* constructor */{
-                        tag: 18,
-                        name: "Formatting_gen",
+                        tag: "Formatting_gen",
                         "0": /* constructor */{
-                          tag: 1,
-                          name: "Open_box",
+                          tag: "Open_box",
                           "0": /* constructor */{
-                            tag: 0,
-                            name: "Format",
-                            "0": /* End_of_format */0,
+                            tag: "Format",
+                            "0": "End_of_format",
                             "1": ""
                           }
                         },
                         "1": /* constructor */{
-                          tag: 2,
-                          name: "String",
-                          "0": /* No_padding */0,
-                          "1": /* End_of_format */0
+                          tag: "String",
+                          "0": "No_padding",
+                          "1": "End_of_format"
                         }
                       }
                     },
@@ -5980,71 +5105,61 @@ function test52(param) {
   }
 }
 
-test("File \"tscanf_test.ml\", line 1286, characters 5-12", test52(/* () */0));
+test("File \"tscanf_test.ml\", line 1286, characters 5-12", test52("()"));
 
 function test53(param) {
   if (Curry._1(Scanf.sscanf("123", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 6,
-                name: "Nativeint",
-                "0": /* Int_d */0,
-                "1": /* No_padding */0,
-                "2": /* No_precision */0,
-                "3": /* End_of_format */0
+                tag: "Nativeint",
+                "0": "Int_d",
+                "1": "No_padding",
+                "2": "No_precision",
+                "3": "End_of_format"
               },
               "1": "%nd"
             }), id) === 123 && Curry._1(Scanf.sscanf("124", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 6,
-                name: "Nativeint",
-                "0": /* Int_d */0,
-                "1": /* No_padding */0,
-                "2": /* No_precision */0,
-                "3": /* End_of_format */0
+                tag: "Nativeint",
+                "0": "Int_d",
+                "1": "No_padding",
+                "2": "No_precision",
+                "3": "End_of_format"
               },
               "1": "%nd"
             }), (function (i) {
             return i - 1 === 123;
           })) && Curry._1(Scanf.sscanf("123", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 5,
-                name: "Int32",
-                "0": /* Int_d */0,
-                "1": /* No_padding */0,
-                "2": /* No_precision */0,
-                "3": /* End_of_format */0
+                tag: "Int32",
+                "0": "Int_d",
+                "1": "No_padding",
+                "2": "No_precision",
+                "3": "End_of_format"
               },
               "1": "%ld"
             }), id) === 123 && Curry._1(Scanf.sscanf("124", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 5,
-                name: "Int32",
-                "0": /* Int_d */0,
-                "1": /* No_padding */0,
-                "2": /* No_precision */0,
-                "3": /* End_of_format */0
+                tag: "Int32",
+                "0": "Int_d",
+                "1": "No_padding",
+                "2": "No_precision",
+                "3": "End_of_format"
               },
               "1": "%ld"
             }), (function (i) {
             return (i + 1 | 0) === 125;
           })) && Caml_int64.eq(Curry._1(Scanf.sscanf("123", /* constructor */{
-                  tag: 0,
-                  name: "Format",
+                  tag: "Format",
                   "0": /* constructor */{
-                    tag: 7,
-                    name: "Int64",
-                    "0": /* Int_d */0,
-                    "1": /* No_padding */0,
-                    "2": /* No_precision */0,
-                    "3": /* End_of_format */0
+                    tag: "Int64",
+                    "0": "Int_d",
+                    "1": "No_padding",
+                    "2": "No_precision",
+                    "3": "End_of_format"
                   },
                   "1": "%Ld"
                 }), id), /* int64 */[
@@ -6052,15 +5167,13 @@ function test53(param) {
           /* lo */123
         ])) {
     return Curry._1(Scanf.sscanf("124", /* constructor */{
-                    tag: 0,
-                    name: "Format",
+                    tag: "Format",
                     "0": /* constructor */{
-                      tag: 7,
-                      name: "Int64",
-                      "0": /* Int_d */0,
-                      "1": /* No_padding */0,
-                      "2": /* No_precision */0,
-                      "3": /* End_of_format */0
+                      tag: "Int64",
+                      "0": "Int_d",
+                      "1": "No_padding",
+                      "2": "No_precision",
+                      "3": "End_of_format"
                     },
                     "1": "%Ld"
                   }), (function (i) {
@@ -6077,24 +5190,21 @@ function test53(param) {
   }
 }
 
-test("File \"tscanf_test.ml\", line 1301, characters 5-12", test53(/* () */0));
+test("File \"tscanf_test.ml\", line 1301, characters 5-12", test53("()"));
 
 function test56(param) {
   var g = function (s) {
     return Curry._1(Scanf.sscanf(s, /* constructor */{
-                    tag: 0,
-                    name: "Format",
+                    tag: "Format",
                     "0": /* constructor */{
-                      tag: 4,
-                      name: "Int",
-                      "0": /* Int_d */0,
-                      "1": /* No_padding */0,
-                      "2": /* No_precision */0,
+                      tag: "Int",
+                      "0": "Int_d",
+                      "1": "No_padding",
+                      "2": "No_precision",
                       "3": /* constructor */{
-                        tag: 21,
-                        name: "Scan_get_counter",
-                        "0": /* Char_counter */1,
-                        "1": /* End_of_format */0
+                        tag: "Scan_get_counter",
+                        "0": "Char_counter",
+                        "1": "End_of_format"
                       }
                     },
                     "1": "%d%n"
@@ -6121,96 +5231,80 @@ function test56(param) {
   }
 }
 
-test("File \"tscanf_test.ml\", line 1316, characters 5-12", test56(/* () */0));
+test("File \"tscanf_test.ml\", line 1316, characters 5-12", test56("()"));
 
 function test57(param) {
   var test_format_scan = function (s, fmt, efmt) {
     return Caml_obj.caml_equal(Scanf.format_from_string(s, fmt), efmt);
   };
   if (test_format_scan(" %i ", /* constructor */{
-          tag: 0,
-          name: "Format",
+          tag: "Format",
           "0": /* constructor */{
-            tag: 4,
-            name: "Int",
-            "0": /* Int_i */3,
-            "1": /* No_padding */0,
-            "2": /* No_precision */0,
-            "3": /* End_of_format */0
+            tag: "Int",
+            "0": "Int_i",
+            "1": "No_padding",
+            "2": "No_precision",
+            "3": "End_of_format"
           },
           "1": "%i"
         }, /* constructor */{
-          tag: 0,
-          name: "Format",
+          tag: "Format",
           "0": /* constructor */{
-            tag: 12,
-            name: "Char_literal",
+            tag: "Char_literal",
             "0": /* " " */32,
             "1": /* constructor */{
-              tag: 4,
-              name: "Int",
-              "0": /* Int_i */3,
-              "1": /* No_padding */0,
-              "2": /* No_precision */0,
+              tag: "Int",
+              "0": "Int_i",
+              "1": "No_padding",
+              "2": "No_precision",
               "3": /* constructor */{
-                tag: 12,
-                name: "Char_literal",
+                tag: "Char_literal",
                 "0": /* " " */32,
-                "1": /* End_of_format */0
+                "1": "End_of_format"
               }
             }
           },
           "1": " %i "
         }) && test_format_scan("%i", /* constructor */{
-          tag: 0,
-          name: "Format",
+          tag: "Format",
           "0": /* constructor */{
-            tag: 4,
-            name: "Int",
-            "0": /* Int_d */0,
-            "1": /* No_padding */0,
-            "2": /* No_precision */0,
-            "3": /* End_of_format */0
+            tag: "Int",
+            "0": "Int_d",
+            "1": "No_padding",
+            "2": "No_precision",
+            "3": "End_of_format"
           },
           "1": "%d"
         }, /* constructor */{
-          tag: 0,
-          name: "Format",
+          tag: "Format",
           "0": /* constructor */{
-            tag: 4,
-            name: "Int",
-            "0": /* Int_i */3,
-            "1": /* No_padding */0,
-            "2": /* No_precision */0,
-            "3": /* End_of_format */0
+            tag: "Int",
+            "0": "Int_i",
+            "1": "No_padding",
+            "2": "No_precision",
+            "3": "End_of_format"
           },
           "1": "%i"
         }) && test_format_scan("Read an int %i then a string %s.", /* constructor */{
-          tag: 0,
-          name: "Format",
+          tag: "Format",
           "0": /* constructor */{
-            tag: 11,
-            name: "String_literal",
+            tag: "String_literal",
             "0": "Spec",
             "1": /* constructor */{
-              tag: 4,
-              name: "Int",
-              "0": /* Int_d */0,
-              "1": /* No_padding */0,
-              "2": /* No_precision */0,
+              tag: "Int",
+              "0": "Int_d",
+              "1": "No_padding",
+              "2": "No_precision",
               "3": /* constructor */{
-                tag: 11,
-                name: "String_literal",
+                tag: "String_literal",
                 "0": "ifi",
                 "1": /* constructor */{
-                  tag: 2,
-                  name: "String",
-                  "0": /* No_padding */0,
+                  tag: "String",
+                  "0": "No_padding",
                   "1": /* constructor */{
-                    tag: 11,
-                    name: "String_literal",
+                    tag: "String_literal",
                     "0": "cation",
-                    "1": /* End_of_format */0
+                    "1": "End_of_format"
                   }
                 }
               }
@@ -6218,31 +5312,25 @@ function test57(param) {
           },
           "1": "Spec%difi%scation"
         }, /* constructor */{
-          tag: 0,
-          name: "Format",
+          tag: "Format",
           "0": /* constructor */{
-            tag: 11,
-            name: "String_literal",
+            tag: "String_literal",
             "0": "Read an int ",
             "1": /* constructor */{
-              tag: 4,
-              name: "Int",
-              "0": /* Int_i */3,
-              "1": /* No_padding */0,
-              "2": /* No_precision */0,
+              tag: "Int",
+              "0": "Int_i",
+              "1": "No_padding",
+              "2": "No_precision",
               "3": /* constructor */{
-                tag: 11,
-                name: "String_literal",
+                tag: "String_literal",
                 "0": " then a string ",
                 "1": /* constructor */{
-                  tag: 2,
-                  name: "String",
-                  "0": /* No_padding */0,
+                  tag: "String",
+                  "0": "No_padding",
                   "1": /* constructor */{
-                    tag: 12,
-                    name: "Char_literal",
+                    tag: "Char_literal",
                     "0": /* "." */46,
-                    "1": /* End_of_format */0
+                    "1": "End_of_format"
                   }
                 }
               }
@@ -6250,31 +5338,25 @@ function test57(param) {
           },
           "1": "Read an int %i then a string %s."
         }) && test_format_scan("Read an int %i then a string \"%s\".", /* constructor */{
-          tag: 0,
-          name: "Format",
+          tag: "Format",
           "0": /* constructor */{
-            tag: 11,
-            name: "String_literal",
+            tag: "String_literal",
             "0": "Spec",
             "1": /* constructor */{
-              tag: 4,
-              name: "Int",
-              "0": /* Int_d */0,
-              "1": /* No_padding */0,
-              "2": /* No_precision */0,
+              tag: "Int",
+              "0": "Int_d",
+              "1": "No_padding",
+              "2": "No_precision",
               "3": /* constructor */{
-                tag: 11,
-                name: "String_literal",
+                tag: "String_literal",
                 "0": "ifi",
                 "1": /* constructor */{
-                  tag: 3,
-                  name: "Caml_string",
-                  "0": /* No_padding */0,
+                  tag: "Caml_string",
+                  "0": "No_padding",
                   "1": /* constructor */{
-                    tag: 11,
-                    name: "String_literal",
+                    tag: "String_literal",
                     "0": "cation",
-                    "1": /* End_of_format */0
+                    "1": "End_of_format"
                   }
                 }
               }
@@ -6282,31 +5364,25 @@ function test57(param) {
           },
           "1": "Spec%difi%Scation"
         }, /* constructor */{
-          tag: 0,
-          name: "Format",
+          tag: "Format",
           "0": /* constructor */{
-            tag: 11,
-            name: "String_literal",
+            tag: "String_literal",
             "0": "Read an int ",
             "1": /* constructor */{
-              tag: 4,
-              name: "Int",
-              "0": /* Int_i */3,
-              "1": /* No_padding */0,
-              "2": /* No_precision */0,
+              tag: "Int",
+              "0": "Int_i",
+              "1": "No_padding",
+              "2": "No_precision",
               "3": /* constructor */{
-                tag: 11,
-                name: "String_literal",
+                tag: "String_literal",
                 "0": " then a string \"",
                 "1": /* constructor */{
-                  tag: 2,
-                  name: "String",
-                  "0": /* No_padding */0,
+                  tag: "String",
+                  "0": "No_padding",
                   "1": /* constructor */{
-                    tag: 11,
-                    name: "String_literal",
+                    tag: "String_literal",
                     "0": "\".",
-                    "1": /* End_of_format */0
+                    "1": "End_of_format"
                   }
                 }
               }
@@ -6314,31 +5390,25 @@ function test57(param) {
           },
           "1": "Read an int %i then a string \"%s\"."
         }) && test_format_scan("Read an int %i then a string \"%s\".", /* constructor */{
-          tag: 0,
-          name: "Format",
+          tag: "Format",
           "0": /* constructor */{
-            tag: 11,
-            name: "String_literal",
+            tag: "String_literal",
             "0": "Spec",
             "1": /* constructor */{
-              tag: 4,
-              name: "Int",
-              "0": /* Int_d */0,
-              "1": /* No_padding */0,
-              "2": /* No_precision */0,
+              tag: "Int",
+              "0": "Int_d",
+              "1": "No_padding",
+              "2": "No_precision",
               "3": /* constructor */{
-                tag: 11,
-                name: "String_literal",
+                tag: "String_literal",
                 "0": "ifi",
                 "1": /* constructor */{
-                  tag: 2,
-                  name: "String",
-                  "0": /* No_padding */0,
+                  tag: "String",
+                  "0": "No_padding",
                   "1": /* constructor */{
-                    tag: 11,
-                    name: "String_literal",
+                    tag: "String_literal",
                     "0": "cation",
-                    "1": /* End_of_format */0
+                    "1": "End_of_format"
                   }
                 }
               }
@@ -6346,31 +5416,25 @@ function test57(param) {
           },
           "1": "Spec%difi%scation"
         }, /* constructor */{
-          tag: 0,
-          name: "Format",
+          tag: "Format",
           "0": /* constructor */{
-            tag: 11,
-            name: "String_literal",
+            tag: "String_literal",
             "0": "Read an int ",
             "1": /* constructor */{
-              tag: 4,
-              name: "Int",
-              "0": /* Int_i */3,
-              "1": /* No_padding */0,
-              "2": /* No_precision */0,
+              tag: "Int",
+              "0": "Int_i",
+              "1": "No_padding",
+              "2": "No_precision",
               "3": /* constructor */{
-                tag: 11,
-                name: "String_literal",
+                tag: "String_literal",
                 "0": " then a string \"",
                 "1": /* constructor */{
-                  tag: 2,
-                  name: "String",
-                  "0": /* No_padding */0,
+                  tag: "String",
+                  "0": "No_padding",
                   "1": /* constructor */{
-                    tag: 11,
-                    name: "String_literal",
+                    tag: "String_literal",
                     "0": "\".",
-                    "1": /* End_of_format */0
+                    "1": "End_of_format"
                   }
                 }
               }
@@ -6379,39 +5443,31 @@ function test57(param) {
           "1": "Read an int %i then a string \"%s\"."
         })) {
     return Curry._1(Scanf.sscanf("12 \"%i\"89 ", /* constructor */{
-                    tag: 0,
-                    name: "Format",
+                    tag: "Format",
                     "0": /* constructor */{
-                      tag: 4,
-                      name: "Int",
-                      "0": /* Int_i */3,
-                      "1": /* No_padding */0,
-                      "2": /* No_precision */0,
+                      tag: "Int",
+                      "0": "Int_i",
+                      "1": "No_padding",
+                      "2": "No_precision",
                       "3": /* constructor */{
-                        tag: 12,
-                        name: "Char_literal",
+                        tag: "Char_literal",
                         "0": /* " " */32,
                         "1": /* constructor */{
-                          tag: 13,
-                          name: "Format_arg",
+                          tag: "Format_arg",
                           "0": undefined,
                           "1": /* constructor */{
-                            tag: 2,
-                            name: "Int_ty",
-                            "0": /* End_of_fmtty */0
+                            tag: "Int_ty",
+                            "0": "End_of_fmtty"
                           },
                           "2": /* constructor */{
-                            tag: 2,
-                            name: "String",
-                            "0": /* No_padding */0,
+                            tag: "String",
+                            "0": "No_padding",
                             "1": /* constructor */{
-                              tag: 12,
-                              name: "Char_literal",
+                              tag: "Char_literal",
                               "0": /* " " */32,
                               "1": /* constructor */{
-                                tag: 10,
-                                name: "Flush",
-                                "0": /* End_of_format */0
+                                tag: "Flush",
+                                "0": "End_of_format"
                               }
                             }
                           }
@@ -6421,15 +5477,13 @@ function test57(param) {
                     "1": "%i %{%d%}%s %!"
                   }), (function (i, f, s) {
                   if (i === 12 && Caml_obj.caml_equal(f, /* constructor */{
-                          tag: 0,
-                          name: "Format",
+                          tag: "Format",
                           "0": /* constructor */{
-                            tag: 4,
-                            name: "Int",
-                            "0": /* Int_i */3,
-                            "1": /* No_padding */0,
-                            "2": /* No_precision */0,
-                            "3": /* End_of_format */0
+                            tag: "Int",
+                            "0": "Int_i",
+                            "1": "No_padding",
+                            "2": "No_precision",
+                            "3": "End_of_format"
                           },
                           "1": "%i"
                         })) {
@@ -6443,45 +5497,37 @@ function test57(param) {
   }
 }
 
-test("File \"tscanf_test.ml\", line 1357, characters 5-12", test57(/* () */0));
+test("File \"tscanf_test.ml\", line 1357, characters 5-12", test57("()"));
 
 function test58(param) {
   if (Curry._1(Scanf.sscanf("string1%string2", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 2,
-                name: "String",
-                "0": /* No_padding */0,
+                tag: "String",
+                "0": "No_padding",
                 "1": /* constructor */{
-                  tag: 17,
-                  name: "Formatting_lit",
-                  "0": /* Escaped_percent */6,
+                  tag: "Formatting_lit",
+                  "0": "Escaped_percent",
                   "1": /* constructor */{
-                    tag: 12,
-                    name: "Char_literal",
+                    tag: "Char_literal",
                     "0": /* "s" */115,
-                    "1": /* End_of_format */0
+                    "1": "End_of_format"
                   }
                 }
               },
               "1": "%s@%%s"
             }), id) === "string1" && Curry._1(Scanf.sscanf("string1%string2", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 2,
-                name: "String",
-                "0": /* No_padding */0,
+                tag: "String",
+                "0": "No_padding",
                 "1": /* constructor */{
-                  tag: 17,
-                  name: "Formatting_lit",
-                  "0": /* Escaped_percent */6,
+                  tag: "Formatting_lit",
+                  "0": "Escaped_percent",
                   "1": /* constructor */{
-                    tag: 2,
-                    name: "String",
-                    "0": /* No_padding */0,
-                    "1": /* End_of_format */0
+                    tag: "String",
+                    "0": "No_padding",
+                    "1": "End_of_format"
                   }
                 }
               },
@@ -6489,22 +5535,18 @@ function test58(param) {
             }), (function (prim, prim$1) {
             return prim + prim$1;
           })) === "string1string2" && Curry._1(Scanf.sscanf("string1@string2", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 20,
-                name: "Scan_char_set",
+                tag: "Scan_char_set",
                 "0": undefined,
                 "1": "\0\0\0\0\0\0\xff\x03\0\0\0\0\xfe\xff\xff\x07\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                 "2": /* constructor */{
-                  tag: 12,
-                  name: "Char_literal",
+                  tag: "Char_literal",
                   "0": /* "@" */64,
                   "1": /* constructor */{
-                    tag: 2,
-                    name: "String",
-                    "0": /* No_padding */0,
-                    "1": /* End_of_format */0
+                    tag: "String",
+                    "0": "No_padding",
+                    "1": "End_of_format"
                   }
                 }
               },
@@ -6513,26 +5555,21 @@ function test58(param) {
             return prim + prim$1;
           })) === "string1string2") {
     return Curry._1(Scanf.sscanf("string1@%string2", /* constructor */{
-                    tag: 0,
-                    name: "Format",
+                    tag: "Format",
                     "0": /* constructor */{
-                      tag: 20,
-                      name: "Scan_char_set",
+                      tag: "Scan_char_set",
                       "0": undefined,
                       "1": "\0\0\0\0\0\0\xff\x03\0\0\0\0\xfe\xff\xff\x07\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
                       "2": /* constructor */{
-                        tag: 12,
-                        name: "Char_literal",
+                        tag: "Char_literal",
                         "0": /* "@" */64,
                         "1": /* constructor */{
-                          tag: 12,
-                          name: "Char_literal",
+                          tag: "Char_literal",
                           "0": /* "%" */37,
                           "1": /* constructor */{
-                            tag: 2,
-                            name: "String",
-                            "0": /* No_padding */0,
-                            "1": /* End_of_format */0
+                            tag: "String",
+                            "0": "No_padding",
+                            "1": "End_of_format"
                           }
                         }
                       }
@@ -6546,28 +5583,23 @@ function test58(param) {
   }
 }
 
-test("File \"tscanf_test.ml\", line 1367, characters 5-12", test58(/* () */0));
+test("File \"tscanf_test.ml\", line 1367, characters 5-12", test58("()"));
 
 test("File \"tscanf_test.ml\", line 1371, characters 14-21", true);
 
 function test60(param) {
   if (Curry._1(Scanf.sscanf("abc", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 22,
-                name: "Scan_next_char",
+                tag: "Scan_next_char",
                 "0": /* constructor */{
-                  tag: 22,
-                  name: "Scan_next_char",
+                  tag: "Scan_next_char",
                   "0": /* constructor */{
-                    tag: 0,
-                    name: "Char",
+                    tag: "Char",
                     "0": /* constructor */{
-                      tag: 21,
-                      name: "Scan_get_counter",
-                      "0": /* Char_counter */1,
-                      "1": /* End_of_format */0
+                      tag: "Scan_get_counter",
+                      "0": "Char_counter",
+                      "1": "End_of_format"
                     }
                   }
                 }
@@ -6576,22 +5608,18 @@ function test60(param) {
             }), (function (c1, c2, c3, n) {
             return c1 === /* "a" */97 && c2 === /* "a" */97 && c3 === /* "a" */97 ? n === 1 : false;
           })) && Curry._1(Scanf.sscanf("abc", /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 2,
-                name: "String",
+                tag: "String",
                 "0": /* constructor */{
-                  tag: 0,
-                  name: "Lit_padding",
-                  "0": /* Right */1,
+                  tag: "Lit_padding",
+                  "0": "Right",
                   "1": 0
                 },
                 "1": /* constructor */{
-                  tag: 2,
-                  name: "String",
-                  "0": /* No_padding */0,
-                  "1": /* End_of_format */0
+                  tag: "String",
+                  "0": "No_padding",
+                  "1": "End_of_format"
                 }
               },
               "1": "%0s%s"
@@ -6599,22 +5627,18 @@ function test60(param) {
             return s1 === "" ? s2 === "abc" : false;
           }))) {
     return Curry._1(Scanf.sscanf("abc", /* constructor */{
-                    tag: 0,
-                    name: "Format",
+                    tag: "Format",
                     "0": /* constructor */{
-                      tag: 2,
-                      name: "String",
+                      tag: "String",
                       "0": /* constructor */{
-                        tag: 0,
-                        name: "Lit_padding",
-                        "0": /* Right */1,
+                        tag: "Lit_padding",
+                        "0": "Right",
                         "1": 1
                       },
                       "1": /* constructor */{
-                        tag: 2,
-                        name: "String",
-                        "0": /* No_padding */0,
-                        "1": /* End_of_format */0
+                        tag: "String",
+                        "0": "No_padding",
+                        "1": "End_of_format"
                       }
                     },
                     "1": "%1s%s"
@@ -6630,18 +5654,17 @@ function test60(param) {
   }
 }
 
-test("File \"tscanf_test.ml\", line 1414, characters 5-12", test60(/* () */0));
+test("File \"tscanf_test.ml\", line 1414, characters 5-12", test60("()"));
 
 Mt.from_pair_suites("Tscanf_test", suites[0]);
 
 var tscanf_data_file_lines = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": /* tuple */[
     "Objective",
     "Caml"
   ],
-  "1": /* [] */0
+  "1": "[]"
 };
 
 exports.suites = suites;

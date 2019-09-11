@@ -16,8 +16,7 @@ function Make(Ord) {
     var hl = l ? l[3] : 0;
     var hr = r ? r[3] : 0;
     return /* constructor */{
-            tag: 0,
-            name: "Node",
+            tag: "Node",
             "0": l,
             "1": v,
             "2": r,
@@ -71,8 +70,7 @@ function Make(Ord) {
       }
     } else {
       return /* constructor */{
-              tag: 0,
-              name: "Node",
+              tag: "Node",
               "0": l,
               "1": v,
               "2": r,
@@ -95,22 +93,20 @@ function Make(Ord) {
       }
     } else {
       return /* constructor */{
-              tag: 0,
-              name: "Node",
-              "0": /* Empty */0,
+              tag: "Node",
+              "0": "Empty",
               "1": x,
-              "2": /* Empty */0,
+              "2": "Empty",
               "3": 1
             };
     }
   };
   var singleton = function (x) {
     return /* constructor */{
-            tag: 0,
-            name: "Node",
-            "0": /* Empty */0,
+            tag: "Node",
+            "0": "Empty",
             "1": x,
-            "2": /* Empty */0,
+            "2": "Empty",
             "3": 1
           };
   };
@@ -245,9 +241,9 @@ function Make(Ord) {
       }
     } else {
       return /* tuple */[
-              /* Empty */0,
+              "Empty",
               false,
-              /* Empty */0
+              "Empty"
             ];
     }
   };
@@ -288,7 +284,7 @@ function Make(Ord) {
         return bal(l, v, remove(x, r));
       }
     } else {
-      return /* Empty */0;
+      return "Empty";
     }
   };
   var union = function (s1, s2) {
@@ -331,7 +327,7 @@ function Make(Ord) {
         return concat(inter(l1, l2), inter(r1, match[2]));
       }
     } else {
-      return /* Empty */0;
+      return "Empty";
     }
   };
   var diff = function (s1, s2) {
@@ -351,7 +347,7 @@ function Make(Ord) {
         return s1;
       }
     } else {
-      return /* Empty */0;
+      return "Empty";
     }
   };
   var cons_enum = function (_s, _e) {
@@ -360,8 +356,7 @@ function Make(Ord) {
       var s = _s;
       if (s) {
         _e = /* constructor */{
-          tag: 0,
-          name: "More",
+          tag: "More",
           "0": s[1],
           "1": s[2],
           "2": e
@@ -398,7 +393,7 @@ function Make(Ord) {
     };
   };
   var compare = function (s1, s2) {
-    return compare_aux(cons_enum(s1, /* End */0), cons_enum(s2, /* End */0));
+    return compare_aux(cons_enum(s1, "End"), cons_enum(s2, "End"));
   };
   var equal = function (s1, s2) {
     return compare(s1, s2) === 0;
@@ -425,11 +420,10 @@ function Make(Ord) {
             }
           } else if (c < 0) {
             if (subset(/* constructor */{
-                    tag: 0,
-                    name: "Node",
+                    tag: "Node",
                     "0": l1,
                     "1": v1,
-                    "2": /* Empty */0,
+                    "2": "Empty",
                     "3": 0
                   }, l2)) {
               _s1 = r1;
@@ -438,9 +432,8 @@ function Make(Ord) {
               return false;
             }
           } else if (subset(/* constructor */{
-                  tag: 0,
-                  name: "Node",
-                  "0": /* Empty */0,
+                  tag: "Node",
+                  "0": "Empty",
                   "1": v1,
                   "2": r1,
                   "3": 0
@@ -467,7 +460,7 @@ function Make(Ord) {
         _param = param[2];
         continue ;
       } else {
-        return /* () */0;
+        return "()";
       }
     };
   };
@@ -526,7 +519,7 @@ function Make(Ord) {
         return concat(l$prime, r$prime);
       }
     } else {
-      return /* Empty */0;
+      return "Empty";
     }
   };
   var partition = function (p, param) {
@@ -552,8 +545,8 @@ function Make(Ord) {
       }
     } else {
       return /* tuple */[
-              /* Empty */0,
-              /* Empty */0
+              "Empty",
+              "Empty"
             ];
     }
   };
@@ -571,8 +564,7 @@ function Make(Ord) {
       if (param) {
         _param = param[0];
         _accu = /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": param[1],
           "1": elements_aux(accu, param[2])
         };
@@ -583,7 +575,7 @@ function Make(Ord) {
     };
   };
   var elements = function (s) {
-    return elements_aux(/* [] */0, s);
+    return elements_aux("[]", s);
   };
   var find = function (x, _param) {
     while(true) {
@@ -607,18 +599,17 @@ function Make(Ord) {
       switch (n) {
         case 0 :
             return /* tuple */[
-                    /* Empty */0,
+                    "Empty",
                     l
                   ];
         case 1 :
             if (l) {
               return /* tuple */[
                       /* constructor */{
-                        tag: 0,
-                        name: "Node",
-                        "0": /* Empty */0,
+                        tag: "Node",
+                        "0": "Empty",
                         "1": l[0],
-                        "2": /* Empty */0,
+                        "2": "Empty",
                         "3": 1
                       },
                       l[1]
@@ -631,18 +622,16 @@ function Make(Ord) {
               if (match) {
                 return /* tuple */[
                         /* constructor */{
-                          tag: 0,
-                          name: "Node",
+                          tag: "Node",
                           "0": /* constructor */{
-                            tag: 0,
-                            name: "Node",
-                            "0": /* Empty */0,
+                            tag: "Node",
+                            "0": "Empty",
                             "1": l[0],
-                            "2": /* Empty */0,
+                            "2": "Empty",
                             "3": 1
                           },
                           "1": match[0],
-                          "2": /* Empty */0,
+                          "2": "Empty",
                           "3": 2
                         },
                         match[1]
@@ -659,23 +648,20 @@ function Make(Ord) {
                 if (match$2) {
                   return /* tuple */[
                           /* constructor */{
-                            tag: 0,
-                            name: "Node",
+                            tag: "Node",
                             "0": /* constructor */{
-                              tag: 0,
-                              name: "Node",
-                              "0": /* Empty */0,
+                              tag: "Node",
+                              "0": "Empty",
                               "1": l[0],
-                              "2": /* Empty */0,
+                              "2": "Empty",
                               "3": 1
                             },
                             "1": match$1[0],
                             "2": /* constructor */{
-                              tag: 0,
-                              name: "Node",
-                              "0": /* Empty */0,
+                              tag: "Node",
+                              "0": "Empty",
                               "1": match$2[0],
-                              "2": /* Empty */0,
+                              "2": "Empty",
                               "3": 1
                             },
                             "3": 2
@@ -745,7 +731,7 @@ function Make(Ord) {
         return singleton(x0);
       }
     } else {
-      return /* Empty */0;
+      return "Empty";
     }
   };
   return {
@@ -763,7 +749,7 @@ function Make(Ord) {
           merge: merge,
           concat: concat,
           split: split,
-          empty: /* Empty */0,
+          empty: "Empty",
           is_empty: is_empty,
           mem: mem,
           remove: remove,

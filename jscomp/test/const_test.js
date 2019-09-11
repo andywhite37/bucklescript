@@ -11,16 +11,15 @@ function ff(x) {
 
 function fff(x) {
   var match = /* constructor */{
-    tag: 0,
-    name: "A",
+    tag: "A",
     "0": x
   };
-  switch (match.tag | 0) {
-    case /* A */0 :
+  switch (/* XXX */match.tag) {
+    case "A" :
         return x;
-    case /* B */1 :
+    case "B" :
         return 1;
-    case /* C */2 :
+    case "C" :
         return 2;
     
   }

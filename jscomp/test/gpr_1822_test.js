@@ -3,21 +3,19 @@
 var Mt = require("./mt.js");
 var Caml_int32 = require("../../lib/js/caml_int32.js");
 
-var suites = /* record */[/* contents : [] */0];
+var suites = /* record */[/* contents */"[]"];
 
 var test_id = /* record */[/* contents */0];
 
 function eq(loc, x, y) {
   test_id[0] = test_id[0] + 1 | 0;
   suites[0] = /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
-                  tag: 0,
-                  name: "Eq",
+                  tag: "Eq",
                   "0": x,
                   "1": y
                 };
@@ -29,14 +27,13 @@ function eq(loc, x, y) {
 }
 
 var myShape = /* constructor */{
-  tag: 0,
-  name: "Circle",
+  tag: "Circle",
   "0": 10
 };
 
 var area;
 
-area = myShape.tag ? Caml_int32.imul(10, myShape[1]) : 100 * 3.14;
+area = /* XXX */myShape.tag === "Circle" ? 100 * 3.14 : Caml_int32.imul(10, myShape[1]);
 
 eq("File \"gpr_1822_test.ml\", line 21, characters 6-13", area, 314);
 

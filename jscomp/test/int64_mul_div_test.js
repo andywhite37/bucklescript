@@ -12,8 +12,7 @@ var Caml_format = require("../../lib/js/caml_format.js");
 
 function commutative_mul(result, a, b) {
   return /* constructor */{
-          tag: 0,
-          name: "Eq",
+          tag: "Eq",
           "0": /* tuple */[
             result,
             result
@@ -315,23 +314,19 @@ function from_pairs(prefix, pairs) {
                     var result = param[0];
                     return /* tuple */[
                             Curry._2(Printf.sprintf(/* constructor */{
-                                      tag: 0,
-                                      name: "Format",
+                                      tag: "Format",
                                       "0": /* constructor */{
-                                        tag: 2,
-                                        name: "String",
-                                        "0": /* No_padding */0,
+                                        tag: "String",
+                                        "0": "No_padding",
                                         "1": /* constructor */{
-                                          tag: 12,
-                                          name: "Char_literal",
+                                          tag: "Char_literal",
                                           "0": /* "_" */95,
                                           "1": /* constructor */{
-                                            tag: 4,
-                                            name: "Int",
-                                            "0": /* Int_d */0,
-                                            "1": /* No_padding */0,
-                                            "2": /* No_precision */0,
-                                            "3": /* End_of_format */0
+                                            tag: "Int",
+                                            "0": "Int_d",
+                                            "1": "No_padding",
+                                            "2": "No_precision",
+                                            "3": "End_of_format"
                                           }
                                         }
                                       },
@@ -1601,25 +1596,21 @@ function from(xs) {
                 var a = param[0];
                 return /* tuple */[
                         Curry._1(Printf.sprintf(/* constructor */{
-                                  tag: 0,
-                                  name: "Format",
+                                  tag: "Format",
                                   "0": /* constructor */{
-                                    tag: 11,
-                                    name: "String_literal",
+                                    tag: "String_literal",
                                     "0": "small_divs ",
                                     "1": /* constructor */{
-                                      tag: 21,
-                                      name: "Scan_get_counter",
-                                      "0": /* Token_counter */2,
-                                      "1": /* End_of_format */0
+                                      tag: "Scan_get_counter",
+                                      "0": "Token_counter",
+                                      "1": "End_of_format"
                                     }
                                   },
                                   "1": "small_divs %L"
                                 }), i),
                         (function (param) {
                             return /* constructor */{
-                                    tag: 0,
-                                    name: "Eq",
+                                    tag: "Eq",
                                     "0": /* tuple */[
                                       c,
                                       d
@@ -1685,25 +1676,21 @@ function from_compare(xs) {
                 var a = param[0];
                 return /* tuple */[
                         Curry._1(Printf.sprintf(/* constructor */{
-                                  tag: 0,
-                                  name: "Format",
+                                  tag: "Format",
                                   "0": /* constructor */{
-                                    tag: 11,
-                                    name: "String_literal",
+                                    tag: "String_literal",
                                     "0": "int64_compare ",
                                     "1": /* constructor */{
-                                      tag: 21,
-                                      name: "Scan_get_counter",
-                                      "0": /* Token_counter */2,
-                                      "1": /* End_of_format */0
+                                      tag: "Scan_get_counter",
+                                      "0": "Token_counter",
+                                      "1": "End_of_format"
                                     }
                                   },
                                   "1": "int64_compare %L"
                                 }), i),
                         (function (param) {
                             return /* constructor */{
-                                    tag: 0,
-                                    name: "Eq",
+                                    tag: "Eq",
                                     "0": c,
                                     "1": Caml_int64.compare(a, b)
                                   };
@@ -1718,25 +1705,21 @@ function from_to_string(xs) {
                 var a = param[0];
                 return /* tuple */[
                         Curry._1(Printf.sprintf(/* constructor */{
-                                  tag: 0,
-                                  name: "Format",
+                                  tag: "Format",
                                   "0": /* constructor */{
-                                    tag: 11,
-                                    name: "String_literal",
+                                    tag: "String_literal",
                                     "0": "to_string ",
                                     "1": /* constructor */{
-                                      tag: 21,
-                                      name: "Scan_get_counter",
-                                      "0": /* Token_counter */2,
-                                      "1": /* End_of_format */0
+                                      tag: "Scan_get_counter",
+                                      "0": "Token_counter",
+                                      "1": "End_of_format"
                                     }
                                   },
                                   "1": "to_string %L"
                                 }), i),
                         (function (param) {
                             return /* constructor */{
-                                    tag: 0,
-                                    name: "Eq",
+                                    tag: "Eq",
                                     "0": str_a,
                                     "1": Caml_format.caml_int64_format("%d", a)
                                   };
@@ -1750,27 +1733,23 @@ Mt.from_pair_suites("Int64_mul_div_test", Pervasives.$at(from_pairs("random", pa
                         var i64 = param[0];
                         return /* tuple */[
                                 Curry._1(Printf.sprintf(/* constructor */{
-                                          tag: 0,
-                                          name: "Format",
+                                          tag: "Format",
                                           "0": /* constructor */{
-                                            tag: 11,
-                                            name: "String_literal",
+                                            tag: "String_literal",
                                             "0": "to_float_",
                                             "1": /* constructor */{
-                                              tag: 4,
-                                              name: "Int",
-                                              "0": /* Int_d */0,
-                                              "1": /* No_padding */0,
-                                              "2": /* No_precision */0,
-                                              "3": /* End_of_format */0
+                                              tag: "Int",
+                                              "0": "Int_d",
+                                              "1": "No_padding",
+                                              "2": "No_precision",
+                                              "3": "End_of_format"
                                             }
                                           },
                                           "1": "to_float_%d"
                                         }), i),
                                 (function (param) {
                                     return /* constructor */{
-                                            tag: 0,
-                                            name: "Eq",
+                                            tag: "Eq",
                                             "0": Caml_int64.to_float(i64),
                                             "1": f
                                           };
@@ -1781,41 +1760,35 @@ Mt.from_pair_suites("Int64_mul_div_test", Pervasives.$at(from_pairs("random", pa
                             var f = param[0];
                             return /* tuple */[
                                     Curry._1(Printf.sprintf(/* constructor */{
-                                              tag: 0,
-                                              name: "Format",
+                                              tag: "Format",
                                               "0": /* constructor */{
-                                                tag: 11,
-                                                name: "String_literal",
+                                                tag: "String_literal",
                                                 "0": "of_float_",
                                                 "1": /* constructor */{
-                                                  tag: 4,
-                                                  name: "Int",
-                                                  "0": /* Int_d */0,
-                                                  "1": /* No_padding */0,
-                                                  "2": /* No_precision */0,
-                                                  "3": /* End_of_format */0
+                                                  tag: "Int",
+                                                  "0": "Int_d",
+                                                  "1": "No_padding",
+                                                  "2": "No_precision",
+                                                  "3": "End_of_format"
                                                 }
                                               },
                                               "1": "of_float_%d"
                                             }), i),
                                     (function (param) {
                                         return /* constructor */{
-                                                tag: 0,
-                                                name: "Eq",
+                                                tag: "Eq",
                                                 "0": Caml_int64.of_float(f),
                                                 "1": i64
                                               };
                                       })
                                   ];
                           }), $$Array.to_list(of_float_pairs)), Pervasives.$at(/* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": /* tuple */[
                             "compare_check_complete",
                             (function (param) {
                                 return /* constructor */{
-                                        tag: 0,
-                                        name: "Eq",
+                                        tag: "Eq",
                                         "0": $$Array.map((function (param) {
                                                 return true;
                                               }), check_complete_compare),
@@ -1823,16 +1796,14 @@ Mt.from_pair_suites("Int64_mul_div_test", Pervasives.$at(from_pairs("random", pa
                                       };
                               })
                           ],
-                          "1": /* [] */0
+                          "1": "[]"
                         }, Pervasives.$at(from(simple_divs), Pervasives.$at(from_compare(int64_compare_tests), /* constructor */{
-                                  tag: 0,
-                                  name: "::",
+                                  tag: "::",
                                   "0": /* tuple */[
                                     "div_rem_0",
                                     (function (param) {
                                         return /* constructor */{
-                                                tag: 0,
-                                                name: "Eq",
+                                                tag: "Eq",
                                                 "0": /* int64 */[
                                                   /* hi */0,
                                                   /* lo */0
@@ -1845,14 +1816,12 @@ Mt.from_pair_suites("Int64_mul_div_test", Pervasives.$at(from_pairs("random", pa
                                       })
                                   ],
                                   "1": /* constructor */{
-                                    tag: 0,
-                                    name: "::",
+                                    tag: "::",
                                     "0": /* tuple */[
                                       "div_rem_1",
                                       (function (param) {
                                           return /* constructor */{
-                                                  tag: 0,
-                                                  name: "Eq",
+                                                  tag: "Eq",
                                                   "0": /* int64 */[
                                                     /* hi */-1,
                                                     /* lo */4294967295
@@ -1865,20 +1834,18 @@ Mt.from_pair_suites("Int64_mul_div_test", Pervasives.$at(from_pairs("random", pa
                                         })
                                     ],
                                     "1": /* constructor */{
-                                      tag: 0,
-                                      name: "::",
+                                      tag: "::",
                                       "0": /* tuple */[
                                         "File \"int64_mul_div_test.ml\", line 214, characters 5-12",
                                         (function (param) {
                                             return /* constructor */{
-                                                    tag: 0,
-                                                    name: "Eq",
+                                                    tag: "Eq",
                                                     "0": Caml_int64.to_float(Int64.max_int),
                                                     "1": 9.22337203685477581e+18
                                                   };
                                           })
                                       ],
-                                      "1": /* [] */0
+                                      "1": "[]"
                                     }
                                   }
                                 }))))))));

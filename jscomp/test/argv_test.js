@@ -3,7 +3,7 @@
 var Arg = require("../../lib/js/arg.js");
 
 function anno_fun(arg) {
-  return /* () */0;
+  return "()";
 }
 
 var usage_msg = "Usage:\n";
@@ -13,30 +13,26 @@ var compile = /* record */[/* contents */false];
 var test = /* record */[/* contents */true];
 
 var arg_spec = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": /* tuple */[
     "-c",
     /* constructor */{
-      tag: 2,
-      name: "Set",
+      tag: "Set",
       "0": compile
     },
     " Compile"
   ],
   "1": /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       "-d",
       /* constructor */{
-        tag: 3,
-        name: "Clear",
+        tag: "Clear",
         "0": test
       },
       " Test"
     ],
-    "1": /* [] */0
+    "1": "[]"
   }
 };
 

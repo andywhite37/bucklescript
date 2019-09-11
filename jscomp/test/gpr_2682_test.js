@@ -23,7 +23,7 @@ function forIn (o,foo){
 
 function log(x) {
   console.log(x);
-  return /* () */0;
+  return "()";
 }
 
 var N = {
@@ -34,7 +34,7 @@ forIn({
       x: 3
     }, (function (x) {
         console.log(x);
-        return /* () */0;
+        return "()";
       }));
 
 forIn({
@@ -42,7 +42,7 @@ forIn({
       y: 3
     }, (function (x) {
         console.log(x);
-        return /* () */0;
+        return "()";
       }));
 
 function f3 (){return true};

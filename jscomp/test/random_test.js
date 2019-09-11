@@ -10,7 +10,7 @@ var Caml_array = require("../../lib/js/caml_array.js");
 
 var id = /* record */[/* contents */0];
 
-var suites = /* record */[/* contents : [] */0];
+var suites = /* record */[/* contents */"[]"];
 
 function eq(f) {
   return (function (param, param$1) {
@@ -30,11 +30,11 @@ function approx(f) {
     });
 }
 
-Random.self_init(/* () */0);
+Random.self_init("()");
 
 var param = Random.$$int(1000);
 
-Random.self_init(/* () */0);
+Random.self_init("()");
 
 var param$1 = Random.$$int(10000);
 
@@ -45,7 +45,7 @@ Random.init(0);
 var v = Caml_array.caml_make_vect(10, false);
 
 for(var i = 0; i <= 9; ++i){
-  Caml_array.caml_array_set(v, i, Random.bool(/* () */0));
+  Caml_array.caml_array_set(v, i, Random.bool("()"));
 }
 
 var param$2 = /* array */[
@@ -70,66 +70,55 @@ var h = Random.int64(/* int64 */[
       /* lo */3
     ]);
 
-var vv = Random.bits(/* () */0);
+var vv = Random.bits("()");
 
 var xx = Random.$$float(3.0);
 
 var xxx = Random.int32(103);
 
 Curry._5(Printf.printf(/* constructor */{
-          tag: 0,
-          name: "Format",
+          tag: "Format",
           "0": /* constructor */{
-            tag: 7,
-            name: "Int64",
-            "0": /* Int_d */0,
-            "1": /* No_padding */0,
-            "2": /* No_precision */0,
+            tag: "Int64",
+            "0": "Int_d",
+            "1": "No_padding",
+            "2": "No_precision",
             "3": /* constructor */{
-              tag: 12,
-              name: "Char_literal",
+              tag: "Char_literal",
               "0": /* " " */32,
               "1": /* constructor */{
-                tag: 7,
-                name: "Int64",
-                "0": /* Int_d */0,
-                "1": /* No_padding */0,
-                "2": /* No_precision */0,
+                tag: "Int64",
+                "0": "Int_d",
+                "1": "No_padding",
+                "2": "No_precision",
                 "3": /* constructor */{
-                  tag: 12,
-                  name: "Char_literal",
+                  tag: "Char_literal",
                   "0": /* " " */32,
                   "1": /* constructor */{
-                    tag: 4,
-                    name: "Int",
-                    "0": /* Int_d */0,
-                    "1": /* No_padding */0,
-                    "2": /* No_precision */0,
+                    tag: "Int",
+                    "0": "Int_d",
+                    "1": "No_padding",
+                    "2": "No_precision",
                     "3": /* constructor */{
-                      tag: 12,
-                      name: "Char_literal",
+                      tag: "Char_literal",
                       "0": /* " " */32,
                       "1": /* constructor */{
-                        tag: 8,
-                        name: "Float",
-                        "0": /* Float_f */0,
-                        "1": /* No_padding */0,
-                        "2": /* No_precision */0,
+                        tag: "Float",
+                        "0": "Float_f",
+                        "1": "No_padding",
+                        "2": "No_precision",
                         "3": /* constructor */{
-                          tag: 12,
-                          name: "Char_literal",
+                          tag: "Char_literal",
                           "0": /* " " */32,
                           "1": /* constructor */{
-                            tag: 5,
-                            name: "Int32",
-                            "0": /* Int_d */0,
-                            "1": /* No_padding */0,
-                            "2": /* No_precision */0,
+                            tag: "Int32",
+                            "0": "Int_d",
+                            "1": "No_padding",
+                            "2": "No_precision",
                             "3": /* constructor */{
-                              tag: 11,
-                              name: "String_literal",
+                              tag: "String_literal",
                               "0": " \n",
-                              "1": /* End_of_format */0
+                              "1": "End_of_format"
                             }
                           }
                         }

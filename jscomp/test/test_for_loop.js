@@ -22,7 +22,7 @@ function for_2(x) {
 function for_3(x) {
   var v = /* record */[/* contents */0];
   var arr = $$Array.map((function (param, param$1) {
-          return /* () */0;
+          return "()";
         }), x);
   for(var i = 0 ,i_finish = x.length; i <= i_finish; ++i){
     var j = (i << 1);
@@ -34,7 +34,7 @@ function for_3(x) {
         }(j)));
   }
   $$Array.iter((function (x) {
-          return Curry._1(x, /* () */0);
+          return Curry._1(x, "()");
         }), arr);
   return v[0];
 }
@@ -42,7 +42,7 @@ function for_3(x) {
 function for_4(x) {
   var v = /* record */[/* contents */0];
   var arr = $$Array.map((function (param, param$1) {
-          return /* () */0;
+          return "()";
         }), x);
   for(var i = 0 ,i_finish = x.length; i <= i_finish; ++i){
     var j = (i << 1);
@@ -55,7 +55,7 @@ function for_4(x) {
         }(k)));
   }
   $$Array.iter((function (x) {
-          return Curry._1(x, /* () */0);
+          return Curry._1(x, "()");
         }), arr);
   return v[0];
 }
@@ -63,7 +63,7 @@ function for_4(x) {
 function for_5(x, u) {
   var v = /* record */[/* contents */0];
   var arr = $$Array.map((function (param, param$1) {
-          return /* () */0;
+          return "()";
         }), x);
   for(var i = 0 ,i_finish = x.length; i <= i_finish; ++i){
     var k = Caml_int32.imul((u << 1), u);
@@ -75,7 +75,7 @@ function for_5(x, u) {
         }(k)));
   }
   $$Array.iter((function (x) {
-          return Curry._1(x, /* () */0);
+          return Curry._1(x, "()");
         }), arr);
   return v[0];
 }
@@ -83,7 +83,7 @@ function for_5(x, u) {
 function for_6(x, u) {
   var v = /* record */[/* contents */0];
   var arr = $$Array.map((function (param, param$1) {
-          return /* () */0;
+          return "()";
         }), x);
   var v4 = /* record */[/* contents */0];
   var v5 = /* record */[/* contents */0];
@@ -106,7 +106,7 @@ function for_6(x, u) {
     }(v2));
   }
   $$Array.iter((function (x) {
-          return Curry._1(x, /* () */0);
+          return Curry._1(x, "()");
         }), arr);
   return v[0];
 }

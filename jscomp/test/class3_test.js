@@ -60,21 +60,19 @@ var shared$9 = [
   "len"
 ];
 
-var suites = /* record */[/* contents : [] */0];
+var suites = /* record */[/* contents */"[]"];
 
 var test_id = /* record */[/* contents */0];
 
 function eq(loc, x, y) {
   test_id[0] = test_id[0] + 1 | 0;
   suites[0] = /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
-                  tag: 0,
-                  name: "Eq",
+                  tag: "Eq",
                   "0": x,
                   "1": y
                 };
@@ -226,7 +224,7 @@ var p$1 = Curry._2(printable_point[0], 0, 7);
 
 eq("File \"class3_test.ml\", line 49, characters 11-18", Caml_oo_curry.js1(-930392019, 4, p$1), 7);
 
-var ints = /* record */[/* contents : [] */0];
+var ints = /* record */[/* contents */"[]"];
 
 var $$class = CamlinternalOO.create_table(shared$9);
 
@@ -246,8 +244,7 @@ CamlinternalOO.set_methods($$class, /* array */[
       register,
       (function (self$5) {
           ints[0] = /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": self$5,
             "1": ints[0]
           };

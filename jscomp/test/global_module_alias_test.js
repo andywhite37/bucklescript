@@ -4,21 +4,19 @@ var Mt = require("./mt.js");
 var List = require("../../lib/js/list.js");
 var Curry = require("../../lib/js/curry.js");
 
-var suites = /* record */[/* contents : [] */0];
+var suites = /* record */[/* contents */"[]"];
 
 var test_id = /* record */[/* contents */0];
 
 function eq(loc, x, y) {
   test_id[0] = test_id[0] + 1 | 0;
   suites[0] = /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
-                  tag: 0,
-                  name: "Eq",
+                  tag: "Eq",
                   "0": x,
                   "1": y
                 };
@@ -139,14 +137,12 @@ function f(param) {
 }
 
 eq("File \"global_module_alias_test.ml\", line 51, characters 5-12", List.length(/* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": 1,
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": 2,
-            "1": /* [] */0
+            "1": "[]"
           }
         }), 2);
 
@@ -225,22 +221,18 @@ eq("File \"global_module_alias_test.ml\", line 57, characters 5-12", v[0], 12);
 
 function g(param) {
   return List.length(/* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": 1,
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": 2,
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": 3,
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": 4,
-                    "1": /* [] */0
+                    "1": "[]"
                   }
                 }
               }
@@ -299,7 +291,7 @@ function xx(param) {
         };
 }
 
-eq("File \"global_module_alias_test.ml\", line 86, characters 5-12", g(/* () */0), 4);
+eq("File \"global_module_alias_test.ml\", line 86, characters 5-12", g("()"), 4);
 
 v[0] = v[0] + 1 | 0;
 
@@ -308,35 +300,30 @@ v[0] = v[0] + 1 | 0;
 v[0] = v[0] + 1 | 0;
 
 eq("File \"global_module_alias_test.ml\", line 92, characters 5-12", List.length(/* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": 1,
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": 2,
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": 3,
-              "1": /* [] */0
+              "1": "[]"
             }
           }
         }), 3);
 
 eq("File \"global_module_alias_test.ml\", line 93, characters 5-12", v[0], 15);
 
-var H$1 = f(/* () */0);
+var H$1 = f("()");
 
 eq("File \"global_module_alias_test.ml\", line 95, characters 5-12", Curry._1(H$1.length, /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": 1,
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": 2,
-            "1": /* [] */0
+            "1": "[]"
           }
         }), 2);
 

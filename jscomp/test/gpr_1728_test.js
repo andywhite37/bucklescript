@@ -3,21 +3,19 @@
 var Mt = require("./mt.js");
 var Caml_format = require("../../lib/js/caml_format.js");
 
-var suites = /* record */[/* contents : [] */0];
+var suites = /* record */[/* contents */"[]"];
 
 var test_id = /* record */[/* contents */0];
 
 function eq(loc, x, y) {
   test_id[0] = test_id[0] + 1 | 0;
   suites[0] = /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
-                  tag: 0,
-                  name: "Eq",
+                  tag: "Eq",
                   "0": x,
                   "1": y
                 };
@@ -34,13 +32,16 @@ function foo(x) {
 
 function badInlining(obj) {
   var x = obj.field;
-  Caml_format.caml_int_of_string(x) !== 3;
-  return /* () */0;
+  if (Caml_format.caml_int_of_string(x) !== 3) {
+    return "()";
+  } else {
+    return 0;
+  }
 }
 
 eq("File \"gpr_1728_test.ml\", line 17, characters 6-13", badInlining({
           field: "3"
-        }), /* () */0);
+        }), "()");
 
 eq("File \"gpr_1728_test.ml\", line 19, characters 6-13", Caml_format.caml_int_of_string("-13"), -13);
 

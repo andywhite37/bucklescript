@@ -48,13 +48,13 @@ function test2(param) {
 
 console.time("test/imm_map_bench.ml 44");
 
-test(/* () */0);
+test("()");
 
 console.timeEnd("test/imm_map_bench.ml 44");
 
 console.time("test/imm_map_bench.ml 45");
 
-test2(/* () */0);
+test2("()");
 
 console.timeEnd("test/imm_map_bench.ml 45");
 

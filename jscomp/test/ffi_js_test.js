@@ -13,7 +13,7 @@ var keys = ( function (x){return Object.keys(x)});
 
 ;
 
-var suites = /* record */[/* contents : [] */0];
+var suites = /* record */[/* contents */"[]"];
 
 var test_id = /* record */[/* contents */0];
 
@@ -22,14 +22,12 @@ function eq(loc, param) {
   var x = param[0];
   test_id[0] = test_id[0] + 1 | 0;
   suites[0] = /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
-                  tag: 0,
-                  name: "Eq",
+                  tag: "Eq",
                   "0": x,
                   "1": y
                 };
@@ -56,32 +54,28 @@ eq("File \"ffi_js_test.ml\", line 32, characters 5-12", /* tuple */[
     ]);
 
 var same_type_000 = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": int_config,
   "1": /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": {
       hi: 3,
       low: 32
     },
-    "1": /* [] */0
+    "1": "[]"
   }
 };
 
 var same_type_001 = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": string_config,
   "1": /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": {
       hi: 3,
       low: "32"
     },
-    "1": /* [] */0
+    "1": "[]"
   }
 };
 
@@ -93,7 +87,7 @@ var same_type = /* tuple */[
 var v_obj = {
   hi: (function () {
       console.log("hei");
-      return /* () */0;
+      return "()";
     })
 };
 
@@ -119,7 +113,7 @@ eq("File \"ffi_js_test.ml\", line 47, characters 5-12", /* tuple */[
 
 var u = /* record */[/* contents */3];
 
-var side_effect_config = (u[0] = u[0] + 1 | 0, {
+var side_effect_config = (u[0] = u[0] + 1 | 0, "Int", {
     hi: 3,
     low: 32
   });
@@ -181,7 +175,7 @@ function ffff(x) {
     3,
     "x"
   ];
-  return /* () */0;
+  return "()";
 }
 
 Mt.from_pair_suites("Ffi_js_test", suites[0]);

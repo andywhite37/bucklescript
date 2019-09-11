@@ -11,53 +11,46 @@ var Caml_builtin_exceptions = require("../../lib/js/caml_builtin_exceptions.js")
 function classify(chr) {
   if ((chr & 128) === 0) {
     return /* constructor */{
-            tag: 0,
-            name: "Single",
+            tag: "Single",
             "0": chr
           };
   } else if ((chr & 64) === 0) {
     return /* constructor */{
-            tag: 1,
-            name: "Cont",
+            tag: "Cont",
             "0": chr & 63
           };
   } else if ((chr & 32) === 0) {
     return /* constructor */{
-            tag: 2,
-            name: "Leading",
+            tag: "Leading",
             "0": 1,
             "1": chr & 31
           };
   } else if ((chr & 16) === 0) {
     return /* constructor */{
-            tag: 2,
-            name: "Leading",
+            tag: "Leading",
             "0": 2,
             "1": chr & 15
           };
   } else if ((chr & 8) === 0) {
     return /* constructor */{
-            tag: 2,
-            name: "Leading",
+            tag: "Leading",
             "0": 3,
             "1": chr & 7
           };
   } else if ((chr & 4) === 0) {
     return /* constructor */{
-            tag: 2,
-            name: "Leading",
+            tag: "Leading",
             "0": 4,
             "1": chr & 3
           };
   } else if ((chr & 2) === 0) {
     return /* constructor */{
-            tag: 2,
-            name: "Leading",
+            tag: "Leading",
             "0": 5,
             "1": chr & 1
           };
   } else {
-    return /* Invalid */0;
+    return "Invalid";
   }
 }
 
@@ -67,21 +60,21 @@ function utf8_decode(strm) {
                 if (match !== undefined) {
                   Stream.junk(strm);
                   var match$1 = classify(match);
-                  if (typeof match$1 === "number") {
+                  if (typeof match$1 === "string") {
                     throw [
                           Stream.$$Error,
                           "Invalid byte"
                         ];
                   } else {
-                    switch (match$1.tag | 0) {
-                      case /* Single */0 :
+                    switch (/* XXX */match$1.tag) {
+                      case "Single" :
                           return Stream.icons(match$1[0], utf8_decode(strm));
-                      case /* Cont */1 :
+                      case "Cont" :
                           throw [
                                 Stream.$$Error,
                                 "Unexpected continuation byte"
                               ];
-                      case /* Leading */2 :
+                      case "Leading" :
                           var follow = function (strm, _n, _c) {
                             while(true) {
                               var c = _c;
@@ -90,12 +83,12 @@ function utf8_decode(strm) {
                                 return c;
                               } else {
                                 var match = classify(Stream.next(strm));
-                                if (typeof match === "number") {
+                                if (typeof match === "string") {
                                   throw [
                                         Stream.$$Error,
                                         "Continuation byte expected"
                                       ];
-                                } else if (match.tag === /* Cont */1) {
+                                } else if (/* XXX */match.tag === "Cont") {
                                   _c = (c << 6) | match[0] & 63;
                                   _n = n - 1 | 0;
                                   continue ;
@@ -119,11 +112,10 @@ function utf8_decode(strm) {
 }
 
 function to_list(xs) {
-  var v = /* record */[/* contents : [] */0];
+  var v = /* record */[/* contents */"[]"];
   Stream.iter((function (x) {
           v[0] = /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": x,
             "1": v[0]
           };
@@ -139,24 +131,24 @@ function utf8_list(s) {
 function decode(bytes, offset) {
   var offset$1 = offset;
   var match = classify(Caml_bytes.get(bytes, offset$1));
-  if (typeof match === "number") {
+  if (typeof match === "string") {
     throw [
           Caml_builtin_exceptions.invalid_argument,
           "decode"
         ];
   } else {
-    switch (match.tag | 0) {
-      case /* Single */0 :
+    switch (/* XXX */match.tag) {
+      case "Single" :
           return /* tuple */[
                   match[0],
                   offset$1 + 1 | 0
                 ];
-      case /* Cont */1 :
+      case "Cont" :
           throw [
                 Caml_builtin_exceptions.invalid_argument,
                 "decode"
               ];
-      case /* Leading */2 :
+      case "Leading" :
           var _n = match[0];
           var _c = match[1];
           var _offset = offset$1 + 1 | 0;
@@ -171,12 +163,12 @@ function decode(bytes, offset) {
                     ];
             } else {
               var match$1 = classify(Caml_bytes.get(bytes, offset$2));
-              if (typeof match$1 === "number") {
+              if (typeof match$1 === "string") {
                 throw [
                       Caml_builtin_exceptions.invalid_argument,
                       "decode"
                     ];
-              } else if (match$1.tag === /* Cont */1) {
+              } else if (/* XXX */match$1.tag === "Cont") {
                 _offset = offset$2 + 1 | 0;
                 _c = (c << 6) | match$1[0] & 63;
                 _n = n - 1 | 0;
@@ -214,7 +206,7 @@ function eq_list(cmp, _xs, _ys) {
   };
 }
 
-var suites = /* record */[/* contents : [] */0];
+var suites = /* record */[/* contents */"[]"];
 
 var test_id = /* record */[/* contents */0];
 
@@ -227,14 +219,12 @@ function eq(loc, param) {
         y
       ]);
   suites[0] = /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
-                  tag: 0,
-                  name: "Eq",
+                  tag: "Eq",
                   "0": x,
                   "1": y
                 };
@@ -251,99 +241,76 @@ List.iter((function (param) {
                     eq_list(Caml_obj.caml_equal, to_list(utf8_decode(Stream.of_string(param[0]))), param[1])
                   ]);
       }), /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": /* tuple */[
         "\xe4\xbd\xa0\xe5\xa5\xbdBuckleScript,\xe6\x9c\x80\xe5\xa5\xbd\xe7\x9a\x84JS\xe8\xaf\xad\xe8\xa8\x80",
         /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": 20320,
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": 22909,
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": 66,
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": 117,
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": 99,
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": 107,
                     "1": /* constructor */{
-                      tag: 0,
-                      name: "::",
+                      tag: "::",
                       "0": 108,
                       "1": /* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": 101,
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": 83,
                           "1": /* constructor */{
-                            tag: 0,
-                            name: "::",
+                            tag: "::",
                             "0": 99,
                             "1": /* constructor */{
-                              tag: 0,
-                              name: "::",
+                              tag: "::",
                               "0": 114,
                               "1": /* constructor */{
-                                tag: 0,
-                                name: "::",
+                                tag: "::",
                                 "0": 105,
                                 "1": /* constructor */{
-                                  tag: 0,
-                                  name: "::",
+                                  tag: "::",
                                   "0": 112,
                                   "1": /* constructor */{
-                                    tag: 0,
-                                    name: "::",
+                                    tag: "::",
                                     "0": 116,
                                     "1": /* constructor */{
-                                      tag: 0,
-                                      name: "::",
+                                      tag: "::",
                                       "0": 44,
                                       "1": /* constructor */{
-                                        tag: 0,
-                                        name: "::",
+                                        tag: "::",
                                         "0": 26368,
                                         "1": /* constructor */{
-                                          tag: 0,
-                                          name: "::",
+                                          tag: "::",
                                           "0": 22909,
                                           "1": /* constructor */{
-                                            tag: 0,
-                                            name: "::",
+                                            tag: "::",
                                             "0": 30340,
                                             "1": /* constructor */{
-                                              tag: 0,
-                                              name: "::",
+                                              tag: "::",
                                               "0": 74,
                                               "1": /* constructor */{
-                                                tag: 0,
-                                                name: "::",
+                                                tag: "::",
                                                 "0": 83,
                                                 "1": /* constructor */{
-                                                  tag: 0,
-                                                  name: "::",
+                                                  tag: "::",
                                                   "0": 35821,
                                                   "1": /* constructor */{
-                                                    tag: 0,
-                                                    name: "::",
+                                                    tag: "::",
                                                     "0": 35328,
-                                                    "1": /* [] */0
+                                                    "1": "[]"
                                                   }
                                                 }
                                               }
@@ -368,79 +335,61 @@ List.iter((function (param) {
         }
       ],
       "1": /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": /* tuple */[
           "hello \xe4\xbd\xa0\xe5\xa5\xbd\xef\xbc\x8c\xe4\xb8\xad\xe5\x8d\x8e\xe6\xb0\x91\xe6\x97\x8f hei",
           /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": 104,
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": 101,
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": 108,
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": 108,
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": 111,
                     "1": /* constructor */{
-                      tag: 0,
-                      name: "::",
+                      tag: "::",
                       "0": 32,
                       "1": /* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": 20320,
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": 22909,
                           "1": /* constructor */{
-                            tag: 0,
-                            name: "::",
+                            tag: "::",
                             "0": 65292,
                             "1": /* constructor */{
-                              tag: 0,
-                              name: "::",
+                              tag: "::",
                               "0": 20013,
                               "1": /* constructor */{
-                                tag: 0,
-                                name: "::",
+                                tag: "::",
                                 "0": 21326,
                                 "1": /* constructor */{
-                                  tag: 0,
-                                  name: "::",
+                                  tag: "::",
                                   "0": 27665,
                                   "1": /* constructor */{
-                                    tag: 0,
-                                    name: "::",
+                                    tag: "::",
                                     "0": 26063,
                                     "1": /* constructor */{
-                                      tag: 0,
-                                      name: "::",
+                                      tag: "::",
                                       "0": 32,
                                       "1": /* constructor */{
-                                        tag: 0,
-                                        name: "::",
+                                        tag: "::",
                                         "0": 104,
                                         "1": /* constructor */{
-                                          tag: 0,
-                                          name: "::",
+                                          tag: "::",
                                           "0": 101,
                                           "1": /* constructor */{
-                                            tag: 0,
-                                            name: "::",
+                                            tag: "::",
                                             "0": 105,
-                                            "1": /* [] */0
+                                            "1": "[]"
                                           }
                                         }
                                       }
@@ -459,7 +408,7 @@ List.iter((function (param) {
             }
           }
         ],
-        "1": /* [] */0
+        "1": "[]"
       }
     });
 

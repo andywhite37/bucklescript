@@ -45,20 +45,18 @@ function translate(lexbuf) {
 }
 
 var suites = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": /* tuple */[
     "translate",
     (function (param) {
         return /* constructor */{
-                tag: 0,
-                name: "Eq",
+                tag: "Eq",
                 "0": __ocaml_lex_translate_rec(Lexing.from_string("-- current_directory --"), 0),
                 "1": "-- . --"
               };
       })
   ],
-  "1": /* [] */0
+  "1": "[]"
 };
 
 Mt.from_pair_suites("Simple_lexer_test", suites);

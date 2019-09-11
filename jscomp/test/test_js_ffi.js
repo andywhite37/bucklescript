@@ -6,7 +6,7 @@ function v(u) {
   t({
         compare: $$String.compare
       });
-  return /* () */0;
+  return "()";
 }
 
 function u(v) {

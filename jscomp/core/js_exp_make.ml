@@ -188,8 +188,7 @@ let make_block ?comment
     | None -> assert false in
     let comment = Some "constructor" in
     let property_map = [
-      ("tag", tag);
-      ("name", str name);
+      ("tag", str name);
       ]
       @ List.mapi (fun n e -> (string_of_int n, e)) es in
     {expression_desc = Object property_map; comment}
@@ -797,11 +796,11 @@ let is_type_string ?comment (e : t) : t =
 
 
 let tag ?comment e : t = 
-  (* let comment = Some "XXX" in
-  {expression_desc = Caml_block_tag e; comment } *)
-  {expression_desc = 
+  let comment = Some "XXX" in
+  {expression_desc = Caml_block_tag e; comment }
+  (* {expression_desc = 
      Bin (Bor, {expression_desc = Caml_block_tag e; comment }, zero_int_literal );
-   comment = None }
+   comment = None } *)
 
 (* according to the compiler, [Btype.hash_variant], 
    it's reduced to 31 bits for hash

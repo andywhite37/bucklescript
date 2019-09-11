@@ -98,7 +98,7 @@ function ui_layout(compile, lookup, appContext) {
             return /* () */0;
           }
           catch (e){
-            return /* () */0;
+            return "()";
           }
         }));
   Runtime.setInterval((function () {

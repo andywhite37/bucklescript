@@ -4,13 +4,12 @@ var Mt = require("./mt.js");
 var Test_bool_equal = require("./test_bool_equal.js");
 
 Mt.from_suites("boolean", /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": /* tuple */[
         "bool_equal",
         Test_bool_equal.assertions
       ],
-      "1": /* [] */0
+      "1": "[]"
     });
 
 /*  Not a pure module */

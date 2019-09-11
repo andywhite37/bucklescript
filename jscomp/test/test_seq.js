@@ -33,8 +33,7 @@ function help_action(param) {
   throw [
         Stop,
         /* constructor */{
-          tag: 0,
-          name: "Unknown",
+          tag: "Unknown",
           "0": "-help"
         }
       ];
@@ -42,7 +41,7 @@ function help_action(param) {
 
 function v(speclist) {
   assoc3("-help", speclist);
-  return /* [] */0;
+  return "[]";
 }
 
 function f(g, speclist) {
@@ -53,23 +52,21 @@ function add_help(speclist) {
   var add1;
   try {
     assoc3("-help", speclist);
-    add1 = /* [] */0;
+    add1 = "[]";
   }
   catch (exn){
     if (exn === Caml_builtin_exceptions.not_found) {
       add1 = /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": /* tuple */[
           "-help",
           /* constructor */{
-            tag: 0,
-            name: "Unit",
+            tag: "Unit",
             "0": help_action
           },
           " Display this list of options"
         ],
-        "1": /* [] */0
+        "1": "[]"
       };
     } else {
       throw exn;
@@ -78,23 +75,21 @@ function add_help(speclist) {
   var add2;
   try {
     assoc3("--help", speclist);
-    add2 = /* [] */0;
+    add2 = "[]";
   }
   catch (exn$1){
     if (exn$1 === Caml_builtin_exceptions.not_found) {
       add2 = /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": /* tuple */[
           "--help",
           /* constructor */{
-            tag: 0,
-            name: "Unit",
+            tag: "Unit",
             "0": help_action
           },
           " Display this list of options"
         ],
-        "1": /* [] */0
+        "1": "[]"
       };
     } else {
       throw exn$1;

@@ -54,7 +54,7 @@ function fff(param) {
 }
 
 function g() {
-  return fff(/* () */0);
+  return fff("()");
 }
 
 function abc(x, y, z) {
@@ -68,14 +68,12 @@ var abc_u = abc;
 g();
 
 Mt.from_pair_suites("Ffi_arity_test", /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": /* tuple */[
         "File \"ffi_arity_test.ml\", line 45, characters 4-11",
         (function (param) {
             return /* constructor */{
-                    tag: 0,
-                    name: "Eq",
+                    tag: "Eq",
                     "0": v,
                     "1": /* array */[
                       0,
@@ -86,14 +84,12 @@ Mt.from_pair_suites("Ffi_arity_test", /* constructor */{
           })
       ],
       "1": /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": /* tuple */[
           "File \"ffi_arity_test.ml\", line 46, characters 4-11",
           (function (param) {
               return /* constructor */{
-                      tag: 0,
-                      name: "Eq",
+                      tag: "Eq",
                       "0": vv,
                       "1": /* array */[
                         1,
@@ -104,14 +100,12 @@ Mt.from_pair_suites("Ffi_arity_test", /* constructor */{
             })
         ],
         "1": /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": /* tuple */[
             "File \"ffi_arity_test.ml\", line 47, characters 4-11",
             (function (param) {
                 return /* constructor */{
-                        tag: 0,
-                        name: "Eq",
+                        tag: "Eq",
                         "0": hh,
                         "1": /* array */[
                           1,
@@ -122,14 +116,12 @@ Mt.from_pair_suites("Ffi_arity_test", /* constructor */{
               })
           ],
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": /* tuple */[
               "File \"ffi_arity_test.ml\", line 48, characters 4-11",
               (function (param) {
                   return /* constructor */{
-                          tag: 0,
-                          name: "Eq",
+                          tag: "Eq",
                           "0": /* array */[
                                 1,
                                 2,
@@ -150,14 +142,12 @@ Mt.from_pair_suites("Ffi_arity_test", /* constructor */{
                 })
             ],
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": /* tuple */[
                 "File \"ffi_arity_test.ml\", line 53, characters 4-11",
                 (function (param) {
                     return /* constructor */{
-                            tag: 0,
-                            name: "Eq",
+                            tag: "Eq",
                             "0": /* array */[
                                 1,
                                 2,
@@ -176,7 +166,7 @@ Mt.from_pair_suites("Ffi_arity_test", /* constructor */{
                           };
                   })
               ],
-              "1": /* [] */0
+              "1": "[]"
             }
           }
         }
@@ -184,10 +174,10 @@ Mt.from_pair_suites("Ffi_arity_test", /* constructor */{
     });
 
 function bar(fn) {
-  return Curry._1(fn, /* () */0);
+  return Curry._1(fn, "()");
 }
 
-(Curry._1(function (){console.log("forgiving arity")}, /* () */0));
+(Curry._1(function (){console.log("forgiving arity")}, "()"));
 
 exports.f = f;
 exports.v = v;

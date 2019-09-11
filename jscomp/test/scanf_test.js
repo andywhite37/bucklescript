@@ -5,7 +5,7 @@ var Curry = require("../../lib/js/curry.js");
 var Scanf = require("../../lib/js/scanf.js");
 var Mt_global = require("./mt_global.js");
 
-var suites = /* record */[/* contents : [] */0];
+var suites = /* record */[/* contents */"[]"];
 
 var test_id = /* record */[/* contents */0];
 
@@ -15,25 +15,21 @@ function eq(f, param) {
 
 eq("File \"scanf_test.ml\", line 6, characters 5-12", /* tuple */[
       Curry._1(Scanf.sscanf("32 31", /* constructor */{
-                tag: 0,
-                name: "Format",
+                tag: "Format",
                 "0": /* constructor */{
-                  tag: 4,
-                  name: "Int",
-                  "0": /* Int_d */0,
-                  "1": /* No_padding */0,
-                  "2": /* No_precision */0,
+                  tag: "Int",
+                  "0": "Int_d",
+                  "1": "No_padding",
+                  "2": "No_precision",
                   "3": /* constructor */{
-                    tag: 12,
-                    name: "Char_literal",
+                    tag: "Char_literal",
                     "0": /* " " */32,
                     "1": /* constructor */{
-                      tag: 4,
-                      name: "Int",
-                      "0": /* Int_d */0,
-                      "1": /* No_padding */0,
-                      "2": /* No_precision */0,
-                      "3": /* End_of_format */0
+                      tag: "Int",
+                      "0": "Int_d",
+                      "1": "No_padding",
+                      "2": "No_precision",
+                      "3": "End_of_format"
                     }
                   }
                 },
@@ -46,15 +42,13 @@ eq("File \"scanf_test.ml\", line 6, characters 5-12", /* tuple */[
 
 eq("File \"scanf_test.ml\", line 7, characters 5-12", /* tuple */[
       Curry._1(Scanf.sscanf("12306459064359371967", /* constructor */{
-                tag: 0,
-                name: "Format",
+                tag: "Format",
                 "0": /* constructor */{
-                  tag: 7,
-                  name: "Int64",
-                  "0": /* Int_u */12,
-                  "1": /* No_padding */0,
-                  "2": /* No_precision */0,
-                  "3": /* End_of_format */0
+                  tag: "Int64",
+                  "0": "Int_u",
+                  "1": "No_padding",
+                  "2": "No_precision",
+                  "3": "End_of_format"
                 },
                 "1": "%Lu"
               }), (function (i) {

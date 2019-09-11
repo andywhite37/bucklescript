@@ -3,21 +3,21 @@
 var Curry = require("../../lib/js/curry.js");
 
 function f(param) {
-  if (typeof param === "number") {
-    if (param === /* G */0) {
+  if (typeof param === "string") {
+    if (param === "G") {
       return 4;
     } else {
       return 5;
     }
   } else {
-    switch (param.tag | 0) {
-      case /* A */0 :
+    switch (/* XXX */param.tag) {
+      case "A" :
           return 0;
-      case /* B */1 :
+      case "B" :
           return 1;
-      case /* C */2 :
+      case "C" :
           return 2;
-      case /* F */3 :
+      case "F" :
           return 3;
       
     }
@@ -25,14 +25,13 @@ function f(param) {
 }
 
 function bind(x, f) {
-  if (x.tag) {
-    return x;
-  } else {
+  if (/* XXX */x.tag === "Left") {
     return /* constructor */{
-            tag: 0,
-            name: "Left",
+            tag: "Left",
             "0": Curry._1(f, x[0])
           };
+  } else {
+    return x;
   }
 }
 

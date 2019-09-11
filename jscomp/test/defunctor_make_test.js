@@ -31,8 +31,7 @@ function create(l, x, d, r) {
   var hl = height(l);
   var hr = height(r);
   return /* constructor */{
-          tag: 0,
-          name: "Node",
+          tag: "Node",
           "0": l,
           "1": x,
           "2": d,
@@ -90,8 +89,7 @@ function bal(l, x, d, r) {
     }
   } else {
     return /* constructor */{
-            tag: 0,
-            name: "Node",
+            tag: "Node",
             "0": l,
             "1": x,
             "2": d,
@@ -110,8 +108,7 @@ function add(x, data, compare, param) {
     var c = compare(x, v);
     if (c === 0) {
       return /* constructor */{
-              tag: 0,
-              name: "Node",
+              tag: "Node",
               "0": l,
               "1": x,
               "2": data,
@@ -125,12 +122,11 @@ function add(x, data, compare, param) {
     }
   } else {
     return /* constructor */{
-            tag: 0,
-            name: "Node",
-            "0": /* Empty */0,
+            tag: "Node",
+            "0": "Empty",
             "1": x,
             "2": data,
-            "3": /* Empty */0,
+            "3": "Empty",
             "4": 1
           };
   }
@@ -147,7 +143,7 @@ function add$1(x, data, v) {
 function empty(v) {
   return /* record */[
           /* compare */v,
-          /* data : Empty */0
+          /* data */"Empty"
         ];
 }
 
@@ -165,12 +161,12 @@ var V1 = {
 
 var v0 = /* record */[
   /* compare */V0,
-  /* data : Empty */0
+  /* data */"Empty"
 ];
 
 var v1 = /* record */[
   /* compare */V1,
-  /* data : Empty */0
+  /* data */"Empty"
 ];
 
 var v3 = add$1(3, "a", v0);

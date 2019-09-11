@@ -100,7 +100,7 @@ function even$1(n) {
 }
 
 function x(param) {
-  return Curry._1(BB.y, /* () */0) + 3 | 0;
+  return Curry._1(BB.y, "()") + 3 | 0;
 }
 
 Caml_module.update_mod([[
@@ -166,8 +166,7 @@ function create(l, v, r) {
   var hl = l ? l[3] : 0;
   var hr = r ? r[3] : 0;
   return /* constructor */{
-          tag: 0,
-          name: "Node",
+          tag: "Node",
           "0": l,
           "1": v,
           "2": r,
@@ -222,8 +221,7 @@ function bal(l, v, r) {
     }
   } else {
     return /* constructor */{
-            tag: 0,
-            name: "Node",
+            tag: "Node",
             "0": l,
             "1": v,
             "2": r,
@@ -247,11 +245,10 @@ function add(x, t) {
     }
   } else {
     return /* constructor */{
-            tag: 0,
-            name: "Node",
-            "0": /* Empty */0,
+            tag: "Node",
+            "0": "Empty",
             "1": x,
-            "2": /* Empty */0,
+            "2": "Empty",
             "3": 1
           };
   }
@@ -259,11 +256,10 @@ function add(x, t) {
 
 function singleton(x) {
   return /* constructor */{
-          tag: 0,
-          name: "Node",
-          "0": /* Empty */0,
+          tag: "Node",
+          "0": "Empty",
           "1": x,
-          "2": /* Empty */0,
+          "2": "Empty",
           "3": 1
         };
 }
@@ -395,9 +391,9 @@ function split(x, param) {
     }
   } else {
     return /* tuple */[
-            /* Empty */0,
+            "Empty",
             false,
-            /* Empty */0
+            "Empty"
           ];
   }
 }
@@ -451,7 +447,7 @@ function remove(x, param) {
       return bal(l, v, remove(x, r));
     }
   } else {
-    return /* Empty */0;
+    return "Empty";
   }
 }
 
@@ -496,7 +492,7 @@ function inter(s1, s2) {
       return concat(inter(l1, l2), inter(r1, match[2]));
     }
   } else {
-    return /* Empty */0;
+    return "Empty";
   }
 }
 
@@ -517,7 +513,7 @@ function diff(s1, s2) {
       return s1;
     }
   } else {
-    return /* Empty */0;
+    return "Empty";
   }
 }
 
@@ -527,8 +523,7 @@ function cons_enum(_s, _e) {
     var s = _s;
     if (s) {
       _e = /* constructor */{
-        tag: 0,
-        name: "More",
+        tag: "More",
         "0": s[1],
         "1": s[2],
         "2": e
@@ -542,8 +537,8 @@ function cons_enum(_s, _e) {
 }
 
 function compare(s1, s2) {
-  var _e1 = cons_enum(s1, /* End */0);
-  var _e2 = cons_enum(s2, /* End */0);
+  var _e1 = cons_enum(s1, "End");
+  var _e2 = cons_enum(s2, "End");
   while(true) {
     var e2 = _e2;
     var e1 = _e1;
@@ -594,11 +589,10 @@ function subset(_s1, _s2) {
           }
         } else if (c < 0) {
           if (subset(/* constructor */{
-                  tag: 0,
-                  name: "Node",
+                  tag: "Node",
                   "0": l1,
                   "1": v1,
-                  "2": /* Empty */0,
+                  "2": "Empty",
                   "3": 0
                 }, l2)) {
             _s1 = r1;
@@ -607,9 +601,8 @@ function subset(_s1, _s2) {
             return false;
           }
         } else if (subset(/* constructor */{
-                tag: 0,
-                name: "Node",
-                "0": /* Empty */0,
+                tag: "Node",
+                "0": "Empty",
                 "1": v1,
                 "2": r1,
                 "3": 0
@@ -637,7 +630,7 @@ function iter(f, _param) {
       _param = param[2];
       continue ;
     } else {
-      return /* () */0;
+      return "()";
     }
   };
 }
@@ -700,7 +693,7 @@ function filter(p, param) {
       return concat(l$prime, r$prime);
     }
   } else {
-    return /* Empty */0;
+    return "Empty";
   }
 }
 
@@ -727,8 +720,8 @@ function partition(p, param) {
     }
   } else {
     return /* tuple */[
-            /* Empty */0,
-            /* Empty */0
+            "Empty",
+            "Empty"
           ];
   }
 }
@@ -748,8 +741,7 @@ function elements_aux(_accu, _param) {
     if (param) {
       _param = param[0];
       _accu = /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": param[1],
         "1": elements_aux(accu, param[2])
       };
@@ -761,7 +753,7 @@ function elements_aux(_accu, _param) {
 }
 
 function elements(s) {
-  return elements_aux(/* [] */0, s);
+  return elements_aux("[]", s);
 }
 
 function find(x, _param) {
@@ -802,18 +794,17 @@ function of_list(l) {
                 switch (n) {
                   case 0 :
                       return /* tuple */[
-                              /* Empty */0,
+                              "Empty",
                               l
                             ];
                   case 1 :
                       if (l) {
                         return /* tuple */[
                                 /* constructor */{
-                                  tag: 0,
-                                  name: "Node",
-                                  "0": /* Empty */0,
+                                  tag: "Node",
+                                  "0": "Empty",
                                   "1": l[0],
-                                  "2": /* Empty */0,
+                                  "2": "Empty",
                                   "3": 1
                                 },
                                 l[1]
@@ -826,18 +817,16 @@ function of_list(l) {
                         if (match) {
                           return /* tuple */[
                                   /* constructor */{
-                                    tag: 0,
-                                    name: "Node",
+                                    tag: "Node",
                                     "0": /* constructor */{
-                                      tag: 0,
-                                      name: "Node",
-                                      "0": /* Empty */0,
+                                      tag: "Node",
+                                      "0": "Empty",
                                       "1": l[0],
-                                      "2": /* Empty */0,
+                                      "2": "Empty",
                                       "3": 1
                                     },
                                     "1": match[0],
-                                    "2": /* Empty */0,
+                                    "2": "Empty",
                                     "3": 2
                                   },
                                   match[1]
@@ -854,23 +843,20 @@ function of_list(l) {
                           if (match$2) {
                             return /* tuple */[
                                     /* constructor */{
-                                      tag: 0,
-                                      name: "Node",
+                                      tag: "Node",
                                       "0": /* constructor */{
-                                        tag: 0,
-                                        name: "Node",
-                                        "0": /* Empty */0,
+                                        tag: "Node",
+                                        "0": "Empty",
                                         "1": l[0],
-                                        "2": /* Empty */0,
+                                        "2": "Empty",
                                         "3": 1
                                       },
                                       "1": match$1[0],
                                       "2": /* constructor */{
-                                        tag: 0,
-                                        name: "Node",
-                                        "0": /* Empty */0,
+                                        tag: "Node",
+                                        "0": "Empty",
                                         "1": match$2[0],
-                                        "2": /* Empty */0,
+                                        "2": "Empty",
                                         "3": 1
                                       },
                                       "3": 2
@@ -923,12 +909,12 @@ function of_list(l) {
       return singleton(x0);
     }
   } else {
-    return /* Empty */0;
+    return "Empty";
   }
 }
 
 var ASet = {
-  empty: /* Empty */0,
+  empty: "Empty",
   is_empty: is_empty,
   mem: mem,
   add: add,
@@ -957,16 +943,16 @@ var ASet = {
 };
 
 function compare$1(t1, t2) {
-  if (t1.tag) {
-    if (t2.tag) {
-      return compare(t1[0], t2[0]);
+  if (/* XXX */t1.tag === "Leaf") {
+    if (/* XXX */t2.tag === "Leaf") {
+      return Caml_primitive.caml_string_compare(t1[0], t2[0]);
     } else {
-      return -1;
+      return 1;
     }
-  } else if (t2.tag) {
-    return 1;
+  } else if (/* XXX */t2.tag === "Leaf") {
+    return -1;
   } else {
-    return Caml_primitive.caml_string_compare(t1[0], t2[0]);
+    return compare(t1[0], t2[0]);
   }
 }
 
@@ -978,14 +964,12 @@ Caml_module.update_mod([[[
     });
 
 var suites = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": /* tuple */[
     "test1",
     (function (param) {
         return /* constructor */{
-                tag: 0,
-                name: "Eq",
+                tag: "Eq",
                 "0": /* tuple */[
                   true,
                   true,
@@ -1002,117 +986,99 @@ var suites = /* constructor */{
       })
   ],
   "1": /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       "test2",
       (function (param) {
           return /* constructor */{
-                  tag: 0,
-                  name: "Eq",
-                  "0": Curry._1(BB.y, /* () */0),
+                  tag: "Eq",
+                  "0": Curry._1(BB.y, "()"),
                   "1": 32
                 };
         })
     ],
     "1": /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": /* tuple */[
         "test3",
         (function (param) {
             return /* constructor */{
-                    tag: 0,
-                    name: "Eq",
-                    "0": Curry._1(AA.x, /* () */0),
+                    tag: "Eq",
+                    "0": Curry._1(AA.x, "()"),
                     "1": 35
                   };
           })
       ],
       "1": /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": /* tuple */[
           "test4",
           (function (param) {
               return /* constructor */{
-                      tag: 0,
-                      name: "Eq",
+                      tag: "Eq",
                       "0": true,
                       "1": Curry._1(A.even, 2)
                     };
             })
         ],
         "1": /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": /* tuple */[
             "test4",
             (function (param) {
                 return /* constructor */{
-                        tag: 0,
-                        name: "Eq",
+                        tag: "Eq",
                         "0": true,
                         "1": Curry._1(AA.even, 4)
                       };
               })
           ],
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": /* tuple */[
               "test5",
               (function (param) {
                   return /* constructor */{
-                          tag: 0,
-                          name: "Eq",
+                          tag: "Eq",
                           "0": false,
                           "1": Curry._1(B.odd, 2)
                         };
                 })
             ],
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": /* tuple */[
                 "test6",
                 (function (param) {
                     return /* constructor */{
-                            tag: 0,
-                            name: "Eq",
+                            tag: "Eq",
                             "0": 2,
                             "1": cardinal(of_list(/* constructor */{
-                                      tag: 0,
-                                      name: "::",
+                                      tag: "::",
                                       "0": /* constructor */{
-                                        tag: 0,
-                                        name: "Leaf",
+                                        tag: "Leaf",
                                         "0": "a"
                                       },
                                       "1": /* constructor */{
-                                        tag: 0,
-                                        name: "::",
+                                        tag: "::",
                                         "0": /* constructor */{
-                                          tag: 0,
-                                          name: "Leaf",
+                                          tag: "Leaf",
                                           "0": "b"
                                         },
                                         "1": /* constructor */{
-                                          tag: 0,
-                                          name: "::",
+                                          tag: "::",
                                           "0": /* constructor */{
-                                            tag: 0,
-                                            name: "Leaf",
+                                            tag: "Leaf",
                                             "0": "a"
                                           },
-                                          "1": /* [] */0
+                                          "1": "[]"
                                         }
                                       }
                                     }))
                           };
                   })
               ],
-              "1": /* [] */0
+              "1": "[]"
             }
           }
         }
@@ -1123,9 +1089,9 @@ var suites = /* constructor */{
 
 Mt.from_pair_suites("Rec_module_test", suites);
 
-var Even = /* () */0;
+var Even = "()";
 
-var Odd = /* () */0;
+var Odd = "()";
 
 exports.A = A;
 exports.B = B;

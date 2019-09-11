@@ -7,14 +7,12 @@ function g(x) {
 }
 
 var loop = g(/* constructor */{
-      tag: 0,
-      name: "A",
+      tag: "A",
       "0": g
     });
 
 var x = /* constructor */{
-  tag: 0,
-  name: "A",
+  tag: "A",
   "0": g
 };
 

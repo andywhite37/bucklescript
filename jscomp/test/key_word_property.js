@@ -16,13 +16,12 @@ function mk($$window, $$default) {
 
 function mk2($$window, $$default) {
   return /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": /* record */[
             /* window */$$window,
             /* default */$$default
           ],
-          "1": /* [] */0
+          "1": "[]"
         };
 }
 

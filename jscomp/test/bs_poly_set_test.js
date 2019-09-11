@@ -11,7 +11,7 @@ var Belt_SortArray = require("../../lib/js/belt_SortArray.js");
 var Caml_primitive = require("../../lib/js/caml_primitive.js");
 var Array_data_util = require("./array_data_util.js");
 
-var suites = /* record */[/* contents : [] */0];
+var suites = /* record */[/* contents */"[]"];
 
 var test_id = /* record */[/* contents */0];
 
@@ -211,11 +211,10 @@ var m$3 = {
 b("File \"bs_poly_set_test.ml\", line 92, characters 4-11", Belt_SetDict.maxUndefined(m$3.data) === undefined);
 
 function testIterToList(xs) {
-  var v = /* record */[/* contents : [] */0];
+  var v = /* record */[/* contents */"[]"];
   Belt_Set.forEach(xs, (function (x) {
           v[0] = /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": x,
             "1": v[0]
           };
@@ -225,11 +224,10 @@ function testIterToList(xs) {
 }
 
 function testIterToList2(xs) {
-  var v = /* record */[/* contents : [] */0];
+  var v = /* record */[/* contents */"[]"];
   Belt_SetDict.forEach(xs.data, (function (x) {
           v[0] = /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": x,
             "1": v[0]
           };
@@ -320,12 +318,12 @@ eq("File \"bs_poly_set_test.ml\", line 132, characters 5-12", Belt_Set.getExn(a0
 
 t("File \"bs_poly_set_test.ml\", line 133, characters 4-11", (function (param) {
         Belt_Set.getExn(a0, 1002);
-        return /* () */0;
+        return "()";
       }));
 
 t("File \"bs_poly_set_test.ml\", line 134, characters 4-11", (function (param) {
         Belt_Set.getExn(a0, -1);
-        return /* () */0;
+        return "()";
       }));
 
 eq("File \"bs_poly_set_test.ml\", line 135, characters 5-12", Belt_SetDict.size(a0.data), 1001);
@@ -371,26 +369,21 @@ eq("File \"bs_poly_set_test.ml\", line 146, characters 5-12", Belt_SetDict.minim
 eq("File \"bs_poly_set_test.ml\", line 147, characters 5-12", Belt_SetDict.minimum(a9.data), 201);
 
 Belt_List.forEach(/* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": a0,
       "1": /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": a1,
         "1": /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": a2,
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": a3,
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": a4,
-              "1": /* [] */0
+              "1": "[]"
             }
           }
         }

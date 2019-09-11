@@ -4,21 +4,19 @@ var Mt = require("./mt.js");
 var List = require("../../lib/js/list.js");
 var Curry = require("../../lib/js/curry.js");
 
-var suites = /* record */[/* contents : [] */0];
+var suites = /* record */[/* contents */"[]"];
 
 var test_id = /* record */[/* contents */0];
 
 function eq(loc, x, y) {
   test_id[0] = test_id[0] + 1 | 0;
   suites[0] = /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
-                  tag: 0,
-                  name: "Eq",
+                  tag: "Eq",
                   "0": x,
                   "1": y
                 };
@@ -36,21 +34,18 @@ function f(x) {
   return L;
 }
 
-var h = f(/* [] */0);
+var h = f("[]");
 
 var a = Curry._1(h.length, /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": 1,
       "1": /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": 2,
         "1": /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": 3,
-          "1": /* [] */0
+          "1": "[]"
         }
       }
     });

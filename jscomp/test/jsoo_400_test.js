@@ -15,22 +15,20 @@ function u(param) {
 }
 
 Mt.from_pair_suites("Jsoo_400_test", /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": /* tuple */[
         "File \"jsoo_400_test.ml\", line 8, characters 3-10",
         (function (param) {
             return /* constructor */{
-                    tag: 7,
-                    name: "ThrowAny",
+                    tag: "ThrowAny",
                     "0": (function (param) {
-                        u(/* () */0);
-                        return /* () */0;
+                        u("()");
+                        return "()";
                       })
                   };
           })
       ],
-      "1": /* [] */0
+      "1": "[]"
     });
 
 exports.u = u;

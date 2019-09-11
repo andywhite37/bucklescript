@@ -36,8 +36,7 @@ function update(tr, k, w) {
     var l = tr[1];
     if (k === 1) {
       return /* constructor */{
-              tag: 0,
-              name: "Br",
+              tag: "Br",
               "0": w,
               "1": l,
               "2": r
@@ -46,16 +45,14 @@ function update(tr, k, w) {
       var v = tr[0];
       if (k % 2 === 0) {
         return /* constructor */{
-                tag: 0,
-                name: "Br",
+                tag: "Br",
                 "0": v,
                 "1": update(l, k / 2 | 0, w),
                 "2": r
               };
       } else {
         return /* constructor */{
-                tag: 0,
-                name: "Br",
+                tag: "Br",
                 "0": v,
                 "1": l,
                 "2": update(r, k / 2 | 0, w)
@@ -64,11 +61,10 @@ function update(tr, k, w) {
     }
   } else if (k === 1) {
     return /* constructor */{
-            tag: 0,
-            name: "Br",
+            tag: "Br",
             "0": w,
-            "1": /* Lf */0,
-            "2": /* Lf */0
+            "1": "Lf",
+            "2": "Lf"
           };
   } else {
     throw Caml_builtin_exceptions.not_found;
@@ -78,23 +74,21 @@ function update(tr, k, w) {
 function $$delete(tr, n) {
   if (tr) {
     if (n === 1) {
-      return /* Lf */0;
+      return "Lf";
     } else {
       var r = tr[2];
       var l = tr[1];
       var v = tr[0];
       if (n % 2 === 0) {
         return /* constructor */{
-                tag: 0,
-                name: "Br",
+                tag: "Br",
                 "0": v,
                 "1": $$delete(l, n / 2 | 0),
                 "2": r
               };
       } else {
         return /* constructor */{
-                tag: 0,
-                name: "Br",
+                tag: "Br",
                 "0": v,
                 "1": l,
                 "2": $$delete(r, n / 2 | 0)
@@ -109,19 +103,17 @@ function $$delete(tr, n) {
 function loext(tr, w) {
   if (tr) {
     return /* constructor */{
-            tag: 0,
-            name: "Br",
+            tag: "Br",
             "0": w,
             "1": loext(tr[2], tr[0]),
             "2": tr[1]
           };
   } else {
     return /* constructor */{
-            tag: 0,
-            name: "Br",
+            tag: "Br",
             "0": w,
-            "1": /* Lf */0,
-            "2": /* Lf */0
+            "1": "Lf",
+            "2": "Lf"
           };
   }
 }
@@ -131,8 +123,7 @@ function lorem(tr) {
     var l = tr[1];
     if (l) {
       return /* constructor */{
-              tag: 0,
-              name: "Br",
+              tag: "Br",
               "0": l[0],
               "1": tr[2],
               "2": lorem(l)
@@ -147,7 +138,7 @@ function lorem(tr) {
             ]
           ];
     } else {
-      return /* Lf */0;
+      return "Lf";
     }
   } else {
     throw Caml_builtin_exceptions.not_found;
@@ -155,7 +146,7 @@ function lorem(tr) {
 }
 
 var empty = /* tuple */[
-  /* Lf */0,
+  "Lf",
   0
 ];
 
@@ -241,13 +232,11 @@ function pp(fmt, s) {
   }
   v = v + "]";
   return Curry._1(Format.fprintf(fmt, /* constructor */{
-                  tag: 0,
-                  name: "Format",
+                  tag: "Format",
                   "0": /* constructor */{
-                    tag: 2,
-                    name: "String",
-                    "0": /* No_padding */0,
-                    "1": /* End_of_format */0
+                    tag: "String",
+                    "0": "No_padding",
+                    "1": "End_of_format"
                   },
                   "1": "%s"
                 }), v);

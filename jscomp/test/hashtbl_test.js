@@ -11,15 +11,14 @@ var Caml_primitive = require("../../lib/js/caml_primitive.js");
 function to_list(tbl) {
   return Hashtbl.fold((function (k, v, acc) {
                 return /* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": /* tuple */[
                           k,
                           v
                         ],
                         "1": acc
                       };
-              }), tbl, /* [] */0);
+              }), tbl, "[]");
 }
 
 function f(param) {
@@ -46,44 +45,38 @@ function g(count) {
 }
 
 var suites = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": /* tuple */[
     "simple",
     (function (param) {
         return /* constructor */{
-                tag: 0,
-                name: "Eq",
+                tag: "Eq",
                 "0": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": /* tuple */[
                     1,
                     /* "1" */49
                   ],
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": /* tuple */[
                       2,
                       /* "2" */50
                     ],
-                    "1": /* [] */0
+                    "1": "[]"
                   }
                 },
-                "1": f(/* () */0)
+                "1": f("()")
               };
       })
   ],
   "1": /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       "more_iterations",
       (function (param) {
           return /* constructor */{
-                  tag: 0,
-                  name: "Eq",
+                  tag: "Eq",
                   "0": $$Array.init(1001, (function (i) {
                           return /* tuple */[
                                   (i << 1),
@@ -95,22 +88,20 @@ var suites = /* constructor */{
         })
     ],
     "1": /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": /* tuple */[
         "More_labels_regressionfix_374",
         (function (param) {
             var tbl = Curry._2(MoreLabels.Hashtbl.create, undefined, 30);
             Hashtbl.add(tbl, 3, 3);
             return /* constructor */{
-                    tag: 0,
-                    name: "Eq",
+                    tag: "Eq",
                     "0": tbl[/* size */0],
                     "1": 1
                   };
           })
       ],
-      "1": /* [] */0
+      "1": "[]"
     }
   }
 };

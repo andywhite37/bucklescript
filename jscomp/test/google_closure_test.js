@@ -4,14 +4,12 @@ var Mt = require("./mt.js");
 var Test_google_closure = require("./test_google_closure.js");
 
 Mt.from_pair_suites("Closure", /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": /* tuple */[
         "partial",
         (function (param) {
             return /* constructor */{
-                    tag: 0,
-                    name: "Eq",
+                    tag: "Eq",
                     "0": /* tuple */[
                       Test_google_closure.a,
                       Test_google_closure.b,
@@ -28,7 +26,7 @@ Mt.from_pair_suites("Closure", /* constructor */{
                   };
           })
       ],
-      "1": /* [] */0
+      "1": "[]"
     });
 
 /*  Not a pure module */

@@ -6,38 +6,30 @@ var Genlex = require("../../lib/js/genlex.js");
 var Stream = require("../../lib/js/stream.js");
 
 var lexer = Genlex.make_lexer(/* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": "+",
       "1": /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": "-",
         "1": /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": "*",
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": "/",
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": "let",
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": "=",
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": "(",
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": ")",
-                    "1": /* [] */0
+                    "1": "[]"
                   }
                 }
               }
@@ -48,7 +40,7 @@ var lexer = Genlex.make_lexer(/* constructor */{
     });
 
 function to_list(s) {
-  var _acc = /* [] */0;
+  var _acc = "[]";
   while(true) {
     var acc = _acc;
     var v;
@@ -63,8 +55,7 @@ function to_list(s) {
       }
     }
     _acc = /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": v,
       "1": acc
     };
@@ -73,71 +64,55 @@ function to_list(s) {
 }
 
 var suites = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": /* tuple */[
     "lexer_stream_genlex",
     (function (param) {
         return /* constructor */{
-                tag: 0,
-                name: "Eq",
+                tag: "Eq",
                 "0": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": /* constructor */{
-                    tag: 2,
-                    name: "Int",
+                    tag: "Int",
                     "0": 3
                   },
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": /* constructor */{
-                      tag: 0,
-                      name: "Kwd",
+                      tag: "Kwd",
                       "0": "("
                     },
                     "1": /* constructor */{
-                      tag: 0,
-                      name: "::",
+                      tag: "::",
                       "0": /* constructor */{
-                        tag: 2,
-                        name: "Int",
+                        tag: "Int",
                         "0": 3
                       },
                       "1": /* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": /* constructor */{
-                          tag: 0,
-                          name: "Kwd",
+                          tag: "Kwd",
                           "0": "+"
                         },
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": /* constructor */{
-                            tag: 2,
-                            name: "Int",
+                            tag: "Int",
                             "0": 2
                           },
                           "1": /* constructor */{
-                            tag: 0,
-                            name: "::",
+                            tag: "::",
                             "0": /* constructor */{
-                              tag: 2,
-                              name: "Int",
+                              tag: "Int",
                               "0": -1
                             },
                             "1": /* constructor */{
-                              tag: 0,
-                              name: "::",
+                              tag: "::",
                               "0": /* constructor */{
-                                tag: 0,
-                                name: "Kwd",
+                                tag: "Kwd",
                                 "0": ")"
                               },
-                              "1": /* [] */0
+                              "1": "[]"
                             }
                           }
                         }
@@ -149,7 +124,7 @@ var suites = /* constructor */{
               };
       })
   ],
-  "1": /* [] */0
+  "1": "[]"
 };
 
 Mt.from_pair_suites("Genlex_test", suites);

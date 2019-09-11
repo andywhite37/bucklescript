@@ -62,10 +62,10 @@ function f2(param) {
           return prim + prim$1;
         }), 0, b);
   console.log(Pervasives.string_of_float(v));
-  return /* () */0;
+  return "()";
 }
 
-f2(/* () */0);
+f2("()");
 
 exports.map = map;
 exports.init = init;

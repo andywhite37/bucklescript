@@ -3,7 +3,7 @@
 
 function test(x) {
   x.nodeValue = null;
-  return /* () */0;
+  return "()";
 }
 
 exports.test = test;

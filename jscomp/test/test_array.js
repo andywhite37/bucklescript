@@ -22,27 +22,24 @@ var hhh = $$Array.append(/* array */[
     ]);
 
 var u = Caml_array.caml_array_concat(/* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": /* array */[
         1,
         2
       ],
       "1": /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": /* array */[
           2,
           3
         ],
         "1": /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": /* array */[
             3,
             4
           ],
-          "1": /* [] */0
+          "1": "[]"
         }
       }
     });

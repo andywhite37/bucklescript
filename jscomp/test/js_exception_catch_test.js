@@ -7,7 +7,7 @@ var Caml_exceptions = require("../../lib/js/caml_exceptions.js");
 var Caml_js_exceptions = require("../../lib/js/caml_js_exceptions.js");
 var Caml_builtin_exceptions = require("../../lib/js/caml_builtin_exceptions.js");
 
-var suites = /* record */[/* contents : [] */0];
+var suites = /* record */[/* contents */"[]"];
 
 var counter = /* record */[/* contents */0];
 
@@ -15,8 +15,7 @@ function add_test(loc, test) {
   counter[0] = counter[0] + 1 | 0;
   var id = loc + (" id " + String(counter[0]));
   suites[0] = /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       id,
       test
@@ -29,8 +28,7 @@ function add_test(loc, test) {
 function eq(loc, x, y) {
   return add_test(loc, (function (param) {
                 return /* constructor */{
-                        tag: 0,
-                        name: "Eq",
+                        tag: "Eq",
                         "0": x,
                         "1": y
                       };
@@ -40,8 +38,7 @@ function eq(loc, x, y) {
 function false_(loc) {
   return add_test(loc, (function (param) {
                 return /* constructor */{
-                        tag: 4,
-                        name: "Ok",
+                        tag: "Ok",
                         "0": false
                       };
               }));
@@ -50,8 +47,7 @@ function false_(loc) {
 function true_(loc) {
   return add_test(loc, (function (param) {
                 return /* constructor */{
-                        tag: 4,
-                        name: "Ok",
+                        tag: "Ok",
                         "0": true
                       };
               }));
@@ -70,8 +66,7 @@ catch (raw_exn){
   if (exn[0] === Js_exn.$$Error) {
     add_test("File \"js_exception_catch_test.ml\", line 21, characters 10-17", (function (param) {
             return /* constructor */{
-                    tag: 4,
-                    name: "Ok",
+                    tag: "Ok",
                     "0": true
                   };
           }));
@@ -83,8 +78,7 @@ catch (raw_exn){
 if (exit === 1) {
   add_test("File \"js_exception_catch_test.ml\", line 22, characters 16-23", (function (param) {
           return /* constructor */{
-                  tag: 4,
-                  name: "Ok",
+                  tag: "Ok",
                   "0": false
                 };
         }));
@@ -98,7 +92,7 @@ var C = Caml_exceptions.create("Js_exception_catch_test.C");
 
 function test(f) {
   try {
-    Curry._1(f, /* () */0);
+    Curry._1(f, "()");
     return /* No_error */-465676758;
   }
   catch (raw_e){
@@ -134,7 +128,7 @@ function test(f) {
 }
 
 eq("File \"js_exception_catch_test.ml\", line 43, characters 5-12", test((function (param) {
-            return /* () */0;
+            return "()";
           })), /* No_error */-465676758);
 
 eq("File \"js_exception_catch_test.ml\", line 44, characters 5-12", test((function (param) {

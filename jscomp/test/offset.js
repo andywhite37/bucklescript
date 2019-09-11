@@ -18,8 +18,7 @@ function create(l, v, r) {
   var hl = l ? l[3] : 0;
   var hr = r ? r[3] : 0;
   return /* constructor */{
-          tag: 0,
-          name: "Node",
+          tag: "Node",
           "0": l,
           "1": v,
           "2": r,
@@ -74,8 +73,7 @@ function bal(l, v, r) {
     }
   } else {
     return /* constructor */{
-            tag: 0,
-            name: "Node",
+            tag: "Node",
             "0": l,
             "1": v,
             "2": r,
@@ -99,11 +97,10 @@ function add(x, t) {
     }
   } else {
     return /* constructor */{
-            tag: 0,
-            name: "Node",
-            "0": /* Empty */0,
+            tag: "Node",
+            "0": "Empty",
             "1": x,
-            "2": /* Empty */0,
+            "2": "Empty",
             "3": 1
           };
   }
@@ -111,11 +108,10 @@ function add(x, t) {
 
 function singleton(x) {
   return /* constructor */{
-          tag: 0,
-          name: "Node",
-          "0": /* Empty */0,
+          tag: "Node",
+          "0": "Empty",
           "1": x,
-          "2": /* Empty */0,
+          "2": "Empty",
           "3": 1
         };
 }
@@ -247,9 +243,9 @@ function split(x, param) {
     }
   } else {
     return /* tuple */[
-            /* Empty */0,
+            "Empty",
             false,
-            /* Empty */0
+            "Empty"
           ];
   }
 }
@@ -303,7 +299,7 @@ function remove(x, param) {
       return bal(l, v, remove(x, r));
     }
   } else {
-    return /* Empty */0;
+    return "Empty";
   }
 }
 
@@ -348,7 +344,7 @@ function inter(s1, s2) {
       return concat(inter(l1, l2), inter(r1, match[2]));
     }
   } else {
-    return /* Empty */0;
+    return "Empty";
   }
 }
 
@@ -369,7 +365,7 @@ function diff(s1, s2) {
       return s1;
     }
   } else {
-    return /* Empty */0;
+    return "Empty";
   }
 }
 
@@ -379,8 +375,7 @@ function cons_enum(_s, _e) {
     var s = _s;
     if (s) {
       _e = /* constructor */{
-        tag: 0,
-        name: "More",
+        tag: "More",
         "0": s[1],
         "1": s[2],
         "2": e
@@ -394,8 +389,8 @@ function cons_enum(_s, _e) {
 }
 
 function compare(s1, s2) {
-  var _e1 = cons_enum(s1, /* End */0);
-  var _e2 = cons_enum(s2, /* End */0);
+  var _e1 = cons_enum(s1, "End");
+  var _e2 = cons_enum(s2, "End");
   while(true) {
     var e2 = _e2;
     var e1 = _e1;
@@ -446,11 +441,10 @@ function subset(_s1, _s2) {
           }
         } else if (c < 0) {
           if (subset(/* constructor */{
-                  tag: 0,
-                  name: "Node",
+                  tag: "Node",
                   "0": l1,
                   "1": v1,
-                  "2": /* Empty */0,
+                  "2": "Empty",
                   "3": 0
                 }, l2)) {
             _s1 = r1;
@@ -459,9 +453,8 @@ function subset(_s1, _s2) {
             return false;
           }
         } else if (subset(/* constructor */{
-                tag: 0,
-                name: "Node",
-                "0": /* Empty */0,
+                tag: "Node",
+                "0": "Empty",
                 "1": v1,
                 "2": r1,
                 "3": 0
@@ -489,7 +482,7 @@ function iter(f, _param) {
       _param = param[2];
       continue ;
     } else {
-      return /* () */0;
+      return "()";
     }
   };
 }
@@ -552,7 +545,7 @@ function filter(p, param) {
       return concat(l$prime, r$prime);
     }
   } else {
-    return /* Empty */0;
+    return "Empty";
   }
 }
 
@@ -579,8 +572,8 @@ function partition(p, param) {
     }
   } else {
     return /* tuple */[
-            /* Empty */0,
-            /* Empty */0
+            "Empty",
+            "Empty"
           ];
   }
 }
@@ -600,8 +593,7 @@ function elements_aux(_accu, _param) {
     if (param) {
       _param = param[0];
       _accu = /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": param[1],
         "1": elements_aux(accu, param[2])
       };
@@ -613,7 +605,7 @@ function elements_aux(_accu, _param) {
 }
 
 function elements(s) {
-  return elements_aux(/* [] */0, s);
+  return elements_aux("[]", s);
 }
 
 function find(x, _param) {
@@ -654,18 +646,17 @@ function of_list(l) {
                 switch (n) {
                   case 0 :
                       return /* tuple */[
-                              /* Empty */0,
+                              "Empty",
                               l
                             ];
                   case 1 :
                       if (l) {
                         return /* tuple */[
                                 /* constructor */{
-                                  tag: 0,
-                                  name: "Node",
-                                  "0": /* Empty */0,
+                                  tag: "Node",
+                                  "0": "Empty",
                                   "1": l[0],
-                                  "2": /* Empty */0,
+                                  "2": "Empty",
                                   "3": 1
                                 },
                                 l[1]
@@ -678,18 +669,16 @@ function of_list(l) {
                         if (match) {
                           return /* tuple */[
                                   /* constructor */{
-                                    tag: 0,
-                                    name: "Node",
+                                    tag: "Node",
                                     "0": /* constructor */{
-                                      tag: 0,
-                                      name: "Node",
-                                      "0": /* Empty */0,
+                                      tag: "Node",
+                                      "0": "Empty",
                                       "1": l[0],
-                                      "2": /* Empty */0,
+                                      "2": "Empty",
                                       "3": 1
                                     },
                                     "1": match[0],
-                                    "2": /* Empty */0,
+                                    "2": "Empty",
                                     "3": 2
                                   },
                                   match[1]
@@ -706,23 +695,20 @@ function of_list(l) {
                           if (match$2) {
                             return /* tuple */[
                                     /* constructor */{
-                                      tag: 0,
-                                      name: "Node",
+                                      tag: "Node",
                                       "0": /* constructor */{
-                                        tag: 0,
-                                        name: "Node",
-                                        "0": /* Empty */0,
+                                        tag: "Node",
+                                        "0": "Empty",
                                         "1": l[0],
-                                        "2": /* Empty */0,
+                                        "2": "Empty",
                                         "3": 1
                                       },
                                       "1": match$1[0],
                                       "2": /* constructor */{
-                                        tag: 0,
-                                        name: "Node",
-                                        "0": /* Empty */0,
+                                        tag: "Node",
+                                        "0": "Empty",
                                         "1": match$2[0],
-                                        "2": /* Empty */0,
+                                        "2": "Empty",
                                         "3": 1
                                       },
                                       "3": 2
@@ -775,12 +761,12 @@ function of_list(l) {
       return singleton(x0);
     }
   } else {
-    return /* Empty */0;
+    return "Empty";
   }
 }
 
 var $$Set = {
-  empty: /* Empty */0,
+  empty: "Empty",
   is_empty: is_empty,
   mem: mem,
   add: add,

@@ -3,21 +3,19 @@
 var Mt = require("./mt.js");
 var Js_mapperRt = require("../../lib/js/js_mapperRt.js");
 
-var suites = /* record */[/* contents : [] */0];
+var suites = /* record */[/* contents */"[]"];
 
 var test_id = /* record */[/* contents */0];
 
 function eq(loc, x, y) {
   test_id[0] = test_id[0] + 1 | 0;
   suites[0] = /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
-                  tag: 0,
-                  name: "Eq",
+                  tag: "Eq",
                   "0": x,
                   "1": y
                 };
@@ -111,15 +109,15 @@ function id(x) {
   return eq("File \"ast_abstract_test.ml\", line 49, characters 8-15", aFromJs(aToJs(x)), x);
 }
 
-var a0 = aToJs(/* A */0);
+var a0 = aToJs("A");
 
-var a1 = aToJs(/* B */1);
+var a1 = aToJs("B");
 
-id(/* A */0);
+id("A");
 
-id(/* B */1);
+id("B");
 
-id(/* C */2);
+id("C");
 
 function bToJs(param) {
   return param + 0 | 0;
@@ -132,21 +130,21 @@ function bFromJs(param) {
   return param - 0 | 0;
 }
 
-var b0 = 0;
+var b0 = "D0" + 0 | 0;
 
-var b1 = 1;
+var b1 = "D1" + 0 | 0;
 
 function idb(v) {
   return eq("File \"ast_abstract_test.ml\", line 71, characters 5-12", bFromJs(v + 0 | 0), v);
 }
 
-idb(/* D0 */0);
+idb("D0");
 
-idb(/* D1 */1);
+idb("D1");
 
-idb(/* D2 */2);
+idb("D2");
 
-idb(/* D3 */3);
+idb("D3");
 
 function cToJs(param) {
   return param + 3 | 0;
@@ -159,19 +157,19 @@ function cFromJs(param) {
   return param - 3 | 0;
 }
 
-var c0 = 3;
+var c0 = "D0" + 3 | 0;
 
 function idc(v) {
   return eq("File \"ast_abstract_test.ml\", line 83, characters 15-22", cFromJs(v + 3 | 0), v);
 }
 
-idc(/* D0 */0);
+idc("D0");
 
-idc(/* D1 */1);
+idc("D1");
 
-idc(/* D2 */2);
+idc("D2");
 
-idc(/* D3 */3);
+idc("D3");
 
 function hToJs(param) {
   return param + 0 | 0;
@@ -197,11 +195,11 @@ function zFromJs(param) {
 
 Mt.from_pair_suites("Ast_abstract_test", suites[0]);
 
-var jsMapperEraseType = /* JsMapperEraseType */0;
+var jsMapperEraseType = "JsMapperEraseType";
 
-var b = /* B */1;
+var b = "B";
 
-var zXx = /* ZXx */2;
+var zXx = "ZXx";
 
 exports.suites = suites;
 exports.test_id = test_id;

@@ -109,20 +109,16 @@ function to_buf(b, t) {
         return $$Buffer.add_char(b, /* ")" */41);
       } else {
         return Curry._2(Printf.bprintf(b, /* constructor */{
-                        tag: 0,
-                        name: "Format",
+                        tag: "Format",
                         "0": /* constructor */{
-                          tag: 12,
-                          name: "Char_literal",
+                          tag: "Char_literal",
                           "0": /* "(" */40,
                           "1": /* constructor */{
-                            tag: 15,
-                            name: "Alpha",
+                            tag: "Alpha",
                             "0": /* constructor */{
-                              tag: 12,
-                              name: "Char_literal",
+                              tag: "Char_literal",
                               "0": /* ")" */41,
-                              "1": /* End_of_format */0
+                              "1": "End_of_format"
                             }
                           }
                         },
@@ -136,21 +132,17 @@ function to_buf(b, t) {
     var s = t[1];
     if (_must_escape(s)) {
       return Curry._1(Printf.bprintf(b, /* constructor */{
-                      tag: 0,
-                      name: "Format",
+                      tag: "Format",
                       "0": /* constructor */{
-                        tag: 12,
-                        name: "Char_literal",
+                        tag: "Char_literal",
                         "0": /* "\"" */34,
                         "1": /* constructor */{
-                          tag: 2,
-                          name: "String",
-                          "0": /* No_padding */0,
+                          tag: "String",
+                          "0": "No_padding",
                           "1": /* constructor */{
-                            tag: 12,
-                            name: "Char_literal",
+                            tag: "Char_literal",
                             "0": /* "\"" */34,
-                            "1": /* End_of_format */0
+                            "1": "End_of_format"
                           }
                         }
                       },
@@ -174,31 +166,25 @@ function print(fmt, t) {
     if (l) {
       if (l[1]) {
         Format.fprintf(fmt, /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 18,
-                name: "Formatting_gen",
+                tag: "Formatting_gen",
                 "0": /* constructor */{
-                  tag: 1,
-                  name: "Open_box",
+                  tag: "Open_box",
                   "0": /* constructor */{
-                    tag: 0,
-                    name: "Format",
+                    tag: "Format",
                     "0": /* constructor */{
-                      tag: 11,
-                      name: "String_literal",
+                      tag: "String_literal",
                       "0": "<hov1>",
-                      "1": /* End_of_format */0
+                      "1": "End_of_format"
                     },
                     "1": "<hov1>"
                   }
                 },
                 "1": /* constructor */{
-                  tag: 12,
-                  name: "Char_literal",
+                  tag: "Char_literal",
                   "0": /* "(" */40,
-                  "1": /* End_of_format */0
+                  "1": "End_of_format"
                 }
               },
               "1": "@[<hov1>("
@@ -206,19 +192,16 @@ function print(fmt, t) {
         List.iteri((function (i, t$prime) {
                 if (i > 0) {
                   Format.fprintf(fmt, /* constructor */{
-                        tag: 0,
-                        name: "Format",
+                        tag: "Format",
                         "0": /* constructor */{
-                          tag: 17,
-                          name: "Formatting_lit",
+                          tag: "Formatting_lit",
                           "0": /* constructor */{
-                            tag: 0,
-                            name: "Break",
+                            tag: "Break",
                             "0": "@ ",
                             "1": 1,
                             "2": 0
                           },
-                          "1": /* End_of_format */0
+                          "1": "End_of_format"
                         },
                         "1": "@ "
                       });
@@ -226,59 +209,47 @@ function print(fmt, t) {
                 return print(fmt, t$prime);
               }), l);
         return Format.fprintf(fmt, /* constructor */{
-                    tag: 0,
-                    name: "Format",
+                    tag: "Format",
                     "0": /* constructor */{
-                      tag: 12,
-                      name: "Char_literal",
+                      tag: "Char_literal",
                       "0": /* ")" */41,
                       "1": /* constructor */{
-                        tag: 17,
-                        name: "Formatting_lit",
-                        "0": /* Close_box */0,
-                        "1": /* End_of_format */0
+                        tag: "Formatting_lit",
+                        "0": "Close_box",
+                        "1": "End_of_format"
                       }
                     },
                     "1": ")@]"
                   });
       } else {
         return Curry._2(Format.fprintf(fmt, /* constructor */{
-                        tag: 0,
-                        name: "Format",
+                        tag: "Format",
                         "0": /* constructor */{
-                          tag: 18,
-                          name: "Formatting_gen",
+                          tag: "Formatting_gen",
                           "0": /* constructor */{
-                            tag: 1,
-                            name: "Open_box",
+                            tag: "Open_box",
                             "0": /* constructor */{
-                              tag: 0,
-                              name: "Format",
+                              tag: "Format",
                               "0": /* constructor */{
-                                tag: 11,
-                                name: "String_literal",
+                                tag: "String_literal",
                                 "0": "<hov2>",
-                                "1": /* End_of_format */0
+                                "1": "End_of_format"
                               },
                               "1": "<hov2>"
                             }
                           },
                           "1": /* constructor */{
-                            tag: 12,
-                            name: "Char_literal",
+                            tag: "Char_literal",
                             "0": /* "(" */40,
                             "1": /* constructor */{
-                              tag: 15,
-                              name: "Alpha",
+                              tag: "Alpha",
                               "0": /* constructor */{
-                                tag: 12,
-                                name: "Char_literal",
+                                tag: "Char_literal",
                                 "0": /* ")" */41,
                                 "1": /* constructor */{
-                                  tag: 17,
-                                  name: "Formatting_lit",
-                                  "0": /* Close_box */0,
-                                  "1": /* End_of_format */0
+                                  tag: "Formatting_lit",
+                                  "0": "Close_box",
+                                  "1": "End_of_format"
                                 }
                               }
                             }
@@ -294,21 +265,17 @@ function print(fmt, t) {
     var s = t[1];
     if (_must_escape(s)) {
       return Curry._1(Format.fprintf(fmt, /* constructor */{
-                      tag: 0,
-                      name: "Format",
+                      tag: "Format",
                       "0": /* constructor */{
-                        tag: 12,
-                        name: "Char_literal",
+                        tag: "Char_literal",
                         "0": /* "\"" */34,
                         "1": /* constructor */{
-                          tag: 2,
-                          name: "String",
-                          "0": /* No_padding */0,
+                          tag: "String",
+                          "0": "No_padding",
                           "1": /* constructor */{
-                            tag: 12,
-                            name: "Char_literal",
+                            tag: "Char_literal",
                             "0": /* "\"" */34,
-                            "1": /* End_of_format */0
+                            "1": "End_of_format"
                           }
                         }
                       },
@@ -335,20 +302,16 @@ function print_noindent(fmt, t) {
         return Format.pp_print_char(fmt, /* ")" */41);
       } else {
         return Curry._2(Format.fprintf(fmt, /* constructor */{
-                        tag: 0,
-                        name: "Format",
+                        tag: "Format",
                         "0": /* constructor */{
-                          tag: 12,
-                          name: "Char_literal",
+                          tag: "Char_literal",
                           "0": /* "(" */40,
                           "1": /* constructor */{
-                            tag: 15,
-                            name: "Alpha",
+                            tag: "Alpha",
                             "0": /* constructor */{
-                              tag: 12,
-                              name: "Char_literal",
+                              tag: "Char_literal",
                               "0": /* ")" */41,
-                              "1": /* End_of_format */0
+                              "1": "End_of_format"
                             }
                           }
                         },
@@ -362,21 +325,17 @@ function print_noindent(fmt, t) {
     var s = t[1];
     if (_must_escape(s)) {
       return Curry._1(Format.fprintf(fmt, /* constructor */{
-                      tag: 0,
-                      name: "Format",
+                      tag: "Format",
                       "0": /* constructor */{
-                        tag: 12,
-                        name: "Char_literal",
+                        tag: "Char_literal",
                         "0": /* "\"" */34,
                         "1": /* constructor */{
-                          tag: 2,
-                          name: "String",
-                          "0": /* No_padding */0,
+                          tag: "String",
+                          "0": "No_padding",
                           "1": /* constructor */{
-                            tag: 12,
-                            name: "Char_literal",
+                            tag: "Char_literal",
                             "0": /* "\"" */34,
-                            "1": /* End_of_format */0
+                            "1": "End_of_format"
                           }
                         }
                       },
@@ -391,7 +350,7 @@ function print_noindent(fmt, t) {
 function to_chan(oc, t) {
   var fmt = Format.formatter_of_out_channel(oc);
   print(fmt, t);
-  return Format.pp_print_flush(fmt, /* () */0);
+  return Format.pp_print_flush(fmt, "()");
 }
 
 function to_file_seq(filename, seq) {
@@ -493,33 +452,27 @@ function _get(t) {
 function _error(t, msg) {
   var b = $$Buffer.create(32);
   Curry._2(Printf.bprintf(b, /* constructor */{
-            tag: 0,
-            name: "Format",
+            tag: "Format",
             "0": /* constructor */{
-              tag: 11,
-              name: "String_literal",
+              tag: "String_literal",
               "0": "at ",
               "1": /* constructor */{
-                tag: 4,
-                name: "Int",
-                "0": /* Int_d */0,
-                "1": /* No_padding */0,
-                "2": /* No_precision */0,
+                tag: "Int",
+                "0": "Int_d",
+                "1": "No_padding",
+                "2": "No_precision",
                 "3": /* constructor */{
-                  tag: 11,
-                  name: "String_literal",
+                  tag: "String_literal",
                   "0": ", ",
                   "1": /* constructor */{
-                    tag: 4,
-                    name: "Int",
-                    "0": /* Int_d */0,
-                    "1": /* No_padding */0,
-                    "2": /* No_precision */0,
+                    tag: "Int",
+                    "0": "Int_d",
+                    "1": "No_padding",
+                    "2": "No_precision",
                     "3": /* constructor */{
-                      tag: 11,
-                      name: "String_literal",
+                      tag: "String_literal",
                       "0": ": ",
-                      "1": /* End_of_format */0
+                      "1": "End_of_format"
                     }
                   }
                 }
@@ -538,13 +491,11 @@ function _error(t, msg) {
 
 function _error_eof(t) {
   return _error(t, /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 11,
-                name: "String_literal",
+                tag: "String_literal",
                 "0": "unexpected end of input",
-                "1": /* End_of_format */0
+                "1": "End_of_format"
               },
               "1": "unexpected end of input"
             });
@@ -578,13 +529,11 @@ function expr_starting_with(c, k, t) {
     if (c !== 59) {
       if (c === 92) {
         return _error(t, /* constructor */{
-                    tag: 0,
-                    name: "Format",
+                    tag: "Format",
                     "0": /* constructor */{
-                      tag: 11,
-                      name: "String_literal",
+                      tag: "String_literal",
                       "0": "unexpected '\\'",
-                      "1": /* End_of_format */0
+                      "1": "End_of_format"
                     },
                     "1": "unexpected '\\'"
                   });
@@ -617,16 +566,14 @@ function expr_starting_with(c, k, t) {
         case 7 :
             break;
         case 8 :
-            return expr_list(/* [] */0, k, t);
+            return expr_list("[]", k, t);
         case 9 :
             return _error(t, /* constructor */{
-                        tag: 0,
-                        name: "Format",
+                        tag: "Format",
                         "0": /* constructor */{
-                          tag: 11,
-                          name: "String_literal",
+                          tag: "String_literal",
                           "0": "unexpected ')'",
-                          "1": /* End_of_format */0
+                          "1": "End_of_format"
                         },
                         "1": "unexpected ')'"
                       });
@@ -674,8 +621,7 @@ function expr_list(acc, k, t) {
                       if (match !== 40) {
                         if (match !== 41) {
                           return expr_list(/* constructor */{
-                                      tag: 0,
-                                      name: "::",
+                                      tag: "::",
                                       "0": e,
                                       "1": acc
                                     }, k, t);
@@ -683,18 +629,16 @@ function expr_list(acc, k, t) {
                           return Curry._2(k, undefined, /* `List */[
                                       848054398,
                                       List.rev(/* constructor */{
-                                            tag: 0,
-                                            name: "::",
+                                            tag: "::",
                                             "0": e,
                                             "1": acc
                                           })
                                     ]);
                         }
                       } else {
-                        return expr_list(/* [] */0, (function (param, l) {
+                        return expr_list("[]", (function (param, l) {
                                       return expr_list(/* constructor */{
-                                                  tag: 0,
-                                                  name: "::",
+                                                  tag: "::",
                                                   "0": l,
                                                   "1": acc
                                                 }, k, t);
@@ -702,8 +646,7 @@ function expr_list(acc, k, t) {
                       }
                     } else {
                       return expr_list(/* constructor */{
-                                  tag: 0,
-                                  name: "::",
+                                  tag: "::",
                                   "0": e,
                                   "1": acc
                                 }, k, t);
@@ -739,13 +682,11 @@ function atom(k, t) {
             exit = 1;
           } else {
             return _error(t, /* constructor */{
-                        tag: 0,
-                        name: "Format",
+                        tag: "Format",
                         "0": /* constructor */{
-                          tag: 11,
-                          name: "String_literal",
+                          tag: "String_literal",
                           "0": "unexpected '\\' in non-quoted string",
-                          "1": /* End_of_format */0
+                          "1": "End_of_format"
                         },
                         "1": "unexpected '\\' in non-quoted string"
                       });
@@ -764,13 +705,11 @@ function atom(k, t) {
                 break;
             case 2 :
                 return _error(t, /* constructor */{
-                            tag: 0,
-                            name: "Format",
+                            tag: "Format",
                             "0": /* constructor */{
-                              tag: 11,
-                              name: "String_literal",
+                              tag: "String_literal",
                               "0": "unexpected '\"' in the middle of an atom",
-                              "1": /* End_of_format */0
+                              "1": "End_of_format"
                             },
                             "1": "unexpected '\"' in the middle of an atom"
                           });
@@ -873,20 +812,16 @@ function escaped(k, t) {
                   }), t);
     } else {
       return Curry._1(_error(t, /* constructor */{
-                      tag: 0,
-                      name: "Format",
+                      tag: "Format",
                       "0": /* constructor */{
-                        tag: 11,
-                        name: "String_literal",
+                        tag: "String_literal",
                         "0": "unexpected escaped char '",
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "Char",
+                          tag: "Char",
                           "0": /* constructor */{
-                            tag: 12,
-                            name: "Char_literal",
+                            tag: "Char_literal",
                             "0": /* "'" */39,
-                            "1": /* End_of_format */0
+                            "1": "End_of_format"
                           }
                         }
                       },
@@ -907,20 +842,16 @@ function read2int(i, k, t) {
       return read1int(Caml_int32.imul(10, i) + (c - /* "0" */48 | 0) | 0, k, t);
     } else {
       return Curry._1(_error(t, /* constructor */{
-                      tag: 0,
-                      name: "Format",
+                      tag: "Format",
                       "0": /* constructor */{
-                        tag: 11,
-                        name: "String_literal",
+                        tag: "String_literal",
                         "0": "unexpected char '",
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "Char",
+                          tag: "Char",
                           "0": /* constructor */{
-                            tag: 11,
-                            name: "String_literal",
+                            tag: "String_literal",
                             "0": "' when reading byte",
-                            "1": /* End_of_format */0
+                            "1": "End_of_format"
                           }
                         }
                       },
@@ -941,20 +872,16 @@ function read1int(i, k, t) {
       return Curry._1(k, Caml_int32.imul(10, i) + (c - /* "0" */48 | 0) | 0);
     } else {
       return Curry._1(_error(t, /* constructor */{
-                      tag: 0,
-                      name: "Format",
+                      tag: "Format",
                       "0": /* constructor */{
-                        tag: 11,
-                        name: "String_literal",
+                        tag: "String_literal",
                         "0": "unexpected char '",
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "Char",
+                          tag: "Char",
                           "0": /* constructor */{
-                            tag: 11,
-                            name: "String_literal",
+                            tag: "String_literal",
                             "0": "' when reading byte",
-                            "1": /* End_of_format */0
+                            "1": "End_of_format"
                           }
                         }
                       },
@@ -975,7 +902,7 @@ function skip_comment(k, t) {
       if (match !== 10) {
         continue ;
       } else {
-        return Curry._2(k, undefined, /* () */0);
+        return Curry._2(k, undefined, "()");
       }
     }
   };
@@ -1072,7 +999,7 @@ function parse_chan_list(bufsize, ic) {
   var d = make(bufsize, (function (param, param$1, param$2) {
           return Pervasives.input(ic, param, param$1, param$2);
         }));
-  var _acc = /* [] */0;
+  var _acc = "[]";
   while(true) {
     var acc = _acc;
     var e = next(d);
@@ -1085,8 +1012,7 @@ function parse_chan_list(bufsize, ic) {
       return e;
     } else {
       _acc = /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": e[1],
         "1": acc
       };
@@ -1164,33 +1090,27 @@ function MakeDecode(funarg) {
   var _error = function (t, msg) {
     var b = $$Buffer.create(32);
     Curry._2(Printf.bprintf(b, /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 11,
-                name: "String_literal",
+                tag: "String_literal",
                 "0": "at ",
                 "1": /* constructor */{
-                  tag: 4,
-                  name: "Int",
-                  "0": /* Int_d */0,
-                  "1": /* No_padding */0,
-                  "2": /* No_precision */0,
+                  tag: "Int",
+                  "0": "Int_d",
+                  "1": "No_padding",
+                  "2": "No_precision",
                   "3": /* constructor */{
-                    tag: 11,
-                    name: "String_literal",
+                    tag: "String_literal",
                     "0": ", ",
                     "1": /* constructor */{
-                      tag: 4,
-                      name: "Int",
-                      "0": /* Int_d */0,
-                      "1": /* No_padding */0,
-                      "2": /* No_precision */0,
+                      tag: "Int",
+                      "0": "Int_d",
+                      "1": "No_padding",
+                      "2": "No_precision",
                       "3": /* constructor */{
-                        tag: 11,
-                        name: "String_literal",
+                        tag: "String_literal",
                         "0": ": ",
-                        "1": /* End_of_format */0
+                        "1": "End_of_format"
                       }
                     }
                   }
@@ -1208,13 +1128,11 @@ function MakeDecode(funarg) {
   };
   var _error_eof = function (t) {
     return _error(t, /* constructor */{
-                tag: 0,
-                name: "Format",
+                tag: "Format",
                 "0": /* constructor */{
-                  tag: 11,
-                  name: "String_literal",
+                  tag: "String_literal",
                   "0": "unexpected end of input",
-                  "1": /* End_of_format */0
+                  "1": "End_of_format"
                 },
                 "1": "unexpected end of input"
               });
@@ -1246,13 +1164,11 @@ function MakeDecode(funarg) {
       if (c !== 59) {
         if (c === 92) {
           return _error(t, /* constructor */{
-                      tag: 0,
-                      name: "Format",
+                      tag: "Format",
                       "0": /* constructor */{
-                        tag: 11,
-                        name: "String_literal",
+                        tag: "String_literal",
                         "0": "unexpected '\\'",
-                        "1": /* End_of_format */0
+                        "1": "End_of_format"
                       },
                       "1": "unexpected '\\'"
                     });
@@ -1285,16 +1201,14 @@ function MakeDecode(funarg) {
           case 7 :
               break;
           case 8 :
-              return expr_list(/* [] */0, k, t);
+              return expr_list("[]", k, t);
           case 9 :
               return _error(t, /* constructor */{
-                          tag: 0,
-                          name: "Format",
+                          tag: "Format",
                           "0": /* constructor */{
-                            tag: 11,
-                            name: "String_literal",
+                            tag: "String_literal",
                             "0": "unexpected ')'",
-                            "1": /* End_of_format */0
+                            "1": "End_of_format"
                           },
                           "1": "unexpected ')'"
                         });
@@ -1341,8 +1255,7 @@ function MakeDecode(funarg) {
                         if (match !== 40) {
                           if (match !== 41) {
                             return expr_list(/* constructor */{
-                                        tag: 0,
-                                        name: "::",
+                                        tag: "::",
                                         "0": e,
                                         "1": acc
                                       }, k, t);
@@ -1350,18 +1263,16 @@ function MakeDecode(funarg) {
                             return Curry._2(k, undefined, /* `List */[
                                         848054398,
                                         List.rev(/* constructor */{
-                                              tag: 0,
-                                              name: "::",
+                                              tag: "::",
                                               "0": e,
                                               "1": acc
                                             })
                                       ]);
                           }
                         } else {
-                          return expr_list(/* [] */0, (function (param, l) {
+                          return expr_list("[]", (function (param, l) {
                                         return expr_list(/* constructor */{
-                                                    tag: 0,
-                                                    name: "::",
+                                                    tag: "::",
                                                     "0": l,
                                                     "1": acc
                                                   }, k, t);
@@ -1369,8 +1280,7 @@ function MakeDecode(funarg) {
                         }
                       } else {
                         return expr_list(/* constructor */{
-                                    tag: 0,
-                                    name: "::",
+                                    tag: "::",
                                     "0": e,
                                     "1": acc
                                   }, k, t);
@@ -1404,13 +1314,11 @@ function MakeDecode(funarg) {
               exit = 1;
             } else {
               return _error(t, /* constructor */{
-                          tag: 0,
-                          name: "Format",
+                          tag: "Format",
                           "0": /* constructor */{
-                            tag: 11,
-                            name: "String_literal",
+                            tag: "String_literal",
                             "0": "unexpected '\\' in non-quoted string",
-                            "1": /* End_of_format */0
+                            "1": "End_of_format"
                           },
                           "1": "unexpected '\\' in non-quoted string"
                         });
@@ -1429,13 +1337,11 @@ function MakeDecode(funarg) {
                   break;
               case 2 :
                   return _error(t, /* constructor */{
-                              tag: 0,
-                              name: "Format",
+                              tag: "Format",
                               "0": /* constructor */{
-                                tag: 11,
-                                name: "String_literal",
+                                tag: "String_literal",
                                 "0": "unexpected '\"' in the middle of an atom",
-                                "1": /* End_of_format */0
+                                "1": "End_of_format"
                               },
                               "1": "unexpected '\"' in the middle of an atom"
                             });
@@ -1536,20 +1442,16 @@ function MakeDecode(funarg) {
                     }), t);
       } else {
         return Curry._1(_error(t, /* constructor */{
-                        tag: 0,
-                        name: "Format",
+                        tag: "Format",
                         "0": /* constructor */{
-                          tag: 11,
-                          name: "String_literal",
+                          tag: "String_literal",
                           "0": "unexpected escaped char '",
                           "1": /* constructor */{
-                            tag: 0,
-                            name: "Char",
+                            tag: "Char",
                             "0": /* constructor */{
-                              tag: 12,
-                              name: "Char_literal",
+                              tag: "Char_literal",
                               "0": /* "'" */39,
-                              "1": /* End_of_format */0
+                              "1": "End_of_format"
                             }
                           }
                         },
@@ -1569,20 +1471,16 @@ function MakeDecode(funarg) {
         return read1int(Caml_int32.imul(10, i) + (c - /* "0" */48 | 0) | 0, k, t);
       } else {
         return Curry._1(_error(t, /* constructor */{
-                        tag: 0,
-                        name: "Format",
+                        tag: "Format",
                         "0": /* constructor */{
-                          tag: 11,
-                          name: "String_literal",
+                          tag: "String_literal",
                           "0": "unexpected char '",
                           "1": /* constructor */{
-                            tag: 0,
-                            name: "Char",
+                            tag: "Char",
                             "0": /* constructor */{
-                              tag: 11,
-                              name: "String_literal",
+                              tag: "String_literal",
                               "0": "' when reading byte",
-                              "1": /* End_of_format */0
+                              "1": "End_of_format"
                             }
                           }
                         },
@@ -1602,20 +1500,16 @@ function MakeDecode(funarg) {
         return Curry._1(k, Caml_int32.imul(10, i) + (c - /* "0" */48 | 0) | 0);
       } else {
         return Curry._1(_error(t, /* constructor */{
-                        tag: 0,
-                        name: "Format",
+                        tag: "Format",
                         "0": /* constructor */{
-                          tag: 11,
-                          name: "String_literal",
+                          tag: "String_literal",
                           "0": "unexpected char '",
                           "1": /* constructor */{
-                            tag: 0,
-                            name: "Char",
+                            tag: "Char",
                             "0": /* constructor */{
-                              tag: 11,
-                              name: "String_literal",
+                              tag: "String_literal",
                               "0": "' when reading byte",
-                              "1": /* End_of_format */0
+                              "1": "End_of_format"
                             }
                           }
                         },
@@ -1635,7 +1529,7 @@ function MakeDecode(funarg) {
         if (match !== 10) {
           continue ;
         } else {
-          return Curry._2(k, undefined, /* () */0);
+          return Curry._2(k, undefined, "()");
         }
       }
     };

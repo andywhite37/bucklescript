@@ -3,21 +3,19 @@
 var Mt = require("./mt.js");
 var Fs = require("fs");
 
-var suites = /* record */[/* contents : [] */0];
+var suites = /* record */[/* contents */"[]"];
 
 var test_id = /* record */[/* contents */0];
 
 function eq(loc, x, y) {
   test_id[0] = test_id[0] + 1 | 0;
   suites[0] = /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
-                  tag: 0,
-                  name: "Eq",
+                  tag: "Eq",
                   "0": x,
                   "1": y
                 };
@@ -89,13 +87,13 @@ hey_string("in");
 function register(readline) {
   readline.on("line", (function (s) {
           console.log(s);
-          return /* () */0;
+          return "()";
         }));
   readline.on("close", (function () {
           console.log("finished");
-          return /* () */0;
+          return "()";
         }));
-  return /* () */0;
+  return "()";
 }
 
 function read(name) {
@@ -116,7 +114,7 @@ function test(readline, x) {
               
             }
           })(), x[1]);
-  return /* () */0;
+  return "()";
 }
 
 Mt.from_pair_suites("Poly_variant_test", suites[0]);
@@ -131,7 +129,7 @@ function on2(prim, prim$1) {
               
             }
           })(), prim$1[1]);
-  return /* () */0;
+  return "()";
 }
 
 var readN = read$1;

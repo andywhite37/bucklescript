@@ -14,7 +14,7 @@ var Caml_builtin_exceptions = require("../../lib/js/caml_builtin_exceptions.js")
 function split_by($staropt$star, is_delim, str) {
   var keep_empty = $staropt$star !== undefined ? $staropt$star : false;
   var len = str.length;
-  var _acc = /* [] */0;
+  var _acc = "[]";
   var _last_pos = len;
   var _pos = len - 1 | 0;
   while(true) {
@@ -26,8 +26,7 @@ function split_by($staropt$star, is_delim, str) {
         return acc;
       } else {
         return /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": $$String.sub(str, 0, last_pos),
                 "1": acc
               };
@@ -39,8 +38,7 @@ function split_by($staropt$star, is_delim, str) {
         _pos = pos - 1 | 0;
         _last_pos = pos;
         _acc = /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": v,
           "1": acc
         };
@@ -86,7 +84,7 @@ function trim(s) {
 
 function split(keep_empty, str, on) {
   if (str === "") {
-    return /* [] */0;
+    return "[]";
   } else {
     return split_by(keep_empty, (function (x) {
                   return x === on;
@@ -522,34 +520,30 @@ function is_valid_npm_package_name(s) {
 
 function is_valid_source_name(name) {
   var match = check_any_suffix_case_then_chop(name, /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": ".ml",
         "1": /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": ".re",
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": ".mli",
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": ".rei",
-              "1": /* [] */0
+              "1": "[]"
             }
           }
         }
       });
   if (match !== undefined) {
     if (is_valid_module_file(match)) {
-      return /* Good */0;
+      return "Good";
     } else {
-      return /* Invalid_module_name */1;
+      return "Invalid_module_name";
     }
   } else {
-    return /* Suffix_mismatch */2;
+    return "Suffix_mismatch";
   }
 }
 

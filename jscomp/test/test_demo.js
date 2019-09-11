@@ -13,8 +13,7 @@ function fib(n) {
 
 function cons(x, y) {
   return /* constructor */{
-          tag: 0,
-          name: "Cons",
+          tag: "Cons",
           "0": x,
           "1": y
         };
@@ -23,13 +22,12 @@ function cons(x, y) {
 function map(f, param) {
   if (param) {
     return /* constructor */{
-            tag: 0,
-            name: "Cons",
+            tag: "Cons",
             "0": Curry._1(f, param[0]),
             "1": map(f, param[1])
           };
   } else {
-    return /* Nil */0;
+    return "Nil";
   }
 }
 
@@ -73,7 +71,7 @@ function v(param) {
   return (xx + yy | 0) + u$1 | 0;
 }
 
-var nil = /* Nil */0;
+var nil = "Nil";
 
 var len = List.length;
 

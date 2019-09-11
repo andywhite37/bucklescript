@@ -37,28 +37,28 @@ var xs = Array.prototype.map.call(/* array */[
 
 function f_0(param) {
   return hi((function () {
-                return /* () */0;
+                return "()";
               }));
 }
 
 function f_01(param) {
   return hi((function () {
                 console.log("x");
-                return /* () */0;
+                return "()";
               }));
 }
 
 function f_02(xs) {
   return hi((function () {
-                xs[0] = /* () */0;
+                xs[0] = "()";
                 console.log("x");
-                return /* () */0;
+                return "()";
               }));
 }
 
 function f_03(xs, u) {
   return hi((function () {
-                return Curry._1(u, /* () */0);
+                return Curry._1(u, "()");
               }));
 }
 
@@ -121,7 +121,7 @@ function unit_magic(param) {
   return 3;
 }
 
-var f_unit_magic = unit_magic(/* () */0);
+var f_unit_magic = unit_magic("()");
 
 function hh(xs) {
   return (function (param) {
@@ -129,7 +129,7 @@ function hh(xs) {
             xs,
             param
           ]);
-      return /* () */0;
+      return "()";
     });
 }
 

@@ -8,23 +8,19 @@ function length(param) {
 }
 
 Mt.from_pair_suites("Es6_module_test", /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": /* tuple */[
         "list_length",
         (function (param) {
             return /* constructor */{
-                    tag: 0,
-                    name: "Eq",
+                    tag: "Eq",
                     "0": List.length(/* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": 1,
                           "1": /* constructor */{
-                            tag: 0,
-                            name: "::",
+                            tag: "::",
                             "0": 2,
-                            "1": /* [] */0
+                            "1": "[]"
                           }
                         }),
                     "1": 2
@@ -32,20 +28,18 @@ Mt.from_pair_suites("Es6_module_test", /* constructor */{
           })
       ],
       "1": /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": /* tuple */[
           "length",
           (function (param) {
               return /* constructor */{
-                      tag: 0,
-                      name: "Eq",
+                      tag: "Eq",
                       "0": 3,
                       "1": 3
                     };
             })
         ],
-        "1": /* [] */0
+        "1": "[]"
       }
     });
 

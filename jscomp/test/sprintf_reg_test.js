@@ -5,7 +5,7 @@ var Curry = require("../../lib/js/curry.js");
 var Printf = require("../../lib/js/printf.js");
 var Mt_global = require("./mt_global.js");
 
-var suites = /* record */[/* contents : [] */0];
+var suites = /* record */[/* contents */"[]"];
 
 var test_id = /* record */[/* contents */0];
 
@@ -14,37 +14,30 @@ function eq(f, param) {
 }
 
 var s = Curry._1(Printf.sprintf(/* constructor */{
-          tag: 0,
-          name: "Format",
+          tag: "Format",
           "0": /* constructor */{
-            tag: 13,
-            name: "Format_arg",
+            tag: "Format_arg",
             "0": undefined,
             "1": /* constructor */{
-              tag: 1,
-              name: "String_ty",
-              "0": /* End_of_fmtty */0
+              tag: "String_ty",
+              "0": "End_of_fmtty"
             },
             "2": /* constructor */{
-              tag: 12,
-              name: "Char_literal",
+              tag: "Char_literal",
               "0": /* "." */46,
-              "1": /* End_of_format */0
+              "1": "End_of_format"
             }
           },
           "1": "%{%s%}."
         }), /* constructor */{
-      tag: 0,
-      name: "Format",
+      tag: "Format",
       "0": /* constructor */{
-        tag: 11,
-        name: "String_literal",
+        tag: "String_literal",
         "0": "32",
         "1": /* constructor */{
-          tag: 2,
-          name: "String",
-          "0": /* No_padding */0,
-          "1": /* End_of_format */0
+          tag: "String",
+          "0": "No_padding",
+          "1": "End_of_format"
         }
       },
       "1": "32%s"
@@ -56,44 +49,36 @@ eq("File \"sprintf_reg_test.ml\", line 8, characters 5-12", /* tuple */[
     ]);
 
 var s$1 = Curry._2(Printf.sprintf(/* constructor */{
-          tag: 0,
-          name: "Format",
+          tag: "Format",
           "0": /* constructor */{
-            tag: 4,
-            name: "Int",
-            "0": /* Int_i */3,
-            "1": /* No_padding */0,
-            "2": /* No_precision */0,
+            tag: "Int",
+            "0": "Int_i",
+            "1": "No_padding",
+            "2": "No_precision",
             "3": /* constructor */{
-              tag: 12,
-              name: "Char_literal",
+              tag: "Char_literal",
               "0": /* " " */32,
               "1": /* constructor */{
-                tag: 13,
-                name: "Format_arg",
+                tag: "Format_arg",
                 "0": undefined,
                 "1": /* constructor */{
-                  tag: 1,
-                  name: "String_ty",
-                  "0": /* End_of_fmtty */0
+                  tag: "String_ty",
+                  "0": "End_of_fmtty"
                 },
-                "2": /* End_of_format */0
+                "2": "End_of_format"
               }
             }
           },
           "1": "%i %{%s%}"
         }), 1, /* constructor */{
-      tag: 0,
-      name: "Format",
+      tag: "Format",
       "0": /* constructor */{
-        tag: 11,
-        name: "String_literal",
+        tag: "String_literal",
         "0": "spells one ",
         "1": /* constructor */{
-          tag: 2,
-          name: "String",
-          "0": /* No_padding */0,
-          "1": /* End_of_format */0
+          tag: "String",
+          "0": "No_padding",
+          "1": "End_of_format"
         }
       },
       "1": "spells one %s"

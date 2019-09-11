@@ -4,14 +4,12 @@
 function collect_eq(test_id, suites, loc, x, y) {
   test_id[0] = test_id[0] + 1 | 0;
   suites[0] = /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
-                  tag: 0,
-                  name: "Eq",
+                  tag: "Eq",
                   "0": x,
                   "1": y
                 };
@@ -25,14 +23,12 @@ function collect_eq(test_id, suites, loc, x, y) {
 function collect_neq(test_id, suites, loc, x, y) {
   test_id[0] = test_id[0] + 1 | 0;
   suites[0] = /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
-                  tag: 1,
-                  name: "Neq",
+                  tag: "Neq",
                   "0": x,
                   "1": y
                 };
@@ -46,14 +42,12 @@ function collect_neq(test_id, suites, loc, x, y) {
 function collect_approx(test_id, suites, loc, x, y) {
   test_id[0] = test_id[0] + 1 | 0;
   suites[0] = /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
-                  tag: 5,
-                  name: "Approx",
+                  tag: "Approx",
                   "0": x,
                   "1": y
                 };

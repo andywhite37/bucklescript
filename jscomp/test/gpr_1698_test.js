@@ -5,20 +5,20 @@ var Caml_builtin_exceptions = require("../../lib/js/caml_builtin_exceptions.js")
 function is_number(_expr) {
   while(true) {
     var expr = _expr;
-    switch (expr.tag | 0) {
-      case /* Val */0 :
-          if (expr[0].tag) {
-            return false;
-          } else {
+    switch (/* XXX */expr.tag) {
+      case "Val" :
+          if (/* XXX */expr[0].tag === "Natural") {
             return true;
+          } else {
+            return false;
           }
-      case /* Neg */1 :
+      case "Neg" :
           _expr = expr[0];
           continue ;
-      case /* Sum */2 :
-      case /* Pow */3 :
-      case /* Frac */4 :
-      case /* Gcd */5 :
+      case "Sum" :
+      case "Pow" :
+      case "Frac" :
+      case "Gcd" :
           return false;
       
     }
@@ -36,18 +36,18 @@ function compare(context, state, _a, _b) {
     var db;
     var exit$1 = 0;
     var exit$2 = 0;
-    switch (a.tag | 0) {
-      case /* Val */0 :
-          switch (b.tag | 0) {
-            case /* Val */0 :
+    switch (/* XXX */a.tag) {
+      case "Val" :
+          switch (/* XXX */b.tag) {
+            case "Val" :
                 return 111;
-            case /* Neg */1 :
+            case "Neg" :
                 exit$2 = 5;
                 break;
-            case /* Sum */2 :
+            case "Sum" :
                 exit$1 = 4;
                 break;
-            case /* Frac */4 :
+            case "Frac" :
                 throw [
                       Caml_builtin_exceptions.assert_failure,
                       /* tuple */[
@@ -56,23 +56,23 @@ function compare(context, state, _a, _b) {
                         10
                       ]
                     ];
-            case /* Pow */3 :
-            case /* Gcd */5 :
+            case "Pow" :
+            case "Gcd" :
                 exit = 1;
                 break;
             
           }
           break;
-      case /* Neg */1 :
+      case "Neg" :
           _a = a[0];
           continue ;
-      case /* Sum */2 :
-      case /* Pow */3 :
+      case "Sum" :
+      case "Pow" :
           exit$2 = 5;
           break;
-      case /* Frac */4 :
-          switch (b.tag | 0) {
-            case /* Val */0 :
+      case "Frac" :
+          switch (/* XXX */b.tag) {
+            case "Val" :
                 throw [
                       Caml_builtin_exceptions.assert_failure,
                       /* tuple */[
@@ -81,35 +81,35 @@ function compare(context, state, _a, _b) {
                         10
                       ]
                     ];
-            case /* Neg */1 :
+            case "Neg" :
                 exit$2 = 5;
                 break;
-            case /* Sum */2 :
+            case "Sum" :
                 exit$1 = 4;
                 break;
-            case /* Frac */4 :
+            case "Frac" :
                 na = a[0];
                 da = a[1];
                 nb = b[0];
                 db = b[1];
                 exit = 2;
                 break;
-            case /* Pow */3 :
-            case /* Gcd */5 :
+            case "Pow" :
+            case "Gcd" :
                 exit = 1;
                 break;
             
           }
           break;
-      case /* Gcd */5 :
-          switch (b.tag | 0) {
-            case /* Neg */1 :
+      case "Gcd" :
+          switch (/* XXX */b.tag) {
+            case "Neg" :
                 exit$2 = 5;
                 break;
-            case /* Sum */2 :
+            case "Sum" :
                 exit$1 = 4;
                 break;
-            case /* Gcd */5 :
+            case "Gcd" :
                 na = a[0];
                 da = a[1];
                 nb = b[0];
@@ -123,36 +123,36 @@ function compare(context, state, _a, _b) {
       
     }
     if (exit$2 === 5) {
-      if (b.tag === /* Neg */1) {
+      if (/* XXX */b.tag === "Neg") {
         _b = b[0];
         continue ;
-      } else if (a.tag === /* Sum */2 && is_number(b)) {
+      } else if (/* XXX */a.tag === "Sum" && is_number(b)) {
         return 1;
       } else {
         exit$1 = 4;
       }
     }
-    if (exit$1 === 4 && b.tag === /* Sum */2 && is_number(a)) {
+    if (exit$1 === 4 && /* XXX */b.tag === "Sum" && is_number(a)) {
       return -1;
     }
-    switch (a.tag | 0) {
-      case /* Sum */2 :
+    switch (/* XXX */a.tag) {
+      case "Sum" :
           exit = 1;
           break;
-      case /* Pow */3 :
+      case "Pow" :
           return -1;
-      case /* Val */0 :
-      case /* Frac */4 :
-      case /* Gcd */5 :
+      case "Val" :
+      case "Frac" :
+      case "Gcd" :
           return 1;
       
     }
     switch (exit) {
       case 1 :
-          switch (b.tag | 0) {
-            case /* Pow */3 :
+          switch (/* XXX */b.tag) {
+            case "Pow" :
                 return 1;
-            case /* Gcd */5 :
+            case "Gcd" :
                 return -1;
             default:
               return -1;
@@ -173,47 +173,38 @@ function compare(context, state, _a, _b) {
 }
 
 var a = /* constructor */{
-  tag: 2,
-  name: "Sum",
+  tag: "Sum",
   "0": /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* constructor */{
-      tag: 0,
-      name: "Val",
+      tag: "Val",
       "0": /* constructor */{
-        tag: 1,
-        name: "Symbol",
+        tag: "Symbol",
         "0": "a"
       }
     },
     "1": /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": /* constructor */{
-        tag: 0,
-        name: "Val",
+        tag: "Val",
         "0": /* constructor */{
-          tag: 0,
-          name: "Natural",
+          tag: "Natural",
           "0": 2
         }
       },
-      "1": /* [] */0
+      "1": "[]"
     }
   }
 };
 
 var b = /* constructor */{
-  tag: 0,
-  name: "Val",
+  tag: "Val",
   "0": /* constructor */{
-    tag: 1,
-    name: "Symbol",
+    tag: "Symbol",
     "0": "x"
   }
 };
 
-console.log(compare(/* InSum */0, /* record */[/* complex */true], a, b));
+console.log(compare("InSum", /* record */[/* complex */true], a, b));
 
 /*  Not a pure module */

@@ -2,7 +2,7 @@
 
 var Mt = require("./mt.js");
 
-var suites = /* record */[/* contents : [] */0];
+var suites = /* record */[/* contents */"[]"];
 
 var test_id = /* record */[/* contents */0];
 
@@ -11,14 +11,12 @@ function eq(loc, param) {
   var x = param[0];
   test_id[0] = test_id[0] + 1 | 0;
   suites[0] = /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
-                  tag: 0,
-                  name: "Eq",
+                  tag: "Eq",
                   "0": x,
                   "1": y
                 };
@@ -50,7 +48,7 @@ var v5 = {
     }),
   bark: (function () {
       console.log("bark");
-      return /* () */0;
+      return "()";
     }),
   xz: (function () {
       return 3;
@@ -83,7 +81,7 @@ var v = {
 var u = {
   incr: (function () {
       console.log("hey");
-      return /* () */0;
+      return "()";
     }),
   getY: (function () {
       return 3;
@@ -94,14 +92,12 @@ var u = {
 };
 
 var test_type = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": u,
   "1": /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": v,
-    "1": /* [] */0
+    "1": "[]"
   }
 };
 
@@ -124,13 +120,13 @@ var eventObj = {
       var self = this ;
       var a = self.events;
       a.splice(0);
-      return /* () */0;
+      return "()";
     }),
   push: (function (a) {
       var self = this ;
       var xs = self.events;
       xs.push(a);
-      return /* () */0;
+      return "()";
     }),
   needRebuild: (function () {
       var self = this ;
@@ -156,14 +152,12 @@ var zz = {
 };
 
 var test_type2 = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": z,
   "1": /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": zz,
-    "1": /* [] */0
+    "1": "[]"
   }
 };
 

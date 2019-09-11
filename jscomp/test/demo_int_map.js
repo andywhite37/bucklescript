@@ -14,8 +14,7 @@ function create(l, x, d, r) {
   var hl = height(l);
   var hr = height(r);
   return /* constructor */{
-          tag: 0,
-          name: "Node",
+          tag: "Node",
           "0": l,
           "1": x,
           "2": d,
@@ -73,8 +72,7 @@ function bal(l, x, d, r) {
     }
   } else {
     return /* constructor */{
-            tag: 0,
-            name: "Node",
+            tag: "Node",
             "0": l,
             "1": x,
             "2": d,
@@ -93,8 +91,7 @@ function add(x, data, param) {
     var c = x - v | 0;
     if (c === 0) {
       return /* constructor */{
-              tag: 0,
-              name: "Node",
+              tag: "Node",
               "0": l,
               "1": x,
               "2": data,
@@ -108,12 +105,11 @@ function add(x, data, param) {
     }
   } else {
     return /* constructor */{
-            tag: 0,
-            name: "Node",
-            "0": /* Empty */0,
+            tag: "Node",
+            "0": "Empty",
             "1": x,
             "2": data,
-            "3": /* Empty */0,
+            "3": "Empty",
             "4": 1
           };
   }
@@ -137,7 +133,7 @@ function find(x, _param) {
 }
 
 function test(param) {
-  var m = /* Empty */0;
+  var m = "Empty";
   for(var i = 0; i <= 1000000; ++i){
     m = add(i, i, m);
   }
@@ -147,6 +143,6 @@ function test(param) {
   return /* () */0;
 }
 
-test(/* () */0);
+test("()");
 
 /*  Not a pure module */

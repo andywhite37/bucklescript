@@ -81,8 +81,7 @@ function rev_append(_l1, _l2) {
     var l1 = _l1;
     if (l1) {
       _l2 = /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": l1[0],
         "1": l2
       };
@@ -95,14 +94,14 @@ function rev_append(_l1, _l2) {
 }
 
 function rev(l) {
-  return rev_append(l, /* [] */0);
+  return rev_append(l, "[]");
 }
 
 function flatten(param) {
   if (param) {
     return Pervasives.$at(param[0], flatten(param[1]));
   } else {
-    return /* [] */0;
+    return "[]";
   }
 }
 
@@ -110,13 +109,12 @@ function map(f, param) {
   if (param) {
     var r = Curry._1(f, param[0]);
     return /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": r,
             "1": map(f, param[1])
           };
   } else {
-    return /* [] */0;
+    return "[]";
   }
 }
 
@@ -124,13 +122,12 @@ function mapi(i, f, param) {
   if (param) {
     var r = Curry._2(f, i, param[0]);
     return /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": r,
             "1": mapi(i + 1 | 0, f, param[1])
           };
   } else {
-    return /* [] */0;
+    return "[]";
   }
 }
 
@@ -139,7 +136,7 @@ function mapi$1(f, l) {
 }
 
 function rev_map(f, l) {
-  var _accu = /* [] */0;
+  var _accu = "[]";
   var _param = l;
   while(true) {
     var param = _param;
@@ -147,8 +144,7 @@ function rev_map(f, l) {
     if (param) {
       _param = param[1];
       _accu = /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": Curry._1(f, param[0]),
         "1": accu
       };
@@ -167,7 +163,7 @@ function iter(f, _param) {
       _param = param[1];
       continue ;
     } else {
-      return /* () */0;
+      return "()";
     }
   };
 }
@@ -185,7 +181,7 @@ function iteri(f, l) {
       _i = i + 1 | 0;
       continue ;
     } else {
-      return /* () */0;
+      return "()";
     }
   };
 }
@@ -217,8 +213,7 @@ function map2(f, l1, l2) {
     if (l2) {
       var r = Curry._2(f, l1[0], l2[0]);
       return /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": r,
               "1": map2(f, l1[1], l2[1])
             };
@@ -234,12 +229,12 @@ function map2(f, l1, l2) {
           "List.map2"
         ];
   } else {
-    return /* [] */0;
+    return "[]";
   }
 }
 
 function rev_map2(f, l1, l2) {
-  var _accu = /* [] */0;
+  var _accu = "[]";
   var _l1 = l1;
   var _l2 = l2;
   while(true) {
@@ -251,8 +246,7 @@ function rev_map2(f, l1, l2) {
         _l2 = l2$1[1];
         _l1 = l1$1[1];
         _accu = /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": Curry._2(f, l1$1[0], l2$1[0]),
           "1": accu
         };
@@ -297,7 +291,7 @@ function iter2(f, _l1, _l2) {
             "List.iter2"
           ];
     } else {
-      return /* () */0;
+      return "()";
     }
   };
 }
@@ -550,14 +544,13 @@ function remove_assoc(x, param) {
       return l;
     } else {
       return /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": pair,
               "1": remove_assoc(x, l)
             };
     }
   } else {
-    return /* [] */0;
+    return "[]";
   }
 }
 
@@ -569,14 +562,13 @@ function remove_assq(x, param) {
       return l;
     } else {
       return /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": pair,
               "1": remove_assq(x, l)
             };
     }
   } else {
-    return /* [] */0;
+    return "[]";
   }
 }
 
@@ -599,7 +591,7 @@ function find(p, _param) {
 
 function find_all(p) {
   return (function (param) {
-      var _accu = /* [] */0;
+      var _accu = "[]";
       var _param = param;
       while(true) {
         var param$1 = _param;
@@ -610,8 +602,7 @@ function find_all(p) {
           if (Curry._1(p, x)) {
             _param = l;
             _accu = /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": x,
               "1": accu
             };
@@ -621,15 +612,15 @@ function find_all(p) {
             continue ;
           }
         } else {
-          return rev_append(accu, /* [] */0);
+          return rev_append(accu, "[]");
         }
       };
     });
 }
 
 function partition(p, l) {
-  var _yes = /* [] */0;
-  var _no = /* [] */0;
+  var _yes = "[]";
+  var _no = "[]";
   var _param = l;
   while(true) {
     var param = _param;
@@ -641,8 +632,7 @@ function partition(p, l) {
       if (Curry._1(p, x)) {
         _param = l$1;
         _yes = /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": x,
           "1": yes
         };
@@ -650,8 +640,7 @@ function partition(p, l) {
       } else {
         _param = l$1;
         _no = /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": x,
           "1": no
         };
@@ -659,8 +648,8 @@ function partition(p, l) {
       }
     } else {
       return /* tuple */[
-              rev_append(yes, /* [] */0),
-              rev_append(no, /* [] */0)
+              rev_append(yes, "[]"),
+              rev_append(no, "[]")
             ];
     }
   };
@@ -672,22 +661,20 @@ function split(param) {
     var match$1 = split(param[1]);
     return /* tuple */[
             /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": match[0],
               "1": match$1[0]
             },
             /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": match[1],
               "1": match$1[1]
             }
           ];
   } else {
     return /* tuple */[
-            /* [] */0,
-            /* [] */0
+            "[]",
+            "[]"
           ];
   }
 }
@@ -696,8 +683,7 @@ function combine(l1, l2) {
   if (l1) {
     if (l2) {
       return /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": /* tuple */[
                 l1[0],
                 l2[0]
@@ -716,7 +702,7 @@ function combine(l1, l2) {
           "List.combine"
         ];
   } else {
-    return /* [] */0;
+    return "[]";
   }
 }
 
@@ -727,15 +713,13 @@ function merge(cmp, l1, l2) {
       var h1 = l1[0];
       if (Curry._2(cmp, h1, h2) <= 0) {
         return /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": h1,
                 "1": merge(cmp, l1[1], l2)
               };
       } else {
         return /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": h2,
                 "1": merge(cmp, l1, l2[1])
               };
@@ -785,104 +769,86 @@ function stable_sort(cmp, l) {
             if (Curry._2(cmp, x1, x2) <= 0) {
               if (Curry._2(cmp, x2, x3) <= 0) {
                 return /* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": x1,
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": x2,
                           "1": /* constructor */{
-                            tag: 0,
-                            name: "::",
+                            tag: "::",
                             "0": x3,
-                            "1": /* [] */0
+                            "1": "[]"
                           }
                         }
                       };
               } else if (Curry._2(cmp, x1, x3) <= 0) {
                 return /* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": x1,
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": x3,
                           "1": /* constructor */{
-                            tag: 0,
-                            name: "::",
+                            tag: "::",
                             "0": x2,
-                            "1": /* [] */0
+                            "1": "[]"
                           }
                         }
                       };
               } else {
                 return /* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": x3,
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": x1,
                           "1": /* constructor */{
-                            tag: 0,
-                            name: "::",
+                            tag: "::",
                             "0": x2,
-                            "1": /* [] */0
+                            "1": "[]"
                           }
                         }
                       };
               }
             } else if (Curry._2(cmp, x1, x3) <= 0) {
               return /* constructor */{
-                      tag: 0,
-                      name: "::",
+                      tag: "::",
                       "0": x2,
                       "1": /* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": x1,
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": x3,
-                          "1": /* [] */0
+                          "1": "[]"
                         }
                       }
                     };
             } else if (Curry._2(cmp, x2, x3) <= 0) {
               return /* constructor */{
-                      tag: 0,
-                      name: "::",
+                      tag: "::",
                       "0": x2,
                       "1": /* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": x3,
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": x1,
-                          "1": /* [] */0
+                          "1": "[]"
                         }
                       }
                     };
             } else {
               return /* constructor */{
-                      tag: 0,
-                      name: "::",
+                      tag: "::",
                       "0": x3,
                       "1": /* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": x2,
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": x1,
-                          "1": /* [] */0
+                          "1": "[]"
                         }
                       }
                     };
@@ -900,26 +866,22 @@ function stable_sort(cmp, l) {
         var x1$1 = l[0];
         if (Curry._2(cmp, x1$1, x2$1) <= 0) {
           return /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": x1$1,
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": x2$1,
-                    "1": /* [] */0
+                    "1": "[]"
                   }
                 };
         } else {
           return /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": x2$1,
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": x1$1,
-                    "1": /* [] */0
+                    "1": "[]"
                   }
                 };
         }
@@ -933,7 +895,7 @@ function stable_sort(cmp, l) {
     var s2 = rev_sort(n2, l2);
     var _l1 = s1;
     var _l2 = s2;
-    var _accu = /* [] */0;
+    var _accu = "[]";
     while(true) {
       var accu = _accu;
       var l2$1 = _l2;
@@ -944,8 +906,7 @@ function stable_sort(cmp, l) {
           var h1 = l1[0];
           if (Curry._2(cmp, h1, h2) > 0) {
             _accu = /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": h1,
               "1": accu
             };
@@ -953,8 +914,7 @@ function stable_sort(cmp, l) {
             continue ;
           } else {
             _accu = /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": h2,
               "1": accu
             };
@@ -982,104 +942,86 @@ function stable_sort(cmp, l) {
             if (Curry._2(cmp, x1, x2) > 0) {
               if (Curry._2(cmp, x2, x3) > 0) {
                 return /* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": x1,
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": x2,
                           "1": /* constructor */{
-                            tag: 0,
-                            name: "::",
+                            tag: "::",
                             "0": x3,
-                            "1": /* [] */0
+                            "1": "[]"
                           }
                         }
                       };
               } else if (Curry._2(cmp, x1, x3) > 0) {
                 return /* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": x1,
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": x3,
                           "1": /* constructor */{
-                            tag: 0,
-                            name: "::",
+                            tag: "::",
                             "0": x2,
-                            "1": /* [] */0
+                            "1": "[]"
                           }
                         }
                       };
               } else {
                 return /* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": x3,
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": x1,
                           "1": /* constructor */{
-                            tag: 0,
-                            name: "::",
+                            tag: "::",
                             "0": x2,
-                            "1": /* [] */0
+                            "1": "[]"
                           }
                         }
                       };
               }
             } else if (Curry._2(cmp, x1, x3) > 0) {
               return /* constructor */{
-                      tag: 0,
-                      name: "::",
+                      tag: "::",
                       "0": x2,
                       "1": /* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": x1,
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": x3,
-                          "1": /* [] */0
+                          "1": "[]"
                         }
                       }
                     };
             } else if (Curry._2(cmp, x2, x3) > 0) {
               return /* constructor */{
-                      tag: 0,
-                      name: "::",
+                      tag: "::",
                       "0": x2,
                       "1": /* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": x3,
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": x1,
-                          "1": /* [] */0
+                          "1": "[]"
                         }
                       }
                     };
             } else {
               return /* constructor */{
-                      tag: 0,
-                      name: "::",
+                      tag: "::",
                       "0": x3,
                       "1": /* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": x2,
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": x1,
-                          "1": /* [] */0
+                          "1": "[]"
                         }
                       }
                     };
@@ -1097,26 +1039,22 @@ function stable_sort(cmp, l) {
         var x1$1 = l[0];
         if (Curry._2(cmp, x1$1, x2$1) > 0) {
           return /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": x1$1,
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": x2$1,
-                    "1": /* [] */0
+                    "1": "[]"
                   }
                 };
         } else {
           return /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": x2$1,
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": x1$1,
-                    "1": /* [] */0
+                    "1": "[]"
                   }
                 };
         }
@@ -1130,7 +1068,7 @@ function stable_sort(cmp, l) {
     var s2 = sort(n2, l2);
     var _l1 = s1;
     var _l2 = s2;
-    var _accu = /* [] */0;
+    var _accu = "[]";
     while(true) {
       var accu = _accu;
       var l2$1 = _l2;
@@ -1141,8 +1079,7 @@ function stable_sort(cmp, l) {
           var h1 = l1[0];
           if (Curry._2(cmp, h1, h2) <= 0) {
             _accu = /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": h1,
               "1": accu
             };
@@ -1150,8 +1087,7 @@ function stable_sort(cmp, l) {
             continue ;
           } else {
             _accu = /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": h2,
               "1": accu
             };
@@ -1190,33 +1126,28 @@ function sort_uniq(cmp, l) {
               var c$1 = Curry._2(cmp, x2, x3);
               if (c$1 === 0) {
                 return /* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": x2,
-                        "1": /* [] */0
+                        "1": "[]"
                       };
               } else if (c$1 < 0) {
                 return /* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": x2,
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": x3,
-                          "1": /* [] */0
+                          "1": "[]"
                         }
                       };
               } else {
                 return /* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": x3,
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": x2,
-                          "1": /* [] */0
+                          "1": "[]"
                         }
                       };
               }
@@ -1224,30 +1155,25 @@ function sort_uniq(cmp, l) {
               var c$2 = Curry._2(cmp, x2, x3);
               if (c$2 === 0) {
                 return /* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": x1,
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": x2,
-                          "1": /* [] */0
+                          "1": "[]"
                         }
                       };
               } else if (c$2 < 0) {
                 return /* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": x1,
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": x2,
                           "1": /* constructor */{
-                            tag: 0,
-                            name: "::",
+                            tag: "::",
                             "0": x3,
-                            "1": /* [] */0
+                            "1": "[]"
                           }
                         }
                       };
@@ -1255,47 +1181,39 @@ function sort_uniq(cmp, l) {
                 var c$3 = Curry._2(cmp, x1, x3);
                 if (c$3 === 0) {
                   return /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": x1,
                           "1": /* constructor */{
-                            tag: 0,
-                            name: "::",
+                            tag: "::",
                             "0": x2,
-                            "1": /* [] */0
+                            "1": "[]"
                           }
                         };
                 } else if (c$3 < 0) {
                   return /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": x1,
                           "1": /* constructor */{
-                            tag: 0,
-                            name: "::",
+                            tag: "::",
                             "0": x3,
                             "1": /* constructor */{
-                              tag: 0,
-                              name: "::",
+                              tag: "::",
                               "0": x2,
-                              "1": /* [] */0
+                              "1": "[]"
                             }
                           }
                         };
                 } else {
                   return /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": x3,
                           "1": /* constructor */{
-                            tag: 0,
-                            name: "::",
+                            tag: "::",
                             "0": x1,
                             "1": /* constructor */{
-                              tag: 0,
-                              name: "::",
+                              tag: "::",
                               "0": x2,
-                              "1": /* [] */0
+                              "1": "[]"
                             }
                           }
                         };
@@ -1305,30 +1223,25 @@ function sort_uniq(cmp, l) {
               var c$4 = Curry._2(cmp, x1, x3);
               if (c$4 === 0) {
                 return /* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": x2,
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": x1,
-                          "1": /* [] */0
+                          "1": "[]"
                         }
                       };
               } else if (c$4 < 0) {
                 return /* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": x2,
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": x1,
                           "1": /* constructor */{
-                            tag: 0,
-                            name: "::",
+                            tag: "::",
                             "0": x3,
-                            "1": /* [] */0
+                            "1": "[]"
                           }
                         }
                       };
@@ -1336,47 +1249,39 @@ function sort_uniq(cmp, l) {
                 var c$5 = Curry._2(cmp, x2, x3);
                 if (c$5 === 0) {
                   return /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": x2,
                           "1": /* constructor */{
-                            tag: 0,
-                            name: "::",
+                            tag: "::",
                             "0": x1,
-                            "1": /* [] */0
+                            "1": "[]"
                           }
                         };
                 } else if (c$5 < 0) {
                   return /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": x2,
                           "1": /* constructor */{
-                            tag: 0,
-                            name: "::",
+                            tag: "::",
                             "0": x3,
                             "1": /* constructor */{
-                              tag: 0,
-                              name: "::",
+                              tag: "::",
                               "0": x1,
-                              "1": /* [] */0
+                              "1": "[]"
                             }
                           }
                         };
                 } else {
                   return /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": x3,
                           "1": /* constructor */{
-                            tag: 0,
-                            name: "::",
+                            tag: "::",
                             "0": x2,
                             "1": /* constructor */{
-                              tag: 0,
-                              name: "::",
+                              tag: "::",
                               "0": x1,
-                              "1": /* [] */0
+                              "1": "[]"
                             }
                           }
                         };
@@ -1397,33 +1302,28 @@ function sort_uniq(cmp, l) {
         var c$6 = Curry._2(cmp, x1$1, x2$1);
         if (c$6 === 0) {
           return /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": x1$1,
-                  "1": /* [] */0
+                  "1": "[]"
                 };
         } else if (c$6 < 0) {
           return /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": x1$1,
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": x2$1,
-                    "1": /* [] */0
+                    "1": "[]"
                   }
                 };
         } else {
           return /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": x2$1,
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": x1$1,
-                    "1": /* [] */0
+                    "1": "[]"
                   }
                 };
         }
@@ -1437,7 +1337,7 @@ function sort_uniq(cmp, l) {
     var s2 = rev_sort(n2, l2);
     var _l1 = s1;
     var _l2 = s2;
-    var _accu = /* [] */0;
+    var _accu = "[]";
     while(true) {
       var accu = _accu;
       var l2$1 = _l2;
@@ -1451,8 +1351,7 @@ function sort_uniq(cmp, l) {
           var c$7 = Curry._2(cmp, h1, h2);
           if (c$7 === 0) {
             _accu = /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": h1,
               "1": accu
             };
@@ -1461,8 +1360,7 @@ function sort_uniq(cmp, l) {
             continue ;
           } else if (c$7 > 0) {
             _accu = /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": h1,
               "1": accu
             };
@@ -1470,8 +1368,7 @@ function sort_uniq(cmp, l) {
             continue ;
           } else {
             _accu = /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": h2,
               "1": accu
             };
@@ -1501,33 +1398,28 @@ function sort_uniq(cmp, l) {
               var c$1 = Curry._2(cmp, x2, x3);
               if (c$1 === 0) {
                 return /* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": x2,
-                        "1": /* [] */0
+                        "1": "[]"
                       };
               } else if (c$1 > 0) {
                 return /* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": x2,
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": x3,
-                          "1": /* [] */0
+                          "1": "[]"
                         }
                       };
               } else {
                 return /* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": x3,
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": x2,
-                          "1": /* [] */0
+                          "1": "[]"
                         }
                       };
               }
@@ -1535,30 +1427,25 @@ function sort_uniq(cmp, l) {
               var c$2 = Curry._2(cmp, x2, x3);
               if (c$2 === 0) {
                 return /* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": x1,
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": x2,
-                          "1": /* [] */0
+                          "1": "[]"
                         }
                       };
               } else if (c$2 > 0) {
                 return /* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": x1,
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": x2,
                           "1": /* constructor */{
-                            tag: 0,
-                            name: "::",
+                            tag: "::",
                             "0": x3,
-                            "1": /* [] */0
+                            "1": "[]"
                           }
                         }
                       };
@@ -1566,47 +1453,39 @@ function sort_uniq(cmp, l) {
                 var c$3 = Curry._2(cmp, x1, x3);
                 if (c$3 === 0) {
                   return /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": x1,
                           "1": /* constructor */{
-                            tag: 0,
-                            name: "::",
+                            tag: "::",
                             "0": x2,
-                            "1": /* [] */0
+                            "1": "[]"
                           }
                         };
                 } else if (c$3 > 0) {
                   return /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": x1,
                           "1": /* constructor */{
-                            tag: 0,
-                            name: "::",
+                            tag: "::",
                             "0": x3,
                             "1": /* constructor */{
-                              tag: 0,
-                              name: "::",
+                              tag: "::",
                               "0": x2,
-                              "1": /* [] */0
+                              "1": "[]"
                             }
                           }
                         };
                 } else {
                   return /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": x3,
                           "1": /* constructor */{
-                            tag: 0,
-                            name: "::",
+                            tag: "::",
                             "0": x1,
                             "1": /* constructor */{
-                              tag: 0,
-                              name: "::",
+                              tag: "::",
                               "0": x2,
-                              "1": /* [] */0
+                              "1": "[]"
                             }
                           }
                         };
@@ -1616,30 +1495,25 @@ function sort_uniq(cmp, l) {
               var c$4 = Curry._2(cmp, x1, x3);
               if (c$4 === 0) {
                 return /* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": x2,
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": x1,
-                          "1": /* [] */0
+                          "1": "[]"
                         }
                       };
               } else if (c$4 > 0) {
                 return /* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": x2,
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": x1,
                           "1": /* constructor */{
-                            tag: 0,
-                            name: "::",
+                            tag: "::",
                             "0": x3,
-                            "1": /* [] */0
+                            "1": "[]"
                           }
                         }
                       };
@@ -1647,47 +1521,39 @@ function sort_uniq(cmp, l) {
                 var c$5 = Curry._2(cmp, x2, x3);
                 if (c$5 === 0) {
                   return /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": x2,
                           "1": /* constructor */{
-                            tag: 0,
-                            name: "::",
+                            tag: "::",
                             "0": x1,
-                            "1": /* [] */0
+                            "1": "[]"
                           }
                         };
                 } else if (c$5 > 0) {
                   return /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": x2,
                           "1": /* constructor */{
-                            tag: 0,
-                            name: "::",
+                            tag: "::",
                             "0": x3,
                             "1": /* constructor */{
-                              tag: 0,
-                              name: "::",
+                              tag: "::",
                               "0": x1,
-                              "1": /* [] */0
+                              "1": "[]"
                             }
                           }
                         };
                 } else {
                   return /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": x3,
                           "1": /* constructor */{
-                            tag: 0,
-                            name: "::",
+                            tag: "::",
                             "0": x2,
                             "1": /* constructor */{
-                              tag: 0,
-                              name: "::",
+                              tag: "::",
                               "0": x1,
-                              "1": /* [] */0
+                              "1": "[]"
                             }
                           }
                         };
@@ -1708,33 +1574,28 @@ function sort_uniq(cmp, l) {
         var c$6 = Curry._2(cmp, x1$1, x2$1);
         if (c$6 === 0) {
           return /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": x1$1,
-                  "1": /* [] */0
+                  "1": "[]"
                 };
         } else if (c$6 > 0) {
           return /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": x1$1,
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": x2$1,
-                    "1": /* [] */0
+                    "1": "[]"
                   }
                 };
         } else {
           return /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": x2$1,
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": x1$1,
-                    "1": /* [] */0
+                    "1": "[]"
                   }
                 };
         }
@@ -1748,7 +1609,7 @@ function sort_uniq(cmp, l) {
     var s2 = sort(n2, l2);
     var _l1 = s1;
     var _l2 = s2;
-    var _accu = /* [] */0;
+    var _accu = "[]";
     while(true) {
       var accu = _accu;
       var l2$1 = _l2;
@@ -1762,8 +1623,7 @@ function sort_uniq(cmp, l) {
           var c$7 = Curry._2(cmp, h1, h2);
           if (c$7 === 0) {
             _accu = /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": h1,
               "1": accu
             };
@@ -1772,8 +1632,7 @@ function sort_uniq(cmp, l) {
             continue ;
           } else if (c$7 < 0) {
             _accu = /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": h1,
               "1": accu
             };
@@ -1781,8 +1640,7 @@ function sort_uniq(cmp, l) {
             continue ;
           } else {
             _accu = /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": h2,
               "1": accu
             };

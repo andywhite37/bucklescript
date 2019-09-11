@@ -40,19 +40,19 @@ function f(param) {
   return /* tuple */[
           (function (prim) {
               List$3.ff();
-              return /* () */0;
+              return "()";
             }),
           (function (prim) {
               List$3.ff2();
-              return /* () */0;
+              return "()";
             }),
           (function (prim) {
               List$2.ff();
-              return /* () */0;
+              return "()";
             }),
           (function (prim) {
               List$2.ff2();
-              return /* () */0;
+              return "()";
             })
         ];
 }
@@ -60,18 +60,16 @@ function f(param) {
 List$1.xx();
 
 List.length(/* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": 1,
       "1": /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": 2,
-        "1": /* [] */0
+        "1": "[]"
       }
     });
 
-List.length(/* [] */0);
+List.length("[]");
 
 function ff(prim) {
   return Local.ff();

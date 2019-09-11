@@ -3,7 +3,7 @@
 var Mt = require("./mt.js");
 var Belt_Float = require("../../lib/js/belt_Float.js");
 
-var suites = /* record */[/* contents : [] */0];
+var suites = /* record */[/* contents */"[]"];
 
 var test_id = /* record */[/* contents */0];
 
@@ -22,14 +22,12 @@ function $$throw(loc, x) {
 function neq(loc, x, y) {
   test_id[0] = test_id[0] + 1 | 0;
   suites[0] = /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
-                  tag: 1,
-                  name: "Neq",
+                  tag: "Neq",
                   "0": x,
                   "1": y
                 };

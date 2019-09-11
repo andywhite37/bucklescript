@@ -7,21 +7,19 @@ var Caml_array = require("../../lib/js/caml_array.js");
 var Caml_exceptions = require("../../lib/js/caml_exceptions.js");
 var Caml_builtin_exceptions = require("../../lib/js/caml_builtin_exceptions.js");
 
-var suites = /* record */[/* contents : [] */0];
+var suites = /* record */[/* contents */"[]"];
 
 var test_id = /* record */[/* contents */0];
 
 function eq(loc, x, y) {
   test_id[0] = test_id[0] + 1 | 0;
   suites[0] = /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
-                  tag: 0,
-                  name: "Eq",
+                  tag: "Eq",
                   "0": x,
                   "1": y
                 };
@@ -34,7 +32,7 @@ function eq(loc, x, y) {
 
 function assert_bool(b) {
   if (b) {
-    return /* () */0;
+    return "()";
   } else {
     throw [
           Caml_builtin_exceptions.invalid_argument,
@@ -70,7 +68,7 @@ function andThenTest(param) {
               }));
 }
 
-var h = Promise.resolve(/* () */0);
+var h = Promise.resolve("()");
 
 function assertIsNotFound(x) {
   var match = Caml_exceptions.caml_is_extension(x) && x === Caml_builtin_exceptions.not_found ? 0 : undefined;
@@ -238,35 +236,35 @@ function createPromiseFulfillTest(param) {
                 })).catch(fail);
 }
 
-thenTest(/* () */0);
+thenTest("()");
 
-andThenTest(/* () */0);
+andThenTest("()");
 
-catchTest(/* () */0);
+catchTest("()");
 
-orResolvedTest(/* () */0);
+orResolvedTest("()");
 
-orRejectedTest(/* () */0);
+orRejectedTest("()");
 
-orElseResolvedTest(/* () */0);
+orElseResolvedTest("()");
 
-orElseRejectedResolveTest(/* () */0);
+orElseRejectedResolveTest("()");
 
-orElseRejectedRejectTest(/* () */0);
+orElseRejectedRejectTest("()");
 
-thenCatchChainResolvedTest(/* () */0);
+thenCatchChainResolvedTest("()");
 
-thenCatchChainRejectedTest(/* () */0);
+thenCatchChainRejectedTest("()");
 
-allResolvedTest(/* () */0);
+allResolvedTest("()");
 
-allRejectTest(/* () */0);
+allRejectTest("()");
 
-raceTest(/* () */0);
+raceTest("()");
 
-createPromiseRejectTest(/* () */0);
+createPromiseRejectTest("()");
 
-createPromiseFulfillTest(/* () */0);
+createPromiseFulfillTest("()");
 
 Promise.all(/* tuple */[
         Promise.resolve(2),
@@ -279,7 +277,7 @@ Promise.all(/* tuple */[
               2,
               3
             ]);
-        return Promise.resolve(/* () */0);
+        return Promise.resolve("()");
       }));
 
 console.log(List.length(suites[0]));
@@ -299,34 +297,30 @@ function re(prim) {
 }
 
 Mt.from_promise_suites("Js_promise_basic_test", /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": /* tuple */[
         "File \"js_promise_basic_test.ml\", line 187, characters 4-11",
         twop.then((function (x) {
                 return Promise.resolve(/* constructor */{
-                            tag: 0,
-                            name: "Eq",
+                            tag: "Eq",
                             "0": x,
                             "1": 2
                           });
               }))
       ],
       "1": /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": /* tuple */[
           "File \"js_promise_basic_test.ml\", line 190, characters 4-11",
           twop.then((function (x) {
                   return Promise.resolve(/* constructor */{
-                              tag: 1,
-                              name: "Neq",
+                              tag: "Neq",
                               "0": x,
                               "1": 3
                             });
                 }))
         ],
-        "1": /* [] */0
+        "1": "[]"
       }
     });
 

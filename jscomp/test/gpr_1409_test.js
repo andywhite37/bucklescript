@@ -6,21 +6,19 @@ var Curry = require("../../lib/js/curry.js");
 var String_set = require("./string_set.js");
 var Caml_option = require("../../lib/js/caml_option.js");
 
-var suites = /* record */[/* contents : [] */0];
+var suites = /* record */[/* contents */"[]"];
 
 var test_id = /* record */[/* contents */0];
 
 function eq(loc, x, y) {
   test_id[0] = test_id[0] + 1 | 0;
   suites[0] = /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
-                  tag: 0,
-                  name: "Eq",
+                  tag: "Eq",
                   "0": x,
                   "1": y
                 };
@@ -57,9 +55,9 @@ function make(foo) {
     });
 }
 
-var a_ = make(undefined)(/* () */0);
+var a_ = make(undefined)("()");
 
-var b_ = make(42)(/* () */0);
+var b_ = make(42)("()");
 
 eq("File \"gpr_1409_test.ml\", line 30, characters 6-13", b_.foo, "42");
 
@@ -137,37 +135,31 @@ function keys(xs, ys) {
 }
 
 eq("File \"gpr_1409_test.ml\", line 69, characters 6-13", keys(/* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": "hi",
-          "1": /* [] */0
+          "1": "[]"
         }, Object.keys(test3(undefined, undefined))), true);
 
 eq("File \"gpr_1409_test.ml\", line 71, characters 6-13", keys(/* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": "hi",
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": "open",
-            "1": /* [] */0
+            "1": "[]"
           }
         }, Object.keys(test3(2, undefined))), true);
 
 eq("File \"gpr_1409_test.ml\", line 73, characters 6-13", keys(/* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": "hi",
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": "open",
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": "xx",
-              "1": /* [] */0
+              "1": "[]"
             }
           }
         }, Object.keys(test3(2, 2))), true);

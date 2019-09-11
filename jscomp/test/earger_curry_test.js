@@ -63,26 +63,24 @@ function f2(param) {
           return prim + prim$1;
         }), 0, b);
   console.log(Pervasives.string_of_float(v));
-  return /* () */0;
+  return "()";
 }
 
-f2(/* () */0);
+f2("()");
 
-var suites = /* record */[/* contents : [] */0];
+var suites = /* record */[/* contents */"[]"];
 
 var test_id = /* record */[/* contents */0];
 
 function eq(loc, x, y) {
   test_id[0] = test_id[0] + 1 | 0;
   suites[0] = /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
-                  tag: 0,
-                  name: "Eq",
+                  tag: "Eq",
                   "0": x,
                   "1": y
                 };
@@ -95,7 +93,7 @@ function eq(loc, x, y) {
 
 var v = /* record */[/* contents */0];
 
-var all_v = /* record */[/* contents : [] */0];
+var all_v = /* record */[/* contents */"[]"];
 
 function add5(a0, a1, a2, a3, a4) {
   console.log(/* tuple */[
@@ -106,8 +104,7 @@ function add5(a0, a1, a2, a3, a4) {
         a4
       ]);
   all_v[0] = /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": v[0],
     "1": all_v[0]
   };
@@ -133,8 +130,7 @@ function g(x) {
     return add5(x, partial_arg$1, partial_arg, param, param$1);
   };
   all_v[0] = /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": v[0],
     "1": all_v[0]
   };
@@ -158,30 +154,24 @@ eq("File \"earger_curry_test.ml\", line 120, characters 7-14", c, 10);
 eq("File \"earger_curry_test.ml\", line 121, characters 7-14", d, 11);
 
 eq("File \"earger_curry_test.ml\", line 122, characters 7-14", all_v[0], /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": 8,
       "1": /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": 8,
         "1": /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": 6,
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": 6,
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": 4,
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": 2,
-                "1": /* [] */0
+                "1": "[]"
               }
             }
           }

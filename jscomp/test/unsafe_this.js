@@ -10,7 +10,7 @@ var u = {
             $$this.x,
             $$this.y
           ]);
-      return /* () */0;
+      return "()";
     }),
   length: 32
 };

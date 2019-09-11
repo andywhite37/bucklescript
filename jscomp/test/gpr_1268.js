@@ -16,12 +16,12 @@ function f1(a, b, x, y) {
 
 function f2(x) {
   console.log(x);
-  return /* () */0;
+  return "()";
 }
 
 function f3(x) {
   console.log(x);
-  return /* () */0;
+  return "()";
 }
 
 function f4(x, y) {

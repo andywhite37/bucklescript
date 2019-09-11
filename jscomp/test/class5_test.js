@@ -19,21 +19,19 @@ var shared$2 = [
   "empty"
 ];
 
-var suites = /* record */[/* contents : [] */0];
+var suites = /* record */[/* contents */"[]"];
 
 var test_id = /* record */[/* contents */0];
 
 function eq(loc, x, y) {
   test_id[0] = test_id[0] + 1 | 0;
   suites[0] = /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
-                  tag: 0,
-                  name: "Eq",
+                  tag: "Eq",
                   "0": x,
                   "1": y
                 };
@@ -177,7 +175,7 @@ function intlist_init($$class) {
   CamlinternalOO.set_methods($$class, /* array */[
         empty,
         (function (self$4) {
-            return self$4[l] === /* [] */0;
+            return self$4[l] === "[]";
           }),
         fold,
         (function (self$4, f, accu) {
@@ -194,18 +192,15 @@ function intlist_init($$class) {
 var intlist = CamlinternalOO.make_class(shared$2, intlist_init);
 
 var l = Curry._2(intlist[0], 0, /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": 1,
       "1": /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": 2,
         "1": /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": 3,
-          "1": /* [] */0
+          "1": "[]"
         }
       }
     });
@@ -222,7 +217,7 @@ function intlist2_init($$class) {
   CamlinternalOO.set_methods($$class, /* array */[
         empty,
         (function (self$5) {
-            return self$5[l] === /* [] */0;
+            return self$5[l] === "[]";
           }),
         fold,
         (function (self$5, f, accu) {
@@ -239,18 +234,15 @@ function intlist2_init($$class) {
 var intlist2 = CamlinternalOO.make_class(shared$2, intlist2_init);
 
 var l$1 = Curry._2(intlist2[0], 0, /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": 1,
       "1": /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": 2,
         "1": /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": 3,
-          "1": /* [] */0
+          "1": "[]"
         }
       }
     });

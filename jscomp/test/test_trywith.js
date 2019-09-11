@@ -96,7 +96,7 @@ function ff(g, x) {
   catch (raw_exn$4){
     var exn$9 = Caml_js_exceptions.internalToOCamlException(raw_exn$4);
     if (exn$9[0] === Caml_builtin_exceptions.undefined_recursive_module) {
-      return /* () */0;
+      return "()";
     } else {
       throw exn$9;
     }
@@ -108,9 +108,11 @@ function u(param) {
 }
 
 function f(x) {
-  if (typeof x === "number") {
+  if (typeof x === "string") {
     return 2;
-  } else if (x.tag) {
+  } else if (/* XXX */x.tag === "D") {
+    return 1;
+  } else {
     throw [
           Caml_builtin_exceptions.assert_failure,
           /* tuple */[
@@ -119,8 +121,6 @@ function f(x) {
             9
           ]
         ];
-  } else {
-    return 1;
   }
 }
 

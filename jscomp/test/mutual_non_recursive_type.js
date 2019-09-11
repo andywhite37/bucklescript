@@ -10,9 +10,8 @@ var U = {
 };
 
 var v = /* constructor */{
-  tag: 0,
-  name: "H",
-  "0": /* OT */0
+  tag: "H",
+  "0": "OT"
 };
 
 exports.U = U;

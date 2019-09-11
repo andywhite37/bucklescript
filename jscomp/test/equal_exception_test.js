@@ -51,7 +51,7 @@ function is_exception(param) {
   }
   catch (exn){
     if (exn === Caml_builtin_exceptions.not_found) {
-      return /* () */0;
+      return "()";
     } else {
       throw exn;
     }
@@ -73,7 +73,7 @@ function is_normal_exception(_x) {
       if (exn[1] !== 3) {
         throw exn;
       } else {
-        return /* () */0;
+        return "()";
       }
     } else {
       throw exn;
@@ -87,39 +87,35 @@ function is_arbitrary_exception(param) {
     throw A;
   }
   catch (exn){
-    return /* () */0;
+    return "()";
   }
 }
 
 var suites = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": /* tuple */[
     "is_equal",
     is_equal
   ],
   "1": /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       "is_exception",
       is_exception
     ],
     "1": /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": /* tuple */[
         "is_normal_exception",
         is_normal_exception
       ],
       "1": /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": /* tuple */[
           "is_arbitrary_exception",
           is_arbitrary_exception
         ],
-        "1": /* [] */0
+        "1": "[]"
       }
     }
   }

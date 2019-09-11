@@ -26,15 +26,13 @@ function f(param) {
 }
 
 var suites = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": /* tuple */[
     "acc",
     (function (param) {
         return /* constructor */{
-                tag: 0,
-                name: "Eq",
-                "0": f(/* () */0),
+                tag: "Eq",
+                "0": f("()"),
                 "1": /* array */[
                   0,
                   1,
@@ -51,27 +49,22 @@ var suites = /* constructor */{
       })
   ],
   "1": /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       "array_to_list",
       (function (param) {
           return /* constructor */{
-                  tag: 0,
-                  name: "Eq",
+                  tag: "Eq",
                   "0": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": 1,
                     "1": /* constructor */{
-                      tag: 0,
-                      name: "::",
+                      tag: "::",
                       "0": 2,
                       "1": /* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": 3,
-                        "1": /* [] */0
+                        "1": "[]"
                       }
                     }
                   },
@@ -83,7 +76,7 @@ var suites = /* constructor */{
                 };
         })
     ],
-    "1": /* [] */0
+    "1": "[]"
   }
 };
 

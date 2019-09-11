@@ -14,7 +14,7 @@ var Caml_builtin_exceptions = require("../../lib/js/caml_builtin_exceptions.js")
 function split(delim, s) {
   var len = s.length;
   if (len !== 0) {
-    var _l = /* [] */0;
+    var _l = "[]";
     var _i = len;
     while(true) {
       var i = _i;
@@ -27,8 +27,7 @@ function split(delim, s) {
         catch (exn){
           if (exn === Caml_builtin_exceptions.not_found) {
             return /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": $$String.sub(s, 0, i),
                     "1": l
                   };
@@ -37,14 +36,12 @@ function split(delim, s) {
           }
         }
         var l$1 = /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": $$String.sub(s, i$prime + 1 | 0, (i - i$prime | 0) - 1 | 0),
           "1": l
         };
         var l$2 = i$prime === 0 ? /* constructor */({
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": "",
               "1": l$1
             }) : l$1;
@@ -56,7 +53,7 @@ function split(delim, s) {
       }
     };
   } else {
-    return /* [] */0;
+    return "[]";
   }
 }
 
@@ -82,23 +79,19 @@ function string_of_rank(param) {
     }
   } else {
     return Curry._1(Printf.sprintf(/* constructor */{
-                    tag: 0,
-                    name: "Format",
+                    tag: "Format",
                     "0": /* constructor */{
-                      tag: 11,
-                      name: "String_literal",
+                      tag: "String_literal",
                       "0": "Ranked(",
                       "1": /* constructor */{
-                        tag: 4,
-                        name: "Int",
-                        "0": /* Int_i */3,
-                        "1": /* No_padding */0,
-                        "2": /* No_precision */0,
+                        tag: "Int",
+                        "0": "Int_i",
+                        "1": "No_padding",
+                        "2": "No_precision",
                         "3": /* constructor */{
-                          tag: 12,
-                          name: "Char_literal",
+                          tag: "Char_literal",
                           "0": /* ")" */41,
-                          "1": /* End_of_format */0
+                          "1": "End_of_format"
                         }
                       }
                     },
@@ -117,9 +110,9 @@ function print_all_composite(all_tickers) {
   return List.iter((function (param) {
                 if (param[/* type_ */3]) {
                   console.log(param[/* ticker_name */2]);
-                  return /* () */0;
+                  return "()";
                 } else {
-                  return /* () */0;
+                  return "()";
                 }
               }), all_tickers);
 }
@@ -136,8 +129,7 @@ function create(l, x, d, r) {
   var hl = height(l);
   var hr = height(r);
   return /* constructor */{
-          tag: 0,
-          name: "Node",
+          tag: "Node",
           "0": l,
           "1": x,
           "2": d,
@@ -148,12 +140,11 @@ function create(l, x, d, r) {
 
 function singleton(x, d) {
   return /* constructor */{
-          tag: 0,
-          name: "Node",
-          "0": /* Empty */0,
+          tag: "Node",
+          "0": "Empty",
           "1": x,
           "2": d,
-          "3": /* Empty */0,
+          "3": "Empty",
           "4": 1
         };
 }
@@ -207,8 +198,7 @@ function bal(l, x, d, r) {
     }
   } else {
     return /* constructor */{
-            tag: 0,
-            name: "Node",
+            tag: "Node",
             "0": l,
             "1": x,
             "2": d,
@@ -235,8 +225,7 @@ function add(x, data, param) {
     var c = Caml_obj.caml_compare(x, v);
     if (c === 0) {
       return /* constructor */{
-              tag: 0,
-              name: "Node",
+              tag: "Node",
               "0": l,
               "1": x,
               "2": data,
@@ -250,12 +239,11 @@ function add(x, data, param) {
     }
   } else {
     return /* constructor */{
-            tag: 0,
-            name: "Node",
-            "0": /* Empty */0,
+            tag: "Node",
+            "0": "Empty",
             "1": x,
             "2": data,
-            "3": /* Empty */0,
+            "3": "Empty",
             "4": 1
           };
   }
@@ -377,7 +365,7 @@ function remove(x, param) {
       return bal(l, v, d, remove(x, r));
     }
   } else {
-    return /* Empty */0;
+    return "Empty";
   }
 }
 
@@ -390,7 +378,7 @@ function iter(f, _param) {
       _param = param[3];
       continue ;
     } else {
-      return /* () */0;
+      return "()";
     }
   };
 }
@@ -401,8 +389,7 @@ function map(f, param) {
     var d$prime = Curry._1(f, param[2]);
     var r$prime = map(f, param[3]);
     return /* constructor */{
-            tag: 0,
-            name: "Node",
+            tag: "Node",
             "0": l$prime,
             "1": param[1],
             "2": d$prime,
@@ -410,7 +397,7 @@ function map(f, param) {
             "4": param[4]
           };
   } else {
-    return /* Empty */0;
+    return "Empty";
   }
 }
 
@@ -421,8 +408,7 @@ function mapi(f, param) {
     var d$prime = Curry._2(f, v, param[2]);
     var r$prime = mapi(f, param[3]);
     return /* constructor */{
-            tag: 0,
-            name: "Node",
+            tag: "Node",
             "0": l$prime,
             "1": v,
             "2": d$prime,
@@ -430,7 +416,7 @@ function mapi(f, param) {
             "4": param[4]
           };
   } else {
-    return /* Empty */0;
+    return "Empty";
   }
 }
 
@@ -567,9 +553,9 @@ function split$1(x, param) {
     }
   } else {
     return /* tuple */[
-            /* Empty */0,
+            "Empty",
             undefined,
-            /* Empty */0
+            "Empty"
           ];
   }
 }
@@ -583,7 +569,7 @@ function merge(f, s1, s2) {
     }
     
   } else if (!s2) {
-    return /* Empty */0;
+    return "Empty";
   }
   if (s2) {
     var v2 = s2[1];
@@ -614,7 +600,7 @@ function filter(p, param) {
       return concat(l$prime, r$prime);
     }
   } else {
-    return /* Empty */0;
+    return "Empty";
   }
 }
 
@@ -642,8 +628,8 @@ function partition(p, param) {
     }
   } else {
     return /* tuple */[
-            /* Empty */0,
-            /* Empty */0
+            "Empty",
+            "Empty"
           ];
   }
 }
@@ -654,8 +640,7 @@ function cons_enum(_m, _e) {
     var m = _m;
     if (m) {
       _e = /* constructor */{
-        tag: 0,
-        name: "More",
+        tag: "More",
         "0": m[1],
         "1": m[2],
         "2": m[3],
@@ -670,8 +655,8 @@ function cons_enum(_m, _e) {
 }
 
 function compare(cmp, m1, m2) {
-  var _e1 = cons_enum(m1, /* End */0);
-  var _e2 = cons_enum(m2, /* End */0);
+  var _e1 = cons_enum(m1, "End");
+  var _e2 = cons_enum(m2, "End");
   while(true) {
     var e2 = _e2;
     var e1 = _e1;
@@ -702,8 +687,8 @@ function compare(cmp, m1, m2) {
 }
 
 function equal(cmp, m1, m2) {
-  var _e1 = cons_enum(m1, /* End */0);
-  var _e2 = cons_enum(m2, /* End */0);
+  var _e1 = cons_enum(m1, "End");
+  var _e2 = cons_enum(m2, "End");
   while(true) {
     var e2 = _e2;
     var e1 = _e1;
@@ -738,8 +723,7 @@ function bindings_aux(_accu, _param) {
     if (param) {
       _param = param[0];
       _accu = /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": /* tuple */[
           param[1],
           param[2]
@@ -754,11 +738,11 @@ function bindings_aux(_accu, _param) {
 }
 
 function bindings(s) {
-  return bindings_aux(/* [] */0, s);
+  return bindings_aux("[]", s);
 }
 
 var Ticker_map = {
-  empty: /* Empty */0,
+  empty: "Empty",
   is_empty: is_empty,
   mem: mem,
   add: add,
@@ -789,7 +773,7 @@ function compute_update_sequences(all_tickers) {
           var loop = function (counter, ticker) {
             var rank = ticker[/* rank */1];
             if (typeof rank === "number" && rank === 0) {
-              ticker[/* rank */1] = /* Visited */1;
+              ticker[/* rank */1] = "Visited";
               var match = ticker[/* type_ */3];
               if (match) {
                 var match$1 = match[0];
@@ -797,16 +781,14 @@ function compute_update_sequences(all_tickers) {
                 var counter$2 = loop(counter$1, match$1[/* rhs */1]);
                 var counter$3 = counter$2 + 1 | 0;
                 ticker[/* rank */1] = /* constructor */{
-                  tag: 0,
-                  name: "Ranked",
+                  tag: "Ranked",
                   "0": counter$3
                 };
                 return counter$3;
               } else {
                 var counter$4 = counter + 1 | 0;
                 ticker[/* rank */1] = /* constructor */{
-                  tag: 0,
-                  name: "Ranked",
+                  tag: "Ranked",
                   "0": counter$4
                 };
                 return counter$4;
@@ -829,16 +811,14 @@ function compute_update_sequences(all_tickers) {
                 if (type_) {
                   var match = type_[0];
                   var map$1 = loop(/* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": ticker,
                         "1": up
                       }, map, match[/* lhs */2]);
                   _ticker = match[/* rhs */1];
                   _map = map$1;
                   _up = /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": ticker,
                     "1": up
                   };
@@ -849,16 +829,15 @@ function compute_update_sequences(all_tickers) {
                 }
               };
             };
-            return loop(/* [] */0, map, ticker);
+            return loop("[]", map, ticker);
           } else {
             return add(ticker[/* ticker_name */2], /* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": ticker,
-                        "1": /* [] */0
+                        "1": "[]"
                       }, map);
           }
-        }), /* Empty */0, List.rev(all_tickers));
+        }), "Empty", List.rev(all_tickers));
   return fold((function (k, l, map) {
                 var l$1 = List.sort_uniq((function (lhs, rhs) {
                         var match = lhs[/* rank */1];
@@ -917,11 +896,10 @@ function process_input_line(ticker_map, all_tickers, line) {
     var rhs$1 = find_ticker_by_name(all_tickers, rhs);
     return /* record */[
             /* value */undefined,
-            /* rank : Uninitialized */0,
+            /* rank */"Uninitialized",
             /* ticker_name */ticker_name,
             /* type_ : constructor */{
-              tag: 0,
-              name: "Binary_op",
+              tag: "Binary_op",
               "0": /* record */[
                 /* op */op,
                 /* rhs */rhs$1,
@@ -983,9 +961,8 @@ function process_input_line(ticker_map, all_tickers, line) {
                         }
                         return /* tuple */[
                                 /* constructor */{
-                                  tag: 0,
-                                  name: "::",
-                                  "0": make_binary_op(ticker_name, match$4[0], match$5[0], /* PLUS */0),
+                                  tag: "::",
+                                  "0": make_binary_op(ticker_name, match$4[0], match$5[0], "PLUS"),
                                   "1": all_tickers
                                 },
                                 ticker_map
@@ -1015,9 +992,8 @@ function process_input_line(ticker_map, all_tickers, line) {
                         }
                         return /* tuple */[
                                 /* constructor */{
-                                  tag: 0,
-                                  name: "::",
-                                  "0": make_binary_op(ticker_name, match$6[0], match$7[0], /* MINUS */1),
+                                  tag: "::",
+                                  "0": make_binary_op(ticker_name, match$6[0], match$7[0], "MINUS"),
                                   "1": all_tickers
                                 },
                                 ticker_map
@@ -1043,13 +1019,12 @@ function process_input_line(ticker_map, all_tickers, line) {
                     }
                     return /* tuple */[
                             /* constructor */{
-                              tag: 0,
-                              name: "::",
+                              tag: "::",
                               "0": /* record */[
                                 /* value */undefined,
-                                /* rank : Uninitialized */0,
+                                /* rank */"Uninitialized",
                                 /* ticker_name */ticker_name,
-                                /* type_ : Market */0
+                                /* type_ */"Market"
                               ],
                               "1": all_tickers
                             },
@@ -1103,42 +1078,33 @@ function loop(_lines, _param) {
 }
 
 var lines = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": "R|MSFT|S",
   "1": /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": "R|IBM|S",
     "1": /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": "R|FB|S",
       "1": /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": "R|CP1|+|MSFT|IBM",
         "1": /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": "R|CP2|-|FB|IBM",
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": "R|CP12|+|CP1|CP2",
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": "Q|MSFT|120.",
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": "Q|IBM|130.",
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": "Q|FB|80.",
-                  "1": /* [] */0
+                  "1": "[]"
                 }
               }
             }

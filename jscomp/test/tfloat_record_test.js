@@ -15,13 +15,11 @@ var fmt = Format.formatter_of_buffer(buf);
 
 function print_float(f) {
   return Curry._1(Format.fprintf(fmt, /* constructor */{
-                  tag: 0,
-                  name: "Format",
+                  tag: "Format",
                   "0": /* constructor */{
-                    tag: 2,
-                    name: "String",
-                    "0": /* No_padding */0,
-                    "1": /* End_of_format */0
+                    tag: "String",
+                    "0": "No_padding",
+                    "1": "End_of_format"
                   },
                   "1": "%s"
                 }), Pervasives.string_of_float(f));
@@ -29,13 +27,11 @@ function print_float(f) {
 
 function print_newline(param) {
   return Format.fprintf(fmt, /* constructor */{
-              tag: 0,
-              name: "Format",
+              tag: "Format",
               "0": /* constructor */{
-                tag: 12,
-                name: "Char_literal",
+                tag: "Char_literal",
                 "0": /* "\n" */10,
-                "1": /* End_of_format */0
+                "1": "End_of_format"
               },
               "1": "\n"
             });
@@ -45,7 +41,7 @@ var s = /* record */[/* f */1.0];
 
 print_float(s[/* f */0]);
 
-print_newline(/* () */0);
+print_newline("()");
 
 var b = Float_array.small_float_array(12);
 
@@ -54,16 +50,16 @@ var c = Float_array.longer_float_array(34);
 function print_array(a) {
   $$Array.iter((function (f) {
           print_float(f);
-          return print_newline(/* () */0);
+          return print_newline("()");
         }), a);
-  return print_newline(/* () */0);
+  return print_newline("()");
 }
 
 print_array(b[0]);
 
 print_array(c[0]);
 
-var suites = /* record */[/* contents : [] */0];
+var suites = /* record */[/* contents */"[]"];
 
 var test_id = /* record */[/* contents */0];
 

@@ -15,15 +15,14 @@ function f(H) {
                 return Caml_primitive.caml_int_compare(param[0], param$1[0]);
               }), Curry._3(H.fold, (function (k, v, acc) {
                     return /* constructor */{
-                            tag: 0,
-                            name: "::",
+                            tag: "::",
                             "0": /* tuple */[
                               k,
                               v
                             ],
                             "1": acc
                           };
-                  }), tbl, /* [] */0));
+                  }), tbl, "[]"));
 }
 
 function g(H, count) {
@@ -36,15 +35,14 @@ function g(H, count) {
   }
   var v = Curry._3(H.fold, (function (k, v, acc) {
           return /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": /* tuple */[
                     k,
                     v
                   ],
                   "1": acc
                 };
-        }), tbl, /* [] */0);
+        }), tbl, "[]");
   return $$Array.of_list(List.sort((function (param, param$1) {
                     return Caml_primitive.caml_int_compare(param[0], param$1[0]);
                   }), v));
@@ -62,29 +60,25 @@ var Int_hash = Hashtbl.Make({
     });
 
 var suites = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": /* tuple */[
     "simple",
     (function (param) {
         return /* constructor */{
-                tag: 0,
-                name: "Eq",
+                tag: "Eq",
                 "0": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": /* tuple */[
                     1,
                     /* "1" */49
                   ],
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": /* tuple */[
                       2,
                       /* "2" */50
                     ],
-                    "1": /* [] */0
+                    "1": "[]"
                   }
                 },
                 "1": f(Int_hash)
@@ -92,14 +86,12 @@ var suites = /* constructor */{
       })
   ],
   "1": /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       "more_iterations",
       (function (param) {
           return /* constructor */{
-                  tag: 0,
-                  name: "Eq",
+                  tag: "Eq",
                   "0": $$Array.init(1001, (function (i) {
                           return /* tuple */[
                                   (i << 1),
@@ -110,7 +102,7 @@ var suites = /* constructor */{
                 };
         })
     ],
-    "1": /* [] */0
+    "1": "[]"
   }
 };
 

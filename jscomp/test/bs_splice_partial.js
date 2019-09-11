@@ -29,7 +29,7 @@ function test_cb(x) {
 
 function f(x) {
   v(x);
-  return /* () */0;
+  return "()";
 }
 
 exports.test_hi = test_hi;

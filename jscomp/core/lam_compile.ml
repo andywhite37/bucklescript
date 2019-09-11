@@ -550,7 +550,11 @@ and compile_general_cases
 and compile_cases cxt switch_exp table default get_name =
   compile_general_cases
     get_name
-    (fun i -> {(E.small_int i) with comment = get_name i})
+    (fun i ->
+      let comment = get_name i in
+      match comment with
+      | None -> E.small_int i
+      | Some s -> E.str s)
     E.int_equal
     cxt
     (fun  ?default ?declaration e clauses    ->
@@ -607,7 +611,7 @@ and compile_switch switch_arg sw (lambda_cxt : Lam_compile_context.t) =
          (* [e] will be used twice  *)
          let dispatch e =
            S.if_
-             ((* E.is_type_string *) E.is_type_number e)
+             (E.is_type_string e)
              (compile_cases cxt e sw_consts sw_num_default (get_name true)
              )
              (* default still needed, could simplified*)

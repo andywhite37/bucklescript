@@ -11,8 +11,7 @@ var Caml_builtin_exceptions = require("../../lib/js/caml_builtin_exceptions.js")
 var x = [];
 
 Caml_obj.caml_update_dummy(x, /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": 1,
       "1": x
     });
@@ -24,22 +23,19 @@ var b = [];
 var c = [];
 
 Caml_obj.caml_update_dummy(a, /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": 2,
       "1": b
     });
 
 Caml_obj.caml_update_dummy(b, /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": 3,
       "1": c
     });
 
 Caml_obj.caml_update_dummy(c, /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": 3,
       "1": a
     });
@@ -47,8 +43,7 @@ Caml_obj.caml_update_dummy(c, /* constructor */{
 var xx = [];
 
 Caml_obj.caml_update_dummy(xx, /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": 1,
       "1": xx
     });
@@ -97,21 +92,18 @@ function fib(n) {
 var ys = [];
 
 Caml_obj.caml_update_dummy(ys, /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": 1,
       "1": ys
     });
 
 var xs_000 = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": 2,
   "1": /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": List.hd(ys),
-    "1": /* [] */0
+    "1": "[]"
   }
 };
 
@@ -120,10 +112,9 @@ function zs(param) {
 }
 
 var xs_000$1 = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": 2,
-  "1": /* [] */0
+  "1": "[]"
 };
 
 var xs = /* tuple */[
@@ -176,7 +167,7 @@ function even2(_n) {
 
 function lazy_v(param) {
   CamlinternalLazy.force(lazy_v);
-  return /* () */0;
+  return "()";
 }
 
 function sum(_acc, _n) {
@@ -194,55 +185,46 @@ function sum(_acc, _n) {
 }
 
 var fake_v = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": 1,
   "1": /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": 2,
-    "1": /* [] */0
+    "1": "[]"
   }
 };
 
 var fake_y = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": 2,
   "1": /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": 3,
-    "1": /* [] */0
+    "1": "[]"
   }
 };
 
 var fake_z = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": 1,
   "1": fake_y
 };
 
 var fake_y2 = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": 2,
   "1": /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": 3,
-    "1": /* [] */0
+    "1": "[]"
   }
 };
 
 var fake_z2 = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": 1,
   "1": /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": sum(0, 10),
     "1": fake_y2
   }
@@ -253,8 +235,7 @@ var rec_variant_b = [];
 var rec_variant_a = [];
 
 Caml_obj.caml_update_dummy(rec_variant_b, /* constructor */{
-      tag: 0,
-      name: "B",
+      tag: "B",
       "0": "gho",
       "1": (function (param) {
           return rec_variant_a;
@@ -262,8 +243,7 @@ Caml_obj.caml_update_dummy(rec_variant_b, /* constructor */{
     });
 
 Caml_obj.caml_update_dummy(rec_variant_a, /* constructor */{
-      tag: 1,
-      name: "A",
+      tag: "A",
       "0": 3,
       "1": (function (param) {
           return rec_variant_b;
@@ -271,22 +251,19 @@ Caml_obj.caml_update_dummy(rec_variant_a, /* constructor */{
     });
 
 var suites = /* constructor */{
-  tag: 0,
-  name: "::",
+  tag: "::",
   "0": /* tuple */[
     "hd",
     (function (param) {
         return /* constructor */{
-                tag: 0,
-                name: "Eq",
+                tag: "Eq",
                 "0": 1,
                 "1": List.hd(List.tl(x))
               };
       })
   ],
   "1": /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       "mutual",
       (function (param) {
@@ -316,45 +293,38 @@ var suites = /* constructor */{
                 ];
           }
           return /* constructor */{
-                  tag: 0,
-                  name: "Eq",
+                  tag: "Eq",
                   "0": 3,
                   "1": tmp
                 };
         })
     ],
     "1": /* constructor */{
-      tag: 0,
-      name: "::",
+      tag: "::",
       "0": /* tuple */[
         "rec_sum",
         (function (param) {
             return /* constructor */{
-                    tag: 0,
-                    name: "Eq",
+                    tag: "Eq",
                     "0": 55,
                     "1": sum(0, 10)
                   };
           })
       ],
       "1": /* constructor */{
-        tag: 0,
-        name: "::",
+        tag: "::",
         "0": /* tuple */[
           "File \"rec_value_test.ml\", line 111, characters 2-9",
           (function (param) {
               return /* constructor */{
-                      tag: 0,
-                      name: "Eq",
+                      tag: "Eq",
                       "0": /* constructor */{
-                        tag: 0,
-                        name: "::",
+                        tag: "::",
                         "0": 1,
                         "1": /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": 2,
-                          "1": /* [] */0
+                          "1": "[]"
                         }
                       },
                       "1": fake_v
@@ -362,23 +332,19 @@ var suites = /* constructor */{
             })
         ],
         "1": /* constructor */{
-          tag: 0,
-          name: "::",
+          tag: "::",
           "0": /* tuple */[
             "File \"rec_value_test.ml\", line 114, characters 2-9",
             (function (param) {
                 return /* constructor */{
-                        tag: 0,
-                        name: "Eq",
+                        tag: "Eq",
                         "0": /* constructor */{
-                          tag: 0,
-                          name: "::",
+                          tag: "::",
                           "0": 2,
                           "1": /* constructor */{
-                            tag: 0,
-                            name: "::",
+                            tag: "::",
                             "0": 3,
-                            "1": /* [] */0
+                            "1": "[]"
                           }
                         },
                         "1": fake_y
@@ -386,27 +352,22 @@ var suites = /* constructor */{
               })
           ],
           "1": /* constructor */{
-            tag: 0,
-            name: "::",
+            tag: "::",
             "0": /* tuple */[
               "File \"rec_value_test.ml\", line 117, characters 2-9",
               (function (param) {
                   return /* constructor */{
-                          tag: 0,
-                          name: "Eq",
+                          tag: "Eq",
                           "0": /* constructor */{
-                            tag: 0,
-                            name: "::",
+                            tag: "::",
                             "0": 1,
                             "1": /* constructor */{
-                              tag: 0,
-                              name: "::",
+                              tag: "::",
                               "0": 2,
                               "1": /* constructor */{
-                                tag: 0,
-                                name: "::",
+                                tag: "::",
                                 "0": 3,
-                                "1": /* [] */0
+                                "1": "[]"
                               }
                             }
                           },
@@ -415,31 +376,25 @@ var suites = /* constructor */{
                 })
             ],
             "1": /* constructor */{
-              tag: 0,
-              name: "::",
+              tag: "::",
               "0": /* tuple */[
                 "File \"rec_value_test.ml\", line 120, characters 2-9",
                 (function (param) {
                     return /* constructor */{
-                            tag: 0,
-                            name: "Eq",
+                            tag: "Eq",
                             "0": /* constructor */{
-                              tag: 0,
-                              name: "::",
+                              tag: "::",
                               "0": 1,
                               "1": /* constructor */{
-                                tag: 0,
-                                name: "::",
+                                tag: "::",
                                 "0": 55,
                                 "1": /* constructor */{
-                                  tag: 0,
-                                  name: "::",
+                                  tag: "::",
                                   "0": 2,
                                   "1": /* constructor */{
-                                    tag: 0,
-                                    name: "::",
+                                    tag: "::",
                                     "0": 3,
-                                    "1": /* [] */0
+                                    "1": "[]"
                                   }
                                 }
                               }
@@ -449,23 +404,19 @@ var suites = /* constructor */{
                   })
               ],
               "1": /* constructor */{
-                tag: 0,
-                name: "::",
+                tag: "::",
                 "0": /* tuple */[
                   "File \"rec_value_test.ml\", line 123, characters 2-9",
                   (function (param) {
                       return /* constructor */{
-                              tag: 0,
-                              name: "Eq",
+                              tag: "Eq",
                               "0": /* constructor */{
-                                tag: 0,
-                                name: "::",
+                                tag: "::",
                                 "0": 2,
                                 "1": /* constructor */{
-                                  tag: 0,
-                                  name: "::",
+                                  tag: "::",
                                   "0": 3,
-                                  "1": /* [] */0
+                                  "1": "[]"
                                 }
                               },
                               "1": fake_y2
@@ -473,26 +424,29 @@ var suites = /* constructor */{
                     })
                 ],
                 "1": /* constructor */{
-                  tag: 0,
-                  name: "::",
+                  tag: "::",
                   "0": /* tuple */[
                     "File \"rec_value_test.ml\", line 126, characters 2-9",
                     (function (param) {
                         return /* constructor */{
-                                tag: 0,
-                                name: "Eq",
+                                tag: "Eq",
                                 "0": 3,
                                 "1": 3
                               };
                       })
                   ],
                   "1": /* constructor */{
-                    tag: 0,
-                    name: "::",
+                    tag: "::",
                     "0": /* tuple */[
                       "File \"rec_value_test.ml\", line 129, characters 2-9",
                       (function (param) {
-                          if (rec_variant_b.tag) {
+                          if (/* XXX */rec_variant_b.tag === "B") {
+                            return /* constructor */{
+                                    tag: "Eq",
+                                    "0": Curry._1(rec_variant_b[1], "()"),
+                                    "1": rec_variant_a
+                                  };
+                          } else {
                             throw [
                                   Caml_builtin_exceptions.assert_failure,
                                   /* tuple */[
@@ -501,30 +455,15 @@ var suites = /* constructor */{
                                     11
                                   ]
                                 ];
-                          } else {
-                            return /* constructor */{
-                                    tag: 0,
-                                    name: "Eq",
-                                    "0": Curry._1(rec_variant_b[1], /* () */0),
-                                    "1": rec_variant_a
-                                  };
                           }
                         })
                     ],
                     "1": /* constructor */{
-                      tag: 0,
-                      name: "::",
+                      tag: "::",
                       "0": /* tuple */[
                         "File \"rec_value_test.ml\", line 134, characters 2-9",
                         (function (param) {
-                            if (rec_variant_a.tag) {
-                              return /* constructor */{
-                                      tag: 0,
-                                      name: "Eq",
-                                      "0": Curry._1(rec_variant_a[1], /* () */0),
-                                      "1": rec_variant_b
-                                    };
-                            } else {
+                            if (/* XXX */rec_variant_a.tag === "B") {
                               throw [
                                     Caml_builtin_exceptions.assert_failure,
                                     /* tuple */[
@@ -533,10 +472,16 @@ var suites = /* constructor */{
                                       11
                                     ]
                                   ];
+                            } else {
+                              return /* constructor */{
+                                      tag: "Eq",
+                                      "0": Curry._1(rec_variant_a[1], "()"),
+                                      "1": rec_variant_b
+                                    };
                             }
                           })
                       ],
-                      "1": /* [] */0
+                      "1": "[]"
                     }
                   }
                 }

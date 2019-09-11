@@ -13,8 +13,7 @@ function create(l, v, r) {
   var hl = height(l);
   var hr = height(r);
   return /* constructor */{
-          tag: 0,
-          name: "Node",
+          tag: "Node",
           "0": l,
           "1": v,
           "2": r,
@@ -35,10 +34,10 @@ function bal(l, v, r) {
       } else if (lr) {
         return create(create(ll, lv, lr[0]), lr[1], create(lr[2], v, r));
       } else {
-        return /* Empty */0;
+        return "Empty";
       }
     } else {
-      return /* Empty */0;
+      return "Empty";
     }
   } else if (hr > (hl + 2 | 0)) {
     if (r) {
@@ -50,15 +49,14 @@ function bal(l, v, r) {
       } else if (rl) {
         return create(create(l, v, rl[0]), rl[1], create(rl[2], rv, rr));
       } else {
-        return /* Empty */0;
+        return "Empty";
       }
     } else {
-      return /* Empty */0;
+      return "Empty";
     }
   } else {
     return /* constructor */{
-            tag: 0,
-            name: "Node",
+            tag: "Node",
             "0": l,
             "1": v,
             "2": r,
@@ -92,11 +90,10 @@ function add(x, t) {
     }
   } else {
     return /* constructor */{
-            tag: 0,
-            name: "Node",
-            "0": /* Empty */0,
+            tag: "Node",
+            "0": "Empty",
             "1": x,
-            "2": /* Empty */0,
+            "2": "Empty",
             "3": 1
           };
   }
@@ -156,7 +153,7 @@ function remove(x, tree) {
       return bal(l, v, remove(x, r));
     }
   } else {
-    return /* Empty */0;
+    return "Empty";
   }
 }
 
@@ -177,7 +174,7 @@ function mem(x, _param) {
   };
 }
 
-var v = /* Empty */0;
+var v = "Empty";
 
 for(var i = 0; i <= 100000; ++i){
   v = add(i, v);

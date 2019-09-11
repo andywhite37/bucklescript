@@ -6,21 +6,19 @@ var Caml_exceptions = require("../../lib/js/caml_exceptions.js");
 var Caml_js_exceptions = require("../../lib/js/caml_js_exceptions.js");
 var Caml_builtin_exceptions = require("../../lib/js/caml_builtin_exceptions.js");
 
-var suites = /* record */[/* contents : [] */0];
+var suites = /* record */[/* contents */"[]"];
 
 var test_id = /* record */[/* contents */0];
 
 function eq(loc, x, y) {
   test_id[0] = test_id[0] + 1 | 0;
   suites[0] = /* constructor */{
-    tag: 0,
-    name: "::",
+    tag: "::",
     "0": /* tuple */[
       loc + (" id " + String(test_id[0])),
       (function (param) {
           return /* constructor */{
-                  tag: 0,
-                  name: "Eq",
+                  tag: "Eq",
                   "0": x,
                   "1": y
                 };
@@ -67,7 +65,7 @@ function test_js_error4(param) {
 
 function f(g) {
   try {
-    return Curry._1(g, /* () */0);
+    return Curry._1(g, "()");
   }
   catch (exn){
     if (exn === Caml_builtin_exceptions.not_found) {
@@ -78,7 +76,7 @@ function f(g) {
   }
 }
 
-eq("File \"exception_rebound_err_test.ml\", line 24, characters 6-13", test_js_error4(/* () */0), 7);
+eq("File \"exception_rebound_err_test.ml\", line 24, characters 6-13", test_js_error4("()"), 7);
 
 Mt.from_pair_suites("Exception_rebound_err_test", suites[0]);
 
