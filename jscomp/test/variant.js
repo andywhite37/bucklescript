@@ -1,5 +1,6 @@
 'use strict';
 
+var List = require("../../lib/js/list.js");
 var Curry = require("../../lib/js/curry.js");
 var Caml_obj = require("../../lib/js/caml_obj.js");
 var Caml_exceptions = require("../../lib/js/caml_exceptions.js");
@@ -135,6 +136,77 @@ function fooExn(f) {
   }
 }
 
+var l = /* constructor */{
+  tag: "::",
+  "0": 1,
+  "1": /* constructor */{
+    tag: "::",
+    "0": 2,
+    "1": /* constructor */{
+      tag: "::",
+      "0": 3,
+      "1": "[]"
+    }
+  }
+};
+
+var len = List.length(l);
+
+function switchList(param) {
+  if (param) {
+    var match = param[1];
+    if (match) {
+      if (match[1]) {
+        throw [
+              Caml_builtin_exceptions.assert_failure,
+              /* tuple */[
+                "variant.ml",
+                82,
+                9
+              ]
+            ];
+      } else {
+        return 2;
+      }
+    } else {
+      return 1;
+    }
+  } else {
+    return 0;
+  }
+}
+
+function switchMYList(param) {
+  if (typeof param === "number") {
+    if (param === 0) {
+      return 0;
+    }
+    
+  } else {
+    var match = param[1];
+    if (typeof match === "number") {
+      if (match === 0) {
+        return 1;
+      }
+      
+    } else {
+      var match$1 = match[1];
+      if (typeof match$1 === "number" && match$1 === 0) {
+        return 2;
+      }
+      
+    }
+  }
+  throw [
+        Caml_builtin_exceptions.assert_failure,
+        /* tuple */[
+          "variant.ml",
+          91,
+          9
+        ]
+      ];
+}
+
 var a1 = "A1";
 
 var a2 = "A2";
@@ -177,4 +249,8 @@ exports.EB = EB;
 exports.EC = EC;
 exports.ED = ED;
 exports.fooExn = fooExn;
-/* No side effect */
+exports.l = l;
+exports.len = len;
+exports.switchList = switchList;
+exports.switchMYList = switchMYList;
+/* len Not a pure module */

@@ -69,3 +69,23 @@ let fooExn f = try f () with
 | EB n -> n
 | EC (n,m) -> n+m
 | ED (n,m) -> n+m
+
+
+let l = [1;2;3]
+
+let len = List.length l
+
+let switchList = function
+  | [] -> 0
+  | [_] -> 1
+  | [_;_] -> 2
+  | _ -> assert false
+
+type 'a myList =
+  | E | Cons of 'a * 'a myList | Z
+
+let switchMYList = function
+  | E -> 0
+  | Cons(_, E) -> 1
+  | Cons (_, Cons(_, E)) -> 2
+  | _ -> assert false
