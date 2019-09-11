@@ -619,7 +619,7 @@ and compile_switch switch_arg sw (lambda_cxt : Lam_compile_context.t) =
                (compile_cases cxt (E.tag e ) sw_blocks
                   sw_blocks_default (get_name false)) in
            match e.expression_desc with
-           | J.Var _ (* when false *) -> [ dispatch e]
+           | J.Var _ -> [ dispatch e]
            | _ ->
              let v = Ext_ident.create_tmp () in
              (* Necessary avoid duplicated computation*)
