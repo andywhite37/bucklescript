@@ -3,6 +3,7 @@
 var List = require("../../lib/js/list.js");
 var Curry = require("../../lib/js/curry.js");
 var Caml_obj = require("../../lib/js/caml_obj.js");
+var Caml_array = require("../../lib/js/caml_array.js");
 var Caml_exceptions = require("../../lib/js/caml_exceptions.js");
 var Caml_js_exceptions = require("../../lib/js/caml_js_exceptions.js");
 var Caml_builtin_exceptions = require("../../lib/js/caml_builtin_exceptions.js");
@@ -113,6 +114,26 @@ var EC = Caml_exceptions.create("Variant.EC");
 
 var ED = Caml_exceptions.create("Variant.ED");
 
+console.log("EB(2)", [
+      EB,
+      2
+    ]);
+
+console.log("EB(2)[0]", Caml_array.caml_array_get([
+          EB,
+          2
+        ], 0));
+
+console.log("EB(2)[0].tag", Caml_array.caml_array_get([
+          EB,
+          2
+        ], 0).tag);
+
+console.log("EB(2)[0][0]", Caml_array.caml_array_get(Caml_array.caml_array_get([
+              EB,
+              2
+            ], 0), 0));
+
 function fooExn(f) {
   try {
     return Curry._1(f, "()");
@@ -161,7 +182,7 @@ function switchList(param) {
               Caml_builtin_exceptions.assert_failure,
               /* tuple */[
                 "variant.ml",
-                82,
+                87,
                 9
               ]
             ];
@@ -201,7 +222,7 @@ function switchMYList(param) {
         Caml_builtin_exceptions.assert_failure,
         /* tuple */[
           "variant.ml",
-          91,
+          96,
           9
         ]
       ];
@@ -280,4 +301,4 @@ exports.switchList = switchList;
 exports.switchMYList = switchMYList;
 exports.matchingNoBinarySearch = matchingNoBinarySearch;
 exports.caml_bool_compare = caml_bool_compare;
-/* len Not a pure module */
+/*  Not a pure module */

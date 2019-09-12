@@ -63,6 +63,11 @@ let rollback_path subst p =
  exception EC of int * int
  exception ED of pair
 
+let () = Js.log2 "EB(2)" (EB 2)
+let () = Js.log2 "EB(2)[0]" (Obj.magic (EB 2)).(0)
+let () = Js.log2 "EB(2)[0].tag" (Obj.magic (EB 2)).(0)##tag
+let () = Js.log2 "EB(2)[0][0]" (Obj.magic (EB 2)).(0).(0)
+
 let fooExn f = try f () with
 | EA1 -> 1
 | EA2 -> 2
@@ -108,7 +113,8 @@ let matchingNoBinarySearch = function
   | A6
   | A7 -> 2
 
-let caml_bool_compare (x : bool) (y : bool): int = 
+
+  let caml_bool_compare (x : bool) (y : bool): int = 
   match x,y with 
   | true, true | false , false -> 0 
   | true, false -> 1 
