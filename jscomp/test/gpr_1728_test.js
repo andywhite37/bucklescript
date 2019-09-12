@@ -33,15 +33,15 @@ function foo(x) {
 function badInlining(obj) {
   var x = obj.field;
   if (Caml_format.caml_int_of_string(x) !== 3) {
-    return "()";
+    return "bad";
   } else {
-    return 0;
+    return "ok";
   }
 }
 
 eq("File \"gpr_1728_test.ml\", line 17, characters 6-13", badInlining({
           field: "3"
-        }), "()");
+        }), "ok");
 
 eq("File \"gpr_1728_test.ml\", line 19, characters 6-13", Caml_format.caml_int_of_string("-13"), -13);
 

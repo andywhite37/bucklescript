@@ -107,3 +107,10 @@ let matchingNoBinarySearch = function
   | A5
   | A6
   | A7 -> 2
+
+let caml_bool_compare (x : bool) (y : bool): int = 
+  match x,y with 
+  | true, true | false , false -> 0 
+  | true, false -> 1 
+  | false, true -> -1
+  

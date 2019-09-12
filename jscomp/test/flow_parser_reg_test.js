@@ -6994,7 +6994,7 @@ function params$1(env, allow_default, _require_default, _acc) {
     var loc = match$1[0];
     var match$2 = Curry._2(Parser_env_Peek.token, undefined, env);
     var match$3;
-    if (allow_default !== "false") {
+    if (allow_default) {
       var exit = 0;
       if (typeof match$2 === "string" && match$2 === "T_ASSIGN") {
         token$3(env);
@@ -7322,7 +7322,7 @@ function properties(allow_static, env, _param) {
           var match$1 = Curry._2(Parser_env_Peek.token, undefined, env);
           var match$2;
           var exit$1 = 0;
-          if ($$static !== "false" && typeof match$1 === "string" && match$1 === "T_COLON") {
+          if ($$static && typeof match$1 === "string" && match$1 === "T_COLON") {
             strict_error_at(env, /* tuple */[
                   start_loc,
                   "StrictReservedWord"
@@ -7791,7 +7791,7 @@ function function_body(env, async, generator) {
 
 function generator(env, is_async) {
   var match = maybe(env, "T_MULT");
-  if (is_async !== "false" && match !== "false") {
+  if (is_async && match) {
     error$1(env, "AsyncGenerator");
     return true;
   } else {
@@ -7824,7 +7824,7 @@ function _function(env) {
   var match$1 = Curry._2(Parser_env_Peek.token, undefined, env);
   var match$2;
   var exit = 0;
-  if (match !== "false" && typeof match$1 === "string") {
+  if (match && typeof match$1 === "string") {
     switch (match$1) {
       case "T_LPAREN" :
           match$2 = /* tuple */[
@@ -9208,7 +9208,7 @@ function assignment(env) {
   } else {
     exit = 2;
   }
-  if (exit === 2 && match$1 === "false") {
+  if (exit === 2 && !match$1) {
     return assignment_but_not_arrow_function(env);
   }
   var match$3 = Curry._2(Parser_env_Try.to_parse, env, try_assignment_but_not_arrow_function);
@@ -10215,7 +10215,7 @@ function property$1(env) {
     var match$1 = key(env);
     var tmp;
     var exit = 0;
-    if (async !== "false" || match !== "false") {
+    if (async || match) {
       exit = 1;
     } else {
       var key$1 = match$1[1];
@@ -10804,7 +10804,7 @@ function class_element(env) {
   var async = Curry._2(Parser_env_Peek.token, 1, env) !== "T_LPAREN" && Curry._2(Parser_env_Peek.token, 1, env) !== "T_COLON" && maybe(env, "T_ASYNC");
   var generator$1 = generator(env, async);
   var match = key(env);
-  if (async === "false" && generator$1 === "false") {
+  if (!async && !generator$1) {
     var key$1 = match[1];
     switch (/* XXX */key$1.tag) {
       case "Identifier" :
@@ -10952,7 +10952,7 @@ function class_declaration(env, decorators) {
   var tmp_env = with_no_let(true, env$1);
   var match = env$1[/* in_export */6];
   var match$1 = Curry._2(Parser_env_Peek.is_identifier, undefined, tmp_env);
-  var id = match !== "false" && match$1 === "false" ? undefined : Curry._2(Parse.identifier, undefined, tmp_env);
+  var id = match && !match$1 ? undefined : Curry._2(Parse.identifier, undefined, tmp_env);
   var typeParameters = Curry._1(type_parameter_declaration_with_defaults, env$1);
   var match$2 = _class(env$1);
   var body = match$2[0];
@@ -13646,7 +13646,7 @@ function module_item(env) {
           } else {
             exit$2 = 2;
           }
-          if (exit$2 === 2 && match$17 === "false") {
+          if (exit$2 === 2 && !match$17) {
             var specifiers$2 = named_or_namespace_specifier(env$4);
             var source$5 = source(env$4);
             var match$20 = Curry._2(Parser_env_Peek.semicolon_loc, undefined, env$4);

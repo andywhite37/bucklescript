@@ -2074,10 +2074,10 @@ function string_of_payload_kind(capitalize, payload_kind, packed) {
   if (typeof payload_kind === "string") {
     switch (payload_kind) {
       case "Pk_bits32" :
-          s = packed !== "false" ? "bytes" : "bits32";
+          s = packed ? "bytes" : "bits32";
           break;
       case "Pk_bits64" :
-          s = packed !== "false" ? "bytes" : "bits64";
+          s = packed ? "bytes" : "bits64";
           break;
       case "Pk_bytes" :
           s = "bytes";
@@ -2085,7 +2085,7 @@ function string_of_payload_kind(capitalize, payload_kind, packed) {
       
     }
   } else {
-    s = packed !== "false" ? "bytes" : "varint";
+    s = packed ? "bytes" : "varint";
   }
   if (capitalize !== undefined) {
     return Caml_bytes.bytes_to_string(Bytes.capitalize(Caml_bytes.bytes_of_string(s)));
@@ -2229,7 +2229,7 @@ function runtime_function(param) {
             }
         
       }
-    } else if (match$1[0] !== "false") {
+    } else if (match$1[0]) {
       switch (param[2]) {
         case "Bt_int" :
             return "Pbrt.Encoder.int_as_zigzag";
@@ -2306,7 +2306,7 @@ function runtime_function(param) {
             }
         
       }
-    } else if (match$2[0] !== "false") {
+    } else if (match$2[0]) {
       switch (param[2]) {
         case "Bt_int" :
             return "Pbrt.Decoder.int_as_zigzag";
@@ -2647,7 +2647,7 @@ function gen_decode_record(and_, param, sc) {
                                       var encoding_number = param$3[2];
                                       var field_type$2 = param$3[1];
                                       if (param$3[0] !== "Rt_list") {
-                                        if (is_packed !== "false") {
+                                        if (is_packed) {
                                           return process_field_common(sc$3, encoding_number, "Bytes", (function (sc) {
                                                         line$1(sc, "Pbrt.Decoder.packed_fold (fun () d -> ");
                                                         scope(sc, (function (sc) {
@@ -2708,7 +2708,7 @@ function gen_decode_record(and_, param, sc) {
                                                                           }), decode_field_f(field_type$2, pk$2), rf_label$3));
                                                       }));
                                         }
-                                      } else if (is_packed !== "false") {
+                                      } else if (is_packed) {
                                         return process_field_common(sc$3, encoding_number, "Bytes", (function (sc) {
                                                       return line$1(sc, Curry._2(Printf.sprintf(/* constructor */{
                                                                           tag: "Format",
@@ -5849,7 +5849,7 @@ function gen_encode_record(and_, param, sc) {
                               var encoding_number$1 = match$2[2];
                               var field_type$1 = match$2[1];
                               if (match$2[0] !== "Rt_list") {
-                                if (is_packed !== "false") {
+                                if (is_packed) {
                                   gen_encode_field_key(sc, encoding_number$1, pk$1, is_packed);
                                   line$1(sc, "Pbrt.Encoder.nested (fun encoder ->");
                                   scope(sc, (function (sc) {
@@ -5899,7 +5899,7 @@ function gen_encode_record(and_, param, sc) {
                                                       "1": ") v.%s;"
                                                     }), rf_label));
                                 }
-                              } else if (is_packed !== "false") {
+                              } else if (is_packed) {
                                 gen_encode_field_key(sc, encoding_number$1, pk$1, is_packed);
                                 line$1(sc, "Pbrt.Encoder.nested (fun encoder ->");
                                 scope(sc, (function (sc) {
@@ -7187,7 +7187,7 @@ function rev_split_by_naming_convention(s) {
           var start_i = param[1];
           var l = param[0];
           if (c !== 95) {
-            if (param[2] !== "false" || !is_uppercase(c)) {
+            if (param[2] || !is_uppercase(c)) {
               return /* tuple */[
                       l,
                       start_i,

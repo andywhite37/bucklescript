@@ -19,7 +19,7 @@ function b(loc, v) {
 
 function f0(x) {
   var match = x[1];
-  if (match !== undefined && match !== "false") {
+  if (match !== undefined && match) {
     return 1;
   } else {
     return 2;

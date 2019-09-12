@@ -51,7 +51,7 @@ var suites = /* record */[/* contents : constructor */{
               return /* constructor */{
                       tag: "Eq",
                       "0": true,
-                      "1": Caml_obj.caml_greaterthan(/* constructor */{
+                      "1": Caml_obj.caml_lessthan(/* constructor */{
                             tag: "::",
                             "0": 1,
                             "1": "[]"
@@ -273,7 +273,7 @@ var suites = /* record */[/* contents : constructor */{
                                 return /* constructor */{
                                         tag: "Eq",
                                         "0": true,
-                                        "1": Caml_obj.caml_lessthan(/* constructor */{
+                                        "1": Caml_obj.caml_greaterthan(/* constructor */{
                                               tag: "::",
                                               "0": 2,
                                               "1": /* constructor */{
@@ -361,7 +361,7 @@ var suites = /* record */[/* contents : constructor */{
                                   return /* constructor */{
                                           tag: "Eq",
                                           "0": true,
-                                          "1": Caml_obj.caml_lessthan(/* constructor */{
+                                          "1": Caml_obj.caml_greaterthan(/* constructor */{
                                                 tag: "::",
                                                 "0": 1,
                                                 "1": "[]"
@@ -385,7 +385,7 @@ var suites = /* record */[/* contents : constructor */{
                                     return /* constructor */{
                                             tag: "Eq",
                                             "0": true,
-                                            "1": Caml_obj.caml_lessthan("[]", /* constructor */{
+                                            "1": Caml_obj.caml_greaterthan("[]", /* constructor */{
                                                   tag: "::",
                                                   "0": 409,
                                                   "1": "[]"
@@ -401,7 +401,7 @@ var suites = /* record */[/* contents : constructor */{
                                       return /* constructor */{
                                               tag: "Eq",
                                               "0": true,
-                                              "1": Caml_obj.caml_greaterthan(/* constructor */{
+                                              "1": Caml_obj.caml_lessthan(/* constructor */{
                                                     tag: "::",
                                                     "0": 2,
                                                     "1": /* constructor */{
@@ -1280,7 +1280,7 @@ function eq(loc, x, y) {
 
 eq("File \"caml_compare_test.ml\", line 112, characters 6-13", true, Caml_obj.caml_greaterthan(1, undefined));
 
-eq("File \"caml_compare_test.ml\", line 113, characters 6-13", true, Caml_obj.caml_lessthan("[]", /* constructor */{
+eq("File \"caml_compare_test.ml\", line 113, characters 6-13", true, Caml_obj.caml_greaterthan("[]", /* constructor */{
           tag: "::",
           "0": 1,
           "1": "[]"

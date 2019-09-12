@@ -218,6 +218,20 @@ function matchingNoBinarySearch(param) {
   }
 }
 
+function caml_bool_compare(x, y) {
+  if (x) {
+    if (y) {
+      return 0;
+    } else {
+      return 1;
+    }
+  } else if (y) {
+    return -1;
+  } else {
+    return 0;
+  }
+}
+
 var a1 = "A1";
 
 var a2 = "A2";
@@ -265,4 +279,5 @@ exports.len = len;
 exports.switchList = switchList;
 exports.switchMYList = switchMYList;
 exports.matchingNoBinarySearch = matchingNoBinarySearch;
+exports.caml_bool_compare = caml_bool_compare;
 /* len Not a pure module */

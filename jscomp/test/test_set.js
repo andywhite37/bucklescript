@@ -317,7 +317,7 @@ function Make(Ord) {
       var l1 = s1[0];
       var match = split(v1, s2);
       var l2 = match[0];
-      if (match[1] !== "false") {
+      if (match[1]) {
         return join(inter(l1, l2), v1, inter(r1, match[2]));
       } else {
         return concat(inter(l1, l2), inter(r1, match[2]));
@@ -334,7 +334,7 @@ function Make(Ord) {
         var l1 = s1[0];
         var match = split(v1, s2);
         var l2 = match[0];
-        if (match[1] !== "false") {
+        if (match[1]) {
           return concat(diff(l1, l2), diff(r1, match[2]));
         } else {
           return join(diff(l1, l2), v1, diff(r1, match[2]));

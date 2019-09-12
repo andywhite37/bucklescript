@@ -11,10 +11,10 @@ let eq loc x y =
 let foo x = int_of_string x != 3
 
 let badInlining obj =
-  if foo obj##field then ()
+  if foo obj##field then "bad" else "ok"
   
 
-;; eq __LOC__ (badInlining [%obj{field = "3" }]) ()
+;; eq __LOC__ (badInlining [%obj{field = "3" }]) "ok"
 
 ;; eq __LOC__ (int_of_string "-13") (-13)
 ;; eq __LOC__ (int_of_string "+13") 13

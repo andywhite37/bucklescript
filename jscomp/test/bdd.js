@@ -370,10 +370,16 @@ function random_vars(n) {
 }
 
 function bool_equal(a, b) {
-  if (a !== "false") {
-    return b !== "false";
+  if (a) {
+    if (b) {
+      return true;
+    } else {
+      return false;
+    }
+  } else if (b) {
+    return false;
   } else {
-    return b === "false";
+    return true;
   }
 }
 
