@@ -16,52 +16,40 @@ function f3(param, param$1) {
   var lhs = param[/* rank */0];
   var rhs = param$1[/* rank */0];
   if (typeof lhs === "string") {
-    throw [
-          Caml_builtin_exceptions.assert_failure,
-          /* tuple */[
-            "fun_pattern_match.ml",
-            43,
-            9
-          ]
-        ];
+    lhs === "Uninitialized";
+  } else if (typeof rhs === "string") {
+    rhs === "Uninitialized";
+  } else {
+    return Caml_primitive.caml_int_compare(lhs[0], rhs[0]);
   }
-  if (typeof rhs === "string") {
-    throw [
-          Caml_builtin_exceptions.assert_failure,
-          /* tuple */[
-            "fun_pattern_match.ml",
-            43,
-            9
-          ]
-        ];
-  }
-  return Caml_primitive.caml_int_compare(lhs[0], rhs[0]);
+  throw [
+        Caml_builtin_exceptions.assert_failure,
+        /* tuple */[
+          "fun_pattern_match.ml",
+          43,
+          9
+        ]
+      ];
 }
 
 function f4(param, param$1) {
   var lhs = param[/* rank */0];
   var rhs = param$1[/* rank */0];
   if (typeof lhs === "string") {
-    throw [
-          Caml_builtin_exceptions.assert_failure,
-          /* tuple */[
-            "fun_pattern_match.ml",
-            51,
-            9
-          ]
-        ];
+    lhs === "Uninitialized";
+  } else if (typeof rhs === "string") {
+    rhs === "Uninitialized";
+  } else {
+    return Caml_primitive.caml_int_compare(lhs[0], rhs[0]);
   }
-  if (typeof rhs === "string") {
-    throw [
-          Caml_builtin_exceptions.assert_failure,
-          /* tuple */[
-            "fun_pattern_match.ml",
-            51,
-            9
-          ]
-        ];
-  }
-  return Caml_primitive.caml_int_compare(lhs[0], rhs[0]);
+  throw [
+        Caml_builtin_exceptions.assert_failure,
+        /* tuple */[
+          "fun_pattern_match.ml",
+          51,
+          9
+        ]
+      ];
 }
 
 var x = /* `A */[

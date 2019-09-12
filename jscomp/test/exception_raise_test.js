@@ -32,11 +32,11 @@ function appf(g, x) {
       return 3;
     } else if (exn[0] === B) {
       var match = exn[1];
-      if (match) {
+      if (match !== "[]") {
         var match$1 = match[1];
-        if (match$1) {
+        if (match$1 !== "[]") {
           var match$2 = match$1[1];
-          if (match$2) {
+          if (match$2 !== "[]") {
             return match$2[0];
           }
           

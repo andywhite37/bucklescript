@@ -245,7 +245,6 @@ let primitive ppf (prim : Lam_primitive.t) = match prim with
     in
     fprintf ppf "sys.constant_%s" const_name
   | Pisint -> fprintf ppf "isint"
-  | Pisstring -> fprintf ppf "isstring"
   | Pisout -> fprintf ppf "isout"
   | Pbittest -> fprintf ppf "testbit"
   | Pbintofint bi -> print_boxed_integer "of_int" ppf bi

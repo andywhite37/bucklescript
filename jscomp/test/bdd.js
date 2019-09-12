@@ -8,7 +8,11 @@ function $$eval(_bdd, vars) {
   while(true) {
     var bdd = _bdd;
     if (typeof bdd === "string") {
-      return bdd === 0;
+      if (bdd === "One") {
+        return true;
+      } else {
+        return false;
+      }
     } else if (Caml_array.caml_array_get(vars, bdd[1])) {
       _bdd = bdd[3];
       continue ;
@@ -21,10 +25,10 @@ function $$eval(_bdd, vars) {
 
 function getId(bdd) {
   if (typeof bdd === "string") {
-    if (bdd !== 0) {
-      return 0;
-    } else {
+    if (bdd === "One") {
       return 1;
+    } else {
+      return 0;
     }
   } else {
     return bdd[2];
@@ -50,26 +54,38 @@ function resize(newSize) {
   var copyBucket = function (_bucket) {
     while(true) {
       var bucket = _bucket;
-      if (bucket) {
+      if (bucket !== "[]") {
         var n = bucket[0];
         if (typeof n === "string") {
-          throw [
-                Caml_builtin_exceptions.assert_failure,
-                /* tuple */[
-                  "bdd.ml",
-                  54,
-                  27
-                ]
-              ];
+          if (n === "One") {
+            throw [
+                  Caml_builtin_exceptions.assert_failure,
+                  /* tuple */[
+                    "bdd.ml",
+                    54,
+                    27
+                  ]
+                ];
+          } else {
+            throw [
+                  Caml_builtin_exceptions.assert_failure,
+                  /* tuple */[
+                    "bdd.ml",
+                    54,
+                    27
+                  ]
+                ];
+          }
+        } else {
+          var ind = hashVal(getId(n[0]), getId(n[3]), n[1]) & newSz_1;
+          Caml_array.caml_array_set(newArr, ind, /* constructor */{
+                tag: "::",
+                "0": n,
+                "1": Caml_array.caml_array_get(newArr, ind)
+              });
+          _bucket = bucket[1];
+          continue ;
         }
-        var ind = hashVal(getId(n[0]), getId(n[3]), n[1]) & newSz_1;
-        Caml_array.caml_array_set(newArr, ind, /* constructor */{
-              tag: "::",
-              "0": n,
-              "1": Caml_array.caml_array_get(newArr, ind)
-            });
-        _bucket = bucket[1];
-        continue ;
       } else {
         return "()";
       }
@@ -122,19 +138,29 @@ function mkNode(low, v, high) {
     var _b = bucket;
     while(true) {
       var b = _b;
-      if (b) {
+      if (b !== "[]") {
         var n = b[0];
         if (typeof n === "string") {
-          throw [
-                Caml_builtin_exceptions.assert_failure,
-                /* tuple */[
-                  "bdd.ml",
-                  99,
-                  31
-                ]
-              ];
-        }
-        if (v === n[1] && idl === getId(n[0]) && idh === getId(n[3])) {
+          if (n === "One") {
+            throw [
+                  Caml_builtin_exceptions.assert_failure,
+                  /* tuple */[
+                    "bdd.ml",
+                    99,
+                    31
+                  ]
+                ];
+          } else {
+            throw [
+                  Caml_builtin_exceptions.assert_failure,
+                  /* tuple */[
+                    "bdd.ml",
+                    99,
+                    31
+                  ]
+                ];
+          }
+        } else if (v === n[1] && idl === getId(n[0]) && idh === getId(n[3])) {
           return n;
         } else {
           _b = b[1];
@@ -191,10 +217,10 @@ function hash(x, y) {
 
 function not(n) {
   if (typeof n === "string") {
-    if (n !== 0) {
-      return "One";
-    } else {
+    if (n === "One") {
       return "Zero";
+    } else {
+      return "One";
     }
   } else {
     var id = n[2];
@@ -212,10 +238,10 @@ function not(n) {
 
 function and2(n1, n2) {
   if (typeof n1 === "string") {
-    if (n1 !== 0) {
-      return "Zero";
-    } else {
+    if (n1 === "One") {
       return n2;
+    } else {
+      return "Zero";
     }
   } else {
     var r1 = n1[3];
@@ -223,10 +249,10 @@ function and2(n1, n2) {
     var v1 = n1[1];
     var l1 = n1[0];
     if (typeof n2 === "string") {
-      if (n2 !== 0) {
-        return "Zero";
-      } else {
+      if (n2 === "One") {
         return n1;
+      } else {
+        return "Zero";
       }
     } else {
       var r2 = n2[3];
@@ -262,10 +288,10 @@ function and2(n1, n2) {
 
 function xor(n1, n2) {
   if (typeof n1 === "string") {
-    if (n1 !== 0) {
-      return n2;
-    } else {
+    if (n1 === "One") {
       return not(n2);
+    } else {
+      return n2;
     }
   } else {
     var r1 = n1[3];
@@ -273,10 +299,10 @@ function xor(n1, n2) {
     var v1 = n1[1];
     var l1 = n1[0];
     if (typeof n2 === "string") {
-      if (n2 !== 0) {
-        return n1;
-      } else {
+      if (n2 === "One") {
         return not(n1);
+      } else {
+        return n1;
       }
     } else {
       var r2 = n2[3];
@@ -344,16 +370,10 @@ function random_vars(n) {
 }
 
 function bool_equal(a, b) {
-  if (a) {
-    if (b) {
-      return true;
-    } else {
-      return false;
-    }
-  } else if (b) {
-    return false;
+  if (a !== "false") {
+    return b !== "false";
   } else {
-    return true;
+    return b === "false";
   }
 }
 

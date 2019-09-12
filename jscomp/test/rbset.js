@@ -3,7 +3,7 @@
 var Caml_builtin_exceptions = require("../../lib/js/caml_builtin_exceptions.js");
 
 function blackify(s) {
-  if (s && s[0]) {
+  if (s !== "Empty" && s[0] !== "Black") {
     return /* tuple */[
             /* constructor */{
               tag: "Node",
@@ -23,17 +23,13 @@ function blackify(s) {
 }
 
 function is_empty(param) {
-  if (param) {
-    return false;
-  } else {
-    return true;
-  }
+  return param === "Empty";
 }
 
 function mem(x, _param) {
   while(true) {
     var param = _param;
-    if (param) {
+    if (param !== "Empty") {
       var y = param[2];
       if (x === y) {
         return true;
@@ -59,9 +55,9 @@ function balance_left(l, x, r) {
   var c;
   var z;
   var d;
-  if (l && l[0]) {
+  if (l !== "Empty" && l[0] !== "Black") {
     var a$1 = l[1];
-    if (a$1 && a$1[0]) {
+    if (a$1 !== "Empty" && a$1[0] !== "Black") {
       a = a$1[1];
       x$1 = a$1[2];
       b = a$1[3];
@@ -72,7 +68,7 @@ function balance_left(l, x, r) {
       exit = 2;
     }
     var match = l[3];
-    if (match && match[0]) {
+    if (match !== "Empty" && match[0] !== "Black") {
       a = a$1;
       x$1 = l[2];
       b = match[1];
@@ -129,9 +125,9 @@ function balance_right(l, x, r) {
   var c;
   var z;
   var d;
-  if (r && r[0]) {
+  if (r !== "Empty" && r[0] !== "Black") {
     var b$1 = r[1];
-    if (b$1 && b$1[0]) {
+    if (b$1 !== "Empty" && b$1[0] !== "Black") {
       a = l;
       x$1 = x;
       b = b$1[1];
@@ -142,7 +138,7 @@ function balance_right(l, x, r) {
       exit = 2;
     }
     var match = r[3];
-    if (match && match[0]) {
+    if (match !== "Empty" && match[0] !== "Black") {
       a = l;
       x$1 = x;
       b = b$1;
@@ -201,10 +197,10 @@ function singleton(x) {
 }
 
 function unbalanced_left(param) {
-  if (param) {
-    if (param[0]) {
+  if (param !== "Empty") {
+    if (param[0] !== "Black") {
       var match = param[1];
-      if (match && !match[0]) {
+      if (match !== "Empty" && match[0] === "Black") {
         return /* tuple */[
                 balance_left(/* constructor */{
                       tag: "Node",
@@ -219,10 +215,10 @@ function unbalanced_left(param) {
       
     } else {
       var match$1 = param[1];
-      if (match$1) {
-        if (match$1[0]) {
+      if (match$1 !== "Empty") {
+        if (match$1[0] !== "Black") {
           var match$2 = match$1[3];
-          if (match$2 && !match$2[0]) {
+          if (match$2 !== "Empty" && match$2[0] === "Black") {
             return /* tuple */[
                     /* constructor */{
                       tag: "Node",
@@ -268,10 +264,10 @@ function unbalanced_left(param) {
 }
 
 function unbalanced_right(param) {
-  if (param) {
-    if (param[0]) {
+  if (param !== "Empty") {
+    if (param[0] !== "Black") {
       var match = param[3];
-      if (match && !match[0]) {
+      if (match !== "Empty" && match[0] === "Black") {
         return /* tuple */[
                 balance_right(param[1], param[2], /* constructor */{
                       tag: "Node",
@@ -286,12 +282,12 @@ function unbalanced_right(param) {
       
     } else {
       var match$1 = param[3];
-      if (match$1) {
+      if (match$1 !== "Empty") {
         var x = param[2];
         var a = param[1];
-        if (match$1[0]) {
+        if (match$1[0] !== "Black") {
           var match$2 = match$1[1];
-          if (match$2 && !match$2[0]) {
+          if (match$2 !== "Empty" && match$2[0] === "Black") {
             return /* tuple */[
                     /* constructor */{
                       tag: "Node",
@@ -337,11 +333,11 @@ function unbalanced_right(param) {
 }
 
 function lbalance(x1, x2, x3) {
-  if (x1) {
-    if (x1[0]) {
+  if (x1 !== "Empty") {
+    if (x1[0] !== "Black") {
       var r = x1[3];
       var l = x1[1];
-      if (l && l[0]) {
+      if (l !== "Empty" && l[0] !== "Black") {
         return /* constructor */{
                 tag: "Node",
                 "0": "Red",
@@ -362,8 +358,8 @@ function lbalance(x1, x2, x3) {
                 }
               };
       }
-      if (r) {
-        if (r[0]) {
+      if (r !== "Empty") {
+        if (r[0] !== "Black") {
           var y = r[2];
           return /* constructor */{
                   tag: "Node",
@@ -423,10 +419,10 @@ function lbalance(x1, x2, x3) {
 }
 
 function rbalance(x1, x2, x3) {
-  if (x3 && x3[0]) {
+  if (x3 !== "Empty" && x3[0] !== "Black") {
     var b = x3[1];
     var exit = 0;
-    if (b && b[0]) {
+    if (b !== "Empty" && b[0] !== "Black") {
       return /* constructor */{
               tag: "Node",
               "0": "Red",
@@ -451,7 +447,7 @@ function rbalance(x1, x2, x3) {
     }
     if (exit === 2) {
       var match = x3[3];
-      if (match && match[0]) {
+      if (match !== "Empty" && match[0] !== "Black") {
         return /* constructor */{
                 tag: "Node",
                 "0": "Red",
@@ -486,8 +482,8 @@ function rbalance(x1, x2, x3) {
 }
 
 function ins(x, s) {
-  if (s) {
-    if (s[0]) {
+  if (s !== "Empty") {
+    if (s[0] !== "Black") {
       var y = s[2];
       if (x === y) {
         return s;
@@ -539,7 +535,7 @@ function ins(x, s) {
 
 function add(x, s) {
   var s$1 = ins(x, s);
-  if (s$1 && s$1[0]) {
+  if (s$1 !== "Empty" && s$1[0] !== "Black") {
     return /* constructor */{
             tag: "Node",
             "0": "Black",
@@ -553,10 +549,10 @@ function add(x, s) {
 }
 
 function remove_min(param) {
-  if (param) {
+  if (param !== "Empty") {
     var c = param[0];
-    if (c) {
-      if (!param[1]) {
+    if (c !== "Black") {
+      if (param[1] === "Empty") {
         return /* tuple */[
                 param[3],
                 param[2],
@@ -564,11 +560,11 @@ function remove_min(param) {
               ];
       }
       
-    } else if (!param[1]) {
+    } else if (param[1] === "Empty") {
       var match = param[3];
       var x = param[2];
-      if (match) {
-        if (match[0]) {
+      if (match !== "Empty") {
+        if (match[0] !== "Black") {
           return /* tuple */[
                   /* constructor */{
                     tag: "Node",
@@ -634,13 +630,13 @@ function remove_min(param) {
 }
 
 function remove_aux(x, n) {
-  if (n) {
+  if (n !== "Empty") {
     var r = n[3];
     var y = n[2];
     var l = n[1];
     var c = n[0];
     if (x === y) {
-      if (r) {
+      if (r !== "Empty") {
         var match = remove_min(r);
         var n$1 = /* constructor */{
           tag: "Node",
@@ -713,7 +709,7 @@ function remove(x, s) {
 }
 
 function cardinal(param) {
-  if (param) {
+  if (param !== "Empty") {
     return (1 + cardinal(param[1]) | 0) + cardinal(param[3]) | 0;
   } else {
     return 0;

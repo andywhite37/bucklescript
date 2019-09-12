@@ -60,7 +60,7 @@ function make_enemy(param) {
                     128
                   ]);
     case "GKoopa" :
-        if (dir) {
+        if (dir !== "Left") {
           return setup_sprite(undefined, /* tuple */[
                       1,
                       10
@@ -90,7 +90,7 @@ function make_enemy(param) {
                     ]);
         }
     case "RKoopa" :
-        if (dir) {
+        if (dir !== "Left") {
           return setup_sprite(undefined, /* tuple */[
                       1,
                       10
@@ -253,10 +253,10 @@ function make_type(typ, dir) {
           typ[1],
           dir
         ];
-        if (pt) {
+        if (pt !== "BigM") {
           var param = spr_type;
           var typ$1 = param[0];
-          if (param[1]) {
+          if (param[1] !== "Left") {
             switch (typ$1) {
               case "Standing" :
                   return setup_sprite(undefined, /* tuple */[
@@ -380,7 +380,7 @@ function make_type(typ, dir) {
         } else {
           var param$1 = spr_type;
           var typ$2 = param$1[0];
-          if (param$1[1]) {
+          if (param$1[1] !== "Left") {
             switch (typ$2) {
               case "Standing" :
                   return setup_sprite(undefined, /* tuple */[
@@ -701,18 +701,20 @@ function pair_to_xy(pair) {
 }
 
 function make_type$1(typ, ctx) {
-  if (typ === 2 || typ === 1) {
-    return /* record */[
-            /* sprite */make_particle$1(typ, ctx),
-            /* rot */0,
-            /* lifetime */300
-          ];
-  } else {
-    return /* record */[
-            /* sprite */make_particle$1(typ, ctx),
-            /* rot */0,
-            /* lifetime */30
-          ];
+  switch (typ) {
+    case "BrickChunkL" :
+    case "BrickChunkR" :
+        return /* record */[
+                /* sprite */make_particle$1(typ, ctx),
+                /* rot */0,
+                /* lifetime */300
+              ];
+    default:
+      return /* record */[
+              /* sprite */make_particle$1(typ, ctx),
+              /* rot */0,
+              /* lifetime */30
+            ];
   }
 }
 
@@ -804,7 +806,7 @@ function setup_obj($staropt$star, $staropt$star$1, param) {
 function set_vel_to_speed(obj) {
   var speed = obj[/* params */0][/* speed */1];
   var match = obj[/* dir */6];
-  if (match) {
+  if (match !== "Left") {
     obj[/* vel */2][/* x */0] = speed;
     return /* () */0;
   } else {
@@ -819,14 +821,16 @@ function make_type$2(param) {
         return setup_obj(undefined, 2.8, "()");
     case "SEnemy" :
         var param$1 = param[0];
-        if (param$1 >= 3) {
-          return setup_obj(undefined, 3, "()");
-        } else {
-          return setup_obj(undefined, undefined, "()");
+        switch (param$1) {
+          case "GKoopaShell" :
+          case "RKoopaShell" :
+              return setup_obj(undefined, 3, "()");
+          default:
+            return setup_obj(undefined, undefined, "()");
         }
     case "SItem" :
         var param$2 = param[0];
-        if (param$2 >= 3) {
+        if (param$2 === "Coin") {
           return setup_obj(false, undefined, "()");
         } else {
           return setup_obj(undefined, undefined, "()");
@@ -1099,29 +1103,39 @@ function normalize_origin(pos, spr) {
 
 function collide_block($staropt$star, dir, obj) {
   var check_x = $staropt$star !== undefined ? $staropt$star : true;
-  if (dir !== 1) {
-    if (dir !== 0) {
-      if (check_x) {
-        obj[/* vel */2][/* x */0] = 0;
+  switch (dir) {
+    case "North" :
+        obj[/* vel */2][/* y */1] = -0.001;
         return /* () */0;
-      } else {
-        return 0;
-      }
-    } else {
-      obj[/* vel */2][/* y */1] = -0.001;
-      return /* () */0;
-    }
-  } else {
-    obj[/* vel */2][/* y */1] = 0;
-    obj[/* grounded */5] = true;
-    obj[/* jumping */4] = false;
+    case "South" :
+        obj[/* vel */2][/* y */1] = 0;
+        obj[/* grounded */5] = true;
+        obj[/* jumping */4] = false;
+        return /* () */0;
+    case "East" :
+    case "West" :
+        break;
+    
+  }
+  if (check_x) {
+    obj[/* vel */2][/* x */0] = 0;
     return /* () */0;
+  } else {
+    return 0;
+  }
+}
+
+function opposite_dir(dir) {
+  if (dir !== "Left") {
+    return "Left";
+  } else {
+    return "Right";
   }
 }
 
 function reverse_left_right(obj) {
   obj[/* vel */2][/* x */0] = -obj[/* vel */2][/* x */0];
-  obj[/* dir */6] = obj[/* dir */6] ? "Left" : "Right";
+  obj[/* dir */6] = opposite_dir(obj[/* dir */6]);
   return /* () */0;
 }
 
@@ -1225,7 +1239,7 @@ function spawn_above(player_dir, obj, typ, context) {
       ]);
   var item_obj = item[2];
   item_obj[/* pos */1][/* y */1] = item_obj[/* pos */1][/* y */1] - item[1][/* params */0][/* frame_size */3][1];
-  item_obj[/* dir */6] = player_dir ? "Left" : "Right";
+  item_obj[/* dir */6] = opposite_dir(player_dir);
   set_vel_to_speed(item_obj);
   return item;
 }
@@ -1339,17 +1353,16 @@ function kill(collid, ctx) {
               "0": make_score(o[/* score */11], pos, ctx),
               "1": "[]"
             }) : "[]";
-        var remains = collid[0] !== 0 ? "[]" : /* constructor */({
+        var remains;
+        remains = collid[0] === "Goomba" ? /* constructor */({
               tag: "::",
               "0": make$1(undefined, undefined, "GoombaSquish", pos, ctx),
               "1": "[]"
-            });
+            }) : "[]";
         return Pervasives.$at(score, remains);
     case "Item" :
         var o$1 = collid[2];
-        if (collid[0] !== 0) {
-          return "[]";
-        } else {
+        if (collid[0] === "Mushroom") {
           return /* constructor */{
                   tag: "::",
                   "0": make_score(o$1[/* score */11], /* tuple */[
@@ -1358,11 +1371,13 @@ function kill(collid, ctx) {
                       ], ctx),
                   "1": "[]"
                 };
+        } else {
+          return "[]";
         }
     case "Block" :
         var o$2 = collid[2];
-        var t = collid[0];
-        if (typeof t === "string" && t === 1) {
+        var tmp = collid[0];
+        if (typeof tmp === "string" && tmp === "Brick") {
           var pos_000$1 = o$2[/* pos */1][/* x */0];
           var pos_001$1 = o$2[/* pos */1][/* y */1];
           var pos$1 = /* tuple */[
@@ -1647,9 +1662,10 @@ function process_collision(dir, c1, c2, state) {
   var o1$2;
   var t2$1;
   var o2$2;
+  var o1$3;
   switch (/* XXX */c1.tag) {
     case "Player" :
-        var o1$3 = c1[2];
+        var o1$4 = c1[2];
         var s1$2 = c1[1];
         switch (/* XXX */c2.tag) {
           case "Player" :
@@ -1661,24 +1677,24 @@ function process_collision(dir, c1, c2, state) {
               var o2$3 = c2[2];
               var s2$2 = c2[1];
               var typ$1 = c2[0];
-              if (dir !== 1) {
-                s1$1 = s1$2;
-                o1$1 = o1$3;
-                t2 = typ$1;
-                s2$1 = s2$2;
-                o2$1 = o2$3;
-                exit = 2;
-              } else {
+              if (dir === "South") {
                 s1 = s1$2;
-                o1 = o1$3;
+                o1 = o1$4;
                 typ = typ$1;
                 s2 = s2$2;
                 o2 = o2$3;
                 exit = 1;
+              } else {
+                s1$1 = s1$2;
+                o1$1 = o1$4;
+                t2 = typ$1;
+                s2$1 = s2$2;
+                o2$1 = o2$3;
+                exit = 2;
               }
               break;
           case "Item" :
-              o1$2 = o1$3;
+              o1$2 = o1$4;
               t2$1 = c2[0];
               o2$2 = c2[2];
               exit = 3;
@@ -1686,160 +1702,191 @@ function process_collision(dir, c1, c2, state) {
           case "Block" :
               var o2$4 = c2[2];
               var t = c2[0];
-              if (dir !== 0) {
-                if (typeof t === "string" && t === 4) {
+              if (dir === "North") {
+                if (typeof t === "string") {
+                  switch (t) {
+                    case "Brick" :
+                        if (c1[0] === "BigM") {
+                          collide_block(undefined, dir, o1$4);
+                          dec_health(o2$4);
+                          return /* tuple */[
+                                  undefined,
+                                  undefined
+                                ];
+                        } else {
+                          collide_block(undefined, dir, o1$4);
+                          return /* tuple */[
+                                  undefined,
+                                  undefined
+                                ];
+                        }
+                    case "Panel" :
+                        game_win(state[/* ctx */1]);
+                        return /* tuple */[
+                                undefined,
+                                undefined
+                              ];
+                    default:
+                      collide_block(undefined, dir, o1$4);
+                      return /* tuple */[
+                              undefined,
+                              undefined
+                            ];
+                  }
+                } else {
+                  var updated_block = evolve_block(o2$4, context);
+                  var spawned_item = spawn_above(o1$4[/* dir */6], o2$4, t[0], context);
+                  collide_block(undefined, dir, o1$4);
+                  return /* tuple */[
+                          spawned_item,
+                          updated_block
+                        ];
+                }
+              } else {
+                if (typeof t === "string" && t === "Panel") {
                   game_win(state[/* ctx */1]);
                   return /* tuple */[
                           undefined,
                           undefined
                         ];
                 }
-                if (dir !== 1) {
-                  collide_block(undefined, dir, o1$3);
-                  return /* tuple */[
-                          undefined,
-                          undefined
-                        ];
-                } else {
+                if (dir === "South") {
                   state[/* multiplier */6] = 1;
-                  collide_block(undefined, dir, o1$3);
-                  return /* tuple */[
-                          undefined,
-                          undefined
-                        ];
-                }
-              } else if (typeof t === "string") {
-                if (t !== 1) {
-                  if (t !== 4) {
-                    collide_block(undefined, dir, o1$3);
-                    return /* tuple */[
-                            undefined,
-                            undefined
-                          ];
-                  } else {
-                    game_win(state[/* ctx */1]);
-                    return /* tuple */[
-                            undefined,
-                            undefined
-                          ];
-                  }
-                } else if (c1[0] === "BigM") {
-                  collide_block(undefined, dir, o1$3);
-                  dec_health(o2$4);
+                  collide_block(undefined, dir, o1$4);
                   return /* tuple */[
                           undefined,
                           undefined
                         ];
                 } else {
-                  collide_block(undefined, dir, o1$3);
+                  collide_block(undefined, dir, o1$4);
                   return /* tuple */[
                           undefined,
                           undefined
                         ];
                 }
-              } else {
-                var updated_block = evolve_block(o2$4, context);
-                var spawned_item = spawn_above(o1$3[/* dir */6], o2$4, t[0], context);
-                collide_block(undefined, dir, o1$3);
-                return /* tuple */[
-                        spawned_item,
-                        updated_block
-                      ];
               }
               break;
           
         }
         break;
     case "Enemy" :
-        var o1$4 = c1[2];
+        var o1$5 = c1[2];
         var s1$3 = c1[1];
         var t1 = c1[0];
         switch (/* XXX */c2.tag) {
           case "Player" :
-              var o1$5 = c2[2];
+              var o1$6 = c2[2];
               var s1$4 = c2[1];
-              if (dir !== 0) {
-                s1$1 = s1$4;
-                o1$1 = o1$5;
-                t2 = t1;
-                s2$1 = s1$3;
-                o2$1 = o1$4;
-                exit = 2;
-              } else {
+              if (dir === "North") {
                 s1 = s1$4;
-                o1 = o1$5;
+                o1 = o1$6;
                 typ = t1;
                 s2 = s1$3;
-                o2 = o1$4;
+                o2 = o1$5;
                 exit = 1;
+              } else {
+                s1$1 = s1$4;
+                o1$1 = o1$6;
+                t2 = t1;
+                s2$1 = s1$3;
+                o2$1 = o1$5;
+                exit = 2;
               }
               break;
           case "Enemy" :
               var t1$1 = t1;
               var s1$5 = s1$3;
-              var o1$6 = o1$4;
+              var o1$7 = o1$5;
               var t2$2 = c2[0];
               var s2$3 = c2[1];
               var o2$5 = c2[2];
               var dir$1 = dir;
-              if (t1$1 !== 3) {
-                if (t1$1 >= 4) {
-                  if (t2$2 >= 3) {
-                    dec_health(o1$6);
+              var exit$1 = 0;
+              switch (t1$1) {
+                case "GKoopaShell" :
+                    switch (t2$2) {
+                      case "GKoopaShell" :
+                      case "RKoopaShell" :
+                          exit$1 = 1;
+                          break;
+                      default:
+                        exit$1 = 2;
+                    }
+                    break;
+                case "RKoopaShell" :
+                    switch (t2$2) {
+                      case "GKoopaShell" :
+                      case "RKoopaShell" :
+                          exit$1 = 1;
+                          break;
+                      default:
+                        exit$1 = 2;
+                    }
+                    break;
+                default:
+                  switch (t2$2) {
+                    case "GKoopaShell" :
+                    case "RKoopaShell" :
+                        exit$1 = 3;
+                        break;
+                    default:
+                      switch (dir$1) {
+                        case "North" :
+                        case "South" :
+                            return /* tuple */[
+                                    undefined,
+                                    undefined
+                                  ];
+                        case "East" :
+                        case "West" :
+                            break;
+                        
+                      }
+                      rev_dir(o1$7, t1$1, s1$5);
+                      rev_dir(o2$5, t2$2, s2$3);
+                      return /* tuple */[
+                              undefined,
+                              undefined
+                            ];
+                  }
+              }
+              switch (exit$1) {
+                case 1 :
+                    dec_health(o1$7);
                     dec_health(o2$5);
                     return /* tuple */[
                             undefined,
                             undefined
                           ];
-                  }
-                  
-                } else if (t2$2 >= 3) {
-                  if (o2$5[/* vel */2][/* x */0] === 0) {
-                    rev_dir(o1$6, t1$1, s1$5);
-                    return /* tuple */[
-                            undefined,
-                            undefined
-                          ];
-                  } else {
-                    dec_health(o1$6);
-                    return /* tuple */[
-                            undefined,
-                            undefined
-                          ];
-                  }
-                } else if (dir$1 >= 2) {
-                  rev_dir(o1$6, t1$1, s1$5);
-                  rev_dir(o2$5, t2$2, s2$3);
-                  return /* tuple */[
-                          undefined,
-                          undefined
-                        ];
-                } else {
-                  return /* tuple */[
-                          undefined,
-                          undefined
-                        ];
-                }
-              } else if (t2$2 >= 3) {
-                dec_health(o1$6);
-                dec_health(o2$5);
-                return /* tuple */[
-                        undefined,
-                        undefined
-                      ];
-              }
-              if (o1$6[/* vel */2][/* x */0] === 0) {
-                rev_dir(o2$5, t2$2, s2$3);
-                return /* tuple */[
-                        undefined,
-                        undefined
-                      ];
-              } else {
-                dec_health(o2$5);
-                return /* tuple */[
-                        undefined,
-                        undefined
-                      ];
+                case 2 :
+                    if (o1$7[/* vel */2][/* x */0] === 0) {
+                      rev_dir(o2$5, t2$2, s2$3);
+                      return /* tuple */[
+                              undefined,
+                              undefined
+                            ];
+                    } else {
+                      dec_health(o2$5);
+                      return /* tuple */[
+                              undefined,
+                              undefined
+                            ];
+                    }
+                case 3 :
+                    if (o2$5[/* vel */2][/* x */0] === 0) {
+                      rev_dir(o1$7, t1$1, s1$5);
+                      return /* tuple */[
+                              undefined,
+                              undefined
+                            ];
+                    } else {
+                      dec_health(o1$7);
+                      return /* tuple */[
+                              undefined,
+                              undefined
+                            ];
+                    }
+                
               }
           case "Item" :
               return /* tuple */[
@@ -1849,46 +1896,53 @@ function process_collision(dir, c1, c2, state) {
           case "Block" :
               var o2$6 = c2[2];
               var t2$3 = c2[0];
-              if (dir >= 2) {
-                if (t1 >= 3) {
-                  if (typeof t2$3 === "string") {
-                    if (t2$3 !== 1) {
-                      rev_dir(o1$4, t1, s1$3);
-                      return /* tuple */[
-                              undefined,
-                              undefined
-                            ];
-                    } else {
-                      dec_health(o2$6);
-                      reverse_left_right(o1$4);
-                      return /* tuple */[
-                              undefined,
-                              undefined
-                            ];
-                    }
-                  } else {
-                    var updated_block$1 = evolve_block(o2$6, context);
-                    var spawned_item$1 = spawn_above(o1$4[/* dir */6], o2$6, t2$3[0], context);
-                    rev_dir(o1$4, t1, s1$3);
-                    return /* tuple */[
-                            updated_block$1,
-                            spawned_item$1
-                          ];
-                  }
+              switch (dir) {
+                case "North" :
+                case "South" :
+                    o1$3 = o1$5;
+                    exit = 4;
+                    break;
+                case "East" :
+                case "West" :
+                    break;
+                
+              }
+              switch (t1) {
+                case "GKoopaShell" :
+                case "RKoopaShell" :
+                    break;
+                default:
+                  rev_dir(o1$5, t1, s1$3);
+                  return /* tuple */[
+                          undefined,
+                          undefined
+                        ];
+              }
+              if (typeof t2$3 === "string") {
+                if (t2$3 === "Brick") {
+                  dec_health(o2$6);
+                  reverse_left_right(o1$5);
+                  return /* tuple */[
+                          undefined,
+                          undefined
+                        ];
                 } else {
-                  rev_dir(o1$4, t1, s1$3);
+                  rev_dir(o1$5, t1, s1$3);
                   return /* tuple */[
                           undefined,
                           undefined
                         ];
                 }
               } else {
-                collide_block(undefined, dir, o1$4);
+                var updated_block$1 = evolve_block(o2$6, context);
+                var spawned_item$1 = spawn_above(o1$5[/* dir */6], o2$6, t2$3[0], context);
+                rev_dir(o1$5, t1, s1$3);
                 return /* tuple */[
-                        undefined,
-                        undefined
+                        updated_block$1,
+                        spawned_item$1
                       ];
               }
+              break;
           
         }
         break;
@@ -1908,19 +1962,22 @@ function process_collision(dir, c1, c2, state) {
                       undefined
                     ];
           case "Block" :
-              if (dir >= 2) {
-                reverse_left_right(o2$7);
-                return /* tuple */[
-                        undefined,
-                        undefined
-                      ];
-              } else {
-                collide_block(undefined, dir, o2$7);
-                return /* tuple */[
-                        undefined,
-                        undefined
-                      ];
+              switch (dir) {
+                case "North" :
+                case "South" :
+                    o1$3 = o2$7;
+                    exit = 4;
+                    break;
+                case "East" :
+                case "West" :
+                    reverse_left_right(o2$7);
+                    return /* tuple */[
+                            undefined,
+                            undefined
+                          ];
+                
               }
+              break;
           
         }
         break;
@@ -1933,96 +1990,110 @@ function process_collision(dir, c1, c2, state) {
   }
   switch (exit) {
     case 1 :
-        var o1$7 = o1;
+        var o1$8 = o1;
         var typ$2 = typ;
         var s2$4 = s2;
         var o2$8 = o2;
         var state$1 = state;
         var context$1 = context;
-        o1$7[/* invuln */7] = 10;
-        o1$7[/* jumping */4] = false;
-        o1$7[/* grounded */5] = true;
-        if (typ$2 >= 3) {
-          var r2 = evolve_enemy(o1$7[/* dir */6], typ$2, s2$4, o2$8, context$1);
-          o1$7[/* vel */2][/* y */1] = -4;
-          o1$7[/* pos */1][/* y */1] = o1$7[/* pos */1][/* y */1] - 5;
-          return /* tuple */[
-                  undefined,
-                  r2
-                ];
-        } else {
-          dec_health(o2$8);
-          o1$7[/* vel */2][/* y */1] = -4;
-          if (state$1[/* multiplier */6] === 8) {
-            update_score(state$1, 800);
-            o2$8[/* score */11] = 800;
-            return /* tuple */[
-                    undefined,
-                    evolve_enemy(o1$7[/* dir */6], typ$2, s2$4, o2$8, context$1)
-                  ];
-          } else {
-            var score = Caml_int32.imul(100, state$1[/* multiplier */6]);
-            update_score(state$1, score);
-            o2$8[/* score */11] = score;
-            state$1[/* multiplier */6] = (state$1[/* multiplier */6] << 1);
-            return /* tuple */[
-                    undefined,
-                    evolve_enemy(o1$7[/* dir */6], typ$2, s2$4, o2$8, context$1)
-                  ];
-          }
+        o1$8[/* invuln */7] = 10;
+        o1$8[/* jumping */4] = false;
+        o1$8[/* grounded */5] = true;
+        switch (typ$2) {
+          case "GKoopaShell" :
+          case "RKoopaShell" :
+              break;
+          default:
+            dec_health(o2$8);
+            o1$8[/* vel */2][/* y */1] = -4;
+            if (state$1[/* multiplier */6] === 8) {
+              update_score(state$1, 800);
+              o2$8[/* score */11] = 800;
+              return /* tuple */[
+                      undefined,
+                      evolve_enemy(o1$8[/* dir */6], typ$2, s2$4, o2$8, context$1)
+                    ];
+            } else {
+              var score = Caml_int32.imul(100, state$1[/* multiplier */6]);
+              update_score(state$1, score);
+              o2$8[/* score */11] = score;
+              state$1[/* multiplier */6] = (state$1[/* multiplier */6] << 1);
+              return /* tuple */[
+                      undefined,
+                      evolve_enemy(o1$8[/* dir */6], typ$2, s2$4, o2$8, context$1)
+                    ];
+            }
         }
+        var r2 = evolve_enemy(o1$8[/* dir */6], typ$2, s2$4, o2$8, context$1);
+        o1$8[/* vel */2][/* y */1] = -4;
+        o1$8[/* pos */1][/* y */1] = o1$8[/* pos */1][/* y */1] - 5;
+        return /* tuple */[
+                undefined,
+                r2
+              ];
     case 2 :
-        var o1$8 = o1$1;
+        var o1$9 = o1$1;
         var t2$4 = t2;
         var s2$5 = s2$1;
         var o2$9 = o2$1;
         var context$2 = context;
-        if (t2$4 >= 3) {
-          var r2$1 = o2$9[/* vel */2][/* x */0] === 0 ? evolve_enemy(o1$8[/* dir */6], t2$4, s2$5, o2$9, context$2) : (dec_health(o1$8), o1$8[/* invuln */7] = 60, undefined);
-          return /* tuple */[
-                  undefined,
-                  r2$1
-                ];
-        } else {
-          dec_health(o1$8);
-          o1$8[/* invuln */7] = 60;
-          return /* tuple */[
-                  undefined,
-                  undefined
-                ];
+        switch (t2$4) {
+          case "GKoopaShell" :
+          case "RKoopaShell" :
+              break;
+          default:
+            dec_health(o1$9);
+            o1$9[/* invuln */7] = 60;
+            return /* tuple */[
+                    undefined,
+                    undefined
+                  ];
         }
+        var r2$1 = o2$9[/* vel */2][/* x */0] === 0 ? evolve_enemy(o1$9[/* dir */6], t2$4, s2$5, o2$9, context$2) : (dec_health(o1$9), o1$9[/* invuln */7] = 60, undefined);
+        return /* tuple */[
+                undefined,
+                r2$1
+              ];
     case 3 :
-        if (t2$1 !== 0) {
-          if (t2$1 >= 3) {
-            state[/* coins */5] = state[/* coins */5] + 1 | 0;
-            dec_health(o2$2);
-            update_score(state, 100);
-            return /* tuple */[
-                    undefined,
-                    undefined
-                  ];
-          } else {
-            dec_health(o2$2);
-            update_score(state, 1000);
-            return /* tuple */[
-                    undefined,
-                    undefined
-                  ];
-          }
-        } else {
-          dec_health(o2$2);
-          if (o1$2[/* health */9] !== 2) {
-            o1$2[/* health */9] = o1$2[/* health */9] + 1 | 0;
-          }
-          o1$2[/* vel */2][/* x */0] = 0;
-          o1$2[/* vel */2][/* y */1] = 0;
-          update_score(state, 1000);
-          o2$2[/* score */11] = 1000;
-          return /* tuple */[
-                  undefined,
-                  undefined
-                ];
+        switch (t2$1) {
+          case "Mushroom" :
+              dec_health(o2$2);
+              if (o1$2[/* health */9] !== 2) {
+                o1$2[/* health */9] = o1$2[/* health */9] + 1 | 0;
+              }
+              o1$2[/* vel */2][/* x */0] = 0;
+              o1$2[/* vel */2][/* y */1] = 0;
+              update_score(state, 1000);
+              o2$2[/* score */11] = 1000;
+              return /* tuple */[
+                      undefined,
+                      undefined
+                    ];
+          case "FireFlower" :
+          case "Star" :
+              break;
+          case "Coin" :
+              state[/* coins */5] = state[/* coins */5] + 1 | 0;
+              dec_health(o2$2);
+              update_score(state, 100);
+              return /* tuple */[
+                      undefined,
+                      undefined
+                    ];
+          
         }
+        dec_health(o2$2);
+        update_score(state, 1000);
+        return /* tuple */[
+                undefined,
+                undefined
+              ];
+    case 4 :
+        collide_block(undefined, dir, o1$3);
+        return /* tuple */[
+                undefined,
+                undefined
+              ];
     
   }
 }
@@ -2053,7 +2124,7 @@ function check_collisions(collid, all_collids, state) {
     while(true) {
       var acc = _acc;
       var cs$1 = _cs;
-      if (cs$1) {
+      if (cs$1 !== "[]") {
         var h = cs$1[0];
         var c_obj = c$1[2];
         var new_objs;
@@ -2422,7 +2493,7 @@ var Director = {
 function mem_loc(checkloc, _loclist) {
   while(true) {
     var loclist = _loclist;
-    if (loclist) {
+    if (loclist !== "[]") {
       if (Caml_obj.caml_equal(checkloc, loclist[0][1])) {
         return true;
       } else {
@@ -2436,7 +2507,7 @@ function mem_loc(checkloc, _loclist) {
 }
 
 function convert_list(lst) {
-  if (lst) {
+  if (lst !== "[]") {
     var h = lst[0];
     return Pervasives.$at(/* constructor */{
                 tag: "::",
@@ -2496,7 +2567,7 @@ function choose_sblock_typ(typ) {
 function avoid_overlap(_lst, currentLst) {
   while(true) {
     var lst = _lst;
-    if (lst) {
+    if (lst !== "[]") {
       var t = lst[1];
       var h = lst[0];
       if (mem_loc(h[1], currentLst)) {
@@ -2518,7 +2589,7 @@ function avoid_overlap(_lst, currentLst) {
 function trim_edges(_lst, blockw, blockh) {
   while(true) {
     var lst = _lst;
-    if (lst) {
+    if (lst !== "[]") {
       var t = lst[1];
       var h = lst[0];
       var cx = h[1][0];
@@ -2563,7 +2634,7 @@ function generate_coins(_block_coord) {
   while(true) {
     var block_coord = _block_coord;
     var place_coin = Random.$$int(2);
-    if (block_coord) {
+    if (block_coord !== "[]") {
       var t = block_coord[1];
       var h = block_coord[0];
       if (place_coin === 0) {
@@ -3090,7 +3161,7 @@ function generate_block_enemies(_block_coord) {
     var block_coord = _block_coord;
     var place_enemy = Random.$$int(20);
     var enemy_typ = Random.$$int(3);
-    if (block_coord) {
+    if (block_coord !== "[]") {
       var t = block_coord[1];
       var h = block_coord[0];
       if (place_enemy === 0) {
@@ -3208,7 +3279,7 @@ function generate_ground(blockw, blockh, _inc, _acc) {
 }
 
 function convert_to_block_obj(lst, context) {
-  if (lst) {
+  if (lst !== "[]") {
     var h = lst[0];
     var sblock_typ = choose_sblock_typ(h[0]);
     var ob = spawn(/* constructor */{
@@ -3226,7 +3297,7 @@ function convert_to_block_obj(lst, context) {
 }
 
 function convert_to_enemy_obj(lst, context) {
-  if (lst) {
+  if (lst !== "[]") {
     var h = lst[0];
     var senemy_typ = choose_enemy_typ(h[0]);
     var ob = spawn(/* constructor */{
@@ -3244,7 +3315,7 @@ function convert_to_enemy_obj(lst, context) {
 }
 
 function convert_to_coin_obj(lst, context) {
-  if (lst) {
+  if (lst !== "[]") {
     var ob = spawn(/* constructor */{
           tag: "SItem",
           "0": "Coin"

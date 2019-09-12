@@ -63,7 +63,7 @@ function Make(funarg) {
         var rest_of_stack$1 = _rest_of_stack;
         var top$1 = _top;
         var successors = _successors;
-        if (successors) {
+        if (successors !== "[]") {
           var successor = successors[0];
           if (find_default(already_processed, successor)) {
             var x = find_default(on_the_stack, successor) ? Curry._2(H.find, n_labels, successor) : Curry._2(H.find, l_labels, successor);
@@ -95,7 +95,7 @@ function Make(funarg) {
                   "Graph.Mincut: graph not reducible"
                 ];
           }
-          if (rest_of_stack$1) {
+          if (rest_of_stack$1 !== "[]") {
             var match = rest_of_stack$1[0];
             var new_top = match[0];
             Curry._3(H.add, on_the_stack, top$1, false);

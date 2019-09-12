@@ -37,7 +37,7 @@ function from_tokens(lst) {
   var l = /* record */[/* contents */lst];
   return (function (param) {
       var match = l[0];
-      if (match) {
+      if (match !== "[]") {
         l[0] = match[1];
         return match[0];
       } else {

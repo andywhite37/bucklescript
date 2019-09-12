@@ -310,7 +310,7 @@ function next(param) {
       };
       while(true) {
         var param$1 = _param;
-        if (param$1) {
+        if (param$1 !== "[]") {
           var lop = param$1[0];
           if (Caml_string.get(lop, 0) === ch$2 && Caml_string.get(lop, 1) === peekch("()")) {
             Curry._1(getch, "()");
@@ -502,7 +502,7 @@ function patchlval(param) {
 }
 
 function read(param) {
-  if (param) {
+  if (param !== "Int") {
     out(4722614);
     le(8, 0);
     lval[0] = /* tuple */[
@@ -1299,7 +1299,7 @@ function decl(g, _n, _stk) {
     var n = _n;
     var t = Curry._1(next$1, "()");
     if (Caml_obj.caml_equal(t, tokint)) {
-      var top = stk ? stk[0][1] : 0;
+      var top = stk !== "[]" ? stk[0][1] : 0;
       var vars = (function(top){
       return function vars(_n, _stk) {
         while(true) {

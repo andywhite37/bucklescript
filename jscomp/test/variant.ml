@@ -89,3 +89,21 @@ let switchMYList = function
   | Cons(_, E) -> 1
   | Cons (_, Cons(_, E)) -> 2
   | _ -> assert false
+
+type t =
+  | A1
+  | A2
+  | A3
+  | A4
+  | A5
+  | A6
+  | A7
+
+let matchingNoBinarySearch = function
+  | A1
+  | A2
+  | A3
+  | A4 -> 1
+  | A5
+  | A6
+  | A7 -> 2

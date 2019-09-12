@@ -19,7 +19,7 @@ function b(loc, v) {
 
 function f0(x) {
   var match = x[1];
-  if (match !== undefined && match) {
+  if (match !== undefined && match !== "false") {
     return 1;
   } else {
     return 2;
@@ -27,7 +27,7 @@ function f0(x) {
 }
 
 function f1(u) {
-  if (u) {
+  if (u !== "None") {
     return 0;
   } else {
     return 1;

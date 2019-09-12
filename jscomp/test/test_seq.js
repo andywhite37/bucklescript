@@ -15,7 +15,7 @@ var Stop = Caml_exceptions.create("Test_seq.Stop");
 function assoc3(x, _l) {
   while(true) {
     var l = _l;
-    if (l) {
+    if (l !== "[]") {
       var match = l[0];
       if (Caml_obj.caml_equal(match[0], x)) {
         return match[1];

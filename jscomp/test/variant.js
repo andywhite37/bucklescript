@@ -29,7 +29,7 @@ function foo(param) {
 }
 
 function fooA1(param) {
-  if (typeof param === "string" && param === 0) {
+  if (typeof param === "string" && param === "A1") {
     return 1;
   } else {
     return 42;
@@ -153,10 +153,10 @@ var l = /* constructor */{
 var len = List.length(l);
 
 function switchList(param) {
-  if (param) {
+  if (param !== "[]") {
     var match = param[1];
-    if (match) {
-      if (match[1]) {
+    if (match !== "[]") {
+      if (match[1] !== "[]") {
         throw [
               Caml_builtin_exceptions.assert_failure,
               /* tuple */[
@@ -178,20 +178,20 @@ function switchList(param) {
 
 function switchMYList(param) {
   if (typeof param === "string") {
-    if (param === 0) {
+    if (param === "E") {
       return 0;
     }
     
   } else {
     var match = param[1];
     if (typeof match === "string") {
-      if (match === 0) {
+      if (match === "E") {
         return 1;
       }
       
     } else {
-      var match$1 = match[1];
-      if (typeof match$1 === "string" && match$1 === 0) {
+      var tmp = match[1];
+      if (typeof tmp === "string" && tmp === "E") {
         return 2;
       }
       
@@ -205,6 +205,17 @@ function switchMYList(param) {
           9
         ]
       ];
+}
+
+function matchingNoBinarySearch(param) {
+  switch (param) {
+    case "A5" :
+    case "A6" :
+    case "A7" :
+        return 2;
+    default:
+      return 1;
+  }
 }
 
 var a1 = "A1";
@@ -253,4 +264,5 @@ exports.l = l;
 exports.len = len;
 exports.switchList = switchList;
 exports.switchMYList = switchMYList;
+exports.matchingNoBinarySearch = matchingNoBinarySearch;
 /* len Not a pure module */

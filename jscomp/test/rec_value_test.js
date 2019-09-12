@@ -268,21 +268,18 @@ var suites = /* constructor */{
       "mutual",
       (function (param) {
           var tmp;
-          if (a) {
+          var exit = 0;
+          if (a !== "[]" && b !== "[]" && c !== "[]" && a !== "[]") {
             var match = a[1];
-            if (match) {
+            if (match !== "[]") {
               tmp = match[0];
             } else {
-              throw [
-                    Caml_builtin_exceptions.assert_failure,
-                    /* tuple */[
-                      "rec_value_test.ml",
-                      108,
-                      2
-                    ]
-                  ];
+              exit = 1;
             }
           } else {
+            exit = 1;
+          }
+          if (exit === 1) {
             throw [
                   Caml_builtin_exceptions.assert_failure,
                   /* tuple */[

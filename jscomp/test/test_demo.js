@@ -20,7 +20,7 @@ function cons(x, y) {
 }
 
 function map(f, param) {
-  if (param) {
+  if (param !== "Nil") {
     return /* constructor */{
             tag: "Cons",
             "0": Curry._1(f, param[0]),

@@ -179,7 +179,7 @@ function map_opt(f, l) {
   while(true) {
     var l$1 = _l;
     var acc = _acc;
-    if (l$1) {
+    if (l$1 !== "[]") {
       var match = Curry._1(f, l$1[0]);
       if (match !== undefined) {
         _l = l$1[1];
@@ -204,7 +204,7 @@ function list_any(f, e) {
     var _l = e[1];
     while(true) {
       var l = _l;
-      if (l) {
+      if (l !== "[]") {
         var res = Curry._1(f$1, l[0]);
         if (res !== undefined) {
           return res;
@@ -228,7 +228,7 @@ function list_all(f, e) {
     while(true) {
       var l = _l;
       var acc = _acc;
-      if (l) {
+      if (l !== "[]") {
         var tl = l[1];
         var match = Curry._1(f$1, l[0]);
         _l = tl;
@@ -287,9 +287,9 @@ function to_pair(e) {
     return ;
   } else {
     var match = e[1];
-    if (match) {
+    if (match !== "[]") {
       var match$1 = match[1];
-      if (match$1 && !match$1[1]) {
+      if (match$1 !== "[]" && match$1[1] === "[]") {
         return /* tuple */[
                 match[0],
                 match$1[0]
@@ -322,11 +322,11 @@ function to_triple(e) {
     return ;
   } else {
     var match = e[1];
-    if (match) {
+    if (match !== "[]") {
       var match$1 = match[1];
-      if (match$1) {
+      if (match$1 !== "[]") {
         var match$2 = match$1[1];
-        if (match$2 && !match$2[1]) {
+        if (match$2 !== "[]" && match$2[1] === "[]") {
           return /* tuple */[
                   match[0],
                   match$1[0],
@@ -382,7 +382,7 @@ function get_field(name, e) {
     var _l = e[1];
     while(true) {
       var l = _l;
-      if (l) {
+      if (l !== "[]") {
         var match = l[0];
         if (typeof match === "number") {
           _l = l[1];
@@ -392,7 +392,7 @@ function get_field(name, e) {
           continue ;
         } else {
           var match$1 = match[1];
-          if (match$1) {
+          if (match$1 !== "[]") {
             var match$2 = match$1[0];
             if (typeof match$2 === "number") {
               _l = l[1];
@@ -402,8 +402,8 @@ function get_field(name, e) {
               continue ;
             } else {
               var match$3 = match$1[1];
-              if (match$3) {
-                if (match$3[1]) {
+              if (match$3 !== "[]") {
+                if (match$3[1] !== "[]") {
                   _l = l[1];
                   continue ;
                 } else if (Caml_obj.caml_equal(name$1, match$2[1])) {
@@ -437,7 +437,7 @@ function field(name, f, e) {
 function _get_field_list(name, _l) {
   while(true) {
     var l = _l;
-    if (l) {
+    if (l !== "[]") {
       var match = l[0];
       if (typeof match === "number") {
         _l = l[1];
@@ -447,7 +447,7 @@ function _get_field_list(name, _l) {
         continue ;
       } else {
         var match$1 = match[1];
-        if (match$1) {
+        if (match$1 !== "[]") {
           var match$2 = match$1[0];
           if (typeof match$2 === "number") {
             _l = l[1];
@@ -482,7 +482,7 @@ function field_list(name, f, e) {
 function _get_variant(s, args, _l) {
   while(true) {
     var l = _l;
-    if (l) {
+    if (l !== "[]") {
       var match = l[0];
       if (Caml_obj.caml_equal(s, match[0])) {
         return Curry._1(match[1], args);
@@ -499,7 +499,7 @@ function _get_variant(s, args, _l) {
 function get_variant(l, e) {
   if (e[0] >= 848054398) {
     var match = e[1];
-    if (match) {
+    if (match !== "[]") {
       var match$1 = match[0];
       if (typeof match$1 === "number" || match$1[0] !== 726615281) {
         return ;

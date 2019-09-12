@@ -595,7 +595,7 @@ function try_finally(work, cleanup) {
 }
 
 function map_end(f, l1, l2) {
-  if (l1) {
+  if (l1 !== "[]") {
     return /* constructor */{
             tag: "::",
             "0": Curry._1(f, l1[0]),
@@ -607,7 +607,7 @@ function map_end(f, l1, l2) {
 }
 
 function map_left_right(f, param) {
-  if (param) {
+  if (param !== "[]") {
     var res = Curry._1(f, param[0]);
     return /* constructor */{
             tag: "::",
@@ -623,18 +623,16 @@ function for_all2(pred, _l1, _l2) {
   while(true) {
     var l2 = _l2;
     var l1 = _l1;
-    if (l1) {
-      if (l2 && Curry._2(pred, l1[0], l2[0])) {
+    if (l1 !== "[]") {
+      if (l2 !== "[]" && Curry._2(pred, l1[0], l2[0])) {
         _l2 = l2[1];
         _l1 = l1[1];
         continue ;
       } else {
         return false;
       }
-    } else if (l2) {
-      return false;
     } else {
-      return true;
+      return l2 === "[]";
     }
   };
 }
@@ -652,7 +650,7 @@ function replicate_list(elem, n) {
 }
 
 function list_remove(x, param) {
-  if (param) {
+  if (param !== "[]") {
     var tl = param[1];
     var hd = param[0];
     if (Caml_obj.caml_equal(hd, x)) {
@@ -670,10 +668,10 @@ function list_remove(x, param) {
 }
 
 function split_last(param) {
-  if (param) {
+  if (param !== "[]") {
     var tl = param[1];
     var x = param[0];
-    if (tl) {
+    if (tl !== "[]") {
       var match = split_last(tl);
       return /* tuple */[
               /* constructor */{
@@ -705,18 +703,16 @@ function samelist(pred, _l1, _l2) {
   while(true) {
     var l2 = _l2;
     var l1 = _l1;
-    if (l1) {
-      if (l2 && Curry._2(pred, l1[0], l2[0])) {
+    if (l1 !== "[]") {
+      if (l2 !== "[]" && Curry._2(pred, l1[0], l2[0])) {
         _l2 = l2[1];
         _l1 = l1[1];
         continue ;
       } else {
         return false;
       }
-    } else if (l2) {
-      return false;
     } else {
-      return true;
+      return l2 === "[]";
     }
   };
 }
@@ -741,7 +737,7 @@ function find_in_path(path, name) {
     var _param = path;
     while(true) {
       var param = _param;
-      if (param) {
+      if (param !== "[]") {
         var fullname = Filename.concat(param[0], name);
         if (Caml_external_polyfill.resolve("caml_sys_file_exists")(fullname)) {
           return fullname;
@@ -779,7 +775,7 @@ function find_in_path_rel(path, name) {
   var _param = path;
   while(true) {
     var param = _param;
-    if (param) {
+    if (param !== "[]") {
       var fullname = simplify(Filename.concat(param[0], name));
       if (Caml_external_polyfill.resolve("caml_sys_file_exists")(fullname)) {
         return fullname;
@@ -798,7 +794,7 @@ function find_in_path_uncap(path, name) {
   var _param = path;
   while(true) {
     var param = _param;
-    if (param) {
+    if (param !== "[]") {
       var dir = param[0];
       var fullname = Filename.concat(dir, name);
       var ufullname = Filename.concat(dir, uname);
@@ -1313,8 +1309,8 @@ function code_of_style(param) {
 }
 
 function ansi_of_style_l(l) {
-  var s = l ? (
-      l[1] ? $$String.concat(";", List.map(code_of_style, l)) : code_of_style(l[0])
+  var s = l !== "[]" ? (
+      l[1] !== "[]" ? $$String.concat(";", List.map(code_of_style, l)) : code_of_style(l[0])
     ) : "0";
   return "\x1b[" + (s + "m");
 }
@@ -2156,10 +2152,10 @@ function message(param) {
           }
       case "Method_override" :
           var match = param[0];
-          if (match) {
+          if (match !== "[]") {
             var slist = match[1];
             var lab = match[0];
-            if (slist) {
+            if (slist !== "[]") {
               return $$String.concat(" ", /* constructor */{
                           tag: "::",
                           "0": "the following methods are overridden by the class",
@@ -2197,10 +2193,10 @@ function message(param) {
           return "the following labels are not bound in this record pattern:\n" + (param[0] + "\nEither bind these labels explicitly or add '; _' to the pattern.");
       case "Instance_variable_override" :
           var match$1 = param[0];
-          if (match$1) {
+          if (match$1 !== "[]") {
             var slist$1 = match$1[1];
             var lab$1 = match$1[0];
-            if (slist$1) {
+            if (slist$1 !== "[]") {
               return $$String.concat(" ", /* constructor */{
                           tag: "::",
                           "0": "the following instance variables are overridden by the class",
@@ -2326,18 +2322,18 @@ function message(param) {
           return "unused ancestor variable " + (param[0] + ".");
       case "Unused_constructor" :
           var s$2 = param[0];
-          if (param[1]) {
+          if (param[1] !== "false") {
             return "constructor " + (s$2 + " is never used to build values.\n(However, this constructor appears in patterns.)");
-          } else if (param[2]) {
+          } else if (param[2] !== "false") {
             return "constructor " + (s$2 + " is never used to build values.\nIts type is exported as a private type.");
           } else {
             return "unused constructor " + (s$2 + ".");
           }
       case "Unused_extension" :
           var s$3 = param[0];
-          if (param[1]) {
+          if (param[1] !== "false") {
             return "extension constructor " + (s$3 + " is never used to build values.\n(However, this constructor appears in patterns.)");
-          } else if (param[2]) {
+          } else if (param[2] !== "false") {
             return "extension constructor " + (s$3 + " is never used to build values.\nIt is exported or rebound as a private extension.");
           } else {
             return "unused extension constructor " + (s$3 + ".");
@@ -2345,10 +2341,10 @@ function message(param) {
       case "Name_out_of_scope" :
           var slist$2 = param[1];
           var ty = param[0];
-          if (slist$2 && !slist$2[1] && !param[2]) {
+          if (slist$2 !== "[]" && slist$2[1] === "[]" && param[2] === "false") {
             return slist$2[0] + (" was selected from type " + (ty + ".\nIt is not visible in the current scope, and will not \nbe selected if the type becomes unknown."));
           }
-          if (param[2]) {
+          if (param[2] !== "false") {
             return "this record of type " + (ty + (" contains fields that are \nnot visible in the current scope: " + ($$String.concat(" ", slist$2) + ".\nThey will not be selected if the type becomes unknown.")));
           } else {
             throw [
@@ -2363,10 +2359,10 @@ function message(param) {
           break;
       case "Ambiguous_name" :
           var slist$3 = param[0];
-          if (slist$3 && !slist$3[1] && !param[2]) {
+          if (slist$3 !== "[]" && slist$3[1] === "[]" && param[2] === "false") {
             return slist$3[0] + (" belongs to several types: " + ($$String.concat(" ", param[1]) + "\nThe first one was selected. Please disambiguate if this is wrong."));
           }
-          if (param[2]) {
+          if (param[2] !== "false") {
             return "these field labels belong to several types: " + ($$String.concat(" ", param[1]) + "\nThe first one was selected. Please disambiguate if this is wrong.");
           } else {
             throw [
@@ -2982,8 +2978,8 @@ function help_warnings(param) {
   for(var i = /* "b" */98; i <= /* "z" */122; ++i){
     var c = Char.chr(i);
     var l = letter(c);
-    if (l) {
-      if (l[1]) {
+    if (l !== "[]") {
+      if (l[1] !== "[]") {
         Curry._2(Printf.printf(/* constructor */{
                   tag: "Format",
                   "0": /* constructor */{
@@ -3338,7 +3334,10 @@ function highlight_locations(ppf, locs) {
   while(true) {
     var match = status[0];
     if (typeof match === "string") {
-      if (match !== 0) {
+      if (match === "Uninitialised") {
+        status[0] = Caml_external_polyfill.resolve("caml_terminfo_setup")(Pervasives.stdout);
+        continue ;
+      } else {
         var match$1 = input_lexbuf[0];
         if (match$1 !== undefined) {
           var norepeat;
@@ -3371,9 +3370,6 @@ function highlight_locations(ppf, locs) {
         } else {
           return false;
         }
-      } else {
-        status[0] = Caml_external_polyfill.resolve("caml_terminfo_setup")(Pervasives.stdout);
-        continue ;
       }
     } else {
       var match$2 = input_lexbuf[0];
@@ -3806,7 +3802,7 @@ function error_of_exn$1(exn) {
   var _param = error_of_exn[0];
   while(true) {
     var param = _param;
-    if (param) {
+    if (param !== "[]") {
       var r = Curry._1(param[0], exn);
       if (r !== undefined) {
         return r;
@@ -4151,7 +4147,7 @@ function split_at_dots(s, pos) {
 
 function parse(s) {
   var match = split_at_dots(s, 0);
-  if (match) {
+  if (match !== "[]") {
     return List.fold_left((function (p, s) {
                   return /* constructor */{
                           tag: "Ldot",
@@ -4197,13 +4193,16 @@ function warn_bad_docstrings(param) {
                         return "()";
                     case "Docs" :
                         var match$1 = ds[/* ds_associated */3];
-                        if (match$1 >= 2) {
-                          return prerr_warning(ds[/* ds_loc */1], /* constructor */{
-                                      tag: "Bad_docstring",
-                                      "0": false
-                                    });
-                        } else {
-                          return "()";
+                        switch (match$1) {
+                          case "Zero" :
+                          case "One" :
+                              return "()";
+                          case "Many" :
+                              return prerr_warning(ds[/* ds_loc */1], /* constructor */{
+                                          tag: "Bad_docstring",
+                                          "0": false
+                                        });
+                          
                         }
                     
                   }
@@ -4366,16 +4365,20 @@ function get_docstring(info, dsl) {
   var _param = dsl;
   while(true) {
     var param = _param;
-    if (param) {
+    if (param !== "[]") {
       var ds = param[0];
       var match = ds[/* ds_attached */2];
-      if (match !== 1) {
-        ds[/* ds_attached */2] = info ? "Info" : "Docs";
-        return ds;
-      } else {
-        _param = param[1];
-        continue ;
+      switch (match) {
+        case "Info" :
+            _param = param[1];
+            continue ;
+        case "Unattached" :
+        case "Docs" :
+            break;
+        
       }
+      ds[/* ds_attached */2] = info ? "Info" : "Docs";
+      return ds;
     } else {
       return ;
     }
@@ -4388,22 +4391,26 @@ function get_docstrings(dsl) {
   while(true) {
     var param = _param;
     var acc = _acc;
-    if (param) {
+    if (param !== "[]") {
       var ds = param[0];
       var match = ds[/* ds_attached */2];
-      if (match !== 1) {
-        ds[/* ds_attached */2] = "Docs";
-        _param = param[1];
-        _acc = /* constructor */{
-          tag: "::",
-          "0": ds,
-          "1": acc
-        };
-        continue ;
-      } else {
-        _param = param[1];
-        continue ;
+      switch (match) {
+        case "Info" :
+            _param = param[1];
+            continue ;
+        case "Unattached" :
+        case "Docs" :
+            break;
+        
       }
+      ds[/* ds_attached */2] = "Docs";
+      _param = param[1];
+      _acc = /* constructor */{
+        tag: "::",
+        "0": ds,
+        "1": acc
+      };
+      continue ;
     } else {
       return List.rev(acc);
     }
@@ -4413,12 +4420,15 @@ function get_docstrings(dsl) {
 function associate_docstrings(dsl) {
   return List.iter((function (ds) {
                 var match = ds[/* ds_associated */3];
-                if (match !== 0) {
-                  ds[/* ds_associated */3] = "Many";
-                  return /* () */0;
-                } else {
-                  ds[/* ds_associated */3] = "One";
-                  return /* () */0;
+                switch (match) {
+                  case "Zero" :
+                      ds[/* ds_associated */3] = "One";
+                      return /* () */0;
+                  case "One" :
+                  case "Many" :
+                      ds[/* ds_associated */3] = "Many";
+                      return /* () */0;
+                  
                 }
               }), dsl);
 }
@@ -6910,7 +6920,7 @@ function mkpat_cons(consloc, args, loc) {
 }
 
 function mktailexp(nilloc, param) {
-  if (param) {
+  if (param !== "[]") {
     var e1 = param[0];
     var exp_el = mktailexp(nilloc, param[1]);
     var loc_000 = /* loc_start */e1[/* pexp_loc */1][/* loc_start */0];
@@ -6962,7 +6972,7 @@ function mktailexp(nilloc, param) {
 }
 
 function mktailpat(nilloc, param) {
-  if (param) {
+  if (param !== "[]") {
     var p1 = param[0];
     var pat_pl = mktailpat(nilloc, param[1]);
     var loc_000 = /* loc_start */p1[/* ppat_loc */1][/* loc_start */0];
@@ -7217,7 +7227,7 @@ function varify_constructors(var_names, t) {
             var exit = 0;
             switch (/* XXX */match$1.tag) {
               case "Lident" :
-                  if (match[1]) {
+                  if (match[1] !== "[]") {
                     exit = 1;
                   } else {
                     var s = match$1[0];
@@ -7434,7 +7444,7 @@ function extra_csig(pos, items) {
 }
 
 function add_nonrec(rf, attrs, pos) {
-  if (rf) {
+  if (rf !== "Nonrecursive") {
     return attrs;
   } else {
     var name_001 = /* loc */rhs_loc(pos);
@@ -8007,9 +8017,10 @@ var yyact = /* array */[
       var bindings = lbs[/* lbs_bindings */0];
       var str;
       var exit = 0;
-      if (bindings) {
+      if (bindings !== "[]") {
         var lb = bindings[0];
-        if (typeof lb[/* lb_pattern */0][/* ppat_desc */0] === "string" && !bindings[1]) {
+        var tmp = lb[/* lb_pattern */0][/* ppat_desc */0];
+        if (typeof tmp === "string" && bindings[1] === "[]") {
           var exp = wrap_exp_attrs(lb[/* lb_expression */1], /* tuple */[
                 undefined,
                 lbs[/* lbs_attributes */3]
@@ -10048,14 +10059,14 @@ var yyact = /* array */[
       var newval = _7;
       var set = fast[0] ? "unsafe_set" : "set";
       var coords = bigarray_untuplify(arg);
-      if (coords) {
+      if (coords !== "[]") {
         var match = coords[1];
         var c1 = coords[0];
-        if (match) {
+        if (match !== "[]") {
           var match$1 = match[1];
           var c2 = match[0];
-          if (match$1) {
-            if (!match$1[1]) {
+          if (match$1 !== "[]") {
+            if (match$1[1] === "[]") {
               return mkexp(/* constructor */{
                           tag: "Pexp_apply",
                           "0": ghexp(/* constructor */{
@@ -10422,14 +10433,14 @@ var yyact = /* array */[
       var arg = _4;
       var get = fast[0] ? "unsafe_get" : "get";
       var coords = bigarray_untuplify(arg);
-      if (coords) {
+      if (coords !== "[]") {
         var match = coords[1];
         var c1 = coords[0];
-        if (match) {
+        if (match !== "[]") {
           var match$1 = match[1];
           var c2 = match[0];
-          if (match$1) {
-            if (!match$1[1]) {
+          if (match$1 !== "[]") {
+            if (match$1[1] === "[]") {
               return mkexp(/* constructor */{
                           tag: "Pexp_apply",
                           "0": ghexp(/* constructor */{
@@ -12434,8 +12445,8 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 1);
-      if (_2) {
-        if (_2[1]) {
+      if (_2 !== "[]") {
+        if (_2[1] !== "[]") {
           throw Parsing.Parse_error;
         }
         return _2[0];
@@ -12448,8 +12459,8 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 1);
-      if (_2) {
-        if (_2[1]) {
+      if (_2 !== "[]") {
+        if (_2[1] !== "[]") {
           throw Parsing.Parse_error;
         }
         return _2[0];
@@ -14599,14 +14610,15 @@ function directive_parse(token_with_comments, lexbuf) {
             var v = parse_or_aux(calc, parse_and_aux(calc, parse_relation(calc)));
             var match = token("()");
             if (typeof match === "string") {
-              if (match !== 81) {
+              if (match === "RPAREN") {
+                return v;
+              } else {
                 throw [
                       $$Error$2,
                       "Unterminated_paren_in_conditional",
                       curr(lexbuf)
                     ];
               }
-              return v;
             } else {
               throw [
                     $$Error$2,
@@ -14733,7 +14745,7 @@ function directive_parse(token_with_comments, lexbuf) {
   };
   var parse_and_aux = function (calc, v) {
     var e = token("()");
-    if (typeof e === "string" && e === 0) {
+    if (typeof e === "string" && e === "AMPERAMPER") {
       var calc$1 = calc && v;
       var b = parse_and_aux(calc$1, parse_relation(calc$1));
       if (v) {
@@ -14748,7 +14760,7 @@ function directive_parse(token_with_comments, lexbuf) {
   };
   var parse_or_aux = function (calc, v) {
     var e = token("()");
-    if (typeof e === "string" && e === 8) {
+    if (typeof e === "string" && e === "BARBAR") {
       var calc$1 = calc && !v;
       var b = parse_or_aux(calc$1, parse_and_aux(calc$1, parse_relation(calc$1)));
       if (v) {
@@ -14764,14 +14776,15 @@ function directive_parse(token_with_comments, lexbuf) {
   var v = parse_or_aux(true, parse_and_aux(true, parse_relation(true)));
   var match = token("()");
   if (typeof match === "string") {
-    if (match !== 88) {
+    if (match === "THEN") {
+      return v;
+    } else {
       throw [
             $$Error$2,
             "Expect_hash_then_in_conditional",
             curr(lexbuf)
           ];
     }
-    return v;
   } else {
     throw [
           $$Error$2,
@@ -16194,9 +16207,9 @@ function __ocaml_lex_comment_rec(lexbuf, ___ocaml_lex_state) {
           continue ;
       case 1 :
           var match = comment_start_loc[0];
-          if (match) {
+          if (match !== "[]") {
             var l = match[1];
-            if (l) {
+            if (l !== "[]") {
               comment_start_loc[0] = l;
               store_string(Lexing.lexeme(lexbuf));
               ___ocaml_lex_state = 132;
@@ -16225,33 +16238,34 @@ function __ocaml_lex_comment_rec(lexbuf, ___ocaml_lex_state) {
           catch (raw_exn){
             var exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
             if (exn[0] === $$Error$2) {
-              var match$1 = exn[1];
-              if (typeof match$1 === "string") {
-                if (match$1 !== 0) {
-                  throw exn;
-                }
-                var match$2 = comment_start_loc[0];
-                if (match$2) {
-                  var start = List.hd(List.rev(comment_start_loc[0]));
-                  comment_start_loc[0] = "[]";
-                  throw [
-                        $$Error$2,
-                        /* constructor */{
-                          tag: "Unterminated_string_in_comment",
-                          "0": start,
-                          "1": exn[2]
-                        },
-                        match$2[0]
-                      ];
+              var tmp = exn[1];
+              if (typeof tmp === "string") {
+                if (tmp === "Unterminated_string") {
+                  var match$1 = comment_start_loc[0];
+                  if (match$1 !== "[]") {
+                    var start = List.hd(List.rev(comment_start_loc[0]));
+                    comment_start_loc[0] = "[]";
+                    throw [
+                          $$Error$2,
+                          /* constructor */{
+                            tag: "Unterminated_string_in_comment",
+                            "0": start,
+                            "1": exn[2]
+                          },
+                          match$1[0]
+                        ];
+                  } else {
+                    throw [
+                          Caml_builtin_exceptions.assert_failure,
+                          /* tuple */[
+                            "lexer.mll",
+                            1006,
+                            18
+                          ]
+                        ];
+                  }
                 } else {
-                  throw [
-                        Caml_builtin_exceptions.assert_failure,
-                        /* tuple */[
-                          "lexer.mll",
-                          1006,
-                          18
-                        ]
-                      ];
+                  throw exn;
                 }
               } else {
                 throw exn;
@@ -16276,33 +16290,34 @@ function __ocaml_lex_comment_rec(lexbuf, ___ocaml_lex_state) {
           catch (raw_exn$1){
             var exn$1 = Caml_js_exceptions.internalToOCamlException(raw_exn$1);
             if (exn$1[0] === $$Error$2) {
-              var match$3 = exn$1[1];
-              if (typeof match$3 === "string") {
-                if (match$3 !== 0) {
-                  throw exn$1;
-                }
-                var match$4 = comment_start_loc[0];
-                if (match$4) {
-                  var start$1 = List.hd(List.rev(comment_start_loc[0]));
-                  comment_start_loc[0] = "[]";
-                  throw [
-                        $$Error$2,
-                        /* constructor */{
-                          tag: "Unterminated_string_in_comment",
-                          "0": start$1,
-                          "1": exn$1[2]
-                        },
-                        match$4[0]
-                      ];
+              var tmp$1 = exn$1[1];
+              if (typeof tmp$1 === "string") {
+                if (tmp$1 === "Unterminated_string") {
+                  var match$2 = comment_start_loc[0];
+                  if (match$2 !== "[]") {
+                    var start$1 = List.hd(List.rev(comment_start_loc[0]));
+                    comment_start_loc[0] = "[]";
+                    throw [
+                          $$Error$2,
+                          /* constructor */{
+                            tag: "Unterminated_string_in_comment",
+                            "0": start$1,
+                            "1": exn$1[2]
+                          },
+                          match$2[0]
+                        ];
+                  } else {
+                    throw [
+                          Caml_builtin_exceptions.assert_failure,
+                          /* tuple */[
+                            "lexer.mll",
+                            1026,
+                            18
+                          ]
+                        ];
+                  }
                 } else {
-                  throw [
-                        Caml_builtin_exceptions.assert_failure,
-                        /* tuple */[
-                          "lexer.mll",
-                          1026,
-                          18
-                        ]
-                      ];
+                  throw exn$1;
                 }
               } else {
                 throw exn$1;
@@ -16323,8 +16338,8 @@ function __ocaml_lex_comment_rec(lexbuf, ___ocaml_lex_state) {
           ___ocaml_lex_state = 132;
           continue ;
       case 10 :
-          var match$5 = comment_start_loc[0];
-          if (match$5) {
+          var match$3 = comment_start_loc[0];
+          if (match$3 !== "[]") {
             var start$2 = List.hd(List.rev(comment_start_loc[0]));
             comment_start_loc[0] = "[]";
             throw [
@@ -16333,7 +16348,7 @@ function __ocaml_lex_comment_rec(lexbuf, ___ocaml_lex_state) {
                     tag: "Unterminated_comment",
                     "0": start$2
                   },
-                  match$5[0]
+                  match$3[0]
                 ];
           } else {
             throw [
@@ -16509,150 +16524,167 @@ function interpret_directive(lexbuf, cont, look_ahead) {
   if (typeof match === "string") {
     switch (match) {
       case "ELSE" :
-          if (if_then_else$1 !== 0) {
-            throw [
-                  $$Error$2,
-                  "Unexpected_directive",
-                  curr(lexbuf)
-                ];
+          switch (if_then_else$1) {
+            case "Dir_if_true" :
+                break;
+            case "Dir_if_false" :
+            case "Dir_out" :
+                throw [
+                      $$Error$2,
+                      "Unexpected_directive",
+                      curr(lexbuf)
+                    ];
+            
           }
           break;
       case "END" :
-          if (if_then_else$1 >= 2) {
+          switch (if_then_else$1) {
+            case "Dir_if_true" :
+            case "Dir_if_false" :
+                if_then_else[0] = "Dir_out";
+                return Curry._1(cont, lexbuf);
+            case "Dir_out" :
+                throw [
+                      $$Error$2,
+                      "Unexpected_directive",
+                      curr(lexbuf)
+                    ];
+            
+          }
+      case "IF" :
+          switch (if_then_else$1) {
+            case "Dir_if_true" :
+            case "Dir_if_false" :
+                throw [
+                      $$Error$2,
+                      "Unexpected_directive",
+                      curr(lexbuf)
+                    ];
+            case "Dir_out" :
+                if (directive_parse(token_with_comments, lexbuf)) {
+                  if_then_else[0] = "Dir_if_true";
+                  return Curry._1(cont, lexbuf);
+                } else {
+                  var _param = "()";
+                  while(true) {
+                    var token = token_with_comments(lexbuf);
+                    if (token === "EOF") {
+                      throw [
+                            $$Error$2,
+                            "Unterminated_if",
+                            curr(lexbuf)
+                          ];
+                    }
+                    if (token === "SHARP" && at_bol(lexbuf)) {
+                      var token$1 = token_with_comments(lexbuf);
+                      if (typeof token$1 === "string") {
+                        switch (token$1) {
+                          case "ELSE" :
+                              if_then_else[0] = "Dir_if_false";
+                              return Curry._1(cont, lexbuf);
+                          case "END" :
+                              if_then_else[0] = "Dir_out";
+                              return Curry._1(cont, lexbuf);
+                          case "IF" :
+                              throw [
+                                    $$Error$2,
+                                    "Unexpected_directive",
+                                    curr(lexbuf)
+                                  ];
+                          default:
+                            
+                        }
+                      }
+                      if (is_elif(token$1) && directive_parse(token_with_comments, lexbuf)) {
+                        if_then_else[0] = "Dir_if_true";
+                        return Curry._1(cont, lexbuf);
+                      } else {
+                        _param = "()";
+                        continue ;
+                      }
+                    } else {
+                      _param = "()";
+                      continue ;
+                    }
+                  };
+                }
+            
+          }
+      default:
+        return Curry._1(look_ahead, match);
+    }
+  } else if (/* XXX */match.tag === "LIDENT" && match[0] === "elif") {
+    switch (if_then_else$1) {
+      case "Dir_if_true" :
+          break;
+      case "Dir_if_false" :
+      case "Dir_out" :
+          throw [
+                $$Error$2,
+                "Unexpected_directive",
+                curr(lexbuf)
+              ];
+      
+    }
+  } else {
+    return Curry._1(look_ahead, match);
+  }
+  switch (if_then_else$1) {
+    case "Dir_if_true" :
+        var _else_seen = match === "ELSE";
+        while(true) {
+          var else_seen = _else_seen;
+          var token$2 = token_with_comments(lexbuf);
+          if (token$2 === "EOF") {
             throw [
                   $$Error$2,
-                  "Unexpected_directive",
+                  "Unterminated_else",
                   curr(lexbuf)
                 ];
           }
-          if_then_else[0] = "Dir_out";
-          return Curry._1(cont, lexbuf);
-      case "IF" :
-          if (if_then_else$1 >= 2) {
-            if (directive_parse(token_with_comments, lexbuf)) {
-              if_then_else[0] = "Dir_if_true";
-              return Curry._1(cont, lexbuf);
-            } else {
-              var _param = "()";
-              while(true) {
-                var token = token_with_comments(lexbuf);
-                if (token === "EOF") {
-                  throw [
-                        $$Error$2,
-                        "Unterminated_if",
-                        curr(lexbuf)
-                      ];
-                }
-                if (token === "SHARP" && at_bol(lexbuf)) {
-                  var token$1 = token_with_comments(lexbuf);
-                  if (typeof token$1 === "string") {
-                    var switcher = token$1 - 23 | 0;
-                    if (switcher === 0 || switcher === 1) {
-                      if (switcher !== 0) {
-                        if_then_else[0] = "Dir_out";
-                        return Curry._1(cont, lexbuf);
-                      } else {
-                        if_then_else[0] = "Dir_if_false";
-                        return Curry._1(cont, lexbuf);
-                      }
-                    } else if (switcher === 14) {
+          if (token$2 === "SHARP" && at_bol(lexbuf)) {
+            var token$3 = token_with_comments(lexbuf);
+            if (typeof token$3 === "string") {
+              switch (token$3) {
+                case "ELSE" :
+                    if (else_seen) {
                       throw [
                             $$Error$2,
                             "Unexpected_directive",
                             curr(lexbuf)
                           ];
                     }
-                    
-                  }
-                  if (is_elif(token$1) && directive_parse(token_with_comments, lexbuf)) {
-                    if_then_else[0] = "Dir_if_true";
-                    return Curry._1(cont, lexbuf);
-                  } else {
-                    _param = "()";
+                    _else_seen = true;
                     continue ;
-                  }
-                } else {
-                  _param = "()";
-                  continue ;
-                }
-              };
-            }
-          } else {
-            throw [
-                  $$Error$2,
-                  "Unexpected_directive",
-                  curr(lexbuf)
-                ];
-          }
-      default:
-        return Curry._1(look_ahead, match);
-    }
-  } else if (/* XXX */match.tag === "LIDENT" && match[0] === "elif") {
-    if (if_then_else$1 !== 0) {
-      throw [
-            $$Error$2,
-            "Unexpected_directive",
-            curr(lexbuf)
-          ];
-    }
-    
-  } else {
-    return Curry._1(look_ahead, match);
-  }
-  if (if_then_else$1 !== 0) {
-    return Curry._1(look_ahead, match);
-  } else {
-    var _else_seen = match === "ELSE";
-    while(true) {
-      var else_seen = _else_seen;
-      var token$2 = token_with_comments(lexbuf);
-      if (token$2 === "EOF") {
-        throw [
-              $$Error$2,
-              "Unterminated_else",
-              curr(lexbuf)
-            ];
-      }
-      if (token$2 === "SHARP" && at_bol(lexbuf)) {
-        var token$3 = token_with_comments(lexbuf);
-        if (typeof token$3 === "string") {
-          var switcher$1 = token$3 - 23 | 0;
-          if (switcher$1 === 0 || switcher$1 === 1) {
-            if (switcher$1 !== 0) {
-              if_then_else[0] = "Dir_out";
-              return Curry._1(cont, lexbuf);
-            } else {
-              if (else_seen) {
-                throw [
-                      $$Error$2,
-                      "Unexpected_directive",
-                      curr(lexbuf)
-                    ];
+                case "END" :
+                    if_then_else[0] = "Dir_out";
+                    return Curry._1(cont, lexbuf);
+                case "IF" :
+                    throw [
+                          $$Error$2,
+                          "Unexpected_directive",
+                          curr(lexbuf)
+                        ];
+                default:
+                  
               }
-              _else_seen = true;
-              continue ;
             }
-          } else if (switcher$1 === 14) {
-            throw [
-                  $$Error$2,
-                  "Unexpected_directive",
-                  curr(lexbuf)
-                ];
+            if (else_seen && is_elif(token$3)) {
+              throw [
+                    $$Error$2,
+                    "Unexpected_directive",
+                    curr(lexbuf)
+                  ];
+            }
+            continue ;
+          } else {
+            continue ;
           }
-          
-        }
-        if (else_seen && is_elif(token$3)) {
-          throw [
-                $$Error$2,
-                "Unexpected_directive",
-                curr(lexbuf)
-              ];
-        }
-        continue ;
-      } else {
-        continue ;
-      }
-    };
+        };
+    case "Dir_if_false" :
+    case "Dir_out" :
+        return Curry._1(look_ahead, match);
+    
   }
 }
 
@@ -16663,29 +16695,37 @@ function token$1(lexbuf) {
       return "()";
     } else if (/* XXX */docs.tag === "After") {
       var a = docs[0];
-      if (lines >= 2) {
-        set_post_docstrings(post_pos, List.rev(a));
-        return set_pre_extra_docstrings(pre_pos, List.rev(a));
-      } else {
-        set_post_docstrings(post_pos, List.rev(a));
-        return set_pre_docstrings(pre_pos, a);
+      switch (lines) {
+        case "NoLine" :
+        case "NewLine" :
+            break;
+        case "BlankLine" :
+            set_post_docstrings(post_pos, List.rev(a));
+            return set_pre_extra_docstrings(pre_pos, List.rev(a));
+        
       }
+      set_post_docstrings(post_pos, List.rev(a));
+      return set_pre_docstrings(pre_pos, a);
     } else {
       var b = docs[2];
       var f = docs[1];
       var a$1 = docs[0];
-      if (lines >= 2) {
-        set_post_docstrings(post_pos, List.rev(a$1));
-        set_post_extra_docstrings(post_pos, List.rev_append(f, List.rev(b)));
-        set_floating_docstrings(pre_pos, List.rev_append(f, List.rev(b)));
-        return set_pre_extra_docstrings(pre_pos, List.rev(a$1));
-      } else {
-        set_post_docstrings(post_pos, List.rev(a$1));
-        set_post_extra_docstrings(post_pos, List.rev_append(f, List.rev(b)));
-        set_floating_docstrings(pre_pos, List.rev(f));
-        set_pre_extra_docstrings(pre_pos, List.rev(a$1));
-        return set_pre_docstrings(pre_pos, b);
+      switch (lines) {
+        case "NoLine" :
+        case "NewLine" :
+            break;
+        case "BlankLine" :
+            set_post_docstrings(post_pos, List.rev(a$1));
+            set_post_extra_docstrings(post_pos, List.rev_append(f, List.rev(b)));
+            set_floating_docstrings(pre_pos, List.rev_append(f, List.rev(b)));
+            return set_pre_extra_docstrings(pre_pos, List.rev(a$1));
+        
       }
+      set_post_docstrings(post_pos, List.rev(a$1));
+      set_post_extra_docstrings(post_pos, List.rev_append(f, List.rev(b)));
+      set_floating_docstrings(pre_pos, List.rev(f));
+      set_pre_extra_docstrings(pre_pos, List.rev(a$1));
+      return set_pre_docstrings(pre_pos, b);
     }
   };
   var loop = function (_lines, _docs, lexbuf) {
@@ -16708,7 +16748,17 @@ function token$1(lexbuf) {
               }
               break;
           case "EOL" :
-              var lines$prime = lines !== 0 ? "BlankLine" : "NewLine";
+              var lines$prime;
+              switch (lines) {
+                case "NoLine" :
+                    lines$prime = "NewLine";
+                    break;
+                case "NewLine" :
+                case "BlankLine" :
+                    lines$prime = "BlankLine";
+                    break;
+                
+              }
               _lines = lines$prime;
               continue ;
           default:
@@ -16722,7 +16772,17 @@ function token$1(lexbuf) {
                     match[0],
                     match[1]
                   ]);
-              var lines$prime$1 = lines >= 2 ? "BlankLine" : "NoLine";
+              var lines$prime$1;
+              switch (lines) {
+                case "NoLine" :
+                case "NewLine" :
+                    lines$prime$1 = "NoLine";
+                    break;
+                case "BlankLine" :
+                    lines$prime$1 = "BlankLine";
+                    break;
+                
+              }
               _lines = lines$prime$1;
               continue ;
           case "DOCSTRING" :
@@ -16730,65 +16790,92 @@ function token$1(lexbuf) {
               add_docstring_comment(doc);
               var docs$prime;
               if (typeof docs === "string") {
-                docs$prime = lines >= 2 ? /* constructor */({
-                      tag: "Before",
-                      "0": "[]",
-                      "1": "[]",
-                      "2": /* constructor */{
-                        tag: "::",
-                        "0": doc,
-                        "1": "[]"
-                      }
-                    }) : /* constructor */({
-                      tag: "After",
-                      "0": /* constructor */{
-                        tag: "::",
-                        "0": doc,
-                        "1": "[]"
-                      }
-                    });
+                switch (lines) {
+                  case "NoLine" :
+                  case "NewLine" :
+                      docs$prime = /* constructor */{
+                        tag: "After",
+                        "0": /* constructor */{
+                          tag: "::",
+                          "0": doc,
+                          "1": "[]"
+                        }
+                      };
+                      break;
+                  case "BlankLine" :
+                      docs$prime = /* constructor */{
+                        tag: "Before",
+                        "0": "[]",
+                        "1": "[]",
+                        "2": /* constructor */{
+                          tag: "::",
+                          "0": doc,
+                          "1": "[]"
+                        }
+                      };
+                      break;
+                  
+                }
               } else if (/* XXX */docs.tag === "After") {
                 var a = docs[0];
-                docs$prime = lines >= 2 ? /* constructor */({
-                      tag: "Before",
-                      "0": a,
-                      "1": "[]",
-                      "2": /* constructor */{
-                        tag: "::",
-                        "0": doc,
-                        "1": "[]"
-                      }
-                    }) : /* constructor */({
-                      tag: "After",
-                      "0": /* constructor */{
-                        tag: "::",
-                        "0": doc,
-                        "1": a
-                      }
-                    });
+                switch (lines) {
+                  case "NoLine" :
+                  case "NewLine" :
+                      docs$prime = /* constructor */{
+                        tag: "After",
+                        "0": /* constructor */{
+                          tag: "::",
+                          "0": doc,
+                          "1": a
+                        }
+                      };
+                      break;
+                  case "BlankLine" :
+                      docs$prime = /* constructor */{
+                        tag: "Before",
+                        "0": a,
+                        "1": "[]",
+                        "2": /* constructor */{
+                          tag: "::",
+                          "0": doc,
+                          "1": "[]"
+                        }
+                      };
+                      break;
+                  
+                }
               } else {
                 var b = docs[2];
                 var f = docs[1];
                 var a$1 = docs[0];
-                docs$prime = lines >= 2 ? /* constructor */({
-                      tag: "Before",
-                      "0": a$1,
-                      "1": Pervasives.$at(b, f),
-                      "2": /* constructor */{
-                        tag: "::",
-                        "0": doc,
-                        "1": "[]"
-                      }
-                    }) : /* constructor */({
-                      tag: "Before",
-                      "0": a$1,
-                      "1": f,
-                      "2": /* constructor */{
-                        tag: "::",
-                        "0": doc,
-                        "1": b
-                      }
-                    });
+                switch (lines) {
+                  case "NoLine" :
+                  case "NewLine" :
+                      docs$prime = /* constructor */{
+                        tag: "Before",
+                        "0": a$1,
+                        "1": f,
+                        "2": /* constructor */{
+                          tag: "::",
+                          "0": doc,
+                          "1": b
+                        }
+                      };
+                      break;
+                  case "BlankLine" :
+                      docs$prime = /* constructor */{
+                        tag: "Before",
+                        "0": a$1,
+                        "1": Pervasives.$at(b, f),
+                        "2": /* constructor */{
+                          tag: "::",
+                          "0": doc,
+                          "1": "[]"
+                        }
+                      };
+                      break;
+                  
+                }
               }
               _docs = docs$prime;
               _lines = "NoLine";
@@ -16828,37 +16915,38 @@ function filter_directive(pos, acc, lexbuf) {
   while(true) {
     var match = token_with_comments(lexbuf);
     if (typeof match === "string") {
-      if (match !== 25) {
-        if (match !== 84) {
+      switch (match) {
+        case "EOF" :
+            return /* constructor */{
+                    tag: "::",
+                    "0": /* tuple */[
+                      pos,
+                      lexbuf[/* lex_curr_p */11][/* pos_cnum */3]
+                    ],
+                    "1": acc
+                  };
+        case "SHARP" :
+            if (at_bol(lexbuf)) {
+              var start_pos = lexbuf[/* lex_start_p */10][/* pos_cnum */3];
+              return interpret_directive(lexbuf, (function(start_pos){
+                        return function (lexbuf) {
+                          return filter_directive(lexbuf[/* lex_curr_p */11][/* pos_cnum */3], /* constructor */{
+                                      tag: "::",
+                                      "0": /* tuple */[
+                                        pos,
+                                        start_pos
+                                      ],
+                                      "1": acc
+                                    }, lexbuf);
+                        }
+                        }(start_pos)), (function (_token) {
+                            return filter_directive(pos, acc, lexbuf);
+                          }));
+            } else {
+              continue ;
+            }
+        default:
           continue ;
-        } else if (at_bol(lexbuf)) {
-          var start_pos = lexbuf[/* lex_start_p */10][/* pos_cnum */3];
-          return interpret_directive(lexbuf, (function(start_pos){
-                    return function (lexbuf) {
-                      return filter_directive(lexbuf[/* lex_curr_p */11][/* pos_cnum */3], /* constructor */{
-                                  tag: "::",
-                                  "0": /* tuple */[
-                                    pos,
-                                    start_pos
-                                  ],
-                                  "1": acc
-                                }, lexbuf);
-                    }
-                    }(start_pos)), (function (_token) {
-                        return filter_directive(pos, acc, lexbuf);
-                      }));
-        } else {
-          continue ;
-        }
-      } else {
-        return /* constructor */{
-                tag: "::",
-                "0": /* tuple */[
-                  pos,
-                  lexbuf[/* lex_curr_p */11][/* pos_cnum */3]
-                ],
-                "1": acc
-              };
       }
     } else {
       continue ;
@@ -16905,8 +16993,14 @@ function skip_phrase(lexbuf) {
   while(true) {
     try {
       var match = token$1(lexbuf);
-      if (typeof match === "string" && !(match !== 25 && match !== 83)) {
-        return "()";
+      if (typeof match === "string") {
+        switch (match) {
+          case "EOF" :
+          case "SEMISEMI" :
+              return "()";
+          default:
+            return skip_phrase(lexbuf);
+        }
       } else {
         return skip_phrase(lexbuf);
       }

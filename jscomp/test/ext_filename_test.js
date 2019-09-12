@@ -124,7 +124,7 @@ function relative_path(file_or_dir_1, file_or_dir_2) {
     while(true) {
       var dir2 = _dir2;
       var dir1 = _dir1;
-      if (dir1 && dir2 && dir1[0] === dir2[0]) {
+      if (dir1 !== "[]" && dir2 !== "[]" && dir1[0] === dir2[0]) {
         _dir2 = dir2[1];
         _dir1 = dir1[1];
         continue ;
@@ -135,7 +135,7 @@ function relative_path(file_or_dir_1, file_or_dir_2) {
     };
   };
   var ys = go(dir1, dir2);
-  if (ys) {
+  if (ys !== "[]") {
     if (ys[0] === node_parent) {
       return $$String.concat(node_sep, ys);
     } else {
@@ -311,9 +311,9 @@ function rel_normalized_absolute_path(from, to_) {
     while(true) {
       var yss = _yss;
       var xss = _xss;
-      if (xss) {
+      if (xss !== "[]") {
         var xs = xss[1];
-        if (yss) {
+        if (yss !== "[]") {
           if (xss[0] === yss[0]) {
             _yss = yss[1];
             _xss = xs;
@@ -329,7 +329,7 @@ function rel_normalized_absolute_path(from, to_) {
                         return Filename.concat(acc, Ext_string_test.parent_dir_lit);
                       }), Ext_string_test.parent_dir_lit, xs);
         }
-      } else if (yss) {
+      } else if (yss !== "[]") {
         return List.fold_left(Filename.concat, yss[0], yss[1]);
       } else {
         return Ext_string_test.empty;
@@ -340,7 +340,7 @@ function rel_normalized_absolute_path(from, to_) {
 
 function normalize_absolute_path(x) {
   var drop_if_exist = function (xs) {
-    if (xs) {
+    if (xs !== "[]") {
       return xs[1];
     } else {
       return "[]";
@@ -350,7 +350,7 @@ function normalize_absolute_path(x) {
     while(true) {
       var paths = _paths;
       var acc = _acc;
-      if (paths) {
+      if (paths !== "[]") {
         var xs = paths[1];
         var x = paths[0];
         _paths = xs;
@@ -375,13 +375,13 @@ function normalize_absolute_path(x) {
   var match = split_aux(x);
   var root = match[0];
   var rev_paths = normalize_list("[]", match[1]);
-  if (rev_paths) {
+  if (rev_paths !== "[]") {
     var _acc = rev_paths[0];
     var _rev_paths = rev_paths[1];
     while(true) {
       var rev_paths$1 = _rev_paths;
       var acc = _acc;
-      if (rev_paths$1) {
+      if (rev_paths$1 !== "[]") {
         _rev_paths = rev_paths$1[1];
         _acc = Filename.concat(rev_paths$1[0], acc);
         continue ;

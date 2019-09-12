@@ -159,9 +159,9 @@ function dump(r) {
       } else if (t === Obj.object_tag) {
         var fields$1 = get_fields("[]", s);
         var match;
-        if (fields$1) {
+        if (fields$1 !== "[]") {
           var match$1 = fields$1[1];
-          if (match$1) {
+          if (match$1 !== "[]") {
             match = /* tuple */[
               fields$1[0],
               match$1[0],

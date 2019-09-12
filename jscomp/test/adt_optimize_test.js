@@ -51,10 +51,13 @@ function f5(param) {
 
 function f6(param) {
   if (typeof param === "string") {
-    if (param >= 2) {
-      return 2;
-    } else {
-      return 0;
+    switch (param) {
+      case "A" :
+      case "B" :
+          return 0;
+      case "F" :
+          return 2;
+      
     }
   } else {
     return 1;

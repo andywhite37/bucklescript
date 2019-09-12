@@ -11,7 +11,7 @@ function sub(_tr, _k) {
   while(true) {
     var k = _k;
     var tr = _tr;
-    if (tr) {
+    if (tr !== "Lf") {
       if (k === 1) {
         return tr[0];
       } else {
@@ -31,7 +31,7 @@ function sub(_tr, _k) {
 }
 
 function update(tr, k, w) {
-  if (tr) {
+  if (tr !== "Lf") {
     var r = tr[2];
     var l = tr[1];
     if (k === 1) {
@@ -72,7 +72,7 @@ function update(tr, k, w) {
 }
 
 function $$delete(tr, n) {
-  if (tr) {
+  if (tr !== "Lf") {
     if (n === 1) {
       return "Lf";
     } else {
@@ -101,7 +101,7 @@ function $$delete(tr, n) {
 }
 
 function loext(tr, w) {
-  if (tr) {
+  if (tr !== "Lf") {
     return /* constructor */{
             tag: "Br",
             "0": w,
@@ -119,16 +119,16 @@ function loext(tr, w) {
 }
 
 function lorem(tr) {
-  if (tr) {
+  if (tr !== "Lf") {
     var l = tr[1];
-    if (l) {
+    if (l !== "Lf") {
       return /* constructor */{
               tag: "Br",
               "0": l[0],
               "1": tr[2],
               "2": lorem(l)
             };
-    } else if (tr[2]) {
+    } else if (tr[2] !== "Lf") {
       throw [
             Caml_builtin_exceptions.assert_failure,
             /* tuple */[

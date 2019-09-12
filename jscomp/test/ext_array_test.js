@@ -38,7 +38,7 @@ function reverse(a) {
 }
 
 function reverse_of_list(l) {
-  if (l) {
+  if (l !== "[]") {
     var len = List.length(l);
     var a = Caml_array.caml_make_vect(len, l[0]);
     var _i = 0;
@@ -46,7 +46,7 @@ function reverse_of_list(l) {
     while(true) {
       var param = _param;
       var i = _i;
-      if (param) {
+      if (param !== "[]") {
         a[(len - i | 0) - 2 | 0] = param[0];
         _param = param[1];
         _i = i + 1 | 0;
@@ -168,7 +168,7 @@ function to_list_map_acc(f, a, acc) {
 }
 
 function of_list_map(f, a) {
-  if (a) {
+  if (a !== "[]") {
     var tl = a[1];
     var hd = Curry._1(f, a[0]);
     var len = List.length(tl) + 1 | 0;
@@ -178,7 +178,7 @@ function of_list_map(f, a) {
     while(true) {
       var param = _param;
       var i = _i;
-      if (param) {
+      if (param !== "[]") {
         arr[i] = Curry._1(f, param[0]);
         _param = param[1];
         _i = i + 1 | 0;

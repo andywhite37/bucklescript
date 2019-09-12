@@ -72,10 +72,10 @@ var Util = {
 
 function string_of_rank(param) {
   if (typeof param === "string") {
-    if (param !== 0) {
-      return "Visited";
-    } else {
+    if (param === "Uninitialized") {
       return "Uninitialized";
+    } else {
+      return "Visited";
     }
   } else {
     return Curry._1(Printf.sprintf(/* constructor */{
@@ -108,7 +108,7 @@ function find_ticker_by_name(all_tickers, ticker) {
 
 function print_all_composite(all_tickers) {
   return List.iter((function (param) {
-                if (param[/* type_ */3]) {
+                if (param[/* type_ */3] !== "Market") {
                   console.log(param[/* ticker_name */2]);
                   return "()";
                 } else {
@@ -118,7 +118,7 @@ function print_all_composite(all_tickers) {
 }
 
 function height(param) {
-  if (param) {
+  if (param !== "Empty") {
     return param[4];
   } else {
     return 0;
@@ -150,17 +150,17 @@ function singleton(x, d) {
 }
 
 function bal(l, x, d, r) {
-  var hl = l ? l[4] : 0;
-  var hr = r ? r[4] : 0;
+  var hl = l !== "Empty" ? l[4] : 0;
+  var hr = r !== "Empty" ? r[4] : 0;
   if (hl > (hr + 2 | 0)) {
-    if (l) {
+    if (l !== "Empty") {
       var lr = l[3];
       var ld = l[2];
       var lv = l[1];
       var ll = l[0];
       if (height(ll) >= height(lr)) {
         return create(ll, lv, ld, create(lr, x, d, r));
-      } else if (lr) {
+      } else if (lr !== "Empty") {
         return create(create(ll, lv, ld, lr[0]), lr[1], lr[2], create(lr[3], x, d, r));
       } else {
         throw [
@@ -175,14 +175,14 @@ function bal(l, x, d, r) {
           ];
     }
   } else if (hr > (hl + 2 | 0)) {
-    if (r) {
+    if (r !== "Empty") {
       var rr = r[3];
       var rd = r[2];
       var rv = r[1];
       var rl = r[0];
       if (height(rr) >= height(rl)) {
         return create(create(l, x, d, rl), rv, rd, rr);
-      } else if (rl) {
+      } else if (rl !== "Empty") {
         return create(create(l, x, d, rl[0]), rl[1], rl[2], create(rl[3], rv, rd, rr));
       } else {
         throw [
@@ -209,15 +209,11 @@ function bal(l, x, d, r) {
 }
 
 function is_empty(param) {
-  if (param) {
-    return false;
-  } else {
-    return true;
-  }
+  return param === "Empty";
 }
 
 function add(x, data, param) {
-  if (param) {
+  if (param !== "Empty") {
     var r = param[3];
     var d = param[2];
     var v = param[1];
@@ -252,7 +248,7 @@ function add(x, data, param) {
 function find(x, _param) {
   while(true) {
     var param = _param;
-    if (param) {
+    if (param !== "Empty") {
       var c = Caml_obj.caml_compare(x, param[1]);
       if (c === 0) {
         return param[2];
@@ -269,7 +265,7 @@ function find(x, _param) {
 function mem(x, _param) {
   while(true) {
     var param = _param;
-    if (param) {
+    if (param !== "Empty") {
       var c = Caml_obj.caml_compare(x, param[1]);
       if (c === 0) {
         return true;
@@ -286,9 +282,9 @@ function mem(x, _param) {
 function min_binding(_param) {
   while(true) {
     var param = _param;
-    if (param) {
+    if (param !== "Empty") {
       var l = param[0];
-      if (l) {
+      if (l !== "Empty") {
         _param = l;
         continue ;
       } else {
@@ -306,9 +302,9 @@ function min_binding(_param) {
 function max_binding(_param) {
   while(true) {
     var param = _param;
-    if (param) {
+    if (param !== "Empty") {
       var r = param[3];
-      if (r) {
+      if (r !== "Empty") {
         _param = r;
         continue ;
       } else {
@@ -324,9 +320,9 @@ function max_binding(_param) {
 }
 
 function remove_min_binding(param) {
-  if (param) {
+  if (param !== "Empty") {
     var l = param[0];
-    if (l) {
+    if (l !== "Empty") {
       return bal(remove_min_binding(l), param[1], param[2], param[3]);
     } else {
       return param[3];
@@ -340,7 +336,7 @@ function remove_min_binding(param) {
 }
 
 function remove(x, param) {
-  if (param) {
+  if (param !== "Empty") {
     var r = param[3];
     var d = param[2];
     var v = param[1];
@@ -349,8 +345,8 @@ function remove(x, param) {
     if (c === 0) {
       var t1 = l;
       var t2 = r;
-      if (t1) {
-        if (t2) {
+      if (t1 !== "Empty") {
+        if (t2 !== "Empty") {
           var match = min_binding(t2);
           return bal(t1, match[0], match[1], remove_min_binding(t2));
         } else {
@@ -372,7 +368,7 @@ function remove(x, param) {
 function iter(f, _param) {
   while(true) {
     var param = _param;
-    if (param) {
+    if (param !== "Empty") {
       iter(f, param[0]);
       Curry._2(f, param[1], param[2]);
       _param = param[3];
@@ -384,7 +380,7 @@ function iter(f, _param) {
 }
 
 function map(f, param) {
-  if (param) {
+  if (param !== "Empty") {
     var l$prime = map(f, param[0]);
     var d$prime = Curry._1(f, param[2]);
     var r$prime = map(f, param[3]);
@@ -402,7 +398,7 @@ function map(f, param) {
 }
 
 function mapi(f, param) {
-  if (param) {
+  if (param !== "Empty") {
     var v = param[1];
     var l$prime = mapi(f, param[0]);
     var d$prime = Curry._2(f, v, param[2]);
@@ -424,7 +420,7 @@ function fold(f, _m, _accu) {
   while(true) {
     var accu = _accu;
     var m = _m;
-    if (m) {
+    if (m !== "Empty") {
       _accu = Curry._3(f, m[1], m[2], fold(f, m[0], accu));
       _m = m[3];
       continue ;
@@ -437,7 +433,7 @@ function fold(f, _m, _accu) {
 function for_all(p, _param) {
   while(true) {
     var param = _param;
-    if (param) {
+    if (param !== "Empty") {
       if (Curry._2(p, param[1], param[2]) && for_all(p, param[0])) {
         _param = param[3];
         continue ;
@@ -453,7 +449,7 @@ function for_all(p, _param) {
 function exists(p, _param) {
   while(true) {
     var param = _param;
-    if (param) {
+    if (param !== "Empty") {
       if (Curry._2(p, param[1], param[2]) || exists(p, param[0])) {
         return true;
       } else {
@@ -467,7 +463,7 @@ function exists(p, _param) {
 }
 
 function add_min_binding(k, v, param) {
-  if (param) {
+  if (param !== "Empty") {
     return bal(add_min_binding(k, v, param[0]), param[1], param[2], param[3]);
   } else {
     return singleton(k, v);
@@ -475,7 +471,7 @@ function add_min_binding(k, v, param) {
 }
 
 function add_max_binding(k, v, param) {
-  if (param) {
+  if (param !== "Empty") {
     return bal(param[0], param[1], param[2], add_max_binding(k, v, param[3]));
   } else {
     return singleton(k, v);
@@ -483,8 +479,8 @@ function add_max_binding(k, v, param) {
 }
 
 function join(l, v, d, r) {
-  if (l) {
-    if (r) {
+  if (l !== "Empty") {
+    if (r !== "Empty") {
       var rh = r[4];
       var lh = l[4];
       if (lh > (rh + 2 | 0)) {
@@ -503,8 +499,8 @@ function join(l, v, d, r) {
 }
 
 function concat(t1, t2) {
-  if (t1) {
-    if (t2) {
+  if (t1 !== "Empty") {
+    if (t2 !== "Empty") {
       var match = min_binding(t2);
       return join(t1, match[0], match[1], remove_min_binding(t2));
     } else {
@@ -524,7 +520,7 @@ function concat_or_join(t1, v, d, t2) {
 }
 
 function split$1(x, param) {
-  if (param) {
+  if (param !== "Empty") {
     var r = param[3];
     var d = param[2];
     var v = param[1];
@@ -561,17 +557,17 @@ function split$1(x, param) {
 }
 
 function merge(f, s1, s2) {
-  if (s1) {
+  if (s1 !== "Empty") {
     var v1 = s1[1];
     if (s1[4] >= height(s2)) {
       var match = split$1(v1, s2);
       return concat_or_join(merge(f, s1[0], match[0]), v1, Curry._3(f, v1, Caml_option.some(s1[2]), match[1]), merge(f, s1[3], match[2]));
     }
     
-  } else if (!s2) {
+  } else if (s2 === "Empty") {
     return "Empty";
   }
-  if (s2) {
+  if (s2 !== "Empty") {
     var v2 = s2[1];
     var match$1 = split$1(v2, s1);
     return concat_or_join(merge(f, match$1[0], s2[0]), v2, Curry._3(f, v2, match$1[1], Caml_option.some(s2[2])), merge(f, match$1[2], s2[3]));
@@ -588,7 +584,7 @@ function merge(f, s1, s2) {
 }
 
 function filter(p, param) {
-  if (param) {
+  if (param !== "Empty") {
     var d = param[2];
     var v = param[1];
     var l$prime = filter(p, param[0]);
@@ -605,7 +601,7 @@ function filter(p, param) {
 }
 
 function partition(p, param) {
-  if (param) {
+  if (param !== "Empty") {
     var d = param[2];
     var v = param[1];
     var match = partition(p, param[0]);
@@ -638,7 +634,7 @@ function cons_enum(_m, _e) {
   while(true) {
     var e = _e;
     var m = _m;
-    if (m) {
+    if (m !== "Empty") {
       _e = /* constructor */{
         tag: "More",
         "0": m[1],
@@ -660,8 +656,8 @@ function compare(cmp, m1, m2) {
   while(true) {
     var e2 = _e2;
     var e1 = _e1;
-    if (e1) {
-      if (e2) {
+    if (e1 !== "End") {
+      if (e2 !== "End") {
         var c = Caml_obj.caml_compare(e1[0], e2[0]);
         if (c !== 0) {
           return c;
@@ -678,7 +674,7 @@ function compare(cmp, m1, m2) {
       } else {
         return 1;
       }
-    } else if (e2) {
+    } else if (e2 !== "End") {
       return -1;
     } else {
       return 0;
@@ -692,24 +688,22 @@ function equal(cmp, m1, m2) {
   while(true) {
     var e2 = _e2;
     var e1 = _e1;
-    if (e1) {
-      if (e2 && Caml_obj.caml_equal(e1[0], e2[0]) && Curry._2(cmp, e1[1], e2[1])) {
+    if (e1 !== "End") {
+      if (e2 !== "End" && Caml_obj.caml_equal(e1[0], e2[0]) && Curry._2(cmp, e1[1], e2[1])) {
         _e2 = cons_enum(e2[2], e2[3]);
         _e1 = cons_enum(e1[2], e1[3]);
         continue ;
       } else {
         return false;
       }
-    } else if (e2) {
-      return false;
     } else {
-      return true;
+      return e2 === "End";
     }
   };
 }
 
 function cardinal(param) {
-  if (param) {
+  if (param !== "Empty") {
     return (cardinal(param[0]) + 1 | 0) + cardinal(param[3]) | 0;
   } else {
     return 0;
@@ -720,7 +714,7 @@ function bindings_aux(_accu, _param) {
   while(true) {
     var param = _param;
     var accu = _accu;
-    if (param) {
+    if (param !== "Empty") {
       _param = param[0];
       _accu = /* constructor */{
         tag: "::",
@@ -772,10 +766,10 @@ function compute_update_sequences(all_tickers) {
   List.fold_left((function (counter, ticker) {
           var loop = function (counter, ticker) {
             var rank = ticker[/* rank */1];
-            if (typeof rank === "string" && rank === 0) {
+            if (typeof rank === "string" && rank === "Uninitialized") {
               ticker[/* rank */1] = "Visited";
               var match = ticker[/* type_ */3];
-              if (match) {
+              if (match !== "Market") {
                 var match$1 = match[0];
                 var counter$1 = loop(counter, match$1[/* lhs */2]);
                 var counter$2 = loop(counter$1, match$1[/* rhs */1]);
@@ -800,7 +794,7 @@ function compute_update_sequences(all_tickers) {
           return loop(counter, ticker);
         }), 0, all_tickers);
   var map = List.fold_left((function (map, ticker) {
-          if (ticker[/* type_ */3]) {
+          if (ticker[/* type_ */3] !== "Market") {
             var loop = function (_up, _map, _ticker) {
               while(true) {
                 var ticker = _ticker;
@@ -808,7 +802,7 @@ function compute_update_sequences(all_tickers) {
                 var up = _up;
                 var type_ = ticker[/* type_ */3];
                 var ticker_name = ticker[/* ticker_name */2];
-                if (type_) {
+                if (type_ !== "Market") {
                   var match = type_[0];
                   var map$1 = loop(/* constructor */{
                         tag: "::",
@@ -842,19 +836,35 @@ function compute_update_sequences(all_tickers) {
                 var l$1 = List.sort_uniq((function (lhs, rhs) {
                         var match = lhs[/* rank */1];
                         if (typeof match === "string") {
-                          throw [
-                                Caml_builtin_exceptions.failure,
-                                "All nodes should be ranked"
-                              ];
+                          if (match === "Uninitialized") {
+                            throw [
+                                  Caml_builtin_exceptions.failure,
+                                  "All nodes should be ranked"
+                                ];
+                          } else {
+                            throw [
+                                  Caml_builtin_exceptions.failure,
+                                  "All nodes should be ranked"
+                                ];
+                          }
+                        } else {
+                          var match$1 = rhs[/* rank */1];
+                          if (typeof match$1 === "string") {
+                            if (match$1 === "Uninitialized") {
+                              throw [
+                                    Caml_builtin_exceptions.failure,
+                                    "All nodes should be ranked"
+                                  ];
+                            } else {
+                              throw [
+                                    Caml_builtin_exceptions.failure,
+                                    "All nodes should be ranked"
+                                  ];
+                            }
+                          } else {
+                            return Caml_primitive.caml_int_compare(match[0], match$1[0]);
+                          }
                         }
-                        var match$1 = rhs[/* rank */1];
-                        if (typeof match$1 === "string") {
-                          throw [
-                                Caml_builtin_exceptions.failure,
-                                "All nodes should be ranked"
-                              ];
-                        }
-                        return Caml_primitive.caml_int_compare(match[0], match$1[0]);
                       }), l);
                 return add(k, l$1, map);
               }), map, map);
@@ -864,7 +874,7 @@ function process_quote(ticker_map, new_ticker, new_value) {
   var update_sequence = find(new_ticker, ticker_map);
   return List.iter((function (ticker) {
                 var match = ticker[/* type_ */3];
-                if (match) {
+                if (match !== "Market") {
                   var match$1 = match[0];
                   var match$2 = match$1[/* lhs */2][/* value */0];
                   var match$3 = match$1[/* rhs */1][/* value */0];
@@ -872,7 +882,7 @@ function process_quote(ticker_map, new_ticker, new_value) {
                   if (match$2 !== undefined && match$3 !== undefined) {
                     var y = match$3;
                     var x = match$2;
-                    value = match$1[/* op */0] ? x - y : x + y;
+                    value = match$1[/* op */0] !== "PLUS" ? x - y : x + y;
                   } else {
                     value = undefined;
                   }
@@ -909,14 +919,14 @@ function process_input_line(ticker_map, all_tickers, line) {
           ];
   };
   var tokens = split(/* "|" */124, line);
-  if (tokens) {
+  if (tokens !== "[]") {
     switch (tokens[0]) {
       case "Q" :
           var match = tokens[1];
-          if (match) {
+          if (match !== "[]") {
             var match$1 = match[1];
-            if (match$1) {
-              if (match$1[1]) {
+            if (match$1 !== "[]") {
+              if (match$1[1] !== "[]") {
                 throw [
                       Caml_builtin_exceptions.failure,
                       "Invalid input line"
@@ -943,17 +953,17 @@ function process_input_line(ticker_map, all_tickers, line) {
           }
       case "R" :
           var match$2 = tokens[1];
-          if (match$2) {
+          if (match$2 !== "[]") {
             var match$3 = match$2[1];
-            if (match$3) {
+            if (match$3 !== "[]") {
               var ticker_name = match$2[0];
               switch (match$3[0]) {
                 case "+" :
                     var match$4 = match$3[1];
-                    if (match$4) {
+                    if (match$4 !== "[]") {
                       var match$5 = match$4[1];
-                      if (match$5) {
-                        if (match$5[1]) {
+                      if (match$5 !== "[]") {
+                        if (match$5[1] !== "[]") {
                           throw [
                                 Caml_builtin_exceptions.failure,
                                 "Invalid input line"
@@ -981,10 +991,10 @@ function process_input_line(ticker_map, all_tickers, line) {
                     }
                 case "-" :
                     var match$6 = match$3[1];
-                    if (match$6) {
+                    if (match$6 !== "[]") {
                       var match$7 = match$6[1];
-                      if (match$7) {
-                        if (match$7[1]) {
+                      if (match$7 !== "[]") {
+                        if (match$7[1] !== "[]") {
                           throw [
                                 Caml_builtin_exceptions.failure,
                                 "Invalid input line"
@@ -1011,7 +1021,7 @@ function process_input_line(ticker_map, all_tickers, line) {
                           ];
                     }
                 case "S" :
-                    if (match$3[1]) {
+                    if (match$3[1] !== "[]") {
                       throw [
                             Caml_builtin_exceptions.failure,
                             "Invalid input line"
@@ -1067,7 +1077,7 @@ function loop(_lines, _param) {
     var param = _param;
     var lines = _lines;
     var all_tickers = param[0];
-    if (lines) {
+    if (lines !== "[]") {
       _param = process_input_line(param[1], all_tickers, lines[0]);
       _lines = lines[1];
       continue ;

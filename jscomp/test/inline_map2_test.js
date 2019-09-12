@@ -9,7 +9,7 @@ var Caml_builtin_exceptions = require("../../lib/js/caml_builtin_exceptions.js")
 
 function Make(Ord) {
   var height = function (param) {
-    if (param) {
+    if (param !== "Empty") {
       return param[4];
     } else {
       return 0;
@@ -38,17 +38,17 @@ function Make(Ord) {
           };
   };
   var bal = function (l, x, d, r) {
-    var hl = l ? l[4] : 0;
-    var hr = r ? r[4] : 0;
+    var hl = l !== "Empty" ? l[4] : 0;
+    var hr = r !== "Empty" ? r[4] : 0;
     if (hl > (hr + 2 | 0)) {
-      if (l) {
+      if (l !== "Empty") {
         var lr = l[3];
         var ld = l[2];
         var lv = l[1];
         var ll = l[0];
         if (height(ll) >= height(lr)) {
           return create(ll, lv, ld, create(lr, x, d, r));
-        } else if (lr) {
+        } else if (lr !== "Empty") {
           return create(create(ll, lv, ld, lr[0]), lr[1], lr[2], create(lr[3], x, d, r));
         } else {
           throw [
@@ -63,14 +63,14 @@ function Make(Ord) {
             ];
       }
     } else if (hr > (hl + 2 | 0)) {
-      if (r) {
+      if (r !== "Empty") {
         var rr = r[3];
         var rd = r[2];
         var rv = r[1];
         var rl = r[0];
         if (height(rr) >= height(rl)) {
           return create(create(l, x, d, rl), rv, rd, rr);
-        } else if (rl) {
+        } else if (rl !== "Empty") {
           return create(create(l, x, d, rl[0]), rl[1], rl[2], create(rl[3], rv, rd, rr));
         } else {
           throw [
@@ -96,14 +96,10 @@ function Make(Ord) {
     }
   };
   var is_empty = function (param) {
-    if (param) {
-      return false;
-    } else {
-      return true;
-    }
+    return param === "Empty";
   };
   var add = function (x, data, param) {
-    if (param) {
+    if (param !== "Empty") {
       var r = param[3];
       var d = param[2];
       var v = param[1];
@@ -137,7 +133,7 @@ function Make(Ord) {
   var find = function (x, _param) {
     while(true) {
       var param = _param;
-      if (param) {
+      if (param !== "Empty") {
         var c = Curry._2(Ord.compare, x, param[1]);
         if (c === 0) {
           return param[2];
@@ -153,7 +149,7 @@ function Make(Ord) {
   var mem = function (x, _param) {
     while(true) {
       var param = _param;
-      if (param) {
+      if (param !== "Empty") {
         var c = Curry._2(Ord.compare, x, param[1]);
         if (c === 0) {
           return true;
@@ -169,9 +165,9 @@ function Make(Ord) {
   var min_binding = function (_param) {
     while(true) {
       var param = _param;
-      if (param) {
+      if (param !== "Empty") {
         var l = param[0];
-        if (l) {
+        if (l !== "Empty") {
           _param = l;
           continue ;
         } else {
@@ -188,9 +184,9 @@ function Make(Ord) {
   var max_binding = function (_param) {
     while(true) {
       var param = _param;
-      if (param) {
+      if (param !== "Empty") {
         var r = param[3];
-        if (r) {
+        if (r !== "Empty") {
           _param = r;
           continue ;
         } else {
@@ -205,9 +201,9 @@ function Make(Ord) {
     };
   };
   var remove_min_binding = function (param) {
-    if (param) {
+    if (param !== "Empty") {
       var l = param[0];
-      if (l) {
+      if (l !== "Empty") {
         return bal(remove_min_binding(l), param[1], param[2], param[3]);
       } else {
         return param[3];
@@ -220,7 +216,7 @@ function Make(Ord) {
     }
   };
   var remove = function (x, param) {
-    if (param) {
+    if (param !== "Empty") {
       var r = param[3];
       var d = param[2];
       var v = param[1];
@@ -229,8 +225,8 @@ function Make(Ord) {
       if (c === 0) {
         var t1 = l;
         var t2 = r;
-        if (t1) {
-          if (t2) {
+        if (t1 !== "Empty") {
+          if (t2 !== "Empty") {
             var match = min_binding(t2);
             return bal(t1, match[0], match[1], remove_min_binding(t2));
           } else {
@@ -251,7 +247,7 @@ function Make(Ord) {
   var iter = function (f, _param) {
     while(true) {
       var param = _param;
-      if (param) {
+      if (param !== "Empty") {
         iter(f, param[0]);
         Curry._2(f, param[1], param[2]);
         _param = param[3];
@@ -262,7 +258,7 @@ function Make(Ord) {
     };
   };
   var map = function (f, param) {
-    if (param) {
+    if (param !== "Empty") {
       var l$prime = map(f, param[0]);
       var d$prime = Curry._1(f, param[2]);
       var r$prime = map(f, param[3]);
@@ -279,7 +275,7 @@ function Make(Ord) {
     }
   };
   var mapi = function (f, param) {
-    if (param) {
+    if (param !== "Empty") {
       var v = param[1];
       var l$prime = mapi(f, param[0]);
       var d$prime = Curry._2(f, v, param[2]);
@@ -300,7 +296,7 @@ function Make(Ord) {
     while(true) {
       var accu = _accu;
       var m = _m;
-      if (m) {
+      if (m !== "Empty") {
         _accu = Curry._3(f, m[1], m[2], fold(f, m[0], accu));
         _m = m[3];
         continue ;
@@ -312,7 +308,7 @@ function Make(Ord) {
   var for_all = function (p, _param) {
     while(true) {
       var param = _param;
-      if (param) {
+      if (param !== "Empty") {
         if (Curry._2(p, param[1], param[2]) && for_all(p, param[0])) {
           _param = param[3];
           continue ;
@@ -327,7 +323,7 @@ function Make(Ord) {
   var exists = function (p, _param) {
     while(true) {
       var param = _param;
-      if (param) {
+      if (param !== "Empty") {
         if (Curry._2(p, param[1], param[2]) || exists(p, param[0])) {
           return true;
         } else {
@@ -340,22 +336,22 @@ function Make(Ord) {
     };
   };
   var add_min_binding = function (k, v, param) {
-    if (param) {
+    if (param !== "Empty") {
       return bal(add_min_binding(k, v, param[0]), param[1], param[2], param[3]);
     } else {
       return singleton(k, v);
     }
   };
   var add_max_binding = function (k, v, param) {
-    if (param) {
+    if (param !== "Empty") {
       return bal(param[0], param[1], param[2], add_max_binding(k, v, param[3]));
     } else {
       return singleton(k, v);
     }
   };
   var join = function (l, v, d, r) {
-    if (l) {
-      if (r) {
+    if (l !== "Empty") {
+      if (r !== "Empty") {
         var rh = r[4];
         var lh = l[4];
         if (lh > (rh + 2 | 0)) {
@@ -373,8 +369,8 @@ function Make(Ord) {
     }
   };
   var concat = function (t1, t2) {
-    if (t1) {
-      if (t2) {
+    if (t1 !== "Empty") {
+      if (t2 !== "Empty") {
         var match = min_binding(t2);
         return join(t1, match[0], match[1], remove_min_binding(t2));
       } else {
@@ -392,7 +388,7 @@ function Make(Ord) {
     }
   };
   var split = function (x, param) {
-    if (param) {
+    if (param !== "Empty") {
       var r = param[3];
       var d = param[2];
       var v = param[1];
@@ -428,17 +424,17 @@ function Make(Ord) {
     }
   };
   var merge = function (f, s1, s2) {
-    if (s1) {
+    if (s1 !== "Empty") {
       var v1 = s1[1];
       if (s1[4] >= height(s2)) {
         var match = split(v1, s2);
         return concat_or_join(merge(f, s1[0], match[0]), v1, Curry._3(f, v1, Caml_option.some(s1[2]), match[1]), merge(f, s1[3], match[2]));
       }
       
-    } else if (!s2) {
+    } else if (s2 === "Empty") {
       return "Empty";
     }
-    if (s2) {
+    if (s2 !== "Empty") {
       var v2 = s2[1];
       var match$1 = split(v2, s1);
       return concat_or_join(merge(f, match$1[0], s2[0]), v2, Curry._3(f, v2, match$1[1], Caml_option.some(s2[2])), merge(f, match$1[2], s2[3]));
@@ -454,7 +450,7 @@ function Make(Ord) {
     }
   };
   var filter = function (p, param) {
-    if (param) {
+    if (param !== "Empty") {
       var d = param[2];
       var v = param[1];
       var l$prime = filter(p, param[0]);
@@ -470,7 +466,7 @@ function Make(Ord) {
     }
   };
   var partition = function (p, param) {
-    if (param) {
+    if (param !== "Empty") {
       var d = param[2];
       var v = param[1];
       var match = partition(p, param[0]);
@@ -502,7 +498,7 @@ function Make(Ord) {
     while(true) {
       var e = _e;
       var m = _m;
-      if (m) {
+      if (m !== "Empty") {
         _e = /* constructor */{
           tag: "More",
           "0": m[1],
@@ -523,8 +519,8 @@ function Make(Ord) {
     while(true) {
       var e2 = _e2;
       var e1 = _e1;
-      if (e1) {
-        if (e2) {
+      if (e1 !== "End") {
+        if (e2 !== "End") {
           var c = Curry._2(Ord.compare, e1[0], e2[0]);
           if (c !== 0) {
             return c;
@@ -541,7 +537,7 @@ function Make(Ord) {
         } else {
           return 1;
         }
-      } else if (e2) {
+      } else if (e2 !== "End") {
         return -1;
       } else {
         return 0;
@@ -554,23 +550,21 @@ function Make(Ord) {
     while(true) {
       var e2 = _e2;
       var e1 = _e1;
-      if (e1) {
-        if (e2 && Curry._2(Ord.compare, e1[0], e2[0]) === 0 && Curry._2(cmp, e1[1], e2[1])) {
+      if (e1 !== "End") {
+        if (e2 !== "End" && Curry._2(Ord.compare, e1[0], e2[0]) === 0 && Curry._2(cmp, e1[1], e2[1])) {
           _e2 = cons_enum(e2[2], e2[3]);
           _e1 = cons_enum(e1[2], e1[3]);
           continue ;
         } else {
           return false;
         }
-      } else if (e2) {
-        return false;
       } else {
-        return true;
+        return e2 === "End";
       }
     };
   };
   var cardinal = function (param) {
-    if (param) {
+    if (param !== "Empty") {
       return (cardinal(param[0]) + 1 | 0) + cardinal(param[3]) | 0;
     } else {
       return 0;
@@ -580,7 +574,7 @@ function Make(Ord) {
     while(true) {
       var param = _param;
       var accu = _accu;
-      if (param) {
+      if (param !== "Empty") {
         _param = param[0];
         _accu = /* constructor */{
           tag: "::",
@@ -639,7 +633,7 @@ function Make(Ord) {
 }
 
 function height(param) {
-  if (param) {
+  if (param !== "Empty") {
     return param[4];
   } else {
     return 0;
@@ -671,17 +665,17 @@ function singleton(x, d) {
 }
 
 function bal(l, x, d, r) {
-  var hl = l ? l[4] : 0;
-  var hr = r ? r[4] : 0;
+  var hl = l !== "Empty" ? l[4] : 0;
+  var hr = r !== "Empty" ? r[4] : 0;
   if (hl > (hr + 2 | 0)) {
-    if (l) {
+    if (l !== "Empty") {
       var lr = l[3];
       var ld = l[2];
       var lv = l[1];
       var ll = l[0];
       if (height(ll) >= height(lr)) {
         return create(ll, lv, ld, create(lr, x, d, r));
-      } else if (lr) {
+      } else if (lr !== "Empty") {
         return create(create(ll, lv, ld, lr[0]), lr[1], lr[2], create(lr[3], x, d, r));
       } else {
         throw [
@@ -696,14 +690,14 @@ function bal(l, x, d, r) {
           ];
     }
   } else if (hr > (hl + 2 | 0)) {
-    if (r) {
+    if (r !== "Empty") {
       var rr = r[3];
       var rd = r[2];
       var rv = r[1];
       var rl = r[0];
       if (height(rr) >= height(rl)) {
         return create(create(l, x, d, rl), rv, rd, rr);
-      } else if (rl) {
+      } else if (rl !== "Empty") {
         return create(create(l, x, d, rl[0]), rl[1], rl[2], create(rl[3], rv, rd, rr));
       } else {
         throw [
@@ -730,15 +724,11 @@ function bal(l, x, d, r) {
 }
 
 function is_empty(param) {
-  if (param) {
-    return false;
-  } else {
-    return true;
-  }
+  return param === "Empty";
 }
 
 function add(x, data, param) {
-  if (param) {
+  if (param !== "Empty") {
     var r = param[3];
     var d = param[2];
     var v = param[1];
@@ -773,7 +763,7 @@ function add(x, data, param) {
 function find(x, _param) {
   while(true) {
     var param = _param;
-    if (param) {
+    if (param !== "Empty") {
       var c = Caml_primitive.caml_int_compare(x, param[1]);
       if (c === 0) {
         return param[2];
@@ -790,7 +780,7 @@ function find(x, _param) {
 function mem(x, _param) {
   while(true) {
     var param = _param;
-    if (param) {
+    if (param !== "Empty") {
       var c = Caml_primitive.caml_int_compare(x, param[1]);
       if (c === 0) {
         return true;
@@ -807,9 +797,9 @@ function mem(x, _param) {
 function min_binding(_param) {
   while(true) {
     var param = _param;
-    if (param) {
+    if (param !== "Empty") {
       var l = param[0];
-      if (l) {
+      if (l !== "Empty") {
         _param = l;
         continue ;
       } else {
@@ -827,9 +817,9 @@ function min_binding(_param) {
 function max_binding(_param) {
   while(true) {
     var param = _param;
-    if (param) {
+    if (param !== "Empty") {
       var r = param[3];
-      if (r) {
+      if (r !== "Empty") {
         _param = r;
         continue ;
       } else {
@@ -845,9 +835,9 @@ function max_binding(_param) {
 }
 
 function remove_min_binding(param) {
-  if (param) {
+  if (param !== "Empty") {
     var l = param[0];
-    if (l) {
+    if (l !== "Empty") {
       return bal(remove_min_binding(l), param[1], param[2], param[3]);
     } else {
       return param[3];
@@ -861,7 +851,7 @@ function remove_min_binding(param) {
 }
 
 function remove(x, param) {
-  if (param) {
+  if (param !== "Empty") {
     var r = param[3];
     var d = param[2];
     var v = param[1];
@@ -870,8 +860,8 @@ function remove(x, param) {
     if (c === 0) {
       var t1 = l;
       var t2 = r;
-      if (t1) {
-        if (t2) {
+      if (t1 !== "Empty") {
+        if (t2 !== "Empty") {
           var match = min_binding(t2);
           return bal(t1, match[0], match[1], remove_min_binding(t2));
         } else {
@@ -893,7 +883,7 @@ function remove(x, param) {
 function iter(f, _param) {
   while(true) {
     var param = _param;
-    if (param) {
+    if (param !== "Empty") {
       iter(f, param[0]);
       Curry._2(f, param[1], param[2]);
       _param = param[3];
@@ -905,7 +895,7 @@ function iter(f, _param) {
 }
 
 function map(f, param) {
-  if (param) {
+  if (param !== "Empty") {
     var l$prime = map(f, param[0]);
     var d$prime = Curry._1(f, param[2]);
     var r$prime = map(f, param[3]);
@@ -923,7 +913,7 @@ function map(f, param) {
 }
 
 function mapi(f, param) {
-  if (param) {
+  if (param !== "Empty") {
     var v = param[1];
     var l$prime = mapi(f, param[0]);
     var d$prime = Curry._2(f, v, param[2]);
@@ -945,7 +935,7 @@ function fold(f, _m, _accu) {
   while(true) {
     var accu = _accu;
     var m = _m;
-    if (m) {
+    if (m !== "Empty") {
       _accu = Curry._3(f, m[1], m[2], fold(f, m[0], accu));
       _m = m[3];
       continue ;
@@ -958,7 +948,7 @@ function fold(f, _m, _accu) {
 function for_all(p, _param) {
   while(true) {
     var param = _param;
-    if (param) {
+    if (param !== "Empty") {
       if (Curry._2(p, param[1], param[2]) && for_all(p, param[0])) {
         _param = param[3];
         continue ;
@@ -974,7 +964,7 @@ function for_all(p, _param) {
 function exists(p, _param) {
   while(true) {
     var param = _param;
-    if (param) {
+    if (param !== "Empty") {
       if (Curry._2(p, param[1], param[2]) || exists(p, param[0])) {
         return true;
       } else {
@@ -988,7 +978,7 @@ function exists(p, _param) {
 }
 
 function add_min_binding(k, v, param) {
-  if (param) {
+  if (param !== "Empty") {
     return bal(add_min_binding(k, v, param[0]), param[1], param[2], param[3]);
   } else {
     return singleton(k, v);
@@ -996,7 +986,7 @@ function add_min_binding(k, v, param) {
 }
 
 function add_max_binding(k, v, param) {
-  if (param) {
+  if (param !== "Empty") {
     return bal(param[0], param[1], param[2], add_max_binding(k, v, param[3]));
   } else {
     return singleton(k, v);
@@ -1004,8 +994,8 @@ function add_max_binding(k, v, param) {
 }
 
 function join(l, v, d, r) {
-  if (l) {
-    if (r) {
+  if (l !== "Empty") {
+    if (r !== "Empty") {
       var rh = r[4];
       var lh = l[4];
       if (lh > (rh + 2 | 0)) {
@@ -1024,8 +1014,8 @@ function join(l, v, d, r) {
 }
 
 function concat(t1, t2) {
-  if (t1) {
-    if (t2) {
+  if (t1 !== "Empty") {
+    if (t2 !== "Empty") {
       var match = min_binding(t2);
       return join(t1, match[0], match[1], remove_min_binding(t2));
     } else {
@@ -1045,7 +1035,7 @@ function concat_or_join(t1, v, d, t2) {
 }
 
 function split(x, param) {
-  if (param) {
+  if (param !== "Empty") {
     var r = param[3];
     var d = param[2];
     var v = param[1];
@@ -1082,17 +1072,17 @@ function split(x, param) {
 }
 
 function merge(f, s1, s2) {
-  if (s1) {
+  if (s1 !== "Empty") {
     var v1 = s1[1];
     if (s1[4] >= height(s2)) {
       var match = split(v1, s2);
       return concat_or_join(merge(f, s1[0], match[0]), v1, Curry._3(f, v1, Caml_option.some(s1[2]), match[1]), merge(f, s1[3], match[2]));
     }
     
-  } else if (!s2) {
+  } else if (s2 === "Empty") {
     return "Empty";
   }
-  if (s2) {
+  if (s2 !== "Empty") {
     var v2 = s2[1];
     var match$1 = split(v2, s1);
     return concat_or_join(merge(f, match$1[0], s2[0]), v2, Curry._3(f, v2, match$1[1], Caml_option.some(s2[2])), merge(f, match$1[2], s2[3]));
@@ -1109,7 +1099,7 @@ function merge(f, s1, s2) {
 }
 
 function filter(p, param) {
-  if (param) {
+  if (param !== "Empty") {
     var d = param[2];
     var v = param[1];
     var l$prime = filter(p, param[0]);
@@ -1126,7 +1116,7 @@ function filter(p, param) {
 }
 
 function partition(p, param) {
-  if (param) {
+  if (param !== "Empty") {
     var d = param[2];
     var v = param[1];
     var match = partition(p, param[0]);
@@ -1159,7 +1149,7 @@ function cons_enum(_m, _e) {
   while(true) {
     var e = _e;
     var m = _m;
-    if (m) {
+    if (m !== "Empty") {
       _e = /* constructor */{
         tag: "More",
         "0": m[1],
@@ -1181,8 +1171,8 @@ function compare(cmp, m1, m2) {
   while(true) {
     var e2 = _e2;
     var e1 = _e1;
-    if (e1) {
-      if (e2) {
+    if (e1 !== "End") {
+      if (e2 !== "End") {
         var c = Caml_primitive.caml_int_compare(e1[0], e2[0]);
         if (c !== 0) {
           return c;
@@ -1199,7 +1189,7 @@ function compare(cmp, m1, m2) {
       } else {
         return 1;
       }
-    } else if (e2) {
+    } else if (e2 !== "End") {
       return -1;
     } else {
       return 0;
@@ -1213,24 +1203,22 @@ function equal(cmp, m1, m2) {
   while(true) {
     var e2 = _e2;
     var e1 = _e1;
-    if (e1) {
-      if (e2 && e1[0] === e2[0] && Curry._2(cmp, e1[1], e2[1])) {
+    if (e1 !== "End") {
+      if (e2 !== "End" && e1[0] === e2[0] && Curry._2(cmp, e1[1], e2[1])) {
         _e2 = cons_enum(e2[2], e2[3]);
         _e1 = cons_enum(e1[2], e1[3]);
         continue ;
       } else {
         return false;
       }
-    } else if (e2) {
-      return false;
     } else {
-      return true;
+      return e2 === "End";
     }
   };
 }
 
 function cardinal(param) {
-  if (param) {
+  if (param !== "Empty") {
     return (cardinal(param[0]) + 1 | 0) + cardinal(param[3]) | 0;
   } else {
     return 0;
@@ -1241,7 +1229,7 @@ function bindings_aux(_accu, _param) {
   while(true) {
     var param = _param;
     var accu = _accu;
-    if (param) {
+    if (param !== "Empty") {
       _param = param[0];
       _accu = /* constructor */{
         tag: "::",
@@ -1333,7 +1321,7 @@ var m = List.fold_left((function (acc, param) {
     });
 
 function height$1(param) {
-  if (param) {
+  if (param !== "Empty") {
     return param[4];
   } else {
     return 0;
@@ -1365,17 +1353,17 @@ function singleton$1(x, d) {
 }
 
 function bal$1(l, x, d, r) {
-  var hl = l ? l[4] : 0;
-  var hr = r ? r[4] : 0;
+  var hl = l !== "Empty" ? l[4] : 0;
+  var hr = r !== "Empty" ? r[4] : 0;
   if (hl > (hr + 2 | 0)) {
-    if (l) {
+    if (l !== "Empty") {
       var lr = l[3];
       var ld = l[2];
       var lv = l[1];
       var ll = l[0];
       if (height$1(ll) >= height$1(lr)) {
         return create$1(ll, lv, ld, create$1(lr, x, d, r));
-      } else if (lr) {
+      } else if (lr !== "Empty") {
         return create$1(create$1(ll, lv, ld, lr[0]), lr[1], lr[2], create$1(lr[3], x, d, r));
       } else {
         throw [
@@ -1390,14 +1378,14 @@ function bal$1(l, x, d, r) {
           ];
     }
   } else if (hr > (hl + 2 | 0)) {
-    if (r) {
+    if (r !== "Empty") {
       var rr = r[3];
       var rd = r[2];
       var rv = r[1];
       var rl = r[0];
       if (height$1(rr) >= height$1(rl)) {
         return create$1(create$1(l, x, d, rl), rv, rd, rr);
-      } else if (rl) {
+      } else if (rl !== "Empty") {
         return create$1(create$1(l, x, d, rl[0]), rl[1], rl[2], create$1(rl[3], rv, rd, rr));
       } else {
         throw [
@@ -1424,15 +1412,11 @@ function bal$1(l, x, d, r) {
 }
 
 function is_empty$1(param) {
-  if (param) {
-    return false;
-  } else {
-    return true;
-  }
+  return param === "Empty";
 }
 
 function add$1(x, data, param) {
-  if (param) {
+  if (param !== "Empty") {
     var r = param[3];
     var d = param[2];
     var v = param[1];
@@ -1467,7 +1451,7 @@ function add$1(x, data, param) {
 function find$1(x, _param) {
   while(true) {
     var param = _param;
-    if (param) {
+    if (param !== "Empty") {
       var c = Caml_primitive.caml_string_compare(x, param[1]);
       if (c === 0) {
         return param[2];
@@ -1484,7 +1468,7 @@ function find$1(x, _param) {
 function mem$1(x, _param) {
   while(true) {
     var param = _param;
-    if (param) {
+    if (param !== "Empty") {
       var c = Caml_primitive.caml_string_compare(x, param[1]);
       if (c === 0) {
         return true;
@@ -1501,9 +1485,9 @@ function mem$1(x, _param) {
 function min_binding$1(_param) {
   while(true) {
     var param = _param;
-    if (param) {
+    if (param !== "Empty") {
       var l = param[0];
-      if (l) {
+      if (l !== "Empty") {
         _param = l;
         continue ;
       } else {
@@ -1521,9 +1505,9 @@ function min_binding$1(_param) {
 function max_binding$1(_param) {
   while(true) {
     var param = _param;
-    if (param) {
+    if (param !== "Empty") {
       var r = param[3];
-      if (r) {
+      if (r !== "Empty") {
         _param = r;
         continue ;
       } else {
@@ -1539,9 +1523,9 @@ function max_binding$1(_param) {
 }
 
 function remove_min_binding$1(param) {
-  if (param) {
+  if (param !== "Empty") {
     var l = param[0];
-    if (l) {
+    if (l !== "Empty") {
       return bal$1(remove_min_binding$1(l), param[1], param[2], param[3]);
     } else {
       return param[3];
@@ -1555,7 +1539,7 @@ function remove_min_binding$1(param) {
 }
 
 function remove$1(x, param) {
-  if (param) {
+  if (param !== "Empty") {
     var r = param[3];
     var d = param[2];
     var v = param[1];
@@ -1564,8 +1548,8 @@ function remove$1(x, param) {
     if (c === 0) {
       var t1 = l;
       var t2 = r;
-      if (t1) {
-        if (t2) {
+      if (t1 !== "Empty") {
+        if (t2 !== "Empty") {
           var match = min_binding$1(t2);
           return bal$1(t1, match[0], match[1], remove_min_binding$1(t2));
         } else {
@@ -1587,7 +1571,7 @@ function remove$1(x, param) {
 function iter$1(f, _param) {
   while(true) {
     var param = _param;
-    if (param) {
+    if (param !== "Empty") {
       iter$1(f, param[0]);
       Curry._2(f, param[1], param[2]);
       _param = param[3];
@@ -1599,7 +1583,7 @@ function iter$1(f, _param) {
 }
 
 function map$1(f, param) {
-  if (param) {
+  if (param !== "Empty") {
     var l$prime = map$1(f, param[0]);
     var d$prime = Curry._1(f, param[2]);
     var r$prime = map$1(f, param[3]);
@@ -1617,7 +1601,7 @@ function map$1(f, param) {
 }
 
 function mapi$1(f, param) {
-  if (param) {
+  if (param !== "Empty") {
     var v = param[1];
     var l$prime = mapi$1(f, param[0]);
     var d$prime = Curry._2(f, v, param[2]);
@@ -1639,7 +1623,7 @@ function fold$1(f, _m, _accu) {
   while(true) {
     var accu = _accu;
     var m = _m;
-    if (m) {
+    if (m !== "Empty") {
       _accu = Curry._3(f, m[1], m[2], fold$1(f, m[0], accu));
       _m = m[3];
       continue ;
@@ -1652,7 +1636,7 @@ function fold$1(f, _m, _accu) {
 function for_all$1(p, _param) {
   while(true) {
     var param = _param;
-    if (param) {
+    if (param !== "Empty") {
       if (Curry._2(p, param[1], param[2]) && for_all$1(p, param[0])) {
         _param = param[3];
         continue ;
@@ -1668,7 +1652,7 @@ function for_all$1(p, _param) {
 function exists$1(p, _param) {
   while(true) {
     var param = _param;
-    if (param) {
+    if (param !== "Empty") {
       if (Curry._2(p, param[1], param[2]) || exists$1(p, param[0])) {
         return true;
       } else {
@@ -1682,7 +1666,7 @@ function exists$1(p, _param) {
 }
 
 function add_min_binding$1(k, v, param) {
-  if (param) {
+  if (param !== "Empty") {
     return bal$1(add_min_binding$1(k, v, param[0]), param[1], param[2], param[3]);
   } else {
     return singleton$1(k, v);
@@ -1690,7 +1674,7 @@ function add_min_binding$1(k, v, param) {
 }
 
 function add_max_binding$1(k, v, param) {
-  if (param) {
+  if (param !== "Empty") {
     return bal$1(param[0], param[1], param[2], add_max_binding$1(k, v, param[3]));
   } else {
     return singleton$1(k, v);
@@ -1698,8 +1682,8 @@ function add_max_binding$1(k, v, param) {
 }
 
 function join$1(l, v, d, r) {
-  if (l) {
-    if (r) {
+  if (l !== "Empty") {
+    if (r !== "Empty") {
       var rh = r[4];
       var lh = l[4];
       if (lh > (rh + 2 | 0)) {
@@ -1718,8 +1702,8 @@ function join$1(l, v, d, r) {
 }
 
 function concat$1(t1, t2) {
-  if (t1) {
-    if (t2) {
+  if (t1 !== "Empty") {
+    if (t2 !== "Empty") {
       var match = min_binding$1(t2);
       return join$1(t1, match[0], match[1], remove_min_binding$1(t2));
     } else {
@@ -1739,7 +1723,7 @@ function concat_or_join$1(t1, v, d, t2) {
 }
 
 function split$1(x, param) {
-  if (param) {
+  if (param !== "Empty") {
     var r = param[3];
     var d = param[2];
     var v = param[1];
@@ -1776,17 +1760,17 @@ function split$1(x, param) {
 }
 
 function merge$1(f, s1, s2) {
-  if (s1) {
+  if (s1 !== "Empty") {
     var v1 = s1[1];
     if (s1[4] >= height$1(s2)) {
       var match = split$1(v1, s2);
       return concat_or_join$1(merge$1(f, s1[0], match[0]), v1, Curry._3(f, v1, Caml_option.some(s1[2]), match[1]), merge$1(f, s1[3], match[2]));
     }
     
-  } else if (!s2) {
+  } else if (s2 === "Empty") {
     return "Empty";
   }
-  if (s2) {
+  if (s2 !== "Empty") {
     var v2 = s2[1];
     var match$1 = split$1(v2, s1);
     return concat_or_join$1(merge$1(f, match$1[0], s2[0]), v2, Curry._3(f, v2, match$1[1], Caml_option.some(s2[2])), merge$1(f, match$1[2], s2[3]));
@@ -1803,7 +1787,7 @@ function merge$1(f, s1, s2) {
 }
 
 function filter$1(p, param) {
-  if (param) {
+  if (param !== "Empty") {
     var d = param[2];
     var v = param[1];
     var l$prime = filter$1(p, param[0]);
@@ -1820,7 +1804,7 @@ function filter$1(p, param) {
 }
 
 function partition$1(p, param) {
-  if (param) {
+  if (param !== "Empty") {
     var d = param[2];
     var v = param[1];
     var match = partition$1(p, param[0]);
@@ -1853,7 +1837,7 @@ function cons_enum$1(_m, _e) {
   while(true) {
     var e = _e;
     var m = _m;
-    if (m) {
+    if (m !== "Empty") {
       _e = /* constructor */{
         tag: "More",
         "0": m[1],
@@ -1875,8 +1859,8 @@ function compare$1(cmp, m1, m2) {
   while(true) {
     var e2 = _e2;
     var e1 = _e1;
-    if (e1) {
-      if (e2) {
+    if (e1 !== "End") {
+      if (e2 !== "End") {
         var c = Caml_primitive.caml_string_compare(e1[0], e2[0]);
         if (c !== 0) {
           return c;
@@ -1893,7 +1877,7 @@ function compare$1(cmp, m1, m2) {
       } else {
         return 1;
       }
-    } else if (e2) {
+    } else if (e2 !== "End") {
       return -1;
     } else {
       return 0;
@@ -1907,24 +1891,22 @@ function equal$1(cmp, m1, m2) {
   while(true) {
     var e2 = _e2;
     var e1 = _e1;
-    if (e1) {
-      if (e2 && Caml_primitive.caml_string_compare(e1[0], e2[0]) === 0 && Curry._2(cmp, e1[1], e2[1])) {
+    if (e1 !== "End") {
+      if (e2 !== "End" && Caml_primitive.caml_string_compare(e1[0], e2[0]) === 0 && Curry._2(cmp, e1[1], e2[1])) {
         _e2 = cons_enum$1(e2[2], e2[3]);
         _e1 = cons_enum$1(e1[2], e1[3]);
         continue ;
       } else {
         return false;
       }
-    } else if (e2) {
-      return false;
     } else {
-      return true;
+      return e2 === "End";
     }
   };
 }
 
 function cardinal$1(param) {
-  if (param) {
+  if (param !== "Empty") {
     return (cardinal$1(param[0]) + 1 | 0) + cardinal$1(param[3]) | 0;
   } else {
     return 0;
@@ -1935,7 +1917,7 @@ function bindings_aux$1(_accu, _param) {
   while(true) {
     var param = _param;
     var accu = _accu;
-    if (param) {
+    if (param !== "Empty") {
       _param = param[0];
       _accu = /* constructor */{
         tag: "::",

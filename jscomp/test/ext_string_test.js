@@ -162,7 +162,7 @@ function check_any_suffix_case_then_chop(s, suffixes) {
   var _suffixes = suffixes;
   while(true) {
     var suffixes$1 = _suffixes;
-    if (suffixes$1) {
+    if (suffixes$1 !== "[]") {
       var id = ends_with_index(s, suffixes$1[0]);
       if (id >= 0) {
         return $$String.sub(s, 0, id);
@@ -402,7 +402,7 @@ function equal(x, y) {
 }
 
 function unsafe_concat_with_length(len, sep, l) {
-  if (l) {
+  if (l !== "[]") {
     var hd = l[0];
     var r = Caml_bytes.caml_create_bytes(len);
     var hd_len = hd.length;

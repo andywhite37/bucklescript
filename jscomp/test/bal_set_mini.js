@@ -2,7 +2,7 @@
 
 
 function height(param) {
-  if (param) {
+  if (param !== "Empty") {
     return param[3];
   } else {
     return 0;
@@ -25,13 +25,13 @@ function bal(l, v, r) {
   var hl = height(l);
   var hr = height(r);
   if (hl > (hr + 2 | 0)) {
-    if (l) {
+    if (l !== "Empty") {
       var lr = l[2];
       var lv = l[1];
       var ll = l[0];
       if (height(ll) >= height(lr)) {
         return create(ll, lv, create(lr, v, r));
-      } else if (lr) {
+      } else if (lr !== "Empty") {
         return create(create(ll, lv, lr[0]), lr[1], create(lr[2], v, r));
       } else {
         return "Empty";
@@ -40,13 +40,13 @@ function bal(l, v, r) {
       return "Empty";
     }
   } else if (hr > (hl + 2 | 0)) {
-    if (r) {
+    if (r !== "Empty") {
       var rr = r[2];
       var rv = r[1];
       var rl = r[0];
       if (height(rr) >= height(rl)) {
         return create(create(l, v, rl), rv, rr);
-      } else if (rl) {
+      } else if (rl !== "Empty") {
         return create(create(l, v, rl[0]), rl[1], create(rl[2], rv, rr));
       } else {
         return "Empty";
@@ -76,7 +76,7 @@ function compare_int(x, y) {
 }
 
 function add(x, t) {
-  if (t) {
+  if (t !== "Empty") {
     var r = t[2];
     var v = t[1];
     var l = t[0];
@@ -103,9 +103,9 @@ function min_elt(_def, _param) {
   while(true) {
     var param = _param;
     var def = _def;
-    if (param) {
+    if (param !== "Empty") {
       var l = param[0];
-      if (l) {
+      if (l !== "Empty") {
         _param = l;
         _def = param[1];
         continue ;
@@ -119,7 +119,7 @@ function min_elt(_def, _param) {
 }
 
 function remove_min_elt(l, v, r) {
-  if (l) {
+  if (l !== "Empty") {
     return bal(remove_min_elt(l[0], l[1], l[2]), v, r);
   } else {
     return r;
@@ -127,8 +127,8 @@ function remove_min_elt(l, v, r) {
 }
 
 function internal_merge(l, r) {
-  if (l) {
-    if (r) {
+  if (l !== "Empty") {
+    if (r !== "Empty") {
       var rv = r[1];
       return bal(l, min_elt(rv, r), remove_min_elt(r[0], rv, r[2]));
     } else {
@@ -140,7 +140,7 @@ function internal_merge(l, r) {
 }
 
 function remove(x, tree) {
-  if (tree) {
+  if (tree !== "Empty") {
     var r = tree[2];
     var v = tree[1];
     var l = tree[0];
@@ -160,7 +160,7 @@ function remove(x, tree) {
 function mem(x, _param) {
   while(true) {
     var param = _param;
-    if (param) {
+    if (param !== "Empty") {
       var c = compare_int(x, param[1]);
       if (c === 0) {
         return true;
@@ -193,7 +193,7 @@ for(var i$2 = 0; i$2 <= 100000; ++i$2){
 
 var match = v;
 
-if (match) {
+if (match !== "Empty") {
   console.log("impossible");
 }
 

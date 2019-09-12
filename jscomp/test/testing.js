@@ -13,7 +13,7 @@ var all_tests_ok = /* record */[/* contents */true];
 
 function finish(param) {
   var match = all_tests_ok[0];
-  if (match) {
+  if (match !== "false") {
     console.log("\nAll tests succeeded.");
     return "()";
   } else {

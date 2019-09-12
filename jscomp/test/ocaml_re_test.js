@@ -47,8 +47,8 @@ function union(_l, _l$prime) {
   while(true) {
     var l$prime = _l$prime;
     var l = _l;
-    if (l$prime) {
-      if (l) {
+    if (l$prime !== "[]") {
+      if (l !== "[]") {
         var r$prime = l$prime[1];
         var match = l$prime[0];
         var c2$prime = match[1];
@@ -111,7 +111,7 @@ function inter(_l, _l$prime) {
   while(true) {
     var l$prime = _l$prime;
     var l = _l;
-    if (l$prime && l) {
+    if (l$prime !== "[]" && l !== "[]") {
       var r$prime = l$prime[1];
       var match = l$prime[0];
       var c2$prime = match[1];
@@ -155,8 +155,8 @@ function diff(_l, _l$prime) {
   while(true) {
     var l$prime = _l$prime;
     var l = _l;
-    if (l$prime) {
-      if (l) {
+    if (l$prime !== "[]") {
+      if (l !== "[]") {
         var r$prime = l$prime[1];
         var match = l$prime[0];
         var c2$prime = match[1];
@@ -244,7 +244,7 @@ function seq(c, c$prime) {
 }
 
 function offset(o, l) {
-  if (l) {
+  if (l !== "[]") {
     var match = l[0];
     return /* constructor */{
             tag: "::",
@@ -262,7 +262,7 @@ function offset(o, l) {
 function mem(c, _s) {
   while(true) {
     var s = _s;
-    if (s) {
+    if (s !== "[]") {
       var match = s[0];
       if (c <= match[1]) {
         return c >= match[0];
@@ -277,7 +277,7 @@ function mem(c, _s) {
 }
 
 function hash_rec(param) {
-  if (param) {
+  if (param !== "[]") {
     var match = param[0];
     return (match[0] + Caml_int32.imul(13, match[1]) | 0) + Caml_int32.imul(257, hash_rec(param[1])) | 0;
   } else {
@@ -286,7 +286,7 @@ function hash_rec(param) {
 }
 
 function one_char(param) {
-  if (param && !param[1]) {
+  if (param !== "[]" && param[1] === "[]") {
     var match = param[0];
     var i = match[0];
     if (Caml_obj.caml_equal(i, match[1])) {
@@ -308,7 +308,7 @@ function compare(param, param$1) {
 }
 
 function height(param) {
-  if (param) {
+  if (param !== "Empty") {
     return param[4];
   } else {
     return 0;
@@ -329,17 +329,17 @@ function create(l, x, d, r) {
 }
 
 function bal(l, x, d, r) {
-  var hl = l ? l[4] : 0;
-  var hr = r ? r[4] : 0;
+  var hl = l !== "Empty" ? l[4] : 0;
+  var hr = r !== "Empty" ? r[4] : 0;
   if (hl > (hr + 2 | 0)) {
-    if (l) {
+    if (l !== "Empty") {
       var lr = l[3];
       var ld = l[2];
       var lv = l[1];
       var ll = l[0];
       if (height(ll) >= height(lr)) {
         return create(ll, lv, ld, create(lr, x, d, r));
-      } else if (lr) {
+      } else if (lr !== "Empty") {
         return create(create(ll, lv, ld, lr[0]), lr[1], lr[2], create(lr[3], x, d, r));
       } else {
         throw [
@@ -354,14 +354,14 @@ function bal(l, x, d, r) {
           ];
     }
   } else if (hr > (hl + 2 | 0)) {
-    if (r) {
+    if (r !== "Empty") {
       var rr = r[3];
       var rd = r[2];
       var rv = r[1];
       var rl = r[0];
       if (height(rr) >= height(rl)) {
         return create(create(l, x, d, rl), rv, rd, rr);
-      } else if (rl) {
+      } else if (rl !== "Empty") {
         return create(create(l, x, d, rl[0]), rl[1], rl[2], create(rl[3], rv, rd, rr));
       } else {
         throw [
@@ -388,7 +388,7 @@ function bal(l, x, d, r) {
 }
 
 function add(x, data, param) {
-  if (param) {
+  if (param !== "Empty") {
     var r = param[3];
     var d = param[2];
     var v = param[1];
@@ -487,7 +487,7 @@ function from_char(param) {
 }
 
 function height$1(param) {
-  if (param) {
+  if (param !== "Empty") {
     return param[3];
   } else {
     return 0;
@@ -495,8 +495,8 @@ function height$1(param) {
 }
 
 function create$1(l, v, r) {
-  var hl = l ? l[3] : 0;
-  var hr = r ? r[3] : 0;
+  var hl = l !== "Empty" ? l[3] : 0;
+  var hr = r !== "Empty" ? r[3] : 0;
   return /* constructor */{
           tag: "Node",
           "0": l,
@@ -507,16 +507,16 @@ function create$1(l, v, r) {
 }
 
 function bal$1(l, v, r) {
-  var hl = l ? l[3] : 0;
-  var hr = r ? r[3] : 0;
+  var hl = l !== "Empty" ? l[3] : 0;
+  var hr = r !== "Empty" ? r[3] : 0;
   if (hl > (hr + 2 | 0)) {
-    if (l) {
+    if (l !== "Empty") {
       var lr = l[2];
       var lv = l[1];
       var ll = l[0];
       if (height$1(ll) >= height$1(lr)) {
         return create$1(ll, lv, create$1(lr, v, r));
-      } else if (lr) {
+      } else if (lr !== "Empty") {
         return create$1(create$1(ll, lv, lr[0]), lr[1], create$1(lr[2], v, r));
       } else {
         throw [
@@ -531,13 +531,13 @@ function bal$1(l, v, r) {
           ];
     }
   } else if (hr > (hl + 2 | 0)) {
-    if (r) {
+    if (r !== "Empty") {
       var rr = r[2];
       var rv = r[1];
       var rl = r[0];
       if (height$1(rr) >= height$1(rl)) {
         return create$1(create$1(l, v, rl), rv, rr);
-      } else if (rl) {
+      } else if (rl !== "Empty") {
         return create$1(create$1(l, v, rl[0]), rl[1], create$1(rl[2], rv, rr));
       } else {
         throw [
@@ -563,7 +563,7 @@ function bal$1(l, v, r) {
 }
 
 function add$1(x, t) {
-  if (t) {
+  if (t !== "Empty") {
     var r = t[2];
     var v = t[1];
     var l = t[0];
@@ -601,7 +601,7 @@ function hash(m, accu) {
   while(true) {
     var accu$1 = _accu;
     var l = _l;
-    if (l) {
+    if (l !== "[]") {
       var match = l[0];
       _accu = hash_combine(match[0], hash_combine(match[1], accu$1));
       _l = l[1];
@@ -613,7 +613,7 @@ function hash(m, accu) {
 }
 
 function marks_set_idx(idx, marks) {
-  if (marks) {
+  if (marks !== "[]") {
     var match = marks[0];
     if (match[1] !== -1) {
       return marks;
@@ -642,7 +642,7 @@ function marks_set_idx$1(marks, idx) {
 function first(f, _param) {
   while(true) {
     var param = _param;
-    if (param) {
+    if (param !== "[]") {
       var res = Curry._1(f, param[0]);
       if (res !== undefined) {
         return res;
@@ -670,7 +670,7 @@ function mk_expr(ids, def) {
 }
 
 function cst(ids, s) {
-  if (s ? false : true) {
+  if (s === "[]") {
     return mk_expr(ids, /* constructor */{
                 tag: "Alt",
                 "0": "[]"
@@ -684,8 +684,8 @@ function cst(ids, s) {
 }
 
 function alt(ids, l) {
-  if (l) {
-    if (l[1]) {
+  if (l !== "[]") {
+    if (l[1] !== "[]") {
       return mk_expr(ids, /* constructor */{
                   tag: "Alt",
                   "0": l
@@ -707,7 +707,7 @@ function seq$1(ids, kind, x, y) {
   var exit = 0;
   if (typeof match === "string") {
     return y;
-  } else if (/* XXX */match.tag === "Alt" && !match[0]) {
+  } else if (/* XXX */match.tag === "Alt" && match[0] === "[]") {
     return x;
   } else {
     exit = 2;
@@ -718,7 +718,7 @@ function seq$1(ids, kind, x, y) {
         return x;
       }
       
-    } else if (/* XXX */match$1.tag === "Alt" && !match$1[0]) {
+    } else if (/* XXX */match$1.tag === "Alt" && match$1[0] === "[]") {
       return y;
     }
     
@@ -794,11 +794,11 @@ function equal(_l1, _l2) {
   while(true) {
     var l2 = _l2;
     var l1 = _l1;
-    if (l1) {
+    if (l1 !== "[]") {
       var match = l1[0];
       switch (/* XXX */match.tag) {
         case "TSeq" :
-            if (l2) {
+            if (l2 !== "[]") {
               var match$1 = l2[0];
               switch (/* XXX */match$1.tag) {
                 case "TSeq" :
@@ -818,7 +818,7 @@ function equal(_l1, _l2) {
               return false;
             }
         case "TExp" :
-            if (l2) {
+            if (l2 !== "[]") {
               var match$2 = l2[0];
               switch (/* XXX */match$2.tag) {
                 case "TExp" :
@@ -838,7 +838,7 @@ function equal(_l1, _l2) {
               return false;
             }
         case "TMatch" :
-            if (l2) {
+            if (l2 !== "[]") {
               var match$3 = l2[0];
               switch (/* XXX */match$3.tag) {
                 case "TSeq" :
@@ -859,10 +859,8 @@ function equal(_l1, _l2) {
             }
         
       }
-    } else if (l2) {
-      return false;
     } else {
-      return true;
+      return l2 === "[]";
     }
   };
 }
@@ -871,7 +869,7 @@ function hash$1(_l, _accu) {
   while(true) {
     var accu = _accu;
     var l = _l;
-    if (l) {
+    if (l !== "[]") {
       var match = l[0];
       switch (/* XXX */match.tag) {
         case "TSeq" :
@@ -895,11 +893,12 @@ function hash$1(_l, _accu) {
 }
 
 function tseq(kind, x, y, rem) {
-  if (x) {
+  if (x !== "[]") {
     var match = x[0];
     switch (/* XXX */match.tag) {
       case "TExp" :
-          if (typeof match[1][/* def */1] === "string" && !x[1]) {
+          var tmp = match[1][/* def */1];
+          if (typeof tmp === "string" && x[1] === "[]") {
             return /* constructor */{
                     tag: "::",
                     "0": /* constructor */{
@@ -1048,7 +1047,7 @@ function split_at_match_rec(_l$prime, _param) {
   while(true) {
     var param = _param;
     var l$prime = _l$prime;
-    if (param) {
+    if (param !== "[]") {
       var x = param[0];
       switch (/* XXX */x.tag) {
         case "TSeq" :
@@ -1083,7 +1082,7 @@ function split_at_match_rec(_l$prime, _param) {
 function remove_duplicates(prev, _l, y) {
   while(true) {
     var l = _l;
-    if (l) {
+    if (l !== "[]") {
       var x = l[0];
       switch (/* XXX */x.tag) {
         case "TSeq" :
@@ -1096,7 +1095,8 @@ function remove_duplicates(prev, _l, y) {
                   ];
         case "TExp" :
             var x$2 = x[1];
-            if (typeof x$2[/* def */1] === "string") {
+            var tmp = x$2[/* def */1];
+            if (typeof tmp === "string") {
               var r = l[1];
               if (List.memq(y[/* id */0], prev)) {
                 _l = r;
@@ -1158,7 +1158,7 @@ function remove_duplicates(prev, _l, y) {
 }
 
 function set_idx(idx, param) {
-  if (param) {
+  if (param !== "[]") {
     var match = param[0];
     switch (/* XXX */match.tag) {
       case "TSeq" :
@@ -1363,7 +1363,7 @@ function delta_1(marks, c, next_cat, prev_cat, x, rem) {
 }
 
 function delta_2(marks, c, next_cat, prev_cat, l, rem) {
-  if (l) {
+  if (l !== "[]") {
     return delta_1(marks, c, next_cat, prev_cat, l[0], delta_2(marks, c, next_cat, prev_cat, l[1], rem));
   } else {
     return rem;
@@ -1399,7 +1399,7 @@ function delta_seq(c, next_cat, prev_cat, kind, y, z, rem) {
 }
 
 function delta_4(c, next_cat, prev_cat, l, rem) {
-  if (l) {
+  if (l !== "[]") {
     var c$1 = c;
     var next_cat$1 = next_cat;
     var prev_cat$1 = prev_cat;
@@ -1451,7 +1451,7 @@ function status(s) {
   } else {
     var match$1 = s[/* desc */2];
     var st;
-    if (match$1) {
+    if (match$1 !== "[]") {
       var match$2 = match$1[0];
       switch (/* XXX */match$2.tag) {
         case "TSeq" :
@@ -1529,7 +1529,8 @@ var unknown_state = /* record */[
 
 function mk_state(ncol, desc) {
   var match = status(desc);
-  var break_state = typeof match === "string" ? match === 0 : true;
+  var break_state;
+  break_state = typeof match === "string" && match !== "Failed" ? false : true;
   return /* record */[
           /* idx */break_state ? -3 : desc[/* idx */0],
           /* real_idx */desc[/* idx */0],
@@ -1767,7 +1768,7 @@ function trans_set(cache, cm, s) {
       var _param = cache[0];
       while(true) {
         var param = _param;
-        if (param) {
+        if (param !== "Empty") {
           var c = compare(x, param[1]);
           if (c === 0) {
             return param[2];
@@ -1839,7 +1840,7 @@ function split(s, cm) {
   };
   while(true) {
     var t = _t;
-    if (t) {
+    if (t !== "[]") {
       var match = t[0];
       Curry._2(f, match[0], match[1]);
       _t = t[1];
@@ -1982,62 +1983,62 @@ function equal$2(_x1, _x2) {
     if (typeof x1 === "string") {
       switch (x1) {
         case "Beg_of_line" :
-            if (typeof x2 === "string") {
-              return x2 === 0;
+            if (typeof x2 === "string" && x2 === "Beg_of_line") {
+              return true;
             } else {
               return false;
             }
         case "End_of_line" :
-            if (typeof x2 === "string") {
-              return x2 === 1;
+            if (typeof x2 === "string" && x2 === "End_of_line") {
+              return true;
             } else {
               return false;
             }
         case "Beg_of_word" :
-            if (typeof x2 === "string") {
-              return x2 === 2;
+            if (typeof x2 === "string" && x2 === "Beg_of_word") {
+              return true;
             } else {
               return false;
             }
         case "End_of_word" :
-            if (typeof x2 === "string") {
-              return x2 === 3;
+            if (typeof x2 === "string" && x2 === "End_of_word") {
+              return true;
             } else {
               return false;
             }
         case "Not_bound" :
-            if (typeof x2 === "string") {
-              return x2 === 4;
+            if (typeof x2 === "string" && x2 === "Not_bound") {
+              return true;
             } else {
               return false;
             }
         case "Beg_of_str" :
-            if (typeof x2 === "string") {
-              return x2 === 5;
+            if (typeof x2 === "string" && x2 === "Beg_of_str") {
+              return true;
             } else {
               return false;
             }
         case "End_of_str" :
-            if (typeof x2 === "string") {
-              return x2 === 6;
+            if (typeof x2 === "string" && x2 === "End_of_str") {
+              return true;
             } else {
               return false;
             }
         case "Last_end_of_line" :
-            if (typeof x2 === "string") {
-              return x2 === 7;
+            if (typeof x2 === "string" && x2 === "Last_end_of_line") {
+              return true;
             } else {
               return false;
             }
         case "Start" :
-            if (typeof x2 === "string") {
-              return x2 === 8;
+            if (typeof x2 === "string" && x2 === "Start") {
+              return true;
             } else {
               return false;
             }
         case "Stop" :
-            if (typeof x2 === "string") {
-              return x2 >= 9;
+            if (typeof x2 === "string" && x2 === "Stop") {
+              return true;
             } else {
               return false;
             }
@@ -2159,25 +2160,23 @@ function eq_list(_l1, _l2) {
   while(true) {
     var l2 = _l2;
     var l1 = _l1;
-    if (l1) {
-      if (l2 && equal$2(l1[0], l2[0])) {
+    if (l1 !== "[]") {
+      if (l2 !== "[]" && equal$2(l1[0], l2[0])) {
         _l2 = l2[1];
         _l1 = l1[1];
         continue ;
       } else {
         return false;
       }
-    } else if (l2) {
-      return false;
     } else {
-      return true;
+      return l2 === "[]";
     }
   };
 }
 
 function sequence(l) {
-  if (l) {
-    if (l[1]) {
+  if (l !== "[]") {
+    if (l[1] !== "[]") {
       return /* constructor */{
               tag: "Sequence",
               "0": l
@@ -2196,24 +2195,24 @@ function sequence(l) {
 function merge_sequences(_param) {
   while(true) {
     var param = _param;
-    if (param) {
+    if (param !== "[]") {
       var x = param[0];
       if (typeof x !== "string") {
         switch (/* XXX */x.tag) {
           case "Sequence" :
               var match = x[0];
-              if (match) {
+              if (match !== "[]") {
                 var y = match[1];
                 var x$1 = match[0];
                 var r$prime = merge_sequences(param[1]);
                 var exit = 0;
-                if (r$prime) {
+                if (r$prime !== "[]") {
                   var match$1 = r$prime[0];
                   if (typeof match$1 === "string" || /* XXX */match$1.tag !== "Sequence") {
                     exit = 2;
                   } else {
                     var match$2 = match$1[0];
-                    if (match$2 && equal$2(x$1, match$2[0])) {
+                    if (match$2 !== "[]" && equal$2(x$1, match$2[0])) {
                       return /* constructor */{
                               tag: "::",
                               "0": /* constructor */{
@@ -2424,7 +2423,7 @@ function translate(ids, kind, _ign_group, ign_case, _greedy, pos, cache, c, _par
                   ];
         case "Alternative" :
             var merged_sequences = merge_sequences(param[0]);
-            if (merged_sequences && !merged_sequences[1]) {
+            if (merged_sequences !== "[]" && merged_sequences[1] === "[]") {
               var match = translate(ids, kind, ign_group, ign_case, greedy, pos, cache, c, merged_sequences[0]);
               return /* tuple */[
                       enforce_kind(ids, kind, match[1], match[0]),
@@ -2561,10 +2560,10 @@ function translate(ids, kind, _ign_group, ign_case, _greedy, pos, cache, c, _par
 }
 
 function trans_seq(ids, kind, ign_group, ign_case, greedy, pos, cache, c, param) {
-  if (param) {
+  if (param !== "[]") {
     var rem = param[1];
     var r = param[0];
-    if (rem) {
+    if (rem !== "[]") {
       var match = translate(ids, kind, ign_group, ign_case, greedy, pos, cache, c, r);
       var cr$prime = match[0];
       var cr$prime$prime = trans_seq(ids, kind, ign_group, ign_case, greedy, pos, cache, c, rem);
@@ -2804,8 +2803,8 @@ function anchored(_param) {
 }
 
 function alt$1(l) {
-  if (l) {
-    if (l[1]) {
+  if (l !== "[]") {
+    if (l[1] !== "[]") {
       return /* constructor */{
               tag: "Alternative",
               "0": l
@@ -2822,8 +2821,8 @@ function alt$1(l) {
 }
 
 function seq$2(l) {
-  if (l) {
-    if (l[1]) {
+  if (l !== "[]") {
+    if (l[1] !== "[]") {
       return /* constructor */{
               tag: "Sequence",
               "0": l
@@ -2839,10 +2838,9 @@ function seq$2(l) {
   }
 }
 
-var epsilon = /* constructor */{
-  tag: "Sequence",
-  "0": "[]"
-};
+alt$1("[]");
+
+var epsilon = seq$2("[]");
 
 function repn(r, i, j) {
   if (i < 0) {
@@ -3333,10 +3331,10 @@ function exec_internal(name, $staropt$star, $staropt$star$1, groups, re, s) {
     res = match[1];
   }
   if (typeof res === "string") {
-    if (res !== 0) {
-      return "Running";
-    } else {
+    if (res === "Failed") {
       return "Failed";
+    } else {
+      return "Running";
     }
   } else {
     return /* constructor */{
@@ -4262,9 +4260,14 @@ function exec(rex, pos, s) {
   var s$1 = s;
   var match = exec_internal("Re.exec", pos$1, len, true, re, s$1);
   if (typeof match === "string") {
-    throw Caml_builtin_exceptions.not_found;
+    if (match === "Failed") {
+      throw Caml_builtin_exceptions.not_found;
+    } else {
+      throw Caml_builtin_exceptions.not_found;
+    }
+  } else {
+    return match[0];
   }
-  return match[0];
 }
 
 var s = Caml_bytes.bytes_to_string(Bytes.make(1048575, /* "a" */97)) + "b";

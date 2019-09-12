@@ -8,7 +8,7 @@ var Caml_primitive = require("../../lib/js/caml_primitive.js");
 var Caml_builtin_exceptions = require("../../lib/js/caml_builtin_exceptions.js");
 
 function split(x, tree) {
-  if (tree) {
+  if (tree !== "Empty") {
     var r = tree[2];
     var v = tree[1];
     var l = tree[0];
@@ -44,7 +44,7 @@ function split(x, tree) {
 }
 
 function add(x, tree) {
-  if (tree) {
+  if (tree !== "Empty") {
     var r = tree[2];
     var v = tree[1];
     var l = tree[0];
@@ -68,8 +68,8 @@ function add(x, tree) {
 }
 
 function union(s1, s2) {
-  if (s1) {
-    if (s2) {
+  if (s1 !== "Empty") {
+    if (s2 !== "Empty") {
       var h2 = s2[3];
       var v2 = s2[1];
       var h1 = s1[3];
@@ -96,13 +96,13 @@ function union(s1, s2) {
 }
 
 function inter(s1, s2) {
-  if (s1 && s2) {
+  if (s1 !== "Empty" && s2 !== "Empty") {
     var r1 = s1[2];
     var v1 = s1[1];
     var l1 = s1[0];
     var match = split(v1, s2);
     var l2 = match[0];
-    if (match[1]) {
+    if (match[1] !== "false") {
       return Set_gen.internal_join(inter(l1, l2), v1, inter(r1, match[2]));
     } else {
       return Set_gen.internal_concat(inter(l1, l2), inter(r1, match[2]));
@@ -113,14 +113,14 @@ function inter(s1, s2) {
 }
 
 function diff(s1, s2) {
-  if (s1) {
-    if (s2) {
+  if (s1 !== "Empty") {
+    if (s2 !== "Empty") {
       var r1 = s1[2];
       var v1 = s1[1];
       var l1 = s1[0];
       var match = split(v1, s2);
       var l2 = match[0];
-      if (match[1]) {
+      if (match[1] !== "false") {
         return Set_gen.internal_concat(diff(l1, l2), diff(r1, match[2]));
       } else {
         return Set_gen.internal_join(diff(l1, l2), v1, diff(r1, match[2]));
@@ -136,7 +136,7 @@ function diff(s1, s2) {
 function mem(x, _tree) {
   while(true) {
     var tree = _tree;
-    if (tree) {
+    if (tree !== "Empty") {
       var c = Caml_primitive.caml_string_compare(x, tree[1]);
       if (c === 0) {
         return true;
@@ -151,7 +151,7 @@ function mem(x, _tree) {
 }
 
 function remove(x, tree) {
-  if (tree) {
+  if (tree !== "Empty") {
     var r = tree[2];
     var v = tree[1];
     var l = tree[0];
@@ -180,8 +180,8 @@ function subset(_s1, _s2) {
   while(true) {
     var s2 = _s2;
     var s1 = _s1;
-    if (s1) {
-      if (s2) {
+    if (s1 !== "Empty") {
+      if (s2 !== "Empty") {
         var r2 = s2[2];
         var l2 = s2[0];
         var r1 = s1[2];
@@ -233,7 +233,7 @@ function subset(_s1, _s2) {
 function find(x, _tree) {
   while(true) {
     var tree = _tree;
-    if (tree) {
+    if (tree !== "Empty") {
       var v = tree[1];
       var c = Caml_primitive.caml_string_compare(x, v);
       if (c === 0) {
@@ -249,20 +249,20 @@ function find(x, _tree) {
 }
 
 function of_list(l) {
-  if (l) {
+  if (l !== "[]") {
     var match = l[1];
     var x0 = l[0];
-    if (match) {
+    if (match !== "[]") {
       var match$1 = match[1];
       var x1 = match[0];
-      if (match$1) {
+      if (match$1 !== "[]") {
         var match$2 = match$1[1];
         var x2 = match$1[0];
-        if (match$2) {
+        if (match$2 !== "[]") {
           var match$3 = match$2[1];
           var x3 = match$2[0];
-          if (match$3) {
-            if (match$3[1]) {
+          if (match$3 !== "[]") {
+            if (match$3[1] !== "[]") {
               return Set_gen.of_sorted_list(List.sort_uniq($$String.compare, l));
             } else {
               return add(match$3[0], add(x3, add(x2, add(x1, Set_gen.singleton(x0)))));

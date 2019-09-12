@@ -234,9 +234,9 @@ function rev_split_by_char(c, s) {
 }
 
 function pop_last(param) {
-  if (param) {
+  if (param !== "[]") {
     var tl = param[1];
-    if (tl) {
+    if (tl !== "[]") {
       return /* constructor */{
               tag: "::",
               "0": param[0],
@@ -256,7 +256,7 @@ function pop_last(param) {
 function apply_until(f, _param) {
   while(true) {
     var param = _param;
-    if (param) {
+    if (param !== "[]") {
       var x = Curry._1(f, param[0]);
       if (x !== undefined) {
         return x;
@@ -1765,7 +1765,7 @@ function lexer(lexbuf) {
           return "COMMA";
       case 11 :
           var match = __ocaml_lex_comment_rec("[]", lexbuf$1, 41);
-          if (match) {
+          if (match !== "Comment_eof") {
             ___ocaml_lex_state = 0;
             continue ;
           } else {
@@ -1773,7 +1773,7 @@ function lexer(lexbuf) {
           }
       case 12 :
           var match$1 = __ocaml_lex_multi_line_comment_rec("[]", lexbuf$1, 47);
-          if (match$1) {
+          if (match$1 !== "Comment_eof") {
             ___ocaml_lex_state = 0;
             continue ;
           } else {
@@ -1781,7 +1781,7 @@ function lexer(lexbuf) {
           }
       case 13 :
           var match$2 = __ocaml_lex_string_rec("[]", lexbuf$1, 55);
-          if (match$2) {
+          if (match$2 !== "String_eof") {
             return /* constructor */{
                     tag: "STRING",
                     "0": match$2[0]
@@ -1934,6 +1934,14 @@ function string_of_field_type(param) {
   }
 }
 
+function string_of_repeated_type(param) {
+  if (param !== "Rt_list") {
+    return "Pbrt.Repeated_field.t";
+  } else {
+    return "list";
+  }
+}
+
 function string_of_record_field_type(param) {
   switch (/* XXX */param.tag) {
     case "Rft_required" :
@@ -1942,12 +1950,10 @@ function string_of_record_field_type(param) {
         return string_of_field_type(param[0][0]) + " option";
     case "Rft_repeated_field" :
         var match = param[0];
-        return string_of_field_type(match[1]) + (" " + (
-                  match[0] ? "Pbrt.Repeated_field.t" : "list"
-                ));
+        return string_of_field_type(match[1]) + (" " + string_of_repeated_type(match[0]));
     case "Rft_associative_field" :
         var match$1 = param[0];
-        if (match$1[0]) {
+        if (match$1[0] !== "At_list") {
           return Curry._3(Printf.sprintf(/* constructor */{
                           tag: "Format",
                           "0": /* constructor */{
@@ -1976,7 +1982,7 @@ function string_of_record_field_type(param) {
                             }
                           },
                           "1": "(%s, %s) %s"
-                        }), string_of_basic_type(match$1[2][0]), string_of_field_type(match$1[3][0]), "Hashtbl.t");
+                        }), string_of_basic_type(match$1[2][0]), string_of_field_type(match$1[3][0]), "At_hashtable" !== "At_list" ? "Hashtbl.t" : "list");
         } else {
           return Curry._3(Printf.sprintf(/* constructor */{
                           tag: "Format",
@@ -2006,7 +2012,7 @@ function string_of_record_field_type(param) {
                             }
                           },
                           "1": "(%s * %s) %s"
-                        }), string_of_basic_type(match$1[2][0]), string_of_field_type(match$1[3][0]), "list");
+                        }), string_of_basic_type(match$1[2][0]), string_of_field_type(match$1[3][0]), "At_list" !== "At_list" ? "Hashtbl.t" : "list");
         }
     case "Rft_variant_field" :
         return param[0][/* v_name */0];
@@ -2068,10 +2074,10 @@ function string_of_payload_kind(capitalize, payload_kind, packed) {
   if (typeof payload_kind === "string") {
     switch (payload_kind) {
       case "Pk_bits32" :
-          s = packed ? "bytes" : "bits32";
+          s = packed !== "false" ? "bytes" : "bits32";
           break;
       case "Pk_bits64" :
-          s = packed ? "bytes" : "bits64";
+          s = packed !== "false" ? "bytes" : "bits64";
           break;
       case "Pk_bytes" :
           s = "bytes";
@@ -2079,7 +2085,7 @@ function string_of_payload_kind(capitalize, payload_kind, packed) {
       
     }
   } else {
-    s = packed ? "bytes" : "varint";
+    s = packed !== "false" ? "bytes" : "varint";
   }
   if (capitalize !== undefined) {
     return Caml_bytes.bytes_to_string(Bytes.capitalize(Caml_bytes.bytes_of_string(s)));
@@ -2144,7 +2150,7 @@ function print(scope) {
     while(true) {
       var param = _param;
       var acc = _acc;
-      if (param) {
+      if (param !== "[]") {
         var match = param[0];
         if (/* XXX */match.tag === "Line") {
           _param = param[1];
@@ -2189,15 +2195,11 @@ function runtime_function(param) {
                   return "Pbrt.Encoder.int_as_bits32";
               case "Bt_int32" :
                   return "Pbrt.Encoder.int32_as_bits32";
-              case "Bt_string" :
-              case "Bt_int64" :
-              case "Bt_bytes" :
-              case "Bt_bool" :
-                  throw [
-                        Caml_builtin_exceptions.failure,
-                        "Invalid encoding/OCaml type combination"
-                      ];
-              
+              default:
+                throw [
+                      Caml_builtin_exceptions.failure,
+                      "Invalid encoding/OCaml type combination"
+                    ];
             }
         case "Pk_bits64" :
             switch (param[2]) {
@@ -2207,33 +2209,27 @@ function runtime_function(param) {
                   return "Pbrt.Encoder.int_as_bits64";
               case "Bt_int64" :
                   return "Pbrt.Encoder.int64_as_bits64";
-              case "Bt_string" :
-              case "Bt_int32" :
-              case "Bt_bytes" :
-              case "Bt_bool" :
-                  throw [
-                        Caml_builtin_exceptions.failure,
-                        "Invalid encoding/OCaml type combination"
-                      ];
-              
-            }
-        case "Pk_bytes" :
-            var match$2 = param[2];
-            if (match$2 !== 5) {
-              if (match$2 !== 0) {
+              default:
                 throw [
                       Caml_builtin_exceptions.failure,
                       "Invalid encoding/OCaml type combination"
                     ];
-              } else {
-                return "Pbrt.Encoder.string";
-              }
-            } else {
-              return "Pbrt.Encoder.bytes";
+            }
+        case "Pk_bytes" :
+            switch (param[2]) {
+              case "Bt_string" :
+                  return "Pbrt.Encoder.string";
+              case "Bt_bytes" :
+                  return "Pbrt.Encoder.bytes";
+              default:
+                throw [
+                      Caml_builtin_exceptions.failure,
+                      "Invalid encoding/OCaml type combination"
+                    ];
             }
         
       }
-    } else if (match$1[0]) {
+    } else if (match$1[0] !== "false") {
       switch (param[2]) {
         case "Bt_int" :
             return "Pbrt.Encoder.int_as_zigzag";
@@ -2241,15 +2237,11 @@ function runtime_function(param) {
             return "Pbrt.Encoder.int32_as_zigzag";
         case "Bt_int64" :
             return "Pbrt.Encoder.int64_as_zigzag";
-        case "Bt_string" :
-        case "Bt_float" :
-        case "Bt_bytes" :
-        case "Bt_bool" :
-            throw [
-                  Caml_builtin_exceptions.failure,
-                  "Invalid encoding/OCaml type combination"
-                ];
-        
+        default:
+          throw [
+                Caml_builtin_exceptions.failure,
+                "Invalid encoding/OCaml type combination"
+              ];
       }
     } else {
       switch (param[2]) {
@@ -2259,22 +2251,19 @@ function runtime_function(param) {
             return "Pbrt.Encoder.int32_as_varint";
         case "Bt_int64" :
             return "Pbrt.Encoder.int64_as_varint";
-        case "Bt_string" :
-        case "Bt_float" :
-        case "Bt_bytes" :
-            throw [
-                  Caml_builtin_exceptions.failure,
-                  "Invalid encoding/OCaml type combination"
-                ];
         case "Bt_bool" :
             return "Pbrt.Encoder.bool";
-        
+        default:
+          throw [
+                Caml_builtin_exceptions.failure,
+                "Invalid encoding/OCaml type combination"
+              ];
       }
     }
   } else {
-    var match$3 = param[1];
-    if (typeof match$3 === "string") {
-      switch (match$3) {
+    var match$2 = param[1];
+    if (typeof match$2 === "string") {
+      switch (match$2) {
         case "Pk_bits32" :
             switch (param[2]) {
               case "Bt_float" :
@@ -2283,15 +2272,11 @@ function runtime_function(param) {
                   return "Pbrt.Decoder.int_as_bits32";
               case "Bt_int32" :
                   return "Pbrt.Decoder.int32_as_bits32";
-              case "Bt_string" :
-              case "Bt_int64" :
-              case "Bt_bytes" :
-              case "Bt_bool" :
-                  throw [
-                        Caml_builtin_exceptions.failure,
-                        "Invalid encoding/OCaml type combination"
-                      ];
-              
+              default:
+                throw [
+                      Caml_builtin_exceptions.failure,
+                      "Invalid encoding/OCaml type combination"
+                    ];
             }
         case "Pk_bits64" :
             switch (param[2]) {
@@ -2301,33 +2286,27 @@ function runtime_function(param) {
                   return "Pbrt.Decoder.int_as_bits64";
               case "Bt_int64" :
                   return "Pbrt.Decoder.int64_as_bits64";
-              case "Bt_string" :
-              case "Bt_int32" :
-              case "Bt_bytes" :
-              case "Bt_bool" :
-                  throw [
-                        Caml_builtin_exceptions.failure,
-                        "Invalid encoding/OCaml type combination"
-                      ];
-              
-            }
-        case "Pk_bytes" :
-            var match$4 = param[2];
-            if (match$4 !== 5) {
-              if (match$4 !== 0) {
+              default:
                 throw [
                       Caml_builtin_exceptions.failure,
                       "Invalid encoding/OCaml type combination"
                     ];
-              } else {
-                return "Pbrt.Decoder.string";
-              }
-            } else {
-              return "Pbrt.Decoder.bytes";
+            }
+        case "Pk_bytes" :
+            switch (param[2]) {
+              case "Bt_string" :
+                  return "Pbrt.Decoder.string";
+              case "Bt_bytes" :
+                  return "Pbrt.Decoder.bytes";
+              default:
+                throw [
+                      Caml_builtin_exceptions.failure,
+                      "Invalid encoding/OCaml type combination"
+                    ];
             }
         
       }
-    } else if (match$3[0]) {
+    } else if (match$2[0] !== "false") {
       switch (param[2]) {
         case "Bt_int" :
             return "Pbrt.Decoder.int_as_zigzag";
@@ -2335,15 +2314,11 @@ function runtime_function(param) {
             return "Pbrt.Decoder.int32_as_zigzag";
         case "Bt_int64" :
             return "Pbrt.Decoder.int64_as_zigzag";
-        case "Bt_string" :
-        case "Bt_float" :
-        case "Bt_bytes" :
-        case "Bt_bool" :
-            throw [
-                  Caml_builtin_exceptions.failure,
-                  "Invalid encoding/OCaml type combination"
-                ];
-        
+        default:
+          throw [
+                Caml_builtin_exceptions.failure,
+                "Invalid encoding/OCaml type combination"
+              ];
       }
     } else {
       switch (param[2]) {
@@ -2353,16 +2328,13 @@ function runtime_function(param) {
             return "Pbrt.Decoder.int32_as_varint";
         case "Bt_int64" :
             return "Pbrt.Decoder.int64_as_varint";
-        case "Bt_string" :
-        case "Bt_float" :
-        case "Bt_bytes" :
-            throw [
-                  Caml_builtin_exceptions.failure,
-                  "Invalid encoding/OCaml type combination"
-                ];
         case "Bt_bool" :
             return "Pbrt.Decoder.bool";
-        
+        default:
+          throw [
+                Caml_builtin_exceptions.failure,
+                "Invalid encoding/OCaml type combination"
+              ];
       }
     }
   }
@@ -2397,21 +2369,30 @@ function gen_decode_record(and_, param, sc) {
   var r_name = param[/* r_name */0];
   var all_lists = List.fold_left((function (acc, param) {
           var rf_field_type = param[/* rf_field_type */1];
+          var rf_label = param[/* rf_label */0];
           switch (/* XXX */rf_field_type.tag) {
             case "Rft_repeated_field" :
+                if (rf_field_type[0][0] !== "Rt_list") {
+                  return acc;
+                } else {
+                  return /* constructor */{
+                          tag: "::",
+                          "0": rf_label,
+                          "1": acc
+                        };
+                }
             case "Rft_associative_field" :
-                break;
+                if (rf_field_type[0][0] !== "At_list") {
+                  return acc;
+                } else {
+                  return /* constructor */{
+                          tag: "::",
+                          "0": rf_label,
+                          "1": acc
+                        };
+                }
             default:
               return acc;
-          }
-          if (rf_field_type[0][0]) {
-            return acc;
-          } else {
-            return /* constructor */{
-                    tag: "::",
-                    "0": param[/* rf_label */0],
-                    "1": acc
-                  };
           }
         }), "[]", r_fields);
   var process_field_common = function (sc, encoding_number, pk_as_string, f) {
@@ -2665,8 +2646,8 @@ function gen_decode_record(and_, param, sc) {
                                       var pk$2 = param$3[3];
                                       var encoding_number = param$3[2];
                                       var field_type$2 = param$3[1];
-                                      if (param$3[0]) {
-                                        if (is_packed) {
+                                      if (param$3[0] !== "Rt_list") {
+                                        if (is_packed !== "false") {
                                           return process_field_common(sc$3, encoding_number, "Bytes", (function (sc) {
                                                         line$1(sc, "Pbrt.Decoder.packed_fold (fun () d -> ");
                                                         scope(sc, (function (sc) {
@@ -2727,7 +2708,7 @@ function gen_decode_record(and_, param, sc) {
                                                                           }), decode_field_f(field_type$2, pk$2), rf_label$3));
                                                       }));
                                         }
-                                      } else if (is_packed) {
+                                      } else if (is_packed !== "false") {
                                         return process_field_common(sc$3, encoding_number, "Bytes", (function (sc) {
                                                       return line$1(sc, Curry._2(Printf.sprintf(/* constructor */{
                                                                           tag: "Format",
@@ -2825,7 +2806,7 @@ function gen_decode_record(and_, param, sc) {
                                                               },
                                                               "1": "(Pbrt.Decoder.map_entry d ~decode_key:%s ~decode_value)"
                                                             }), decode_key_f);
-                                                    if (at) {
+                                                    if (at !== "At_list") {
                                                       line$1(sc, Curry._1(Printf.sprintf(/* constructor */{
                                                                     tag: "Format",
                                                                     "0": /* constructor */{
@@ -2913,7 +2894,7 @@ function gen_decode_record(and_, param, sc) {
                                                     var vc_field_type = param[/* vc_field_type */1];
                                                     var vc_constructor = param[/* vc_constructor */0];
                                                     return process_field_common(sc$5, param[/* vc_encoding_number */2], string_of_payload_kind("()", pk, false), (function (sc) {
-                                                                  if (vc_field_type) {
+                                                                  if (vc_field_type !== "Vct_nullary") {
                                                                     return line$1(sc, Curry._3(Printf.sprintf(/* constructor */{
                                                                                         tag: "Format",
                                                                                         "0": /* constructor */{
@@ -3065,7 +3046,7 @@ function gen_decode_variant(and_, param, sc) {
                                         var vc_encoding_number = param[/* vc_encoding_number */2];
                                         var vc_field_type = param[/* vc_field_type */1];
                                         var vc_constructor = param[/* vc_constructor */0];
-                                        if (vc_field_type) {
+                                        if (vc_field_type !== "Vct_nullary") {
                                           return line$1(sc$1, Curry._3(Printf.sprintf(/* constructor */{
                                                               tag: "Format",
                                                               "0": /* constructor */{
@@ -3524,7 +3505,7 @@ function gen_pp_record(and_, param, sc) {
                                   case "Rft_repeated_field" :
                                       var match = rf_field_type[0];
                                       var field_string_of$2 = gen_pp_field(match[1]);
-                                      if (match[0]) {
+                                      if (match[0] !== "Rt_list") {
                                         return line$1(sc, Curry._3(Printf.sprintf(/* constructor */{
                                                             tag: "Format",
                                                             "0": /* constructor */{
@@ -3595,7 +3576,7 @@ function gen_pp_record(and_, param, sc) {
                                       }
                                   case "Rft_associative_field" :
                                       var match$1 = rf_field_type[0];
-                                      var pp_runtime_function = match$1[0] ? "pp_hastable" : "pp_associative_list";
+                                      var pp_runtime_function = match$1[0] !== "At_list" ? "pp_hastable" : "pp_associative_list";
                                       var pp_key = gen_pp_field(/* constructor */{
                                             tag: "Ft_basic_type",
                                             "0": match$1[2][0]
@@ -3731,7 +3712,7 @@ function gen_pp_variant(and_, param, sc) {
                 return List.iter((function (param) {
                               var vc_field_type = param[/* vc_field_type */1];
                               var vc_constructor = param[/* vc_constructor */0];
-                              if (vc_field_type) {
+                              if (vc_field_type !== "Vct_nullary") {
                                 var field_string_of = gen_pp_field(vc_field_type[0]);
                                 return line$1(sc, Curry._3(Printf.sprintf(/* constructor */{
                                                     tag: "Format",
@@ -3974,7 +3955,7 @@ var Codegen_pp = {
 };
 
 function height(param) {
-  if (param) {
+  if (param !== "Empty") {
     return param[4];
   } else {
     return 0;
@@ -3995,17 +3976,17 @@ function create(l, x, d, r) {
 }
 
 function bal(l, x, d, r) {
-  var hl = l ? l[4] : 0;
-  var hr = r ? r[4] : 0;
+  var hl = l !== "Empty" ? l[4] : 0;
+  var hr = r !== "Empty" ? r[4] : 0;
   if (hl > (hr + 2 | 0)) {
-    if (l) {
+    if (l !== "Empty") {
       var lr = l[3];
       var ld = l[2];
       var lv = l[1];
       var ll = l[0];
       if (height(ll) >= height(lr)) {
         return create(ll, lv, ld, create(lr, x, d, r));
-      } else if (lr) {
+      } else if (lr !== "Empty") {
         return create(create(ll, lv, ld, lr[0]), lr[1], lr[2], create(lr[3], x, d, r));
       } else {
         throw [
@@ -4020,14 +4001,14 @@ function bal(l, x, d, r) {
           ];
     }
   } else if (hr > (hl + 2 | 0)) {
-    if (r) {
+    if (r !== "Empty") {
       var rr = r[3];
       var rd = r[2];
       var rv = r[1];
       var rl = r[0];
       if (height(rr) >= height(rl)) {
         return create(create(l, x, d, rl), rv, rd, rr);
-      } else if (rl) {
+      } else if (rl !== "Empty") {
         return create(create(l, x, d, rl[0]), rl[1], rl[2], create(rl[3], rv, rd, rr));
       } else {
         throw [
@@ -4054,7 +4035,7 @@ function bal(l, x, d, r) {
 }
 
 function add(x, data, param) {
-  if (param) {
+  if (param !== "Empty") {
     var r = param[3];
     var d = param[2];
     var v = param[1];
@@ -4089,7 +4070,7 @@ function add(x, data, param) {
 function find(x, _param) {
   while(true) {
     var param = _param;
-    if (param) {
+    if (param !== "Empty") {
       var c = Caml_obj.caml_compare(x, param[1]);
       if (c === 0) {
         return param[2];
@@ -4104,7 +4085,7 @@ function find(x, _param) {
 }
 
 function map$1(f, param) {
-  if (param) {
+  if (param !== "Empty") {
     var l$prime = map$1(f, param[0]);
     var d$prime = Curry._1(f, param[2]);
     var r$prime = map$1(f, param[3]);
@@ -4125,7 +4106,7 @@ function fold(f, _m, _accu) {
   while(true) {
     var accu = _accu;
     var m = _m;
-    if (m) {
+    if (m !== "Empty") {
       _accu = Curry._3(f, m[1], m[2], fold(f, m[0], accu));
       _m = m[3];
       continue ;
@@ -4565,7 +4546,7 @@ function scope_of_package(param) {
 
 function unresolved_of_string(s) {
   var match = rev_split_by_char(/* "." */46, s);
-  if (match) {
+  if (match !== "[]") {
     return /* record */[
             /* scope */List.rev(match[1]),
             /* type_name */match[0],
@@ -4637,16 +4618,6 @@ function compile_default_p2(all_types, field) {
             break;
         case "Field_type_uint32" :
         case "Field_type_uint64" :
-            exit = 3;
-            break;
-        case "Field_type_int32" :
-        case "Field_type_int64" :
-        case "Field_type_sint32" :
-        case "Field_type_sint64" :
-        case "Field_type_fixed32" :
-        case "Field_type_fixed64" :
-        case "Field_type_sfixed32" :
-        case "Field_type_sfixed64" :
             exit = 2;
             break;
         case "Field_type_bool" :
@@ -4663,7 +4634,12 @@ function compile_default_p2(all_types, field) {
             }
         case "Field_type_bytes" :
             return invalid_default_value(field_name$1, "default value not supported for bytes", "()");
-        
+        default:
+          if (/* XXX */constant.tag === "Constant_int") {
+            return constant;
+          } else {
+            return invalid_default_value(field_name$1, "invalid default type (int expected)", "()");
+          }
       }
     } else if (/* XXX */constant.tag === "Constant_litteral") {
       var default_enum_value = constant[0];
@@ -4702,12 +4678,6 @@ function compile_default_p2(all_types, field) {
               return invalid_default_value(field_name$1, "invalid default type (float/int expected)", "()");
           }
       case 2 :
-          if (/* XXX */constant.tag === "Constant_int") {
-            return constant;
-          } else {
-            return invalid_default_value(field_name$1, "invalid default type (int expected)", "()");
-          }
-      case 3 :
           if (/* XXX */constant.tag === "Constant_int") {
             if (constant[0] >= 0) {
               return constant;
@@ -4784,7 +4754,7 @@ function not_found(f) {
 function list_assoc2(x, _param) {
   while(true) {
     var param = _param;
-    if (param) {
+    if (param !== "[]") {
       var match = param[0];
       if (Caml_obj.caml_equal(match[1], x)) {
         return match[0];
@@ -5038,7 +5008,7 @@ function compile_message_p2(types, param, message) {
         while(true) {
           var l = _l;
           var scopes = _scopes;
-          if (l) {
+          if (l !== "[]") {
             _l = pop_last(l);
             _scopes = /* constructor */{
               tag: "::",
@@ -5079,7 +5049,39 @@ function compile_message_p2(types, param, message) {
     if (typeof field_type === "string") {
       var param = field_type;
       if (typeof param === "string") {
-        return param;
+        switch (param) {
+          case "Field_type_double" :
+              return "Field_type_double";
+          case "Field_type_float" :
+              return "Field_type_float";
+          case "Field_type_int32" :
+              return "Field_type_int32";
+          case "Field_type_int64" :
+              return "Field_type_int64";
+          case "Field_type_uint32" :
+              return "Field_type_uint32";
+          case "Field_type_uint64" :
+              return "Field_type_uint64";
+          case "Field_type_sint32" :
+              return "Field_type_sint32";
+          case "Field_type_sint64" :
+              return "Field_type_sint64";
+          case "Field_type_fixed32" :
+              return "Field_type_fixed32";
+          case "Field_type_fixed64" :
+              return "Field_type_fixed64";
+          case "Field_type_sfixed32" :
+              return "Field_type_sfixed32";
+          case "Field_type_sfixed64" :
+              return "Field_type_sfixed64";
+          case "Field_type_bool" :
+              return "Field_type_bool";
+          case "Field_type_string" :
+              return "Field_type_string";
+          case "Field_type_bytes" :
+              return "Field_type_bytes";
+          
+        }
       } else {
         throw [
               Compilation_error,
@@ -5370,12 +5372,9 @@ function gen_type_record(mutable_, and_, param, sc) {
   var is_imperative_type = function (param) {
     switch (/* XXX */param.tag) {
       case "Rft_repeated_field" :
+          return param[0][0] !== "Rt_list";
       case "Rft_associative_field" :
-          if (param[0][0]) {
-            return true;
-          } else {
-            return false;
-          }
+          return param[0][0] !== "At_list";
       default:
         return false;
     }
@@ -5471,7 +5470,7 @@ function gen_type_variant(and_, variant, sc) {
                 return List.iter((function (param) {
                               var vc_field_type = param[/* vc_field_type */1];
                               var vc_constructor = param[/* vc_constructor */0];
-                              if (vc_field_type) {
+                              if (vc_field_type !== "Vct_nullary") {
                                 var type_string = string_of_field_type(vc_field_type[0]);
                                 return line$1(sc, Curry._2(Printf.sprintf(/* constructor */{
                                                     tag: "Format",
@@ -5849,8 +5848,8 @@ function gen_encode_record(and_, param, sc) {
                               var pk$1 = match$2[3];
                               var encoding_number$1 = match$2[2];
                               var field_type$1 = match$2[1];
-                              if (match$2[0]) {
-                                if (is_packed) {
+                              if (match$2[0] !== "Rt_list") {
+                                if (is_packed !== "false") {
                                   gen_encode_field_key(sc, encoding_number$1, pk$1, is_packed);
                                   line$1(sc, "Pbrt.Encoder.nested (fun encoder ->");
                                   scope(sc, (function (sc) {
@@ -5900,7 +5899,7 @@ function gen_encode_record(and_, param, sc) {
                                                       "1": ") v.%s;"
                                                     }), rf_label));
                                 }
-                              } else if (is_packed) {
+                              } else if (is_packed !== "false") {
                                 gen_encode_field_key(sc, encoding_number$1, pk$1, is_packed);
                                 line$1(sc, "Pbrt.Encoder.nested (fun encoder ->");
                                 scope(sc, (function (sc) {
@@ -5980,7 +5979,7 @@ function gen_encode_record(and_, param, sc) {
                                       return gen_encode_field_type(undefined, sc, "x", -1, value_pk, false, value_type);
                                     }));
                               line$1(sc, ") in");
-                              if (match$3[0]) {
+                              if (match$3[0] !== "At_list") {
                                 line$1(sc, "Hashtbl.iter (fun k v ->");
                               } else {
                                 line$1(sc, "List.iter (fun (k, v) ->");
@@ -6057,7 +6056,7 @@ function gen_encode_record(and_, param, sc) {
                                                     var vc_encoding_number = param[/* vc_encoding_number */2];
                                                     var vc_field_type = param[/* vc_field_type */1];
                                                     var vc_constructor = param[/* vc_constructor */0];
-                                                    if (vc_field_type) {
+                                                    if (vc_field_type !== "Vct_nullary") {
                                                       var field_type = vc_field_type[0];
                                                       line$1(sc, Curry._1(Printf.sprintf(/* constructor */{
                                                                     tag: "Format",
@@ -6153,7 +6152,7 @@ function gen_encode_variant(and_, variant, sc) {
                               var vc_encoding_number = param[/* vc_encoding_number */2];
                               var vc_field_type = param[/* vc_field_type */1];
                               var vc_constructor = param[/* vc_constructor */0];
-                              if (vc_field_type) {
+                              if (vc_field_type !== "Vct_nullary") {
                                 var field_type = vc_field_type[0];
                                 line$1(sc, Curry._1(Printf.sprintf(/* constructor */{
                                               tag: "Format",
@@ -6595,7 +6594,7 @@ function record_field_default_info(record_field) {
         break;
     case "Rft_repeated_field" :
         var match$2 = rf_field_type[0];
-        default_value = match$2[0] ? Curry._1(Printf.sprintf(/* constructor */{
+        default_value = match$2[0] !== "Rt_list" ? Curry._1(Printf.sprintf(/* constructor */{
                     tag: "Format",
                     "0": /* constructor */{
                       tag: "String_literal",
@@ -6614,15 +6613,15 @@ function record_field_default_info(record_field) {
                   }), dfvft(match$2[1], undefined)) : "[]";
         break;
     case "Rft_associative_field" :
-        default_value = rf_field_type[0][0] ? "Hashtbl.create 128" : "[]";
+        default_value = rf_field_type[0][0] !== "At_list" ? "Hashtbl.create 128" : "[]";
         break;
     case "Rft_variant_field" :
         var v_constructors = rf_field_type[0][/* v_constructors */1];
-        if (v_constructors) {
+        if (v_constructors !== "[]") {
           var match$3 = v_constructors[0];
           var vc_field_type = match$3[/* vc_field_type */1];
           var vc_constructor = match$3[/* vc_constructor */0];
-          default_value = vc_field_type ? Curry._2(Printf.sprintf(/* constructor */{
+          default_value = vc_field_type !== "Vct_nullary" ? Curry._2(Printf.sprintf(/* constructor */{
                       tag: "Format",
                       "0": /* constructor */{
                         tag: "String",
@@ -6831,12 +6830,12 @@ function gen_default_record(mutable_, and_, param, sc) {
 function gen_default_variant(and_, param, sc) {
   var v_constructors = param[/* v_constructors */1];
   var v_name = param[/* v_name */0];
-  if (v_constructors) {
+  if (v_constructors !== "[]") {
     var match = v_constructors[0];
     var vc_field_type = match[/* vc_field_type */1];
     var vc_constructor = match[/* vc_constructor */0];
     var decl = let_decl_of_and(and_);
-    if (vc_field_type) {
+    if (vc_field_type !== "Vct_nullary") {
       var default_value = default_value_of_field_type(v_name, vc_field_type[0], undefined);
       return line$1(sc, Curry._5(Printf.sprintf(/* constructor */{
                           tag: "Format",
@@ -6930,7 +6929,7 @@ function gen_default_const_variant(and_, param, sc) {
   var cv_constructors = param[/* cv_constructors */1];
   var cv_name = param[/* cv_name */0];
   var first_constructor_name;
-  if (cv_constructors) {
+  if (cv_constructors !== "[]") {
     first_constructor_name = cv_constructors[0][0];
   } else {
     throw [
@@ -7188,7 +7187,7 @@ function rev_split_by_naming_convention(s) {
           var start_i = param[1];
           var l = param[0];
           if (c !== 95) {
-            if (param[2] || !is_uppercase(c)) {
+            if (param[2] !== "false" || !is_uppercase(c)) {
               return /* tuple */[
                       l,
                       start_i,
@@ -7323,8 +7322,8 @@ function type_name(message_scope, name) {
           return List.map($$String.lowercase, List.rev(rev_split_by_naming_convention(s)));
         }), all_names);
   var all_names$2 = List.flatten(all_names$1);
-  if (all_names$2) {
-    if (all_names$2[1]) {
+  if (all_names$2 !== "[]") {
+    if (all_names$2[1] !== "[]") {
       return $$String.concat("_", all_names$2);
     } else {
       return fix_ocaml_keyword_conflict(all_names$2[0]);
@@ -7354,19 +7353,14 @@ function encoding_info_of_field_type(all_types, field_type) {
       case "Field_type_fixed64" :
       case "Field_type_sfixed64" :
           return "Pk_bits64";
-      case "Field_type_int32" :
-      case "Field_type_int64" :
-      case "Field_type_uint32" :
-      case "Field_type_uint64" :
-      case "Field_type_bool" :
-          return /* constructor */{
-                  tag: "Pk_varint",
-                  "0": false
-                };
       case "Field_type_string" :
       case "Field_type_bytes" :
           return "Pk_bytes";
-      
+      default:
+        return /* constructor */{
+                tag: "Pk_varint",
+                "0": false
+              };
     }
   } else {
     var match = type_of_id(all_types, field_type[0]);
@@ -7607,12 +7601,19 @@ function variant_of_oneof(include_oneof_name, outer_message_names, all_types, fi
           var field_type$1 = compile_field_type(field_name(field), all_types, file_options, field_options(field), file_name, pbtt_field_type);
           var match = encoding_of_field(all_types, field);
           var vc_constructor = constructor_name(field_name(field));
+          var tmp;
+          tmp = typeof field_type$1 === "string" ? "Vct_nullary" : (
+              /* XXX */field_type$1.tag === "Ft_basic_type" ? /* constructor */({
+                    tag: "Vct_non_nullary_constructor",
+                    "0": field_type$1
+                  }) : /* constructor */({
+                    tag: "Vct_non_nullary_constructor",
+                    "0": field_type$1
+                  })
+            );
           return /* record */[
                   /* vc_constructor */vc_constructor,
-                  /* vc_field_type */typeof field_type$1 === "string" ? "Vct_nullary" : /* constructor */({
-                        tag: "Vct_non_nullary_constructor",
-                        "0": field_type$1
-                      }),
+                  /* vc_field_type */tmp,
                   /* vc_encoding_number */match[1],
                   /* vc_payload_kind */match[0]
                 ];
@@ -7730,11 +7731,11 @@ function compile(proto_definition) {
                           var message_names = scope$1[/* message_names */1];
                           var message_body = message[/* message_body */2];
                           var message_name = message[/* message_name */1];
-                          if (message_body) {
+                          if (message_body !== "[]") {
                             var match$1 = message_body[0];
                             switch (/* XXX */match$1.tag) {
                               case "Message_oneof_field" :
-                                  if (!message_body[1]) {
+                                  if (message_body[1] === "[]") {
                                     var outer_message_names = Pervasives.$at(message_names, /* constructor */{
                                           tag: "::",
                                           "0": message_name,

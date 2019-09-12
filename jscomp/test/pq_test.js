@@ -3,7 +3,7 @@
 var Caml_exceptions = require("../../lib/js/caml_exceptions.js");
 
 function insert(queue, prio, elt) {
-  if (queue) {
+  if (queue !== "Empty") {
     var right = queue[3];
     var left = queue[2];
     var e = queue[1];
@@ -39,10 +39,10 @@ function insert(queue, prio, elt) {
 var Queue_is_empty = Caml_exceptions.create("Pq_test.PrioQueue.Queue_is_empty");
 
 function remove_top(param) {
-  if (param) {
+  if (param !== "Empty") {
     var left = param[2];
-    if (param[3]) {
-      if (left) {
+    if (param[3] !== "Empty") {
+      if (left !== "Empty") {
         var right = param[3];
         var rprio = right[0];
         var lprio = left[0];
@@ -75,7 +75,7 @@ function remove_top(param) {
 }
 
 function extract(queue) {
-  if (queue) {
+  if (queue !== "Empty") {
     return /* tuple */[
             queue[0],
             queue[1],

@@ -190,18 +190,16 @@ function eq_list(cmp, _xs, _ys) {
   while(true) {
     var ys = _ys;
     var xs = _xs;
-    if (xs) {
-      if (ys && Curry._2(cmp, xs[0], ys[0])) {
+    if (xs !== "[]") {
+      if (ys !== "[]" && Curry._2(cmp, xs[0], ys[0])) {
         _ys = ys[1];
         _xs = xs[1];
         continue ;
       } else {
         return false;
       }
-    } else if (ys) {
-      return false;
     } else {
-      return true;
+      return ys === "[]";
     }
   };
 }

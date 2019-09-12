@@ -160,7 +160,7 @@ function compare(context, state, _a, _b) {
       case 2 :
           var denom = compare(context, state, da, db);
           var match = denom === 0;
-          if (match) {
+          if (match !== "false") {
             _b = nb;
             _a = na;
             continue ;

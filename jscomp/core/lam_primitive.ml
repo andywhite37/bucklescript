@@ -95,7 +95,6 @@ type t =
   | Parraysets
   (* Test if the argument is a block or an immediate integer *)
   | Pisint
-  | Pisstring
   (* Test if the (integer) argument is outside an interval *)
   | Pisout
   (* Bitvect operations *)
@@ -260,7 +259,6 @@ let eq_primitive_approx ( lhs : t) (rhs : t) =
   | Pis_null_undefined -> rhs = Pis_null_undefined
   | Pjs_typeof -> rhs = Pjs_typeof
   | Pisint -> rhs = Pisint
-  | Pisstring -> rhs = Pisstring
   | Pisout -> rhs = Pisout
   | Pbittest -> rhs = Pbittest
   | Pdebugger -> rhs = Pdebugger    

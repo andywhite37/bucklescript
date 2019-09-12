@@ -10,7 +10,7 @@ var Caml_builtin_exceptions = require("../../lib/js/caml_builtin_exceptions.js")
 function filter_map(f, _xs) {
   while(true) {
     var xs = _xs;
-    if (xs) {
+    if (xs !== "[]") {
       var ys = xs[1];
       var match = Curry._1(f, xs[0]);
       if (match !== undefined) {
@@ -35,7 +35,7 @@ function excludes(p, l) {
     while(true) {
       var param = _param;
       var accu = _accu;
-      if (param) {
+      if (param !== "[]") {
         var l = param[1];
         var x = param[0];
         if (Curry._1(p, x)) {
@@ -76,7 +76,7 @@ function exclude_with_fact(p, l) {
     while(true) {
       var param = _param;
       var accu = _accu;
-      if (param) {
+      if (param !== "[]") {
         var l = param[1];
         var x = param[0];
         if (Curry._1(p, x)) {
@@ -111,7 +111,7 @@ function exclude_with_fact2(p1, p2, l) {
     while(true) {
       var param = _param;
       var accu = _accu;
-      if (param) {
+      if (param !== "[]") {
         var l = param[1];
         var x = param[0];
         if (Curry._1(p1, x)) {
@@ -148,18 +148,16 @@ function same_length(_xs, _ys) {
   while(true) {
     var ys = _ys;
     var xs = _xs;
-    if (xs) {
-      if (ys) {
+    if (xs !== "[]") {
+      if (ys !== "[]") {
         _ys = ys[1];
         _xs = xs[1];
         continue ;
       } else {
         return false;
       }
-    } else if (ys) {
-      return false;
     } else {
-      return true;
+      return ys === "[]";
     }
   };
 }
@@ -169,7 +167,7 @@ function filter_mapi(f, xs) {
     while(true) {
       var xs = _xs;
       var i = _i;
-      if (xs) {
+      if (xs !== "[]") {
         var ys = xs[1];
         var match = Curry._2(f, i, xs[0]);
         if (match !== undefined) {
@@ -195,8 +193,8 @@ function filter_map2(f, _xs, _ys) {
   while(true) {
     var ys = _ys;
     var xs = _xs;
-    if (xs) {
-      if (ys) {
+    if (xs !== "[]") {
+      if (ys !== "[]") {
         var vs = ys[1];
         var us = xs[1];
         var match = Curry._2(f, xs[0], ys[0]);
@@ -217,7 +215,7 @@ function filter_map2(f, _xs, _ys) {
               "Ext_list_test.filter_map2"
             ];
       }
-    } else if (ys) {
+    } else if (ys !== "[]") {
       throw [
             Caml_builtin_exceptions.invalid_argument,
             "Ext_list_test.filter_map2"
@@ -234,8 +232,8 @@ function filter_map2i(f, xs, ys) {
       var ys = _ys;
       var xs = _xs;
       var i = _i;
-      if (xs) {
-        if (ys) {
+      if (xs !== "[]") {
+        if (ys !== "[]") {
           var vs = ys[1];
           var us = xs[1];
           var match = Curry._3(f, i, xs[0], ys[0]);
@@ -257,7 +255,7 @@ function filter_map2i(f, xs, ys) {
                 "Ext_list_test.filter_map2i"
               ];
         }
-      } else if (ys) {
+      } else if (ys !== "[]") {
         throw [
               Caml_builtin_exceptions.invalid_argument,
               "Ext_list_test.filter_map2i"
@@ -274,7 +272,7 @@ function rev_map_append(f, _l1, _l2) {
   while(true) {
     var l2 = _l2;
     var l1 = _l1;
-    if (l1) {
+    if (l1 !== "[]") {
       _l2 = /* constructor */{
         tag: "::",
         "0": Curry._1(f, l1[0]),
@@ -296,8 +294,8 @@ function flat_map2(f, lx, ly) {
     var ly$1 = _ly;
     var lx$1 = _lx;
     var acc = _acc;
-    if (lx$1) {
-      if (ly$1) {
+    if (lx$1 !== "[]") {
+      if (ly$1 !== "[]") {
         _ly = ly$1[1];
         _lx = lx$1[1];
         _acc = List.rev_append(Curry._2(f, lx$1[0], ly$1[0]), acc);
@@ -309,7 +307,7 @@ function flat_map2(f, lx, ly) {
             ];
       }
     } else {
-      if (ly$1) {
+      if (ly$1 !== "[]") {
         throw [
               Caml_builtin_exceptions.invalid_argument,
               "Ext_list_test.flat_map2"
@@ -324,7 +322,7 @@ function flat_map_aux(f, _acc, append, _lx) {
   while(true) {
     var lx = _lx;
     var acc = _acc;
-    if (lx) {
+    if (lx !== "[]") {
       _lx = lx[1];
       _acc = List.rev_append(Curry._1(f, lx[0]), acc);
       continue ;
@@ -343,12 +341,12 @@ function flat_map_acc(f, append, lx) {
 }
 
 function map2_last(f, l1, l2) {
-  if (l1) {
+  if (l1 !== "[]") {
     var l1$1 = l1[1];
     var u = l1[0];
-    if (!l1$1) {
-      if (l2) {
-        if (!l2[1]) {
+    if (l1$1 === "[]") {
+      if (l2 !== "[]") {
+        if (l2[1] === "[]") {
           return /* constructor */{
                   tag: "::",
                   "0": Curry._3(f, true, u, l2[0]),
@@ -363,7 +361,7 @@ function map2_last(f, l1, l2) {
             ];
       }
     }
-    if (l2) {
+    if (l2 !== "[]") {
       var r = Curry._3(f, false, u, l2[0]);
       return /* constructor */{
               tag: "::",
@@ -376,7 +374,7 @@ function map2_last(f, l1, l2) {
             "List.map2_last"
           ];
     }
-  } else if (l2) {
+  } else if (l2 !== "[]") {
     throw [
           Caml_builtin_exceptions.invalid_argument,
           "List.map2_last"
@@ -387,10 +385,10 @@ function map2_last(f, l1, l2) {
 }
 
 function map_last(f, l1) {
-  if (l1) {
+  if (l1 !== "[]") {
     var l1$1 = l1[1];
     var u = l1[0];
-    if (l1$1) {
+    if (l1$1 !== "[]") {
       var r = Curry._2(f, false, u);
       return /* constructor */{
               tag: "::",
@@ -410,12 +408,12 @@ function map_last(f, l1) {
 }
 
 function fold_right2_last(f, l1, l2, accu) {
-  if (l1) {
+  if (l1 !== "[]") {
     var l1$1 = l1[1];
     var last1 = l1[0];
-    if (!l1$1) {
-      if (l2) {
-        if (!l2[1]) {
+    if (l1$1 === "[]") {
+      if (l2 !== "[]") {
+        if (l2[1] === "[]") {
           return Curry._4(f, true, last1, l2[0], accu);
         }
         
@@ -426,7 +424,7 @@ function fold_right2_last(f, l1, l2, accu) {
             ];
       }
     }
-    if (l2) {
+    if (l2 !== "[]") {
       return Curry._4(f, false, last1, l2[0], fold_right2_last(f, l1$1, l2[1], accu));
     } else {
       throw [
@@ -435,7 +433,7 @@ function fold_right2_last(f, l1, l2, accu) {
           ];
     }
   } else {
-    if (l2) {
+    if (l2 !== "[]") {
       throw [
             Caml_builtin_exceptions.invalid_argument,
             "List.fold_right2"
@@ -488,7 +486,7 @@ function length_compare(_l, _n) {
     var l = _l;
     if (n < 0) {
       return /* Gt */15949;
-    } else if (l) {
+    } else if (l !== "[]") {
       _n = n - 1 | 0;
       _l = l[1];
       continue ;
@@ -504,8 +502,8 @@ function length_larger_than_n(n, _xs, _ys) {
   while(true) {
     var ys = _ys;
     var xs = _xs;
-    if (ys) {
-      if (xs) {
+    if (ys !== "[]") {
+      if (xs !== "[]") {
         _ys = ys[1];
         _xs = xs[1];
         continue ;
@@ -524,10 +522,10 @@ function exclude_tail(x) {
   while(true) {
     var x$1 = _x;
     var acc = _acc;
-    if (x$1) {
+    if (x$1 !== "[]") {
       var ys = x$1[1];
       var x$2 = x$1[0];
-      if (ys) {
+      if (ys !== "[]") {
         _x = ys;
         _acc = /* constructor */{
           tag: "::",
@@ -551,7 +549,7 @@ function exclude_tail(x) {
 }
 
 function group(cmp, lst) {
-  if (lst) {
+  if (lst !== "[]") {
     return aux(cmp, lst[0], group(cmp, lst[1]));
   } else {
     return "[]";
@@ -559,7 +557,7 @@ function group(cmp, lst) {
 }
 
 function aux(cmp, x, xss) {
-  if (xss) {
+  if (xss !== "[]") {
     var ys = xss[1];
     var y = xss[0];
     if (Curry._2(cmp, x, List.hd(y))) {
@@ -625,7 +623,7 @@ function drop(_n, _h) {
 function find_first_not(p, _param) {
   while(true) {
     var param = _param;
-    if (param) {
+    if (param !== "[]") {
       var a = param[0];
       if (Curry._1(p, a)) {
         _param = param[1];
@@ -642,7 +640,7 @@ function find_first_not(p, _param) {
 function for_all_opt(p, _param) {
   while(true) {
     var param = _param;
-    if (param) {
+    if (param !== "[]") {
       var v = Curry._1(p, param[0]);
       if (v !== undefined) {
         return v;
@@ -668,7 +666,7 @@ function rev_map_acc(acc, f, l) {
   while(true) {
     var param = _param;
     var accu = _accu;
-    if (param) {
+    if (param !== "[]") {
       _param = param[1];
       _accu = /* constructor */{
         tag: "::",
@@ -683,7 +681,7 @@ function rev_map_acc(acc, f, l) {
 }
 
 function map_acc(acc, f, l) {
-  if (l) {
+  if (l !== "[]") {
     return /* constructor */{
             tag: "::",
             "0": Curry._1(f, l[0]),
@@ -695,7 +693,7 @@ function map_acc(acc, f, l) {
 }
 
 function rev_iter(f, xs) {
-  if (xs) {
+  if (xs !== "[]") {
     rev_iter(f, xs[1]);
     return Curry._1(f, xs[0]);
   } else {
@@ -707,18 +705,16 @@ function for_all2_no_exn(p, _l1, _l2) {
   while(true) {
     var l2 = _l2;
     var l1 = _l1;
-    if (l1) {
-      if (l2 && Curry._2(p, l1[0], l2[0])) {
+    if (l1 !== "[]") {
+      if (l2 !== "[]" && Curry._2(p, l1[0], l2[0])) {
         _l2 = l2[1];
         _l1 = l1[1];
         continue ;
       } else {
         return false;
       }
-    } else if (l2) {
-      return false;
     } else {
-      return true;
+      return l2 === "[]";
     }
   };
 }
@@ -726,7 +722,7 @@ function for_all2_no_exn(p, _l1, _l2) {
 function find_no_exn(p, _param) {
   while(true) {
     var param = _param;
-    if (param) {
+    if (param !== "[]") {
       var x = param[0];
       if (Curry._1(p, x)) {
         return Caml_option.some(x);
@@ -743,7 +739,7 @@ function find_no_exn(p, _param) {
 function find_opt(p, _param) {
   while(true) {
     var param = _param;
-    if (param) {
+    if (param !== "[]") {
       var v = Curry._1(p, param[0]);
       if (v !== undefined) {
         return v;
@@ -765,7 +761,7 @@ function split_map(f, xs) {
     var xs$1 = _xs;
     var cs = _cs;
     var bs = _bs;
-    if (xs$1) {
+    if (xs$1 !== "[]") {
       var match = Curry._1(f, xs$1[0]);
       _xs = xs$1[1];
       _cs = /* constructor */{
@@ -790,7 +786,7 @@ function split_map(f, xs) {
 
 function reduce_from_right(fn, lst) {
   var match = List.rev(lst);
-  if (match) {
+  if (match !== "[]") {
     return List.fold_left((function (x, y) {
                   return Curry._2(fn, y, x);
                 }), match[0], match[1]);
@@ -803,7 +799,7 @@ function reduce_from_right(fn, lst) {
 }
 
 function reduce_from_left(fn, lst) {
-  if (lst) {
+  if (lst !== "[]") {
     return List.fold_left(fn, lst[0], lst[1]);
   } else {
     throw [
@@ -819,7 +815,7 @@ function create_ref_empty(param) {
 
 function ref_top(x) {
   var match = x[0];
-  if (match) {
+  if (match !== "[]") {
     return match[0];
   } else {
     throw [
@@ -831,11 +827,7 @@ function ref_top(x) {
 
 function ref_empty(x) {
   var match = x[0];
-  if (match) {
-    return false;
-  } else {
-    return true;
-  }
+  return match === "[]";
 }
 
 function ref_push(x, refs) {
@@ -849,7 +841,7 @@ function ref_push(x, refs) {
 
 function ref_pop(refs) {
   var match = refs[0];
-  if (match) {
+  if (match !== "[]") {
     refs[0] = match[1];
     return match[0];
   } else {
@@ -866,10 +858,10 @@ function rev_except_last(xs) {
   while(true) {
     var xs$1 = _xs;
     var acc = _acc;
-    if (xs$1) {
+    if (xs$1 !== "[]") {
       var xs$2 = xs$1[1];
       var x = xs$1[0];
-      if (xs$2) {
+      if (xs$2 !== "[]") {
         _xs = xs$2;
         _acc = /* constructor */{
           tag: "::",
@@ -901,9 +893,9 @@ function sort_via_array(cmp, lst) {
 function last(_xs) {
   while(true) {
     var xs = _xs;
-    if (xs) {
+    if (xs !== "[]") {
       var tl = xs[1];
-      if (tl) {
+      if (tl !== "[]") {
         _xs = tl;
         continue ;
       } else {
@@ -921,7 +913,7 @@ function last(_xs) {
 function assoc_by_string(def, k, _lst) {
   while(true) {
     var lst = _lst;
-    if (lst) {
+    if (lst !== "[]") {
       var match = lst[0];
       if (match[0] === k) {
         return match[1];
@@ -947,7 +939,7 @@ function assoc_by_string(def, k, _lst) {
 function assoc_by_int(def, k, _lst) {
   while(true) {
     var lst = _lst;
-    if (lst) {
+    if (lst !== "[]") {
       var match = lst[0];
       if (match[0] === k) {
         return match[1];

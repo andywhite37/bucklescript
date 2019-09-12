@@ -2,7 +2,7 @@
 
 
 function map(f, param) {
-  if (param) {
+  if (param !== "[]") {
     var r = f(param[0]);
     return /* constructor */{
             tag: "::",

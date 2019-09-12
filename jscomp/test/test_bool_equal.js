@@ -3,16 +3,10 @@
 var Caml_builtin_exceptions = require("../../lib/js/caml_builtin_exceptions.js");
 
 function bool_equal(x, y) {
-  if (x) {
-    if (y) {
-      return true;
-    } else {
-      return false;
-    }
-  } else if (y) {
-    return false;
+  if (x !== "false") {
+    return y !== "false";
   } else {
-    return true;
+    return y === "false";
   }
 }
 
@@ -101,7 +95,7 @@ function f4(x) {
 }
 
 function f5(x) {
-  if (x) {
+  if (x !== "[]") {
     return 2;
   } else {
     return 1;

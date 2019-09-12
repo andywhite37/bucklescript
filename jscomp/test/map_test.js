@@ -8,7 +8,7 @@ var Caml_primitive = require("../../lib/js/caml_primitive.js");
 var Caml_builtin_exceptions = require("../../lib/js/caml_builtin_exceptions.js");
 
 function height(param) {
-  if (param) {
+  if (param !== "Empty") {
     return param[4];
   } else {
     return 0;
@@ -29,17 +29,17 @@ function create(l, x, d, r) {
 }
 
 function bal(l, x, d, r) {
-  var hl = l ? l[4] : 0;
-  var hr = r ? r[4] : 0;
+  var hl = l !== "Empty" ? l[4] : 0;
+  var hr = r !== "Empty" ? r[4] : 0;
   if (hl > (hr + 2 | 0)) {
-    if (l) {
+    if (l !== "Empty") {
       var lr = l[3];
       var ld = l[2];
       var lv = l[1];
       var ll = l[0];
       if (height(ll) >= height(lr)) {
         return create(ll, lv, ld, create(lr, x, d, r));
-      } else if (lr) {
+      } else if (lr !== "Empty") {
         return create(create(ll, lv, ld, lr[0]), lr[1], lr[2], create(lr[3], x, d, r));
       } else {
         throw [
@@ -54,14 +54,14 @@ function bal(l, x, d, r) {
           ];
     }
   } else if (hr > (hl + 2 | 0)) {
-    if (r) {
+    if (r !== "Empty") {
       var rr = r[3];
       var rd = r[2];
       var rv = r[1];
       var rl = r[0];
       if (height(rr) >= height(rl)) {
         return create(create(l, x, d, rl), rv, rd, rr);
-      } else if (rl) {
+      } else if (rl !== "Empty") {
         return create(create(l, x, d, rl[0]), rl[1], rl[2], create(rl[3], rv, rd, rr));
       } else {
         throw [
@@ -88,7 +88,7 @@ function bal(l, x, d, r) {
 }
 
 function add(x, data, param) {
-  if (param) {
+  if (param !== "Empty") {
     var r = param[3];
     var d = param[2];
     var v = param[1];
@@ -124,7 +124,7 @@ function cons_enum(_m, _e) {
   while(true) {
     var e = _e;
     var m = _m;
-    if (m) {
+    if (m !== "Empty") {
       _e = /* constructor */{
         tag: "More",
         "0": m[1],
@@ -146,8 +146,8 @@ function compare(cmp, m1, m2) {
   while(true) {
     var e2 = _e2;
     var e1 = _e1;
-    if (e1) {
-      if (e2) {
+    if (e1 !== "End") {
+      if (e2 !== "End") {
         var c = Caml_primitive.caml_int_compare(e1[0], e2[0]);
         if (c !== 0) {
           return c;
@@ -164,7 +164,7 @@ function compare(cmp, m1, m2) {
       } else {
         return 1;
       }
-    } else if (e2) {
+    } else if (e2 !== "End") {
       return -1;
     } else {
       return 0;
@@ -178,24 +178,22 @@ function equal(cmp, m1, m2) {
   while(true) {
     var e2 = _e2;
     var e1 = _e1;
-    if (e1) {
-      if (e2 && e1[0] === e2[0] && Curry._2(cmp, e1[1], e2[1])) {
+    if (e1 !== "End") {
+      if (e2 !== "End" && e1[0] === e2[0] && Curry._2(cmp, e1[1], e2[1])) {
         _e2 = cons_enum(e2[2], e2[3]);
         _e1 = cons_enum(e1[2], e1[3]);
         continue ;
       } else {
         return false;
       }
-    } else if (e2) {
-      return false;
     } else {
-      return true;
+      return e2 === "End";
     }
   };
 }
 
 function cardinal(param) {
-  if (param) {
+  if (param !== "Empty") {
     return (cardinal(param[0]) + 1 | 0) + cardinal(param[3]) | 0;
   } else {
     return 0;
@@ -203,7 +201,7 @@ function cardinal(param) {
 }
 
 function height$1(param) {
-  if (param) {
+  if (param !== "Empty") {
     return param[4];
   } else {
     return 0;
@@ -224,17 +222,17 @@ function create$1(l, x, d, r) {
 }
 
 function bal$1(l, x, d, r) {
-  var hl = l ? l[4] : 0;
-  var hr = r ? r[4] : 0;
+  var hl = l !== "Empty" ? l[4] : 0;
+  var hr = r !== "Empty" ? r[4] : 0;
   if (hl > (hr + 2 | 0)) {
-    if (l) {
+    if (l !== "Empty") {
       var lr = l[3];
       var ld = l[2];
       var lv = l[1];
       var ll = l[0];
       if (height$1(ll) >= height$1(lr)) {
         return create$1(ll, lv, ld, create$1(lr, x, d, r));
-      } else if (lr) {
+      } else if (lr !== "Empty") {
         return create$1(create$1(ll, lv, ld, lr[0]), lr[1], lr[2], create$1(lr[3], x, d, r));
       } else {
         throw [
@@ -249,14 +247,14 @@ function bal$1(l, x, d, r) {
           ];
     }
   } else if (hr > (hl + 2 | 0)) {
-    if (r) {
+    if (r !== "Empty") {
       var rr = r[3];
       var rd = r[2];
       var rv = r[1];
       var rl = r[0];
       if (height$1(rr) >= height$1(rl)) {
         return create$1(create$1(l, x, d, rl), rv, rd, rr);
-      } else if (rl) {
+      } else if (rl !== "Empty") {
         return create$1(create$1(l, x, d, rl[0]), rl[1], rl[2], create$1(rl[3], rv, rd, rr));
       } else {
         throw [
@@ -283,7 +281,7 @@ function bal$1(l, x, d, r) {
 }
 
 function add$1(x, data, param) {
-  if (param) {
+  if (param !== "Empty") {
     var r = param[3];
     var d = param[2];
     var v = param[1];
@@ -318,7 +316,7 @@ function add$1(x, data, param) {
 function find(x, _param) {
   while(true) {
     var param = _param;
-    if (param) {
+    if (param !== "Empty") {
       var c = Caml_primitive.caml_string_compare(x, param[1]);
       if (c === 0) {
         return param[2];

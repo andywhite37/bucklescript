@@ -97,8 +97,8 @@ function _must_escape(s) {
 function to_buf(b, t) {
   if (t[0] >= 848054398) {
     var l = t[1];
-    if (l) {
-      if (l[1]) {
+    if (l !== "[]") {
+      if (l[1] !== "[]") {
         $$Buffer.add_char(b, /* "(" */40);
         List.iteri((function (i, t$prime) {
                 if (i > 0) {
@@ -163,8 +163,8 @@ function to_string(t) {
 function print(fmt, t) {
   if (t[0] >= 848054398) {
     var l = t[1];
-    if (l) {
-      if (l[1]) {
+    if (l !== "[]") {
+      if (l[1] !== "[]") {
         Format.fprintf(fmt, /* constructor */{
               tag: "Format",
               "0": /* constructor */{
@@ -290,8 +290,8 @@ function print(fmt, t) {
 function print_noindent(fmt, t) {
   if (t[0] >= 848054398) {
     var l = t[1];
-    if (l) {
-      if (l[1]) {
+    if (l !== "[]") {
+      if (l[1] !== "[]") {
         Format.pp_print_char(fmt, /* "(" */40);
         List.iteri((function (i, t$prime) {
                 if (i > 0) {

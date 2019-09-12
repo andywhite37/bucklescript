@@ -43,7 +43,7 @@ function cons(x, y) {
 }
 
 function length(x) {
-  if (x) {
+  if (x !== "Nil") {
     return 1 + length(x[1]) | 0;
   } else {
     return 0;
@@ -51,7 +51,7 @@ function length(x) {
 }
 
 function map(f, x) {
-  if (x) {
+  if (x !== "Nil") {
     return /* constructor */{
             tag: "Cons",
             "0": Curry._1(f, x[0]),

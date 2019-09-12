@@ -109,8 +109,8 @@ function code_of_style(param) {
 }
 
 function ansi_of_style_l(l) {
-  var s = l ? (
-      l[1] ? $$String.concat(";", List.map(code_of_style, l)) : code_of_style(l[0])
+  var s = l !== "[]" ? (
+      l[1] !== "[]" ? $$String.concat(";", List.map(code_of_style, l)) : code_of_style(l[0])
     ) : "0";
   return "\x1b[" + (s + "m");
 }
@@ -886,10 +886,10 @@ function message(param) {
           }
       case "Method_override" :
           var match = param[0];
-          if (match) {
+          if (match !== "[]") {
             var slist = match[1];
             var lab = match[0];
-            if (slist) {
+            if (slist !== "[]") {
               return $$String.concat(" ", /* constructor */{
                           tag: "::",
                           "0": "the following methods are overridden by the class",
@@ -927,10 +927,10 @@ function message(param) {
           return "the following labels are not bound in this record pattern:\n" + (param[0] + "\nEither bind these labels explicitly or add '; _' to the pattern.");
       case "Instance_variable_override" :
           var match$1 = param[0];
-          if (match$1) {
+          if (match$1 !== "[]") {
             var slist$1 = match$1[1];
             var lab$1 = match$1[0];
-            if (slist$1) {
+            if (slist$1 !== "[]") {
               return $$String.concat(" ", /* constructor */{
                           tag: "::",
                           "0": "the following instance variables are overridden by the class",
@@ -1056,18 +1056,18 @@ function message(param) {
           return "unused ancestor variable " + (param[0] + ".");
       case "Unused_constructor" :
           var s$2 = param[0];
-          if (param[1]) {
+          if (param[1] !== "false") {
             return "constructor " + (s$2 + " is never used to build values.\n(However, this constructor appears in patterns.)");
-          } else if (param[2]) {
+          } else if (param[2] !== "false") {
             return "constructor " + (s$2 + " is never used to build values.\nIts type is exported as a private type.");
           } else {
             return "unused constructor " + (s$2 + ".");
           }
       case "Unused_extension" :
           var s$3 = param[0];
-          if (param[1]) {
+          if (param[1] !== "false") {
             return "extension constructor " + (s$3 + " is never used to build values.\n(However, this constructor appears in patterns.)");
-          } else if (param[2]) {
+          } else if (param[2] !== "false") {
             return "extension constructor " + (s$3 + " is never used to build values.\nIt is exported or rebound as a private extension.");
           } else {
             return "unused extension constructor " + (s$3 + ".");
@@ -1075,10 +1075,10 @@ function message(param) {
       case "Name_out_of_scope" :
           var slist$2 = param[1];
           var ty = param[0];
-          if (slist$2 && !slist$2[1] && !param[2]) {
+          if (slist$2 !== "[]" && slist$2[1] === "[]" && param[2] === "false") {
             return slist$2[0] + (" was selected from type " + (ty + ".\nIt is not visible in the current scope, and will not \nbe selected if the type becomes unknown."));
           }
-          if (param[2]) {
+          if (param[2] !== "false") {
             return "this record of type " + (ty + (" contains fields that are \nnot visible in the current scope: " + ($$String.concat(" ", slist$2) + ".\nThey will not be selected if the type becomes unknown.")));
           } else {
             throw [
@@ -1093,10 +1093,10 @@ function message(param) {
           break;
       case "Ambiguous_name" :
           var slist$3 = param[0];
-          if (slist$3 && !slist$3[1] && !param[2]) {
+          if (slist$3 !== "[]" && slist$3[1] === "[]" && param[2] === "false") {
             return slist$3[0] + (" belongs to several types: " + ($$String.concat(" ", param[1]) + "\nThe first one was selected. Please disambiguate if this is wrong."));
           }
-          if (param[2]) {
+          if (param[2] !== "false") {
             return "these field labels belong to several types: " + ($$String.concat(" ", param[1]) + "\nThe first one was selected. Please disambiguate if this is wrong.");
           } else {
             throw [
@@ -1520,7 +1520,10 @@ function highlight_locations(ppf, locs) {
   while(true) {
     var match = status[0];
     if (typeof match === "string") {
-      if (match !== 0) {
+      if (match === "Uninitialised") {
+        status[0] = Caml_external_polyfill.resolve("caml_terminfo_setup")(Pervasives.stdout);
+        continue ;
+      } else {
         var match$1 = input_lexbuf[0];
         if (match$1 !== undefined) {
           var norepeat;
@@ -1553,9 +1556,6 @@ function highlight_locations(ppf, locs) {
         } else {
           return false;
         }
-      } else {
-        status[0] = Caml_external_polyfill.resolve("caml_terminfo_setup")(Pervasives.stdout);
-        continue ;
       }
     } else {
       var match$2 = input_lexbuf[0];
@@ -2050,9 +2050,9 @@ function assert_fail(msg) {
 
 function is_mocha(param) {
   var match = $$Array.to_list(Process.argv);
-  if (match) {
+  if (match !== "[]") {
     var match$1 = match[1];
-    if (match$1) {
+    if (match$1 !== "[]") {
       var exec = Path.basename(match$1[0]);
       if (exec === "mocha") {
         return true;
@@ -2074,7 +2074,7 @@ function close_enough($staropt$star, a, b) {
 
 function from_pair_suites(name, suites) {
   var match = $$Array.to_list(Process.argv);
-  if (match) {
+  if (match !== "[]") {
     if (is_mocha("()")) {
       describe(name, (function () {
               return List.iter((function (param) {
@@ -2236,13 +2236,16 @@ function warn_bad_docstrings(param) {
                         return "()";
                     case "Docs" :
                         var match$1 = ds[/* ds_associated */3];
-                        if (match$1 >= 2) {
-                          return prerr_warning(ds[/* ds_loc */1], /* constructor */{
-                                      tag: "Bad_docstring",
-                                      "0": false
-                                    });
-                        } else {
-                          return "()";
+                        switch (match$1) {
+                          case "Zero" :
+                          case "One" :
+                              return "()";
+                          case "Many" :
+                              return prerr_warning(ds[/* ds_loc */1], /* constructor */{
+                                          tag: "Bad_docstring",
+                                          "0": false
+                                        });
+                          
                         }
                     
                   }
@@ -2397,16 +2400,20 @@ function get_docstring(info, dsl) {
   var _param = dsl;
   while(true) {
     var param = _param;
-    if (param) {
+    if (param !== "[]") {
       var ds = param[0];
       var match = ds[/* ds_attached */2];
-      if (match !== 1) {
-        ds[/* ds_attached */2] = info ? "Info" : "Docs";
-        return ds;
-      } else {
-        _param = param[1];
-        continue ;
+      switch (match) {
+        case "Info" :
+            _param = param[1];
+            continue ;
+        case "Unattached" :
+        case "Docs" :
+            break;
+        
       }
+      ds[/* ds_attached */2] = info ? "Info" : "Docs";
+      return ds;
     } else {
       return ;
     }
@@ -2419,22 +2426,26 @@ function get_docstrings(dsl) {
   while(true) {
     var param = _param;
     var acc = _acc;
-    if (param) {
+    if (param !== "[]") {
       var ds = param[0];
       var match = ds[/* ds_attached */2];
-      if (match !== 1) {
-        ds[/* ds_attached */2] = "Docs";
-        _param = param[1];
-        _acc = /* constructor */{
-          tag: "::",
-          "0": ds,
-          "1": acc
-        };
-        continue ;
-      } else {
-        _param = param[1];
-        continue ;
+      switch (match) {
+        case "Info" :
+            _param = param[1];
+            continue ;
+        case "Unattached" :
+        case "Docs" :
+            break;
+        
       }
+      ds[/* ds_attached */2] = "Docs";
+      _param = param[1];
+      _acc = /* constructor */{
+        tag: "::",
+        "0": ds,
+        "1": acc
+      };
+      continue ;
     } else {
       return List.rev(acc);
     }
@@ -2444,12 +2455,15 @@ function get_docstrings(dsl) {
 function associate_docstrings(dsl) {
   return List.iter((function (ds) {
                 var match = ds[/* ds_associated */3];
-                if (match !== 0) {
-                  ds[/* ds_associated */3] = "Many";
-                  return /* () */0;
-                } else {
-                  ds[/* ds_associated */3] = "One";
-                  return /* () */0;
+                switch (match) {
+                  case "Zero" :
+                      ds[/* ds_associated */3] = "One";
+                      return /* () */0;
+                  case "One" :
+                  case "Many" :
+                      ds[/* ds_associated */3] = "Many";
+                      return /* () */0;
+                  
                 }
               }), dsl);
 }
@@ -3961,7 +3975,7 @@ function mkpat_cons(consloc, args, loc) {
 }
 
 function mktailexp(nilloc, param) {
-  if (param) {
+  if (param !== "[]") {
     var e1 = param[0];
     var exp_el = mktailexp(nilloc, param[1]);
     var loc_000 = /* loc_start */e1[/* pexp_loc */1][/* loc_start */0];
@@ -4013,7 +4027,7 @@ function mktailexp(nilloc, param) {
 }
 
 function mktailpat(nilloc, param) {
-  if (param) {
+  if (param !== "[]") {
     var p1 = param[0];
     var pat_pl = mktailpat(nilloc, param[1]);
     var loc_000 = /* loc_start */p1[/* ppat_loc */1][/* loc_start */0];
@@ -4268,7 +4282,7 @@ function varify_constructors(var_names, t) {
             var exit = 0;
             switch (/* XXX */match$1.tag) {
               case "Lident" :
-                  if (match[1]) {
+                  if (match[1] !== "[]") {
                     exit = 1;
                   } else {
                     var s = match$1[0];
@@ -4485,7 +4499,7 @@ function extra_csig(pos, items) {
 }
 
 function add_nonrec(rf, attrs, pos) {
-  if (rf) {
+  if (rf !== "Nonrecursive") {
     return attrs;
   } else {
     var name_001 = /* loc */rhs_loc(pos);
@@ -5058,9 +5072,10 @@ var yyact = /* array */[
       var bindings = lbs[/* lbs_bindings */0];
       var str;
       var exit = 0;
-      if (bindings) {
+      if (bindings !== "[]") {
         var lb = bindings[0];
-        if (typeof lb[/* lb_pattern */0][/* ppat_desc */0] === "string" && !bindings[1]) {
+        var tmp = lb[/* lb_pattern */0][/* ppat_desc */0];
+        if (typeof tmp === "string" && bindings[1] === "[]") {
           var exp = wrap_exp_attrs(lb[/* lb_expression */1], /* tuple */[
                 undefined,
                 lbs[/* lbs_attributes */3]
@@ -7099,14 +7114,14 @@ var yyact = /* array */[
       var newval = _7;
       var set = fast[0] ? "unsafe_set" : "set";
       var coords = bigarray_untuplify(arg);
-      if (coords) {
+      if (coords !== "[]") {
         var match = coords[1];
         var c1 = coords[0];
-        if (match) {
+        if (match !== "[]") {
           var match$1 = match[1];
           var c2 = match[0];
-          if (match$1) {
-            if (!match$1[1]) {
+          if (match$1 !== "[]") {
+            if (match$1[1] === "[]") {
               return mkexp(/* constructor */{
                           tag: "Pexp_apply",
                           "0": ghexp(/* constructor */{
@@ -7473,14 +7488,14 @@ var yyact = /* array */[
       var arg = _4;
       var get = fast[0] ? "unsafe_get" : "get";
       var coords = bigarray_untuplify(arg);
-      if (coords) {
+      if (coords !== "[]") {
         var match = coords[1];
         var c1 = coords[0];
-        if (match) {
+        if (match !== "[]") {
           var match$1 = match[1];
           var c2 = match[0];
-          if (match$1) {
-            if (!match$1[1]) {
+          if (match$1 !== "[]") {
+            if (match$1[1] === "[]") {
               return mkexp(/* constructor */{
                           tag: "Pexp_apply",
                           "0": ghexp(/* constructor */{
@@ -9485,8 +9500,8 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 1);
-      if (_2) {
-        if (_2[1]) {
+      if (_2 !== "[]") {
+        if (_2[1] !== "[]") {
           throw Parsing.Parse_error;
         }
         return _2[0];
@@ -9499,8 +9514,8 @@ var yyact = /* array */[
     }),
   (function (__caml_parser_env) {
       var _2 = Parsing.peek_val(__caml_parser_env, 1);
-      if (_2) {
-        if (_2[1]) {
+      if (_2 !== "[]") {
+        if (_2[1] !== "[]") {
           throw Parsing.Parse_error;
         }
         return _2[0];
@@ -11481,14 +11496,15 @@ function directive_parse(token_with_comments, lexbuf) {
             var v = parse_or_aux(calc, parse_and_aux(calc, parse_relation(calc)));
             var match = token("()");
             if (typeof match === "string") {
-              if (match !== 81) {
+              if (match === "RPAREN") {
+                return v;
+              } else {
                 throw [
                       $$Error$2,
                       "Unterminated_paren_in_conditional",
                       curr(lexbuf)
                     ];
               }
-              return v;
             } else {
               throw [
                     $$Error$2,
@@ -11615,7 +11631,7 @@ function directive_parse(token_with_comments, lexbuf) {
   };
   var parse_and_aux = function (calc, v) {
     var e = token("()");
-    if (typeof e === "string" && e === 0) {
+    if (typeof e === "string" && e === "AMPERAMPER") {
       var calc$1 = calc && v;
       var b = parse_and_aux(calc$1, parse_relation(calc$1));
       if (v) {
@@ -11630,7 +11646,7 @@ function directive_parse(token_with_comments, lexbuf) {
   };
   var parse_or_aux = function (calc, v) {
     var e = token("()");
-    if (typeof e === "string" && e === 8) {
+    if (typeof e === "string" && e === "BARBAR") {
       var calc$1 = calc && !v;
       var b = parse_or_aux(calc$1, parse_and_aux(calc$1, parse_relation(calc$1)));
       if (v) {
@@ -11646,14 +11662,15 @@ function directive_parse(token_with_comments, lexbuf) {
   var v = parse_or_aux(true, parse_and_aux(true, parse_relation(true)));
   var match = token("()");
   if (typeof match === "string") {
-    if (match !== 88) {
+    if (match === "THEN") {
+      return v;
+    } else {
       throw [
             $$Error$2,
             "Expect_hash_then_in_conditional",
             curr(lexbuf)
           ];
     }
-    return v;
   } else {
     throw [
           $$Error$2,
@@ -13161,9 +13178,9 @@ function __ocaml_lex_comment_rec(lexbuf, ___ocaml_lex_state) {
           continue ;
       case 1 :
           var match = comment_start_loc[0];
-          if (match) {
+          if (match !== "[]") {
             var l = match[1];
-            if (l) {
+            if (l !== "[]") {
               comment_start_loc[0] = l;
               store_string(Lexing.lexeme(lexbuf));
               ___ocaml_lex_state = 132;
@@ -13192,33 +13209,34 @@ function __ocaml_lex_comment_rec(lexbuf, ___ocaml_lex_state) {
           catch (raw_exn){
             var exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
             if (exn[0] === $$Error$2) {
-              var match$1 = exn[1];
-              if (typeof match$1 === "string") {
-                if (match$1 !== 0) {
-                  throw exn;
-                }
-                var match$2 = comment_start_loc[0];
-                if (match$2) {
-                  var start = List.hd(List.rev(comment_start_loc[0]));
-                  comment_start_loc[0] = "[]";
-                  throw [
-                        $$Error$2,
-                        /* constructor */{
-                          tag: "Unterminated_string_in_comment",
-                          "0": start,
-                          "1": exn[2]
-                        },
-                        match$2[0]
-                      ];
+              var tmp = exn[1];
+              if (typeof tmp === "string") {
+                if (tmp === "Unterminated_string") {
+                  var match$1 = comment_start_loc[0];
+                  if (match$1 !== "[]") {
+                    var start = List.hd(List.rev(comment_start_loc[0]));
+                    comment_start_loc[0] = "[]";
+                    throw [
+                          $$Error$2,
+                          /* constructor */{
+                            tag: "Unterminated_string_in_comment",
+                            "0": start,
+                            "1": exn[2]
+                          },
+                          match$1[0]
+                        ];
+                  } else {
+                    throw [
+                          Caml_builtin_exceptions.assert_failure,
+                          /* tuple */[
+                            "lexer.mll",
+                            1006,
+                            18
+                          ]
+                        ];
+                  }
                 } else {
-                  throw [
-                        Caml_builtin_exceptions.assert_failure,
-                        /* tuple */[
-                          "lexer.mll",
-                          1006,
-                          18
-                        ]
-                      ];
+                  throw exn;
                 }
               } else {
                 throw exn;
@@ -13243,33 +13261,34 @@ function __ocaml_lex_comment_rec(lexbuf, ___ocaml_lex_state) {
           catch (raw_exn$1){
             var exn$1 = Caml_js_exceptions.internalToOCamlException(raw_exn$1);
             if (exn$1[0] === $$Error$2) {
-              var match$3 = exn$1[1];
-              if (typeof match$3 === "string") {
-                if (match$3 !== 0) {
-                  throw exn$1;
-                }
-                var match$4 = comment_start_loc[0];
-                if (match$4) {
-                  var start$1 = List.hd(List.rev(comment_start_loc[0]));
-                  comment_start_loc[0] = "[]";
-                  throw [
-                        $$Error$2,
-                        /* constructor */{
-                          tag: "Unterminated_string_in_comment",
-                          "0": start$1,
-                          "1": exn$1[2]
-                        },
-                        match$4[0]
-                      ];
+              var tmp$1 = exn$1[1];
+              if (typeof tmp$1 === "string") {
+                if (tmp$1 === "Unterminated_string") {
+                  var match$2 = comment_start_loc[0];
+                  if (match$2 !== "[]") {
+                    var start$1 = List.hd(List.rev(comment_start_loc[0]));
+                    comment_start_loc[0] = "[]";
+                    throw [
+                          $$Error$2,
+                          /* constructor */{
+                            tag: "Unterminated_string_in_comment",
+                            "0": start$1,
+                            "1": exn$1[2]
+                          },
+                          match$2[0]
+                        ];
+                  } else {
+                    throw [
+                          Caml_builtin_exceptions.assert_failure,
+                          /* tuple */[
+                            "lexer.mll",
+                            1026,
+                            18
+                          ]
+                        ];
+                  }
                 } else {
-                  throw [
-                        Caml_builtin_exceptions.assert_failure,
-                        /* tuple */[
-                          "lexer.mll",
-                          1026,
-                          18
-                        ]
-                      ];
+                  throw exn$1;
                 }
               } else {
                 throw exn$1;
@@ -13290,8 +13309,8 @@ function __ocaml_lex_comment_rec(lexbuf, ___ocaml_lex_state) {
           ___ocaml_lex_state = 132;
           continue ;
       case 10 :
-          var match$5 = comment_start_loc[0];
-          if (match$5) {
+          var match$3 = comment_start_loc[0];
+          if (match$3 !== "[]") {
             var start$2 = List.hd(List.rev(comment_start_loc[0]));
             comment_start_loc[0] = "[]";
             throw [
@@ -13300,7 +13319,7 @@ function __ocaml_lex_comment_rec(lexbuf, ___ocaml_lex_state) {
                     tag: "Unterminated_comment",
                     "0": start$2
                   },
-                  match$5[0]
+                  match$3[0]
                 ];
           } else {
             throw [
@@ -13359,29 +13378,37 @@ function token$1(lexbuf) {
       return "()";
     } else if (/* XXX */docs.tag === "After") {
       var a = docs[0];
-      if (lines >= 2) {
-        set_post_docstrings(post_pos, List.rev(a));
-        return set_pre_extra_docstrings(pre_pos, List.rev(a));
-      } else {
-        set_post_docstrings(post_pos, List.rev(a));
-        return set_pre_docstrings(pre_pos, a);
+      switch (lines) {
+        case "NoLine" :
+        case "NewLine" :
+            break;
+        case "BlankLine" :
+            set_post_docstrings(post_pos, List.rev(a));
+            return set_pre_extra_docstrings(pre_pos, List.rev(a));
+        
       }
+      set_post_docstrings(post_pos, List.rev(a));
+      return set_pre_docstrings(pre_pos, a);
     } else {
       var b = docs[2];
       var f = docs[1];
       var a$1 = docs[0];
-      if (lines >= 2) {
-        set_post_docstrings(post_pos, List.rev(a$1));
-        set_post_extra_docstrings(post_pos, List.rev_append(f, List.rev(b)));
-        set_floating_docstrings(pre_pos, List.rev_append(f, List.rev(b)));
-        return set_pre_extra_docstrings(pre_pos, List.rev(a$1));
-      } else {
-        set_post_docstrings(post_pos, List.rev(a$1));
-        set_post_extra_docstrings(post_pos, List.rev_append(f, List.rev(b)));
-        set_floating_docstrings(pre_pos, List.rev(f));
-        set_pre_extra_docstrings(pre_pos, List.rev(a$1));
-        return set_pre_docstrings(pre_pos, b);
+      switch (lines) {
+        case "NoLine" :
+        case "NewLine" :
+            break;
+        case "BlankLine" :
+            set_post_docstrings(post_pos, List.rev(a$1));
+            set_post_extra_docstrings(post_pos, List.rev_append(f, List.rev(b)));
+            set_floating_docstrings(pre_pos, List.rev_append(f, List.rev(b)));
+            return set_pre_extra_docstrings(pre_pos, List.rev(a$1));
+        
       }
+      set_post_docstrings(post_pos, List.rev(a$1));
+      set_post_extra_docstrings(post_pos, List.rev_append(f, List.rev(b)));
+      set_floating_docstrings(pre_pos, List.rev(f));
+      set_pre_extra_docstrings(pre_pos, List.rev(a$1));
+      return set_pre_docstrings(pre_pos, b);
     }
   };
   var loop = function (_lines, _docs, lexbuf) {
@@ -13408,155 +13435,182 @@ function token$1(lexbuf) {
                 if (typeof match === "string") {
                   switch (match) {
                     case "ELSE" :
-                        if (if_then_else$1 !== 0) {
-                          throw [
-                                $$Error$2,
-                                "Unexpected_directive",
-                                curr(lexbuf$1)
-                              ];
+                        switch (if_then_else$1) {
+                          case "Dir_if_true" :
+                              break;
+                          case "Dir_if_false" :
+                          case "Dir_out" :
+                              throw [
+                                    $$Error$2,
+                                    "Unexpected_directive",
+                                    curr(lexbuf$1)
+                                  ];
+                          
                         }
                         break;
                     case "END" :
-                        if (if_then_else$1 >= 2) {
+                        switch (if_then_else$1) {
+                          case "Dir_if_true" :
+                          case "Dir_if_false" :
+                              if_then_else[0] = "Dir_out";
+                              return Curry._1(cont, lexbuf$1);
+                          case "Dir_out" :
+                              throw [
+                                    $$Error$2,
+                                    "Unexpected_directive",
+                                    curr(lexbuf$1)
+                                  ];
+                          
+                        }
+                    case "IF" :
+                        switch (if_then_else$1) {
+                          case "Dir_if_true" :
+                          case "Dir_if_false" :
+                              throw [
+                                    $$Error$2,
+                                    "Unexpected_directive",
+                                    curr(lexbuf$1)
+                                  ];
+                          case "Dir_out" :
+                              if (directive_parse(token_with_comments, lexbuf$1)) {
+                                if_then_else[0] = "Dir_if_true";
+                                return Curry._1(cont, lexbuf$1);
+                              } else {
+                                var _param = "()";
+                                while(true) {
+                                  var token = token_with_comments(lexbuf$1);
+                                  if (token === "EOF") {
+                                    throw [
+                                          $$Error$2,
+                                          "Unterminated_if",
+                                          curr(lexbuf$1)
+                                        ];
+                                  }
+                                  if (token === "SHARP" && at_bol(lexbuf$1)) {
+                                    var token$1 = token_with_comments(lexbuf$1);
+                                    if (typeof token$1 === "string") {
+                                      switch (token$1) {
+                                        case "ELSE" :
+                                            if_then_else[0] = "Dir_if_false";
+                                            return Curry._1(cont, lexbuf$1);
+                                        case "END" :
+                                            if_then_else[0] = "Dir_out";
+                                            return Curry._1(cont, lexbuf$1);
+                                        case "IF" :
+                                            throw [
+                                                  $$Error$2,
+                                                  "Unexpected_directive",
+                                                  curr(lexbuf$1)
+                                                ];
+                                        default:
+                                          
+                                      }
+                                    }
+                                    if (is_elif(token$1) && directive_parse(token_with_comments, lexbuf$1)) {
+                                      if_then_else[0] = "Dir_if_true";
+                                      return Curry._1(cont, lexbuf$1);
+                                    } else {
+                                      _param = "()";
+                                      continue ;
+                                    }
+                                  } else {
+                                    _param = "()";
+                                    continue ;
+                                  }
+                                };
+                              }
+                          
+                        }
+                    default:
+                      return Curry._1(look_ahead, match);
+                  }
+                } else if (/* XXX */match.tag === "LIDENT" && match[0] === "elif") {
+                  switch (if_then_else$1) {
+                    case "Dir_if_true" :
+                        break;
+                    case "Dir_if_false" :
+                    case "Dir_out" :
+                        throw [
+                              $$Error$2,
+                              "Unexpected_directive",
+                              curr(lexbuf$1)
+                            ];
+                    
+                  }
+                } else {
+                  return Curry._1(look_ahead, match);
+                }
+                switch (if_then_else$1) {
+                  case "Dir_if_true" :
+                      var _else_seen = match === "ELSE";
+                      while(true) {
+                        var else_seen = _else_seen;
+                        var token$2 = token_with_comments(lexbuf$1);
+                        if (token$2 === "EOF") {
                           throw [
                                 $$Error$2,
-                                "Unexpected_directive",
+                                "Unterminated_else",
                                 curr(lexbuf$1)
                               ];
                         }
-                        if_then_else[0] = "Dir_out";
-                        return Curry._1(cont, lexbuf$1);
-                    case "IF" :
-                        if (if_then_else$1 >= 2) {
-                          if (directive_parse(token_with_comments, lexbuf$1)) {
-                            if_then_else[0] = "Dir_if_true";
-                            return Curry._1(cont, lexbuf$1);
-                          } else {
-                            var _param = "()";
-                            while(true) {
-                              var token = token_with_comments(lexbuf$1);
-                              if (token === "EOF") {
-                                throw [
-                                      $$Error$2,
-                                      "Unterminated_if",
-                                      curr(lexbuf$1)
-                                    ];
-                              }
-                              if (token === "SHARP" && at_bol(lexbuf$1)) {
-                                var token$1 = token_with_comments(lexbuf$1);
-                                if (typeof token$1 === "string") {
-                                  var switcher = token$1 - 23 | 0;
-                                  if (switcher === 0 || switcher === 1) {
-                                    if (switcher !== 0) {
-                                      if_then_else[0] = "Dir_out";
-                                      return Curry._1(cont, lexbuf$1);
-                                    } else {
-                                      if_then_else[0] = "Dir_if_false";
-                                      return Curry._1(cont, lexbuf$1);
-                                    }
-                                  } else if (switcher === 14) {
+                        if (token$2 === "SHARP" && at_bol(lexbuf$1)) {
+                          var token$3 = token_with_comments(lexbuf$1);
+                          if (typeof token$3 === "string") {
+                            switch (token$3) {
+                              case "ELSE" :
+                                  if (else_seen) {
                                     throw [
                                           $$Error$2,
                                           "Unexpected_directive",
                                           curr(lexbuf$1)
                                         ];
                                   }
-                                  
-                                }
-                                if (is_elif(token$1) && directive_parse(token_with_comments, lexbuf$1)) {
-                                  if_then_else[0] = "Dir_if_true";
-                                  return Curry._1(cont, lexbuf$1);
-                                } else {
-                                  _param = "()";
+                                  _else_seen = true;
                                   continue ;
-                                }
-                              } else {
-                                _param = "()";
-                                continue ;
-                              }
-                            };
-                          }
-                        } else {
-                          throw [
-                                $$Error$2,
-                                "Unexpected_directive",
-                                curr(lexbuf$1)
-                              ];
-                        }
-                    default:
-                      return Curry._1(look_ahead, match);
-                  }
-                } else if (/* XXX */match.tag === "LIDENT" && match[0] === "elif") {
-                  if (if_then_else$1 !== 0) {
-                    throw [
-                          $$Error$2,
-                          "Unexpected_directive",
-                          curr(lexbuf$1)
-                        ];
-                  }
-                  
-                } else {
-                  return Curry._1(look_ahead, match);
-                }
-                if (if_then_else$1 !== 0) {
-                  return Curry._1(look_ahead, match);
-                } else {
-                  var _else_seen = match === "ELSE";
-                  while(true) {
-                    var else_seen = _else_seen;
-                    var token$2 = token_with_comments(lexbuf$1);
-                    if (token$2 === "EOF") {
-                      throw [
-                            $$Error$2,
-                            "Unterminated_else",
-                            curr(lexbuf$1)
-                          ];
-                    }
-                    if (token$2 === "SHARP" && at_bol(lexbuf$1)) {
-                      var token$3 = token_with_comments(lexbuf$1);
-                      if (typeof token$3 === "string") {
-                        var switcher$1 = token$3 - 23 | 0;
-                        if (switcher$1 === 0 || switcher$1 === 1) {
-                          if (switcher$1 !== 0) {
-                            if_then_else[0] = "Dir_out";
-                            return Curry._1(cont, lexbuf$1);
-                          } else {
-                            if (else_seen) {
-                              throw [
-                                    $$Error$2,
-                                    "Unexpected_directive",
-                                    curr(lexbuf$1)
-                                  ];
+                              case "END" :
+                                  if_then_else[0] = "Dir_out";
+                                  return Curry._1(cont, lexbuf$1);
+                              case "IF" :
+                                  throw [
+                                        $$Error$2,
+                                        "Unexpected_directive",
+                                        curr(lexbuf$1)
+                                      ];
+                              default:
+                                
                             }
-                            _else_seen = true;
-                            continue ;
                           }
-                        } else if (switcher$1 === 14) {
-                          throw [
-                                $$Error$2,
-                                "Unexpected_directive",
-                                curr(lexbuf$1)
-                              ];
+                          if (else_seen && is_elif(token$3)) {
+                            throw [
+                                  $$Error$2,
+                                  "Unexpected_directive",
+                                  curr(lexbuf$1)
+                                ];
+                          }
+                          continue ;
+                        } else {
+                          continue ;
                         }
-                        
-                      }
-                      if (else_seen && is_elif(token$3)) {
-                        throw [
-                              $$Error$2,
-                              "Unexpected_directive",
-                              curr(lexbuf$1)
-                            ];
-                      }
-                      continue ;
-                    } else {
-                      continue ;
-                    }
-                  };
+                      };
+                  case "Dir_if_false" :
+                  case "Dir_out" :
+                      return Curry._1(look_ahead, match);
+                  
                 }
               }
               break;
           case "EOL" :
-              var lines$prime = lines !== 0 ? "BlankLine" : "NewLine";
+              var lines$prime;
+              switch (lines) {
+                case "NoLine" :
+                    lines$prime = "NewLine";
+                    break;
+                case "NewLine" :
+                case "BlankLine" :
+                    lines$prime = "BlankLine";
+                    break;
+                
+              }
               _lines = lines$prime;
               continue ;
           default:
@@ -13570,7 +13624,17 @@ function token$1(lexbuf) {
                     match$1[0],
                     match$1[1]
                   ]);
-              var lines$prime$1 = lines >= 2 ? "BlankLine" : "NoLine";
+              var lines$prime$1;
+              switch (lines) {
+                case "NoLine" :
+                case "NewLine" :
+                    lines$prime$1 = "NoLine";
+                    break;
+                case "BlankLine" :
+                    lines$prime$1 = "BlankLine";
+                    break;
+                
+              }
               _lines = lines$prime$1;
               continue ;
           case "DOCSTRING" :
@@ -13578,65 +13642,92 @@ function token$1(lexbuf) {
               add_docstring_comment(doc);
               var docs$prime;
               if (typeof docs === "string") {
-                docs$prime = lines >= 2 ? /* constructor */({
-                      tag: "Before",
-                      "0": "[]",
-                      "1": "[]",
-                      "2": /* constructor */{
-                        tag: "::",
-                        "0": doc,
-                        "1": "[]"
-                      }
-                    }) : /* constructor */({
-                      tag: "After",
-                      "0": /* constructor */{
-                        tag: "::",
-                        "0": doc,
-                        "1": "[]"
-                      }
-                    });
+                switch (lines) {
+                  case "NoLine" :
+                  case "NewLine" :
+                      docs$prime = /* constructor */{
+                        tag: "After",
+                        "0": /* constructor */{
+                          tag: "::",
+                          "0": doc,
+                          "1": "[]"
+                        }
+                      };
+                      break;
+                  case "BlankLine" :
+                      docs$prime = /* constructor */{
+                        tag: "Before",
+                        "0": "[]",
+                        "1": "[]",
+                        "2": /* constructor */{
+                          tag: "::",
+                          "0": doc,
+                          "1": "[]"
+                        }
+                      };
+                      break;
+                  
+                }
               } else if (/* XXX */docs.tag === "After") {
                 var a = docs[0];
-                docs$prime = lines >= 2 ? /* constructor */({
-                      tag: "Before",
-                      "0": a,
-                      "1": "[]",
-                      "2": /* constructor */{
-                        tag: "::",
-                        "0": doc,
-                        "1": "[]"
-                      }
-                    }) : /* constructor */({
-                      tag: "After",
-                      "0": /* constructor */{
-                        tag: "::",
-                        "0": doc,
-                        "1": a
-                      }
-                    });
+                switch (lines) {
+                  case "NoLine" :
+                  case "NewLine" :
+                      docs$prime = /* constructor */{
+                        tag: "After",
+                        "0": /* constructor */{
+                          tag: "::",
+                          "0": doc,
+                          "1": a
+                        }
+                      };
+                      break;
+                  case "BlankLine" :
+                      docs$prime = /* constructor */{
+                        tag: "Before",
+                        "0": a,
+                        "1": "[]",
+                        "2": /* constructor */{
+                          tag: "::",
+                          "0": doc,
+                          "1": "[]"
+                        }
+                      };
+                      break;
+                  
+                }
               } else {
                 var b = docs[2];
                 var f = docs[1];
                 var a$1 = docs[0];
-                docs$prime = lines >= 2 ? /* constructor */({
-                      tag: "Before",
-                      "0": a$1,
-                      "1": Pervasives.$at(b, f),
-                      "2": /* constructor */{
-                        tag: "::",
-                        "0": doc,
-                        "1": "[]"
-                      }
-                    }) : /* constructor */({
-                      tag: "Before",
-                      "0": a$1,
-                      "1": f,
-                      "2": /* constructor */{
-                        tag: "::",
-                        "0": doc,
-                        "1": b
-                      }
-                    });
+                switch (lines) {
+                  case "NoLine" :
+                  case "NewLine" :
+                      docs$prime = /* constructor */{
+                        tag: "Before",
+                        "0": a$1,
+                        "1": f,
+                        "2": /* constructor */{
+                          tag: "::",
+                          "0": doc,
+                          "1": b
+                        }
+                      };
+                      break;
+                  case "BlankLine" :
+                      docs$prime = /* constructor */{
+                        tag: "Before",
+                        "0": a$1,
+                        "1": Pervasives.$at(b, f),
+                        "2": /* constructor */{
+                          tag: "::",
+                          "0": doc,
+                          "1": "[]"
+                        }
+                      };
+                      break;
+                  
+                }
               }
               _docs = docs$prime;
               _lines = "NoLine";
@@ -13676,8 +13767,14 @@ function skip_phrase(lexbuf) {
   while(true) {
     try {
       var match = token$1(lexbuf);
-      if (typeof match === "string" && !(match !== 25 && match !== 83)) {
-        return "()";
+      if (typeof match === "string") {
+        switch (match) {
+          case "EOF" :
+          case "SEMISEMI" :
+              return "()";
+          default:
+            return skip_phrase(lexbuf);
+        }
       } else {
         return skip_phrase(lexbuf);
       }
@@ -13791,11 +13888,11 @@ function eq(loc, x, y) {
 
 var match = wrap(implementation, Lexing.from_string("let v str = \n  str  \n  |> Lexing.from_string \n  |> Parse.implementation\n"));
 
-if (match) {
+if (match !== "[]") {
   var match$1 = match[0][/* pstr_desc */0];
-  if (/* XXX */match$1.tag === "Pstr_value" && !match$1[0]) {
+  if (/* XXX */match$1.tag === "Pstr_value" && match$1[0] === "Nonrecursive") {
     var match$2 = match$1[1];
-    if (match$2) {
+    if (match$2 !== "[]") {
       var match$3 = match$2[0];
       var match$4 = match$3[/* pvb_pat */0];
       var match$5 = match$4[/* ppat_desc */0];
@@ -13808,12 +13905,12 @@ if (match) {
           var match$8 = match$7[/* loc_start */0];
           if (match$8[/* pos_fname */0] === "" && !(match$8[/* pos_lnum */1] !== 1 || match$8[/* pos_bol */2] !== 0 || match$8[/* pos_cnum */3] !== 4)) {
             var match$9 = match$7[/* loc_end */1];
-            if (match$9[/* pos_fname */0] === "" && !(match$9[/* pos_lnum */1] !== 1 || match$9[/* pos_bol */2] !== 0 || match$9[/* pos_cnum */3] !== 5 || match$7[/* loc_ghost */2])) {
+            if (match$9[/* pos_fname */0] === "" && !(match$9[/* pos_lnum */1] !== 1 || match$9[/* pos_bol */2] !== 0 || match$9[/* pos_cnum */3] !== 5 || match$7[/* loc_ghost */2] !== "false")) {
               var match$10 = match$4[/* ppat_loc */1];
               var match$11 = match$10[/* loc_start */0];
               if (match$11[/* pos_fname */0] === "" && !(match$11[/* pos_lnum */1] !== 1 || match$11[/* pos_bol */2] !== 0 || match$11[/* pos_cnum */3] !== 4)) {
                 var match$12 = match$10[/* loc_end */1];
-                if (match$12[/* pos_fname */0] === "" && !(match$12[/* pos_lnum */1] !== 1 || match$12[/* pos_bol */2] !== 0 || match$12[/* pos_cnum */3] !== 5 || match$10[/* loc_ghost */2] || match$4[/* ppat_attributes */2])) {
+                if (match$12[/* pos_fname */0] === "" && !(match$12[/* pos_lnum */1] !== 1 || match$12[/* pos_bol */2] !== 0 || match$12[/* pos_cnum */3] !== 5 || match$10[/* loc_ghost */2] !== "false" || match$4[/* ppat_attributes */2] !== "[]")) {
                   var match$13 = match$3[/* pvb_expr */1];
                   var match$14 = match$13[/* pexp_desc */0];
                   if (/* XXX */match$14.tag === "Pexp_fun" && match$14[0] === "" && match$14[1] === undefined) {
@@ -13828,12 +13925,12 @@ if (match) {
                         var match$19 = match$18[/* loc_start */0];
                         if (match$19[/* pos_fname */0] === "" && !(match$19[/* pos_lnum */1] !== 1 || match$19[/* pos_bol */2] !== 0 || match$19[/* pos_cnum */3] !== 6)) {
                           var match$20 = match$18[/* loc_end */1];
-                          if (match$20[/* pos_fname */0] === "" && !(match$20[/* pos_lnum */1] !== 1 || match$20[/* pos_bol */2] !== 0 || match$20[/* pos_cnum */3] !== 9 || match$18[/* loc_ghost */2])) {
+                          if (match$20[/* pos_fname */0] === "" && !(match$20[/* pos_lnum */1] !== 1 || match$20[/* pos_bol */2] !== 0 || match$20[/* pos_cnum */3] !== 9 || match$18[/* loc_ghost */2] !== "false")) {
                             var match$21 = match$15[/* ppat_loc */1];
                             var match$22 = match$21[/* loc_start */0];
                             if (match$22[/* pos_fname */0] === "" && !(match$22[/* pos_lnum */1] !== 1 || match$22[/* pos_bol */2] !== 0 || match$22[/* pos_cnum */3] !== 6)) {
                               var match$23 = match$21[/* loc_end */1];
-                              if (match$23[/* pos_fname */0] === "" && !(match$23[/* pos_lnum */1] !== 1 || match$23[/* pos_bol */2] !== 0 || match$23[/* pos_cnum */3] !== 9 || match$21[/* loc_ghost */2] || match$15[/* ppat_attributes */2])) {
+                              if (match$23[/* pos_fname */0] === "" && !(match$23[/* pos_lnum */1] !== 1 || match$23[/* pos_bol */2] !== 0 || match$23[/* pos_cnum */3] !== 9 || match$21[/* loc_ghost */2] !== "false" || match$15[/* ppat_attributes */2] !== "[]")) {
                                 var match$24 = match$14[3];
                                 var match$25 = match$24[/* pexp_desc */0];
                                 if (/* XXX */match$25.tag === "Pexp_apply") {
@@ -13849,14 +13946,14 @@ if (match) {
                                             var match$31 = match$30[/* loc_start */0];
                                             if (match$31[/* pos_fname */0] === "" && !(match$31[/* pos_lnum */1] !== 4 || match$31[/* pos_bol */2] !== 46 || match$31[/* pos_cnum */3] !== 48)) {
                                               var match$32 = match$30[/* loc_end */1];
-                                              if (match$32[/* pos_fname */0] === "" && !(match$32[/* pos_lnum */1] !== 4 || match$32[/* pos_bol */2] !== 46 || match$32[/* pos_cnum */3] !== 50 || match$30[/* loc_ghost */2])) {
+                                              if (match$32[/* pos_fname */0] === "" && !(match$32[/* pos_lnum */1] !== 4 || match$32[/* pos_bol */2] !== 46 || match$32[/* pos_cnum */3] !== 50 || match$30[/* loc_ghost */2] !== "false")) {
                                                 var match$33 = match$26[/* pexp_loc */1];
                                                 var match$34 = match$33[/* loc_start */0];
                                                 if (match$34[/* pos_fname */0] === "" && !(match$34[/* pos_lnum */1] !== 4 || match$34[/* pos_bol */2] !== 46 || match$34[/* pos_cnum */3] !== 48)) {
                                                   var match$35 = match$33[/* loc_end */1];
-                                                  if (match$35[/* pos_fname */0] === "" && !(match$35[/* pos_lnum */1] !== 4 || match$35[/* pos_bol */2] !== 46 || match$35[/* pos_cnum */3] !== 50 || match$33[/* loc_ghost */2] || match$26[/* pexp_attributes */2])) {
+                                                  if (match$35[/* pos_fname */0] === "" && !(match$35[/* pos_lnum */1] !== 4 || match$35[/* pos_bol */2] !== 46 || match$35[/* pos_cnum */3] !== 50 || match$33[/* loc_ghost */2] !== "false" || match$26[/* pexp_attributes */2] !== "[]")) {
                                                     var match$36 = match$25[1];
-                                                    if (match$36) {
+                                                    if (match$36 !== "[]") {
                                                       var match$37 = match$36[0];
                                                       if (match$37[0] === "") {
                                                         var match$38 = match$37[1];
@@ -13874,14 +13971,14 @@ if (match) {
                                                                     var match$45 = match$44[/* loc_start */0];
                                                                     if (match$45[/* pos_fname */0] === "" && !(match$45[/* pos_lnum */1] !== 3 || match$45[/* pos_bol */2] !== 21 || match$45[/* pos_cnum */3] !== 23)) {
                                                                       var match$46 = match$44[/* loc_end */1];
-                                                                      if (match$46[/* pos_fname */0] === "" && !(match$46[/* pos_lnum */1] !== 3 || match$46[/* pos_bol */2] !== 21 || match$46[/* pos_cnum */3] !== 25 || match$44[/* loc_ghost */2])) {
+                                                                      if (match$46[/* pos_fname */0] === "" && !(match$46[/* pos_lnum */1] !== 3 || match$46[/* pos_bol */2] !== 21 || match$46[/* pos_cnum */3] !== 25 || match$44[/* loc_ghost */2] !== "false")) {
                                                                         var match$47 = match$40[/* pexp_loc */1];
                                                                         var match$48 = match$47[/* loc_start */0];
                                                                         if (match$48[/* pos_fname */0] === "" && !(match$48[/* pos_lnum */1] !== 3 || match$48[/* pos_bol */2] !== 21 || match$48[/* pos_cnum */3] !== 23)) {
                                                                           var match$49 = match$47[/* loc_end */1];
-                                                                          if (match$49[/* pos_fname */0] === "" && !(match$49[/* pos_lnum */1] !== 3 || match$49[/* pos_bol */2] !== 21 || match$49[/* pos_cnum */3] !== 25 || match$47[/* loc_ghost */2] || match$40[/* pexp_attributes */2])) {
+                                                                          if (match$49[/* pos_fname */0] === "" && !(match$49[/* pos_lnum */1] !== 3 || match$49[/* pos_bol */2] !== 21 || match$49[/* pos_cnum */3] !== 25 || match$47[/* loc_ghost */2] !== "false" || match$40[/* pexp_attributes */2] !== "[]")) {
                                                                             var match$50 = match$39[1];
-                                                                            if (match$50) {
+                                                                            if (match$50 !== "[]") {
                                                                               var match$51 = match$50[0];
                                                                               if (match$51[0] === "") {
                                                                                 var match$52 = match$51[1];
@@ -13896,14 +13993,14 @@ if (match) {
                                                                                           var match$57 = match$56[/* loc_start */0];
                                                                                           if (match$57[/* pos_fname */0] === "" && !(match$57[/* pos_lnum */1] !== 2 || match$57[/* pos_bol */2] !== 13 || match$57[/* pos_cnum */3] !== 15)) {
                                                                                             var match$58 = match$56[/* loc_end */1];
-                                                                                            if (match$58[/* pos_fname */0] === "" && !(match$58[/* pos_lnum */1] !== 2 || match$58[/* pos_bol */2] !== 13 || match$58[/* pos_cnum */3] !== 18 || match$56[/* loc_ghost */2])) {
+                                                                                            if (match$58[/* pos_fname */0] === "" && !(match$58[/* pos_lnum */1] !== 2 || match$58[/* pos_bol */2] !== 13 || match$58[/* pos_cnum */3] !== 18 || match$56[/* loc_ghost */2] !== "false")) {
                                                                                               var match$59 = match$52[/* pexp_loc */1];
                                                                                               var match$60 = match$59[/* loc_start */0];
                                                                                               if (match$60[/* pos_fname */0] === "" && !(match$60[/* pos_lnum */1] !== 2 || match$60[/* pos_bol */2] !== 13 || match$60[/* pos_cnum */3] !== 15)) {
                                                                                                 var match$61 = match$59[/* loc_end */1];
-                                                                                                if (match$61[/* pos_fname */0] === "" && !(match$61[/* pos_lnum */1] !== 2 || match$61[/* pos_bol */2] !== 13 || match$61[/* pos_cnum */3] !== 18 || match$59[/* loc_ghost */2] || match$52[/* pexp_attributes */2])) {
+                                                                                                if (match$61[/* pos_fname */0] === "" && !(match$61[/* pos_lnum */1] !== 2 || match$61[/* pos_bol */2] !== 13 || match$61[/* pos_cnum */3] !== 18 || match$59[/* loc_ghost */2] !== "false" || match$52[/* pexp_attributes */2] !== "[]")) {
                                                                                                   var match$62 = match$50[1];
-                                                                                                  if (match$62) {
+                                                                                                  if (match$62 !== "[]") {
                                                                                                     var match$63 = match$62[0];
                                                                                                     if (match$63[0] === "") {
                                                                                                       var match$64 = match$63[1];
@@ -13921,19 +14018,19 @@ if (match) {
                                                                                                                       var match$70 = match$69[/* loc_start */0];
                                                                                                                       if (match$70[/* pos_fname */0] === "" && !(match$70[/* pos_lnum */1] !== 3 || match$70[/* pos_bol */2] !== 21 || match$70[/* pos_cnum */3] !== 26)) {
                                                                                                                         var match$71 = match$69[/* loc_end */1];
-                                                                                                                        if (match$71[/* pos_fname */0] === "" && !(match$71[/* pos_lnum */1] !== 3 || match$71[/* pos_bol */2] !== 21 || match$71[/* pos_cnum */3] !== 44 || match$69[/* loc_ghost */2])) {
+                                                                                                                        if (match$71[/* pos_fname */0] === "" && !(match$71[/* pos_lnum */1] !== 3 || match$71[/* pos_bol */2] !== 21 || match$71[/* pos_cnum */3] !== 44 || match$69[/* loc_ghost */2] !== "false")) {
                                                                                                                           var match$72 = match$64[/* pexp_loc */1];
                                                                                                                           var match$73 = match$72[/* loc_start */0];
                                                                                                                           if (match$73[/* pos_fname */0] === "" && !(match$73[/* pos_lnum */1] !== 3 || match$73[/* pos_bol */2] !== 21 || match$73[/* pos_cnum */3] !== 26)) {
                                                                                                                             var match$74 = match$72[/* loc_end */1];
-                                                                                                                            if (match$74[/* pos_fname */0] === "" && !(match$74[/* pos_lnum */1] !== 3 || match$74[/* pos_bol */2] !== 21 || match$74[/* pos_cnum */3] !== 44 || match$72[/* loc_ghost */2] || match$64[/* pexp_attributes */2] || match$62[1])) {
+                                                                                                                            if (match$74[/* pos_fname */0] === "" && !(match$74[/* pos_lnum */1] !== 3 || match$74[/* pos_bol */2] !== 21 || match$74[/* pos_cnum */3] !== 44 || match$72[/* loc_ghost */2] !== "false" || match$64[/* pexp_attributes */2] !== "[]" || match$62[1] !== "[]")) {
                                                                                                                               var match$75 = match$38[/* pexp_loc */1];
                                                                                                                               var match$76 = match$75[/* loc_start */0];
                                                                                                                               if (match$76[/* pos_fname */0] === "" && !(match$76[/* pos_lnum */1] !== 2 || match$76[/* pos_bol */2] !== 13 || match$76[/* pos_cnum */3] !== 15)) {
                                                                                                                                 var match$77 = match$75[/* loc_end */1];
-                                                                                                                                if (match$77[/* pos_fname */0] === "" && !(match$77[/* pos_lnum */1] !== 3 || match$77[/* pos_bol */2] !== 21 || match$77[/* pos_cnum */3] !== 44 || match$75[/* loc_ghost */2] || match$38[/* pexp_attributes */2])) {
+                                                                                                                                if (match$77[/* pos_fname */0] === "" && !(match$77[/* pos_lnum */1] !== 3 || match$77[/* pos_bol */2] !== 21 || match$77[/* pos_cnum */3] !== 44 || match$75[/* loc_ghost */2] !== "false" || match$38[/* pexp_attributes */2] !== "[]")) {
                                                                                                                                   var match$78 = match$36[1];
-                                                                                                                                  if (match$78) {
+                                                                                                                                  if (match$78 !== "[]") {
                                                                                                                                     var match$79 = match$78[0];
                                                                                                                                     if (match$79[0] === "") {
                                                                                                                                       var match$80 = match$79[1];
@@ -13951,27 +14048,27 @@ if (match) {
                                                                                                                                                       var match$86 = match$85[/* loc_start */0];
                                                                                                                                                       if (match$86[/* pos_fname */0] === "" && !(match$86[/* pos_lnum */1] !== 4 || match$86[/* pos_bol */2] !== 46 || match$86[/* pos_cnum */3] !== 51)) {
                                                                                                                                                         var match$87 = match$85[/* loc_end */1];
-                                                                                                                                                        if (match$87[/* pos_fname */0] === "" && !(match$87[/* pos_lnum */1] !== 4 || match$87[/* pos_bol */2] !== 46 || match$87[/* pos_cnum */3] !== 71 || match$85[/* loc_ghost */2])) {
+                                                                                                                                                        if (match$87[/* pos_fname */0] === "" && !(match$87[/* pos_lnum */1] !== 4 || match$87[/* pos_bol */2] !== 46 || match$87[/* pos_cnum */3] !== 71 || match$85[/* loc_ghost */2] !== "false")) {
                                                                                                                                                           var match$88 = match$80[/* pexp_loc */1];
                                                                                                                                                           var match$89 = match$88[/* loc_start */0];
                                                                                                                                                           if (match$89[/* pos_fname */0] === "" && !(match$89[/* pos_lnum */1] !== 4 || match$89[/* pos_bol */2] !== 46 || match$89[/* pos_cnum */3] !== 51)) {
                                                                                                                                                             var match$90 = match$88[/* loc_end */1];
-                                                                                                                                                            if (match$90[/* pos_fname */0] === "" && !(match$90[/* pos_lnum */1] !== 4 || match$90[/* pos_bol */2] !== 46 || match$90[/* pos_cnum */3] !== 71 || match$88[/* loc_ghost */2] || match$80[/* pexp_attributes */2] || match$78[1])) {
+                                                                                                                                                            if (match$90[/* pos_fname */0] === "" && !(match$90[/* pos_lnum */1] !== 4 || match$90[/* pos_bol */2] !== 46 || match$90[/* pos_cnum */3] !== 71 || match$88[/* loc_ghost */2] !== "false" || match$80[/* pexp_attributes */2] !== "[]" || match$78[1] !== "[]")) {
                                                                                                                                                               var match$91 = match$24[/* pexp_loc */1];
                                                                                                                                                               var match$92 = match$91[/* loc_start */0];
                                                                                                                                                               if (match$92[/* pos_fname */0] === "" && !(match$92[/* pos_lnum */1] !== 2 || match$92[/* pos_bol */2] !== 13 || match$92[/* pos_cnum */3] !== 15)) {
                                                                                                                                                                 var match$93 = match$91[/* loc_end */1];
-                                                                                                                                                                if (match$93[/* pos_fname */0] === "" && !(match$93[/* pos_lnum */1] !== 4 || match$93[/* pos_bol */2] !== 46 || match$93[/* pos_cnum */3] !== 71 || match$91[/* loc_ghost */2] || match$24[/* pexp_attributes */2])) {
+                                                                                                                                                                if (match$93[/* pos_fname */0] === "" && !(match$93[/* pos_lnum */1] !== 4 || match$93[/* pos_bol */2] !== 46 || match$93[/* pos_cnum */3] !== 71 || match$91[/* loc_ghost */2] !== "false" || match$24[/* pexp_attributes */2] !== "[]")) {
                                                                                                                                                                   var match$94 = match$13[/* pexp_loc */1];
                                                                                                                                                                   var match$95 = match$94[/* loc_start */0];
                                                                                                                                                                   if (match$95[/* pos_fname */0] === "" && !(match$95[/* pos_lnum */1] !== 1 || match$95[/* pos_bol */2] !== 0 || match$95[/* pos_cnum */3] !== 6)) {
                                                                                                                                                                     var match$96 = match$94[/* loc_end */1];
-                                                                                                                                                                    if (match$96[/* pos_fname */0] === "" && !(match$96[/* pos_lnum */1] !== 4 || match$96[/* pos_bol */2] !== 46 || match$96[/* pos_cnum */3] !== 71 || !(match$94[/* loc_ghost */2] && !(match$13[/* pexp_attributes */2] || match$3[/* pvb_attributes */2])))) {
+                                                                                                                                                                    if (match$96[/* pos_fname */0] === "" && !(match$96[/* pos_lnum */1] !== 4 || match$96[/* pos_bol */2] !== 46 || match$96[/* pos_cnum */3] !== 71 || !(match$94[/* loc_ghost */2] !== "false" && !(match$13[/* pexp_attributes */2] !== "[]" || match$3[/* pvb_attributes */2] !== "[]")))) {
                                                                                                                                                                       var match$97 = match$3[/* pvb_loc */3];
                                                                                                                                                                       var match$98 = match$97[/* loc_start */0];
                                                                                                                                                                       if (match$98[/* pos_fname */0] === "" && !(match$98[/* pos_lnum */1] !== 1 || match$98[/* pos_bol */2] !== 0 || match$98[/* pos_cnum */3] !== 0)) {
                                                                                                                                                                         var match$99 = match$97[/* loc_end */1];
-                                                                                                                                                                        if (match$99[/* pos_fname */0] === "" && !(match$99[/* pos_lnum */1] !== 4 || match$99[/* pos_bol */2] !== 46 || match$99[/* pos_cnum */3] !== 71 || match$97[/* loc_ghost */2] || match$2[1])) {
+                                                                                                                                                                        if (match$99[/* pos_fname */0] === "" && !(match$99[/* pos_lnum */1] !== 4 || match$99[/* pos_bol */2] !== 46 || match$99[/* pos_cnum */3] !== 71 || match$97[/* loc_ghost */2] !== "false" || match$2[1] !== "[]")) {
                                                                                                                                                                           eq("File \"ocaml_parsetree_main_bspack.ml\", line 215, characters 10-17", true, true);
                                                                                                                                                                         } else {
                                                                                                                                                                           eq("File \"ocaml_parsetree_main_bspack.ml\", line 216, characters 12-19", true, false);

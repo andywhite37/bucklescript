@@ -6,15 +6,15 @@ var Caml_builtin_exceptions = require("../../lib/js/caml_builtin_exceptions.js")
 
 function Make(Ord) {
   var height = function (param) {
-    if (param) {
+    if (param !== "Empty") {
       return param[3];
     } else {
       return 0;
     }
   };
   var create = function (l, v, r) {
-    var hl = l ? l[3] : 0;
-    var hr = r ? r[3] : 0;
+    var hl = l !== "Empty" ? l[3] : 0;
+    var hr = r !== "Empty" ? r[3] : 0;
     return /* constructor */{
             tag: "Node",
             "0": l,
@@ -24,16 +24,16 @@ function Make(Ord) {
           };
   };
   var bal = function (l, v, r) {
-    var hl = l ? l[3] : 0;
-    var hr = r ? r[3] : 0;
+    var hl = l !== "Empty" ? l[3] : 0;
+    var hr = r !== "Empty" ? r[3] : 0;
     if (hl > (hr + 2 | 0)) {
-      if (l) {
+      if (l !== "Empty") {
         var lr = l[2];
         var lv = l[1];
         var ll = l[0];
         if (height(ll) >= height(lr)) {
           return create(ll, lv, create(lr, v, r));
-        } else if (lr) {
+        } else if (lr !== "Empty") {
           return create(create(ll, lv, lr[0]), lr[1], create(lr[2], v, r));
         } else {
           throw [
@@ -48,13 +48,13 @@ function Make(Ord) {
             ];
       }
     } else if (hr > (hl + 2 | 0)) {
-      if (r) {
+      if (r !== "Empty") {
         var rr = r[2];
         var rv = r[1];
         var rl = r[0];
         if (height(rr) >= height(rl)) {
           return create(create(l, v, rl), rv, rr);
-        } else if (rl) {
+        } else if (rl !== "Empty") {
           return create(create(l, v, rl[0]), rl[1], create(rl[2], rv, rr));
         } else {
           throw [
@@ -79,7 +79,7 @@ function Make(Ord) {
     }
   };
   var add = function (x, t) {
-    if (t) {
+    if (t !== "Empty") {
       var r = t[2];
       var v = t[1];
       var l = t[0];
@@ -111,22 +111,22 @@ function Make(Ord) {
           };
   };
   var add_min_element = function (v, param) {
-    if (param) {
+    if (param !== "Empty") {
       return bal(add_min_element(v, param[0]), param[1], param[2]);
     } else {
       return singleton(v);
     }
   };
   var add_max_element = function (v, param) {
-    if (param) {
+    if (param !== "Empty") {
       return bal(param[0], param[1], add_max_element(v, param[2]));
     } else {
       return singleton(v);
     }
   };
   var join = function (l, v, r) {
-    if (l) {
-      if (r) {
+    if (l !== "Empty") {
+      if (r !== "Empty") {
         var rh = r[3];
         var lh = l[3];
         if (lh > (rh + 2 | 0)) {
@@ -146,9 +146,9 @@ function Make(Ord) {
   var min_elt = function (_param) {
     while(true) {
       var param = _param;
-      if (param) {
+      if (param !== "Empty") {
         var l = param[0];
-        if (l) {
+        if (l !== "Empty") {
           _param = l;
           continue ;
         } else {
@@ -162,9 +162,9 @@ function Make(Ord) {
   var max_elt = function (_param) {
     while(true) {
       var param = _param;
-      if (param) {
+      if (param !== "Empty") {
         var r = param[2];
-        if (r) {
+        if (r !== "Empty") {
           _param = r;
           continue ;
         } else {
@@ -176,9 +176,9 @@ function Make(Ord) {
     };
   };
   var remove_min_elt = function (param) {
-    if (param) {
+    if (param !== "Empty") {
       var l = param[0];
-      if (l) {
+      if (l !== "Empty") {
         return bal(remove_min_elt(l), param[1], param[2]);
       } else {
         return param[2];
@@ -191,8 +191,8 @@ function Make(Ord) {
     }
   };
   var merge = function (t1, t2) {
-    if (t1) {
-      if (t2) {
+    if (t1 !== "Empty") {
+      if (t2 !== "Empty") {
         return bal(t1, min_elt(t2), remove_min_elt(t2));
       } else {
         return t1;
@@ -202,8 +202,8 @@ function Make(Ord) {
     }
   };
   var concat = function (t1, t2) {
-    if (t1) {
-      if (t2) {
+    if (t1 !== "Empty") {
+      if (t2 !== "Empty") {
         return join(t1, min_elt(t2), remove_min_elt(t2));
       } else {
         return t1;
@@ -213,7 +213,7 @@ function Make(Ord) {
     }
   };
   var split = function (x, param) {
-    if (param) {
+    if (param !== "Empty") {
       var r = param[2];
       var v = param[1];
       var l = param[0];
@@ -248,16 +248,12 @@ function Make(Ord) {
     }
   };
   var is_empty = function (param) {
-    if (param) {
-      return false;
-    } else {
-      return true;
-    }
+    return param === "Empty";
   };
   var mem = function (x, _param) {
     while(true) {
       var param = _param;
-      if (param) {
+      if (param !== "Empty") {
         var c = Curry._2(Ord.compare, x, param[1]);
         if (c === 0) {
           return true;
@@ -271,7 +267,7 @@ function Make(Ord) {
     };
   };
   var remove = function (x, param) {
-    if (param) {
+    if (param !== "Empty") {
       var r = param[2];
       var v = param[1];
       var l = param[0];
@@ -288,8 +284,8 @@ function Make(Ord) {
     }
   };
   var union = function (s1, s2) {
-    if (s1) {
-      if (s2) {
+    if (s1 !== "Empty") {
+      if (s2 !== "Empty") {
         var h2 = s2[3];
         var v2 = s2[1];
         var h1 = s1[3];
@@ -315,13 +311,13 @@ function Make(Ord) {
     }
   };
   var inter = function (s1, s2) {
-    if (s1 && s2) {
+    if (s1 !== "Empty" && s2 !== "Empty") {
       var r1 = s1[2];
       var v1 = s1[1];
       var l1 = s1[0];
       var match = split(v1, s2);
       var l2 = match[0];
-      if (match[1]) {
+      if (match[1] !== "false") {
         return join(inter(l1, l2), v1, inter(r1, match[2]));
       } else {
         return concat(inter(l1, l2), inter(r1, match[2]));
@@ -331,14 +327,14 @@ function Make(Ord) {
     }
   };
   var diff = function (s1, s2) {
-    if (s1) {
-      if (s2) {
+    if (s1 !== "Empty") {
+      if (s2 !== "Empty") {
         var r1 = s1[2];
         var v1 = s1[1];
         var l1 = s1[0];
         var match = split(v1, s2);
         var l2 = match[0];
-        if (match[1]) {
+        if (match[1] !== "false") {
           return concat(diff(l1, l2), diff(r1, match[2]));
         } else {
           return join(diff(l1, l2), v1, diff(r1, match[2]));
@@ -354,7 +350,7 @@ function Make(Ord) {
     while(true) {
       var e = _e;
       var s = _s;
-      if (s) {
+      if (s !== "Empty") {
         _e = /* constructor */{
           tag: "More",
           "0": s[1],
@@ -372,8 +368,8 @@ function Make(Ord) {
     while(true) {
       var e2 = _e2;
       var e1 = _e1;
-      if (e1) {
-        if (e2) {
+      if (e1 !== "End") {
+        if (e2 !== "End") {
           var c = Curry._2(Ord.compare, e1[0], e2[0]);
           if (c !== 0) {
             return c;
@@ -385,7 +381,7 @@ function Make(Ord) {
         } else {
           return 1;
         }
-      } else if (e2) {
+      } else if (e2 !== "End") {
         return -1;
       } else {
         return 0;
@@ -402,8 +398,8 @@ function Make(Ord) {
     while(true) {
       var s2 = _s2;
       var s1 = _s1;
-      if (s1) {
-        if (s2) {
+      if (s1 !== "Empty") {
+        if (s2 !== "Empty") {
           var r2 = s2[2];
           var l2 = s2[0];
           var r1 = s1[2];
@@ -454,7 +450,7 @@ function Make(Ord) {
   var iter = function (f, _param) {
     while(true) {
       var param = _param;
-      if (param) {
+      if (param !== "Empty") {
         iter(f, param[0]);
         Curry._1(f, param[1]);
         _param = param[2];
@@ -468,7 +464,7 @@ function Make(Ord) {
     while(true) {
       var accu = _accu;
       var s = _s;
-      if (s) {
+      if (s !== "Empty") {
         _accu = Curry._2(f, s[1], fold(f, s[0], accu));
         _s = s[2];
         continue ;
@@ -480,7 +476,7 @@ function Make(Ord) {
   var for_all = function (p, _param) {
     while(true) {
       var param = _param;
-      if (param) {
+      if (param !== "Empty") {
         if (Curry._1(p, param[1]) && for_all(p, param[0])) {
           _param = param[2];
           continue ;
@@ -495,7 +491,7 @@ function Make(Ord) {
   var exists = function (p, _param) {
     while(true) {
       var param = _param;
-      if (param) {
+      if (param !== "Empty") {
         if (Curry._1(p, param[1]) || exists(p, param[0])) {
           return true;
         } else {
@@ -508,7 +504,7 @@ function Make(Ord) {
     };
   };
   var filter = function (p, param) {
-    if (param) {
+    if (param !== "Empty") {
       var v = param[1];
       var l$prime = filter(p, param[0]);
       var pv = Curry._1(p, v);
@@ -523,7 +519,7 @@ function Make(Ord) {
     }
   };
   var partition = function (p, param) {
-    if (param) {
+    if (param !== "Empty") {
       var v = param[1];
       var match = partition(p, param[0]);
       var lf = match[1];
@@ -551,7 +547,7 @@ function Make(Ord) {
     }
   };
   var cardinal = function (param) {
-    if (param) {
+    if (param !== "Empty") {
       return (cardinal(param[0]) + 1 | 0) + cardinal(param[2]) | 0;
     } else {
       return 0;
@@ -561,7 +557,7 @@ function Make(Ord) {
     while(true) {
       var param = _param;
       var accu = _accu;
-      if (param) {
+      if (param !== "Empty") {
         _param = param[0];
         _accu = /* constructor */{
           tag: "::",
@@ -580,7 +576,7 @@ function Make(Ord) {
   var find = function (x, _param) {
     while(true) {
       var param = _param;
-      if (param) {
+      if (param !== "Empty") {
         var v = param[1];
         var c = Curry._2(Ord.compare, x, v);
         if (c === 0) {
@@ -603,7 +599,7 @@ function Make(Ord) {
                     l
                   ];
         case 1 :
-            if (l) {
+            if (l !== "[]") {
               return /* tuple */[
                       /* constructor */{
                         tag: "Node",
@@ -617,9 +613,9 @@ function Make(Ord) {
             }
             break;
         case 2 :
-            if (l) {
+            if (l !== "[]") {
               var match = l[1];
-              if (match) {
+              if (match !== "[]") {
                 return /* tuple */[
                         /* constructor */{
                           tag: "Node",
@@ -641,11 +637,11 @@ function Make(Ord) {
             }
             break;
         case 3 :
-            if (l) {
+            if (l !== "[]") {
               var match$1 = l[1];
-              if (match$1) {
+              if (match$1 !== "[]") {
                 var match$2 = match$1[1];
-                if (match$2) {
+                if (match$2 !== "[]") {
                   return /* tuple */[
                           /* constructor */{
                             tag: "Node",
@@ -680,7 +676,7 @@ function Make(Ord) {
       var nl = n / 2 | 0;
       var match$3 = sub(nl, l);
       var l$1 = match$3[1];
-      if (l$1) {
+      if (l$1 !== "[]") {
         var match$4 = sub((n - nl | 0) - 1 | 0, l$1[1]);
         return /* tuple */[
                 create(match$3[0], l$1[0], match$4[0]),
@@ -700,20 +696,20 @@ function Make(Ord) {
     return sub(List.length(l), l)[0];
   };
   var of_list = function (l) {
-    if (l) {
+    if (l !== "[]") {
       var match = l[1];
       var x0 = l[0];
-      if (match) {
+      if (match !== "[]") {
         var match$1 = match[1];
         var x1 = match[0];
-        if (match$1) {
+        if (match$1 !== "[]") {
           var match$2 = match$1[1];
           var x2 = match$1[0];
-          if (match$2) {
+          if (match$2 !== "[]") {
             var match$3 = match$2[1];
             var x3 = match$2[0];
-            if (match$3) {
-              if (match$3[1]) {
+            if (match$3 !== "[]") {
+              if (match$3[1] !== "[]") {
                 return of_sorted_list(List.sort_uniq(Ord.compare, l));
               } else {
                 return add(match$3[0], add(x3, add(x2, add(x1, singleton(x0)))));

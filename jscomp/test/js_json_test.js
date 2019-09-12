@@ -128,7 +128,7 @@ var json = JSON.parse(JSON.stringify(null));
 var ty = Js_json.classify(json);
 
 if (typeof ty === "string") {
-  if (ty >= 2) {
+  if (ty === "JSONNull") {
     add_test("File \"js_json_test.ml\", line 54, characters 30-37", (function (param) {
             return /* constructor */{
                     tag: "Ok",
@@ -227,14 +227,13 @@ function test(v) {
           return eq("File \"js_json_test.ml\", line 95, characters 31-38", false, v);
       case "JSONTrue" :
           return eq("File \"js_json_test.ml\", line 94, characters 30-37", true, v);
-      case "JSONNull" :
-          return add_test("File \"js_json_test.ml\", line 96, characters 18-25", (function (param) {
-                        return /* constructor */{
-                                tag: "Ok",
-                                "0": false
-                              };
-                      }));
-      
+      default:
+        return add_test("File \"js_json_test.ml\", line 96, characters 18-25", (function (param) {
+                      return /* constructor */{
+                              tag: "Ok",
+                              "0": false
+                            };
+                    }));
     }
   } else {
     return add_test("File \"js_json_test.ml\", line 96, characters 18-25", (function (param) {
@@ -435,14 +434,13 @@ function eq_at_i(loc, json, i, kind, expected) {
                   return eq(loc, false, expected);
               case "JSONTrue" :
                   return eq(loc, true, expected);
-              case "JSONNull" :
-                  return add_test(loc, (function (param) {
-                                return /* constructor */{
-                                        tag: "Ok",
-                                        "0": false
-                                      };
-                              }));
-              
+              default:
+                return add_test(loc, (function (param) {
+                              return /* constructor */{
+                                      tag: "Ok",
+                                      "0": false
+                                    };
+                            }));
             }
           } else {
             return add_test(loc, (function (param) {
@@ -454,7 +452,7 @@ function eq_at_i(loc, json, i, kind, expected) {
           }
       case "Null" :
           if (typeof ty$1 === "string") {
-            if (ty$1 >= 2) {
+            if (ty$1 === "JSONNull") {
               return add_test(loc, (function (param) {
                             return /* constructor */{
                                     tag: "Ok",

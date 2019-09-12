@@ -14,9 +14,9 @@ function assert_fail(msg) {
 
 function is_mocha(param) {
   var match = $$Array.to_list(Process.argv);
-  if (match) {
+  if (match !== "[]") {
     var match$1 = match[1];
-    if (match$1) {
+    if (match$1 !== "[]") {
       var exec = Path.basename(match$1[0]);
       if (exec === "mocha") {
         return true;
@@ -33,7 +33,7 @@ function is_mocha(param) {
 
 function from_suites(name, suite) {
   var match = $$Array.to_list(Process.argv);
-  if (match) {
+  if (match !== "[]") {
     if (is_mocha("()")) {
       describe(name, (function () {
               return List.iter((function (param) {
@@ -106,7 +106,7 @@ function handleCode(spec) {
 
 function from_pair_suites(name, suites) {
   var match = $$Array.to_list(Process.argv);
-  if (match) {
+  if (match !== "[]") {
     if (is_mocha("()")) {
       describe(name, (function () {
               return List.iter((function (param) {
@@ -208,7 +208,7 @@ var val_unit = Promise.resolve("()");
 
 function from_promise_suites(name, suites) {
   var match = $$Array.to_list(Process.argv);
-  if (match) {
+  if (match !== "[]") {
     if (is_mocha("()")) {
       describe(name, (function () {
               return List.iter((function (param) {

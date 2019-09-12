@@ -165,7 +165,7 @@ function string_of_float(f) {
 }
 
 function $at(l1, l2) {
-  if (l1) {
+  if (l1 !== "[]") {
     return /* constructor */{
             tag: "::",
             "0": l1[0],
@@ -230,7 +230,7 @@ function flush_all(param) {
   var _param = Caml_io.caml_ml_out_channels_list("()");
   while(true) {
     var param$1 = _param;
-    if (param$1) {
+    if (param$1 !== "[]") {
       try {
         Caml_io.caml_ml_flush(param$1[0]);
       }
@@ -374,7 +374,7 @@ function input_line(chan) {
     while(true) {
       var param = _param;
       var pos = _pos;
-      if (param) {
+      if (param !== "[]") {
         var hd = param[0];
         var len = hd.length;
         Caml_bytes.caml_blit_string(hd, 0, buf, pos - len | 0, len);
@@ -393,7 +393,7 @@ function input_line(chan) {
     var accu = _accu;
     var n = Caml_external_polyfill.resolve("caml_ml_input_scan_line")(chan);
     if (n === 0) {
-      if (accu) {
+      if (accu !== "[]") {
         return build_result(Caml_bytes.caml_create_bytes(len), len, accu);
       } else {
         throw Caml_builtin_exceptions.end_of_file;
@@ -402,7 +402,7 @@ function input_line(chan) {
       var res = Caml_bytes.caml_create_bytes(n - 1 | 0);
       Caml_external_polyfill.resolve("caml_ml_input")(chan, res, 0, n - 1 | 0);
       Caml_external_polyfill.resolve("caml_ml_input_char")(chan);
-      if (accu) {
+      if (accu !== "[]") {
         var len$1 = (len + n | 0) - 1 | 0;
         return build_result(Caml_bytes.caml_create_bytes(len$1), len$1, /* constructor */{
                     tag: "::",
