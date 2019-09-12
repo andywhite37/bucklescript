@@ -41,24 +41,33 @@ var Int3 = Caml_module.init_mod([
       "recursive_module_test.ml",
       13,
       6
-    ], [[[
-          0,
+    ], /* constructor */{
+      tag: "Module",
+      "0": [[
+          "Function",
           "u"
-        ]]]);
+        ]]
+    });
 
-Caml_module.update_mod([[[
-          0,
+Caml_module.update_mod(/* constructor */{
+      tag: "Module",
+      "0": [[
+          "Function",
           "u"
-        ]]], Int3, Int3);
+        ]]
+    }, Int3, Int3);
 
 var M = Caml_module.init_mod([
       "recursive_module_test.ml",
       20,
       20
-    ], [[[
-          0,
+    ], /* constructor */{
+      tag: "Module",
+      "0": [[
+          "Function",
           "fact"
-        ]]]);
+        ]]
+    });
 
 function fact(n) {
   if (n <= 1) {
@@ -68,10 +77,13 @@ function fact(n) {
   }
 }
 
-Caml_module.update_mod([[[
-          0,
+Caml_module.update_mod(/* constructor */{
+      tag: "Module",
+      "0": [[
+          "Function",
           "fact"
-        ]]], M, {
+        ]]
+    }, M, {
       fact: fact
     });
 

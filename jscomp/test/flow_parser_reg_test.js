@@ -351,769 +351,1351 @@ var Literal = Caml_module.init_mod([
       "spider_monkey_ast.ml",
       44,
       6
-    ], [[[
-          [[]],
+    ], /* constructor */{
+      tag: "Module",
+      "0": [[
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "RegExp"
-        ]]]);
+        ]]
+    });
 
 var Type = Caml_module.init_mod([
       "spider_monkey_ast.ml",
       191,
       6
-    ], [[
+    ], /* constructor */{
+      tag: "Module",
+      "0": [
         [
-          [[[
-                [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": [[
+                /* constructor */{
+                  tag: "Module",
+                  "0": []
+                },
                 "Param"
-              ]]],
+              ]]
+          },
           "Function"
         ],
         [
-          [[
+          /* constructor */{
+            tag: "Module",
+            "0": [
               [
-                [[]],
+                /* constructor */{
+                  tag: "Module",
+                  "0": []
+                },
                 "Property"
               ],
               [
-                [[]],
+                /* constructor */{
+                  tag: "Module",
+                  "0": []
+                },
                 "Indexer"
               ],
               [
-                [[]],
+                /* constructor */{
+                  tag: "Module",
+                  "0": []
+                },
                 "CallProperty"
               ]
-            ]],
+            ]
+          },
           "Object"
         ],
         [
-          [[[
-                [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": [[
+                /* constructor */{
+                  tag: "Module",
+                  "0": []
+                },
                 "Identifier"
-              ]]],
+              ]]
+          },
           "Generic"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "StringLiteral"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "NumberLiteral"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "BooleanLiteral"
         ],
         [
-          [[[
-                [[[
-                      [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": [[
+                /* constructor */{
+                  tag: "Module",
+                  "0": [[
+                      /* constructor */{
+                        tag: "Module",
+                        "0": []
+                      },
                       "Variance"
-                    ]]],
+                    ]]
+                },
                 "TypeParam"
-              ]]],
+              ]]
+          },
           "ParameterDeclaration"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "ParameterInstantiation"
         ]
-      ]]);
+      ]
+    });
 
 var Statement = Caml_module.init_mod([
       "spider_monkey_ast.ml",
       493,
       6
-    ], [[
+    ], /* constructor */{
+      tag: "Module",
+      "0": [
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Block"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "If"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Labeled"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Break"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Continue"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "With"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "TypeAlias"
         ],
         [
-          [[[
-                [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": [[
+                /* constructor */{
+                  tag: "Module",
+                  "0": []
+                },
                 "Case"
-              ]]],
+              ]]
+          },
           "Switch"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Return"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Throw"
         ],
         [
-          [[[
-                [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": [[
+                /* constructor */{
+                  tag: "Module",
+                  "0": []
+                },
                 "CatchClause"
-              ]]],
+              ]]
+          },
           "Try"
         ],
         [
-          [[[
-                [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": [[
+                /* constructor */{
+                  tag: "Module",
+                  "0": []
+                },
                 "Declarator"
-              ]]],
+              ]]
+          },
           "VariableDeclaration"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "While"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "DoWhile"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "For"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "ForIn"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "ForOf"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Let"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Interface"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "DeclareVariable"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "DeclareFunction"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "DeclareModule"
         ],
         [
-          [[[
-                [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": [[
+                /* constructor */{
+                  tag: "Module",
+                  "0": []
+                },
                 "Specifier"
-              ]]],
+              ]]
+          },
           "ExportDeclaration"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "DeclareExportDeclaration"
         ],
         [
-          [[[
-                [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": [[
+                /* constructor */{
+                  tag: "Module",
+                  "0": []
+                },
                 "NamedSpecifier"
-              ]]],
+              ]]
+          },
           "ImportDeclaration"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Expression"
         ]
-      ]]);
+      ]
+    });
 
 var Expression = Caml_module.init_mod([
       "spider_monkey_ast.ml",
       758,
       6
-    ], [[
+    ], /* constructor */{
+      tag: "Module",
+      "0": [
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "SpreadElement"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Array"
         ],
         [
-          [[[
-                [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": [[
+                /* constructor */{
+                  tag: "Module",
+                  "0": []
+                },
                 "Element"
-              ]]],
+              ]]
+          },
           "TemplateLiteral"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "TaggedTemplate"
         ],
         [
-          [[
+          /* constructor */{
+            tag: "Module",
+            "0": [
               [
-                [[]],
+                /* constructor */{
+                  tag: "Module",
+                  "0": []
+                },
                 "Property"
               ],
               [
-                [[]],
+                /* constructor */{
+                  tag: "Module",
+                  "0": []
+                },
                 "SpreadProperty"
               ]
-            ]],
+            ]
+          },
           "Object"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Sequence"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Unary"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Binary"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Assignment"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Update"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Logical"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Conditional"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "New"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Call"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Member"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Yield"
         ],
         [
-          [[[
-                [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": [[
+                /* constructor */{
+                  tag: "Module",
+                  "0": []
+                },
                 "Block"
-              ]]],
+              ]]
+          },
           "Comprehension"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Generator"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Let"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "TypeCast"
         ]
-      ]]);
+      ]
+    });
 
 var JSX = Caml_module.init_mod([
       "spider_monkey_ast.ml",
       861,
       6
-    ], [[
+    ], /* constructor */{
+      tag: "Module",
+      "0": [
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Identifier"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "NamespacedName"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "ExpressionContainer"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Text"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Attribute"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "SpreadAttribute"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "MemberExpression"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Opening"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Closing"
         ]
-      ]]);
+      ]
+    });
 
 var Pattern = Caml_module.init_mod([
       "spider_monkey_ast.ml",
       919,
       6
-    ], [[
+    ], /* constructor */{
+      tag: "Module",
+      "0": [
         [
-          [[
+          /* constructor */{
+            tag: "Module",
+            "0": [
               [
-                [[]],
+                /* constructor */{
+                  tag: "Module",
+                  "0": []
+                },
                 "Property"
               ],
               [
-                [[]],
+                /* constructor */{
+                  tag: "Module",
+                  "0": []
+                },
                 "SpreadProperty"
               ]
-            ]],
+            ]
+          },
           "Object"
         ],
         [
-          [[[
-                [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": [[
+                /* constructor */{
+                  tag: "Module",
+                  "0": []
+                },
                 "SpreadElement"
-              ]]],
+              ]]
+          },
           "Array"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Assignment"
         ]
-      ]]);
+      ]
+    });
 
 var Class = Caml_module.init_mod([
       "spider_monkey_ast.ml",
       978,
       6
-    ], [[
+    ], /* constructor */{
+      tag: "Module",
+      "0": [
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Method"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Property"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Implements"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Body"
         ]
-      ]]);
+      ]
+    });
 
-Caml_module.update_mod([[[
-          [[]],
+Caml_module.update_mod(/* constructor */{
+      tag: "Module",
+      "0": [[
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "RegExp"
-        ]]], Literal, Literal);
+        ]]
+    }, Literal, Literal);
 
-Caml_module.update_mod([[
+Caml_module.update_mod(/* constructor */{
+      tag: "Module",
+      "0": [
         [
-          [[[
-                [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": [[
+                /* constructor */{
+                  tag: "Module",
+                  "0": []
+                },
                 "Param"
-              ]]],
+              ]]
+          },
           "Function"
         ],
         [
-          [[
+          /* constructor */{
+            tag: "Module",
+            "0": [
               [
-                [[]],
+                /* constructor */{
+                  tag: "Module",
+                  "0": []
+                },
                 "Property"
               ],
               [
-                [[]],
+                /* constructor */{
+                  tag: "Module",
+                  "0": []
+                },
                 "Indexer"
               ],
               [
-                [[]],
+                /* constructor */{
+                  tag: "Module",
+                  "0": []
+                },
                 "CallProperty"
               ]
-            ]],
+            ]
+          },
           "Object"
         ],
         [
-          [[[
-                [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": [[
+                /* constructor */{
+                  tag: "Module",
+                  "0": []
+                },
                 "Identifier"
-              ]]],
+              ]]
+          },
           "Generic"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "StringLiteral"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "NumberLiteral"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "BooleanLiteral"
         ],
         [
-          [[[
-                [[[
-                      [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": [[
+                /* constructor */{
+                  tag: "Module",
+                  "0": [[
+                      /* constructor */{
+                        tag: "Module",
+                        "0": []
+                      },
                       "Variance"
-                    ]]],
+                    ]]
+                },
                 "TypeParam"
-              ]]],
+              ]]
+          },
           "ParameterDeclaration"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "ParameterInstantiation"
         ]
-      ]], Type, Type);
+      ]
+    }, Type, Type);
 
-Caml_module.update_mod([[
+Caml_module.update_mod(/* constructor */{
+      tag: "Module",
+      "0": [
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Block"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "If"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Labeled"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Break"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Continue"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "With"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "TypeAlias"
         ],
         [
-          [[[
-                [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": [[
+                /* constructor */{
+                  tag: "Module",
+                  "0": []
+                },
                 "Case"
-              ]]],
+              ]]
+          },
           "Switch"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Return"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Throw"
         ],
         [
-          [[[
-                [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": [[
+                /* constructor */{
+                  tag: "Module",
+                  "0": []
+                },
                 "CatchClause"
-              ]]],
+              ]]
+          },
           "Try"
         ],
         [
-          [[[
-                [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": [[
+                /* constructor */{
+                  tag: "Module",
+                  "0": []
+                },
                 "Declarator"
-              ]]],
+              ]]
+          },
           "VariableDeclaration"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "While"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "DoWhile"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "For"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "ForIn"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "ForOf"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Let"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Interface"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "DeclareVariable"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "DeclareFunction"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "DeclareModule"
         ],
         [
-          [[[
-                [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": [[
+                /* constructor */{
+                  tag: "Module",
+                  "0": []
+                },
                 "Specifier"
-              ]]],
+              ]]
+          },
           "ExportDeclaration"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "DeclareExportDeclaration"
         ],
         [
-          [[[
-                [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": [[
+                /* constructor */{
+                  tag: "Module",
+                  "0": []
+                },
                 "NamedSpecifier"
-              ]]],
+              ]]
+          },
           "ImportDeclaration"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Expression"
         ]
-      ]], Statement, Statement);
+      ]
+    }, Statement, Statement);
 
-Caml_module.update_mod([[
+Caml_module.update_mod(/* constructor */{
+      tag: "Module",
+      "0": [
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "SpreadElement"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Array"
         ],
         [
-          [[[
-                [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": [[
+                /* constructor */{
+                  tag: "Module",
+                  "0": []
+                },
                 "Element"
-              ]]],
+              ]]
+          },
           "TemplateLiteral"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "TaggedTemplate"
         ],
         [
-          [[
+          /* constructor */{
+            tag: "Module",
+            "0": [
               [
-                [[]],
+                /* constructor */{
+                  tag: "Module",
+                  "0": []
+                },
                 "Property"
               ],
               [
-                [[]],
+                /* constructor */{
+                  tag: "Module",
+                  "0": []
+                },
                 "SpreadProperty"
               ]
-            ]],
+            ]
+          },
           "Object"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Sequence"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Unary"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Binary"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Assignment"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Update"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Logical"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Conditional"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "New"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Call"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Member"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Yield"
         ],
         [
-          [[[
-                [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": [[
+                /* constructor */{
+                  tag: "Module",
+                  "0": []
+                },
                 "Block"
-              ]]],
+              ]]
+          },
           "Comprehension"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Generator"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Let"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "TypeCast"
         ]
-      ]], Expression, Expression);
+      ]
+    }, Expression, Expression);
 
-Caml_module.update_mod([[
+Caml_module.update_mod(/* constructor */{
+      tag: "Module",
+      "0": [
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Identifier"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "NamespacedName"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "ExpressionContainer"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Text"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Attribute"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "SpreadAttribute"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "MemberExpression"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Opening"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Closing"
         ]
-      ]], JSX, JSX);
+      ]
+    }, JSX, JSX);
 
-Caml_module.update_mod([[
+Caml_module.update_mod(/* constructor */{
+      tag: "Module",
+      "0": [
         [
-          [[
+          /* constructor */{
+            tag: "Module",
+            "0": [
               [
-                [[]],
+                /* constructor */{
+                  tag: "Module",
+                  "0": []
+                },
                 "Property"
               ],
               [
-                [[]],
+                /* constructor */{
+                  tag: "Module",
+                  "0": []
+                },
                 "SpreadProperty"
               ]
-            ]],
+            ]
+          },
           "Object"
         ],
         [
-          [[[
-                [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": [[
+                /* constructor */{
+                  tag: "Module",
+                  "0": []
+                },
                 "SpreadElement"
-              ]]],
+              ]]
+          },
           "Array"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Assignment"
         ]
-      ]], Pattern, Pattern);
+      ]
+    }, Pattern, Pattern);
 
-Caml_module.update_mod([[
+Caml_module.update_mod(/* constructor */{
+      tag: "Module",
+      "0": [
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Method"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Property"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Implements"
         ],
         [
-          [[]],
+          /* constructor */{
+            tag: "Module",
+            "0": []
+          },
           "Body"
         ]
-      ]], Class, Class);
+      ]
+    }, Class, Class);
 
 function token_to_string(param) {
   if (typeof param === "string") {
@@ -6300,100 +6882,103 @@ var Parse = Caml_module.init_mod([
       "parser_flow.ml",
       95,
       6
-    ], [[
+    ], /* constructor */{
+      tag: "Module",
+      "0": [
         [
-          0,
+          "Function",
           "program"
         ],
         [
-          0,
+          "Function",
           "statement"
         ],
         [
-          0,
+          "Function",
           "statement_list_item"
         ],
         [
-          0,
+          "Function",
           "statement_list"
         ],
         [
-          0,
+          "Function",
           "statement_list_with_directives"
         ],
         [
-          0,
+          "Function",
           "module_body"
         ],
         [
-          0,
+          "Function",
           "expression"
         ],
         [
-          0,
+          "Function",
           "assignment"
         ],
         [
-          0,
+          "Function",
           "object_initializer"
         ],
         [
-          0,
+          "Function",
           "array_initializer"
         ],
         [
-          0,
+          "Function",
           "identifier"
         ],
         [
-          0,
+          "Function",
           "identifier_or_reserved_keyword"
         ],
         [
-          0,
+          "Function",
           "identifier_with_type"
         ],
         [
-          0,
+          "Function",
           "block_body"
         ],
         [
-          0,
+          "Function",
           "function_block_body"
         ],
         [
-          0,
+          "Function",
           "jsx_element"
         ],
         [
-          0,
+          "Function",
           "pattern"
         ],
         [
-          0,
+          "Function",
           "pattern_from_expr"
         ],
         [
-          0,
+          "Function",
           "object_key"
         ],
         [
-          0,
+          "Function",
           "class_declaration"
         ],
         [
-          0,
+          "Function",
           "class_expression"
         ],
         [
-          0,
+          "Function",
           "is_assignable_lhs"
         ],
         [
-          0,
+          "Function",
           "predicate"
         ]
-      ]]);
+      ]
+    });
 
 function intersection(env) {
   maybe(env, "T_BIT_AND");
@@ -14792,100 +15377,103 @@ function predicate(env) {
   
 }
 
-Caml_module.update_mod([[
+Caml_module.update_mod(/* constructor */{
+      tag: "Module",
+      "0": [
         [
-          0,
+          "Function",
           "program"
         ],
         [
-          0,
+          "Function",
           "statement"
         ],
         [
-          0,
+          "Function",
           "statement_list_item"
         ],
         [
-          0,
+          "Function",
           "statement_list"
         ],
         [
-          0,
+          "Function",
           "statement_list_with_directives"
         ],
         [
-          0,
+          "Function",
           "module_body"
         ],
         [
-          0,
+          "Function",
           "expression"
         ],
         [
-          0,
+          "Function",
           "assignment"
         ],
         [
-          0,
+          "Function",
           "object_initializer"
         ],
         [
-          0,
+          "Function",
           "array_initializer"
         ],
         [
-          0,
+          "Function",
           "identifier"
         ],
         [
-          0,
+          "Function",
           "identifier_or_reserved_keyword"
         ],
         [
-          0,
+          "Function",
           "identifier_with_type"
         ],
         [
-          0,
+          "Function",
           "block_body"
         ],
         [
-          0,
+          "Function",
           "function_block_body"
         ],
         [
-          0,
+          "Function",
           "jsx_element"
         ],
         [
-          0,
+          "Function",
           "pattern"
         ],
         [
-          0,
+          "Function",
           "pattern_from_expr"
         ],
         [
-          0,
+          "Function",
           "object_key"
         ],
         [
-          0,
+          "Function",
           "class_declaration"
         ],
         [
-          0,
+          "Function",
           "class_expression"
         ],
         [
-          0,
+          "Function",
           "is_assignable_lhs"
         ],
         [
-          0,
+          "Function",
           "predicate"
         ]
-      ]], Parse, {
+      ]
+    }, Parse, {
       program: program,
       statement: statement,
       statement_list_item: statement_list_item,

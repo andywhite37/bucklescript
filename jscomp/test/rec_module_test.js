@@ -11,19 +11,25 @@ var A = Caml_module.init_mod([
       "rec_module_test.ml",
       3,
       6
-    ], [[[
-          0,
+    ], /* constructor */{
+      tag: "Module",
+      "0": [[
+          "Function",
           "even"
-        ]]]);
+        ]]
+    });
 
 var B = Caml_module.init_mod([
       "rec_module_test.ml",
       11,
       6
-    ], [[[
-          0,
+    ], /* constructor */{
+      tag: "Module",
+      "0": [[
+          "Function",
           "odd"
-        ]]]);
+        ]]
+    });
 
 function even(n) {
   if (n === 0) {
@@ -35,10 +41,13 @@ function even(n) {
   }
 }
 
-Caml_module.update_mod([[[
-          0,
+Caml_module.update_mod(/* constructor */{
+      tag: "Module",
+      "0": [[
+          "Function",
           "even"
-        ]]], A, {
+        ]]
+    }, A, {
       even: even
     });
 
@@ -52,10 +61,13 @@ function odd(n) {
   }
 }
 
-Caml_module.update_mod([[[
-          0,
+Caml_module.update_mod(/* constructor */{
+      tag: "Module",
+      "0": [[
+          "Function",
           "odd"
-        ]]], B, {
+        ]]
+    }, B, {
       odd: odd
     });
 
@@ -63,31 +75,37 @@ var AA = Caml_module.init_mod([
       "rec_module_test.ml",
       21,
       6
-    ], [[
+    ], /* constructor */{
+      tag: "Module",
+      "0": [
         [
-          0,
+          "Function",
           "even"
         ],
         [
-          0,
+          "Function",
           "x"
         ]
-      ]]);
+      ]
+    });
 
 var BB = Caml_module.init_mod([
       "rec_module_test.ml",
       31,
       6
-    ], [[
+    ], /* constructor */{
+      tag: "Module",
+      "0": [
         [
-          0,
+          "Function",
           "odd"
         ],
         [
-          0,
+          "Function",
           "y"
         ]
-      ]]);
+      ]
+    });
 
 function even$1(n) {
   if (n === 0) {
@@ -103,16 +121,19 @@ function x(param) {
   return Curry._1(BB.y, "()") + 3 | 0;
 }
 
-Caml_module.update_mod([[
+Caml_module.update_mod(/* constructor */{
+      tag: "Module",
+      "0": [
         [
-          0,
+          "Function",
           "even"
         ],
         [
-          0,
+          "Function",
           "x"
         ]
-      ]], AA, {
+      ]
+    }, AA, {
       even: even$1,
       x: x
     });
@@ -131,16 +152,19 @@ function y(param) {
   return 32;
 }
 
-Caml_module.update_mod([[
+Caml_module.update_mod(/* constructor */{
+      tag: "Module",
+      "0": [
         [
-          0,
+          "Function",
           "odd"
         ],
         [
-          0,
+          "Function",
           "y"
         ]
-      ]], BB, {
+      ]
+    }, BB, {
       odd: odd$1,
       y: y
     });
@@ -149,10 +173,13 @@ var AAA = Caml_module.init_mod([
       "rec_module_test.ml",
       55,
       2
-    ], [[[
-          0,
+    ], /* constructor */{
+      tag: "Module",
+      "0": [[
+          "Function",
           "compare"
-        ]]]);
+        ]]
+    });
 
 function height(param) {
   if (param !== "Empty") {
@@ -952,10 +979,13 @@ function compare$1(t1, t2) {
   }
 }
 
-Caml_module.update_mod([[[
-          0,
+Caml_module.update_mod(/* constructor */{
+      tag: "Module",
+      "0": [[
+          "Function",
           "compare"
-        ]]], AAA, {
+        ]]
+    }, AAA, {
       compare: compare$1
     });
 
