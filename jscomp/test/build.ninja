@@ -47,7 +47,7 @@ build test/array_safe_get.cmi test/array_safe_get.cmj : cc test/array_safe_get.m
 build test/array_subtle_test.cmi test/array_subtle_test.cmj : cc test/array_subtle_test.ml | test/mt.cmj $stdlib
 build test/array_test.cmj : cc_cmi test/array_test.ml | test/array_test.cmi test/mt.cmj $stdlib
 build test/array_test.cmi : cc test/array_test.mli | $stdlib
-build test/ast_abstract_test.cmi test/ast_abstract_test.cmj : cc test/ast_abstract_test.ml | test/mt.cmj $stdlib
+build test/ast_abstract_test.cmi test/ast_abstract_test.cmj : cc test/ast_abstract_test.ml | $stdlib
 build test/ast_js_mapper_poly_test.cmi test/ast_js_mapper_poly_test.cmj : cc test/ast_js_mapper_poly_test.ml | test/mt.cmj $stdlib
 build test/ast_js_mapper_test.cmj : cc_cmi test/ast_js_mapper_test.ml | test/ast_js_mapper_test.cmi $stdlib
 build test/ast_js_mapper_test.cmi : cc test/ast_js_mapper_test.mli | $stdlib
