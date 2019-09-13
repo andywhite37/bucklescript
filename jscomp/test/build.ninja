@@ -37,7 +37,8 @@ build test/app_root_finder.cmi test/app_root_finder.cmj : cc test/app_root_finde
 build test/argv_test.cmi test/argv_test.cmj : cc test/argv_test.ml | $stdlib
 build test/ari_regress_test.cmj : cc_cmi test/ari_regress_test.ml | test/ari_regress_test.cmi test/mt.cmj $stdlib
 build test/ari_regress_test.cmi : cc test/ari_regress_test.mli | $stdlib
-build test/arith_lexer.cmi test/arith_lexer.cmj : cc test/arith_lexer.ml | test/arith_syntax.cmj $stdlib
+build test/arith_lexer.cmi test/arith_lexer.cmj : cc test/arith_lexer.ml | test/arith_parser.cmj test/arith_syntax.cmj $stdlib
+build test/arith_parser.cmi test/arith_parser.cmj : cc test/arith_parser.ml | test/arith_syntax.cmj $stdlib
 build test/arith_syntax.cmi test/arith_syntax.cmj : cc test/arith_syntax.ml | $stdlib
 build test/arity_deopt.cmi test/arity_deopt.cmj : cc test/arity_deopt.ml | test/mt.cmj $stdlib
 build test/arity_infer.cmi test/arity_infer.cmj : cc test/arity_infer.ml | $stdlib
@@ -436,6 +437,7 @@ build test/oo_js_test_date.cmi test/oo_js_test_date.cmj : cc test/oo_js_test_dat
 build test/option_repr_test.cmi test/option_repr_test.cmj : cc test/option_repr_test.ml | test/mt.cmj $stdlib
 build test/optional_ffi_test.cmi test/optional_ffi_test.cmj : cc test/optional_ffi_test.ml | test/mt.cmj $stdlib
 build test/optional_regression_test.cmi test/optional_regression_test.cmj : cc test/optional_regression_test.ml | test/mt.cmj $stdlib
+build test/parser_api.cmi test/parser_api.cmj : cc test/parser_api.ml | $stdlib
 build test/pipe_send_readline.cmi test/pipe_send_readline.cmj : cc test/pipe_send_readline.ml | $stdlib
 build test/pipe_syntax.cmi test/pipe_syntax.cmj : cc test/pipe_syntax.ml | $stdlib
 build test/poly_type.cmi test/poly_type.cmj : cc test/poly_type.ml | $stdlib
