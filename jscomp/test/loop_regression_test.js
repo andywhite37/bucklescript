@@ -25,7 +25,7 @@ var suites = /* constructor */{
         return /* constructor */{
                 tag: "Eq",
                 "0": 55,
-                "1": f("()")
+                "1": f(/* () */0)
               };
       })
   ],

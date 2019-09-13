@@ -34,7 +34,7 @@ function add(x,y){
 
 var v = /* record */[/* contents */0];
 
-var h = (v[0] = v[0] + 1 | 0, "()", {
+var h = (v[0] = v[0] + 1 | 0, {
     hi: 2,
     lo: 0
   });

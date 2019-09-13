@@ -12,12 +12,12 @@ function test(param) {
       var acc = _acc;
       var n = _n;
       if (n === 0) {
-        return Curry._1(acc, "()");
+        return Curry._1(acc, /* () */0);
       } else {
         _acc = (function(n,acc){
         return function (param) {
           v[0] = v[0] + n | 0;
-          return Curry._1(acc, "()");
+          return Curry._1(acc, /* () */0);
         }
         }(n,acc));
         _n = n - 1 | 0;
@@ -26,7 +26,7 @@ function test(param) {
     };
   };
   f(10, (function (param) {
-          return "()";
+          return /* () */0;
         }));
   return v[0];
 }
@@ -78,7 +78,7 @@ Mt.from_pair_suites("Cps_test", /* constructor */{
             return /* constructor */{
                     tag: "Eq",
                     "0": 55,
-                    "1": test("()")
+                    "1": test(/* () */0)
                   };
           })
       ],
@@ -90,7 +90,7 @@ Mt.from_pair_suites("Cps_test", /* constructor */{
               return /* constructor */{
                       tag: "Eq",
                       "0": 15,
-                      "1": test_closure("()")
+                      "1": test_closure(/* () */0)
                     };
             })
         ],
@@ -102,7 +102,7 @@ Mt.from_pair_suites("Cps_test", /* constructor */{
                 return /* constructor */{
                         tag: "Eq",
                         "0": 30,
-                        "1": test_closure2("()")
+                        "1": test_closure2(/* () */0)
                       };
               })
           ],

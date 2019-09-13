@@ -27,7 +27,7 @@ var suites = /* constructor */{
         return /* constructor */{
                 tag: "Eq",
                 "0": 10,
-                "1": test2("()")
+                "1": test2(/* () */0)
               };
       })
   ],

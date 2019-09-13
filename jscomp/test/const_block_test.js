@@ -34,7 +34,7 @@ function h(param) {
 }
 
 function g(param) {
-  f("()");
+  f(/* () */0);
   return /* constructor */{
           tag: "Eq",
           "0": /* tuple */[

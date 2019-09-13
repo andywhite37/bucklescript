@@ -23,8 +23,8 @@ var suites = /* constructor */{
       (function (param) {
           return /* constructor */{
                   tag: "Eq",
-                  "0": "()",
-                  "1": Caml_option.undefined_to_opt("()")
+                  "0": /* () */0,
+                  "1": Caml_option.undefined_to_opt(/* () */0)
                 };
         })
     ],
@@ -60,7 +60,7 @@ var suites = /* constructor */{
                 return /* constructor */{
                         tag: "Eq",
                         "0": false,
-                        "1": "()" === undefined
+                        "1": false
                       };
               })
           ],

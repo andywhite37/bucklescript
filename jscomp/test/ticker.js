@@ -110,9 +110,9 @@ function print_all_composite(all_tickers) {
   return List.iter((function (param) {
                 if (param[/* type_ */3] !== "Market") {
                   console.log(param[/* ticker_name */2]);
-                  return "()";
+                  return /* () */0;
                 } else {
-                  return "()";
+                  return /* () */0;
                 }
               }), all_tickers);
 }
@@ -374,7 +374,7 @@ function iter(f, _param) {
       _param = param[3];
       continue ;
     } else {
-      return "()";
+      return /* () */0;
     }
   };
 }

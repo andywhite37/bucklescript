@@ -697,7 +697,7 @@ function rev_iter(f, xs) {
     rev_iter(f, xs[1]);
     return Curry._1(f, xs[0]);
   } else {
-    return "()";
+    return /* () */0;
   }
 }
 

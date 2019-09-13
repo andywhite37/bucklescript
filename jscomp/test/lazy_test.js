@@ -124,7 +124,7 @@ Mt.from_pair_suites("Lazy_test", /* constructor */{
         (function (param) {
             return /* constructor */{
                     tag: "Eq",
-                    "0": lazy_test("()"),
+                    "0": lazy_test(/* () */0),
                     "1": /* tuple */[
                       3,
                       32

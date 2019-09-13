@@ -83,8 +83,8 @@ function f(v) {
   } else {
     console.log("hi2");
   }
-  console.log((v.pop(), "()"));
-  return "()";
+  console.log((v.pop(), /* () */0));
+  return /* () */0;
 }
 
 function fff(x) {
@@ -94,7 +94,7 @@ function fff(x) {
 function fff2(x) {
   if (x.length >= 10) {
     console.log("hi");
-    return "()";
+    return /* () */0;
   } else {
     return 0;
   }

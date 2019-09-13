@@ -26,7 +26,7 @@ var node_parent = "..";
 var node_current = ".";
 
 var cwd = Caml_obj.caml_lazy_make((function (param) {
-        return Caml_sys.caml_sys_getcwd("()");
+        return Caml_sys.caml_sys_getcwd(/* () */0);
       }));
 
 function path_as_directory(x) {

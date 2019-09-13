@@ -85,7 +85,7 @@ add_test("File \"js_json_test.ml\", line 23, characters 11-18", (function (param
                               ]
                             ];
                       } else if (/* XXX */ty3.tag === "JSONNumber") {
-                        return "()";
+                        return /* () */0;
                       } else {
                         throw [
                               Caml_builtin_exceptions.assert_failure,

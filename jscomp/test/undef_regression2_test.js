@@ -52,10 +52,10 @@ function test(param) {
   var match = typeof __DEV__ === "undefined" ? undefined : __DEV__;
   if (match !== undefined) {
     console.log("dev mode");
-    return "()";
+    return /* () */0;
   } else {
     console.log("producton mode");
-    return "()";
+    return /* () */0;
   }
 }
 
@@ -63,17 +63,17 @@ function test2(param) {
   var match = typeof __filename === "undefined" ? undefined : __filename;
   if (match !== undefined) {
     console.log(match);
-    return "()";
+    return /* () */0;
   } else {
     console.log("non node environment");
-    return "()";
+    return /* () */0;
   }
 }
 
 function test3(param) {
   if (Caml_option.undefined_to_opt(typeof __DEV__ === "undefined" ? undefined : __DEV__) === undefined) {
     console.log("production mode");
-    return "()";
+    return /* () */0;
   } else {
     return 0;
   }

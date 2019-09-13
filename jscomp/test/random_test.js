@@ -30,11 +30,11 @@ function approx(f) {
     });
 }
 
-Random.self_init("()");
+Random.self_init(/* () */0);
 
 var param = Random.$$int(1000);
 
-Random.self_init("()");
+Random.self_init(/* () */0);
 
 var param$1 = Random.$$int(10000);
 
@@ -45,7 +45,7 @@ Random.init(0);
 var v = Caml_array.caml_make_vect(10, false);
 
 for(var i = 0; i <= 9; ++i){
-  Caml_array.caml_array_set(v, i, Random.bool("()"));
+  Caml_array.caml_array_set(v, i, Random.bool(/* () */0));
 }
 
 var param$2 = /* array */[
@@ -70,7 +70,7 @@ var h = Random.int64(/* int64 */[
       /* lo */3
     ]);
 
-var vv = Random.bits("()");
+var vv = Random.bits(/* () */0);
 
 var xx = Random.$$float(3.0);
 

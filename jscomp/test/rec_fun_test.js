@@ -40,10 +40,10 @@ function g(param) {
   };
   Caml_obj.caml_update_dummy(v, /* record */[/* contents */next]);
   console.log(String(next(0, true)));
-  return "()";
+  return /* () */0;
 }
 
-g("()");
+g(/* () */0);
 
 var x = [];
 

@@ -4,14 +4,14 @@
 var obj = {
   hi: (function (x) {
       console.log(x);
-      return "()";
+      return /* () */0;
     })
 };
 
 var eventObj = {
   events: /* array */[],
   empty: (function () {
-      return "()";
+      return /* () */0;
     }),
   push: (function (a) {
       var self = this ;

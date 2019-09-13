@@ -163,7 +163,7 @@ function iter(f, _param) {
       _param = param[1];
       continue ;
     } else {
-      return "()";
+      return /* () */0;
     }
   };
 }
@@ -181,7 +181,7 @@ function iteri(f, l) {
       _i = i + 1 | 0;
       continue ;
     } else {
-      return "()";
+      return /* () */0;
     }
   };
 }
@@ -291,7 +291,7 @@ function iter2(f, _l1, _l2) {
             "List.iter2"
           ];
     } else {
-      return "()";
+      return /* () */0;
     }
   };
 }

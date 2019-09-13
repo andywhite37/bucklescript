@@ -2,11 +2,11 @@
 
 
 var React = {
-  null: "()"
+  null: /* () */0
 };
 
 function make(param, param$1) {
-  return "()";
+  return /* () */0;
 }
 
 var Foo = {

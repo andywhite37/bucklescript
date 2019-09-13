@@ -43,7 +43,7 @@ add(/* tuple */[
                   tag: "ThrowAny",
                   "0": (function (param) {
                       Caml_int32.div(3, 0);
-                      return "()";
+                      return /* () */0;
                     })
                 };
         })
@@ -56,7 +56,7 @@ add(/* tuple */[
                   tag: "ThrowAny",
                   "0": (function (param) {
                       Caml_int32.mod_(3, 0);
-                      return "()";
+                      return /* () */0;
                     })
                 };
         })
@@ -69,7 +69,7 @@ add(/* tuple */[
                   tag: "ThrowAny",
                   "0": (function (param) {
                       Caml_int32.div(3, 0);
-                      return "()";
+                      return /* () */0;
                     })
                 };
         })
@@ -82,7 +82,7 @@ add(/* tuple */[
                   tag: "ThrowAny",
                   "0": (function (param) {
                       Caml_int32.mod_(3, 0);
-                      return "()";
+                      return /* () */0;
                     })
                 };
         })
@@ -101,7 +101,7 @@ add(/* tuple */[
                             /* hi */0,
                             /* lo */0
                           ]);
-                      return "()";
+                      return /* () */0;
                     })
                 };
         })
@@ -120,7 +120,7 @@ add(/* tuple */[
                             /* hi */0,
                             /* lo */0
                           ]);
-                      return "()";
+                      return /* () */0;
                     })
                 };
         })

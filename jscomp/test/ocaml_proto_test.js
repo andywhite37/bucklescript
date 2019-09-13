@@ -912,64 +912,64 @@ var yyact = /* array */[
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return proto(_1, undefined, undefined, undefined, undefined, undefined, _2, undefined, "()");
+      return proto(_1, undefined, undefined, undefined, undefined, undefined, _2, undefined, /* () */0);
     }),
   (function (__caml_parser_env) {
       return Parsing.peek_val(__caml_parser_env, 0);
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return proto(undefined, undefined, undefined, _1, undefined, undefined, undefined, undefined, "()");
+      return proto(undefined, undefined, undefined, _1, undefined, undefined, undefined, undefined, /* () */0);
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return proto(undefined, _1, undefined, undefined, undefined, undefined, undefined, undefined, "()");
+      return proto(undefined, _1, undefined, undefined, undefined, undefined, undefined, undefined, /* () */0);
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return proto(undefined, undefined, _1, undefined, undefined, undefined, undefined, undefined, "()");
+      return proto(undefined, undefined, _1, undefined, undefined, undefined, undefined, undefined, /* () */0);
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return proto(undefined, undefined, undefined, undefined, _1, undefined, undefined, undefined, "()");
+      return proto(undefined, undefined, undefined, undefined, _1, undefined, undefined, undefined, /* () */0);
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return proto(undefined, undefined, undefined, undefined, undefined, _1, undefined, undefined, "()");
+      return proto(undefined, undefined, undefined, undefined, undefined, _1, undefined, undefined, /* () */0);
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 0);
-      return proto(undefined, undefined, undefined, undefined, undefined, undefined, undefined, _1, "()");
+      return proto(undefined, undefined, undefined, undefined, undefined, undefined, undefined, _1, /* () */0);
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return proto(undefined, undefined, undefined, _1, undefined, undefined, _2, undefined, "()");
+      return proto(undefined, undefined, undefined, _1, undefined, undefined, _2, undefined, /* () */0);
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return proto(undefined, _1, undefined, undefined, undefined, undefined, _2, undefined, "()");
+      return proto(undefined, _1, undefined, undefined, undefined, undefined, _2, undefined, /* () */0);
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return proto(undefined, undefined, _1, undefined, undefined, undefined, _2, undefined, "()");
+      return proto(undefined, undefined, _1, undefined, undefined, undefined, _2, undefined, /* () */0);
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return proto(undefined, undefined, undefined, undefined, _1, undefined, _2, undefined, "()");
+      return proto(undefined, undefined, undefined, undefined, _1, undefined, _2, undefined, /* () */0);
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return proto(undefined, undefined, undefined, undefined, undefined, _1, _2, undefined, "()");
+      return proto(undefined, undefined, undefined, undefined, undefined, _1, _2, undefined, /* () */0);
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 1);
       var _2 = Parsing.peek_val(__caml_parser_env, 0);
-      return proto(undefined, undefined, undefined, undefined, undefined, undefined, _2, _1, "()");
+      return proto(undefined, undefined, undefined, undefined, undefined, undefined, _2, _1, /* () */0);
     }),
   (function (__caml_parser_env) {
       var _3 = Parsing.peek_val(__caml_parser_env, 1);
@@ -986,7 +986,7 @@ var yyact = /* array */[
       Parsing.peek_val(__caml_parser_env, 3);
       var _3 = Parsing.peek_val(__caml_parser_env, 1);
       Parsing.peek_val(__caml_parser_env, 0);
-      return $$import("()", _3);
+      return $$import(/* () */0, _3);
     }),
   (function (__caml_parser_env) {
       var _1 = Parsing.peek_val(__caml_parser_env, 3);
@@ -1497,18 +1497,18 @@ var yyact = /* array */[
       return invalid_enum_specification(_1[1], _1[0]);
     }),
   (function (__caml_parser_env) {
-      return "()";
+      return /* () */0;
     }),
   (function (__caml_parser_env) {
       Parsing.peek_val(__caml_parser_env, 1);
-      return "()";
+      return /* () */0;
     }),
   (function (__caml_parser_env) {
-      return "()";
+      return /* () */0;
     }),
   (function (__caml_parser_env) {
       Parsing.peek_val(__caml_parser_env, 1);
-      return "()";
+      return /* () */0;
     }),
   (function (__caml_parser_env) {
       throw [
@@ -2578,7 +2578,7 @@ function gen_decode_record(and_, param, sc) {
                                       var param$1 = rf_field_type[0];
                                       var pk = param$1[2];
                                       var field_type = param$1[0];
-                                      return process_field_common(sc$1, param$1[1], string_of_payload_kind("()", pk, false), (function (sc) {
+                                      return process_field_common(sc$1, param$1[1], string_of_payload_kind(/* () */0, pk, false), (function (sc) {
                                                     return line$1(sc, Curry._2(Printf.sprintf(/* constructor */{
                                                                         tag: "Format",
                                                                         "0": /* constructor */{
@@ -2611,7 +2611,7 @@ function gen_decode_record(and_, param, sc) {
                                       var param$2 = rf_field_type[0];
                                       var pk$1 = param$2[2];
                                       var field_type$1 = param$2[0];
-                                      return process_field_common(sc$2, param$2[1], string_of_payload_kind("()", pk$1, false), (function (sc) {
+                                      return process_field_common(sc$2, param$2[1], string_of_payload_kind(/* () */0, pk$1, false), (function (sc) {
                                                     return line$1(sc, Curry._2(Printf.sprintf(/* constructor */{
                                                                         tag: "Format",
                                                                         "0": /* constructor */{
@@ -2680,7 +2680,7 @@ function gen_decode_record(and_, param, sc) {
                                                         return line$1(sc, ") () d;");
                                                       }));
                                         } else {
-                                          return process_field_common(sc$3, encoding_number, string_of_payload_kind("()", pk$2, false), (function (sc) {
+                                          return process_field_common(sc$3, encoding_number, string_of_payload_kind(/* () */0, pk$2, false), (function (sc) {
                                                         return line$1(sc, Curry._2(Printf.sprintf(/* constructor */{
                                                                             tag: "Format",
                                                                             "0": /* constructor */{
@@ -2737,7 +2737,7 @@ function gen_decode_record(and_, param, sc) {
                                                                         }), rf_label$3, decode_field_f(field_type$2, pk$2)));
                                                     }));
                                       } else {
-                                        return process_field_common(sc$3, encoding_number, string_of_payload_kind("()", pk$2, false), (function (sc) {
+                                        return process_field_common(sc$3, encoding_number, string_of_payload_kind(/* () */0, pk$2, false), (function (sc) {
                                                       return line$1(sc, Curry._3(Printf.sprintf(/* constructor */{
                                                                           tag: "Format",
                                                                           "0": /* constructor */{
@@ -2893,7 +2893,7 @@ function gen_decode_record(and_, param, sc) {
                                                     var pk = param[/* vc_payload_kind */3];
                                                     var vc_field_type = param[/* vc_field_type */1];
                                                     var vc_constructor = param[/* vc_constructor */0];
-                                                    return process_field_common(sc$5, param[/* vc_encoding_number */2], string_of_payload_kind("()", pk, false), (function (sc) {
+                                                    return process_field_common(sc$5, param[/* vc_encoding_number */2], string_of_payload_kind(/* () */0, pk, false), (function (sc) {
                                                                   if (vc_field_type !== "Vct_nullary") {
                                                                     return line$1(sc, Curry._3(Printf.sprintf(/* constructor */{
                                                                                         tag: "Format",
@@ -4624,21 +4624,21 @@ function compile_default_p2(all_types, field) {
             if (/* XXX */constant.tag === "Constant_bool") {
               return constant;
             } else {
-              return invalid_default_value(field_name$1, "invalid default type (bool expected)", "()");
+              return invalid_default_value(field_name$1, "invalid default type (bool expected)", /* () */0);
             }
         case "Field_type_string" :
             if (/* XXX */constant.tag === "Constant_string") {
               return constant;
             } else {
-              return invalid_default_value(field_name$1, "invalid default type (string expected)", "()");
+              return invalid_default_value(field_name$1, "invalid default type (string expected)", /* () */0);
             }
         case "Field_type_bytes" :
-            return invalid_default_value(field_name$1, "default value not supported for bytes", "()");
+            return invalid_default_value(field_name$1, "default value not supported for bytes", /* () */0);
         default:
           if (/* XXX */constant.tag === "Constant_int") {
             return constant;
           } else {
-            return invalid_default_value(field_name$1, "invalid default type (int expected)", "()");
+            return invalid_default_value(field_name$1, "invalid default type (int expected)", /* () */0);
           }
       }
     } else if (/* XXX */constant.tag === "Constant_litteral") {
@@ -4656,13 +4656,13 @@ function compile_default_p2(all_types, field) {
         if (default_enum_value$1 !== undefined) {
           return constant;
         } else {
-          return invalid_default_value(field_name$1, "Invalid default enum value", "()");
+          return invalid_default_value(field_name$1, "Invalid default enum value", /* () */0);
         }
       } else {
-        return invalid_default_value(field_name$1, "field of type message cannot have a default litteral value", "()");
+        return invalid_default_value(field_name$1, "field of type message cannot have a default litteral value", /* () */0);
       }
     } else {
-      return invalid_default_value(field_name$1, "default value not supported for message", "()");
+      return invalid_default_value(field_name$1, "default value not supported for message", /* () */0);
     }
     switch (exit) {
       case 1 :
@@ -4675,17 +4675,17 @@ function compile_default_p2(all_types, field) {
             case "Constant_float" :
                 return constant;
             default:
-              return invalid_default_value(field_name$1, "invalid default type (float/int expected)", "()");
+              return invalid_default_value(field_name$1, "invalid default type (float/int expected)", /* () */0);
           }
       case 2 :
           if (/* XXX */constant.tag === "Constant_int") {
             if (constant[0] >= 0) {
               return constant;
             } else {
-              return invalid_default_value(field_name$1, "negative default value for unsigned int", "()");
+              return invalid_default_value(field_name$1, "negative default value for unsigned int", /* () */0);
             }
           } else {
-            return invalid_default_value(field_name$1, "invalid default type (int expected)", "()");
+            return invalid_default_value(field_name$1, "invalid default type (int expected)", /* () */0);
           }
       
     }
@@ -4739,7 +4739,7 @@ function compile_oneof_p1(param) {
 
 function not_found(f) {
   try {
-    Curry._1(f, "()");
+    Curry._1(f, /* () */0);
     return false;
   }
   catch (exn){
@@ -4889,10 +4889,10 @@ function compile_message_p1(file_name, file_options, message_scope, param) {
     var name = field_name(field);
     if (not_found((function (param) {
               List.assoc(number, number_index);
-              return "()";
+              return /* () */0;
             })) && not_found((function (param) {
               list_assoc2(name, number_index);
-              return "()";
+              return /* () */0;
             }))) {
       return /* constructor */{
               tag: "::",
@@ -5565,7 +5565,7 @@ function gen_struct$2(and_, t, scope) {
         var r = match[0];
         gen_type_record(undefined, and_, r, scope);
         line$1(scope, "");
-        gen_type_record("()", "()", r, scope);
+        gen_type_record(/* () */0, /* () */0, r, scope);
         break;
     case "Variant" :
         gen_type_variant(and_, match[0], scope);
@@ -5646,7 +5646,7 @@ function gen_encode_field_type(with_key, sc, var_name, encoding_number, pk, is_p
     if (with_key !== undefined) {
       return gen_encode_field_key(sc, encoding_number, pk, is_packed);
     } else {
-      return "()";
+      return /* () */0;
     }
   };
   if (typeof field_type === "string") {
@@ -5801,7 +5801,7 @@ function gen_encode_record(and_, param, sc) {
                                         },
                                         "1": "v.%s"
                                       }), rf_label);
-                              return gen_encode_field_type("()", sc, var_name, match[1], match[2], false, match[0]);
+                              return gen_encode_field_type(/* () */0, sc, var_name, match[1], match[2], false, match[0]);
                           case "Rft_optional" :
                               var match$1 = rf_field_type[0];
                               var pk = match$1[2];
@@ -5836,7 +5836,7 @@ function gen_encode_record(and_, param, sc) {
                                                 "1": "| Some x -> ("
                                               }));
                                       scope(sc, (function (sc) {
-                                              return gen_encode_field_type("()", sc, "x", encoding_number, pk, false, field_type);
+                                              return gen_encode_field_type(/* () */0, sc, "x", encoding_number, pk, false, field_type);
                                             }));
                                       line$1(sc, ")");
                                       return line$1(sc, "| None -> ();");
@@ -5879,7 +5879,7 @@ function gen_encode_record(and_, param, sc) {
                                 } else {
                                   line$1(sc, "Pbrt.Repeated_field.iter (fun x -> ");
                                   scope(sc, (function (sc) {
-                                          return gen_encode_field_type("()", sc, "x", encoding_number$1, pk$1, is_packed, field_type$1);
+                                          return gen_encode_field_type(/* () */0, sc, "x", encoding_number$1, pk$1, is_packed, field_type$1);
                                         }));
                                   return line$1(sc, Curry._1(Printf.sprintf(/* constructor */{
                                                       tag: "Format",
@@ -5929,7 +5929,7 @@ function gen_encode_record(and_, param, sc) {
                               } else {
                                 line$1(sc, "List.iter (fun x -> ");
                                 scope(sc, (function (sc) {
-                                        return gen_encode_field_type("()", sc, "x", encoding_number$1, pk$1, is_packed, field_type$1);
+                                        return gen_encode_field_type(/* () */0, sc, "x", encoding_number$1, pk$1, is_packed, field_type$1);
                                       }));
                                 return line$1(sc, Curry._1(Printf.sprintf(/* constructor */{
                                                     tag: "Format",
@@ -6010,7 +6010,7 @@ function gen_encode_record(and_, param, sc) {
                                                       }
                                                     },
                                                     "1": "let map_entry = (k, Pbrt.%s), (v, Pbrt.%s) in"
-                                                  }), string_of_payload_kind("()", key_pk, false), string_of_payload_kind("()", value_pk, false)));
+                                                  }), string_of_payload_kind(/* () */0, key_pk, false), string_of_payload_kind(/* () */0, value_pk, false)));
                                       return line$1(sc, "Pbrt.Encoder.map_entry ~encode_key ~encode_value map_entry encoder");
                                     }));
                               return line$1(sc, Curry._1(Printf.sprintf(/* constructor */{
@@ -6076,7 +6076,7 @@ function gen_encode_record(and_, param, sc) {
                                                                     "1": "| %s x -> ("
                                                                   }), vc_constructor));
                                                       scope(sc, (function (sc) {
-                                                              return gen_encode_field_type("()", sc, "x", vc_encoding_number, vc_payload_kind, false, field_type);
+                                                              return gen_encode_field_type(/* () */0, sc, "x", vc_encoding_number, vc_payload_kind, false, field_type);
                                                             }));
                                                       return line$1(sc, ")");
                                                     } else {
@@ -6172,7 +6172,7 @@ function gen_encode_variant(and_, variant, sc) {
                                               "1": "| %s x -> ("
                                             }), vc_constructor));
                                 scope(sc, (function (sc) {
-                                        return gen_encode_field_type("()", sc, "x", vc_encoding_number, vc_payload_kind, false, field_type);
+                                        return gen_encode_field_type(/* () */0, sc, "x", vc_encoding_number, vc_payload_kind, false, field_type);
                                       }));
                                 return line$1(sc, ")");
                               } else {
@@ -6431,7 +6431,7 @@ function default_value_of_field_type(field_name, field_type, field_default) {
                               "1": "\"%s\""
                             }), match[0]);
             } else {
-              return invalid_default_value(field_name$1, "invalid default type", "()");
+              return invalid_default_value(field_name$1, "invalid default type", /* () */0);
             }
           } else {
             return "\"\"";
@@ -6442,7 +6442,7 @@ function default_value_of_field_type(field_name, field_type, field_default) {
             if (/* XXX */match$1.tag === "Constant_float") {
               return Pervasives.string_of_float(match$1[0]);
             } else {
-              return invalid_default_value(field_name$1, "invalid default type", "()");
+              return invalid_default_value(field_name$1, "invalid default type", /* () */0);
             }
           } else {
             return "0.";
@@ -6453,7 +6453,7 @@ function default_value_of_field_type(field_name, field_type, field_default) {
             if (/* XXX */match$2.tag === "Constant_int") {
               return String(match$2[0]);
             } else {
-              return invalid_default_value(field_name$1, "invalid default type", "()");
+              return invalid_default_value(field_name$1, "invalid default type", /* () */0);
             }
           } else {
             return "0";
@@ -6478,7 +6478,7 @@ function default_value_of_field_type(field_name, field_type, field_default) {
                               "1": "%il"
                             }), match$3[0]);
             } else {
-              return invalid_default_value(field_name$1, "invalid default type", "()");
+              return invalid_default_value(field_name$1, "invalid default type", /* () */0);
             }
           } else {
             return "0l";
@@ -6503,7 +6503,7 @@ function default_value_of_field_type(field_name, field_type, field_default) {
                               "1": "%iL"
                             }), match$4[0]);
             } else {
-              return invalid_default_value(field_name$1, "invalid default type", "()");
+              return invalid_default_value(field_name$1, "invalid default type", /* () */0);
             }
           } else {
             return "0L";
@@ -6530,7 +6530,7 @@ function default_value_of_field_type(field_name, field_type, field_default) {
                               "1": "Bytes.of_string \"%s\""
                             }), match$5[0]);
             } else {
-              return invalid_default_value(field_name$1, "invalid default type", "()");
+              return invalid_default_value(field_name$1, "invalid default type", /* () */0);
             }
           } else {
             return "Bytes.create 64";
@@ -6546,7 +6546,7 @@ function default_value_of_field_type(field_name, field_type, field_default) {
                 return "false";
               }
             } else {
-              return invalid_default_value(field_name$1, "invalid default type", "()");
+              return invalid_default_value(field_name$1, "invalid default type", /* () */0);
             }
           } else {
             return "false";
@@ -6983,7 +6983,7 @@ function gen_struct$4(and_, t, sc) {
     case "Record" :
         var r = match[0];
         tmp = /* tuple */[
-          (gen_default_record(undefined, and_, r, sc), line$1(sc, ""), gen_default_record("()", "()", r, sc)),
+          (gen_default_record(undefined, and_, r, sc), line$1(sc, ""), gen_default_record(/* () */0, /* () */0, r, sc)),
           true
         ];
         break;
@@ -7080,7 +7080,7 @@ function gen_sig_record(sc, param) {
                 },
                 "1": "(** [default_%s ()] is the default value for type [%s] *)"
               }), r_name, r_name));
-  return "()";
+  return /* () */0;
 }
 
 function gen_sig$4(and_, t, sc) {
@@ -7490,9 +7490,9 @@ function compile_field_type(field_name, all_types, file_options, field_options, 
                   };
           }
       case "Field_type_sfixed32" :
-          return unsupported_field_type(field_name, "sfixed32", "OCaml", "()");
+          return unsupported_field_type(field_name, "sfixed32", "OCaml", /* () */0);
       case "Field_type_sfixed64" :
-          return unsupported_field_type(field_name, "sfixed64", "OCaml", "()");
+          return unsupported_field_type(field_name, "sfixed64", "OCaml", /* () */0);
       case "Field_type_bool" :
           return /* constructor */{
                   tag: "Ft_basic_type",
@@ -7848,7 +7848,7 @@ function compile(proto_definition) {
                                               "0": message_name,
                                               "1": "[]"
                                             });
-                                        var variant = variant_of_oneof("()", outer_message_names, all_types$1, file_options, file_name$1, field$1);
+                                        var variant = variant_of_oneof(/* () */0, outer_message_names, all_types$1, file_options, file_name$1, field$1);
                                         var record_field_000$1 = /* rf_label */label_name_of_field_name(field$1[/* oneof_name */0]);
                                         var record_field_001 = /* rf_field_type : constructor */{
                                           tag: "Rft_variant_field",
@@ -8029,7 +8029,7 @@ function compile(proto_definition) {
                   }
                   return List.iter((function (types) {
                                 List.fold_left((function (first, type_) {
-                                        var has_encoded = first ? Curry._3(f, undefined, type_, sc) : Curry._3(f, "()", type_, sc);
+                                        var has_encoded = first ? Curry._3(f, undefined, type_, sc) : Curry._3(f, /* () */0, type_, sc);
                                         line$1(sc, "");
                                         if (first) {
                                           return !has_encoded;
@@ -8037,7 +8037,7 @@ function compile(proto_definition) {
                                           return false;
                                         }
                                       }), true, types);
-                                return "()";
+                                return /* () */0;
                               }), otypes);
                 }), fs);
   };

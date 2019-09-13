@@ -192,7 +192,7 @@ function add_digest_ib(ob, ib) {
   }
   catch (exn){
     if (exn === Caml_builtin_exceptions.end_of_file) {
-      return "()";
+      return /* () */0;
     } else {
       throw exn;
     }

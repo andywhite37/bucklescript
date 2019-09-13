@@ -13,7 +13,7 @@ function d2(param) {
     });
 }
 
-var d3 = d2(2016)(1, "()");
+var d3 = d2(2016)(1, /* () */0);
 
 var suites = /* constructor */{
   tag: "::",

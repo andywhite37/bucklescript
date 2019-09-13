@@ -136,9 +136,9 @@ function find(x, _param) {
 
 function timing(label, f) {
   console.time(label);
-  Curry._1(f, "()");
+  Curry._1(f, /* () */0);
   console.timeEnd(label);
-  return "()";
+  return /* () */0;
 }
 
 function assertion_test(param) {

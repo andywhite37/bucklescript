@@ -59,7 +59,7 @@ var suites = /* constructor */{
                         tag: "ThrowAny",
                         "0": (function (param) {
                             (0).toExponential(101);
-                            return "()";
+                            return /* () */0;
                           })
                       };
               })
@@ -73,7 +73,7 @@ var suites = /* constructor */{
                           tag: "ThrowAny",
                           "0": (function (param) {
                               (0).toExponential(-1);
-                              return "()";
+                              return /* () */0;
                             })
                         };
                 })
@@ -135,7 +135,7 @@ var suites = /* constructor */{
                                     tag: "ThrowAny",
                                     "0": (function (param) {
                                         (0).toPrecision(101);
-                                        return "()";
+                                        return /* () */0;
                                       })
                                   };
                           })
@@ -149,7 +149,7 @@ var suites = /* constructor */{
                                       tag: "ThrowAny",
                                       "0": (function (param) {
                                           (0).toPrecision(-1);
-                                          return "()";
+                                          return /* () */0;
                                         })
                                     };
                             })
@@ -211,7 +211,7 @@ var suites = /* constructor */{
                                                 tag: "ThrowAny",
                                                 "0": (function (param) {
                                                     (0).toString(37);
-                                                    return "()";
+                                                    return /* () */0;
                                                   })
                                               };
                                       })
@@ -225,7 +225,7 @@ var suites = /* constructor */{
                                                   tag: "ThrowAny",
                                                   "0": (function (param) {
                                                       (0).toString(1);
-                                                      return "()";
+                                                      return /* () */0;
                                                     })
                                                 };
                                         })
@@ -239,7 +239,7 @@ var suites = /* constructor */{
                                                     tag: "ThrowAny",
                                                     "0": (function (param) {
                                                         (0).toString(-1);
-                                                        return "()";
+                                                        return /* () */0;
                                                       })
                                                   };
                                           })

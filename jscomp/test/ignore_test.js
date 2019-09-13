@@ -26,15 +26,15 @@ function eq(loc, x, y) {
 }
 
 function f(x) {
-  return "()";
+  return /* () */0;
 }
 
 function ff(x) {
   console.log(x);
-  return "()";
+  return /* () */0;
 }
 
-eq("File \"ignore_test.ml\", line 16, characters 5-12", "()", "()");
+eq("File \"ignore_test.ml\", line 16, characters 5-12", /* () */0, /* () */0);
 
 Mt.from_pair_suites("Ignore_test", suites[0]);
 

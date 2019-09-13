@@ -32,7 +32,7 @@ var suites = /* constructor */{
     (function (param) {
         return /* constructor */{
                 tag: "Eq",
-                "0": f("()"),
+                "0": f(/* () */0),
                 "1": /* array */[
                   0,
                   1,

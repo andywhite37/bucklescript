@@ -318,12 +318,12 @@ eq("File \"bs_poly_set_test.ml\", line 132, characters 5-12", Belt_Set.getExn(a0
 
 t("File \"bs_poly_set_test.ml\", line 133, characters 4-11", (function (param) {
         Belt_Set.getExn(a0, 1002);
-        return "()";
+        return /* () */0;
       }));
 
 t("File \"bs_poly_set_test.ml\", line 134, characters 4-11", (function (param) {
         Belt_Set.getExn(a0, -1);
-        return "()";
+        return /* () */0;
       }));
 
 eq("File \"bs_poly_set_test.ml\", line 135, characters 5-12", Belt_SetDict.size(a0.data), 1001);

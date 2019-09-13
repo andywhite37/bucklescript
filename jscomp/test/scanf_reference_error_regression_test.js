@@ -102,7 +102,7 @@ function scan_int_list(ib) {
               "1": "End_of_format"
             },
             "1": " [ "
-          }), "()");
+          }), /* () */0);
   return List.rev(scan_rest(ib, "[]"));
 }
 

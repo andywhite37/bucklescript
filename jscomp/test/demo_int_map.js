@@ -143,6 +143,6 @@ function test(param) {
   return /* () */0;
 }
 
-test("()");
+test(/* () */0);
 
 /*  Not a pure module */

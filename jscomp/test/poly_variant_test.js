@@ -87,13 +87,13 @@ hey_string("in");
 function register(readline) {
   readline.on("line", (function (s) {
           console.log(s);
-          return "()";
+          return /* () */0;
         }));
   readline.on("close", (function () {
           console.log("finished");
-          return "()";
+          return /* () */0;
         }));
-  return "()";
+  return /* () */0;
 }
 
 function read(name) {
@@ -114,7 +114,7 @@ function test(readline, x) {
               
             }
           })(), x[1]);
-  return "()";
+  return /* () */0;
 }
 
 Mt.from_pair_suites("Poly_variant_test", suites[0]);
@@ -129,7 +129,7 @@ function on2(prim, prim$1) {
               
             }
           })(), prim$1[1]);
-  return "()";
+  return /* () */0;
 }
 
 var readN = read$1;

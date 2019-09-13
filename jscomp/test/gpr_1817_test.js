@@ -36,7 +36,7 @@ function f(param) {
         ];
 }
 
-var match = f("()");
+var match = f(/* () */0);
 
 var a2 = match[2];
 

@@ -1816,7 +1816,7 @@ $$throw("File \"bs_list_test.ml\", line 220, characters 8-15", (function (param)
 
 $$throw("File \"bs_list_test.ml\", line 221, characters 8-15", (function (param) {
         Belt_List.tailExn("[]");
-        return "()";
+        return /* () */0;
       }));
 
 $$throw("File \"bs_list_test.ml\", line 222, characters 8-15", (function (param) {
@@ -1829,7 +1829,7 @@ $$throw("File \"bs_list_test.ml\", line 222, characters 8-15", (function (param)
                 "1": "[]"
               }
             }, -1);
-        return "()";
+        return /* () */0;
       }));
 
 $$throw("File \"bs_list_test.ml\", line 223, characters 8-15", (function (param) {
@@ -1842,7 +1842,7 @@ $$throw("File \"bs_list_test.ml\", line 223, characters 8-15", (function (param)
                 "1": "[]"
               }
             }, 2);
-        return "()";
+        return /* () */0;
       }));
 
 eq("File \"bs_list_test.ml\", line 224, characters 5-12", Belt_List.map(/* constructor */{

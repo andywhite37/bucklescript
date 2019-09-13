@@ -103,7 +103,7 @@ add(/* tuple */[
                   tag: "ThrowAny",
                   "0": (function (param) {
                       Curry._1(Int3.u, 3);
-                      return "()";
+                      return /* () */0;
                     })
                 };
         })

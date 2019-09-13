@@ -818,25 +818,25 @@ function set_vel_to_speed(obj) {
 function make_type$2(param) {
   switch (/* XXX */param.tag) {
     case "SPlayer" :
-        return setup_obj(undefined, 2.8, "()");
+        return setup_obj(undefined, 2.8, /* () */0);
     case "SEnemy" :
         var param$1 = param[0];
         switch (param$1) {
           case "GKoopaShell" :
           case "RKoopaShell" :
-              return setup_obj(undefined, 3, "()");
+              return setup_obj(undefined, 3, /* () */0);
           default:
-            return setup_obj(undefined, undefined, "()");
+            return setup_obj(undefined, undefined, /* () */0);
         }
     case "SItem" :
         var param$2 = param[0];
         if (param$2 === "Coin") {
-          return setup_obj(false, undefined, "()");
+          return setup_obj(false, undefined, /* () */0);
         } else {
-          return setup_obj(undefined, undefined, "()");
+          return setup_obj(undefined, undefined, /* () */0);
         }
     case "SBlock" :
-        return setup_obj(false, undefined, "()");
+        return setup_obj(false, undefined, /* () */0);
     
   }
 }
@@ -851,7 +851,7 @@ function make$2($staropt$star, $staropt$star$1, spawnable, context, param) {
   var dir = $staropt$star$1 !== undefined ? $staropt$star$1 : "Left";
   var spr = make(spawnable, dir, context);
   var params = make_type$2(spawnable);
-  var id$1 = id !== undefined ? id : new_id("()");
+  var id$1 = id !== undefined ? id : new_id(/* () */0);
   var obj = /* record */[
     /* params */params,
     /* pos : record */[
@@ -1494,7 +1494,7 @@ function clear_canvas(canvas) {
   var cwidth = canvas.width;
   var cheight = canvas.height;
   context.clearRect(0, 0, cwidth, cheight);
-  return "()";
+  return /* () */0;
 }
 
 function hud(canvas, score, coins) {
@@ -1504,14 +1504,14 @@ function hud(canvas, score, coins) {
   context.font = "10px 'Press Start 2P'";
   context.fillText("Score: " + score_string, canvas.width - 140, 18);
   context.fillText("Coins: " + coin_string, 120, 18);
-  return "()";
+  return /* () */0;
 }
 
 function fps(canvas, fps_val) {
   var fps_str = String(fps_val | 0);
   var context = canvas.getContext("2d");
   context.fillText(fps_str, 10, 18);
-  return "()";
+  return /* () */0;
 }
 
 function game_win(ctx) {
@@ -2251,7 +2251,7 @@ function translate_keys(param) {
 function run_update_collid(state, collid, all_collids) {
   if (/* XXX */collid.tag === "Player") {
     var o = collid[2];
-    var keys = translate_keys("()");
+    var keys = translate_keys(/* () */0);
     o[/* crouch */10] = false;
     var match = update_player(o, keys, state[/* ctx */1]);
     var player;
@@ -2335,7 +2335,7 @@ function update_loop(canvas, param, map_dim) {
         ];
         List.iter((function (obj) {
                 run_update_collid(state$1, obj, objs);
-                return "()";
+                return /* () */0;
               }), objs);
         List.iter((function (part) {
                 var state$2 = state$1;
@@ -2363,7 +2363,7 @@ function update_loop(canvas, param, map_dim) {
         requestAnimationFrame((function (t) {
                 return update_helper(t, state$1, player$1, collid_objs[0], particles[0]);
               }));
-        return "()";
+        return /* () */0;
       }
     }
   };
@@ -2443,7 +2443,7 @@ function keyup(evt) {
     if (match !== 83) {
       if (match !== 87) {
         if (match >= 69) {
-          "()";
+          
         } else {
           pressed_keys[/* right */1] = false;
         }
@@ -3374,7 +3374,7 @@ function generate(w, h, context) {
 }
 
 function init(param) {
-  return Random.self_init("()");
+  return Random.self_init(/* () */0);
 }
 
 var Procedural_generator = {
@@ -3385,7 +3385,7 @@ var Procedural_generator = {
 var loadCount = /* record */[/* contents */0];
 
 function load(param) {
-  Random.self_init("()");
+  Random.self_init(/* () */0);
   var canvas_id = "canvas";
   var match = document.getElementById(canvas_id);
   var canvas;
@@ -3417,21 +3417,21 @@ function load(param) {
   var context = canvas.getContext("2d");
   document.addEventListener("keydown", keydown, true);
   document.addEventListener("keyup", keyup, true);
-  Random.self_init("()");
+  Random.self_init(/* () */0);
   update_loop(canvas, generate(2400, 256, context), /* tuple */[
         2400,
         256
       ]);
   console.log("asd");
-  return "()";
+  return /* () */0;
 }
 
 function inc_counter(param) {
   loadCount[0] = loadCount[0] + 1 | 0;
   if (loadCount[0] === 4) {
-    return load("()");
+    return load(/* () */0);
   } else {
-    return "()";
+    return /* () */0;
   }
 }
 
@@ -3441,10 +3441,10 @@ function preload(param) {
                 var img = document.createElement("img");
                 img.src = img_src$1;
                 img.addEventListener("load", (function (ev) {
-                        inc_counter("()");
+                        inc_counter(/* () */0);
                         return true;
                       }), true);
-                return "()";
+                return /* () */0;
               }), /* constructor */{
               tag: "::",
               "0": "blocks.png",
@@ -3465,7 +3465,7 @@ function preload(param) {
 }
 
 window.onload = (function (param) {
-    preload("()");
+    preload(/* () */0);
     return true;
   });
 

@@ -83,7 +83,7 @@ $$throw("File \"bs_array_test.ml\", line 28, characters 8-15", (function (param)
               0,
               1
             ], -1);
-        return "()";
+        return /* () */0;
       }));
 
 $$throw("File \"bs_array_test.ml\", line 29, characters 8-15", (function (param) {
@@ -91,7 +91,7 @@ $$throw("File \"bs_array_test.ml\", line 29, characters 8-15", (function (param)
               0,
               1
             ], 2);
-        return "()";
+        return /* () */0;
       }));
 
 var partial_arg = /* array */[

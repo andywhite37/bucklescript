@@ -93,7 +93,7 @@ var v_mk4 = {
 };
 
 var v_mk5 = {
-  x: "()",
+  x: /* () */0,
   y: 3
 };
 
@@ -102,7 +102,7 @@ var v_mk6 = {
 };
 
 var v_mk6_1 = {
-  x: "()",
+  x: /* () */0,
   y: 3
 };
 
@@ -146,23 +146,23 @@ again3(2);
 
 var side_effect = /* record */[/* contents */0];
 
-again4(undefined, "()", 166);
+again4(undefined, /* () */0, 166);
 
-again4(undefined, "()", 167);
+again4(undefined, /* () */0, 167);
 
-again4("()", "()", 168);
+again4(/* () */0, /* () */0, 168);
 
-again4("()", "()", 169);
+again4(/* () */0, /* () */0, 169);
 
-again4(undefined, "()", 170);
+again4(undefined, /* () */0, 170);
 
-again4((side_effect[0] = side_effect[0] + 1 | 0, "()"), "()", 171);
+again4((side_effect[0] = side_effect[0] + 1 | 0, /* () */0), /* () */0, 171);
 
-again4((side_effect[0] = side_effect[0] + 1 | 0, "()"), (side_effect[0] = side_effect[0] - 1 | 0, "()"), 172);
+again4((side_effect[0] = side_effect[0] + 1 | 0, /* () */0), (side_effect[0] = side_effect[0] - 1 | 0, /* () */0), 172);
 
-again4(undefined, (side_effect[0] = side_effect[0] - 1 | 0, "()"), 173);
+again4(undefined, (side_effect[0] = side_effect[0] - 1 | 0, /* () */0), 173);
 
-again4((side_effect[0] = side_effect[0] + 1 | 0, /* () */0), "()", 174);
+again4((side_effect[0] = side_effect[0] + 1 | 0, /* () */0), /* () */0, 174);
 
 exports.u = u;
 exports.v_ice_cream3 = v_ice_cream3;

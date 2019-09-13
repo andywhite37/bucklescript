@@ -52,7 +52,7 @@ function f_escaped_1(xs, i) {
 
 function f_escaped_2(xs, i) {
   console.log(Caml_option.undefined_to_opt(xs[i]));
-  return "()";
+  return /* () */0;
 }
 
 function f_null(xs, i) {

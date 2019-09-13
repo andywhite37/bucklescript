@@ -120,7 +120,7 @@ function iter(f, _param) {
       _param = param[2];
       continue ;
     } else {
-      return "()";
+      return /* () */0;
     }
   };
 }
@@ -217,7 +217,7 @@ function check_height_and_diff(param) {
 
 function check(tree) {
   check_height_and_diff(tree);
-  return "()";
+  return /* () */0;
 }
 
 function create(l, v, r) {

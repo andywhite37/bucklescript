@@ -291,7 +291,7 @@ function xx(param) {
         };
 }
 
-eq("File \"global_module_alias_test.ml\", line 86, characters 5-12", g("()"), 4);
+eq("File \"global_module_alias_test.ml\", line 86, characters 5-12", g(/* () */0), 4);
 
 v[0] = v[0] + 1 | 0;
 
@@ -315,7 +315,7 @@ eq("File \"global_module_alias_test.ml\", line 92, characters 5-12", List.length
 
 eq("File \"global_module_alias_test.ml\", line 93, characters 5-12", v[0], 15);
 
-var H$1 = f("()");
+var H$1 = f(/* () */0);
 
 eq("File \"global_module_alias_test.ml\", line 95, characters 5-12", Curry._1(H$1.length, /* constructor */{
           tag: "::",

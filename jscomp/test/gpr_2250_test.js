@@ -71,21 +71,21 @@ function create(param) {
   return Curry._1(class_tables[0], 0);
 }
 
-var cxt1 = create("()");
+var cxt1 = create(/* () */0);
 
-var tmp = Caml_oo_curry.js2(4846113, 1, cxt1, "()");
+var tmp = Caml_oo_curry.js2(4846113, 1, cxt1, /* () */0);
 
-var result = Caml_oo_curry.js2(5144726, 2, tmp, "()");
+var result = Caml_oo_curry.js2(5144726, 2, tmp, /* () */0);
 
 eq("File \"gpr_2250_test.ml\", line 26, characters 5-12", result, 1);
 
-var cxt2 = create("()");
+var cxt2 = create(/* () */0);
 
-var tmp$1 = Caml_oo_curry.js2(4846113, 3, cxt2, "()");
+var tmp$1 = Caml_oo_curry.js2(4846113, 3, cxt2, /* () */0);
 
-var tmp$2 = Caml_oo_curry.js2(4846113, 4, tmp$1, "()");
+var tmp$2 = Caml_oo_curry.js2(4846113, 4, tmp$1, /* () */0);
 
-var result2 = Caml_oo_curry.js2(5144726, 5, tmp$2, "()");
+var result2 = Caml_oo_curry.js2(5144726, 5, tmp$2, /* () */0);
 
 eq("File \"gpr_2250_test.ml\", line 37, characters 5-12", result2, 2);
 

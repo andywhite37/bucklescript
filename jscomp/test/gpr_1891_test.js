@@ -5,10 +5,10 @@ var Curry = require("../../lib/js/curry.js");
 function foo(x) {
   if (typeof x === "number" || x[0] !== 3505894 || x[1] !== 3) {
     console.log("2");
-    return "()";
+    return /* () */0;
   } else {
     console.log("1");
-    return "()";
+    return /* () */0;
   }
 }
 
@@ -30,19 +30,19 @@ function foo3(x) {
 
 function foo4(x, h) {
   if (typeof x === "number" || x[0] !== 3505894 || x[1] !== 3) {
-    return "()";
+    return /* () */0;
   } else {
-    return Curry._1(h, "()");
+    return Curry._1(h, /* () */0);
   }
 }
 
 function foo5(x) {
   if (typeof x === "number" || x[0] !== 3505894 || x[1] !== 3) {
     console.log("x");
-    return "()";
+    return /* () */0;
   } else {
     console.log("hi");
-    return "()";
+    return /* () */0;
   }
 }
 

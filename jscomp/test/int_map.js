@@ -262,7 +262,7 @@ function iter(f, _param) {
       _param = param[3];
       continue ;
     } else {
-      return "()";
+      return /* () */0;
     }
   };
 }

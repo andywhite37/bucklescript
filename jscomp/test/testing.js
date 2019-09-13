@@ -15,10 +15,10 @@ function finish(param) {
   var match = all_tests_ok[0];
   if (match) {
     console.log("\nAll tests succeeded.");
-    return "()";
+    return /* () */0;
   } else {
     console.log("\n\n********* Test suite failed. ***********\n");
-    return "()";
+    return /* () */0;
   }
 }
 
@@ -80,7 +80,7 @@ function print_failure_test_succeed(param) {
 
 function test(b) {
   test_num[0] = test_num[0] + 1 | 0;
-  print_test_number("()");
+  print_test_number(/* () */0);
   if (b) {
     return 0;
   } else {
@@ -109,10 +109,10 @@ function test(b) {
 
 function test_raises_exc_p(pred, f, x) {
   test_num[0] = test_num[0] + 1 | 0;
-  print_test_number("()");
+  print_test_number(/* () */0);
   try {
     Curry._1(f, x);
-    print_failure_test_succeed("()");
+    print_failure_test_succeed(/* () */0);
     return false;
   }
   catch (raw_x){
@@ -120,7 +120,7 @@ function test_raises_exc_p(pred, f, x) {
     if (Curry._1(pred, x$1)) {
       return true;
     } else {
-      print_failure_test_fail("()");
+      print_failure_test_fail(/* () */0);
       return false;
     }
   }

@@ -37,12 +37,12 @@ function f(x) {
   x.onload = (function () {
       var o = this ;
       console.log(o);
-      return "()";
+      return /* () */0;
     });
   return x.addEventListener("onload", (function () {
                 var o = this ;
                 console.log(o.response);
-                return "()";
+                return /* () */0;
               }));
 }
 

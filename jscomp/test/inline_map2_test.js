@@ -253,7 +253,7 @@ function Make(Ord) {
         _param = param[3];
         continue ;
       } else {
-        return "()";
+        return /* () */0;
       }
     };
   };
@@ -889,7 +889,7 @@ function iter(f, _param) {
       _param = param[3];
       continue ;
     } else {
-      return "()";
+      return /* () */0;
     }
   };
 }
@@ -1577,7 +1577,7 @@ function iter$1(f, _param) {
       _param = param[3];
       continue ;
     } else {
-      return "()";
+      return /* () */0;
     }
   };
 }

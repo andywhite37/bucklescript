@@ -7,7 +7,7 @@ function fix(param) {
   return /* constructor */{
           tag: "Fix",
           "0": Caml_obj.caml_lazy_make((function (param) {
-                  return fix("()");
+                  return fix(/* () */0);
                 }))
         };
 }

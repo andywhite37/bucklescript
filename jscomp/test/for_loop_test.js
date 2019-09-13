@@ -9,7 +9,7 @@ var Caml_int32 = require("../../lib/js/caml_int32.js");
 function for_3(x) {
   var v = /* record */[/* contents */0];
   var arr = $$Array.map((function (param, param$1) {
-          return "()";
+          return /* () */0;
         }), x);
   for(var i = 0 ,i_finish = x.length - 1 | 0; i <= i_finish; ++i){
     var j = (i << 1);
@@ -21,7 +21,7 @@ function for_3(x) {
         }(j)));
   }
   $$Array.iter((function (x) {
-          return Curry._1(x, "()");
+          return Curry._1(x, /* () */0);
         }), arr);
   return v[0];
 }
@@ -29,7 +29,7 @@ function for_3(x) {
 function for_4(x) {
   var v = /* record */[/* contents */0];
   var arr = $$Array.map((function (param, param$1) {
-          return "()";
+          return /* () */0;
         }), x);
   for(var i = 0 ,i_finish = x.length - 1 | 0; i <= i_finish; ++i){
     var j = (i << 1);
@@ -42,7 +42,7 @@ function for_4(x) {
         }(k)));
   }
   $$Array.iter((function (x) {
-          return Curry._1(x, "()");
+          return Curry._1(x, /* () */0);
         }), arr);
   return v[0];
 }
@@ -50,7 +50,7 @@ function for_4(x) {
 function for_5(x, u) {
   var v = /* record */[/* contents */0];
   var arr = $$Array.map((function (param, param$1) {
-          return "()";
+          return /* () */0;
         }), x);
   for(var i = 0 ,i_finish = x.length - 1 | 0; i <= i_finish; ++i){
     var k = Caml_int32.imul((u << 1), u);
@@ -62,7 +62,7 @@ function for_5(x, u) {
         }(k)));
   }
   $$Array.iter((function (x) {
-          return Curry._1(x, "()");
+          return Curry._1(x, /* () */0);
         }), arr);
   return v[0];
 }
@@ -70,7 +70,7 @@ function for_5(x, u) {
 function for_6(x, u) {
   var v = /* record */[/* contents */0];
   var arr = $$Array.map((function (param, param$1) {
-          return "()";
+          return /* () */0;
         }), x);
   var v4 = /* record */[/* contents */0];
   var v5 = /* record */[/* contents */0];
@@ -95,7 +95,7 @@ function for_6(x, u) {
     inspect_3 = v2[0];
   }
   $$Array.iter((function (x) {
-          return Curry._1(x, "()");
+          return Curry._1(x, /* () */0);
         }), arr);
   return /* array */[
           v[0],
@@ -108,7 +108,7 @@ function for_6(x, u) {
 function for_7(param) {
   var v = /* record */[/* contents */0];
   var arr = Caml_array.caml_make_vect(21, (function (param) {
-          return "()";
+          return /* () */0;
         }));
   for(var i = 0; i <= 6; ++i){
     (function(i){
@@ -123,7 +123,7 @@ function for_7(param) {
     }(i));
   }
   $$Array.iter((function (f) {
-          return Curry._1(f, "()");
+          return Curry._1(f, /* () */0);
         }), arr);
   return v[0];
 }
@@ -131,7 +131,7 @@ function for_7(param) {
 function for_8(param) {
   var v = /* record */[/* contents */0];
   var arr = Caml_array.caml_make_vect(21, (function (param) {
-          return "()";
+          return /* () */0;
         }));
   for(var i = 0; i <= 6; ++i){
     var k = (i << 1);
@@ -148,7 +148,7 @@ function for_8(param) {
     }(i,k));
   }
   $$Array.iter((function (f) {
-          return Curry._1(f, "()");
+          return Curry._1(f, /* () */0);
         }), arr);
   return v[0];
 }
@@ -166,10 +166,10 @@ function for_9(param) {
   var vv = /* record */[/* contents */0];
   var vv2 = /* record */[/* contents */0];
   var arr = Caml_array.caml_make_vect(4, (function (param) {
-          return "()";
+          return /* () */0;
         }));
   var arr2 = Caml_array.caml_make_vect(2, (function (param) {
-          return "()";
+          return /* () */0;
         }));
   for(var i = 0; i <= 1; ++i){
     var v$1 = /* record */[/* contents */0];
@@ -192,10 +192,10 @@ function for_9(param) {
         }(v$1)));
   }
   $$Array.iter((function (f) {
-          return Curry._1(f, "()");
+          return Curry._1(f, /* () */0);
         }), arr);
   $$Array.iter((function (f) {
-          return Curry._1(f, "()");
+          return Curry._1(f, /* () */0);
         }), arr2);
   return /* array */[/* tuple */[
             vv[0],
@@ -265,7 +265,7 @@ var suites = /* constructor */{
                 return /* constructor */{
                         tag: "Eq",
                         "0": 84,
-                        "1": for_7("()")
+                        "1": for_7(/* () */0)
                       };
               })
           ],
@@ -277,7 +277,7 @@ var suites = /* constructor */{
                   return /* constructor */{
                           tag: "Eq",
                           "0": 294,
-                          "1": for_8("()")
+                          "1": for_8(/* () */0)
                         };
                 })
             ],
@@ -298,7 +298,7 @@ var suites = /* constructor */{
                                 ],
                                 5
                               ]],
-                            "1": for_9("()")
+                            "1": for_9(/* () */0)
                           };
                   })
               ],

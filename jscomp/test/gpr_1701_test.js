@@ -16,7 +16,7 @@ function test(n) {
   }
   catch (exn){
     if (exn === Foo) {
-      return "()";
+      return /* () */0;
     } else {
       throw exn;
     }

@@ -8,8 +8,8 @@ var Assert = require("assert");
 var Process = require("process");
 
 function assert_fail(msg) {
-  Assert.fail("()", "()", msg, "");
-  return "()";
+  Assert.fail(/* () */0, /* () */0, msg, "");
+  return /* () */0;
 }
 
 function is_mocha(param) {
@@ -33,23 +33,19 @@ function is_mocha(param) {
 
 function from_suites(name, suite) {
   var match = $$Array.to_list(Process.argv);
-  if (match !== "[]") {
-    if (is_mocha("()")) {
-      describe(name, (function () {
-              return List.iter((function (param) {
-                            var partial_arg = param[1];
-                            it(param[0], (function () {
-                                    return Curry._1(partial_arg, "()");
-                                  }));
-                            return "()";
-                          }), suite);
-            }));
-      return "()";
-    } else {
-      return 0;
-    }
+  if (match !== "[]" && is_mocha(/* () */0)) {
+    describe(name, (function () {
+            return List.iter((function (param) {
+                          var partial_arg = param[1];
+                          it(param[0], (function () {
+                                  return Curry._1(partial_arg, /* () */0);
+                                }));
+                          return /* () */0;
+                        }), suite);
+          }));
+    return /* () */0;
   } else {
-    return "()";
+    return /* () */0;
   }
 }
 
@@ -62,19 +58,19 @@ function handleCode(spec) {
   switch (/* XXX */spec.tag) {
     case "Eq" :
         Assert.deepEqual(spec[0], spec[1]);
-        return "()";
+        return /* () */0;
     case "Neq" :
         Assert.notDeepEqual(spec[0], spec[1]);
-        return "()";
+        return /* () */0;
     case "StrictEq" :
         Assert.strictEqual(spec[0], spec[1]);
-        return "()";
+        return /* () */0;
     case "StrictNeq" :
         Assert.notStrictEqual(spec[0], spec[1]);
-        return "()";
+        return /* () */0;
     case "Ok" :
         Assert.ok(spec[0]);
-        return "()";
+        return /* () */0;
     case "Approx" :
         var b = spec[1];
         var a = spec[0];
@@ -82,7 +78,7 @@ function handleCode(spec) {
           return 0;
         } else {
           Assert.deepEqual(a, b);
-          return "()";
+          return /* () */0;
         }
     case "ApproxThreshold" :
         var b$1 = spec[2];
@@ -91,11 +87,11 @@ function handleCode(spec) {
           return 0;
         } else {
           Assert.deepEqual(a$1, b$1);
-          return "()";
+          return /* () */0;
         }
     case "ThrowAny" :
         Assert.throws(spec[0]);
-        return "()";
+        return /* () */0;
     case "Fail" :
         return assert_fail("failed");
     case "FailWith" :
@@ -107,17 +103,17 @@ function handleCode(spec) {
 function from_pair_suites(name, suites) {
   var match = $$Array.to_list(Process.argv);
   if (match !== "[]") {
-    if (is_mocha("()")) {
+    if (is_mocha(/* () */0)) {
       describe(name, (function () {
               return List.iter((function (param) {
                             var code = param[1];
                             it(param[0], (function () {
-                                    return handleCode(Curry._1(code, "()"));
+                                    return handleCode(Curry._1(code, /* () */0));
                                   }));
-                            return "()";
+                            return /* () */0;
                           }), suites);
             }));
-      return "()";
+      return /* () */0;
     } else {
       var name$1 = name;
       var suites$1 = suites;
@@ -127,7 +123,7 @@ function from_pair_suites(name, suites) {
           ]);
       return List.iter((function (param) {
                     var name = param[0];
-                    var match = Curry._1(param[1], "()");
+                    var match = Curry._1(param[1], /* () */0);
                     switch (/* XXX */match.tag) {
                       case "Eq" :
                           console.log(/* tuple */[
@@ -136,7 +132,7 @@ function from_pair_suites(name, suites) {
                                 "eq?",
                                 match[1]
                               ]);
-                          return "()";
+                          return /* () */0;
                       case "Neq" :
                           console.log(/* tuple */[
                                 name,
@@ -144,7 +140,7 @@ function from_pair_suites(name, suites) {
                                 "neq?",
                                 match[1]
                               ]);
-                          return "()";
+                          return /* () */0;
                       case "StrictEq" :
                           console.log(/* tuple */[
                                 name,
@@ -152,7 +148,7 @@ function from_pair_suites(name, suites) {
                                 "strict_eq?",
                                 match[1]
                               ]);
-                          return "()";
+                          return /* () */0;
                       case "StrictNeq" :
                           console.log(/* tuple */[
                                 name,
@@ -160,14 +156,14 @@ function from_pair_suites(name, suites) {
                                 "strict_neq?",
                                 match[1]
                               ]);
-                          return "()";
+                          return /* () */0;
                       case "Ok" :
                           console.log(/* tuple */[
                                 name,
                                 match[0],
                                 "ok?"
                               ]);
-                          return "()";
+                          return /* () */0;
                       case "Approx" :
                           console.log(/* tuple */[
                                 name,
@@ -175,7 +171,7 @@ function from_pair_suites(name, suites) {
                                 "~",
                                 match[1]
                               ]);
-                          return "()";
+                          return /* () */0;
                       case "ApproxThreshold" :
                           console.log(/* tuple */[
                                 name,
@@ -186,30 +182,30 @@ function from_pair_suites(name, suites) {
                                 match[0],
                                 ")"
                               ]);
-                          return "()";
+                          return /* () */0;
                       case "ThrowAny" :
-                          return "()";
+                          return /* () */0;
                       case "Fail" :
                           console.log("failed");
-                          return "()";
+                          return /* () */0;
                       case "FailWith" :
                           console.log("failed: " + match[0]);
-                          return "()";
+                          return /* () */0;
                       
                     }
                   }), suites$1);
     }
   } else {
-    return "()";
+    return /* () */0;
   }
 }
 
-var val_unit = Promise.resolve("()");
+var val_unit = Promise.resolve(/* () */0);
 
 function from_promise_suites(name, suites) {
   var match = $$Array.to_list(Process.argv);
   if (match !== "[]") {
-    if (is_mocha("()")) {
+    if (is_mocha(/* () */0)) {
       describe(name, (function () {
               return List.iter((function (param) {
                             var code = param[1];
@@ -219,16 +215,16 @@ function from_promise_suites(name, suites) {
                                                   return val_unit;
                                                 }));
                                   }));
-                            return "()";
+                            return /* () */0;
                           }), suites);
             }));
-      return "()";
+      return /* () */0;
     } else {
       console.log("promise suites");
-      return "()";
+      return /* () */0;
     }
   } else {
-    return "()";
+    return /* () */0;
   }
 }
 

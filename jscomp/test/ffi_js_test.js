@@ -87,7 +87,7 @@ var same_type = /* tuple */[
 var v_obj = {
   hi: (function () {
       console.log("hei");
-      return "()";
+      return /* () */0;
     })
 };
 
@@ -175,7 +175,7 @@ function ffff(x) {
     3,
     "x"
   ];
-  return "()";
+  return /* () */0;
 }
 
 Mt.from_pair_suites("Ffi_js_test", suites[0]);

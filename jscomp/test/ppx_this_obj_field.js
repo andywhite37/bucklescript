@@ -48,7 +48,7 @@ var v5 = {
     }),
   bark: (function () {
       console.log("bark");
-      return "()";
+      return /* () */0;
     }),
   xz: (function () {
       return 3;
@@ -81,7 +81,7 @@ var v = {
 var u = {
   incr: (function () {
       console.log("hey");
-      return "()";
+      return /* () */0;
     }),
   getY: (function () {
       return 3;
@@ -120,13 +120,13 @@ var eventObj = {
       var self = this ;
       var a = self.events;
       a.splice(0);
-      return "()";
+      return /* () */0;
     }),
   push: (function (a) {
       var self = this ;
       var xs = self.events;
       xs.push(a);
-      return "()";
+      return /* () */0;
     }),
   needRebuild: (function () {
       var self = this ;

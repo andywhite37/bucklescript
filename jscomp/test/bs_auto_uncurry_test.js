@@ -38,7 +38,7 @@ var xs = /* record */[/* contents */"[]"];
 hi((function () {
         xs[0] = /* constructor */{
           tag: "::",
-          "0": "()",
+          "0": /* () */0,
           "1": xs[0]
         };
         return /* () */0;
@@ -47,7 +47,7 @@ hi((function () {
 hi((function () {
         xs[0] = /* constructor */{
           tag: "::",
-          "0": "()",
+          "0": /* () */0,
           "1": xs[0]
         };
         return /* () */0;
@@ -55,10 +55,10 @@ hi((function () {
 
 eq("File \"bs_auto_uncurry_test.ml\", line 27, characters 7-14", xs[0], /* constructor */{
       tag: "::",
-      "0": "()",
+      "0": /* () */0,
       "1": /* constructor */{
         tag: "::",
-        "0": "()",
+        "0": /* () */0,
         "1": "[]"
       }
     });

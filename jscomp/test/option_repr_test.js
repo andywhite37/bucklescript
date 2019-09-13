@@ -83,7 +83,7 @@ function create($staropt$star, param) {
   }
 }
 
-var ff = create(false, "()");
+var ff = create(false, /* () */0);
 
 function f13($staropt$star, $staropt$star$1, param) {
   var x = $staropt$star !== undefined ? $staropt$star : 3;
@@ -91,7 +91,7 @@ function f13($staropt$star, $staropt$star$1, param) {
   return x + y | 0;
 }
 
-var a = f13(2, undefined, "()");
+var a = f13(2, undefined, /* () */0);
 
 function f12(x) {
   return x;

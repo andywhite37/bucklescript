@@ -61,9 +61,9 @@ function r(param) {
   return x;
 }
 
-var match = r("()");
+var match = r(/* () */0);
 
-var v = Curry._1(match[1], "()");
+var v = Curry._1(match[1], /* () */0);
 
 console.log(v);
 

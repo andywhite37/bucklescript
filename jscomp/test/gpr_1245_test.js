@@ -11,7 +11,7 @@ function f(param) {
   var a = /* record */[/* contents */param[0]];
   var b = /* record */[/* contents */param[1]];
   console.log(a, b);
-  return "()";
+  return /* () */0;
 }
 
 function g(param) {
@@ -19,7 +19,7 @@ function g(param) {
 }
 
 function a0(f) {
-  var u = Curry._1(f, "()");
+  var u = Curry._1(f, /* () */0);
   if (u !== null) {
     console.log(u);
     console.log(u);
@@ -32,7 +32,7 @@ function a0(f) {
 function a1(f) {
   var E = Caml_exceptions.create("E");
   try {
-    return Curry._1(f, "()");
+    return Curry._1(f, /* () */0);
   }
   catch (exn){
     if (exn === E) {

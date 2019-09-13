@@ -167,7 +167,7 @@ function even2(_n) {
 
 function lazy_v(param) {
   CamlinternalLazy.force(lazy_v);
-  return "()";
+  return /* () */0;
 }
 
 function sum(_acc, _n) {
@@ -440,7 +440,7 @@ var suites = /* constructor */{
                           if (/* XXX */rec_variant_b.tag === "B") {
                             return /* constructor */{
                                     tag: "Eq",
-                                    "0": Curry._1(rec_variant_b[1], "()"),
+                                    "0": Curry._1(rec_variant_b[1], /* () */0),
                                     "1": rec_variant_a
                                   };
                           } else {
@@ -472,7 +472,7 @@ var suites = /* constructor */{
                             } else {
                               return /* constructor */{
                                       tag: "Eq",
-                                      "0": Curry._1(rec_variant_a[1], "()"),
+                                      "0": Curry._1(rec_variant_a[1], /* () */0),
                                       "1": rec_variant_b
                                     };
                             }

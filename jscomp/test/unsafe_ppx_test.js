@@ -32,7 +32,7 @@ function g(a) {
   regression4(3, (function (x) {
           return x;
         }));
-  return "()";
+  return /* () */0;
 }
 
 var max2 = (Math.max);

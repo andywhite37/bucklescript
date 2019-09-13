@@ -29,7 +29,7 @@ var arg_pair = /* `Pair */[
 
 console.log(arg_pair[1]);
 
-console.log("()");
+console.log(/* () */0);
 
 console.log(1, undefined);
 
@@ -52,7 +52,7 @@ console.log(7, Caml_option.option_get_unwrap((console.log("trace"), undefined)))
 
 function dyn_log3(prim, prim$1, prim$2) {
   console.log(prim[1], prim$1 !== undefined ? Caml_option.valFromOption(prim$1)[1] : undefined);
-  return "()";
+  return /* () */0;
 }
 
 dyn_log3(/* `Int */[
@@ -61,7 +61,7 @@ dyn_log3(/* `Int */[
     ], /* `Bool */[
       737456202,
       true
-    ], "()");
+    ], /* () */0);
 
 console.log("foo");
 
@@ -71,7 +71,7 @@ console.log({
 
 function dyn_log4(prim) {
   console.log(prim[1]);
-  return "()";
+  return /* () */0;
 }
 
 console.log({
@@ -80,17 +80,17 @@ console.log({
 
 function f(x) {
   console.log(x[1]);
-  return "()";
+  return /* () */0;
 }
 
 function ff0(x, p) {
   console.log(x !== undefined ? Caml_option.valFromOption(x)[1] : undefined, p);
-  return "()";
+  return /* () */0;
 }
 
 function ff1(x, p) {
-  console.log(Caml_option.option_get_unwrap(Curry._1(x, "()")), p);
-  return "()";
+  console.log(Caml_option.option_get_unwrap(Curry._1(x, /* () */0)), p);
+  return /* () */0;
 }
 
 var none_arg = undefined;

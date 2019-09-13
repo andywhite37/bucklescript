@@ -40,19 +40,19 @@ function f(param) {
   return /* tuple */[
           (function (prim) {
               List$3.ff();
-              return "()";
+              return /* () */0;
             }),
           (function (prim) {
               List$3.ff2();
-              return "()";
+              return /* () */0;
             }),
           (function (prim) {
               List$2.ff();
-              return "()";
+              return /* () */0;
             }),
           (function (prim) {
               List$2.ff2();
-              return "()";
+              return /* () */0;
             })
         ];
 }

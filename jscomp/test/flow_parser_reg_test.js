@@ -5868,7 +5868,7 @@ function error_at(env, param) {
   if (match !== undefined) {
     return Curry._2(match, env, e);
   } else {
-    return "()";
+    return /* () */0;
   }
 }
 
@@ -6411,7 +6411,7 @@ function reset_token_sink(flush, env, token_buffer_info) {
       return 0;
     }
   } else {
-    return "()";
+    return /* () */0;
   }
 }
 
@@ -7851,7 +7851,7 @@ function semicolon$1(env) {
   if (typeof match === "string") {
     switch (match) {
       case "T_RCURLY" :
-          return "()";
+          return /* () */0;
       case "T_SEMICOLON" :
       case "T_COMMA" :
           return token$3(env);
@@ -8261,7 +8261,7 @@ function strict_post_check(env, strict, simple, id, params) {
           env$1,
           "Empty"
         ], params);
-    return "()";
+    return /* () */0;
   } else {
     return 0;
   }
@@ -9355,7 +9355,7 @@ function primary$1(env) {
           var f = function (c) {
             if (c >= 110) {
               if (c !== 121) {
-                return "()";
+                return /* () */0;
               } else {
                 return $$Buffer.add_char(filtered_flags, c);
               }
@@ -9365,7 +9365,7 @@ function primary$1(env) {
                 case 3 :
                 case 4 :
                 case 5 :
-                    return "()";
+                    return /* () */0;
                 case 0 :
                 case 2 :
                 case 6 :
@@ -9373,7 +9373,7 @@ function primary$1(env) {
                 
               }
             } else {
-              return "()";
+              return /* () */0;
             }
           };
           Bytes.iter(f, Caml_bytes.bytes_of_string(raw_flags));
@@ -10476,7 +10476,7 @@ function error_callback$1(param, param$1) {
       case "StrictParamName" :
       case "NewlineBeforeArrow" :
       case "ParameterAfterRestParameter" :
-          return "()";
+          return /* () */0;
       default:
         throw Parser_env_Try.Rollback;
     }
@@ -11133,8 +11133,6 @@ function check_property(env, prop_map, prop) {
                   prop_loc,
                   "AccessorDataProperty"
                 ]);
-          } else {
-            "()";
           }
           break;
       case "Get" :
@@ -11155,9 +11153,8 @@ function check_property(env, prop_map, prop) {
               prop_loc,
               "AccessorGetSet"
             ]);
-      } else {
-        "()";
       }
+      
     }
     var kinds = add$1(kind_string, prev_kinds);
     return add$2(key, kinds, prop_map);
@@ -12587,7 +12584,7 @@ function assert_can_be_forin_or_forof(env, err, param) {
       var match$1 = match[0];
       var declarations = match$1[1][/* declarations */0];
       if (declarations !== "[]" && declarations[0][1][/* init */1] === undefined && declarations[1] === "[]") {
-        return "()";
+        return /* () */0;
       }
       return error_at(env, /* tuple */[
                   match$1[0],
@@ -15199,9 +15196,8 @@ function identifier$2(restricted_error, env) {
             loc,
             restricted_error
           ]);
-    } else {
-      "()";
     }
+    
   }
   return /* tuple */[
           loc,

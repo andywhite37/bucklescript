@@ -10,9 +10,9 @@ function test(path) {
                   $$event,
                   string_buffer
                 ]);
-            return "()";
+            return /* () */0;
           })).close();
-  return "()";
+  return /* () */0;
 }
 
 exports.test = test;

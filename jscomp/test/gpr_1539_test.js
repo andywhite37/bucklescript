@@ -26,9 +26,9 @@ Caml_module.update_mod(/* constructor */{
         })
     });
 
-var CRS = "()";
+var CRS = /* () */0;
 
-var Layer = "()";
+var Layer = /* () */0;
 
 exports.CRS = CRS;
 exports.Layer = Layer;

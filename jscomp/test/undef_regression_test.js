@@ -4,14 +4,14 @@ var Caml_obj_extern = require("../../lib/js/caml_obj_extern.js");
 
 function f(obj) {
   if (typeof obj === "function") {
-    return "()";
+    return /* () */0;
   } else {
     var size = Caml_obj_extern.size_of_t(obj);
     if (size !== undefined) {
       console.log(size);
-      return "()";
+      return /* () */0;
     } else {
-      return "()";
+      return /* () */0;
     }
   }
 }

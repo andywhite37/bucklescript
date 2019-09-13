@@ -299,7 +299,7 @@ function iter(f, _param) {
       _param = param[3];
       continue ;
     } else {
-      return "()";
+      return /* () */0;
     }
   };
 }
@@ -944,7 +944,7 @@ function iter$1(f, _param) {
       _param = param[3];
       continue ;
     } else {
-      return "()";
+      return /* () */0;
     }
   };
 }
@@ -1589,7 +1589,7 @@ function iter$2(f, _param) {
       _param = param[3];
       continue ;
     } else {
-      return "()";
+      return /* () */0;
     }
   };
 }
@@ -1979,7 +1979,7 @@ var Labs = {
 
 var dummy_table = /* record */[
   /* size */0,
-  /* methods : array */["()"],
+  /* methods : array */[/* () */0],
   /* methods_by_name */"Empty",
   /* methods_by_label */"Empty",
   /* previous_states */"[]",
@@ -2384,7 +2384,7 @@ function iter_f(obj, _param) {
       _param = param[1];
       continue ;
     } else {
-      return "()";
+      return /* () */0;
     }
   };
 }
@@ -2634,124 +2634,124 @@ function method_impl(table, i, arr) {
     i[0] = i[0] + 1 | 0;
     return Caml_array.caml_array_get(arr, i[0]);
   };
-  var clo = next("()");
+  var clo = next(/* () */0);
   if (typeof clo === "string") {
     switch (clo) {
       case "GetConst" :
-          var x = next("()");
+          var x = next(/* () */0);
           return (function (obj) {
               return x;
             });
       case "GetVar" :
-          var n = next("()");
+          var n = next(/* () */0);
           return (function (obj) {
               return obj[n];
             });
       case "GetEnv" :
-          var e = next("()");
-          var n$1 = next("()");
+          var e = next(/* () */0);
+          var n$1 = next(/* () */0);
           return get_env(e, n$1);
       case "GetMeth" :
-          return get_meth(next("()"));
+          return get_meth(next(/* () */0));
       case "SetVar" :
-          var n$2 = next("()");
+          var n$2 = next(/* () */0);
           return (function (obj, x) {
               obj[n$2] = x;
               return /* () */0;
             });
       case "AppConst" :
-          var f = next("()");
-          var x$1 = next("()");
+          var f = next(/* () */0);
+          var x$1 = next(/* () */0);
           return (function (obj) {
               return Curry._1(f, x$1);
             });
       case "AppVar" :
-          var f$1 = next("()");
-          var n$3 = next("()");
+          var f$1 = next(/* () */0);
+          var n$3 = next(/* () */0);
           return (function (obj) {
               return Curry._1(f$1, obj[n$3]);
             });
       case "AppEnv" :
-          var f$2 = next("()");
-          var e$1 = next("()");
-          var n$4 = next("()");
+          var f$2 = next(/* () */0);
+          var e$1 = next(/* () */0);
+          var n$4 = next(/* () */0);
           return app_env(f$2, e$1, n$4);
       case "AppMeth" :
-          var f$3 = next("()");
-          var n$5 = next("()");
+          var f$3 = next(/* () */0);
+          var n$5 = next(/* () */0);
           return app_meth(f$3, n$5);
       case "AppConstConst" :
-          var f$4 = next("()");
-          var x$2 = next("()");
-          var y = next("()");
+          var f$4 = next(/* () */0);
+          var x$2 = next(/* () */0);
+          var y = next(/* () */0);
           return (function (obj) {
               return Curry._2(f$4, x$2, y);
             });
       case "AppConstVar" :
-          var f$5 = next("()");
-          var x$3 = next("()");
-          var n$6 = next("()");
+          var f$5 = next(/* () */0);
+          var x$3 = next(/* () */0);
+          var n$6 = next(/* () */0);
           return app_const_var(f$5, x$3, n$6);
       case "AppConstEnv" :
-          var f$6 = next("()");
-          var x$4 = next("()");
-          var e$2 = next("()");
-          var n$7 = next("()");
+          var f$6 = next(/* () */0);
+          var x$4 = next(/* () */0);
+          var e$2 = next(/* () */0);
+          var n$7 = next(/* () */0);
           return app_const_env(f$6, x$4, e$2, n$7);
       case "AppConstMeth" :
-          var f$7 = next("()");
-          var x$5 = next("()");
-          var n$8 = next("()");
+          var f$7 = next(/* () */0);
+          var x$5 = next(/* () */0);
+          var n$8 = next(/* () */0);
           return app_const_meth(f$7, x$5, n$8);
       case "AppVarConst" :
-          var f$8 = next("()");
-          var n$9 = next("()");
-          var x$6 = next("()");
+          var f$8 = next(/* () */0);
+          var n$9 = next(/* () */0);
+          var x$6 = next(/* () */0);
           return app_var_const(f$8, n$9, x$6);
       case "AppEnvConst" :
-          var f$9 = next("()");
-          var e$3 = next("()");
-          var n$10 = next("()");
-          var x$7 = next("()");
+          var f$9 = next(/* () */0);
+          var e$3 = next(/* () */0);
+          var n$10 = next(/* () */0);
+          var x$7 = next(/* () */0);
           return app_env_const(f$9, e$3, n$10, x$7);
       case "AppMethConst" :
-          var f$10 = next("()");
-          var n$11 = next("()");
-          var x$8 = next("()");
+          var f$10 = next(/* () */0);
+          var n$11 = next(/* () */0);
+          var x$8 = next(/* () */0);
           return app_meth_const(f$10, n$11, x$8);
       case "MethAppConst" :
-          var n$12 = next("()");
-          var x$9 = next("()");
+          var n$12 = next(/* () */0);
+          var x$9 = next(/* () */0);
           return meth_app_const(n$12, x$9);
       case "MethAppVar" :
-          var n$13 = next("()");
-          var m = next("()");
+          var n$13 = next(/* () */0);
+          var m = next(/* () */0);
           return meth_app_var(n$13, m);
       case "MethAppEnv" :
-          var n$14 = next("()");
-          var e$4 = next("()");
-          var m$1 = next("()");
+          var n$14 = next(/* () */0);
+          var e$4 = next(/* () */0);
+          var m$1 = next(/* () */0);
           return meth_app_env(n$14, e$4, m$1);
       case "MethAppMeth" :
-          var n$15 = next("()");
-          var m$2 = next("()");
+          var n$15 = next(/* () */0);
+          var m$2 = next(/* () */0);
           return meth_app_meth(n$15, m$2);
       case "SendConst" :
-          var m$3 = next("()");
-          var x$10 = next("()");
+          var m$3 = next(/* () */0);
+          var x$10 = next(/* () */0);
           return send_const(m$3, x$10, new_cache(table));
       case "SendVar" :
-          var m$4 = next("()");
-          var n$16 = next("()");
+          var m$4 = next(/* () */0);
+          var n$16 = next(/* () */0);
           return send_var(m$4, n$16, new_cache(table));
       case "SendEnv" :
-          var m$5 = next("()");
-          var e$5 = next("()");
-          var n$17 = next("()");
+          var m$5 = next(/* () */0);
+          var e$5 = next(/* () */0);
+          var n$17 = next(/* () */0);
           return send_env(m$5, e$5, n$17, new_cache(table));
       case "SendMeth" :
-          var m$6 = next("()");
-          var n$18 = next("()");
+          var m$6 = next(/* () */0);
+          var n$18 = next(/* () */0);
           return send_meth(m$6, n$18, new_cache(table));
       
     }
@@ -2782,7 +2782,7 @@ function stats(param) {
 
 var initial_object_size = 2;
 
-var dummy_item = "()";
+var dummy_item = /* () */0;
 
 exports.copy = copy;
 exports.params = params;

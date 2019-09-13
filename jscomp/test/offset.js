@@ -478,7 +478,7 @@ function iter(f, _param) {
       _param = param[2];
       continue ;
     } else {
-      return "()";
+      return /* () */0;
     }
   };
 }

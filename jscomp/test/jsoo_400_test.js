@@ -22,8 +22,8 @@ Mt.from_pair_suites("Jsoo_400_test", /* constructor */{
             return /* constructor */{
                     tag: "ThrowAny",
                     "0": (function (param) {
-                        u("()");
-                        return "()";
+                        u(/* () */0);
+                        return /* () */0;
                       })
                   };
           })

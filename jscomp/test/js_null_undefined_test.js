@@ -108,7 +108,7 @@ var suites = /* constructor */{
                         return /* constructor */{
                                 tag: "Eq",
                                 "0": false,
-                                "1": ("()" == null)
+                                "1": false
                               };
                       })
                   ],

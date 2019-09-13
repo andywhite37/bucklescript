@@ -24,7 +24,7 @@ function test(param) {
   return should(Belt_MapInt.isEmpty(m));
 }
 
-test("()");
+test(/* () */0);
 
 var M = 0;
 

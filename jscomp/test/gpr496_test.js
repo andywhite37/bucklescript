@@ -65,7 +65,7 @@ eq("File \"gpr496_test.ml\", line 42, characters 12-19", expected, u);
 eq("File \"gpr496_test.ml\", line 44, characters 12-19", expected, expected2);
 
 function ff(x, y) {
-  return Caml_primitive.caml_bool_min(x, Curry._1(y, "()"));
+  return Caml_primitive.caml_bool_min(x, Curry._1(y, /* () */0));
 }
 
 eq("File \"gpr496_test.ml\", line 48, characters 5-12", true < false ? true : false, false);

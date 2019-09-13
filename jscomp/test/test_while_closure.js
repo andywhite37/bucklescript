@@ -8,7 +8,7 @@ var Caml_builtin_exceptions = require("../../lib/js/caml_builtin_exceptions.js")
 var v = /* record */[/* contents */0];
 
 var arr = Caml_array.caml_make_vect(10, (function (param) {
-        return "()";
+        return /* () */0;
       }));
 
 function f(param) {
@@ -26,10 +26,10 @@ function f(param) {
   return /* () */0;
 }
 
-f("()");
+f(/* () */0);
 
 $$Array.iter((function (x) {
-        return Curry._1(x, "()");
+        return Curry._1(x, /* () */0);
       }), arr);
 
 console.log(String(v[0]));

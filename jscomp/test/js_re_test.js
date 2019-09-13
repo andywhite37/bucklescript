@@ -28,7 +28,7 @@ var suites = /* constructor */{
         } else {
           return /* constructor */{
                   tag: "Fail",
-                  "0": "()"
+                  "0": /* () */0
                 };
         }
       })
@@ -132,7 +132,7 @@ var suites = /* constructor */{
                     } else {
                       return /* constructor */{
                               tag: "Fail",
-                              "0": "()"
+                              "0": /* () */0
                             };
                     }
                   })
@@ -153,7 +153,7 @@ var suites = /* constructor */{
                       } else {
                         return /* constructor */{
                                 tag: "Fail",
-                                "0": "()"
+                                "0": /* () */0
                               };
                       }
                     })

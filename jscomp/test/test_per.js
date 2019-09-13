@@ -227,7 +227,7 @@ function open_out_bin(name) {
 }
 
 function flush_all(param) {
-  var _param = Caml_io.caml_ml_out_channels_list("()");
+  var _param = Caml_io.caml_ml_out_channels_list(/* () */0);
   while(true) {
     var param$1 = _param;
     if (param$1 !== "[]") {
@@ -240,7 +240,7 @@ function flush_all(param) {
       _param = param$1[1];
       continue ;
     } else {
-      return "()";
+      return /* () */0;
     }
   };
 }
@@ -293,7 +293,7 @@ function close_out_noerr(oc) {
     return Caml_external_polyfill.resolve("caml_ml_close_channel")(oc);
   }
   catch (exn$1){
-    return "()";
+    return /* () */0;
   }
 }
 
@@ -340,7 +340,7 @@ function unsafe_really_input(ic, s, _ofs, _len) {
     var len = _len;
     var ofs = _ofs;
     if (len <= 0) {
-      return "()";
+      return /* () */0;
     } else {
       var r = Caml_external_polyfill.resolve("caml_ml_input")(ic, s, ofs, len);
       if (r === 0) {
@@ -431,7 +431,7 @@ function close_in_noerr(ic) {
     return Caml_external_polyfill.resolve("caml_ml_close_channel")(ic);
   }
   catch (exn){
-    return "()";
+    return /* () */0;
   }
 }
 
@@ -529,18 +529,18 @@ var exit_function = /* record */[/* contents */flush_all];
 function at_exit(f) {
   var g = exit_function[0];
   exit_function[0] = (function (param) {
-      Curry._1(f, "()");
-      return Curry._1(g, "()");
+      Curry._1(f, /* () */0);
+      return Curry._1(g, /* () */0);
     });
   return /* () */0;
 }
 
 function do_at_exit(param) {
-  return Curry._1(exit_function[0], "()");
+  return Curry._1(exit_function[0], /* () */0);
 }
 
 function exit(retcode) {
-  Curry._1(exit_function[0], "()");
+  Curry._1(exit_function[0], /* () */0);
   return Caml_sys.caml_sys_exit(retcode);
 }
 

@@ -4,7 +4,7 @@ var Caml_module = require("../../lib/js/caml_module.js");
 
 function Make(X) {
   var f = function (param) {
-    return "()";
+    return /* () */0;
   };
   var M = {
     f: f
@@ -33,7 +33,7 @@ var B = Caml_module.init_mod([
     });
 
 function f(param) {
-  return "()";
+  return /* () */0;
 }
 
 var M = {
@@ -56,7 +56,7 @@ Caml_module.update_mod(/* constructor */{
       M: M
     });
 
-var A = "()";
+var A = /* () */0;
 
 exports.Make = Make;
 exports.A = A;

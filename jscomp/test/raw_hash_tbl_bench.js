@@ -27,7 +27,7 @@ function bench(param) {
   return /* () */0;
 }
 
-bench("()");
+bench(/* () */0);
 
 var count = 1000000;
 

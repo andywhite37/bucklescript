@@ -10,7 +10,7 @@ function inOrder(v) {
   var s = {
     root: null
   };
-  var q = Belt_MutableQueue.make("()");
+  var q = Belt_MutableQueue.make(/* () */0);
   while(current !== undefined) {
     var v$1 = current;
     Belt_MutableStack.push(s, v$1);
@@ -35,7 +35,7 @@ function inOrder3(v) {
   var s = {
     root: null
   };
-  var q = Belt_MutableQueue.make("()");
+  var q = Belt_MutableQueue.make(/* () */0);
   while(current !== undefined) {
     var v$1 = current;
     Belt_MutableStack.push(s, v$1);
@@ -60,7 +60,7 @@ function inOrder2(v) {
   var s = {
     root: null
   };
-  var q = Belt_MutableQueue.make("()");
+  var q = Belt_MutableQueue.make(/* () */0);
   while(todo) {
     if (cursor !== undefined) {
       var v$1 = cursor;

@@ -1846,7 +1846,7 @@ function split(s, cm) {
       _t = t[1];
       continue ;
     } else {
-      return "()";
+      return /* () */0;
     }
   };
 }
@@ -1918,7 +1918,7 @@ function colorize(c, regexp) {
           case "End_of_str" :
           case "Start" :
           case "Stop" :
-              return "()";
+              return /* () */0;
           
         }
       } else {
@@ -3485,7 +3485,7 @@ function parse(multiline, dollar_endonly, dotall, ungreedy, s) {
       } else {
         _left = /* constructor */{
           tag: "::",
-          "0": piece("()"),
+          "0": piece(/* () */0),
           "1": left
         };
         continue ;
@@ -3517,7 +3517,7 @@ function parse(multiline, dollar_endonly, dotall, ungreedy, s) {
       if (s !== "[]" && accept(/* "]" */93)) {
         return s;
       } else {
-        var match = $$char("()");
+        var match = $$char(/* () */0);
         if (match[0] >= 748194550) {
           var c = match[1];
           if (accept(/* "-" */45)) {
@@ -3545,7 +3545,7 @@ function parse(multiline, dollar_endonly, dotall, ungreedy, s) {
                       }
                     };
             } else {
-              var match$1 = $$char("()");
+              var match$1 = $$char(/* () */0);
               if (match$1[0] >= 748194550) {
                 _s = /* constructor */{
                   tag: "::",
@@ -3608,7 +3608,7 @@ function parse(multiline, dollar_endonly, dotall, ungreedy, s) {
     };
   };
   var piece = function (param) {
-    var r = atom("()");
+    var r = atom(/* () */0);
     if (accept(/* "*" */42)) {
       return greedy_mod(repn(r, 0, undefined));
     } else if (accept(/* "+" */43)) {
@@ -3616,10 +3616,10 @@ function parse(multiline, dollar_endonly, dotall, ungreedy, s) {
     } else if (accept(/* "?" */63)) {
       return greedy_mod(repn(r, 0, 1));
     } else if (accept(/* "{" */123)) {
-      var match = integer("()");
+      var match = integer(/* () */0);
       if (match !== undefined) {
         var i$1 = match;
-        var j = accept(/* "," */44) ? integer("()") : i$1;
+        var j = accept(/* "," */44) ? integer(/* () */0) : i$1;
         if (!accept(/* "}" */125)) {
           throw Parse_error;
         }
@@ -3639,7 +3639,7 @@ function parse(multiline, dollar_endonly, dotall, ungreedy, s) {
     if (i[0] === l) {
       throw Parse_error;
     }
-    var c = get("()");
+    var c = get(/* () */0);
     if (c === /* "[" */91) {
       if (accept(/* "=" */61)) {
         throw Not_supported;
@@ -3725,7 +3725,7 @@ function parse(multiline, dollar_endonly, dotall, ungreedy, s) {
         if (i[0] === l) {
           throw Parse_error;
         }
-        var c$1 = get("()");
+        var c$1 = get(/* () */0);
         if (!accept(/* "." */46)) {
           throw Not_supported;
         }
@@ -3743,7 +3743,7 @@ function parse(multiline, dollar_endonly, dotall, ungreedy, s) {
               ];
       }
     } else if (c === /* "\\" */92) {
-      var c$2 = get("()");
+      var c$2 = get(/* () */0);
       if (c$2 >= 58) {
         if (c$2 >= 123) {
           return /* `Char */[
@@ -3929,7 +3929,7 @@ function parse(multiline, dollar_endonly, dotall, ungreedy, s) {
     if (i[0] === l) {
       return ;
     } else {
-      var d = get("()");
+      var d = get(/* () */0);
       if (d > 57 || d < 48) {
         i[0] = i[0] - 1 | 0;
         return ;
@@ -3940,7 +3940,7 @@ function parse(multiline, dollar_endonly, dotall, ungreedy, s) {
           if (i[0] === l) {
             return i$1;
           } else {
-            var d$1 = get("()");
+            var d$1 = get(/* () */0);
             if (d$1 > 57 || d$1 < 48) {
               i[0] = i[0] - 1 | 0;
               return i$1;
@@ -3973,13 +3973,13 @@ function parse(multiline, dollar_endonly, dotall, ungreedy, s) {
           }
           return r;
         } else if (accept(/* "#" */35)) {
-          var _param = "()";
+          var _param = /* () */0;
           while(true) {
             if (accept(/* ")" */41)) {
               return epsilon;
             } else {
               i[0] = i[0] + 1 | 0;
-              _param = "()";
+              _param = /* () */0;
               continue ;
             }
           };
@@ -4020,7 +4020,7 @@ function parse(multiline, dollar_endonly, dotall, ungreedy, s) {
       if (i[0] === l) {
         throw Parse_error;
       }
-      var c = get("()");
+      var c = get(/* () */0);
       switch (c) {
         case 48 :
         case 49 :
@@ -4177,7 +4177,7 @@ function parse(multiline, dollar_endonly, dotall, ungreedy, s) {
       if (i[0] === l) {
         throw Parse_error;
       }
-      var c$1 = get("()");
+      var c$1 = get(/* () */0);
       if (c$1 >= 64) {
         if (c$1 !== 92) {
           if (c$1 !== 123) {

@@ -151,7 +151,7 @@ if (!Caml_obj.caml_equal(dfs1(/* constructor */{
       ];
 }
 
-Pervasives.print_newline("()");
+Pervasives.print_newline(/* () */0);
 
 if (!Caml_obj.caml_equal(dfs1(/* constructor */{
             tag: "::",
@@ -988,7 +988,7 @@ function iter(f, _param) {
       _param = param[2];
       continue ;
     } else {
-      return "()";
+      return /* () */0;
     }
   };
 }

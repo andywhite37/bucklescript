@@ -55,9 +55,9 @@ function make(foo) {
     });
 }
 
-var a_ = make(undefined)("()");
+var a_ = make(undefined)(/* () */0);
 
-var b_ = make(42)("()");
+var b_ = make(42)(/* () */0);
 
 eq("File \"gpr_1409_test.ml\", line 30, characters 6-13", b_.foo, "42");
 

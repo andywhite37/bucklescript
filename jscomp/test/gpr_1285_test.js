@@ -74,7 +74,7 @@ function step1(param) {
   return Curry._1(class_tables[0], 0);
 }
 
-var tmp = step1("()");
+var tmp = step1(/* () */0);
 
 var tmp$1 = Caml_oo_curry.js1(68057958, 1, tmp);
 

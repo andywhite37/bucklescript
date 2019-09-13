@@ -10,7 +10,7 @@ function from_pair_suites(name, suites) {
       ]);
   return List.iter((function (param) {
                 var name = param[0];
-                var match = Curry._1(param[1], "()");
+                var match = Curry._1(param[1], /* () */0);
                 switch (/* XXX */match.tag) {
                   case "Eq" :
                       console.log(/* tuple */[
@@ -19,7 +19,7 @@ function from_pair_suites(name, suites) {
                             "eq?",
                             match[1]
                           ]);
-                      return "()";
+                      return /* () */0;
                   case "Neq" :
                       console.log(/* tuple */[
                             name,
@@ -27,7 +27,7 @@ function from_pair_suites(name, suites) {
                             "neq?",
                             match[1]
                           ]);
-                      return "()";
+                      return /* () */0;
                   case "StrictEq" :
                       console.log(/* tuple */[
                             name,
@@ -35,7 +35,7 @@ function from_pair_suites(name, suites) {
                             "strict_eq?",
                             match[1]
                           ]);
-                      return "()";
+                      return /* () */0;
                   case "StrictNeq" :
                       console.log(/* tuple */[
                             name,
@@ -43,14 +43,14 @@ function from_pair_suites(name, suites) {
                             "strict_neq?",
                             match[1]
                           ]);
-                      return "()";
+                      return /* () */0;
                   case "Ok" :
                       console.log(/* tuple */[
                             name,
                             match[0],
                             "ok?"
                           ]);
-                      return "()";
+                      return /* () */0;
                   case "Approx" :
                       console.log(/* tuple */[
                             name,
@@ -58,7 +58,7 @@ function from_pair_suites(name, suites) {
                             "~",
                             match[1]
                           ]);
-                      return "()";
+                      return /* () */0;
                   case "ApproxThreshold" :
                       console.log(/* tuple */[
                             name,
@@ -69,15 +69,15 @@ function from_pair_suites(name, suites) {
                             match[0],
                             ")"
                           ]);
-                      return "()";
+                      return /* () */0;
                   case "ThrowAny" :
-                      return "()";
+                      return /* () */0;
                   case "Fail" :
                       console.log("failed");
-                      return "()";
+                      return /* () */0;
                   case "FailWith" :
                       console.log("failed: " + match[0]);
-                      return "()";
+                      return /* () */0;
                   
                 }
               }), suites);

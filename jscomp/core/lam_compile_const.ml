@@ -88,7 +88,7 @@ and translate (x : Lam_constant.t ) : J.expression =
 
   | Const_pointer (c,pointer_info) ->
     ( match pointer_info with
-      | Pt_constructor s ->
+      | Pt_constructor s when s <> "()" ->
         E.str s
       | _ ->
         E.int ?comment:(Lam_compile_util.comment_of_pointer_info pointer_info)

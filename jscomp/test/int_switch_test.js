@@ -16,7 +16,7 @@ function b(loc, x) {
 }
 
 function f(x) {
-  var match = Curry._1(x, "()");
+  var match = Curry._1(x, /* () */0);
   switch (match) {
     case 1 :
         return /* "a" */97;
@@ -30,7 +30,7 @@ function f(x) {
 }
 
 function f22(x) {
-  var match = Curry._1(x, "()");
+  var match = Curry._1(x, /* () */0);
   switch (match) {
     case 1 :
         return /* "a" */97;
@@ -44,7 +44,7 @@ function f22(x) {
 }
 
 function f33(x) {
-  var match = Curry._1(x, "()");
+  var match = Curry._1(x, /* () */0);
   switch (match) {
     case "A" :
         return /* "a" */97;

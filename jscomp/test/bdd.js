@@ -87,7 +87,7 @@ function resize(newSize) {
           continue ;
         }
       } else {
-        return "()";
+        return /* () */0;
       }
     };
   };
@@ -364,7 +364,7 @@ function random(param) {
 function random_vars(n) {
   var vars = Caml_array.caml_make_vect(n, false);
   for(var i = 0 ,i_finish = n - 1 | 0; i <= i_finish; ++i){
-    Caml_array.caml_array_set(vars, i, random("()"));
+    Caml_array.caml_array_set(vars, i, random(/* () */0));
   }
   return vars;
 }
@@ -414,7 +414,7 @@ function main(param) {
   }
 }
 
-main("()");
+main(/* () */0);
 
 var initSize_1 = 8191;
 

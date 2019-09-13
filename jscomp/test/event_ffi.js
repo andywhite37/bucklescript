@@ -9,7 +9,7 @@ function h0(x) {
 }
 
 function h00(x) {
-  return Curry._1(x(), "()");
+  return Curry._1(x(), /* () */0);
 }
 
 function h1(x) {
@@ -44,7 +44,7 @@ function ocaml_run(param, param$1) {
 
 function a0() {
   console.log("hi");
-  return "()";
+  return /* () */0;
 }
 
 function a1(param) {
@@ -87,7 +87,7 @@ function b44(param) {
 function xx(param) {
   return (function (param) {
       console.log(3);
-      return "()";
+      return /* () */0;
     });
 }
 

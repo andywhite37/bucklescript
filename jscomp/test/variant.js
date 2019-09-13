@@ -69,7 +69,7 @@ var Path = {
 
 function Make(M) {
   var find = function (x) {
-    return "()";
+    return /* () */0;
   };
   return {
           find: find
@@ -77,7 +77,7 @@ function Make(M) {
 }
 
 function find(x) {
-  return "()";
+  return /* () */0;
 }
 
 var M = {
@@ -136,7 +136,7 @@ console.log("EB(2)[0][0]", Caml_array.caml_array_get(Caml_array.caml_array_get([
 
 function fooExn(f) {
   try {
-    return Curry._1(f, "()");
+    return Curry._1(f, /* () */0);
   }
   catch (raw_exn){
     var exn = Caml_js_exceptions.internalToOCamlException(raw_exn);
@@ -276,6 +276,12 @@ var d = /* constructor */{
   ]
 };
 
+var tt = true;
+
+var ff = false;
+
+var unit = /* () */0;
+
 exports.a1 = a1;
 exports.a2 = a2;
 exports.b = b;
@@ -301,4 +307,7 @@ exports.switchList = switchList;
 exports.switchMYList = switchMYList;
 exports.matchingNoBinarySearch = matchingNoBinarySearch;
 exports.caml_bool_compare = caml_bool_compare;
+exports.tt = tt;
+exports.ff = ff;
+exports.unit = unit;
 /*  Not a pure module */

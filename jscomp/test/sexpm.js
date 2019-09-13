@@ -350,7 +350,7 @@ function print_noindent(fmt, t) {
 function to_chan(oc, t) {
   var fmt = Format.formatter_of_out_channel(oc);
   print(fmt, t);
-  return Format.pp_print_flush(fmt, "()");
+  return Format.pp_print_flush(fmt, /* () */0);
 }
 
 function to_file_seq(filename, seq) {
@@ -902,7 +902,7 @@ function skip_comment(k, t) {
       if (match !== 10) {
         continue ;
       } else {
-        return Curry._2(k, undefined, "()");
+        return Curry._2(k, undefined, /* () */0);
       }
     }
   };
@@ -1529,7 +1529,7 @@ function MakeDecode(funarg) {
         if (match !== 10) {
           continue ;
         } else {
-          return Curry._2(k, undefined, "()");
+          return Curry._2(k, undefined, /* () */0);
         }
       }
     };
