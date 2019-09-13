@@ -436,7 +436,6 @@ build test/oo_js_test_date.cmi test/oo_js_test_date.cmj : cc test/oo_js_test_dat
 build test/option_repr_test.cmi test/option_repr_test.cmj : cc test/option_repr_test.ml | test/mt.cmj $stdlib
 build test/optional_ffi_test.cmi test/optional_ffi_test.cmj : cc test/optional_ffi_test.ml | test/mt.cmj $stdlib
 build test/optional_regression_test.cmi test/optional_regression_test.cmj : cc test/optional_regression_test.ml | test/mt.cmj $stdlib
-build test/parser_api_test.cmi test/parser_api_test.cmj : cc test/parser_api_test.ml | test/mt.cmj $stdlib
 build test/pipe_send_readline.cmi test/pipe_send_readline.cmj : cc test/pipe_send_readline.ml | $stdlib
 build test/pipe_syntax.cmi test/pipe_syntax.cmj : cc test/pipe_syntax.ml | $stdlib
 build test/poly_type.cmi test/poly_type.cmj : cc test/poly_type.ml | $stdlib

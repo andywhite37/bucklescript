@@ -32,11 +32,11 @@ let () =
 let () =
   eq __LOC__ (caml_hash `A) 381663642;
   eq __LOC__ (caml_hash (`A 3)) 294279345;
-  eq __LOC__ (caml_hash [`A 3; `B 2 ; `C 3 ]) (147368683);
-  eq __LOC__ (caml_hash [`A "3", `B "2" ; `C "3", `D "4"]) (611453038)  
+  eq __LOC__ (caml_hash [`A 3; `B 2 ; `C 3 ]) (329315663);
+  eq __LOC__ (caml_hash [`A "3", `B "2" ; `C "3", `D "4"]) (141434006)  
 
 let () =
-  eq __LOC__ (caml_hash ([ `A (0,2,1), `B [| "x", "y"|]])) 64809327
+  eq __LOC__ (caml_hash ([ `A (0,2,1), `B [| "x", "y"|]])) 162439034
 
 let () =
   Mt.from_pair_suites __MODULE__ !suites
